@@ -1,8 +1,196 @@
 import React, { useState } from 'react';
 
-export const T1Mechanism: React.FC = () => {
-  const [adhLevel, setAdhLevel] = useState<'low' | 'high'>('high');
+interface Props {
+  figureId?: string;
+}
 
+export const T1Mechanism: React.FC<Props> = ({ figureId }) => {
+  const isAlcohol = figureId === 'FIG-A-02-01' || figureId?.startsWith('FIG-A');
+  const [adhLevel, setAdhLevel] = useState<'low' | 'high'>('high');
+  const [aldh2State, setAldh2State] = useState<'normal' | 'deficient'>('deficient');
+
+  if (isAlcohol) {
+    return (
+      <div className="w-full max-w-2xl space-y-3">
+        {/* State Toggle */}
+        <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono">
+          <span className="text-slate-300">
+            ALDH2 基因表型切換（生化模擬）：
+          </span>
+          <div className="flex gap-1.5">
+            <button
+              onClick={() => setAldh2State('normal')}
+              className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                aldh2State === 'normal'
+                  ? 'bg-salud-cyan text-black font-bold shadow-cyan-glow'
+                  : 'bg-slate-800 text-slate-400 hover:text-white'
+              }`}
+            >
+              正常活性 *1/*1 (清除通暢)
+            </button>
+            <button
+              onClick={() => setAldh2State('deficient')}
+              className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                aldh2State === 'deficient'
+                  ? 'bg-salud-coral text-white font-bold shadow-md'
+                  : 'bg-slate-800 text-slate-400 hover:text-white'
+              }`}
+            >
+              缺失型 *1/*2 (乙醛暴衝蓄積)
+            </button>
+          </div>
+        </div>
+
+        {/* SVG Diagram */}
+        <svg
+          viewBox="0 0 800 420"
+          className="w-full h-auto rounded-xl shadow-2xl"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="乙醇肝細胞兩階段代謝路徑與 CYP2E1 氧化壓力圖"
+        >
+          <rect width="800" height="420" rx="16" fill="#090D16" stroke="#1E293B" strokeWidth="1.5" />
+
+          {/* Title */}
+          <text x="30" y="35" fill="#F8FAFC" fontSize="15" fontWeight="bold" fontFamily="sans-serif">
+            肝細胞乙醇代謝總覽 (FIG-A-02-01)
+          </text>
+          <text x="30" y="55" fill="#94A3B8" fontSize="11" fontFamily="monospace">
+            Cytosol (細胞質) ⇄ Mitochondria (粒線體) ⇄ ER (內質網)
+          </text>
+
+          {/* Molecule 1: Ethanol */}
+          <g transform="translate(40, 90)">
+            <rect width="180" height="100" rx="12" fill="#151F32" stroke="#38BDF8" strokeWidth="2" />
+            <text x="20" y="32" fill="#38BDF8" fontSize="13" fontWeight="bold" fontFamily="monospace">
+              攝入乙醇 C₂H₅OH
+            </text>
+            <text x="20" y="55" fill="#94A3B8" fontSize="11">
+              • 脂水雙溶小分子
+            </text>
+            <text x="20" y="75" fill="#94A3B8" fontSize="11">
+              • 增強 GABA-A 抑制
+            </text>
+          </g>
+
+          {/* Arrow 1: ADH */}
+          <g transform="translate(230, 115)">
+            <line x1="0" y1="25" x2="60" y2="25" stroke="#F59E0B" strokeWidth="3" markerEnd="url(#arrow)" />
+            <text x="30" y="15" fill="#F59E0B" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+              ADH 氧化
+            </text>
+            <text x="30" y="45" fill="#94A3B8" fontSize="9" textAnchor="middle">
+              NAD⁺ → NADH
+            </text>
+          </g>
+
+          {/* Molecule 2: Acetaldehyde */}
+          <g transform="translate(300, 80)">
+            <rect
+              width="200"
+              height="120"
+              rx="12"
+              fill={aldh2State === 'deficient' ? '#450a0a' : '#1c1917'}
+              stroke={aldh2State === 'deficient' ? '#EF4444' : '#F97316'}
+              strokeWidth="2.5"
+            />
+            <text x="20" y="30" fill="#EF4444" fontSize="14" fontWeight="extrabold" fontFamily="monospace">
+              ★ 乙醛 CH₃CHO
+            </text>
+            <text x="20" y="52" fill="#FCA5A5" fontSize="10" fontWeight="bold">
+              IARC Group 1 一級致癌物
+            </text>
+            <text x="20" y="72" fill="#E2E8F0" fontSize="10">
+              {aldh2State === 'deficient' ? '⚠ 濃聚倍率：5.0x – 6.0x' : '正常濃度：順暢水解'}
+            </text>
+            <text x="20" y="92" fill="#94A3B8" fontSize="10">
+              DNA 加合物 · 臉紅 · 心悸
+            </text>
+          </g>
+
+          {/* Arrow 2: ALDH2 */}
+          <g transform="translate(510, 115)">
+            <line
+              x1="0"
+              y1="25"
+              x2="60"
+              y2="25"
+              stroke={aldh2State === 'deficient' ? '#64748B' : '#10B981'}
+              strokeWidth={aldh2State === 'deficient' ? '1.5' : '3'}
+              strokeDasharray={aldh2State === 'deficient' ? '4,4' : undefined}
+            />
+            <text
+              x="30"
+              y="15"
+              fill={aldh2State === 'deficient' ? '#EF4444' : '#10B981'}
+              fontSize="11"
+              fontWeight="bold"
+              textAnchor="middle"
+              fontFamily="monospace"
+            >
+              {aldh2State === 'deficient' ? 'ALDH2 阻斷 (殘存10%)' : 'ALDH2 順暢'}
+            </text>
+          </g>
+
+          {/* Molecule 3: Acetate */}
+          <g transform="translate(580, 90)">
+            <rect width="180" height="100" rx="12" fill="#064E3B" stroke="#10B981" strokeWidth="2" />
+            <text x="20" y="32" fill="#34D399" fontSize="13" fontWeight="bold" fontFamily="monospace">
+              乙酸 CH₃COO⁻
+            </text>
+            <text x="20" y="55" fill="#A7F3D0" fontSize="11">
+              • 無毒天然代謝物
+            </text>
+            <text x="20" y="75" fill="#A7F3D0" fontSize="11">
+              • 轉為 Acetyl-CoA 燃燒
+            </text>
+          </g>
+
+          {/* Shunt Path: CYP2E1 */}
+          <g transform="translate(40, 240)">
+            <rect width="720" height="140" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="1" />
+            <text x="25" y="30" fill="#E2E8F0" fontSize="13" fontWeight="bold">
+              內質網微粒體次要途徑：CYP2E1 (MEOS) 誘導
+            </text>
+            <text x="25" y="55" fill="#94A3B8" fontSize="11">
+              當飲酒過量 ADH 飽和、或經常性中重度飲酒時，CYP2E1 表現量被顯著誘導。
+            </text>
+
+            <g transform="translate(25, 75)">
+              <rect width="160" height="45" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="1" />
+              <text x="80" y="27" fill="#fbbf24" fontSize="11" textAnchor="middle" fontWeight="bold" fontFamily="monospace">
+                CYP2E1 催化氧化
+              </text>
+            </g>
+
+            <g transform="translate(200, 90)">
+              <line x1="0" y1="10" x2="40" y2="10" stroke="#f43f5e" strokeWidth="2" />
+            </g>
+
+            <g transform="translate(250, 75)">
+              <rect width="200" height="45" rx="8" fill="#4c0519" stroke="#f43f5e" strokeWidth="1.5" />
+              <text x="100" y="27" fill="#fda4af" fontSize="11" textAnchor="middle" fontWeight="bold" fontFamily="monospace">
+                大量產生活性氧 (ROS 自由基)
+              </text>
+            </g>
+
+            <g transform="translate(465, 90)">
+              <line x1="0" y1="10" x2="35" y2="10" stroke="#f43f5e" strokeWidth="2" />
+            </g>
+
+            <g transform="translate(510, 75)">
+              <rect width="190" height="45" rx="8" fill="#1e293b" stroke="#f87171" strokeWidth="1" />
+              <text x="95" y="27" fill="#fca5a5" fontSize="10" textAnchor="middle">
+                脂質過氧化 ＋ 肝纖維化前驅
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  // Default Chapter W ADH Mechanism
   return (
     <div className="w-full max-w-2xl space-y-3">
       {/* Interactive toggle for mechanism state */}
@@ -59,107 +247,176 @@ export const T1Mechanism: React.FC = () => {
           <text x="20" y="55" fill="#94A3B8" fontSize="12" fontFamily="monospace">
             正常: 275–295 mOsm/kg
           </text>
-          
-          <rect
-            x="20"
-            y="70"
-            width="180"
-            height="28"
-            rx="6"
-            fill={adhLevel === 'high' ? '#7C2D12' : '#064E3B'}
-            stroke={adhLevel === 'high' ? '#F97316' : '#10B981'}
-          />
-          <text x="30" y="89" fill="#FFFFFF" fontSize="12" fontWeight="bold">
-            {adhLevel === 'high' ? '⚠ 滲透壓 > 295 (細胞皺縮)' : '✓ 滲透壓 285 (正常平衡)'}
-          </text>
 
-          <text x="20" y="125" fill="#FDE68A" fontSize="11">
-            {adhLevel === 'high' ? '➜ 刺激腦垂腺後葉釋放 ADH' : '➜ 抑制腦垂腺 ADH 分泌'}
+          <g transform="translate(20, 75)">
+            <rect
+              width="180"
+              height="45"
+              rx="8"
+              fill={adhLevel === 'high' ? '#78350F' : '#064E3B'}
+              stroke={adhLevel === 'high' ? '#F59E0B' : '#10B981'}
+              strokeWidth="1.5"
+            />
+            <text
+              x="90"
+              y="28"
+              fill={adhLevel === 'high' ? '#FDE68A' : '#A7F3D0'}
+              fontSize="12"
+              fontWeight="bold"
+              textAnchor="middle"
+              fontFamily="monospace"
+            >
+              {adhLevel === 'high' ? '高滲透壓 298 mOsm ⚠' : '正常滲透壓 285 mOsm ✓'}
+            </text>
+          </g>
+        </g>
+
+        {/* Arrow to Step 2 */}
+        <g transform="translate(260, 105)">
+          <line x1="0" y1="0" x2="50" y2="0" stroke="#64748B" strokeWidth="2" strokeDasharray="4 4" />
+          <polygon points="50,-4 58,0 50,4" fill="#64748B" />
+          <text x="25" y="-10" fill="#94A3B8" fontSize="11" textAnchor="middle" fontFamily="monospace">
+            腦垂體後葉
           </text>
         </g>
 
-        {/* Arrow to Kidney */}
-        <path
-          d="M 260 115 C 310 115, 310 240, 360 240"
-          fill="none"
-          stroke={adhLevel === 'high' ? '#F59E0B' : '#64748B'}
-          strokeWidth="3"
-          strokeDasharray={adhLevel === 'high' ? '6 4' : 'none'}
-        />
-        <text x="270" y="170" fill={adhLevel === 'high' ? '#FBBF24' : '#64748B'} fontSize="11" fontFamily="monospace">
-          {adhLevel === 'high' ? 'ADH (抗利尿激素) 流經血管' : '極低 ADH 濃度'}
-        </text>
-
-        {/* Step 2: Kidney Collecting Duct Cell */}
-        <g transform="translate(370, 40)">
-          <rect x="0" y="0" width="390" height="380" rx="12" fill="url(#ductGrad)" stroke="#38BDF8" strokeWidth="1.5" />
-          
-          {/* Header */}
-          <text x="20" y="32" fill="#38BDF8" fontSize="16" fontWeight="bold">
-            2. 腎臟集尿管主細胞 (Principal Cell)
+        {/* Step 2: ADH in circulation */}
+        <g transform="translate(320, 40)">
+          <rect x="0" y="0" width="210" height="150" rx="12" fill="#151F32" stroke="#334155" strokeWidth="1.5" />
+          <text x="20" y="32" fill="#F8FAFC" fontSize="15" fontWeight="bold">
+            2. ADH 釋入循環
           </text>
-          <text x="20" y="52" fill="#94A3B8" fontSize="11">
-            管腔側（原尿） ⟷ 胞質 ⟷ 血管側（回收進血液）
+          <text x="20" y="55" fill="#94A3B8" fontSize="12">
+            抗利尿激素 (Vasopressin)
           </text>
 
-          {/* Lumen Urine Tube (Left side) */}
-          <rect x="25" y="70" width="55" height="280" rx="6" fill="#1E293B" stroke="#475569" strokeWidth="1" />
-          <text x="52" y="100" fill="#E2E8F0" fontSize="12" textAnchor="middle" transform="rotate(-90 52 100)">
-            集尿管腔 (Urine)
+          <g transform="translate(20, 75)">
+            <rect
+              width="170"
+              height="55"
+              rx="8"
+              fill="#0F172A"
+              stroke={adhLevel === 'high' ? '#38BDF8' : '#475569'}
+              strokeWidth="1.5"
+            />
+            <text
+              x="85"
+              y="26"
+              fill={adhLevel === 'high' ? '#38BDF8' : '#94A3B8'}
+              fontSize="13"
+              fontWeight="bold"
+              textAnchor="middle"
+              fontFamily="monospace"
+            >
+              {adhLevel === 'high' ? 'ADH 脈衝分泌 ↑' : 'ADH 分泌受抑制 ↓'}
+            </text>
+            <text x="85" y="44" fill="#64748B" fontSize="10" textAnchor="middle">
+              {adhLevel === 'high' ? '結合集尿管 V2 受體' : '血中濃度極低'}
+            </text>
+          </g>
+        </g>
+
+        {/* Arrow down to Kidney */}
+        <g transform="translate(425, 200)">
+          <line x1="0" y1="0" x2="0" y2="35" stroke="#38BDF8" strokeWidth="2.5" />
+          <polygon points="-4,35 0,43 4,35" fill="#38BDF8" />
+        </g>
+
+        {/* Step 3: Kidney Collecting Duct & AQP2 */}
+        <g transform="translate(30, 245)">
+          <rect x="0" y="0" width="740" height="190" rx="14" fill="url(#ductGrad)" stroke="#334155" strokeWidth="1.5" />
+          <text x="25" y="32" fill="#F8FAFC" fontSize="15" fontWeight="bold">
+            3. 腎集尿管上皮細胞：Aquaporin-2 水通道蛋白嵌插
+          </text>
+          <text x="25" y="52" fill="#94A3B8" fontSize="12">
+            AQP2 囊泡由細胞內部穿梭至頂端膜（Apical membrane），水分子順滲透壓梯度回收至高滲髓質間隙
           </text>
 
-          {/* Cell Membrane with Aquaporin-2 */}
-          <line x1="80" y1="70" x2="80" y2="350" stroke="#94A3B8" strokeWidth="3" strokeDasharray="4 4" />
-          
-          {/* Vesicles & Aquaporin Channels */}
-          {adhLevel === 'high' ? (
-            <g>
-              {/* Inserted Aquaporin Channels on apical membrane */}
-              {[120, 180, 240, 300].map((y, idx) => (
-                <g key={idx}>
-                  <rect x="74" y={y - 12} width="14" height="24" rx="3" fill="#22D3EE" stroke="#FFFFFF" strokeWidth="1.5" />
-                  {/* Flowing water arrow */}
-                  <path d={`M 50 ${y} L 120 ${y}`} stroke="#38BDF8" strokeWidth="2.5" markerEnd="url(#arrow)" />
-                </g>
-              ))}
-              <text x="100" y="95" fill="#67E8F9" fontSize="12" fontWeight="bold">
-                Aquaporin-2 水通道蛋白已嵌合插入！
+          {/* Schematic of membrane */}
+          <g transform="translate(25, 70)">
+            {/* Urine lumen */}
+            <rect x="0" y="0" width="200" height="95" rx="8" fill="#1E293B" stroke="#475569" strokeWidth="1" />
+            <text x="100" y="24" fill="#E2E8F0" fontSize="12" fontWeight="bold" textAnchor="middle">
+              原尿管腔 (Urine Lumen)
+            </text>
+            <text
+              x="100"
+              y="55"
+              fill={adhLevel === 'high' ? '#FBBF24' : '#38BDF8'}
+              fontSize="12"
+              fontWeight="bold"
+              textAnchor="middle"
+              fontFamily="monospace"
+            >
+              {adhLevel === 'high' ? '尿量大幅減少 · 變濃' : '尿量大增 · 清澈稀薄'}
+            </text>
+            <text x="100" y="75" fill="#94A3B8" fontSize="11" textAnchor="middle">
+              {adhLevel === 'high' ? '高達 ~1200 mOsm/kg' : '低至 ~50 mOsm/kg'}
+            </text>
+
+            {/* AQP2 Channels in middle */}
+            <g transform="translate(220, 0)">
+              <rect
+                x="0"
+                y="0"
+                width="260"
+                height="95"
+                rx="8"
+                fill={adhLevel === 'high' ? '#083344' : '#151F32'}
+                stroke={adhLevel === 'high' ? '#22D3EE' : '#334155'}
+                strokeWidth="1.5"
+              />
+              <text x="130" y="24" fill="#22D3EE" fontSize="12" fontWeight="bold" textAnchor="middle">
+                集尿管主細胞 (Principal Cell)
               </text>
-              <text x="100" y="115" fill="#E0F2FE" fontSize="11">
-                大量自由水被高滲髓質拉回血液
+
+              {/* Water Channel Icons */}
+              <g transform="translate(30, 40)">
+                <circle cx="15" cy="15" r="14" fill={adhLevel === 'high' ? '#0E7490' : '#1E293B'} stroke="#22D3EE" />
+                <text x="15" y="19" fill="#E0F2FE" fontSize="10" textAnchor="middle" fontWeight="bold">
+                  H₂O
+                </text>
+                <circle cx="65" cy="15" r="14" fill={adhLevel === 'high' ? '#0E7490' : '#1E293B'} stroke="#22D3EE" />
+                <text x="65" y="19" fill="#E0F2FE" fontSize="10" textAnchor="middle" fontWeight="bold">
+                  H₂O
+                </text>
+                <circle cx="115" cy="15" r="14" fill={adhLevel === 'high' ? '#0E7490' : '#1E293B'} stroke="#22D3EE" />
+                <text x="115" y="19" fill="#E0F2FE" fontSize="10" textAnchor="middle" fontWeight="bold">
+                  H₂O
+                </text>
+                <circle cx="165" cy="15" r="14" fill={adhLevel === 'high' ? '#0E7490' : '#1E293B'} stroke="#22D3EE" />
+                <text x="165" y="19" fill="#E0F2FE" fontSize="10" textAnchor="middle" fontWeight="bold">
+                  H₂O
+                </text>
+              </g>
+
+              <text x="130" y="82" fill="#67E8F9" fontSize="11" textAnchor="middle">
+                {adhLevel === 'high' ? '✓ AQP2 密集嵌插於頂端膜' : '⊘ AQP2 內吞回囊泡休眠'}
               </text>
             </g>
-          ) : (
-            <g>
-              {/* Internalized Vesicles in cytoplasm */}
-              {[150, 230].map((y, idx) => (
-                <g key={idx}>
-                  <circle cx="160" cy={y} r="22" fill="#0C4A6E" stroke="#0284C7" strokeWidth="2" strokeDasharray="3 3" />
-                  <circle cx="160" cy={y} r="6" fill="#22D3EE" />
-                </g>
-              ))}
-              <text x="100" y="105" fill="#94A3B8" fontSize="12">
-                水通道滯留於囊泡內部（管膜不通透水）
+
+            {/* Blood / Interstitium */}
+            <g transform="translate(500, 0)">
+              <rect x="0" y="0" width="190" height="95" rx="8" fill="#1E293B" stroke="#475569" strokeWidth="1" />
+              <text x="95" y="24" fill="#E2E8F0" fontSize="12" fontWeight="bold" textAnchor="middle">
+                腎髓質間隙與血管
               </text>
-              <text x="100" y="125" fill="#64748B" fontSize="11">
-                水分隨原尿直接排出（大量稀釋尿）
+              <text
+                x="95"
+                y="55"
+                fill={adhLevel === 'high' ? '#34D399' : '#94A3B8'}
+                fontSize="12"
+                fontWeight="bold"
+                textAnchor="middle"
+                fontFamily="monospace"
+              >
+                {adhLevel === 'high' ? '水份大量回收循環 ↑' : '極少水份回收'}
+              </text>
+              <text x="95" y="75" fill="#64748B" fontSize="11" textAnchor="middle">
+                維持體液滲透壓穩定
               </text>
             </g>
-          )}
-
-          {/* Blood Capillary (Right side) */}
-          <rect x="315" y="70" width="55" height="280" rx="6" fill="#450A0A" stroke="#EF4444" strokeWidth="1" />
-          <text x="342" y="120" fill="#FCA5A5" fontSize="12" textAnchor="middle" transform="rotate(-90 342 120)">
-            周邊微血管 (Blood)
-          </text>
-
-          {/* Output Conclusion Bar */}
-          <rect x="25" y="370" width="345" height="35" rx="6" fill="#0F172A" stroke="#334155" />
-          <text x="40" y="392" fill={adhLevel === 'high' ? '#FBBF24' : '#38BDF8'} fontSize="12" fontWeight="bold">
-            {adhLevel === 'high'
-              ? '尿液表現：尿量減少、濃度大幅升高（深黃色）'
-              : '尿液表現：尿量大增、濃度稀釋（清澈淡色）'}
-          </text>
+          </g>
         </g>
       </svg>
     </div>

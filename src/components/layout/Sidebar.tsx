@@ -1,153 +1,264 @@
 import React, { useState } from 'react';
 import { CHAPTERS } from '../../data/chapters';
-import { Chapter } from '../../types';
-import { Droplets, Flame, Activity, ChevronDown, ChevronRight, BookOpen, Sparkles } from 'lucide-react';
+import { Chapter, KnowledgePage, HealthPillar } from '../../types';
+import { useLanguage } from '../../i18n';
+import {
+  Utensils,
+  Activity,
+  Moon,
+  Pill,
+  Droplets,
+  Flame,
+  Wine,
+  ChevronDown,
+  ChevronRight,
+  BookOpen,
+  Sparkles,
+  ShieldCheck,
+  HeartPulse,
+  ClipboardCheck,
+  Compass
+} from 'lucide-react';
 
 interface Props {
+  activePillar: HealthPillar;
+  onSelectPillar: (pillar: HealthPillar) => void;
   currentChapterId: string;
   activePageId: string;
   onSelectChapter: (chapterId: string) => void;
   onSelectPage: (pageId: string) => void;
-  chapterWPages: any[];
-  chapterOPages: any[];
+  chapterWPages: KnowledgePage[];
+  chapterOPages: KnowledgePage[];
+  chapterAPages: KnowledgePage[];
+  onOpenAuditC?: () => void;
+  onOpenCardioHub?: () => void;
+  onOpenSupplements?: () => void;
+  onOpenCouncil?: () => void;
 }
 
 export const Sidebar: React.FC<Props> = ({
+  activePillar,
+  onSelectPillar,
   currentChapterId,
   activePageId,
   onSelectChapter,
   onSelectPage,
   chapterWPages,
   chapterOPages,
+  chapterAPages,
+  onOpenAuditC,
+  onOpenCardioHub,
+  onOpenCouncil,
 }) => {
-  const [expandedNutrition, setExpandedNutrition] = useState(true);
+  const { t, language } = useLanguage();
+  const [expandedDietSub, setExpandedDietSub] = useState(true);
 
-  // Chapter completion percentages
-  const progressMap: Record<string, number> = {
-    W: 75,
-    O: 50,
-    E: 30,
-    P: 10,
-    C: 0,
-    S: 0,
-    N: 0,
-    M: 0,
-    D: 0,
-    F: 0,
-  };
-
-  const pagesForCurrent = currentChapterId === 'W' ? chapterWPages : currentChapterId === 'O' ? chapterOPages : [];
+  const pagesForCurrent =
+    currentChapterId === 'W'
+      ? chapterWPages
+      : currentChapterId === 'O'
+      ? chapterOPages
+      : currentChapterId === 'A'
+      ? chapterAPages
+      : [];
 
   return (
-    <aside className="w-60 shrink-0 border-r border-salud-light-border/80 dark:border-salud-dark-border/80 bg-salud-light-surface/70 dark:bg-salud-dark-surface/50 p-4 space-y-6 overflow-y-auto text-xs font-sans transition-colors">
+    <aside className="w-64 shrink-0 border-r border-salud-light-border/80 dark:border-salud-dark-border/80 bg-salud-light-surface/70 dark:bg-salud-dark-surface/50 p-4 space-y-5 overflow-y-auto text-xs font-sans transition-colors">
       {/* Platform Vision One-liner */}
-      <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-1">
+      <div className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-1">
         <span className="font-mono text-[10px] text-salud-amber-600 dark:text-salud-amber-400 font-bold block uppercase tracking-wider">
-          Salud 產品理念
+          {t('app.vision_title')}
         </span>
-        <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
-          讓你看見身體裡正在發生的事，動手改一個變因，用真實資料檢查你猜得對不對。
+        <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+          {t('app.vision_desc')}
         </p>
       </div>
 
-      {/* Navigation Group: Nutrition Chapters (Spec §10.4) */}
-      <div className="space-y-2">
+      {/* ── 4 Pillars Tree Selection ── */}
+      <div className="space-y-1.5">
+        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider px-1 block font-bold">
+          四大健康支柱 (4 Pillars)
+        </span>
+
+        {/* 1. Diet & Nutrition Pillar */}
+        <div className="space-y-1">
+          <button
+            onClick={() => onSelectPillar('diet')}
+            className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+              activePillar === 'diet'
+                ? 'border-salud-amber/70 bg-salud-amber-500/15 text-slate-900 dark:text-white font-bold shadow-warm-glow'
+                : 'border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <Utensils className={`w-4 h-4 ${activePillar === 'diet' ? 'text-salud-amber' : 'text-slate-400'}`} />
+              <span className="text-xs">{t('pillar.diet')}</span>
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpandedDietSub(!expandedDietSub);
+              }}
+              className="p-0.5 hover:text-white"
+            >
+              {expandedDietSub ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+            </button>
+          </button>
+
+          {/* Sub-tree of Diet: Chapters O, W, A */}
+          {expandedDietSub && (
+            <div className="pl-4 space-y-1 border-l-2 border-slate-700/50 ml-3.5 py-1">
+              {[
+                { id: 'W', name: language === 'zh-TW' ? 'Chapter W · 水與體液' : 'Chapter W · Hydration', icon: Droplets, color: 'text-cyan-400' },
+                { id: 'O', name: language === 'zh-TW' ? 'Chapter O · 脂肪與油' : 'Chapter O · Fats & Oils', icon: Flame, color: 'text-amber-400' },
+                { id: 'A', name: language === 'zh-TW' ? 'Chapter A · 酒精專章' : 'Chapter A · Alcohol', icon: Wine, color: 'text-purple-400' },
+              ].map((ch) => {
+                const isSelected = activePillar === 'diet' && currentChapterId === ch.id;
+                const Icon = ch.icon;
+                return (
+                  <button
+                    key={ch.id}
+                    onClick={() => {
+                      onSelectPillar('diet');
+                      onSelectChapter(ch.id);
+                    }}
+                    className={`w-full p-2 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 ${
+                      isSelected
+                        ? 'bg-slate-200 dark:bg-slate-800 text-salud-amber-600 dark:text-salud-amber font-bold shadow-sm'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                    }`}
+                  >
+                    <Icon className={`w-3.5 h-3.5 ${ch.color}`} />
+                    <span className="truncate">{ch.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* 2. Exercise & Movement Pillar */}
         <button
-          onClick={() => setExpandedNutrition(!expandedNutrition)}
-          className="w-full flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors uppercase tracking-wider px-1"
+          onClick={() => onSelectPillar('exercise')}
+          className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+            activePillar === 'exercise'
+              ? 'border-salud-cyan/70 bg-cyan-950/40 text-cyan-200 font-bold shadow-cyan-glow'
+              : 'border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60'
+          }`}
         >
-          <span className="flex items-center gap-1.5">
-            <BookOpen className="w-3.5 h-3.5 text-salud-cyan" />
-            Nutrition 營養 10 篇章
+          <div className="flex items-center gap-2">
+            <Activity className={`w-4 h-4 ${activePillar === 'exercise' ? 'text-salud-cyan' : 'text-slate-400'}`} />
+            <span className="text-xs">{t('pillar.exercise')}</span>
+          </div>
+          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-900/60 text-cyan-300">
+            VO2 max
           </span>
-          {expandedNutrition ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
         </button>
 
-        {expandedNutrition && (
-          <div className="space-y-1 pl-1">
-            {CHAPTERS.map((ch) => {
-              const isSelected = ch.id === currentChapterId;
-              const isPublished = ch.status === 'PUBLISHED';
-              const progress = progressMap[ch.id] || 0;
+        {/* 3. Sleep & Recovery Pillar */}
+        <button
+          onClick={() => onSelectPillar('sleep')}
+          className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+            activePillar === 'sleep'
+              ? 'border-purple-500/70 bg-purple-950/40 text-purple-200 font-bold shadow-md'
+              : 'border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <Moon className={`w-4 h-4 ${activePillar === 'sleep' ? 'text-purple-400' : 'text-slate-400'}`} />
+            <span className="text-xs">{t('pillar.sleep')}</span>
+          </div>
+          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-purple-900/60 text-purple-300">
+            Glymphatic
+          </span>
+        </button>
 
+        {/* 4. Deep Supplements Pillar */}
+        <button
+          onClick={() => onSelectPillar('supplements')}
+          className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+            activePillar === 'supplements'
+              ? 'border-emerald-500/70 bg-emerald-950/40 text-emerald-200 font-bold shadow-md'
+              : 'border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <Pill className={`w-4 h-4 ${activePillar === 'supplements' ? 'text-emerald-400' : 'text-slate-400'}`} />
+            <span className="text-xs">{t('pillar.supplements')}</span>
+          </div>
+          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-900/60 text-emerald-300">
+            GRADE A-E
+          </span>
+        </button>
+      </div>
+
+      {/* Pages within current chapter (if reading specific chapter in Diet) */}
+      {activePillar === 'diet' && pagesForCurrent.length > 0 && (
+        <div className="space-y-2 pt-2 border-t border-salud-light-border/60 dark:border-salud-dark-border/60">
+          <div className="flex items-center justify-between px-1 text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
+            <span>Chapter {currentChapterId} 知識頁清單</span>
+            <span className="text-[10px] text-salud-cyan">{pagesForCurrent.length} 篇</span>
+          </div>
+
+          <div className="space-y-1 max-h-[30vh] overflow-y-auto pr-1">
+            {pagesForCurrent.map((p) => {
+              const isPageActive = p.id === activePageId;
               return (
                 <button
-                  key={ch.id}
-                  disabled={!isPublished}
-                  onClick={() => onSelectChapter(ch.id)}
-                  className={`w-full p-2.5 rounded-xl border text-left transition-all relative ${
-                    isSelected
-                      ? 'border-salud-amber/60 bg-salud-amber-500/15 text-slate-900 dark:text-slate-100 font-bold shadow-warm-glow'
-                      : isPublished
-                      ? 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-white'
-                      : 'border-transparent text-slate-400 dark:text-slate-600 cursor-not-allowed'
+                  key={p.id}
+                  onClick={() => onSelectPage(p.id)}
+                  className={`w-full p-2 rounded-xl text-left font-mono text-[11px] transition-all flex items-center justify-between ${
+                    isPageActive
+                      ? 'bg-slate-200 dark:bg-slate-800/90 text-salud-amber-600 dark:text-salud-amber-400 font-bold border border-salud-amber/40 shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/40'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className={`w-5 h-5 rounded-md flex items-center justify-center font-mono font-bold text-[11px] ${
-                        isSelected
-                          ? 'bg-salud-amber text-black'
-                          : isPublished
-                          ? 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
-                          : 'bg-slate-100 dark:bg-slate-900 text-slate-400 dark:text-slate-600'
-                      }`}>
-                        {ch.id}
-                      </span>
-                      <span className="text-xs truncate max-w-[120px]">{ch.title_zh}</span>
-                    </div>
-                    {isPublished ? (
-                      <span className="text-[10px] font-mono text-salud-amber-600 dark:text-salud-amber-400">{progress}%</span>
-                    ) : (
-                      <span className="text-[9px] font-mono text-slate-400 dark:text-slate-600 uppercase">研發中</span>
-                    )}
-                  </div>
-
-                  {/* Progress Mini Bar (Spec §10.4) */}
-                  {isPublished && (
-                    <div className="mt-1.5 h-1 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                      <div
-                        style={{ width: `${progress}%` }}
-                        className={`h-full ${isSelected ? 'bg-salud-amber' : 'bg-slate-400 dark:bg-slate-600'}`}
-                      />
-                    </div>
-                  )}
+                  <span className="truncate">{p.id}</span>
+                  <span className="text-[10px] text-slate-400 shrink-0 font-sans">
+                    {p.estimated_minutes}m
+                  </span>
                 </button>
               );
             })}
           </div>
+        </div>
+      )}
+
+      {/* Hub Tools & Quick Access */}
+      <div className="space-y-1.5 pt-3 border-t border-salud-light-border/60 dark:border-salud-dark-border/60">
+        <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block px-1">
+          臨床治理與篩檢工具
+        </span>
+
+        {onOpenAuditC && (
+          <button
+            onClick={onOpenAuditC}
+            className="w-full p-2 rounded-xl border border-purple-500/30 bg-purple-950/20 hover:bg-purple-900/30 text-purple-300 font-mono text-xs flex items-center gap-2 transition-all"
+          >
+            <ClipboardCheck className="w-3.5 h-3.5 text-purple-400" />
+            <span>{t('nav.audit_c')}</span>
+          </button>
         )}
-      </div>
 
-      {/* Pages List for Selected Chapter */}
-      <div className="space-y-2 pt-2 border-t border-salud-light-border/80 dark:border-salud-dark-border/60">
-        <div className="flex items-center justify-between px-1 text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
-          <span>篇章知識頁 ({pagesForCurrent.length} 頁)</span>
-          <span className="text-salud-cyan font-bold">{currentChapterId} 篇</span>
-        </div>
+        {onOpenCardioHub && (
+          <button
+            onClick={onOpenCardioHub}
+            className="w-full p-2 rounded-xl border border-cyan-500/30 bg-cyan-950/20 hover:bg-cyan-900/30 text-cyan-300 font-mono text-xs flex items-center gap-2 transition-all"
+          >
+            <HeartPulse className="w-3.5 h-3.5 text-cyan-400" />
+            <span>{t('nav.cardio_hub')}</span>
+          </button>
+        )}
 
-        <div className="space-y-1 pl-1">
-          {pagesForCurrent.map((p) => {
-            const isPageActive = p.id === activePageId;
-
-            return (
-              <button
-                key={p.id}
-                onClick={() => onSelectPage(p.id)}
-                className={`w-full p-2 rounded-lg text-left text-xs transition-all flex items-start gap-2 ${
-                  isPageActive
-                    ? 'bg-salud-cyan/20 text-salud-cyan-600 dark:text-salud-cyan-300 font-bold border border-salud-cyan/40 shadow-cyan-glow'
-                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/40 hover:text-slate-900 dark:hover:text-slate-200'
-                }`}
-              >
-                <span className="font-mono text-[10px] text-slate-400 dark:text-slate-500 shrink-0 mt-0.5">
-                  {p.order_index < 10 ? `0${p.order_index}` : p.order_index}
-                </span>
-                <span className="truncate leading-tight">{p.title_zh}</span>
-              </button>
-            );
-          })}
-        </div>
+        {onOpenCouncil && (
+          <button
+            onClick={onOpenCouncil}
+            className="w-full p-2 rounded-xl border border-slate-700/60 bg-slate-800/40 hover:bg-slate-800 text-slate-300 font-mono text-xs flex items-center gap-2 transition-all"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-salud-amber-400" />
+            <span>{t('nav.council')}</span>
+          </button>
+        )}
       </div>
     </aside>
   );
