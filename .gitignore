@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+*.tsbuildinfo
+*.local
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
