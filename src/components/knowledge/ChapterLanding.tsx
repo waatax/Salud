@@ -22,10 +22,10 @@ export const ChapterLanding: React.FC<Props> = ({
   return (
     <div className="space-y-8 max-w-4xl mx-auto font-sans text-xs pb-16">
       {/* Chapter Hero Banner */}
-      <div className={`p-6 sm:p-8 rounded-3xl border relative overflow-hidden ${
+      <div className={`p-6 sm:p-8 rounded-3xl border relative overflow-hidden transition-colors ${
         isWater
-          ? 'border-salud-cyan/40 bg-gradient-to-br from-salud-cyan-950/40 via-salud-dark-card/60 to-slate-950 shadow-cyan-glow'
-          : 'border-salud-amber/40 bg-gradient-to-br from-salud-amber-950/40 via-salud-dark-card/60 to-slate-950 shadow-warm-glow'
+          ? 'border-salud-cyan/40 bg-gradient-to-br from-cyan-100/70 via-salud-light-card/80 to-slate-100 dark:from-salud-cyan-950/40 dark:via-salud-dark-card/60 dark:to-slate-950 shadow-cyan-glow'
+          : 'border-salud-amber/40 bg-gradient-to-br from-amber-100/70 via-salud-light-card/80 to-slate-100 dark:from-salud-amber-950/40 dark:via-salud-dark-card/60 dark:to-slate-950 shadow-warm-glow'
       }`}>
         {/* Ambient Glow */}
         <div className={`absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl pointer-events-none ${
@@ -36,39 +36,39 @@ export const ChapterLanding: React.FC<Props> = ({
           <div className="flex flex-wrap items-center gap-2">
             <span className={`px-2.5 py-1 rounded-full font-mono text-xs font-bold border ${
               isWater
-                ? 'bg-salud-cyan/20 text-salud-cyan-300 border-salud-cyan/40'
-                : 'bg-salud-amber/20 text-salud-amber-300 border-salud-amber/40'
+                ? 'bg-salud-cyan/20 text-salud-cyan-700 dark:text-salud-cyan-300 border-salud-cyan/40'
+                : 'bg-salud-amber/20 text-salud-amber-700 dark:text-salud-amber-300 border-salud-amber/40'
             }`}>
               Chapter {chapter.id} · {chapter.badge}
             </span>
-            <span className="text-slate-400 font-mono text-xs">
+            <span className="text-slate-500 dark:text-slate-400 font-mono text-xs">
               安全等級：{chapter.safety_level}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-display font-extrabold text-salud-dark-text dark:text-salud-dark-text light:text-salud-light-text tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-display font-extrabold text-salud-light-text dark:text-salud-dark-text tracking-tight">
             {chapter.title_zh}
           </h1>
-          <p className="text-sm font-mono text-slate-400">
+          <p className="text-sm font-mono text-slate-500 dark:text-slate-400">
             {chapter.title_en}
           </p>
 
-          <p className="text-sm sm:text-base text-slate-300/95 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300/95 leading-relaxed">
             {chapter.summary}
           </p>
 
           {/* Quick Metrics */}
           <div className="grid grid-cols-3 gap-3 pt-2 font-mono text-xs">
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span className="text-slate-400 block text-[11px]">本章知識頁</span>
-              <strong className="text-lg text-slate-100 font-display">{chapter.page_count} 頁</strong>
+            <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-slate-500 dark:text-slate-400 block text-[11px]">本章知識頁</span>
+              <strong className="text-lg text-slate-800 dark:text-slate-100 font-display">{chapter.page_count} 頁</strong>
             </div>
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span className="text-slate-400 block text-[11px]">原子化 KP</span>
-              <strong className="text-lg text-salud-amber-400 font-display">{chapter.kp_count} 點</strong>
+            <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-slate-500 dark:text-slate-400 block text-[11px]">原子化 KP</span>
+              <strong className="text-lg text-salud-amber-600 dark:text-salud-amber-400 font-display">{chapter.kp_count} 點</strong>
             </div>
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span className="text-slate-400 block text-[11px]">高階圖解</span>
+            <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <span className="text-slate-500 dark:text-slate-400 block text-[11px]">高階圖解</span>
               <strong className="text-lg text-salud-cyan font-display">{chapter.figure_count} 張</strong>
             </div>
           </div>
@@ -85,7 +85,7 @@ export const ChapterLanding: React.FC<Props> = ({
               <span>從第 1 頁開始探索</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-            <span className="text-xs text-slate-400 font-mono">
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
               主責專家：{chapter.owner_experts.join(', ')}
             </span>
           </div>

@@ -14,8 +14,14 @@ import { Modal } from './components/common/Modal';
 import { KnowledgeGraph } from './components/knowledge/KnowledgeGraph';
 
 export const App: React.FC = () => {
-  // Theme state: dark default
-  const [isDark, setIsDark] = useState<boolean>(true);
+  // Theme state: default to localStorage or dark
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('salud-theme');
+      if (saved) return saved === 'dark';
+    }
+    return true;
+  });
 
   // Chapter state: 'W' or 'O'
   const [currentChapterId, setCurrentChapterId] = useState<string>('W');
@@ -30,14 +36,16 @@ export const App: React.FC = () => {
   const [isGraphModalOpen, setIsGraphModalOpen] = useState<boolean>(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
 
-  // Sync dark class on document element
+  // Sync dark/light class on document element and save to localStorage
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
+      localStorage.setItem('salud-theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
       document.documentElement.classList.add('light');
+      localStorage.setItem('salud-theme', 'light');
     }
   }, [isDark]);
 
@@ -101,7 +109,7 @@ export const App: React.FC = () => {
   const currentPage = pagesForCurrent.find((p) => p.id === activePageId) || pagesForCurrent[0];
 
   return (
-    <div className="min-h-screen flex flex-col bg-salud-dark-bg dark:bg-salud-dark-bg light:bg-salud-light-bg text-salud-dark-text dark:text-salud-dark-text light:text-salud-light-text bg-tech-grid transition-colors">
+    <div className="min-h-screen flex flex-col bg-salud-light-bg dark:bg-salud-dark-bg text-salud-light-text dark:text-salud-dark-text bg-tech-grid transition-colors">
       {/* ── Top Header ── */}
       <Header
         currentChapterId={currentChapterId}
@@ -130,12 +138,12 @@ export const App: React.FC = () => {
         {/* Mobile Slide-out Sidebar Drawer */}
         {isMobileSidebarOpen && (
           <div className="fixed inset-0 z-50 flex lg:hidden bg-black/80 backdrop-blur-sm animate-fade-in">
-            <div className="w-72 h-full bg-salud-dark-surface p-4 overflow-y-auto">
-              <div className="flex justify-between items-center pb-3 border-b border-salud-dark-border mb-4">
-                <span className="font-display font-bold text-sm">Salud 導航目錄</span>
+            <div className="w-72 h-full bg-salud-light-surface dark:bg-salud-dark-surface p-4 overflow-y-auto border-r border-salud-light-border dark:border-salud-dark-border">
+              <div className="flex justify-between items-center pb-3 border-b border-salud-light-border dark:border-salud-dark-border mb-4">
+                <span className="font-display font-bold text-sm text-slate-800 dark:text-slate-100">Salud 導航目錄</span>
                 <button
                   onClick={() => setIsMobileSidebarOpen(false)}
-                  className="p-1 rounded-lg text-slate-400 hover:text-white"
+                  className="p-1 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
                 >
                   ✕
                 </button>
@@ -156,7 +164,7 @@ export const App: React.FC = () => {
         {/* ── Center Content Area ── */}
         <main className="flex-1 px-4 sm:px-8 py-6 overflow-y-auto">
           {/* Breadcrumb Navigation */}
-          <nav className="mb-5 flex items-center justify-between font-mono text-xs text-slate-400 border-b border-salud-dark-border/40 pb-2">
+          <nav className="mb-5 flex items-center justify-between font-mono text-xs text-slate-500 dark:text-slate-400 border-b border-salud-light-border/60 dark:border-salud-dark-border/40 pb-2">
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setViewMode('landing')}

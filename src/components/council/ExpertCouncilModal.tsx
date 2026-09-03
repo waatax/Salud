@@ -36,14 +36,14 @@ export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Filter buttons */}
-        <div className="flex items-center justify-between border-b border-salud-dark-border pb-3">
+        <div className="flex items-center justify-between border-b border-salud-light-border/80 dark:border-salud-dark-border pb-3">
           <div className="flex items-center gap-2">
             <button
               onClick={() => setFilter('all')}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                 filter === 'all'
                   ? 'bg-salud-amber text-black font-semibold shadow-warm-glow'
-                  : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700'
+                  : 'bg-slate-200 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700'
               }`}
             >
               全體 22 席專家
@@ -53,14 +53,14 @@ export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose }) => {
               className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${
                 filter === 'new_v2'
                   ? 'bg-salud-cyan text-black font-semibold shadow-cyan-glow'
-                  : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700'
+                  : 'bg-slate-200 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
               v0.2 擴編新增 10 席
             </button>
           </div>
-          <span className="text-xs font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
             顯示 {filteredMembers.length} 位席位
           </span>
         </div>
@@ -72,65 +72,65 @@ export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose }) => {
               key={member.id}
               className={`p-4 rounded-xl border transition-all ${
                 member.is_new_v2
-                  ? 'border-salud-cyan/40 bg-gradient-to-br from-salud-cyan-700/10 to-salud-dark-card/60'
-                  : 'border-salud-dark-border bg-salud-dark-card/60 hover:border-slate-700'
+                  ? 'border-salud-cyan/40 bg-gradient-to-br from-cyan-100/60 via-salud-light-card/80 to-slate-100 dark:from-salud-cyan-700/10 dark:to-salud-dark-card/60'
+                  : 'border-salud-light-border dark:border-salud-dark-border bg-salud-light-card dark:bg-salud-dark-card/60 hover:border-slate-300 dark:hover:border-slate-700'
               }`}
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-salud-amber-400 border border-slate-700">
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-salud-amber-700 dark:text-salud-amber-400 border border-slate-300 dark:border-slate-700">
                     {member.id}
                   </span>
-                  <h4 className="font-bold text-sm text-salud-dark-text dark:text-salud-dark-text light:text-salud-light-text">
+                  <h4 className="font-bold text-sm text-salud-light-text dark:text-salud-dark-text">
                     {member.title_zh}
                   </h4>
                 </div>
                 {member.is_new_v2 && (
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-salud-cyan/20 text-salud-cyan-300 border border-salud-cyan/40">
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-salud-cyan/20 text-salud-cyan-700 dark:text-salud-cyan-300 border border-salud-cyan/40">
                     NEW v0.2
                   </span>
                 )}
               </div>
 
-              <div className="text-xs text-slate-400 font-mono mb-2">
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mb-2">
                 {member.title_en}
               </div>
 
-              <p className="text-xs text-slate-300/90 leading-relaxed mb-2">
-                <strong className="text-slate-200">角色必要性：</strong>
+              <p className="text-xs text-slate-700 dark:text-slate-300/90 leading-relaxed mb-2">
+                <strong className="text-slate-900 dark:text-slate-200">角色必要性：</strong>
                 {member.why_needed}
               </p>
 
-              <div className="pt-2 border-t border-slate-800/80 flex items-start gap-1.5 text-xs text-salud-amber-300/90">
-                <UserCheck className="w-3.5 h-3.5 shrink-0 mt-0.5 text-salud-amber-400" />
-                <span><strong className="text-salud-amber-200">核心職責：</strong>{member.core_duty}</span>
+              <div className="pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-start gap-1.5 text-xs text-salud-amber-800 dark:text-salud-amber-300/90">
+                <UserCheck className="w-3.5 h-3.5 shrink-0 mt-0.5 text-salud-amber-600 dark:text-salud-amber-400" />
+                <span><strong className="text-salud-amber-900 dark:text-salud-amber-200">核心職責：</strong>{member.core_duty}</span>
               </div>
             </div>
           ))}
         </div>
 
         {/* RACI Workflow summary */}
-        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs space-y-2">
-          <div className="font-bold text-sm text-slate-200 flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+        <div className="p-4 rounded-xl bg-slate-100/90 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs space-y-2">
+          <div className="font-bold text-sm text-slate-900 dark:text-slate-200 flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             知識頁與圖解審查 RACI 閉環
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center pt-2 font-mono">
-            <div className="p-2 rounded bg-slate-800/80 border border-slate-700">
-              <span className="text-salud-amber-400 font-bold block">1. KP 盤點</span>
-              <span className="text-[11px] text-slate-300">EC-19 / EC-05</span>
+            <div className="p-2 rounded bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span className="text-salud-amber-600 dark:text-salud-amber-400 font-bold block">1. KP 盤點</span>
+              <span className="text-[11px] text-slate-700 dark:text-slate-300">EC-19 / EC-05</span>
             </div>
-            <div className="p-2 rounded bg-slate-800/80 border border-slate-700">
-              <span className="text-cyan-400 font-bold block">2. 證據綁定</span>
-              <span className="text-[11px] text-slate-300">EC-10 / EC-20</span>
+            <div className="p-2 rounded bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span className="text-cyan-700 dark:text-cyan-400 font-bold block">2. 證據綁定</span>
+              <span className="text-[11px] text-slate-700 dark:text-slate-300">EC-10 / EC-20</span>
             </div>
-            <div className="p-2 rounded bg-slate-800/80 border border-slate-700">
-              <span className="text-red-400 font-bold block">3. 醫療安全</span>
-              <span className="text-[11px] text-slate-300">EC-01 簽核</span>
+            <div className="p-2 rounded bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span className="text-red-600 dark:text-red-400 font-bold block">3. 醫療安全</span>
+              <span className="text-[11px] text-slate-700 dark:text-slate-300">EC-01 簽核</span>
             </div>
-            <div className="p-2 rounded bg-slate-800/80 border border-slate-700">
-              <span className="text-emerald-400 font-bold block">4. 圖解無障礙</span>
-              <span className="text-[11px] text-slate-300">EC-17 / EC-11</span>
+            <div className="p-2 rounded bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span className="text-emerald-700 dark:text-emerald-400 font-bold block">4. 圖解無障礙</span>
+              <span className="text-[11px] text-slate-700 dark:text-slate-300">EC-17 / EC-11</span>
             </div>
           </div>
         </div>

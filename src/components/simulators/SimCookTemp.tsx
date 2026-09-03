@@ -61,18 +61,18 @@ export const SimCookTemp: React.FC = () => {
   }, [tempC, method]);
 
   return (
-    <div className="w-full max-w-3xl rounded-2xl border border-salud-amber/30 bg-salud-dark-surface dark:bg-salud-dark-surface light:bg-salud-light-surface overflow-hidden shadow-2xl font-sans text-xs">
+    <div className="w-full max-w-3xl rounded-2xl border border-salud-amber/30 bg-salud-light-surface dark:bg-salud-dark-surface overflow-hidden shadow-2xl font-sans text-xs transition-colors">
       {/* Header */}
-      <div className="p-4 sm:p-5 border-b border-salud-dark-border bg-gradient-to-r from-orange-950/30 via-salud-dark-card/60 to-transparent flex flex-wrap items-center justify-between gap-3">
+      <div className="p-4 sm:p-5 border-b border-salud-light-border/80 dark:border-salud-dark-border bg-gradient-to-r from-orange-100/70 via-salud-light-card/80 to-transparent dark:from-orange-950/30 dark:via-salud-dark-card/60 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-orange-500/20 border border-orange-500/40 text-orange-400">
+          <div className="p-2 rounded-xl bg-orange-500/20 border border-orange-500/40 text-orange-600 dark:text-orange-400">
             <Flame className="w-5 h-5" />
           </div>
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 border border-orange-500/40">
+            <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
               SIM-COOK-TEMP · v0.1
             </span>
-            <h3 className="text-base sm:text-lg font-display font-bold text-salud-dark-text dark:text-salud-dark-text light:text-salud-light-text">
+            <h3 className="text-base sm:text-lg font-display font-bold text-salud-light-text dark:text-salud-dark-text">
               這道菜該用什麼油 (Cooking Temperature Matcher)
             </h3>
           </div>
@@ -80,9 +80,9 @@ export const SimCookTemp: React.FC = () => {
       </div>
 
       {/* Inputs */}
-      <div className="p-4 sm:p-6 space-y-4 border-b border-salud-dark-border/80 bg-salud-dark-card/20">
+      <div className="p-4 sm:p-6 space-y-4 border-b border-salud-light-border/80 dark:border-salud-dark-border/80 bg-salud-light-card/40 dark:bg-salud-dark-card/20">
         <div>
-          <label className="font-mono text-slate-300 block mb-2 font-semibold">
+          <label className="font-mono text-slate-700 dark:text-slate-300 block mb-2 font-semibold">
             選擇今天的烹飪方式：
           </label>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -92,11 +92,11 @@ export const SimCookTemp: React.FC = () => {
                 onClick={() => handleMethodChange(m.id)}
                 className={`p-2.5 rounded-xl border text-left transition-all ${
                   method === m.id
-                    ? 'bg-salud-amber/20 border-salud-amber text-salud-amber-300 font-bold shadow-warm-glow'
-                    : 'border-slate-800 bg-slate-900/60 text-slate-400 hover:border-slate-700'
+                    ? 'bg-salud-amber/20 border-salud-amber text-salud-amber-700 dark:text-salud-amber-300 font-bold shadow-warm-glow'
+                    : 'border-slate-300 dark:border-slate-800 bg-slate-100/90 dark:bg-slate-900/60 text-slate-600 dark:text-slate-400 hover:border-slate-400 dark:hover:border-slate-700'
                 }`}
               >
-                <div className="text-xs text-slate-200">{m.name}</div>
+                <div className="text-xs text-slate-800 dark:text-slate-200 font-semibold">{m.name}</div>
                 <div className="text-[10px] text-slate-500 font-mono mt-0.5">預設 ~{m.defaultTemp}°C</div>
               </button>
             ))}
@@ -105,9 +105,9 @@ export const SimCookTemp: React.FC = () => {
 
         {/* Temperature fine-tune slider */}
         <div>
-          <div className="flex justify-between font-mono text-slate-300 mb-1">
+          <div className="flex justify-between font-mono text-slate-700 dark:text-slate-300 mb-1">
             <span>預估鍋內實際溫度：</span>
-            <strong className="text-salud-amber-300 text-sm">{tempC} °C</strong>
+            <strong className="text-salud-amber-600 dark:text-salud-amber-300 text-sm">{tempC} °C</strong>
           </div>
           <input
             type="range"
@@ -122,12 +122,12 @@ export const SimCookTemp: React.FC = () => {
 
         {/* Oil reuse counter if deep fry */}
         {method === 'deep_fry' && (
-          <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          <div className="p-3.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <RotateCcw className="w-4 h-4 text-orange-400" />
+              <RotateCcw className="w-4 h-4 text-orange-600 dark:text-orange-400" />
               <div>
-                <span className="font-semibold text-slate-200">油炸油回鍋重複使用次數：</span>
-                <span className="text-slate-400 block text-[11px]">台灣法規監測總極性化合物 (TPC)</span>
+                <span className="font-semibold text-slate-800 dark:text-slate-200">油炸油回鍋重複使用次數：</span>
+                <span className="text-slate-500 dark:text-slate-400 block text-[11px]">台灣法規監測總極性化合物 (TPC)</span>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -140,7 +140,7 @@ export const SimCookTemp: React.FC = () => {
                       ? cnt >= 3
                         ? 'bg-red-500 text-white shadow-crimson-glow'
                         : 'bg-salud-amber text-black'
-                      : 'bg-slate-800 text-slate-400'
+                      : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-400'
                   }`}
                 >
                   {cnt}
@@ -152,11 +152,11 @@ export const SimCookTemp: React.FC = () => {
 
         {/* Severe reuse warning (Spec §7.5 rule) */}
         {reuseCount >= 3 && (
-          <div className="p-3 rounded-xl border border-red-500/60 bg-red-950/30 text-red-200 flex items-start gap-2">
-            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+          <div className="p-3 rounded-xl border border-red-300 dark:border-red-500/60 bg-red-100/80 dark:bg-red-950/30 text-red-800 dark:text-red-200 flex items-start gap-2">
+            <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
             <div>
               <strong className="font-bold block">回鍋油安全警戒：總極性化合物累積超標！</strong>
-              <p className="text-xs text-red-200/90 mt-0.5">
+              <p className="text-xs text-red-900 dark:text-red-200/90 mt-0.5">
                 油炸油重複使用超過 3 次，致癌性極性化合物與反式脂肪快速倍增。請依法規原則立即換油倒棄，切勿再烹調食用。
               </p>
             </div>
@@ -168,22 +168,22 @@ export const SimCookTemp: React.FC = () => {
       <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Recommended List */}
         <div className="space-y-2.5">
-          <h5 className="font-bold text-emerald-400 font-mono flex items-center gap-1.5 text-xs">
+          <h5 className="font-bold text-emerald-600 dark:text-emerald-400 font-mono flex items-center gap-1.5 text-xs">
             <CheckCircle2 className="w-4 h-4" /> 適合使用的好油推薦 ({suitableOils.length} 款)
           </h5>
           <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
             {suitableOils.map((oil) => (
               <div
                 key={oil.id}
-                className="p-2.5 rounded-lg bg-emerald-950/15 border border-emerald-500/30 flex items-center justify-between"
+                className="p-2.5 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/15 border border-emerald-500/30 flex items-center justify-between"
               >
                 <div>
-                  <span className="font-bold text-slate-200">{oil.name_zh}</span>
-                  <span className="text-[11px] text-slate-400 block">
+                  <span className="font-bold text-slate-800 dark:text-slate-200">{oil.name_zh}</span>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
                     {oil.is_local_tw ? '在地優選 · ' : ''}發煙點 ~{oil.smoke_point_c}°C
                   </span>
                 </div>
-                <span className="font-mono text-emerald-400 font-semibold text-[11px]">
+                <span className="font-mono text-emerald-700 dark:text-emerald-400 font-semibold text-[11px]">
                   MUFA {oil.mufa_pct}%
                 </span>
               </div>
@@ -193,7 +193,7 @@ export const SimCookTemp: React.FC = () => {
 
         {/* Not Recommended List */}
         <div className="space-y-2.5">
-          <h5 className="font-bold text-red-400 font-mono flex items-center gap-1.5 text-xs">
+          <h5 className="font-bold text-red-600 dark:text-red-400 font-mono flex items-center gap-1.5 text-xs">
             <XCircle className="w-4 h-4" /> 本情境不建議使用 ({notRecommendedOils.length} 款)
           </h5>
           <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
@@ -205,13 +205,13 @@ export const SimCookTemp: React.FC = () => {
               notRecommendedOils.map(({ oil, reason }) => (
                 <div
                   key={oil.id}
-                  className="p-2.5 rounded-lg bg-red-950/15 border border-red-500/30 space-y-0.5"
+                  className="p-2.5 rounded-lg bg-red-100/70 dark:bg-red-950/15 border border-red-500/30 space-y-0.5"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-red-200">{oil.name_zh}</span>
-                    <span className="font-mono text-[10px] text-red-400">發煙點 ~{oil.smoke_point_c}°C</span>
+                    <span className="font-bold text-red-900 dark:text-red-200">{oil.name_zh}</span>
+                    <span className="font-mono text-[10px] text-red-600 dark:text-red-400">發煙點 ~{oil.smoke_point_c}°C</span>
                   </div>
-                  <p className="text-[11px] text-slate-400 leading-tight">{reason}</p>
+                  <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-tight">{reason}</p>
                 </div>
               ))
             )}

@@ -67,13 +67,13 @@ export const SelfCheckQuiz: React.FC<Props> = ({ items, pageTitle }) => {
           return (
             <div
               key={item.id}
-              className="p-4 rounded-xl border border-salud-dark-border/80 bg-salud-dark-surface/80 dark:bg-salud-dark-surface/80 light:bg-salud-light-surface/80 space-y-3"
+              className="p-4 rounded-xl border border-salud-light-border dark:border-salud-dark-border/80 bg-salud-light-surface dark:bg-salud-dark-surface space-y-3 shadow-sm"
             >
               <div className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-full bg-slate-800 text-salud-amber-400 flex items-center justify-center font-mono font-bold text-xs shrink-0">
+                <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 text-salud-amber-700 dark:text-salud-amber-400 flex items-center justify-center font-mono font-bold text-xs shrink-0">
                   {idx + 1}
                 </span>
-                <p className="text-sm font-semibold text-salud-dark-text dark:text-salud-dark-text light:text-salud-light-text leading-snug">
+                <p className="text-sm font-semibold text-salud-light-text dark:text-salud-dark-text leading-snug">
                   {item.question}
                 </p>
               </div>
@@ -81,17 +81,17 @@ export const SelfCheckQuiz: React.FC<Props> = ({ items, pageTitle }) => {
               {/* Options */}
               <div className="space-y-1.5 pl-7">
                 {item.options.map((opt, optIdx) => {
-                  let optStyle = 'border-salud-dark-border bg-salud-dark-card/40 text-slate-300 hover:border-salud-amber/50';
+                  let optStyle = 'border-salud-light-border dark:border-salud-dark-border bg-salud-light-card/60 dark:bg-salud-dark-card/40 text-slate-700 dark:text-slate-300 hover:border-salud-amber/50';
 
                   if (userChoice === optIdx) {
-                    optStyle = 'border-salud-amber bg-salud-amber/15 text-salud-amber-300 font-bold';
+                    optStyle = 'border-salud-amber bg-salud-amber/15 text-salud-amber-700 dark:text-salud-amber-300 font-bold';
                   }
 
                   if (submitted) {
                     if (optIdx === item.correct_index) {
-                      optStyle = 'border-emerald-500 bg-emerald-950/30 text-emerald-300 font-bold';
+                      optStyle = 'border-emerald-500 bg-emerald-100/70 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 font-bold';
                     } else if (userChoice === optIdx) {
-                      optStyle = 'border-red-500 bg-red-950/30 text-red-300 line-through';
+                      optStyle = 'border-red-500 bg-red-100/70 dark:bg-red-950/30 text-red-800 dark:text-red-300 line-through';
                     }
                   }
 
@@ -104,10 +104,10 @@ export const SelfCheckQuiz: React.FC<Props> = ({ items, pageTitle }) => {
                     >
                       <span>{opt}</span>
                       {submitted && optIdx === item.correct_index && (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
                       )}
                       {submitted && userChoice === optIdx && optIdx !== item.correct_index && (
-                        <XCircle className="w-4 h-4 text-red-400 shrink-0" />
+                        <XCircle className="w-4 h-4 text-red-500 dark:text-red-400 shrink-0" />
                       )}
                     </button>
                   );
@@ -118,8 +118,8 @@ export const SelfCheckQuiz: React.FC<Props> = ({ items, pageTitle }) => {
               {submitted && (
                 <div className={`p-3 rounded-lg border text-xs pl-7 transition-all ${
                   isCorrect
-                    ? 'border-emerald-500/40 bg-emerald-950/20 text-emerald-200'
-                    : 'border-salud-amber/40 bg-salud-amber-950/20 text-salud-amber-200'
+                    ? 'border-emerald-500/40 bg-emerald-100/80 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-200'
+                    : 'border-salud-amber/40 bg-amber-100/80 dark:bg-salud-amber-950/20 text-amber-900 dark:text-salud-amber-200'
                 }`}>
                   <strong className="font-semibold block mb-0.5">
                     {isCorrect ? '✓ 答對了！' : '✕ 觀念解析：'}
@@ -143,7 +143,7 @@ export const SelfCheckQuiz: React.FC<Props> = ({ items, pageTitle }) => {
             className={`px-5 py-2.5 rounded-xl font-mono font-bold text-xs transition-all ${
               allAnswered
                 ? 'bg-salud-amber text-black hover:opacity-90 shadow-warm-glow'
-                : 'bg-slate-800 text-slate-500 cursor-not-allowed'
+                : 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed'
             }`}
           >
             {allAnswered ? '提交答案看解析 ➔' : `請完成所有題目 (${Object.keys(selectedAnswers).length}/${items.length})`}
@@ -151,14 +151,14 @@ export const SelfCheckQuiz: React.FC<Props> = ({ items, pageTitle }) => {
         ) : (
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 font-mono text-sm">
-              <Award className="w-5 h-5 text-salud-amber-400" />
-              <span>
-                得分：<strong className="text-salud-amber-300">{correctCount}</strong> / {items.length}
+              <Award className="w-5 h-5 text-salud-amber-500 dark:text-salud-amber-400" />
+              <span className="text-slate-700 dark:text-slate-200">
+                得分：<strong className="text-salud-amber-600 dark:text-salud-amber-300">{correctCount}</strong> / {items.length}
               </span>
             </div>
             <button
               onClick={handleReset}
-              className="px-4 py-2 rounded-lg border border-slate-700 hover:bg-slate-800 text-slate-300 font-mono text-xs"
+              className="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-xs"
             >
               重新作答
             </button>

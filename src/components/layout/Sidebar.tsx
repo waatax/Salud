@@ -39,13 +39,13 @@ export const Sidebar: React.FC<Props> = ({
   const pagesForCurrent = currentChapterId === 'W' ? chapterWPages : currentChapterId === 'O' ? chapterOPages : [];
 
   return (
-    <aside className="w-60 shrink-0 border-r border-salud-dark-border/80 dark:border-salud-dark-border/80 light:border-salud-light-border/80 bg-salud-dark-surface/50 dark:bg-salud-dark-surface/50 light:bg-salud-light-surface/50 p-4 space-y-6 overflow-y-auto text-xs font-sans">
+    <aside className="w-60 shrink-0 border-r border-salud-light-border/80 dark:border-salud-dark-border/80 bg-salud-light-surface/70 dark:bg-salud-dark-surface/50 p-4 space-y-6 overflow-y-auto text-xs font-sans transition-colors">
       {/* Platform Vision One-liner */}
-      <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 space-y-1">
-        <span className="font-mono text-[10px] text-salud-amber-400 font-bold block uppercase tracking-wider">
+      <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-1">
+        <span className="font-mono text-[10px] text-salud-amber-600 dark:text-salud-amber-400 font-bold block uppercase tracking-wider">
           Salud 產品理念
         </span>
-        <p className="text-[11px] text-slate-300 leading-relaxed">
+        <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
           讓你看見身體裡正在發生的事，動手改一個變因，用真實資料檢查你猜得對不對。
         </p>
       </div>
@@ -54,7 +54,7 @@ export const Sidebar: React.FC<Props> = ({
       <div className="space-y-2">
         <button
           onClick={() => setExpandedNutrition(!expandedNutrition)}
-          className="w-full flex items-center justify-between text-xs font-mono font-bold text-slate-400 hover:text-slate-200 transition-colors uppercase tracking-wider px-1"
+          className="w-full flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors uppercase tracking-wider px-1"
         >
           <span className="flex items-center gap-1.5">
             <BookOpen className="w-3.5 h-3.5 text-salud-cyan" />
@@ -77,10 +77,10 @@ export const Sidebar: React.FC<Props> = ({
                   onClick={() => onSelectChapter(ch.id)}
                   className={`w-full p-2.5 rounded-xl border text-left transition-all relative ${
                     isSelected
-                      ? 'border-salud-amber/60 bg-salud-amber-500/15 text-slate-100 font-bold shadow-warm-glow'
+                      ? 'border-salud-amber/60 bg-salud-amber-500/15 text-slate-900 dark:text-slate-100 font-bold shadow-warm-glow'
                       : isPublished
-                      ? 'border-transparent text-slate-300 hover:bg-slate-800/60 hover:text-white'
-                      : 'border-transparent text-slate-600 cursor-not-allowed'
+                      ? 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-white'
+                      : 'border-transparent text-slate-400 dark:text-slate-600 cursor-not-allowed'
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -89,26 +89,26 @@ export const Sidebar: React.FC<Props> = ({
                         isSelected
                           ? 'bg-salud-amber text-black'
                           : isPublished
-                          ? 'bg-slate-800 text-slate-300'
-                          : 'bg-slate-900 text-slate-600'
+                          ? 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                          : 'bg-slate-100 dark:bg-slate-900 text-slate-400 dark:text-slate-600'
                       }`}>
                         {ch.id}
                       </span>
                       <span className="text-xs truncate max-w-[120px]">{ch.title_zh}</span>
                     </div>
                     {isPublished ? (
-                      <span className="text-[10px] font-mono text-salud-amber-400">{progress}%</span>
+                      <span className="text-[10px] font-mono text-salud-amber-600 dark:text-salud-amber-400">{progress}%</span>
                     ) : (
-                      <span className="text-[9px] font-mono text-slate-600 uppercase">研發中</span>
+                      <span className="text-[9px] font-mono text-slate-400 dark:text-slate-600 uppercase">研發中</span>
                     )}
                   </div>
 
                   {/* Progress Mini Bar (Spec §10.4) */}
                   {isPublished && (
-                    <div className="mt-1.5 h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div className="mt-1.5 h-1 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                       <div
                         style={{ width: `${progress}%` }}
-                        className={`h-full ${isSelected ? 'bg-salud-amber' : 'bg-slate-600'}`}
+                        className={`h-full ${isSelected ? 'bg-salud-amber' : 'bg-slate-400 dark:bg-slate-600'}`}
                       />
                     </div>
                   )}
@@ -120,8 +120,8 @@ export const Sidebar: React.FC<Props> = ({
       </div>
 
       {/* Pages List for Selected Chapter */}
-      <div className="space-y-2 pt-2 border-t border-salud-dark-border/60">
-        <div className="flex items-center justify-between px-1 text-xs font-mono font-bold text-slate-400">
+      <div className="space-y-2 pt-2 border-t border-salud-light-border/80 dark:border-salud-dark-border/60">
+        <div className="flex items-center justify-between px-1 text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
           <span>篇章知識頁 ({pagesForCurrent.length} 頁)</span>
           <span className="text-salud-cyan font-bold">{currentChapterId} 篇</span>
         </div>
@@ -136,11 +136,11 @@ export const Sidebar: React.FC<Props> = ({
                 onClick={() => onSelectPage(p.id)}
                 className={`w-full p-2 rounded-lg text-left text-xs transition-all flex items-start gap-2 ${
                   isPageActive
-                    ? 'bg-salud-cyan/20 text-salud-cyan-300 font-bold border border-salud-cyan/40 shadow-cyan-glow'
-                    : 'text-slate-400 hover:bg-slate-800/40 hover:text-slate-200'
+                    ? 'bg-salud-cyan/20 text-salud-cyan-600 dark:text-salud-cyan-300 font-bold border border-salud-cyan/40 shadow-cyan-glow'
+                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/40 hover:text-slate-900 dark:hover:text-slate-200'
                 }`}
               >
-                <span className="font-mono text-[10px] text-slate-500 shrink-0 mt-0.5">
+                <span className="font-mono text-[10px] text-slate-400 dark:text-slate-500 shrink-0 mt-0.5">
                   {p.order_index < 10 ? `0${p.order_index}` : p.order_index}
                 </span>
                 <span className="truncate leading-tight">{p.title_zh}</span>

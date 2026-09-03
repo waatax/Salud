@@ -22,13 +22,13 @@ export const Header: React.FC<Props> = ({
   onToggleMobileSidebar,
 }) => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-salud-dark-border/80 dark:border-salud-dark-border/80 light:border-salud-light-border/80 bg-salud-dark-bg/85 dark:bg-salud-dark-bg/85 light:bg-salud-light-bg/85 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-40 w-full border-b border-salud-light-border/80 dark:border-salud-dark-border/80 bg-salud-light-bg/85 dark:bg-salud-dark-bg/85 backdrop-blur-md transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         {/* Brand & Chapter selector */}
         <div className="flex items-center gap-3">
           <button
             onClick={onToggleMobileSidebar}
-            className="p-1.5 rounded-lg border border-slate-700 text-slate-400 hover:text-white lg:hidden"
+            className="p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white lg:hidden"
             aria-label="打開選單"
           >
             <Menu className="w-5 h-5" />
@@ -42,13 +42,13 @@ export const Header: React.FC<Props> = ({
               </div>
             </div>
             <div>
-              <span className="text-base font-display font-extrabold tracking-tight text-salud-dark-text dark:text-salud-dark-text light:text-salud-light-text flex items-center gap-1.5">
+              <span className="text-base font-display font-extrabold tracking-tight text-salud-light-text dark:text-salud-dark-text flex items-center gap-1.5">
                 Salud
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-amber/20 text-salud-amber-400 border border-salud-amber/40 font-semibold">
+                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-amber/20 text-salud-amber-600 dark:text-salud-amber-400 border border-salud-amber/40 font-semibold">
                   v0.2
                 </span>
               </span>
-              <span className="text-[10px] font-mono text-slate-400 hidden sm:block">
+              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 hidden sm:block">
                 Evidence-Based Simulation & Knowledge
               </span>
             </div>
@@ -56,13 +56,13 @@ export const Header: React.FC<Props> = ({
         </div>
 
         {/* Chapter Quick Switcher Tabs */}
-        <div className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1 rounded-xl border border-slate-800 text-xs font-mono">
+        <div className="hidden md:flex items-center gap-1 bg-slate-200/70 dark:bg-slate-900/60 p-1 rounded-xl border border-slate-300/80 dark:border-slate-800 text-xs font-mono">
           <button
             onClick={() => onSelectChapter('W')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
               currentChapterId === 'W'
                 ? 'bg-salud-cyan text-black font-bold shadow-cyan-glow'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <Droplets className="w-3.5 h-3.5" />
@@ -73,7 +73,7 @@ export const Header: React.FC<Props> = ({
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
               currentChapterId === 'O'
                 ? 'bg-salud-amber text-black font-bold shadow-warm-glow'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <Flame className="w-3.5 h-3.5" />
@@ -86,20 +86,20 @@ export const Header: React.FC<Props> = ({
           {/* Emergency Guide Alert */}
           <button
             onClick={onOpenEmergencyModal}
-            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-red-500/40 bg-red-950/30 text-red-300 hover:bg-red-900/40 transition-all font-mono text-xs"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-red-500/40 bg-red-100/80 dark:bg-red-950/30 text-red-700 dark:text-red-300 hover:bg-red-200/70 dark:hover:bg-red-900/40 transition-all font-mono text-xs"
             title="醫療急症紅旗清單 (Red Flags)"
           >
-            <AlertOctagon className="w-3.5 h-3.5 text-red-400 animate-pulse" />
+            <AlertOctagon className="w-3.5 h-3.5 text-red-500 dark:text-red-400 animate-pulse" />
             <span className="hidden sm:inline">紅旗警訊</span>
           </button>
 
           {/* Expert Council Trigger */}
           <button
             onClick={onOpenCouncil}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-salud-dark-border bg-salud-dark-card/60 text-slate-300 hover:border-salud-amber/60 hover:text-salud-amber-300 transition-all font-mono text-xs"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-salud-light-border dark:border-salud-dark-border bg-salud-light-card/80 dark:bg-salud-dark-card/60 text-slate-700 dark:text-slate-300 hover:border-salud-amber/60 hover:text-salud-amber-600 dark:hover:text-salud-amber-300 transition-all font-mono text-xs"
             title="查看 22 席專家治理結構"
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-salud-amber-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-salud-amber-500 dark:text-salud-amber-400" />
             <span className="hidden lg:inline">22 席專家治理</span>
           </button>
 

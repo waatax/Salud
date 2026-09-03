@@ -11,8 +11,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        var saved = localStorage.getItem('salud-theme');
+        if (saved === 'light') {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-salud-dark-bg text-salud-dark-text antialiased selection:bg-salud-amber-500/30 selection:text-salud-amber-300 transition-colors duration-200">
+  <body class="bg-salud-light-bg text-salud-light-text dark:bg-salud-dark-bg dark:text-salud-dark-text antialiased selection:bg-salud-amber-500/30 selection:text-salud-amber-300 transition-colors duration-200">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
