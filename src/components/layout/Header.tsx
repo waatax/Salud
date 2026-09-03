@@ -49,7 +49,7 @@ export const Header: React.FC<Props> = ({
                 </span>
               </span>
               <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 hidden sm:block">
-                Evidence-Based Simulation & Knowledge
+                Evidence-Based Health Knowledge & Sim
               </span>
             </div>
           </div>
