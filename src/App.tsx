@@ -4,7 +4,7 @@ import { CHAPTER_W_PAGES } from './data/chapterW';
 import { CHAPTER_O_PAGES } from './data/chapterO';
 import { CHAPTER_A_PAGES } from './data/chapterA';
 import { LanguageProvider, useLanguage } from './i18n';
-import { HealthPillar } from './types';
+import { HealthPillar, SportsDiscipline } from './types';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
 import { ContextInspector } from './components/layout/ContextInspector';
@@ -45,8 +45,8 @@ const AppInner: React.FC = () => {
   const [viewMode, setViewMode] = useState<'landing' | 'page'>('landing');
   const [activePageId, setActivePageId] = useState<string>('PAGE-W-01');
 
-  // Exercise Sub-tab state: 'PHYSIOLOGY' | 'RUNNING' | 'MOUNTAINEERING'
-  const [exerciseSubTab, setExerciseSubTab] = useState<'PHYSIOLOGY' | 'RUNNING' | 'MOUNTAINEERING'>('PHYSIOLOGY');
+  // Exercise Sub-tab state: SportsDiscipline
+  const [exerciseSubTab, setExerciseSubTab] = useState<SportsDiscipline>('PHYSIOLOGY');
 
   // Modals state
   const [isCouncilOpen, setIsCouncilOpen] = useState<boolean>(false);
@@ -80,9 +80,18 @@ const AppInner: React.FC = () => {
         } else if (hash === 'exercise/running' || hash === 'running') {
           setActivePillar('exercise');
           setExerciseSubTab('RUNNING');
+        } else if (hash === 'exercise/cycling' || hash === 'cycling') {
+          setActivePillar('exercise');
+          setExerciseSubTab('CYCLING');
         } else if (hash === 'exercise/mountaineering' || hash === 'mountaineering' || hash === 'hiking') {
           setActivePillar('exercise');
           setExerciseSubTab('MOUNTAINEERING');
+        } else if (hash === 'exercise/strength' || hash === 'strength' || hash === 'resistance') {
+          setActivePillar('exercise');
+          setExerciseSubTab('STRENGTH_TRAINING');
+        } else if (hash === 'exercise/mobility' || hash === 'mobility' || hash === 'fascia' || hash === 'stretching') {
+          setActivePillar('exercise');
+          setExerciseSubTab('MOBILITY_FASCIA');
         } else if (hash === 'sleep') {
           setActivePillar('sleep');
         } else if (hash === 'supplements') {

@@ -17,6 +17,14 @@ export default defineConfig({
           if (id.includes('node_modules/lucide-react')) {
             return 'vendor-icons';
           }
+          if (
+            id.includes('src/data/cyclingData') ||
+            id.includes('src/data/strengthData') ||
+            id.includes('src/data/mobilityData') ||
+            id.includes('src/data/sportsScienceData')
+          ) {
+            return 'salud-sports-data';
+          }
           if (id.includes('src/data/')) {
             return 'salud-data';
           }

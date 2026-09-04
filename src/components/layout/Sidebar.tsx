@@ -161,7 +161,10 @@ export const Sidebar: React.FC<Props> = ({
             {[
               { id: 'exercise', name: language === 'zh-TW' ? '運動生理與心率' : 'Exercise Physiology', hash: 'exercise', color: 'text-cyan-400' },
               { id: 'exercise/running', name: language === 'zh-TW' ? '跑步運動科學' : 'Running Science', hash: 'exercise/running', color: 'text-amber-400' },
+              { id: 'exercise/cycling', name: language === 'zh-TW' ? '自行車功率科學' : 'Cycling Science', hash: 'exercise/cycling', color: 'text-blue-400' },
               { id: 'exercise/mountaineering', name: language === 'zh-TW' ? '登山高海拔科學' : 'Mountaineering Science', hash: 'exercise/mountaineering', color: 'text-purple-400' },
+              { id: 'exercise/strength', name: language === 'zh-TW' ? '肌肉重力訓練' : 'Strength Training', hash: 'exercise/strength', color: 'text-emerald-400' },
+              { id: 'exercise/mobility', name: language === 'zh-TW' ? '伸展柔軟度筋骨' : 'Mobility & Fascia', hash: 'exercise/mobility', color: 'text-teal-400' },
             ].map((sub) => {
               return (
                 <button

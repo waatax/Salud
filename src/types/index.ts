@@ -324,8 +324,14 @@ export interface ExerciseTopic {
   action_guidelines_en: string[];
 }
 
-// ── Specialized Sports Science (運動科學：跑步與登山) ──
-export type SportsDiscipline = 'RUNNING' | 'MOUNTAINEERING';
+// ── Specialized Sports Science (運動科學：跑步、自行車、登山、重訓、伸展柔軟度) ──
+export type SportsDiscipline =
+  | 'PHYSIOLOGY'
+  | 'RUNNING'
+  | 'CYCLING'
+  | 'MOUNTAINEERING'
+  | 'STRENGTH_TRAINING'
+  | 'MOBILITY_FASCIA';
 
 export interface RunningTopic {
   id: string;
@@ -368,6 +374,54 @@ export interface MountaineeringTopic {
   clinical_criteria_en: string[];
   survival_protocols_zh: string[];
   survival_protocols_en: string[];
+}
+
+export interface CyclingTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'CADENCE_PEDALING' | 'FTP_POWER_ZONES' | 'AERODYNAMICS_CDA' | 'BIKE_FITTING' | 'CLIMBING_NUTRITION';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  principles_zh: string[];
+  principles_en: string[];
+  biomechanical_data_zh: string[];
+  biomechanical_data_en: string[];
+  action_guidelines_zh: string[];
+  action_guidelines_en: string[];
+}
+
+export interface StrengthTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'HYPERTROPHY_MECHANISMS' | 'PROGRESSIVE_OVERLOAD' | 'MOVEMENT_PATTERNS' | 'NEURAL_ADAPTATION' | 'SARCOPENIA_MYOKINES';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  mechanisms_zh: string[];
+  mechanisms_en: string[];
+  movement_analysis_zh: string[];
+  movement_analysis_en: string[];
+  action_protocols_zh: string[];
+  action_protocols_en: string[];
+}
+
+export interface MobilityTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'NEURO_STRETCHING' | 'FASCIA_TENSEGRITY' | 'ACTIVE_MOBILITY_CARS' | 'PELVIC_POSTURE' | 'JOINT_DEGENERATION';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  neuro_mechanisms_zh: string[];
+  neuro_mechanisms_en: string[];
+  biomechanical_alignment_zh: string[];
+  biomechanical_alignment_en: string[];
+  action_routines_zh: string[];
+  action_routines_en: string[];
 }
 
 // Pillar 3: Sleep & Recovery
