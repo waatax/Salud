@@ -166,6 +166,9 @@ export const zhTW = {
 
   // Exercise & Movement
   'exercise.heading': '運動生理學：心肺 VO2 max、粒線體擴增與抗肌少症阻力處方',
+  'exercise.tab_physiology': '基礎運動生理學',
+  'exercise.tab_running': '跑步運動科學',
+  'exercise.tab_mountaineering': '登山與高海拔科學',
   'exercise.zones_title': 'Karvonen 心率五大強度區間 (Zone 1 ~ Zone 5)',
   'exercise.calc_title': '個人化心率區間與代謝當量計算機',
   'exercise.age': '年齡 (Age)',

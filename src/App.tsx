@@ -45,6 +45,9 @@ const AppInner: React.FC = () => {
   const [viewMode, setViewMode] = useState<'landing' | 'page'>('landing');
   const [activePageId, setActivePageId] = useState<string>('PAGE-W-01');
 
+  // Exercise Sub-tab state: 'PHYSIOLOGY' | 'RUNNING' | 'MOUNTAINEERING'
+  const [exerciseSubTab, setExerciseSubTab] = useState<'PHYSIOLOGY' | 'RUNNING' | 'MOUNTAINEERING'>('PHYSIOLOGY');
+
   // Modals state
   const [isCouncilOpen, setIsCouncilOpen] = useState<boolean>(false);
   const [isEmergencyOpen, setIsEmergencyOpen] = useState<boolean>(false);
@@ -71,8 +74,15 @@ const AppInner: React.FC = () => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash) {
-        if (hash === 'exercise') {
+        if (hash === 'exercise' || hash === 'exercise/physiology') {
           setActivePillar('exercise');
+          setExerciseSubTab('PHYSIOLOGY');
+        } else if (hash === 'exercise/running' || hash === 'running') {
+          setActivePillar('exercise');
+          setExerciseSubTab('RUNNING');
+        } else if (hash === 'exercise/mountaineering' || hash === 'mountaineering' || hash === 'hiking') {
+          setActivePillar('exercise');
+          setExerciseSubTab('MOUNTAINEERING');
         } else if (hash === 'sleep') {
           setActivePillar('sleep');
         } else if (hash === 'supplements') {
@@ -313,7 +323,9 @@ const AppInner: React.FC = () => {
           )}
 
           {/* 2. Exercise & Movement Pillar */}
-          {activePillar === 'exercise' && <ExerciseHub />}
+          {activePillar === 'exercise' && (
+            <ExerciseHub key={exerciseSubTab} initialSubTab={exerciseSubTab} />
+          )}
 
           {/* 3. Sleep & Recovery Pillar */}
           {activePillar === 'sleep' && <SleepHub />}

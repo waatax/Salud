@@ -324,6 +324,52 @@ export interface ExerciseTopic {
   action_guidelines_en: string[];
 }
 
+// ── Specialized Sports Science (運動科學：跑步與登山) ──
+export type SportsDiscipline = 'RUNNING' | 'MOUNTAINEERING';
+
+export interface RunningTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'BIOMECHANICS_CADENCE' | 'PACING_LACTATE' | 'RUNNING_ECONOMY' | 'NUTRITION_HYDRATION' | 'INJURY_PREVENTION';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  key_principles_zh: string[];
+  key_principles_en: string[];
+  biomechanical_data_zh: string[];
+  biomechanical_data_en: string[];
+  action_protocols_zh: string[];
+  action_protocols_en: string[];
+}
+
+export interface AltitudeProfile {
+  altitude_m: number;
+  landmark_zh: string;
+  landmark_en: string;
+  barometric_pressure_kpa: number; // e.g. 101.3 at sea level
+  effective_oxygen_pct: number; // percentage of sea-level oxygen
+  ams_risk_level: 'MINIMAL' | 'MODERATE' | 'HIGH' | 'EXTREME';
+  physiological_response_zh: string;
+  physiological_response_en: string;
+}
+
+export interface MountaineeringTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'HYPOXIA_PHYSIOLOGY' | 'AMS_HAPE_HACE' | 'PREVENTIVE_MEDS' | 'LOAD_BIOMECHANICS' | 'HYPOTHERMIA_ENERGETICS';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  pathophysiology_zh: string[];
+  pathophysiology_en: string[];
+  clinical_criteria_zh: string[];
+  clinical_criteria_en: string[];
+  survival_protocols_zh: string[];
+  survival_protocols_en: string[];
+}
+
 // Pillar 3: Sleep & Recovery
 export interface SleepStageInfo {
   stage: 'NREM_1' | 'NREM_2' | 'NREM_3_SWS' | 'REM';

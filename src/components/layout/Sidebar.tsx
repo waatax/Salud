@@ -138,22 +138,47 @@ export const Sidebar: React.FC<Props> = ({
         </div>
 
         {/* 2. Exercise & Movement Pillar */}
-        <button
-          onClick={() => onSelectPillar('exercise')}
-          className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-            activePillar === 'exercise'
-              ? 'border-salud-cyan/70 bg-cyan-950/40 text-cyan-200 font-bold shadow-cyan-glow'
-              : 'border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60'
-          }`}
-        >
-          <div className="flex items-center gap-2">
-            <Activity className={`w-4 h-4 ${activePillar === 'exercise' ? 'text-salud-cyan' : 'text-slate-400'}`} />
-            <span className="text-xs">{t('pillar.exercise')}</span>
+        <div className="space-y-1">
+          <button
+            onClick={() => onSelectPillar('exercise')}
+            className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+              activePillar === 'exercise'
+                ? 'border-salud-cyan/70 bg-cyan-950/40 text-cyan-200 font-bold shadow-cyan-glow'
+                : 'border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/60'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <Activity className={`w-4 h-4 ${activePillar === 'exercise' ? 'text-salud-cyan' : 'text-slate-400'}`} />
+              <span className="text-xs">{t('pillar.exercise')}</span>
+            </div>
+            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-900/60 text-cyan-300">
+              運動科學
+            </span>
+          </button>
+
+          {/* Sub-tree of Exercise & Sports Science */}
+          <div className="pl-4 space-y-1 border-l-2 border-slate-700/50 ml-3.5 py-1">
+            {[
+              { id: 'exercise', name: language === 'zh-TW' ? '運動生理與心率' : 'Exercise Physiology', hash: 'exercise', color: 'text-cyan-400' },
+              { id: 'exercise/running', name: language === 'zh-TW' ? '跑步運動科學' : 'Running Science', hash: 'exercise/running', color: 'text-amber-400' },
+              { id: 'exercise/mountaineering', name: language === 'zh-TW' ? '登山高海拔科學' : 'Mountaineering Science', hash: 'exercise/mountaineering', color: 'text-purple-400' },
+            ].map((sub) => {
+              return (
+                <button
+                  key={sub.id}
+                  onClick={() => {
+                    onSelectPillar('exercise');
+                    window.location.hash = sub.hash;
+                  }}
+                  className="w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                >
+                  <span className={`text-[10px] font-bold ${sub.color}`}>•</span>
+                  <span className="truncate">{sub.name}</span>
+                </button>
+              );
+            })}
           </div>
-          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-900/60 text-cyan-300">
-            VO2 max
-          </span>
-        </button>
+        </div>
 
         {/* 3. Sleep & Recovery Pillar */}
         <button

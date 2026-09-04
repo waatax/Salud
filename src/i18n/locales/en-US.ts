@@ -166,6 +166,9 @@ export const enUS: Record<string, string> = {
 
   // Exercise & Movement
   'exercise.heading': 'Exercise Physiology: VO2 max, Mitochondrial Biogenesis, and Sarcopenia Defense',
+  'exercise.tab_physiology': 'General Exercise Physiology',
+  'exercise.tab_running': 'Running Science',
+  'exercise.tab_mountaineering': 'Mountaineering & High Altitude',
   'exercise.zones_title': 'Karvonen Heart Rate Intensity Zones (Zone 1 ~ Zone 5)',
   'exercise.calc_title': 'Personalized Heart Rate Reserve & METs Calculator',
   'exercise.age': 'Age (Years)',
