@@ -324,14 +324,77 @@ export interface ExerciseTopic {
   action_guidelines_en: string[];
 }
 
-// ── Specialized Sports Science (運動科學：跑步、自行車、登山、重訓、伸展柔軟度) ──
+// ── Specialized Sports Science (運動科學：跑步、自行車、登山、重訓、伸展柔軟度、羽球、桌球、匹克球) ──
 export type SportsDiscipline =
   | 'PHYSIOLOGY'
   | 'RUNNING'
   | 'CYCLING'
   | 'MOUNTAINEERING'
   | 'STRENGTH_TRAINING'
-  | 'MOBILITY_FASCIA';
+  | 'MOBILITY_FASCIA'
+  | 'BADMINTON'
+  | 'TABLE_TENNIS'
+  | 'PICKLEBALL';
+
+export interface SportInfographicMeta {
+  id: string;
+  discipline: SportsDiscipline;
+  title_zh: string;
+  title_en: string;
+  subtitle_zh: string;
+  subtitle_en: string;
+  core_takeaways_zh: string[];
+  core_takeaways_en: string[];
+  metrics_badge: string;
+}
+
+export interface BadmintonTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'AERODYNAMICS_DECELERATION' | 'KINETIC_SMASH' | 'SPLIT_STEP_FOOTWORK' | 'TACTICAL_ZONES' | 'INJURY_PREVENTION';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  mechanisms_zh: string[];
+  mechanisms_en: string[];
+  biomechanics_zh: string[];
+  biomechanics_en: string[];
+  action_protocols_zh: string[];
+  action_protocols_en: string[];
+}
+
+export interface TableTennisTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'MAGNUS_SPIN' | 'PERCEPTION_ACTION_TIMELINE' | 'CORE_FOREARM_WHIP' | 'RUBBER_PHYSICS' | 'LUMBAR_SHOULDER_DEFENSE';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  mechanisms_zh: string[];
+  mechanisms_en: string[];
+  biomechanics_zh: string[];
+  biomechanics_en: string[];
+  action_protocols_zh: string[];
+  action_protocols_en: string[];
+}
+
+export interface PickleballTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'KITCHEN_GEOMETRY' | 'VOLLEY_REACTION' | 'PADDLE_BALL_PHYSICS' | 'LONGEVITY_PREVENTION' | 'TACTICAL_DINKING';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  mechanisms_zh: string[];
+  mechanisms_en: string[];
+  biomechanics_zh: string[];
+  biomechanics_en: string[];
+  action_protocols_zh: string[];
+  action_protocols_en: string[];
+}
 
 export interface RunningTopic {
   id: string;

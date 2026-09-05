@@ -92,6 +92,15 @@ const AppInner: React.FC = () => {
         } else if (hash === 'exercise/mobility' || hash === 'mobility' || hash === 'fascia' || hash === 'stretching') {
           setActivePillar('exercise');
           setExerciseSubTab('MOBILITY_FASCIA');
+        } else if (hash === 'exercise/badminton' || hash === 'badminton') {
+          setActivePillar('exercise');
+          setExerciseSubTab('BADMINTON');
+        } else if (hash === 'exercise/table-tennis' || hash === 'table-tennis' || hash === 'tabletennis' || hash === 'pingpong') {
+          setActivePillar('exercise');
+          setExerciseSubTab('TABLE_TENNIS');
+        } else if (hash === 'exercise/pickleball' || hash === 'pickleball') {
+          setActivePillar('exercise');
+          setExerciseSubTab('PICKLEBALL');
         } else if (hash === 'sleep') {
           setActivePillar('sleep');
         } else if (hash === 'supplements') {

@@ -4,12 +4,21 @@ import { RUNNING_TOPICS, MOUNTAINEERING_TOPICS } from '../../data/sportsScienceD
 import { CYCLING_TOPICS } from '../../data/cyclingData';
 import { STRENGTH_TOPICS } from '../../data/strengthData';
 import { MOBILITY_TOPICS } from '../../data/mobilityData';
+import { BADMINTON_TOPICS } from '../../data/badmintonData';
+import { TABLE_TENNIS_TOPICS } from '../../data/tableTennisData';
+import { PICKLEBALL_TOPICS } from '../../data/pickleballData';
 import { SimExerciseZones } from '../simulators/SimExerciseZones';
 import { SimRunningCalculator } from '../simulators/SimRunningCalculator';
 import { SimMountaineeringAltitude } from '../simulators/SimMountaineeringAltitude';
 import { SimCyclingPower } from '../simulators/SimCyclingPower';
 import { SimStrength1RM } from '../simulators/SimStrength1RM';
 import { SimMobilityScreen } from '../simulators/SimMobilityScreen';
+import { SimBadmintonSmash } from '../simulators/SimBadmintonSmash';
+import { SimTableTennisSpin } from '../simulators/SimTableTennisSpin';
+import { SimPickleballKitchen } from '../simulators/SimPickleballKitchen';
+import { BadmintonInfographics } from '../sports/BadmintonInfographics';
+import { TableTennisInfographics } from '../sports/TableTennisInfographics';
+import { PickleballInfographics } from '../sports/PickleballInfographics';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { SportsDiscipline } from '../../types';
@@ -28,7 +37,10 @@ import {
   Compass,
   Gauge,
   Flame,
-  Scale
+  Scale,
+  RotateCw,
+  Shield,
+  Target
 } from 'lucide-react';
 
 interface Props {
@@ -45,6 +57,9 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
   const [expandedMntTopic, setExpandedMntTopic] = useState<string | null>('MNT-01');
   const [expandedStrengthTopic, setExpandedStrengthTopic] = useState<string | null>('STR-01');
   const [expandedMobilityTopic, setExpandedMobilityTopic] = useState<string | null>('MOB-01');
+  const [expandedBadmintonTopic, setExpandedBadmintonTopic] = useState<string | null>('BAD-01');
+  const [expandedTableTennisTopic, setExpandedTableTennisTopic] = useState<string | null>('TT-01');
+  const [expandedPickleballTopic, setExpandedPickleballTopic] = useState<string | null>('PB-01');
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto font-sans text-xs pb-16">
@@ -52,96 +67,140 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
       <div className="p-6 sm:p-8 rounded-3xl border border-salud-cyan/40 bg-gradient-to-br from-cyan-100/70 via-salud-light-card/80 to-slate-100 dark:from-cyan-950/40 dark:via-salud-dark-card/60 dark:to-slate-950 relative overflow-hidden">
         <div className="relative space-y-3 max-w-2xl">
           <span className="px-2.5 py-1 rounded-full font-mono text-xs font-bold border border-salud-cyan/40 bg-salud-cyan/20 text-salud-cyan-700 dark:text-salud-cyan-300">
-            Health Pillar 02 · 運動與運動科學總樞紐
+            Health Pillar 02 · 運動與專項運動科學總樞紐
           </span>
           <h1 className="text-2xl sm:text-4xl font-display font-extrabold text-salud-light-text dark:text-salud-dark-text tracking-tight">
             {language === 'zh-TW' ? '運動生理學與專項運動科學' : 'Exercise Physiology & Specialized Sports Science'}
           </h1>
           <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-            運動是人體最強大的多靶點生理藥物。本支柱橫跨 6 大核心領域：基礎生理心率儲備、跑步運動力學、自行車功率科學、登山高海拔醫學、肌肉抗阻重力訓練，以及神經伸展與筋骨筋膜力學。
+            運動是人體最強大的多靶點生理藥物。本支柱橫跨 9 大核心專項：基礎生理心率、跑步、自行車、登山、重訓、伸展筋骨，以及羽毛球、乒乓球與匹克球專項力學與教學 Infor Graph。
           </p>
         </div>
       </div>
 
-      {/* ── Sub-category Switcher (6大專項運動科學欄位分頁) ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 p-1.5 rounded-2xl bg-slate-200/80 dark:bg-slate-900/80 border border-slate-300/80 dark:border-slate-800 text-xs font-mono">
-        {/* 1. Physiology */}
-        <button
-          onClick={() => setActiveTab('PHYSIOLOGY')}
-          className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
-            activeTab === 'PHYSIOLOGY'
-              ? 'bg-salud-cyan text-black font-bold shadow-cyan-glow'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <HeartPulse className="w-4 h-4 shrink-0" />
-          <span className="truncate">{language === 'zh-TW' ? '運動生理' : 'Physiology'}</span>
-        </button>
+      {/* ── Sub-category Switcher (9大專項運動科學欄位分頁) ── */}
+      <div className="space-y-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 p-1.5 rounded-2xl bg-slate-200/80 dark:bg-slate-900/80 border border-slate-300/80 dark:border-slate-800 text-xs font-mono">
+          {/* 1. Physiology */}
+          <button
+            onClick={() => setActiveTab('PHYSIOLOGY')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
+              activeTab === 'PHYSIOLOGY'
+                ? 'bg-salud-cyan text-black font-bold shadow-cyan-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <HeartPulse className="w-4 h-4 shrink-0" />
+            <span className="truncate">{language === 'zh-TW' ? '運動生理' : 'Physiology'}</span>
+          </button>
 
-        {/* 2. Running */}
-        <button
-          onClick={() => setActiveTab('RUNNING')}
-          className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
-            activeTab === 'RUNNING'
-              ? 'bg-salud-amber text-black font-bold shadow-warm-glow'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Zap className="w-4 h-4 shrink-0" />
-          <span className="truncate">{language === 'zh-TW' ? '跑步科學' : 'Running'}</span>
-        </button>
+          {/* 2. Running */}
+          <button
+            onClick={() => setActiveTab('RUNNING')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
+              activeTab === 'RUNNING'
+                ? 'bg-salud-amber text-black font-bold shadow-warm-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <Zap className="w-4 h-4 shrink-0" />
+            <span className="truncate">{language === 'zh-TW' ? '跑步科學' : 'Running'}</span>
+          </button>
 
-        {/* 3. Cycling */}
-        <button
-          onClick={() => setActiveTab('CYCLING')}
-          className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
-            activeTab === 'CYCLING'
-              ? 'bg-blue-600 text-white font-bold shadow-md'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Bike className="w-4 h-4 shrink-0" />
-          <span className="truncate">{language === 'zh-TW' ? '自行車' : 'Cycling'}</span>
-        </button>
+          {/* 3. Cycling */}
+          <button
+            onClick={() => setActiveTab('CYCLING')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
+              activeTab === 'CYCLING'
+                ? 'bg-blue-600 text-white font-bold shadow-md'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <Bike className="w-4 h-4 shrink-0" />
+            <span className="truncate">{language === 'zh-TW' ? '自行車' : 'Cycling'}</span>
+          </button>
 
-        {/* 4. Mountaineering */}
-        <button
-          onClick={() => setActiveTab('MOUNTAINEERING')}
-          className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
-            activeTab === 'MOUNTAINEERING'
-              ? 'bg-purple-600 text-white font-bold shadow-md'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Mountain className="w-4 h-4 shrink-0" />
-          <span className="truncate">{language === 'zh-TW' ? '登山科學' : 'Mountaineer'}</span>
-        </button>
+          {/* 4. Mountaineering */}
+          <button
+            onClick={() => setActiveTab('MOUNTAINEERING')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
+              activeTab === 'MOUNTAINEERING'
+                ? 'bg-purple-600 text-white font-bold shadow-md'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <Mountain className="w-4 h-4 shrink-0" />
+            <span className="truncate">{language === 'zh-TW' ? '登山科學' : 'Mountaineer'}</span>
+          </button>
 
-        {/* 5. Strength Training */}
-        <button
-          onClick={() => setActiveTab('STRENGTH_TRAINING')}
-          className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
-            activeTab === 'STRENGTH_TRAINING'
-              ? 'bg-emerald-600 text-white font-bold shadow-md'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Dumbbell className="w-4 h-4 shrink-0" />
-          <span className="truncate">{language === 'zh-TW' ? '肌肉重訓' : 'Strength'}</span>
-        </button>
+          {/* 5. Strength Training */}
+          <button
+            onClick={() => setActiveTab('STRENGTH_TRAINING')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
+              activeTab === 'STRENGTH_TRAINING'
+                ? 'bg-emerald-600 text-white font-bold shadow-md'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <Dumbbell className="w-4 h-4 shrink-0" />
+            <span className="truncate">{language === 'zh-TW' ? '肌肉重訓' : 'Strength'}</span>
+          </button>
 
-        {/* 6. Mobility & Fascia */}
-        <button
-          onClick={() => setActiveTab('MOBILITY_FASCIA')}
-          className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
-            activeTab === 'MOBILITY_FASCIA'
-              ? 'bg-teal-600 text-white font-bold shadow-md'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Scale className="w-4 h-4 shrink-0" />
-          <span className="truncate">{language === 'zh-TW' ? '伸展筋骨' : 'Mobility'}</span>
-        </button>
+          {/* 6. Mobility & Fascia */}
+          <button
+            onClick={() => setActiveTab('MOBILITY_FASCIA')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 text-center ${
+              activeTab === 'MOBILITY_FASCIA'
+                ? 'bg-teal-600 text-white font-bold shadow-md'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <Scale className="w-4 h-4 shrink-0" />
+            <span className="truncate">{language === 'zh-TW' ? '伸展筋骨' : 'Mobility'}</span>
+          </button>
+        </div>
+
+        {/* 持拍與球槳運動專區 (Racket & Paddle Sports) */}
+        <div className="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-amber-950/20 dark:bg-slate-900/90 border border-amber-500/30 text-xs font-mono">
+          {/* 7. Badminton */}
+          <button
+            onClick={() => setActiveTab('BADMINTON')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-center font-bold ${
+              activeTab === 'BADMINTON'
+                ? 'bg-amber-500 text-black shadow-warm-glow'
+                : 'text-amber-300 hover:bg-amber-500/20'
+            }`}
+          >
+            <span>🏸</span>
+            <span className="truncate">{language === 'zh-TW' ? '羽毛球 (Badminton)' : 'Badminton'}</span>
+          </button>
+
+          {/* 8. Table Tennis */}
+          <button
+            onClick={() => setActiveTab('TABLE_TENNIS')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-center font-bold ${
+              activeTab === 'TABLE_TENNIS'
+                ? 'bg-rose-500 text-white shadow-md'
+                : 'text-rose-300 hover:bg-rose-500/20'
+            }`}
+          >
+            <span>🏓</span>
+            <span className="truncate">{language === 'zh-TW' ? '乒乓球 (Table Tennis)' : 'Table Tennis'}</span>
+          </button>
+
+          {/* 9. Pickleball */}
+          <button
+            onClick={() => setActiveTab('PICKLEBALL')}
+            className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-center font-bold ${
+              activeTab === 'PICKLEBALL'
+                ? 'bg-teal-500 text-black shadow-md'
+                : 'text-teal-300 hover:bg-teal-500/20'
+            }`}
+          >
+            <span>🎾</span>
+            <span className="truncate">{language === 'zh-TW' ? '匹克球 (Pickleball)' : 'Pickleball'}</span>
+          </button>
+        </div>
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════════════════════
@@ -751,6 +810,345 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">✓</span>
                                 <span>{r}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════════════════════════════
+          TAB 7: 羽毛球運動科學 (Badminton Science)
+         ══════════════════════════════════════════════════════════════════════════════════ */}
+      {activeTab === 'BADMINTON' && (
+        <div className="space-y-8 animate-fade-in">
+          {/* Sub-module 1: Badminton Smash & Deceleration Simulator */}
+          <section className="space-y-3">
+            <SimBadmintonSmash />
+          </section>
+
+          {/* Sub-module 2: Badminton 4 Infor Graphs */}
+          <section className="space-y-3">
+            <BadmintonInfographics />
+          </section>
+
+          {/* Sub-module 3: Badminton Scientific Topics List */}
+          <section className="space-y-4">
+            <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
+              <h3 className="text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
+                <Zap className="w-4 h-4 text-amber-400" />
+                羽毛球專項運動科學五大核心支柱 (Badminton Science Pillars)
+              </h3>
+              <p className="text-xs font-mono text-slate-500">
+                16羽毛錐形流阻、殺球動力鏈 2,500°/s 肩內旋、啟動步 3.0x GRF 煞車、六大落點幾何角平分線與傷害防線
+              </p>
+            </div>
+
+            <div className="space-y-3.5">
+              {BADMINTON_TOPICS.map((topic) => {
+                const isExpanded = expandedBadmintonTopic === topic.id;
+                return (
+                  <div
+                    key={topic.id}
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-amber-500/60"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-1 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-mono text-xs font-bold text-amber-400">{topic.id}</span>
+                          <EvidenceBadge grade={topic.evidence_grade} />
+                        </div>
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                          {language === 'zh-TW' ? topic.title_zh : topic.title_en}
+                        </h4>
+                        <p className="text-xs text-amber-400 font-medium">
+                          💡 {language === 'zh-TW' ? topic.one_liner_zh : topic.one_liner_en}
+                        </p>
+                      </div>
+
+                      <button
+                        onClick={() => setExpandedBadmintonTopic(isExpanded ? null : topic.id)}
+                        className="p-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500"
+                      >
+                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </button>
+                    </div>
+
+                    {isExpanded && (
+                      <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
+                        {/* Mechanisms */}
+                        <div className="p-3.5 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-1.5">
+                          <strong className="text-amber-300 font-bold block">
+                            核心空氣動力與生理機制 (Mechanisms & Physics)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.mechanisms_zh : topic.mechanisms_en).map((m, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-amber-400 font-bold">•</span>
+                                <span>{m}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Biomechanical Data */}
+                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                          <strong className="text-cyan-300 font-bold block">
+                            生物力學與量化指標 (Biomechanical Metrics)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.biomechanics_zh : topic.biomechanics_en).map((b, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-cyan-400 font-bold">🏸</span>
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Action Protocols */}
+                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                          <strong className="text-emerald-400 font-bold block">
+                            實戰步伐與防禦守則 (Action Protocols & Guardrails)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((a, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-emerald-400 font-bold">✓</span>
+                                <span>{a}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════════════════════════════
+          TAB 8: 乒乓球運動科學 (Table Tennis Science)
+         ══════════════════════════════════════════════════════════════════════════════════ */}
+      {activeTab === 'TABLE_TENNIS' && (
+        <div className="space-y-8 animate-fade-in">
+          {/* Sub-module 1: Table Tennis Magnus Spin Simulator */}
+          <section className="space-y-3">
+            <SimTableTennisSpin />
+          </section>
+
+          {/* Sub-module 2: Table Tennis 4 Infor Graphs */}
+          <section className="space-y-3">
+            <TableTennisInfographics />
+          </section>
+
+          {/* Sub-module 3: Table Tennis Scientific Topics List */}
+          <section className="space-y-4">
+            <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
+              <h3 className="text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
+                <RotateCw className="w-4 h-4 text-rose-400" />
+                乒乓球專項運動科學五大核心支柱 (Table Tennis Science Pillars)
+              </h3>
+              <p className="text-xs font-mono text-slate-500">
+                9,000 rpm 馬格努斯旋轉流阻、2.74m &lt;0.3s 感知反應鏈、前臂快收力鏈、膠皮海綿微結構與腰肩防護
+              </p>
+            </div>
+
+            <div className="space-y-3.5">
+              {TABLE_TENNIS_TOPICS.map((topic) => {
+                const isExpanded = expandedTableTennisTopic === topic.id;
+                return (
+                  <div
+                    key={topic.id}
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-rose-500/60"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-1 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-mono text-xs font-bold text-rose-400">{topic.id}</span>
+                          <EvidenceBadge grade={topic.evidence_grade} />
+                        </div>
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                          {language === 'zh-TW' ? topic.title_zh : topic.title_en}
+                        </h4>
+                        <p className="text-xs text-rose-400 font-medium">
+                          💡 {language === 'zh-TW' ? topic.one_liner_zh : topic.one_liner_en}
+                        </p>
+                      </div>
+
+                      <button
+                        onClick={() => setExpandedTableTennisTopic(isExpanded ? null : topic.id)}
+                        className="p-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500"
+                      >
+                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </button>
+                    </div>
+
+                    {isExpanded && (
+                      <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
+                        {/* Mechanisms */}
+                        <div className="p-3.5 rounded-xl bg-rose-950/20 border border-rose-500/30 space-y-1.5">
+                          <strong className="text-rose-300 font-bold block">
+                            馬格努斯力與神經感知機制 (Mechanisms & Physics)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.mechanisms_zh : topic.mechanisms_en).map((m, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-rose-400 font-bold">•</span>
+                                <span>{m}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Biomechanical Data */}
+                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                          <strong className="text-cyan-300 font-bold block">
+                            生物力學與量化指標 (Biomechanical Metrics)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.biomechanics_zh : topic.biomechanics_en).map((b, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-cyan-400 font-bold">🏓</span>
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Action Protocols */}
+                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                          <strong className="text-emerald-400 font-bold block">
+                            實戰步法與防傷處方 (Action Protocols & Guardrails)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((a, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-emerald-400 font-bold">✓</span>
+                                <span>{a}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════════════════════════════
+          TAB 9: 匹克球運動科學 (Pickleball Science)
+         ══════════════════════════════════════════════════════════════════════════════════ */}
+      {activeTab === 'PICKLEBALL' && (
+        <div className="space-y-8 animate-fade-in">
+          {/* Sub-module 1: Pickleball Kitchen Simulator */}
+          <section className="space-y-3">
+            <SimPickleballKitchen />
+          </section>
+
+          {/* Sub-module 2: Pickleball 4 Infor Graphs */}
+          <section className="space-y-3">
+            <PickleballInfographics />
+          </section>
+
+          {/* Sub-module 3: Pickleball Scientific Topics List */}
+          <section className="space-y-4">
+            <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
+              <h3 className="text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
+                <Shield className="w-4 h-4 text-teal-400" />
+                匹克球專項運動科學五大核心支柱 (Pickleball Science Pillars)
+              </h3>
+              <p className="text-xs font-mono text-slate-500">
+                廚房區 7ft 頂點幾何、14ft 網前推壓截擊、穿孔球氣動蜂巢芯、樂齡防摔交叉步與長壽 9.7 年醫學
+              </p>
+            </div>
+
+            <div className="space-y-3.5">
+              {PICKLEBALL_TOPICS.map((topic) => {
+                const isExpanded = expandedPickleballTopic === topic.id;
+                return (
+                  <div
+                    key={topic.id}
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-teal-500/60"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-1 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-mono text-xs font-bold text-teal-400">{topic.id}</span>
+                          <EvidenceBadge grade={topic.evidence_grade} />
+                        </div>
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                          {language === 'zh-TW' ? topic.title_zh : topic.title_en}
+                        </h4>
+                        <p className="text-xs text-teal-400 font-medium">
+                          💡 {language === 'zh-TW' ? topic.one_liner_zh : topic.one_liner_en}
+                        </p>
+                      </div>
+
+                      <button
+                        onClick={() => setExpandedPickleballTopic(isExpanded ? null : topic.id)}
+                        className="p-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500"
+                      >
+                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </button>
+                    </div>
+
+                    {isExpanded && (
+                      <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
+                        {/* Mechanisms */}
+                        <div className="p-3.5 rounded-xl bg-teal-950/20 border border-teal-500/30 space-y-1.5">
+                          <strong className="text-teal-300 font-bold block">
+                            廚房幾何與生物力學機制 (Mechanisms & Physics)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.mechanisms_zh : topic.mechanisms_en).map((m, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-teal-400 font-bold">•</span>
+                                <span>{m}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Biomechanical Data */}
+                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                          <strong className="text-cyan-300 font-bold block">
+                            生物力學與量化指標 (Biomechanical Metrics)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.biomechanics_zh : topic.biomechanics_en).map((b, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-cyan-400 font-bold">🎾</span>
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Action Protocols */}
+                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                          <strong className="text-emerald-400 font-bold block">
+                            第三板戰術與防摔守則 (Action Protocols & Safety Rules)：
+                          </strong>
+                          <ul className="space-y-1 text-slate-300">
+                            {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((a, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-emerald-400 font-bold">✓</span>
+                                <span>{a}</span>
                               </li>
                             ))}
                           </ul>
