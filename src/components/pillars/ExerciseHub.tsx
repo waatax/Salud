@@ -64,7 +64,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
   return (
     <div className="space-y-8 max-w-4xl mx-auto font-sans text-xs pb-16">
       {/* Hero Header */}
-      <div className="p-6 sm:p-8 rounded-3xl border border-salud-cyan/40 bg-gradient-to-br from-cyan-100/70 via-salud-light-card/80 to-slate-100 dark:from-cyan-950/40 dark:via-salud-dark-card/60 dark:to-slate-950 relative overflow-hidden">
+      <div className="p-6 sm:p-8 rounded-3xl border border-nature-sky-200/90 dark:border-nature-sky-800/40 bg-gradient-to-br from-nature-sky-100/70 via-white to-nature-green-50/50 dark:from-nature-sky-950/40 dark:via-salud-dark-card/60 dark:to-slate-950 shadow-sm relative overflow-hidden">
         <div className="relative space-y-3 max-w-2xl">
           <span className="px-2.5 py-1 rounded-full font-mono text-xs font-bold border border-salud-cyan/40 bg-salud-cyan/20 text-salud-cyan-700 dark:text-salud-cyan-300">
             Health Pillar 02 · 運動與專項運動科學總樞紐
@@ -161,14 +161,14 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
         </div>
 
         {/* 持拍與球槳運動專區 (Racket & Paddle Sports) */}
-        <div className="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-amber-950/20 dark:bg-slate-900/90 border border-amber-500/30 text-xs font-mono">
+        <div className="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-xs font-mono">
           {/* 7. Badminton */}
           <button
             onClick={() => setActiveTab('BADMINTON')}
             className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-center font-bold ${
               activeTab === 'BADMINTON'
-                ? 'bg-amber-500 text-black shadow-warm-glow'
-                : 'text-amber-300 hover:bg-amber-500/20'
+                ? 'bg-nature-amber-500 text-white dark:text-black shadow-warm-glow'
+                : 'text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800'
             }`}
           >
             <span>🏸</span>
@@ -181,7 +181,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
             className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-center font-bold ${
               activeTab === 'TABLE_TENNIS'
                 ? 'bg-rose-500 text-white shadow-md'
-                : 'text-rose-300 hover:bg-rose-500/20'
+                : 'text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800'
             }`}
           >
             <span>🏓</span>
@@ -193,8 +193,8 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
             onClick={() => setActiveTab('PICKLEBALL')}
             className={`py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-center font-bold ${
               activeTab === 'PICKLEBALL'
-                ? 'bg-teal-500 text-black shadow-md'
-                : 'text-teal-300 hover:bg-teal-500/20'
+                ? 'bg-teal-600 text-white shadow-md'
+                : 'text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800'
             }`}
           >
             <span>🎾</span>
@@ -231,7 +231,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-salud-cyan/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-salud-cyan/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -242,7 +242,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                           {language === 'zh-TW' ? topic.title_zh : topic.title_en}
                         </h4>
-                        <p className="text-xs text-salud-cyan font-medium">
+                        <p className="text-xs text-nature-sky-700 dark:text-nature-sky-400 font-medium">
                           💡 {language === 'zh-TW' ? topic.one_liner_zh : topic.one_liner_en}
                         </p>
                       </div>
@@ -257,11 +257,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
 
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
-                          <strong className="text-salud-cyan font-bold block">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
+                          <strong className="text-nature-sky-800 dark:text-nature-sky-300 font-bold block">
                             核心生理機制 (Physiological Mechanisms)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.key_mechanisms_zh : topic.key_mechanisms_en).map((m, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-salud-cyan font-bold">•</span>
@@ -271,11 +271,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                           </ul>
                         </div>
 
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
-                          <strong className="text-salud-amber font-bold block">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
+                          <strong className="text-nature-amber-800 dark:text-nature-amber-300 font-bold block">
                             行動處方指引 (Action Guidelines)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_guidelines_zh : topic.action_guidelines_en).map((a, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-salud-amber font-bold">✓</span>
@@ -320,7 +320,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-salud-amber/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-salud-amber/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -346,11 +346,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
 
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
-                        <div className="p-3.5 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-1.5">
-                          <strong className="text-salud-amber font-bold block">
+                        <div className="p-3.5 rounded-xl bg-nature-amber-50/90 dark:bg-nature-amber-950/30 border border-nature-amber-200 dark:border-nature-amber-800/60 space-y-1.5">
+                          <strong className="text-nature-amber-800 dark:text-nature-amber-300 font-bold block">
                             核心生理與生物力學原理 (Biomechanical Principles)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.key_principles_zh : topic.key_principles_en).map((p, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-salud-amber font-bold">•</span>
@@ -360,11 +360,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                           </ul>
                         </div>
 
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
-                          <strong className="text-salud-cyan font-bold block">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
+                          <strong className="text-nature-sky-800 dark:text-nature-sky-300 font-bold block">
                             量化力學與耐力生理數據 (Quantitative Metrics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.biomechanical_data_zh : topic.biomechanical_data_en).map((d, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-salud-cyan font-bold">📊</span>
@@ -374,11 +374,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                           </ul>
                         </div>
 
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
                           <strong className="text-emerald-400 font-bold block">
                             實戰課表與防傷守則 (Protocols & Guardrails)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((a, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">✓</span>
@@ -425,7 +425,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-blue-500/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-blue-500/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -452,11 +452,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
                         {/* Principles */}
-                        <div className="p-3.5 rounded-xl bg-blue-950/20 border border-blue-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-blue-50/90 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/60 space-y-1.5">
                           <strong className="text-blue-300 font-bold block">
                             核心力學與代謝生理原理 (Principles & Energetics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.principles_zh : topic.principles_en).map((p, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-blue-400 font-bold">•</span>
@@ -467,11 +467,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Biomechanical Data */}
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
                           <strong className="text-cyan-300 font-bold block">
                             量化設定與工程力學數據 (Quantitative Metrics & Angles)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.biomechanical_data_zh : topic.biomechanical_data_en).map((d, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-cyan-400 font-bold">⚙</span>
@@ -482,11 +482,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Action Guidelines */}
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
                           <strong className="text-emerald-400 font-bold block">
                             實戰操作與防禦指引 (Action Guidelines)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_guidelines_zh : topic.action_guidelines_en).map((a, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">✓</span>
@@ -531,7 +531,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-purple-500/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-purple-500/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -557,11 +557,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
 
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
-                        <div className="p-3.5 rounded-xl bg-purple-950/20 border border-purple-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-purple-50/90 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/60 space-y-1.5">
                           <strong className="text-purple-300 font-bold block">
                             病理生理機轉 (Pathophysiological Mechanisms)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.pathophysiology_zh : topic.pathophysiology_en).map((p, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-purple-400 font-bold">•</span>
@@ -571,11 +571,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                           </ul>
                         </div>
 
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
                           <strong className="text-cyan-300 font-bold block">
                             臨床診斷指標與力學數據 (Clinical Criteria & Metrics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? (topic.clinical_criteria_zh || (topic as any).biomechanical_data_zh || []) : (topic.clinical_criteria_en || (topic as any).biomechanical_data_en || [])).map((c: string, i: number) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-cyan-400 font-bold">🩺</span>
@@ -585,11 +585,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                           </ul>
                         </div>
 
-                        <div className="p-3.5 rounded-xl bg-red-950/20 border border-red-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-red-50/90 dark:bg-red-950/30 border border-red-200 dark:border-red-800/60 space-y-1.5">
                           <strong className="text-red-300 font-bold block">
                             高山生存守則與緊急處置 (Survival & Action Protocols)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? (topic.survival_protocols_zh || (topic as any).action_protocols_zh || []) : (topic.survival_protocols_en || (topic as any).action_protocols_en || [])).map((s: string, i: number) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-red-400 font-bold">⚠</span>
@@ -636,7 +636,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-emerald-500/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-emerald-500/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -663,11 +663,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
                         {/* Mechanisms */}
-                        <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-green-50/90 dark:bg-nature-green-950/30 border border-nature-green-200 dark:border-nature-green-800/60 space-y-1.5">
                           <strong className="text-emerald-300 font-bold block">
                             肌肥大與神經生理機轉 (Molecular & Neuromuscular Mechanisms)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.mechanisms_zh : topic.mechanisms_en).map((m, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">•</span>
@@ -678,11 +678,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Movement Analysis */}
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
                           <strong className="text-cyan-300 font-bold block">
                             動作力學解剖與肌電整合 (Kinematics & EMG Analysis)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.movement_analysis_zh : topic.movement_analysis_en).map((a, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-cyan-400 font-bold">🏋️</span>
@@ -693,11 +693,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Action Protocols */}
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
                           <strong className="text-amber-400 font-bold block">
                             週期化課表與實戰處方 (Action Protocols & Periodization)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((p, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-amber-400 font-bold">✓</span>
@@ -744,7 +744,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-teal-500/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-teal-500/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -771,11 +771,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
                         {/* Neuro Mechanisms */}
-                        <div className="p-3.5 rounded-xl bg-teal-950/20 border border-teal-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-teal-50/90 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800/60 space-y-1.5">
                           <strong className="text-teal-300 font-bold block">
                             神經肌肉反射與筋膜整合機制 (Neurological & Biotensegrity Mechanisms)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.neuro_mechanisms_zh : topic.neuro_mechanisms_en).map((m, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-teal-400 font-bold">•</span>
@@ -786,11 +786,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Biomechanical Alignment */}
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
                           <strong className="text-cyan-300 font-bold block">
                             關節力線對齊與防傷力學 (Biomechanical Joint Alignment)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.biomechanical_alignment_zh : topic.biomechanical_alignment_en).map((b, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-cyan-400 font-bold">📐</span>
@@ -801,11 +801,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Action Routines */}
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
                           <strong className="text-emerald-400 font-bold block">
                             每日活動度與神經矯正日常 (Action Routines & Corrective Drills)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_routines_zh : topic.action_routines_en).map((r, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">✓</span>
@@ -857,7 +857,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-amber-500/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-amber-500/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -884,11 +884,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
                         {/* Mechanisms */}
-                        <div className="p-3.5 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-amber-50/90 dark:bg-nature-amber-950/30 border border-nature-amber-200 dark:border-nature-amber-800/60 space-y-1.5">
                           <strong className="text-amber-300 font-bold block">
                             核心空氣動力與生理機制 (Mechanisms & Physics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.mechanisms_zh : topic.mechanisms_en).map((m, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-amber-400 font-bold">•</span>
@@ -899,11 +899,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Biomechanical Data */}
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
                           <strong className="text-cyan-300 font-bold block">
                             生物力學與量化指標 (Biomechanical Metrics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.biomechanics_zh : topic.biomechanics_en).map((b, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-cyan-400 font-bold">🏸</span>
@@ -914,11 +914,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Action Protocols */}
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
                           <strong className="text-emerald-400 font-bold block">
                             實戰步伐與防禦守則 (Action Protocols & Guardrails)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((a, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">✓</span>
@@ -970,7 +970,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-rose-500/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-rose-500/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -997,11 +997,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
                         {/* Mechanisms */}
-                        <div className="p-3.5 rounded-xl bg-rose-950/20 border border-rose-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-rose-50/90 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/60 space-y-1.5">
                           <strong className="text-rose-300 font-bold block">
                             馬格努斯力與神經感知機制 (Mechanisms & Physics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.mechanisms_zh : topic.mechanisms_en).map((m, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-rose-400 font-bold">•</span>
@@ -1012,11 +1012,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Biomechanical Data */}
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
                           <strong className="text-cyan-300 font-bold block">
                             生物力學與量化指標 (Biomechanical Metrics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.biomechanics_zh : topic.biomechanics_en).map((b, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-cyan-400 font-bold">🏓</span>
@@ -1027,11 +1027,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Action Protocols */}
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
                           <strong className="text-emerald-400 font-bold block">
                             實戰步法與防傷處方 (Action Protocols & Guardrails)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((a, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">✓</span>
@@ -1083,7 +1083,7 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                 return (
                   <div
                     key={topic.id}
-                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 space-y-3 transition-all hover:border-teal-500/60"
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all hover:border-teal-500/60"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="space-y-1 flex-1">
@@ -1110,11 +1110,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                     {isExpanded && (
                       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
                         {/* Mechanisms */}
-                        <div className="p-3.5 rounded-xl bg-teal-950/20 border border-teal-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-teal-50/90 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800/60 space-y-1.5">
                           <strong className="text-teal-300 font-bold block">
                             廚房幾何與生物力學機制 (Mechanisms & Physics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.mechanisms_zh : topic.mechanisms_en).map((m, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-teal-400 font-bold">•</span>
@@ -1125,11 +1125,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Biomechanical Data */}
-                        <div className="p-3.5 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200 dark:border-nature-sky-800/60 space-y-1.5">
                           <strong className="text-cyan-300 font-bold block">
                             生物力學與量化指標 (Biomechanical Metrics)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.biomechanics_zh : topic.biomechanics_en).map((b, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-cyan-400 font-bold">🎾</span>
@@ -1140,11 +1140,11 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
                         </div>
 
                         {/* Action Protocols */}
-                        <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 space-y-1.5">
                           <strong className="text-emerald-400 font-bold block">
                             第三板戰術與防摔守則 (Action Protocols & Safety Rules)：
                           </strong>
-                          <ul className="space-y-1 text-slate-300">
+                          <ul className="space-y-1 text-slate-700 dark:text-slate-300">
                             {(language === 'zh-TW' ? topic.action_protocols_zh : topic.action_protocols_en).map((a, i) => (
                               <li key={i} className="flex items-start gap-1.5">
                                 <span className="text-emerald-400 font-bold">✓</span>

@@ -3,37 +3,67 @@
 @tailwind utilities;
 
 @layer base {
+  /* Dynamic font scaling root */
+  html {
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  html[data-font-size="standard"] {
+    font-size: 16px;
+  }
+
+  html[data-font-size="comfort"] {
+    font-size: 18px;
+  }
+
+  html[data-font-size="large"] {
+    font-size: 20px;
+  }
+
   :root {
-    /* Light Mode: Warm Alabaster & Medical Slate */
-    --bg: #FAF8F5;
+    /* Light Mode: Warm Alabaster & Restful Nature Slate */
+    --bg: #FAF9F6;
     --surface: #FFFFFF;
-    --card: #F4EFEA;
-    --border: #E2D9CF;
+    --card: #F5F2EB;
+    --border: #E5DFD7;
     --border-hover: #CBD5E1;
-    --text: #0F172A;
+    --text: #1E293B;
     --muted: #64748B;
-    --accent: #D97706; /* Warm Amber */
-    --accent-glow: rgba(217, 119, 6, 0.2);
-    --info: #0891B2;   /* Medical Cyan */
+    --accent: #D97706; /* Warm Sunlight Amber */
+    --accent-glow: rgba(217, 119, 6, 0.15);
+    --info: #0284C7;   /* Sky Blue */
     --warning: #EA580C;
     --danger: #DC2626;
 
+    /* Nature Palette Tokens */
+    --nature-sky: #0284C7;
+    --nature-sky-bg: #F0F9FF;
+    --nature-sky-border: #BAE6FD;
+    --nature-green: #16A34A;
+    --nature-green-bg: #F0FDF4;
+    --nature-green-border: #BBF7D0;
+    --nature-amber: #D97706;
+    --nature-amber-bg: #FFFBEB;
+    --nature-amber-border: #FDE68A;
+
     /* Spec §4.4.2 Figure Tokens */
-    --fig-ink: #0F172A;
+    --fig-ink: #1E293B;
     --fig-ink-weak: #64748B;
     --fig-surface: #FFFFFF;
-    --fig-border: #E2D9CF;
+    --fig-border: #E5DFD7;
     --fig-series-1: #D97706;
-    --fig-series-2: #0891B2;
+    --fig-series-2: #0284C7;
     --fig-series-3: #EA580C;
     --fig-series-4: #7A6FA8;
-    --fig-series-5: #059669;
+    --fig-series-5: #16A34A;
     --fig-alert: #DC2626;
-    --fig-highlight: rgba(217, 119, 6, 0.12);
+    --fig-highlight: rgba(217, 119, 6, 0.10);
   }
 
   .dark {
-    /* Dark Mode: Deep Cosmic Obsidian with Warm Amber & Bioluminescent Cyan */
+    /* Dark Mode: Deep Cosmic Obsidian & Bioluminescent Accents */
     --bg: #090D16;
     --surface: #111827;
     --card: #151F32;
@@ -42,10 +72,21 @@
     --text: #F8FAFC;
     --muted: #94A3B8;
     --accent: #F59E0B; /* Golden Amber */
-    --accent-glow: rgba(245, 158, 11, 0.25);
-    --info: #06B6D4;   /* Bioluminescent Cyan */
+    --accent-glow: rgba(245, 158, 11, 0.22);
+    --info: #38BDF8;   /* Sky Blue */
     --warning: #FB923C;
     --danger: #EF4444;
+
+    /* Nature Palette Tokens in Dark Mode */
+    --nature-sky: #38BDF8;
+    --nature-sky-bg: rgba(14, 165, 233, 0.12);
+    --nature-sky-border: rgba(56, 189, 248, 0.3);
+    --nature-green: #34D399;
+    --nature-green-bg: rgba(16, 185, 129, 0.12);
+    --nature-green-border: rgba(52, 211, 153, 0.3);
+    --nature-amber: #FBBF24;
+    --nature-amber-bg: rgba(245, 158, 11, 0.12);
+    --nature-amber-border: rgba(251, 191, 36, 0.3);
 
     /* Spec §4.4.2 Figure Tokens in Dark Mode */
     --fig-ink: #F8FAFC;
@@ -53,18 +94,21 @@
     --fig-surface: #151F32;
     --fig-border: #1E293B;
     --fig-series-1: #F59E0B;
-    --fig-series-2: #06B6D4;
+    --fig-series-2: #38BDF8;
     --fig-series-3: #FB923C;
     --fig-series-4: #A78BFA;
-    --fig-series-5: #10B981;
+    --fig-series-5: #34D399;
     --fig-alert: #EF4444;
-    --fig-highlight: rgba(245, 158, 11, 0.18);
+    --fig-highlight: rgba(245, 158, 11, 0.15);
   }
 
   body {
     background-color: var(--bg);
     color: var(--text);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   /* Numeric alignment for scientific tables and metrics */
@@ -73,33 +117,41 @@
   }
 }
 
-/* Futuristic warm glow & glassmorphic utilities */
+/* Tactile button micro-interaction */
+.btn-tactile {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-tactile:active {
+  transform: scale(0.97);
+}
+
+/* Warm glow & glassmorphic utilities */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.75);
+  background: rgba(17, 24, 39, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
 }
 
 .light .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
 }
 
-/* Subtle futuristic tech grid background */
+/* Subtle tech grid background */
 .bg-tech-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(245, 158, 11, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(245, 158, 11, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
 }
 
 .light .bg-tech-grid {
   background-image: 
-    linear-gradient(to right, rgba(217, 119, 6, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(8, 145, 178, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(217, 119, 6, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(2, 132, 199, 0.03) 1px, transparent 1px);
 }
 
 /* Custom sleek scrollbar */
@@ -111,11 +163,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.25);
+  background: rgba(148, 163, 184, 0.3);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 158, 11, 0.4);
+  background: rgba(2, 132, 199, 0.5);
 }
 
 /* Accessibility & Print (Spec §10.3) */

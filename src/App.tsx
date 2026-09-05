@@ -21,6 +21,9 @@ import { AuditCModal } from './components/common/AuditCModal';
 import { CardiometabolicHubModal } from './components/hub/CardiometabolicHubModal';
 import { Modal } from './components/common/Modal';
 import { KnowledgeGraph } from './components/knowledge/KnowledgeGraph';
+import { FontSizeProvider } from './context/FontSizeContext';
+import { ReadingProgressBar } from './components/common/ReadingProgressBar';
+import { FloatingReadingDock } from './components/common/FloatingReadingDock';
 
 const AppInner: React.FC = () => {
   const { t, language } = useLanguage();
@@ -201,6 +204,9 @@ const AppInner: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-salud-light-bg dark:bg-salud-dark-bg text-salud-light-text dark:text-salud-dark-text bg-tech-grid transition-colors">
+      {/* ── Top Reading Progress Bar ── */}
+      <ReadingProgressBar />
+
       {/* ── Top Header with 4 Pillars Switcher ── */}
       <Header
         activePillar={activePillar}
@@ -411,6 +417,12 @@ const AppInner: React.FC = () => {
           onSelectPage={handleSelectPage}
         />
       </Modal>
+
+      {/* ── Floating Reading Dock (Back to top, Font size, Theme) ── */}
+      <FloatingReadingDock
+        isDark={isDark}
+        onToggleTheme={() => setIsDark(!isDark)}
+      />
     </div>
   );
 };
@@ -418,7 +430,9 @@ const AppInner: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <LanguageProvider>
-      <AppInner />
+      <FontSizeProvider>
+        <AppInner />
+      </FontSizeProvider>
     </LanguageProvider>
   );
 };

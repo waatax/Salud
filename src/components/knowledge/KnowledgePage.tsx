@@ -22,14 +22,12 @@ import {
   ChevronDown,
   ChevronUp,
   Clock,
-  ShieldCheck,
   MapPin,
-  ListOrdered,
   AlertTriangle,
   ArrowRight,
+  ArrowLeft,
   BookOpen,
   Sparkles,
-  ExternalLink,
   ShieldAlert,
 } from 'lucide-react';
 
@@ -40,7 +38,6 @@ interface Props {
 
 export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
   const { t, language } = useLanguage();
-  // Spec §3.5: L1 (Skim <=60s) / L2 (Understand 3-5 min, default) / L3 (Deep Dive 8-15 min)
   const [depth, setDepth] = useState<DepthLevel>('L2');
   const [expandedKPs, setExpandedKPs] = useState<Record<string, boolean>>({});
 
@@ -60,35 +57,41 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
     if (figId === 'FIG-A-03-01') return <T3Molecular />;
     if (figId === 'FIG-A-06-03') return <T5ScaleSpectrum />;
     if (figId === 'FIG-A-08-01') return <T6ComparisonBar />;
-    // Fallback
     return <T6ComparisonBar />;
   };
 
   const isAlcoholPage12 = page.id === 'PAGE-A-12';
 
+  // Navigation calculation
+  const prefix = `PAGE-${page.chapter_id}`;
+  const currentIndex = page.order_index;
+  const maxPages = page.chapter_id === 'W' ? 10 : page.chapter_id === 'O' ? 11 : 12;
+  const prevPageId = currentIndex > 1 ? `${prefix}-${String(currentIndex - 1).padStart(2, '0')}` : null;
+  const nextPageId = currentIndex < maxPages ? `${prefix}-${String(currentIndex + 1).padStart(2, '0')}` : null;
+
   return (
-    <article className="space-y-8 font-sans text-xs pb-16 max-w-4xl mx-auto">
-      {/* ── Page Header & Depth Switcher (Spec §3.5) ── */}
-      <header className="space-y-4 border-b border-salud-light-border/80 dark:border-salud-dark-border/80 pb-6">
+    <article className="space-y-8 font-sans text-xs pb-16 max-w-4xl mx-auto transition-colors">
+      {/* ── Page Header & Depth Switcher ── */}
+      <header className="space-y-4 border-b border-slate-200 dark:border-slate-800 pb-6">
         <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-2">
-            <span className="text-salud-amber-600 dark:text-salud-amber font-bold">{page.id}</span>
+            <span className="text-nature-amber-700 dark:text-salud-amber font-bold">{page.id}</span>
             <span>·</span>
             <span>{t('page.page_order', page.order_index)}</span>
             <span>·</span>
             <span className="flex items-center gap-1 text-slate-700 dark:text-slate-300">
-              <Clock className="w-3 h-3" /> {t('page.estimated_time', page.estimated_minutes)}
+              <Clock className="w-3 h-3 text-nature-sky-600 dark:text-nature-sky-400" /> {t('page.estimated_time', page.estimated_minutes)}
             </span>
           </div>
 
-          {/* Depth Switcher L1 / L2 / L3 (Spec §3.5) */}
-          <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-200/80 dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800">
+          {/* Depth Switcher L1 / L2 / L3 */}
+          <div className="flex items-center gap-1 p-1 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
             <button
               onClick={() => setDepth('L1')}
-              className={`px-3 py-1 rounded-lg transition-all ${
+              className={`btn-tactile px-3 py-1 rounded-xl transition-all ${
                 depth === 'L1'
-                  ? 'bg-salud-cyan text-black font-bold shadow-cyan-glow'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-nature-sky-500 text-white font-bold shadow-cyan-glow'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
               title={t('page.depth_l1_tooltip')}
             >
@@ -96,10 +99,10 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
             </button>
             <button
               onClick={() => setDepth('L2')}
-              className={`px-3 py-1 rounded-lg transition-all ${
+              className={`btn-tactile px-3 py-1 rounded-xl transition-all ${
                 depth === 'L2'
-                  ? 'bg-salud-amber text-black font-bold shadow-warm-glow'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-nature-amber-500 text-white font-bold shadow-warm-glow'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
               title={t('page.depth_l2_tooltip')}
             >
@@ -107,10 +110,10 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
             </button>
             <button
               onClick={() => setDepth('L3')}
-              className={`px-3 py-1 rounded-lg transition-all ${
+              className={`btn-tactile px-3 py-1 rounded-xl transition-all ${
                 depth === 'L3'
-                  ? 'bg-purple-600 dark:bg-purple-500 text-white font-bold shadow-md'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-purple-600 text-white font-bold shadow-md'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
               title={t('page.depth_l3_tooltip')}
             >
@@ -119,42 +122,42 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </div>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-display font-extrabold text-salud-light-text dark:text-salud-dark-text tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-salud-dark-text tracking-tight">
           {language === 'zh-TW' ? page.title_zh : page.title_en}
         </h1>
-        <div className="text-sm font-mono text-salud-light-muted dark:text-salud-dark-muted">
+        <div className="text-sm font-mono text-slate-500 dark:text-slate-400">
           {language === 'zh-TW' ? page.title_en : page.title_zh}
         </div>
       </header>
 
-      {/* ── MANDATORY Harm Reduction Banner on PAGE-A-12 (Spec §8.0 #7) ── */}
+      {/* ── MANDATORY Harm Reduction Banner on PAGE-A-12 ── */}
       {isAlcoholPage12 && (
-        <div className="p-4 sm:p-5 rounded-2xl border-2 border-red-500 bg-red-950/40 text-red-200 space-y-2 shadow-lg">
-          <div className="flex items-center gap-2 font-display font-extrabold text-sm sm:text-base text-red-400">
-            <ShieldAlert className="w-5 h-5 text-red-400 shrink-0 animate-pulse" />
+        <div className="p-4 sm:p-5 rounded-2xl border-2 border-red-300 dark:border-red-500 bg-red-50 dark:bg-red-950/40 text-red-900 dark:text-red-200 space-y-2 shadow-sm">
+          <div className="flex items-center gap-2 font-display font-extrabold text-sm sm:text-base text-red-700 dark:text-red-400">
+            <ShieldAlert className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 animate-pulse" />
             <span>{t('page.harm_reduction_title')}</span>
           </div>
-          <p className="text-xs sm:text-sm text-red-100 leading-relaxed font-medium">
+          <p className="text-xs sm:text-sm text-red-800 dark:text-red-100 leading-relaxed font-medium">
             {t('page.harm_reduction_banner')}
           </p>
         </div>
       )}
 
-      {/* ── 00 Hook (Spec §3.4) ── */}
-      <section className="p-4 sm:p-5 rounded-2xl border border-salud-amber-500/30 bg-gradient-to-r from-salud-amber-500/10 via-salud-light-card/60 dark:via-salud-dark-card/40 to-transparent">
-        <div className="font-mono text-[11px] text-salud-amber-600 dark:text-salud-amber font-bold mb-1 uppercase tracking-wider">
+      {/* ── 00 Hook ── */}
+      <section className="p-5 rounded-2xl border border-nature-amber-200/90 dark:border-nature-amber-500/30 bg-nature-amber-50/70 dark:bg-nature-amber-950/20 shadow-sm">
+        <div className="font-mono text-[11px] text-nature-amber-800 dark:text-nature-amber-400 font-bold mb-1.5 uppercase tracking-wider">
           {t('page.sec_00_hook')}
         </div>
-        <p className="text-sm sm:text-base font-medium text-salud-light-text dark:text-salud-dark-text leading-relaxed">
+        <p className="text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
           {page.hook}
         </p>
       </section>
 
-      {/* ── 01 Atomic Knowledge Points (Spec §3.4) ── */}
+      {/* ── 01 Atomic Knowledge Points ── */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
-          <h3 className="text-sm sm:text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
-            <BookOpen className="w-4 h-4 text-salud-cyan" />
+        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+          <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <BookOpen className="w-4 h-4 text-nature-sky-600 dark:text-nature-sky-400" />
             {t('page.sec_01_kps')}
           </h3>
           <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
@@ -162,68 +165,68 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </span>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {page.kps.map((kp) => {
             const isExpanded = expandedKPs[kp.id] !== undefined ? expandedKPs[kp.id] : depth !== 'L1';
 
             return (
               <div
                 key={kp.id}
-                className="p-4 rounded-2xl border border-salud-light-border dark:border-salud-dark-border bg-salud-light-card/90 dark:bg-salud-dark-card/80 transition-all hover:border-slate-300 dark:hover:border-slate-700 space-y-3"
+                className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 shadow-sm transition-all hover:border-nature-sky-300 dark:hover:border-nature-sky-700 space-y-3"
               >
                 {/* KP Header */}
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 space-y-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-salud-amber-600 dark:text-salud-amber">
+                      <span className="font-mono text-xs font-bold text-nature-amber-700 dark:text-nature-amber-400">
                         {kp.id}
                       </span>
-                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 uppercase">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 uppercase font-semibold border border-slate-200 dark:border-slate-700">
                         {kp.kp_type}
                       </span>
                       <EvidenceBadge grade={kp.evidence_grade} />
                     </div>
-                    <h4 className="text-sm sm:text-base font-bold text-salud-light-text dark:text-salud-dark-text pt-0.5">
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white pt-0.5">
                       {kp.title}
                     </h4>
                   </div>
 
                   <button
                     onClick={() => toggleKP(kp.id)}
-                    className="p-1.5 rounded-lg border border-salud-light-border dark:border-salud-dark-border hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500"
-                    aria-label="Toggle details"
+                    className="btn-tactile p-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400"
+                    aria-label="展開或收合詳細內容"
                   >
                     {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </button>
                 </div>
 
-                {/* Core One-Liner (Always visible) */}
-                <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 text-xs font-medium text-salud-light-text dark:text-slate-200 leading-relaxed">
+                {/* Core One-Liner (Nature Sky Tint in light mode) */}
+                <div className="p-3 rounded-xl bg-nature-sky-50/90 dark:bg-nature-sky-950/30 border border-nature-sky-200/90 dark:border-nature-sky-800/60 text-xs font-medium text-nature-sky-950 dark:text-nature-sky-200 leading-relaxed font-sans">
                   💡 {kp.one_liner}
                 </div>
 
                 {/* Progressive Disclosure (L2 / L3 details) */}
                 {isExpanded && (
-                  <div className="space-y-3 pt-1 border-t border-salud-light-border/40 dark:border-salud-dark-border/40 text-xs text-slate-700 dark:text-slate-300">
+                  <div className="space-y-3 pt-1 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300">
                     <p className="leading-relaxed">
                       {kp.statement}
                     </p>
 
-                    <div className="p-3 rounded-xl bg-salud-cyan-950/20 dark:bg-salud-cyan-950/20 border border-salud-cyan/30 text-xs space-y-1">
-                      <strong className="text-salud-cyan font-bold block">
+                    <div className="p-3.5 rounded-xl bg-nature-green-50/90 dark:bg-nature-green-950/20 border border-nature-green-200 dark:border-nature-green-800/60 text-xs space-y-1">
+                      <strong className="text-nature-green-800 dark:text-nature-green-300 font-bold block">
                         Why It Matters 為什麼這很重要：
                       </strong>
-                      <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                      <p className="text-slate-800 dark:text-slate-200 leading-relaxed">
                         {kp.why_it_matters}
                       </p>
                     </div>
 
                     {kp.common_misconception && (
-                      <div className="p-3 rounded-xl bg-salud-coral/10 border border-salud-coral/30 text-xs space-y-1">
-                        <strong className="text-salud-coral font-bold block">
+                      <div className="p-3.5 rounded-xl bg-amber-50/90 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/60 text-xs space-y-1">
+                        <strong className="text-amber-800 dark:text-amber-300 font-bold block">
                           常見誤解澄清：
                         </strong>
-                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <p className="text-slate-800 dark:text-slate-200 leading-relaxed">
                           {kp.common_misconception}
                         </p>
                       </div>
@@ -237,7 +240,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                       {kp.excludes && kp.excludes.length > 0 && (
                         <>
                           <span>·</span>
-                          <span className="text-salud-coral font-medium">排除：{kp.excludes.join(', ')}</span>
+                          <span className="text-red-600 dark:text-red-400 font-medium">排除：{kp.excludes.join(', ')}</span>
                         </>
                       )}
                     </div>
@@ -249,12 +252,12 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         </div>
       </section>
 
-      {/* ── 02–04 Figures (Spec §3.4: T1-T10 Standard Figures) ── */}
+      {/* ── 02–04 Figures ── */}
       {page.figure_ids && page.figure_ids.length > 0 && (
         <section className="space-y-4">
-          <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
-            <h3 className="text-sm sm:text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-salud-amber" />
+          <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+            <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-nature-amber-600 dark:text-nature-amber-400" />
               {t('page.sec_02_figs')}
             </h3>
           </div>
@@ -276,9 +279,9 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── Interactive Simulators for Chapter W, O, and A ── */}
       <section className="space-y-3">
-        <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
-          <h3 className="text-sm sm:text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-salud-cyan" />
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+          <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-nature-sky-600 dark:text-nature-sky-400" />
             {page.chapter_id === 'A'
               ? t('page.sim_banner_alcohol')
               : page.chapter_id === 'O'
@@ -305,8 +308,8 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       </section>
 
       {/* ── 05 Taiwan Context ── */}
-      <section className="p-4 sm:p-5 rounded-2xl border border-salud-light-border dark:border-salud-dark-border bg-slate-100/90 dark:bg-slate-900/60 space-y-3">
-        <div className="flex items-center gap-2 text-salud-amber-600 dark:text-salud-amber-400 font-display font-bold text-sm sm:text-base">
+      <section className="p-5 rounded-2xl border border-nature-amber-200/90 dark:border-slate-800 bg-nature-amber-50/50 dark:bg-slate-900/60 space-y-3 shadow-sm">
+        <div className="flex items-center gap-2 text-nature-amber-800 dark:text-nature-amber-400 font-display font-bold text-sm sm:text-base">
           <MapPin className="w-4 h-4" />
           {t('page.sec_05_tw')}：{page.taiwan_context.title}
         </div>
@@ -316,7 +319,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         <ul className="space-y-1.5 pl-2">
           {page.taiwan_context.points.map((pt, i) => (
             <li key={i} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
-              <span className="text-salud-amber-600 dark:text-salud-amber font-bold">•</span>
+              <span className="text-nature-amber-600 dark:text-salud-amber font-bold">•</span>
               <span>{pt}</span>
             </li>
           ))}
@@ -326,9 +329,9 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       {/* ── 06 Myths Arena ── */}
       {page.myths && page.myths.length > 0 && (
         <section className="space-y-3">
-          <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
-            <h3 className="text-sm sm:text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4 text-salud-amber" />
+          <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+            <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4 text-nature-amber-600 dark:text-nature-amber-400" />
               {t('page.sec_06_myths')}
             </h3>
           </div>
@@ -342,37 +345,37 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── 07 Do This (Action Tier 1 / Tier 2 / Tier 3) ── */}
       <section className="space-y-3">
-        <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
-          <h3 className="text-sm sm:text-base font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
-            <ArrowRight className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+          <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <ArrowRight className="w-4 h-4 text-nature-green-600 dark:text-nature-green-400" />
             {t('page.sec_07_dothis')}
           </h3>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div className="p-3.5 rounded-xl border border-emerald-500/40 bg-emerald-100/70 dark:bg-emerald-950/20 space-y-1.5">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-bold block">
+          <div className="p-4 rounded-2xl border border-nature-green-200 dark:border-emerald-800/60 bg-nature-green-50/90 dark:bg-emerald-950/20 space-y-1.5 shadow-sm">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-nature-green-800 dark:text-nature-green-400 font-bold block">
               {t('page.tier1_title')}
             </span>
-            <p className="text-xs text-emerald-950 dark:text-emerald-100/90 leading-relaxed font-medium">
+            <p className="text-xs text-nature-green-950 dark:text-emerald-100 leading-relaxed font-medium">
               {page.do_this.tier1}
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl border border-salud-cyan/40 bg-cyan-100/70 dark:bg-salud-cyan-950/20 space-y-1.5">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-800 dark:text-salud-cyan-400 font-bold block">
+          <div className="p-4 rounded-2xl border border-nature-sky-200 dark:border-sky-800/60 bg-nature-sky-50/90 dark:bg-sky-950/20 space-y-1.5 shadow-sm">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-nature-sky-800 dark:text-nature-sky-400 font-bold block">
               {t('page.tier2_title')}
             </span>
-            <p className="text-xs text-cyan-950 dark:text-cyan-100/90 leading-relaxed font-medium">
+            <p className="text-xs text-nature-sky-950 dark:text-sky-100 leading-relaxed font-medium">
               {page.do_this.tier2}
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl border border-salud-amber/40 bg-amber-100/70 dark:bg-salud-amber-950/20 space-y-1.5">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-amber-800 dark:text-salud-amber-400 font-bold block">
+          <div className="p-4 rounded-2xl border border-nature-amber-200 dark:border-amber-800/60 bg-nature-amber-50/90 dark:bg-amber-950/20 space-y-1.5 shadow-sm">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-nature-amber-800 dark:text-nature-amber-400 font-bold block">
               {t('page.tier3_title')}
             </span>
-            <p className="text-xs text-amber-950 dark:text-amber-100/90 leading-relaxed font-medium">
+            <p className="text-xs text-nature-amber-950 dark:text-amber-100 leading-relaxed font-medium">
               {page.do_this.tier3}
             </p>
           </div>
@@ -381,7 +384,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── 08 Not For You ── */}
       {page.not_for_you && page.not_for_you.length > 0 && (
-        <section className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/90 dark:bg-slate-900/60 space-y-2">
+        <section className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 space-y-2">
           <h4 className="font-bold text-xs font-mono text-slate-700 dark:text-slate-300 uppercase tracking-wider">
             {t('page.sec_08_notyou')}
           </h4>
@@ -389,7 +392,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
             {page.not_for_you.map((item, i) => (
               <span
                 key={i}
-                className="px-2.5 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-xs border border-slate-300 dark:border-slate-700"
+                className="px-2.5 py-1 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-xs border border-slate-200 dark:border-slate-700 shadow-sm"
               >
                 ⊘ {item}
               </span>
@@ -410,11 +413,50 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         <SelfCheckQuiz items={page.quiz_items} pageTitle={language === 'zh-TW' ? page.title_zh : page.title_en} />
       </section>
 
+      {/* ── Previous & Next Page Navigation Cards ── */}
+      <nav aria-label="前後頁導航" className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+        {prevPageId ? (
+          <button
+            onClick={() => onNavigatePage(prevPageId)}
+            className="btn-tactile p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-sky-400 dark:hover:border-nature-sky-600 text-left transition-all shadow-sm hover:shadow-md flex items-center gap-3 group"
+          >
+            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-nature-sky-600 dark:group-hover:text-nature-sky-400 transition-colors">
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+            </div>
+            <div>
+              <span className="text-[10px] font-mono text-slate-400 block uppercase">上一篇 · Previous</span>
+              <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 font-mono">
+                {prevPageId}
+              </strong>
+            </div>
+          </button>
+        ) : (
+          <div />
+        )}
+
+        {nextPageId && (
+          <button
+            onClick={() => onNavigatePage(nextPageId)}
+            className="btn-tactile p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-amber-400 dark:hover:border-nature-amber-600 text-right transition-all shadow-sm hover:shadow-md flex items-center justify-end gap-3 group"
+          >
+            <div>
+              <span className="text-[10px] font-mono text-slate-400 block uppercase">下一篇 · Next</span>
+              <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 font-mono">
+                {nextPageId}
+              </strong>
+            </div>
+            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-nature-amber-600 dark:group-hover:text-nature-amber-400 transition-colors">
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+          </button>
+        )}
+      </nav>
+
       {/* ── 11 Evidence Freshness & Governance Footer ── */}
-      <footer className="p-4 sm:p-5 rounded-2xl border border-salud-light-border dark:border-salud-dark-border bg-salud-light-card/60 dark:bg-salud-dark-card/30 space-y-3 font-mono text-[11px] text-slate-600 dark:text-slate-400">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-salud-light-border/60 dark:border-salud-dark-border/40 pb-2">
+      <footer className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 space-y-3 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
           <span className="font-bold text-slate-800 dark:text-slate-300">{t('page.sec_11_gov')}</span>
-          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+          <span className="text-nature-green-700 dark:text-nature-green-400 font-semibold">
             {t('page.freshness')}：{page.evidence_freshness}
           </span>
         </div>
@@ -430,11 +472,11 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </div>
           <div>
             <span className="text-slate-500 block">{t('page.reviewed_by')}：</span>
-            <span className="text-salud-amber-600 dark:text-salud-amber-400 font-bold">{page.reviewed_by.join(', ')}</span>
+            <span className="text-nature-amber-700 dark:text-nature-amber-400 font-bold">{page.reviewed_by.join(', ')}</span>
           </div>
         </div>
 
-        <div className="pt-2 border-t border-salud-light-border/60 dark:border-salud-dark-border/40 text-[10px] text-slate-500 leading-relaxed">
+        <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-[10px] text-slate-500 leading-relaxed">
           {t('page.disclaimer')}
         </div>
       </footer>

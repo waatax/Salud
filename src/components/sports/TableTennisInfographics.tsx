@@ -49,7 +49,7 @@ export const TableTennisInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Spin Selector Tabs */}
-          <div className="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono font-bold">
+          <div className="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono font-bold">
             {[
               { id: 'TOPSPIN', labelZh: '上旋 (Topspin)', labelEn: 'Topspin' },
               { id: 'BACKSPIN', labelZh: '下旋 (Backspin)', labelEn: 'Backspin' },
@@ -61,7 +61,7 @@ export const TableTennisInfographics: React.FC = () => {
                 className={`py-1.5 rounded-lg transition-all text-center ${
                   activeSpin === s.id
                     ? 'bg-rose-600 text-white shadow'
-                    : 'text-slate-400 hover:text-white'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 {language === 'zh-TW' ? s.labelZh : s.labelEn}
@@ -70,7 +70,7 @@ export const TableTennisInfographics: React.FC = () => {
           </div>
 
           {/* SVG Diagram for Selected Spin */}
-          <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
             <div className="h-44 w-full">
               <svg viewBox="0 0 360 170" className="w-full h-full">
                 {/* Table Line */}
@@ -156,7 +156,7 @@ export const TableTennisInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Speed vs Flight Time Calculator */}
-          <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3">
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-3">
             <div className="flex justify-between items-center text-xs font-mono">
               <span className="text-slate-400">來球時速 (Incoming Ball Speed)：</span>
               <strong className="text-cyan-400 text-sm">{incomingSpeedKmh} km/h</strong>
@@ -222,7 +222,7 @@ export const TableTennisInfographics: React.FC = () => {
             {language === 'zh-TW' ? TABLE_TENNIS_INFOGRAPHICS[2].subtitle_zh : TABLE_TENNIS_INFOGRAPHICS[2].subtitle_en}
           </p>
 
-          <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2.5 text-xs">
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-2.5 text-xs">
             <div className="flex items-center justify-between p-2 rounded-lg bg-slate-900 border border-slate-800">
               <span className="font-bold text-white">1. 右腳蹬地重心前移 (Ground Push)</span>
               <span className="font-mono text-amber-400">力源起點</span>
@@ -235,7 +235,7 @@ export const TableTennisInfographics: React.FC = () => {
               <span className="font-bold text-white">3. 大臂引導並於身前制動 (Braking)</span>
               <span className="font-mono text-amber-400">能量傳遞</span>
             </div>
-            <div className="flex items-center justify-between p-2 rounded-lg bg-amber-950/40 border border-amber-500/50">
+            <div className="flex items-center justify-between p-2 rounded-lg bg-nature-amber-50 dark:bg-amber-950/40 border border-nature-amber-200 dark:border-amber-500/50 text-slate-800 dark:text-amber-200">
               <span className="font-bold text-amber-300">4. 前臂極速快收與旋前 (Forearm Snap)</span>
               <span className="font-mono text-amber-400 font-bold">切線摩擦 &gt;75%</span>
             </div>
@@ -270,7 +270,7 @@ export const TableTennisInfographics: React.FC = () => {
           </p>
 
           <div className="grid grid-cols-3 gap-2 text-xs">
-            <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col justify-between">
+            <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
               <div>
                 <strong className="text-rose-400 block font-bold mb-1">黏性膠皮 (Tacky)</strong>
                 <p className="text-[11px] text-slate-400">高分子樹脂微黏，摩擦力超強，高出球角，二跳強烈下沉。</p>
@@ -278,7 +278,7 @@ export const TableTennisInfographics: React.FC = () => {
               <span className="text-[10px] font-mono text-slate-500 mt-2">狂飆 3 代表</span>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col justify-between">
+            <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
               <div>
                 <strong className="text-blue-400 block font-bold mb-1">澀性外套 (Tensor)</strong>
                 <p className="text-[11px] text-slate-400">大氣孔蛋糕海綿，高彈性張力，出球時速極快，低平出球角。</p>
@@ -286,7 +286,7 @@ export const TableTennisInfographics: React.FC = () => {
               <span className="text-[10px] font-mono text-slate-500 mt-2">蝴蝶 Tenergy 代表</span>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col justify-between">
+            <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
               <div>
                 <strong className="text-amber-400 block font-bold mb-1">長膠顆粒 (Pips)</strong>
                 <p className="text-[11px] text-slate-400">細長顆粒撞擊傾倒彎折，不吃旋轉，反向借力將上旋變下旋。</p>

@@ -23,7 +23,6 @@ export const SimDietPatterns: React.FC = () => {
     DIETARY_PATTERNS.find((p) => p.id === selectedPatternId) || DIETARY_PATTERNS[0];
 
   // Macronutrient Grams Calculation
-  // Carbs: 4 kcal/g, Protein: 4 kcal/g, Fat: 9 kcal/g
   const carbCalories = (dailyCalories * currentPattern.macro_distribution.carbs_pct) / 100;
   const proteinCalories = (dailyCalories * currentPattern.macro_distribution.protein_pct) / 100;
   const fatCalories = (dailyCalories * currentPattern.macro_distribution.fat_pct) / 100;
@@ -33,15 +32,15 @@ export const SimDietPatterns: React.FC = () => {
   const fatGrams = Math.round(fatCalories / 9);
 
   return (
-    <div className="p-5 sm:p-7 rounded-3xl border border-salud-amber/40 bg-slate-900/85 shadow-2xl space-y-6 text-slate-100 font-sans">
+    <div className="p-5 sm:p-7 rounded-3xl border border-nature-amber-200/90 dark:border-nature-amber-700/50 bg-white dark:bg-slate-900/85 shadow-lg space-y-6 text-slate-800 dark:text-slate-100 font-sans transition-colors">
       {/* Title */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
         <div>
-          <h3 className="text-lg sm:text-xl font-display font-extrabold text-white flex items-center gap-2">
-            <Utensils className="w-5 h-5 text-salud-amber" />
+          <h3 className="text-lg sm:text-xl font-display font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <Utensils className="w-5 h-5 text-nature-amber-600 dark:text-salud-amber" />
             {t('diet.patterns_heading')}
           </h3>
-          <p className="text-xs text-slate-400 font-mono mt-0.5">
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
             Biochemical Mechanism, Macronutrient Distribution & Micronutrient Safeguards
           </p>
         </div>
@@ -56,10 +55,10 @@ export const SimDietPatterns: React.FC = () => {
             <button
               key={pattern.id}
               onClick={() => setSelectedPatternId(pattern.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 ${
+              className={`btn-tactile px-3.5 py-2 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 ${
                 isSelected
-                  ? 'bg-salud-amber text-black font-bold shadow-warm-glow scale-102'
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700/60'
+                  ? 'bg-nature-amber-500 text-white dark:text-black font-bold shadow-warm-glow scale-102'
+                  : 'bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/60'
               }`}
             >
               <span>{language === 'zh-TW' ? pattern.name_zh.split(' ')[0] : pattern.name_en}</span>
@@ -69,25 +68,25 @@ export const SimDietPatterns: React.FC = () => {
       </div>
 
       {/* Hero Overview Card */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3">
+      <div className="p-4 sm:p-5 rounded-2xl bg-nature-amber-50/70 dark:bg-slate-950/80 border border-nature-amber-200/80 dark:border-slate-800 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h4 className="text-base sm:text-lg font-display font-bold text-white">
+          <h4 className="text-base sm:text-lg font-display font-bold text-slate-900 dark:text-white">
             {language === 'zh-TW' ? currentPattern.name_zh : currentPattern.name_en}
           </h4>
-          <span className="text-xs font-mono text-salud-cyan">
+          <span className="text-xs font-mono font-bold text-nature-sky-700 dark:text-nature-sky-400">
             {language === 'zh-TW' ? currentPattern.tagline_zh : currentPattern.tagline_en}
           </span>
         </div>
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+        <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
           {language === 'zh-TW' ? currentPattern.description_zh : currentPattern.description_en}
         </p>
       </div>
 
       {/* Calorie & Macro Distribution Sandbox */}
-      <div className="space-y-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/60">
+      <div className="space-y-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60">
         <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-          <label className="text-slate-300 font-bold flex items-center gap-1.5">
-            <Flame className="w-4 h-4 text-salud-amber" />
+          <label className="text-slate-800 dark:text-slate-300 font-bold flex items-center gap-1.5">
+            <Flame className="w-4 h-4 text-nature-amber-600 dark:text-salud-amber" />
             個人化每日目標總熱量 (Daily Energy Target):
           </label>
           <div className="flex items-center gap-2">
@@ -98,15 +97,15 @@ export const SimDietPatterns: React.FC = () => {
               step="50"
               value={dailyCalories}
               onChange={(e) => setDailyCalories(Number(e.target.value))}
-              className="accent-salud-amber cursor-pointer w-32 sm:w-44"
+              className="accent-nature-amber-500 cursor-pointer w-32 sm:w-44"
             />
-            <strong className="text-sm font-mono text-salud-amber">{dailyCalories} kcal</strong>
+            <strong className="text-sm font-mono text-nature-amber-700 dark:text-salud-amber">{dailyCalories} kcal</strong>
           </div>
         </div>
 
         {/* Quick Calorie Presets */}
         <div className="flex flex-wrap items-center gap-1.5 pt-1">
-          <span className="text-[11px] text-slate-400 font-mono">
+          <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
             {language === 'zh-TW' ? '熱量情境預設：' : 'Caloric Presets:'}
           </span>
           {[
@@ -117,10 +116,10 @@ export const SimDietPatterns: React.FC = () => {
             <button
               key={preset.cal}
               onClick={() => setDailyCalories(preset.cal)}
-              className={`px-2.5 py-1 rounded-lg text-[10px] font-mono border transition-all ${
+              className={`btn-tactile px-2.5 py-1 rounded-lg text-[10px] font-mono border transition-all ${
                 dailyCalories === preset.cal
-                  ? 'bg-salud-amber text-black font-bold border-salud-amber shadow-warm-glow'
-                  : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
+                  ? 'bg-nature-amber-500 text-white font-bold border-nature-amber-600 shadow-sm'
+                  : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               {language === 'zh-TW' ? preset.label_zh : preset.label_en}
@@ -130,15 +129,15 @@ export const SimDietPatterns: React.FC = () => {
 
         {/* Visual Macro Ratio Bar */}
         <div className="space-y-1.5 font-mono text-xs">
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[11px] text-slate-500 dark:text-slate-400">
             <span>{t('diet.macro_ratio')}</span>
             <span>碳水 : 蛋白 : 脂肪</span>
           </div>
 
-          <div className="h-6 w-full rounded-xl overflow-hidden flex shadow-inner bg-slate-950 border border-slate-700">
+          <div className="h-6 w-full rounded-xl overflow-hidden flex shadow-inner bg-slate-200 dark:bg-slate-950 border border-slate-300 dark:border-slate-700">
             <div
               style={{ width: `${currentPattern.macro_distribution.carbs_pct}%` }}
-              className="bg-cyan-500 flex items-center justify-center text-[11px] font-bold text-black transition-all"
+              className="bg-nature-sky-500 flex items-center justify-center text-[11px] font-bold text-white transition-all"
               title={`碳水化合物 ${currentPattern.macro_distribution.carbs_pct}%`}
             >
               {currentPattern.macro_distribution.carbs_pct > 8 && `${currentPattern.macro_distribution.carbs_pct}%`}
@@ -152,7 +151,7 @@ export const SimDietPatterns: React.FC = () => {
             </div>
             <div
               style={{ width: `${currentPattern.macro_distribution.fat_pct}%` }}
-              className="bg-amber-500 flex items-center justify-center text-[11px] font-bold text-black transition-all"
+              className="bg-nature-amber-500 flex items-center justify-center text-[11px] font-bold text-white transition-all"
               title={`脂肪 ${currentPattern.macro_distribution.fat_pct}%`}
             >
               {currentPattern.macro_distribution.fat_pct > 8 && `${currentPattern.macro_distribution.fat_pct}%`}
@@ -161,20 +160,20 @@ export const SimDietPatterns: React.FC = () => {
 
           {/* Daily Gram Breakdown */}
           <div className="grid grid-cols-3 gap-2 pt-2 text-center text-xs">
-            <div className="p-2 rounded-xl bg-cyan-950/50 border border-cyan-800/60 text-cyan-200">
-              <span className="text-[10px] text-cyan-400 block">碳水化合物 (4 kcal/g)</span>
+            <div className="p-2.5 rounded-xl bg-nature-sky-50 dark:bg-nature-sky-950/50 border border-nature-sky-200 dark:border-nature-sky-800/60 text-nature-sky-900 dark:text-nature-sky-200">
+              <span className="text-[10px] text-nature-sky-700 dark:text-nature-sky-400 block font-bold">碳水化合物 (4 kcal/g)</span>
               <strong className="text-base font-bold">{carbGrams} g</strong>
-              <span className="text-[10px] text-slate-400 block">({carbCalories} kcal)</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 block">({carbCalories} kcal)</span>
             </div>
-            <div className="p-2 rounded-xl bg-purple-950/50 border border-purple-800/60 text-purple-200">
-              <span className="text-[10px] text-purple-400 block">優質蛋白質 (4 kcal/g)</span>
+            <div className="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 text-purple-900 dark:text-purple-200">
+              <span className="text-[10px] text-purple-700 dark:text-purple-400 block font-bold">優質蛋白質 (4 kcal/g)</span>
               <strong className="text-base font-bold">{proteinGrams} g</strong>
-              <span className="text-[10px] text-slate-400 block">({proteinCalories} kcal)</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 block">({proteinCalories} kcal)</span>
             </div>
-            <div className="p-2 rounded-xl bg-amber-950/50 border border-amber-800/60 text-amber-200">
-              <span className="text-[10px] text-amber-400 block">健康脂質 (9 kcal/g)</span>
+            <div className="p-2.5 rounded-xl bg-nature-amber-50 dark:bg-nature-amber-950/50 border border-nature-amber-200 dark:border-nature-amber-800/60 text-nature-amber-900 dark:text-nature-amber-200">
+              <span className="text-[10px] text-nature-amber-700 dark:text-nature-amber-400 block font-bold">健康脂質 (9 kcal/g)</span>
               <strong className="text-base font-bold">{fatGrams} g</strong>
-              <span className="text-[10px] text-slate-400 block">({fatCalories} kcal)</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 block">({fatCalories} kcal)</span>
             </div>
           </div>
         </div>
@@ -183,15 +182,15 @@ export const SimDietPatterns: React.FC = () => {
       {/* Detailed Mechanism & Principles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
         {/* Core Principles */}
-        <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-          <strong className="text-salud-amber font-bold text-xs flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-salud-amber" />
+        <div className="p-4 rounded-2xl bg-white dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-2">
+          <strong className="text-nature-amber-700 dark:text-salud-amber font-bold text-xs flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-nature-amber-600 dark:text-salud-amber" />
             {t('diet.principles_title')}
           </strong>
-          <ul className="space-y-1.5 text-slate-300">
+          <ul className="space-y-1.5 text-slate-700 dark:text-slate-300">
             {(language === 'zh-TW' ? currentPattern.core_principles_zh : currentPattern.core_principles_en).map((pt, i) => (
               <li key={i} className="flex items-start gap-1.5">
-                <span className="text-salud-amber font-bold">•</span>
+                <span className="text-nature-amber-600 dark:text-salud-amber font-bold">•</span>
                 <span>{pt}</span>
               </li>
             ))}
@@ -199,15 +198,15 @@ export const SimDietPatterns: React.FC = () => {
         </div>
 
         {/* Biochemical Mechanisms */}
-        <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2">
-          <strong className="text-salud-cyan font-bold text-xs flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-salud-cyan" />
+        <div className="p-4 rounded-2xl bg-white dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-2">
+          <strong className="text-nature-sky-700 dark:text-salud-cyan font-bold text-xs flex items-center gap-1.5">
+            <Sparkles className="w-4 h-4 text-nature-sky-600 dark:text-salud-cyan" />
             {t('diet.mechanisms_title')}
           </strong>
-          <ul className="space-y-1.5 text-slate-300">
+          <ul className="space-y-1.5 text-slate-700 dark:text-slate-300">
             {(language === 'zh-TW' ? currentPattern.biochemical_mechanisms_zh : currentPattern.biochemical_mechanisms_en).map((pt, i) => (
               <li key={i} className="flex items-start gap-1.5">
-                <span className="text-salud-cyan font-bold">•</span>
+                <span className="text-nature-sky-600 dark:text-salud-cyan font-bold">•</span>
                 <span>{pt}</span>
               </li>
             ))}
@@ -218,15 +217,15 @@ export const SimDietPatterns: React.FC = () => {
       {/* Proven Benefits & Precautions */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
         {/* Proven Benefits */}
-        <div className="p-4 rounded-2xl bg-emerald-950/20 border border-emerald-600/40 space-y-2">
-          <strong className="text-emerald-400 font-bold text-xs flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+        <div className="p-4 rounded-2xl bg-nature-green-50/80 dark:bg-emerald-950/20 border border-nature-green-200 dark:border-emerald-600/40 space-y-2">
+          <strong className="text-nature-green-700 dark:text-emerald-400 font-bold text-xs flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-nature-green-600 dark:text-emerald-400" />
             {t('diet.benefits_title')}
           </strong>
-          <ul className="space-y-1.5 text-slate-300">
+          <ul className="space-y-1.5 text-slate-700 dark:text-slate-300">
             {(language === 'zh-TW' ? currentPattern.proven_benefits_zh : currentPattern.proven_benefits_en).map((b, i) => (
               <li key={i} className="flex items-start gap-1.5">
-                <span className="text-emerald-400 font-bold">✓</span>
+                <span className="text-nature-green-600 dark:text-emerald-400 font-bold">✓</span>
                 <span>{b}</span>
               </li>
             ))}
@@ -234,15 +233,15 @@ export const SimDietPatterns: React.FC = () => {
         </div>
 
         {/* Precautions */}
-        <div className="p-4 rounded-2xl bg-amber-950/20 border border-amber-600/40 space-y-2">
-          <strong className="text-amber-400 font-bold text-xs flex items-center gap-1.5">
-            <AlertTriangle className="w-4 h-4 text-amber-400" />
+        <div className="p-4 rounded-2xl bg-nature-amber-50/80 dark:bg-amber-950/20 border border-nature-amber-200 dark:border-amber-600/40 space-y-2">
+          <strong className="text-nature-amber-700 dark:text-amber-400 font-bold text-xs flex items-center gap-1.5">
+            <AlertTriangle className="w-4 h-4 text-nature-amber-600 dark:text-amber-400" />
             {t('diet.precautions_title')}
           </strong>
-          <ul className="space-y-1.5 text-slate-300">
+          <ul className="space-y-1.5 text-slate-700 dark:text-slate-300">
             {(language === 'zh-TW' ? currentPattern.precautions_and_risks_zh : currentPattern.precautions_and_risks_en).map((p, i) => (
               <li key={i} className="flex items-start gap-1.5">
-                <span className="text-amber-400 font-bold">⚠</span>
+                <span className="text-nature-amber-600 dark:text-amber-400 font-bold">⚠</span>
                 <span>{p}</span>
               </li>
             ))}
@@ -252,26 +251,26 @@ export const SimDietPatterns: React.FC = () => {
 
       {/* Critical Nutrient Deficiencies Alert */}
       {currentPattern.deficiency_risks.length > 0 && (
-        <div className="p-4 rounded-2xl border border-red-500/60 bg-red-950/30 space-y-3 text-xs">
-          <div className="flex items-center gap-2 font-display font-bold text-sm text-red-300">
-            <ShieldAlert className="w-5 h-5 text-red-400" />
+        <div className="p-4 rounded-2xl border border-red-200 dark:border-red-500/60 bg-red-50/80 dark:bg-red-950/30 space-y-3 text-xs">
+          <div className="flex items-center gap-2 font-display font-bold text-sm text-red-700 dark:text-red-300">
+            <ShieldAlert className="w-5 h-5 text-red-500" />
             <span>{t('diet.deficiency_alert')}</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {currentPattern.deficiency_risks.map((item, i) => (
-              <div key={i} className="p-3 rounded-xl bg-slate-900 border border-red-800/60 space-y-1">
+              <div key={i} className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-red-200 dark:border-red-800/60 space-y-1">
                 <div className="flex items-center justify-between">
-                  <strong className="text-red-200 font-bold">
+                  <strong className="text-red-900 dark:text-red-200 font-bold">
                     {language === 'zh-TW' ? item.nutrient_zh : item.nutrient_en}
                   </strong>
                   <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded font-bold ${
-                    item.risk_level === 'HIGH' ? 'bg-red-900 text-red-200 border border-red-700' : 'bg-amber-900 text-amber-200'
+                    item.risk_level === 'HIGH' ? 'bg-red-100 text-red-800 border border-red-300 dark:bg-red-900 dark:text-red-200' : 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200'
                   }`}>
                     {item.risk_level} RISK
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-300 leading-relaxed font-sans">
+                <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
                   💡 {language === 'zh-TW' ? item.solution_zh : item.solution_en}
                 </p>
               </div>

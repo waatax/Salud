@@ -59,12 +59,12 @@ export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) =>
         {/* Tab 1: 722 Protocol */}
         {activeTab === 'bp722' && (
           <div className="space-y-4">
-            <div className="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/40 space-y-2">
-              <div className="flex items-center gap-2 font-display font-bold text-sm text-cyan-400">
-                <Heart className="w-5 h-5" />
+            <div className="p-4 rounded-2xl bg-nature-sky-50 dark:bg-cyan-950/20 border border-nature-sky-200 dark:border-cyan-500/40 space-y-2 shadow-sm">
+              <div className="flex items-center gap-2 font-display font-bold text-sm text-nature-sky-800 dark:text-cyan-400">
+                <Heart className="w-5 h-5 text-nature-sky-600 dark:text-cyan-400" />
                 <span>台灣心臟學會 (TSOC) 推薦：722 居家血壓量測金標準</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed font-sans">
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
                 診間量測常伴隨「白袍高血壓（診間緊張飆高）」或「隱匿性高血壓」。722 居家自量能最忠實反映血管真實阻力與硬化程度。
               </p>
             </div>
@@ -102,7 +102,7 @@ export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) =>
         {/* Tab 2: MetSyn Criteria */}
         {activeTab === 'metsyn' && (
           <div className="space-y-4">
-            <div className="p-3 rounded-xl bg-amber-950/20 border border-amber-500/40 text-xs text-amber-200">
+            <div className="p-3 rounded-xl bg-nature-amber-50 dark:bg-amber-950/20 border border-nature-amber-200 dark:border-amber-500/40 text-xs text-nature-amber-900 dark:text-amber-200 shadow-sm">
               台灣國健署標準：下列 5 項指標中，符合 <strong>3 項或以上</strong> 即判定為代謝症候群。
             </div>
 
@@ -127,12 +127,12 @@ export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) =>
         {/* Tab 3: PREVENT Equation */}
         {activeTab === 'prevent' && (
           <div className="space-y-4">
-            <div className="p-4 rounded-2xl bg-purple-950/20 border border-purple-500/40 space-y-2">
-              <div className="flex items-center gap-2 font-display font-bold text-sm text-purple-300">
-                <Activity className="w-5 h-5" />
+            <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-500/40 space-y-2 shadow-sm">
+              <div className="flex items-center gap-2 font-display font-bold text-sm text-purple-800 dark:text-purple-300">
+                <Activity className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                 <span>AHA PREVENT 方程（2023 最新版本化心血管風險評估）</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed font-sans">
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
                 取代傳統 PCE 方程，整合「心血管—腎臟—代謝（CKM）」綜合徵候群，納入估算腎絲球過濾率（eGFR）、尿蛋白，並將評估年齡下修至 30 歲。
               </p>
             </div>

@@ -64,7 +64,7 @@ export const BadmintonInfographics: React.FC = () => {
           </p>
 
           {/* SVG Graph: Speed vs Distance */}
-          <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80">
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800/80">
             <div className="h-44 w-full">
               <svg viewBox="0 0 400 180" className="w-full h-full">
                 {/* Grid lines */}
@@ -173,8 +173,8 @@ export const BadmintonInfographics: React.FC = () => {
                 onClick={() => setActiveKineticPhase(idx)}
                 className={`p-2.5 rounded-xl border cursor-pointer transition-all flex items-center justify-between text-xs ${
                   activeKineticPhase === idx
-                    ? 'bg-amber-950/40 border-salud-amber text-white shadow'
-                    : 'bg-slate-950/50 border-slate-800/80 text-slate-400 hover:border-slate-700'
+                    ? 'bg-nature-amber-500 text-white font-bold border-nature-amber-600 shadow-sm shadow'
+                    : 'bg-white dark:bg-slate-950/50 border-slate-200 dark:border-slate-800/80 text-slate-600 dark:text-slate-400 hover:border-slate-400'
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -191,7 +191,7 @@ export const BadmintonInfographics: React.FC = () => {
           </div>
 
           {/* Deep Explanation of Active Phase */}
-          <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs">
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 text-xs">
             <strong className="text-salud-amber block mb-1">
               {language === 'zh-TW' ? kineticPhases[activeKineticPhase].nameZh : kineticPhases[activeKineticPhase].nameEn} 機制：
             </strong>
@@ -220,7 +220,7 @@ export const BadmintonInfographics: React.FC = () => {
           </p>
 
           {/* SVG Visual: Timing Timeline & Knee Alignment */}
-          <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-3">
             <div className="text-[11px] font-bold text-emerald-400 flex items-center justify-between">
               <span>啟動預跳步時序軸 (Pre-activation Timeline)</span>
               <span className="font-mono text-slate-400">Total 0.25s</span>
@@ -239,11 +239,11 @@ export const BadmintonInfographics: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
-              <div className="p-2 rounded-lg bg-emerald-950/30 border border-emerald-500/40 text-emerald-200">
+              <div className="p-2 rounded-lg bg-nature-green-50 dark:bg-emerald-950/30 border border-nature-green-200 dark:border-emerald-500/40 text-nature-green-950 dark:text-emerald-200">
                 <strong className="block text-emerald-400 font-bold mb-0.5">✓ 正確煞車力線</strong>
                 腳跟先著地向前滾動，膝蓋屈曲 105°，髕骨切齊第二腳趾。
               </div>
-              <div className="p-2 rounded-lg bg-rose-950/30 border border-rose-500/40 text-rose-200">
+              <div className="p-2 rounded-lg bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-500/40 text-rose-950 dark:text-rose-200 text-rose-200">
                 <strong className="block text-rose-400 font-bold mb-0.5">✕ 致命錯誤代償</strong>
                 腳尖單點下插煞車，膝內扣 (Valgus)，剪力直接撕裂髕腱與半月板。
               </div>
@@ -279,7 +279,7 @@ export const BadmintonInfographics: React.FC = () => {
           </p>
 
           {/* SVG Visual: Court 6 Zones */}
-          <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
             <div className="h-44 w-full">
               <svg viewBox="0 0 360 200" className="w-full h-full">
                 {/* Court Floor */}

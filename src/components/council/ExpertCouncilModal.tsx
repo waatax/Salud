@@ -94,10 +94,10 @@ export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose }) => {
               key={member.id}
               className={`p-4 rounded-xl border transition-all ${
                 member.is_new_v3
-                  ? 'border-purple-500/60 bg-gradient-to-br from-purple-950/40 via-salud-dark-card/80 to-slate-950 shadow-md'
+                  ? 'border-purple-200 dark:border-purple-500/60 bg-gradient-to-br from-purple-50 via-white to-purple-100/60 dark:from-purple-950/40 dark:via-salud-dark-card/80 dark:to-slate-950 shadow-sm'
                   : member.is_new_v2
-                  ? 'border-salud-cyan/40 bg-gradient-to-br from-cyan-100/60 via-salud-light-card/80 to-slate-100 dark:from-salud-cyan-700/10 dark:to-salud-dark-card/60'
-                  : 'border-salud-light-border dark:border-salud-dark-border bg-salud-light-card dark:bg-salud-dark-card/60 hover:border-slate-300 dark:hover:border-slate-700'
+                  ? 'border-nature-sky-200 dark:border-salud-cyan/40 bg-gradient-to-br from-nature-sky-100/60 via-white to-slate-50 dark:from-salud-cyan-700/10 dark:to-salud-dark-card/60 shadow-sm'
+                  : 'border-slate-200 dark:border-salud-dark-border bg-white dark:bg-salud-dark-card/60 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm'
               }`}
             >
               <div className="flex items-start justify-between gap-2 mb-2">

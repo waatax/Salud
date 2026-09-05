@@ -43,11 +43,11 @@ export const PickleballInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Toggle: Perfect Dink vs High Float */}
-          <div className="flex gap-2 p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono font-bold">
+          <div className="flex gap-2 p-1 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono font-bold">
             <button
               onClick={() => setDinkQuality('PERFECT')}
               className={`flex-1 py-1.5 rounded-lg transition-all ${
-                dinkQuality === 'PERFECT' ? 'bg-teal-600 text-white shadow' : 'text-slate-400 hover:text-white'
+                dinkQuality === 'PERFECT' ? 'bg-teal-600 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               ✓ 完美軟球 (頂點在己方半場)
@@ -55,7 +55,7 @@ export const PickleballInfographics: React.FC = () => {
             <button
               onClick={() => setDinkQuality('HIGH_FLOAT')}
               className={`flex-1 py-1.5 rounded-lg transition-all ${
-                dinkQuality === 'HIGH_FLOAT' ? 'bg-rose-600 text-white shadow' : 'text-slate-400 hover:text-white'
+                dinkQuality === 'HIGH_FLOAT' ? 'bg-rose-600 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               ✕ 危險高拋 (過網漂浮給對手殺)
@@ -63,7 +63,7 @@ export const PickleballInfographics: React.FC = () => {
           </div>
 
           {/* SVG Diagram: Kitchen Profile View */}
-          <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
             <div className="h-44 w-full">
               <svg viewBox="0 0 360 170" className="w-full h-full">
                 {/* Court Floor */}
@@ -135,14 +135,14 @@ export const PickleballInfographics: React.FC = () => {
 
           {/* 14ft Firefight Comparison Card */}
           <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/40 space-y-1.5">
+            <div className="p-3 rounded-xl bg-nature-sky-50 dark:bg-cyan-950/30 border border-nature-sky-200 dark:border-cyan-500/40 text-nature-sky-950 dark:text-cyan-200 space-y-1.5">
               <strong className="text-cyan-300 block font-bold">✓ 推壓截擊 (Punch Volley)</strong>
               <p className="text-[11px] text-slate-300 leading-relaxed">
                 拍面固定在胸前 30cm，零後擺引拍。像出短拳般向前平推 10cm，鎖死手腕，0.25 秒內即時借力彈擊。
               </p>
             </div>
 
-            <div className="p-3 rounded-xl bg-rose-950/30 border border-rose-500/40 space-y-1.5">
+            <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-500/40 text-rose-950 dark:text-rose-200 space-y-1.5">
               <strong className="text-rose-300 block font-bold">✕ 傳統大引拍 (Big Wind-up)</strong>
               <p className="text-[11px] text-slate-300 leading-relaxed">
                 手肘向後拉開蓄力需耗時 0.22 秒，在 14ft 近身對峙中必然揮拍遲到，打在拍框或直接遭追身球擊中。
@@ -150,7 +150,7 @@ export const PickleballInfographics: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs flex items-center justify-between font-mono">
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 text-xs flex items-center justify-between font-mono">
             <span className="text-slate-400">網前拍頭黃金高度 (Ready Position)：</span>
             <span className="text-amber-400 font-bold">10:00–11:00 胸口位 (Paddle Up)</span>
           </div>
@@ -184,14 +184,14 @@ export const PickleballInfographics: React.FC = () => {
           </p>
 
           <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+            <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-1">
               <strong className="text-amber-400 block font-bold">40 孔室外球 vs 26 孔室內球</strong>
               <p className="text-[11px] text-slate-400">
                 40 孔微孔抗風、飛行速度快；26 孔大孔氣阻高、飛行慢。穿孔使內部產生微亂流，阻力高於實心球 40%。
               </p>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
+            <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-1">
               <strong className="text-teal-400 block font-bold">16mm 聚丙烯蜂巢厚芯 (PP Core)</strong>
               <p className="text-[11px] text-slate-400">
                 六角蜂巢結構吸收 100–300 Hz 有害共振，持球時間達 2.8ms，保護手腕與網球肘。
@@ -227,7 +227,7 @@ export const PickleballInfographics: React.FC = () => {
             {language === 'zh-TW' ? PICKLEBALL_INFOGRAPHICS[3].subtitle_zh : PICKLEBALL_INFOGRAPHICS[3].subtitle_en}
           </p>
 
-          <div className="p-3 rounded-xl bg-rose-950/30 border border-rose-500/50 space-y-2 text-xs">
+          <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-500/50 text-rose-950 dark:text-rose-200 space-y-2 text-xs">
             <div className="flex items-center gap-1.5 text-rose-400 font-bold">
               <AlertTriangle className="w-4 h-4" />
               <span>致命跌倒防範鐵律：嚴禁「臉朝前倒退跑 (Backpedaling)」</span>
@@ -240,7 +240,7 @@ export const PickleballInfographics: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between text-xs font-mono">
+          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs font-mono">
             <span className="text-slate-400">哥本哈根心臟研究 (CCHS 25年追蹤)：</span>
             <span className="text-emerald-400 font-bold">+9.7 年預期壽命提升</span>
           </div>

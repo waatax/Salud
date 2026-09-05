@@ -18,7 +18,6 @@ export const SimCircadian: React.FC = () => {
   const hours = Array.from({ length: 24 }, (_, i) => i);
 
   const getCortisol = (h: number) => {
-    // Peaks ~45 min after waking (wakeHour + 0.75), then slowly drops
     const distFromPeak = (h - (wakeHour + 0.75) + 24) % 24;
     if (distFromPeak < 3) return 100 - distFromPeak * 10;
     if (distFromPeak < 14) return 70 - (distFromPeak - 3) * 4.5;
@@ -26,45 +25,36 @@ export const SimCircadian: React.FC = () => {
   };
 
   const getMelatonin = (h: number) => {
-    // Starts rising 2h before bedHour, peaks at bedHour + 4h, drops to 0 at wakeHour
     const timeToBed = (h - bedHour + 24) % 24;
     if (timeToBed >= 22 || timeToBed <= 8) {
-      if (timeToBed >= 22) return (timeToBed - 22) * 25; // 0 to 50
-      if (timeToBed <= 4) return 50 + timeToBed * 12; // 50 to 98
-      return 98 - (timeToBed - 4) * 22; // 98 to 10
+      if (timeToBed >= 22) return (timeToBed - 22) * 25;
+      if (timeToBed <= 4) return 50 + timeToBed * 12;
+      return 98 - (timeToBed - 4) * 22;
     }
     return 5;
   };
 
-  const getGlymphatic = (h: number) => {
-    // Max during first 4 hours of sleep (bedHour to bedHour + 4)
-    const sleepHour = (h - bedHour + 24) % 24;
-    if (sleepHour >= 0 && sleepHour <= 4) return 95 - sleepHour * 8;
-    if (sleepHour > 4 && sleepHour <= 7) return 60 - (sleepHour - 4) * 15;
-    return 5;
-  };
-
   return (
-    <div className="p-5 sm:p-7 rounded-3xl border border-purple-500/40 bg-slate-900/85 shadow-2xl space-y-6 text-slate-100 font-sans">
+    <div className="p-5 sm:p-7 rounded-3xl border border-purple-200/90 dark:border-purple-700/50 bg-white dark:bg-slate-900/85 shadow-lg space-y-6 text-slate-800 dark:text-slate-100 font-sans transition-colors">
       {/* Title */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
         <div>
-          <h3 className="text-lg sm:text-xl font-display font-extrabold text-white flex items-center gap-2">
-            <Moon className="w-5 h-5 text-purple-400" />
+          <h3 className="text-lg sm:text-xl font-display font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <Moon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
             {t('sleep.circadian_title')}
           </h3>
-          <p className="text-xs text-slate-400 font-mono mt-0.5">
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
             Photoperiod SCN Synchronization, Melatonin Dynamics & Glymphatic Brain Washing
           </p>
         </div>
-        <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-purple-950/60 border border-purple-700 text-purple-300">
+        <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-700 text-purple-800 dark:text-purple-300">
           神經生理節律模擬
         </span>
       </div>
 
       {/* Scenario Presets */}
       <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-        <span className="text-slate-400 text-[11px]">生活情境快選：</span>
+        <span className="text-slate-500 dark:text-slate-400 text-[11px]">生活情境快選：</span>
         {[
           {
             name_zh: '☀️ 晨型生理鐘 (黃金標準)',
@@ -80,7 +70,7 @@ export const SimCircadian: React.FC = () => {
             wake: 9.5,
             sun: 90,
             caff: 17,
-            bed: 25, // 01:00 AM
+            bed: 25,
           },
           {
             name_zh: '💼 輪班高壓 (皮質醇紊亂)',
@@ -88,7 +78,7 @@ export const SimCircadian: React.FC = () => {
             wake: 14,
             sun: 120,
             caff: 20,
-            bed: 28, // 04:00 AM
+            bed: 28,
           },
         ].map((sc, i) => (
           <button
@@ -99,7 +89,7 @@ export const SimCircadian: React.FC = () => {
               setLastCaffeineHour(sc.caff);
               setBedHour(sc.bed);
             }}
-            className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition-all text-[11px]"
+            className="btn-tactile px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all text-[11px]"
           >
             {language === 'zh-TW' ? sc.name_zh : sc.name_en}
           </button>
@@ -108,13 +98,13 @@ export const SimCircadian: React.FC = () => {
 
       {/* Control Sliders */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
-        <div className="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-1.5">
-          <div className="flex justify-between text-slate-300">
-            <label className="flex items-center gap-1">
-              <Sun className="w-3.5 h-3.5 text-amber-400" />
+        <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 space-y-1.5">
+          <div className="flex justify-between text-slate-700 dark:text-slate-300">
+            <label className="flex items-center gap-1 font-medium">
+              <Sun className="w-3.5 h-3.5 text-nature-amber-600 dark:text-amber-400" />
               <span>{t('sleep.wake_time')}</span>
             </label>
-            <strong className="text-amber-400">
+            <strong className="text-nature-amber-700 dark:text-amber-400">
               {Math.floor(wakeHour).toString().padStart(2, '0')}:{(wakeHour % 1 * 60).toFixed(0).padStart(2, '0')}
             </strong>
           </div>
@@ -125,17 +115,17 @@ export const SimCircadian: React.FC = () => {
             step="0.5"
             value={wakeHour}
             onChange={(e) => setWakeHour(Number(e.target.value))}
-            className="w-full accent-salud-amber cursor-pointer"
+            className="w-full accent-nature-amber-500 cursor-pointer"
           />
         </div>
 
-        <div className="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-1.5">
-          <div className="flex justify-between text-slate-300">
-            <label className="flex items-center gap-1">
-              <Sun className="w-3.5 h-3.5 text-salud-cyan" />
+        <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 space-y-1.5">
+          <div className="flex justify-between text-slate-700 dark:text-slate-300">
+            <label className="flex items-center gap-1 font-medium">
+              <Sun className="w-3.5 h-3.5 text-nature-sky-600 dark:text-salud-cyan" />
               <span>起床後戶外陽光延遲</span>
             </label>
-            <strong className={isSunlightOptimized ? 'text-salud-cyan' : 'text-amber-400'}>
+            <strong className={isSunlightOptimized ? 'text-nature-sky-700 dark:text-salud-cyan' : 'text-nature-amber-700 dark:text-amber-400'}>
               {sunlightDelayMinutes} 分鐘
             </strong>
           </div>
@@ -146,17 +136,17 @@ export const SimCircadian: React.FC = () => {
             step="10"
             value={sunlightDelayMinutes}
             onChange={(e) => setSunlightDelayMinutes(Number(e.target.value))}
-            className="w-full accent-salud-cyan cursor-pointer"
+            className="w-full accent-nature-sky-500 cursor-pointer"
           />
         </div>
 
-        <div className="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-1.5">
-          <div className="flex justify-between text-slate-300">
-            <label className="flex items-center gap-1">
-              <Coffee className="w-3.5 h-3.5 text-salud-amber" />
+        <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 space-y-1.5">
+          <div className="flex justify-between text-slate-700 dark:text-slate-300">
+            <label className="flex items-center gap-1 font-medium">
+              <Coffee className="w-3.5 h-3.5 text-nature-amber-600 dark:text-salud-amber" />
               <span>最後一杯咖啡因</span>
             </label>
-            <strong className={isCaffeineDisruptive ? 'text-red-400' : 'text-emerald-400'}>
+            <strong className={isCaffeineDisruptive ? 'text-red-600 dark:text-red-400' : 'text-nature-green-700 dark:text-emerald-400'}>
               {lastCaffeineHour}:00
             </strong>
           </div>
@@ -166,17 +156,17 @@ export const SimCircadian: React.FC = () => {
             max="21"
             value={lastCaffeineHour}
             onChange={(e) => setLastCaffeineHour(Number(e.target.value))}
-            className="w-full accent-salud-coral cursor-pointer"
+            className="w-full accent-nature-amber-500 cursor-pointer"
           />
         </div>
 
-        <div className="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-1.5">
-          <div className="flex justify-between text-slate-300">
-            <label className="flex items-center gap-1">
-              <Moon className="w-3.5 h-3.5 text-purple-400" />
+        <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 space-y-1.5">
+          <div className="flex justify-between text-slate-700 dark:text-slate-300">
+            <label className="flex items-center gap-1 font-medium">
+              <Moon className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
               <span>{t('sleep.bed_time')}</span>
             </label>
-            <strong className="text-purple-300">{bedHour}:00</strong>
+            <strong className="text-purple-700 dark:text-purple-300">{bedHour}:00</strong>
           </div>
           <input
             type="range"
@@ -184,27 +174,27 @@ export const SimCircadian: React.FC = () => {
             max="26"
             value={bedHour}
             onChange={(e) => setBedHour(Number(e.target.value))}
-            className="w-full accent-purple-400 cursor-pointer"
+            className="w-full accent-purple-500 cursor-pointer"
           />
         </div>
       </div>
 
       {/* Dynamic 24-Hour Circadian SVG Curve */}
-      <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+      <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
         <div className="flex flex-wrap items-center justify-between text-xs font-mono">
-          <span className="font-bold text-slate-200 flex items-center gap-1.5">
-            <Clock className="w-4 h-4 text-salud-cyan" />
+          <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+            <Clock className="w-4 h-4 text-nature-sky-600 dark:text-salud-cyan" />
             24 小時晝夜激素時序與膠淋巴排毒高潮帶
           </span>
           <div className="flex items-center gap-4 text-[11px]">
-            <span className="flex items-center gap-1 text-amber-400">
-              <span className="w-3 h-0.5 bg-amber-400" /> 皮質醇 (清醒)
+            <span className="flex items-center gap-1 text-nature-amber-700 dark:text-amber-400">
+              <span className="w-3 h-0.5 bg-nature-amber-500" /> 皮質醇 (清醒)
             </span>
-            <span className="flex items-center gap-1 text-purple-400">
-              <span className="w-3 h-0.5 bg-purple-400" /> 褪黑激素 (睡意)
+            <span className="flex items-center gap-1 text-purple-700 dark:text-purple-400">
+              <span className="w-3 h-0.5 bg-purple-500" /> 褪黑激素 (睡意)
             </span>
-            <span className="flex items-center gap-1 text-cyan-400">
-              <span className="w-3 h-2 bg-cyan-500/20 border border-cyan-500/40 rounded-sm" /> 膠淋巴 CSF 排毒帶
+            <span className="flex items-center gap-1 text-nature-sky-700 dark:text-cyan-400">
+              <span className="w-3 h-2 bg-nature-sky-500/20 border border-nature-sky-500/40 rounded-sm" /> 膠淋巴 CSF 排毒帶
             </span>
           </div>
         </div>
@@ -213,45 +203,11 @@ export const SimCircadian: React.FC = () => {
         <div className="h-44 w-full relative">
           <svg viewBox="0 0 480 150" className="w-full h-full overflow-visible">
             {/* Grid */}
-            <line x1="30" y1="20" x2="470" y2="20" stroke="#334155" strokeDasharray="3,3" strokeWidth="0.8" />
-            <line x1="30" y1="75" x2="470" y2="75" stroke="#334155" strokeDasharray="3,3" strokeWidth="0.8" />
-            <line x1="30" y1="130" x2="470" y2="130" stroke="#64748b" strokeWidth="1.2" />
+            <line x1="30" y1="20" x2="470" y2="20" stroke="#cbd5e1" className="dark:stroke-slate-700" strokeDasharray="3,3" strokeWidth="0.8" />
+            <line x1="30" y1="75" x2="470" y2="75" stroke="#cbd5e1" className="dark:stroke-slate-700" strokeDasharray="3,3" strokeWidth="0.8" />
+            <line x1="30" y1="130" x2="470" y2="130" stroke="#94a3b8" className="dark:stroke-slate-600" strokeWidth="1.2" />
 
-            {/* Time labels */}
-            {[0, 4, 8, 12, 16, 20, 24].map((h, i) => (
-              <text
-                key={h}
-                x={30 + (i * (440 / 6))}
-                y="145"
-                fill="#94a3b8"
-                fontSize="9"
-                textAnchor="middle"
-                fontFamily="monospace"
-              >
-                {h === 24 ? '0h' : `${h}h`}
-              </text>
-            ))}
-
-            {/* Glymphatic Highlight Box */}
-            {(() => {
-              const startX = 30 + ((bedHour % 24) / 24) * 440;
-              const width = (4 / 24) * 440;
-              return (
-                <rect
-                  x={startX}
-                  y="20"
-                  width={width}
-                  height="110"
-                  fill="#06b6d4"
-                  fillOpacity="0.15"
-                  stroke="#22d3ee"
-                  strokeDasharray="4,2"
-                  strokeWidth="1"
-                />
-              );
-            })()}
-
-            {/* Cortisol Path (Amber) */}
+            {/* Cortisol curve */}
             <path
               d={hours
                 .map((h, i) => {
@@ -265,7 +221,7 @@ export const SimCircadian: React.FC = () => {
               strokeWidth="2.5"
             />
 
-            {/* Melatonin Path (Purple) */}
+            {/* Melatonin curve */}
             <path
               d={hours
                 .map((h, i) => {
@@ -275,7 +231,7 @@ export const SimCircadian: React.FC = () => {
                 })
                 .join(' ')}
               fill="none"
-              stroke="#c084fc"
+              stroke="#a855f7"
               strokeWidth="2.5"
             />
           </svg>
@@ -285,15 +241,15 @@ export const SimCircadian: React.FC = () => {
       {/* Real-time Physiological Feedback Alerts */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
         {/* Caffeine Feedback */}
-        <div className={`p-3.5 rounded-2xl border flex items-start gap-3 ${
+        <div className={`p-4 rounded-2xl border flex items-start gap-3 shadow-sm ${
           isCaffeineDisruptive
-            ? 'border-red-500/60 bg-red-950/30 text-red-200'
-            : 'border-emerald-500/60 bg-emerald-950/30 text-emerald-200'
+            ? 'border-red-200 dark:border-red-500/60 bg-red-50/90 dark:bg-red-950/30 text-red-900 dark:text-red-200'
+            : 'border-nature-green-200 dark:border-emerald-500/60 bg-nature-green-50/90 dark:bg-emerald-950/30 text-nature-green-900 dark:text-emerald-200'
         }`}>
           {isCaffeineDisruptive ? (
-            <ShieldAlert className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+            <ShieldAlert className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
           ) : (
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <CheckCircle2 className="w-5 h-5 text-nature-green-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           )}
           <div className="space-y-1">
             <strong className="block font-bold">
@@ -308,15 +264,15 @@ export const SimCircadian: React.FC = () => {
         </div>
 
         {/* Sunlight Feedback */}
-        <div className={`p-3.5 rounded-2xl border flex items-start gap-3 ${
+        <div className={`p-4 rounded-2xl border flex items-start gap-3 shadow-sm ${
           isSunlightOptimized
-            ? 'border-cyan-500/60 bg-cyan-950/30 text-cyan-200'
-            : 'border-amber-500/60 bg-amber-950/30 text-amber-200'
+            ? 'border-nature-sky-200 dark:border-cyan-500/60 bg-nature-sky-50/90 dark:bg-cyan-950/30 text-nature-sky-900 dark:text-cyan-200'
+            : 'border-nature-amber-200 dark:border-amber-500/60 bg-nature-amber-50/90 dark:bg-amber-950/30 text-nature-amber-900 dark:text-amber-200'
         }`}>
           {isSunlightOptimized ? (
-            <Sparkles className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+            <Sparkles className="w-5 h-5 text-nature-sky-600 dark:text-cyan-400 shrink-0 mt-0.5" />
           ) : (
-            <ShieldAlert className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+            <ShieldAlert className="w-5 h-5 text-nature-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
           )}
           <div className="space-y-1">
             <strong className="block font-bold">
