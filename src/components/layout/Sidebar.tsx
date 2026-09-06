@@ -21,6 +21,7 @@ import {
   BookOpen,
   PanelLeftClose,
   PanelLeft,
+  Sparkles,
 } from 'lucide-react';
 
 interface Props {
@@ -389,6 +390,17 @@ export const Sidebar: React.FC<Props> = (props) => {
         >
           <BookOpen className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400 shrink-0" />
           {!isCollapsed && <span>24 席 Best Practice 實證庫</span>}
+        </button>
+
+        <button
+          onClick={() => nav.openSynergy()}
+          className={`btn-tactile w-full p-2 rounded-xl border border-salud-cyan/60 bg-salud-cyan/10 hover:bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 font-mono text-xs flex items-center gap-2 transition-all font-bold ${
+            isCollapsed ? 'justify-center px-2' : ''
+          }`}
+          title={isCollapsed ? '全人跨領域處方協同' : undefined}
+        >
+          <Sparkles className="w-3.5 h-3.5 text-salud-cyan shrink-0 animate-pulse" />
+          {!isCollapsed && <span>全人跨領域處方協同</span>}
         </button>
       </div>
 

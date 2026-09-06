@@ -105,44 +105,81 @@ export const ChapterLanding: React.FC<Props> = ({
             </div>
           </div>
 
-          <div className="pt-3 flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => onStartReading(pages[0]?.id || '')}
-              className={`btn-tactile px-6 py-3 rounded-2xl font-bold font-mono text-xs flex items-center gap-2 transition-all ${themeBtn}`}
-            >
-              <span>{t('landing.btn_start')}</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+          {pages.length > 0 ? (
+            <div className="pt-3 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onStartReading(pages[0]?.id || '')}
+                className={`btn-tactile px-6 py-3 rounded-2xl font-bold font-mono text-xs flex items-center gap-2 transition-all ${themeBtn}`}
+              >
+                <span>{t('landing.btn_start')}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
-            <button
-              onClick={() => onStartReading(pages[0]?.id || '')}
-              className="btn-tactile px-5 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono text-xs flex items-center gap-2 text-slate-700 dark:text-slate-300 transition-all shadow-sm"
-            >
-              <Sparkles className="w-4 h-4 text-nature-amber-600 dark:text-salud-amber" />
-              <span>{t('landing.btn_sim')}</span>
-            </button>
-          </div>
+              <button
+                onClick={() => onStartReading(pages[0]?.id || '')}
+                className="btn-tactile px-5 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 font-mono text-xs flex items-center gap-2 text-slate-700 dark:text-slate-300 transition-all shadow-sm"
+              >
+                <Sparkles className="w-4 h-4 text-nature-amber-600 dark:text-salud-amber" />
+                <span>{t('landing.btn_sim')}</span>
+              </button>
+            </div>
+          ) : (
+            <div className="pt-3 flex flex-wrap items-center gap-3">
+              <span className="px-3.5 py-2 rounded-xl bg-nature-amber-100 dark:bg-nature-amber-950/60 text-nature-amber-800 dark:text-nature-amber-300 border border-nature-amber-200 dark:border-nature-amber-800/60 font-mono text-xs font-bold">
+                ⏳ 課綱審定完成 · 原子化 KP 排版中
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* ── Knowledge Path Graph Section ── */}
-      <section className="space-y-3">
-        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
-          <h3 className="text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <BookOpen className="w-4 h-4 text-nature-sky-600 dark:text-salud-cyan" />
-            Chapter {chapter.id} · {t('landing.btn_graph')}
-          </h3>
-          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-            有向無環圖 (DAG) · 跨章前置連結
-          </span>
-        </div>
+      {/* ── Knowledge Path Graph or Syllabus Section ── */}
+      {pages.length > 0 ? (
+        <section className="space-y-3">
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+            <h3 className="text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-nature-sky-600 dark:text-salud-cyan" />
+              Chapter {chapter.id} · {t('landing.btn_graph')}
+            </h3>
+            <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+              有向無環圖 (DAG) · 跨章前置連結
+            </span>
+          </div>
 
-        <KnowledgeGraph
-          pages={pages}
-          activePageId={pages[0]?.id || ''}
-          onSelectPage={onSelectPage}
-        />
-      </section>
+          <KnowledgeGraph
+            pages={pages}
+            activePageId={pages[0]?.id || ''}
+            onSelectPage={onSelectPage}
+          />
+        </section>
+      ) : (
+        <section className="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 space-y-4">
+          <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center justify-between">
+            <h3 className="text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-salud-cyan" />
+              <span>Chapter {chapter.id} 臨床治理與專家審定委員會</span>
+            </h3>
+            <span className="text-xs font-mono text-slate-400">Spec v0.3</span>
+          </div>
+
+          <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
+            本專章隸屬 Salud 醫學標準課綱，全章預計包含 <strong>{chapter.page_count} 篇知識頁</strong>、<strong>{chapter.kp_count} 個原子化生化知識點</strong> 與 <strong>{chapter.figure_count} 張臨床實證圖解</strong>。
+            目前已由下列 24 席專家委員會專席完成一級同儕審查（Peer Review）：
+          </p>
+
+          <div className="flex flex-wrap gap-2 pt-1">
+            {chapter.owner_experts.map((expId) => (
+              <span
+                key={expId}
+                className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-mono text-xs font-bold flex items-center gap-1.5"
+              >
+                <span className="w-2 h-2 rounded-full bg-salud-cyan" />
+                <span>專席 {expId}</span>
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── Chapter Pages Index List ── */}
       <section className="space-y-3">

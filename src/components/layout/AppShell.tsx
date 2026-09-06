@@ -37,6 +37,9 @@ const CardiometabolicHubModal = lazy(() =>
 const KnowledgeGraph = lazy(() =>
   import('../knowledge/KnowledgeGraph').then((m) => ({ default: m.KnowledgeGraph }))
 );
+const CrossPillarSynergy = lazy(() =>
+  import('../hub/CrossPillarSynergy').then((m) => ({ default: m.CrossPillarSynergy }))
+);
 
 export function AppShell() {
   const {
@@ -46,6 +49,7 @@ export function AppShell() {
     currentChapterId,
     activePageId,
     isCouncilEvidenceView,
+    isSynergyView,
     selectedCouncilExpertId,
     exerciseSubTab,
     isMobileSidebarOpen,
@@ -101,7 +105,18 @@ export function AppShell() {
           <Breadcrumb />
           
           {/* Content routing */}
-          {isCouncilEvidenceView ? (
+          {isSynergyView ? (
+            <Suspense
+              fallback={
+                <div className="py-16 text-center font-mono text-xs text-slate-500">
+                  <div className="w-8 h-8 rounded-full border-2 border-salud-cyan border-t-transparent animate-spin mx-auto mb-2" />
+                  <span>載入全人多靶點健康處方協同引擎...</span>
+                </div>
+              }
+            >
+              <CrossPillarSynergy />
+            </Suspense>
+          ) : isCouncilEvidenceView ? (
             <Suspense
               fallback={
                 <div className="py-16 text-center font-mono text-xs text-slate-500">
@@ -151,6 +166,7 @@ export function AppShell() {
 
         {/* Desktop Context Inspector */}
         {!isCouncilEvidenceView &&
+          !isSynergyView &&
           activePillar === 'diet' &&
           dietView === 'chapter' &&
           viewMode === 'page' &&

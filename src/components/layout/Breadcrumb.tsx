@@ -11,15 +11,23 @@ export function Breadcrumb() {
     currentChapter,
     currentPage,
     isCouncilEvidenceView,
+    isSynergyView,
     setDietView,
     setViewMode,
     setIsCouncilEvidenceView,
-    selectPillar
+    setIsSynergyView,
+    selectPillar,
   } = useNavigation();
 
   return (
     <nav className="mb-5 flex items-center justify-between font-mono text-xs text-slate-500 dark:text-slate-400 border-b border-salud-light-border/60 dark:border-salud-dark-border/40 pb-2">
-      {isCouncilEvidenceView ? (
+      {isSynergyView ? (
+        <div className="flex items-center gap-1.5">
+          <span className="font-bold text-slate-800 dark:text-slate-100">四大健康支柱全人醫療</span>
+          <span>/</span>
+          <span className="text-salud-cyan font-bold">跨領域處方協同引擎 (Holistic Synergy)</span>
+        </div>
+      ) : isCouncilEvidenceView ? (
         <div className="flex items-center gap-1.5">
           <span className="font-bold text-slate-800 dark:text-slate-100">24 席專家治理架構</span>
           <span>/</span>
@@ -47,7 +55,11 @@ export function Breadcrumb() {
           )}
         </div>
       )}
-      {isCouncilEvidenceView ? (
+      {isSynergyView ? (
+        <button onClick={() => { setIsSynergyView(false); selectPillar('diet'); }} className="text-[11px] text-salud-cyan hover:underline flex items-center gap-1 font-bold">
+          ⇵ 返回四大健康支柱
+        </button>
+      ) : isCouncilEvidenceView ? (
         <button onClick={() => { setIsCouncilEvidenceView(false); selectPillar('diet'); }} className="text-[11px] text-nature-amber-600 dark:text-nature-amber-400 hover:underline flex items-center gap-1 font-bold">
           ⇵ 返回四大健康支柱
         </button>

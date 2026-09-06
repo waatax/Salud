@@ -18,6 +18,8 @@ export interface NavigationContextProps {
   setActivePageId: (id: string) => void;
   isCouncilEvidenceView: boolean;
   setIsCouncilEvidenceView: (isCouncil: boolean) => void;
+  isSynergyView: boolean;
+  setIsSynergyView: (isSynergy: boolean) => void;
   selectedCouncilExpertId: string;
   setSelectedCouncilExpertId: (id: string) => void;
   exerciseSubTab: SportsDiscipline;
@@ -29,6 +31,7 @@ export interface NavigationContextProps {
   selectChapter: (chapterId: string) => void;
   selectPage: (pageId: string) => void;
   openCouncilEvidence: (expertId?: string) => void;
+  openSynergy: () => void;
   backToPatterns: () => void;
   toggleMobileSidebar: () => void;
 
@@ -46,6 +49,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const [viewMode, setViewMode] = useState<'landing' | 'page'>('landing');
   const [activePageId, setActivePageId] = useState<string>('PAGE-W-01');
   const [isCouncilEvidenceView, setIsCouncilEvidenceView] = useState<boolean>(false);
+  const [isSynergyView, setIsSynergyView] = useState<boolean>(false);
   const [selectedCouncilExpertId, setSelectedCouncilExpertId] = useState<string>('EC-03');
   const [exerciseSubTab, setExerciseSubTab] = useState<SportsDiscipline>('PHYSIOLOGY');
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
@@ -54,7 +58,11 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash) {
-        if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
+        if (hash === 'synergy') {
+          setIsSynergyView(true);
+          setIsCouncilEvidenceView(false);
+        } else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
+          setIsSynergyView(false);
           setIsCouncilEvidenceView(true);
           if (hash.includes('/')) {
             setSelectedCouncilExpertId(hash.split('/')[1]);
@@ -155,12 +163,22 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
       window.location.hash = 'council-evidence';
     }
     setIsCouncilEvidenceView(true);
+    setIsSynergyView(false);
+    setIsMobileSidebarOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const openSynergy = () => {
+    setIsCouncilEvidenceView(false);
+    setIsSynergyView(true);
+    window.location.hash = 'synergy';
     setIsMobileSidebarOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const selectPillar = (pillar: HealthPillar) => {
     setIsCouncilEvidenceView(false);
+    setIsSynergyView(false);
     setActivePillar(pillar);
     if (pillar === 'diet') {
       window.location.hash = 'diet';
@@ -172,6 +190,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
 
   const selectChapter = (chId: string) => {
     setIsCouncilEvidenceView(false);
+    setIsSynergyView(false);
     setActivePillar('diet');
     setDietView('chapter');
     setCurrentChapterId(chId);
@@ -190,6 +209,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const selectPage = (pageId: string) => {
+    setIsCouncilEvidenceView(false);
+    setIsSynergyView(false);
     setActivePillar('diet');
     setDietView('chapter');
     setActivePageId(pageId);
@@ -201,6 +222,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
 
   const backToPatterns = () => {
     setIsCouncilEvidenceView(false);
+    setIsSynergyView(false);
     setActivePillar('diet');
     setDietView('patterns');
     window.location.hash = 'diet/patterns';
@@ -236,6 +258,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     setActivePageId,
     isCouncilEvidenceView,
     setIsCouncilEvidenceView,
+    isSynergyView,
+    setIsSynergyView,
     selectedCouncilExpertId,
     setSelectedCouncilExpertId,
     exerciseSubTab,
@@ -247,6 +271,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     selectChapter,
     selectPage,
     openCouncilEvidence,
+    openSynergy,
     backToPatterns,
     toggleMobileSidebar,
 
