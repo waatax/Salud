@@ -7,6 +7,7 @@ import {
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { ExpertInfoGraph } from './ExpertInfoGraph';
 import { LaypersonFriendlyGuide } from './LaypersonFriendlyGuide';
+import { ExpertMonographModal } from './ExpertMonographModal';
 import { useLanguage } from '../../i18n';
 import { HealthPillar } from '../../types';
 import {
@@ -46,6 +47,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
 }) => {
   const { t, language } = useLanguage();
   const [selectedExpertId, setSelectedExpertId] = useState<string>(initialExpertId);
+  const [selectedMonographExpertId, setSelectedMonographExpertId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [viewPerspective, setViewPerspective] = useState<'layperson' | 'clinical' | 'both'>('layperson');
@@ -392,7 +394,15 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               </h2>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={() => setSelectedMonographExpertId(currentBestPractice.expertId)}
+                className="btn-tactile px-3 py-1 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-sm transition-all"
+                title="點擊開啟該席位 50+ 篇深度研究臨床專論全文與完整文獻庫"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-purple-200" />
+                <span>50+ 篇獨立臨床專論 (Monograph Dossier)</span>
+              </button>
               <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" />
                 GRADE High-Confidence Vetted
@@ -415,7 +425,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
 
         {/* ── Perspective Toggle: 一般民眾白話篇 vs 臨床學術實證 ── */}
         <div className="flex flex-wrap items-center justify-between gap-3 p-2 bg-slate-100/90 dark:bg-slate-950/60 rounded-2xl border border-slate-200 dark:border-slate-800">
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-1.5">
             <button
               onClick={() => setViewPerspective('layperson')}
               className={`btn-tactile px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold transition-all flex items-center gap-1.5 ${
@@ -448,6 +458,13 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
             >
               <Eye className="w-3.5 h-3.5" />
               📖 完整雙向檢視
+            </button>
+            <button
+              onClick={() => setSelectedMonographExpertId(currentBestPractice.expertId)}
+              className="btn-tactile px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold transition-all flex items-center gap-1.5 bg-gradient-to-r from-purple-700 to-indigo-700 text-white hover:opacity-95 shadow-xs"
+            >
+              <FileText className="w-3.5 h-3.5 text-purple-200" />
+              📑 研讀 50+ 篇專論全文
             </button>
           </div>
           <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 pr-2">
@@ -651,6 +668,38 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
           </>
         )}
 
+        {/* ── Dedicated Deep Research Monograph Dossier CTA ── */}
+        <section className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-purple-950/20 via-white to-slate-50 dark:from-purple-950/40 dark:via-slate-900/60 dark:to-slate-950 border border-purple-300 dark:border-purple-800/60 shadow-sm space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 flex items-center gap-1">
+                  <Sparkles className="w-3 h-3" />
+                  50+ 篇同行評審深度專論 (Independent Clinical Monograph)
+                </span>
+                <span className="font-mono text-xs text-slate-500">
+                  {currentBestPractice.expertId}
+                </span>
+              </div>
+              <h4 className="font-display font-extrabold text-base sm:text-lg text-slate-900 dark:text-white">
+                {currentBestPractice.title_zh} · 獨立深度研究臨床專論與完整文獻庫
+              </h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                專論涵蓋：分子與細胞病理機轉解構、大型隨機對照試驗 (RCT) 與統合分析實證、量化生化指標與危急值矩陣、臨床處置 SOP 禁忌紅線、大眾衛教通識以及完整含 DOI / PMID 的學術引用清單。
+              </p>
+            </div>
+
+            <button
+              onClick={() => setSelectedMonographExpertId(currentBestPractice.expertId)}
+              className="btn-tactile px-5 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-mono text-xs font-bold shrink-0 flex items-center justify-center gap-2 shadow-md transition-all group"
+            >
+              <BookOpen className="w-4 h-4 text-purple-200 group-hover:scale-110 transition-transform" />
+              <span>開啟完整臨床專論研讀 (Read Monograph)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </section>
+
         {/* ── Module 6: Jump to Related 4 Pillars ── */}
         <section className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
@@ -681,6 +730,14 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
           )}
         </section>
       </div>
+
+      {/* ── Deep Research Monograph Dossier Modal ── */}
+      <ExpertMonographModal
+        isOpen={!!selectedMonographExpertId}
+        expertId={selectedMonographExpertId || currentBestPractice.expertId}
+        onClose={() => setSelectedMonographExpertId(null)}
+        onSelectExpert={(id) => setSelectedMonographExpertId(id)}
+      />
     </div>
   );
 };
