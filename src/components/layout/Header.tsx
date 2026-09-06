@@ -5,16 +5,12 @@ import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import {
-  ShieldCheck,
   Menu,
   HeartPulse,
   Pill,
-  ClipboardCheck,
   Utensils,
   Activity,
-  Moon,
-  AlertOctagon,
-  Sparkles
+  Moon
 } from 'lucide-react';
 
 interface Props {
@@ -22,9 +18,6 @@ interface Props {
   onSelectPillar: (pillar: HealthPillar) => void;
   isDark: boolean;
   onToggleTheme: () => void;
-  onOpenCouncil: () => void;
-  onOpenEmergencyModal: () => void;
-  onOpenAuditC?: () => void;
   onOpenCardioHub?: () => void;
   onToggleMobileSidebar: () => void;
 }
@@ -34,9 +27,6 @@ export const Header: React.FC<Props> = ({
   onSelectPillar,
   isDark,
   onToggleTheme,
-  onOpenCouncil,
-  onOpenEmergencyModal,
-  onOpenAuditC,
   onOpenCardioHub,
   onToggleMobileSidebar,
 }) => {
@@ -145,36 +135,6 @@ export const Header: React.FC<Props> = ({
             </button>
           )}
 
-          {onOpenAuditC && (
-            <button
-              onClick={onOpenAuditC}
-              className="btn-tactile hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-purple-200 dark:border-purple-800/60 bg-purple-50/80 dark:bg-purple-950/30 text-purple-800 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-all font-mono text-xs"
-              title={t('nav.audit_c_title')}
-            >
-              <ClipboardCheck className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
-              <span>{t('nav.audit_c')}</span>
-            </button>
-          )}
-
-          {/* Emergency Guide Alert */}
-          <button
-            onClick={onOpenEmergencyModal}
-            className="btn-tactile flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-red-200 dark:border-red-900/60 bg-red-50/90 dark:bg-red-950/30 text-red-800 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-900/40 transition-all font-mono text-xs"
-            title={t('nav.red_flags_title')}
-          >
-            <AlertOctagon className="w-3.5 h-3.5 text-red-600 dark:text-red-400 animate-pulse" />
-            <span className="hidden sm:inline">{t('nav.red_flags')}</span>
-          </button>
-
-          {/* Expert Council Trigger */}
-          <button
-            onClick={onOpenCouncil}
-            className="btn-tactile flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-nature-amber-400 transition-all font-mono text-xs"
-            title={t('nav.council_title')}
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400" />
-            <span className="hidden md:inline">{t('nav.council')}</span>
-          </button>
 
           {/* Font Size Selector */}
           <FontSizeToggle variant="compact" />

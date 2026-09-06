@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { Modal } from '../common/Modal';
 import { useLanguage } from '../../i18n';
-import { ShieldCheck, UserCheck, Sparkles, CheckCircle2, Award } from 'lucide-react';
+import { Award, Sparkles, ArrowRight, BookOpen } from 'lucide-react';
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  onOpenBestPractice?: (expertId: string) => void;
 }
 
-export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose }) => {
+export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose, onOpenBestPractice }) => {
   const { t, language } = useLanguage();
   const [filter, setFilter] = useState<'all' | 'new_v3' | 'new_v2'>('all');
 
@@ -29,22 +30,6 @@ export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose }) => {
       maxWidth="4xl"
     >
       <div className="space-y-6">
-        {/* Governance banner */}
-        <div className="p-4 rounded-xl border border-salud-amber-500/30 bg-salud-amber-500/10 flex items-start gap-3.5">
-          <ShieldCheck className="w-5 h-5 text-salud-amber-400 shrink-0 mt-0.5" />
-          <div className="text-xs sm:text-sm text-salud-dark-text dark:text-salud-dark-text space-y-1">
-            <p className="font-semibold text-salud-amber-300">
-              {language === 'zh-TW'
-                ? '產品治理原則：無醫療簽核不得上線 (Medically-Reviewed SOP)'
-                : 'Governance Policy: Medically-Reviewed Before Release'}
-            </p>
-            <p className="opacity-90 leading-relaxed text-xs">
-              {language === 'zh-TW'
-                ? 'Salud 絕非黑盒 AI 或任意編輯自寫的農場文。依據規格 SOP，每個知識頁與人體模擬器在正式發布前，必須歷經「EC-19 知識點盤點 → EC-20 科普主筆 → EC-10 證據綁定 → EC-01/領域專家醫學安全審查 → EC-17 出圖與無障礙驗收」的嚴謹簽核工作流。'
-                : 'Salud is strictly governed by clinical oversight. Before publication, every knowledge page and simulation engine undergoes rigorous sign-off: EC-19 atomic inventory → EC-20 science writing → EC-10 GRADE evidence binding → EC-01 medical safety review → EC-17 illustration verification.'}
-            </p>
-          </div>
-        </div>
 
         {/* Filter buttons */}
         <div className="flex flex-wrap items-center justify-between border-b border-salud-light-border/80 dark:border-salud-dark-border pb-3 gap-2">
@@ -143,6 +128,22 @@ export const ExpertCouncilModal: React.FC<Props> = ({ isOpen, onClose }) => {
                   {language === 'zh-TW' ? member.core_duty : (member.core_duty_en || member.core_duty)}
                 </span>
               </div>
+
+              {onOpenBestPractice && (
+                <button
+                  onClick={() => {
+                    onClose();
+                    onOpenBestPractice(member.id);
+                  }}
+                  className="mt-3 btn-tactile w-full py-1.5 px-3 rounded-lg border border-nature-amber-300 dark:border-nature-amber-800/80 bg-nature-amber-50/80 dark:bg-nature-amber-950/40 hover:bg-nature-amber-100 dark:hover:bg-nature-amber-900/60 text-nature-amber-900 dark:text-nature-amber-300 font-mono text-[11px] font-bold flex items-center justify-between transition-all group"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400" />
+                    深入研讀 50+ 篇期刊實證與 Best Practice
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              )}
             </div>
           ))}
         </div>

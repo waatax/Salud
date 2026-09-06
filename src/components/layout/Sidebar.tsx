@@ -15,6 +15,8 @@ import {
   ShieldCheck,
   HeartPulse,
   ClipboardCheck,
+  AlertOctagon,
+  BookOpen,
   Sparkles
 } from 'lucide-react';
 
@@ -32,6 +34,8 @@ interface Props {
   onOpenCardioHub?: () => void;
   onOpenSupplements?: () => void;
   onOpenCouncil?: () => void;
+  onOpenCouncilEvidence?: (expertId?: string) => void;
+  onOpenEmergencyModal?: () => void;
 }
 
 export const Sidebar: React.FC<Props> = ({
@@ -47,6 +51,8 @@ export const Sidebar: React.FC<Props> = ({
   onOpenAuditC,
   onOpenCardioHub,
   onOpenCouncil,
+  onOpenCouncilEvidence,
+  onOpenEmergencyModal,
 }) => {
   const { t, language } = useLanguage();
   const [expandedDietSub, setExpandedDietSub] = useState(true);
@@ -62,16 +68,6 @@ export const Sidebar: React.FC<Props> = ({
 
   return (
     <aside className="w-64 shrink-0 border-r border-salud-light-border/80 dark:border-salud-dark-border/80 bg-white/70 dark:bg-salud-dark-surface/50 p-4 space-y-5 overflow-y-auto text-xs font-sans transition-colors">
-      {/* Platform Vision One-liner */}
-      <div className="p-3.5 rounded-2xl bg-nature-amber-50/60 dark:bg-nature-amber-950/20 border border-nature-amber-200/80 dark:border-nature-amber-800/40 space-y-1">
-        <span className="font-mono text-[10px] text-nature-amber-700 dark:text-nature-amber-400 font-bold block uppercase tracking-wider">
-          {t('app.vision_title')}
-        </span>
-        <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-          {t('app.vision_desc')}
-        </p>
-      </div>
-
       {/* ── 4 Pillars Tree Selection ── */}
       <div className="space-y-1.5">
         <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider px-1 block font-bold">
@@ -260,6 +256,17 @@ export const Sidebar: React.FC<Props> = ({
           臨床治理與篩檢工具
         </span>
 
+        {onOpenEmergencyModal && (
+          <button
+            onClick={onOpenEmergencyModal}
+            className="btn-tactile w-full p-2 rounded-xl border border-red-200 dark:border-red-900/60 bg-red-50/80 dark:bg-red-950/20 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-800 dark:text-red-300 font-mono text-xs flex items-center gap-2 transition-all"
+            title={t('nav.red_flags_title')}
+          >
+            <AlertOctagon className="w-3.5 h-3.5 text-red-600 dark:text-red-400 animate-pulse" />
+            <span>{t('nav.red_flags')}</span>
+          </button>
+        )}
+
         {onOpenAuditC && (
           <button
             onClick={onOpenAuditC}
@@ -287,6 +294,16 @@ export const Sidebar: React.FC<Props> = ({
           >
             <ShieldCheck className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400" />
             <span>{t('nav.council')}</span>
+          </button>
+        )}
+
+        {onOpenCouncilEvidence && (
+          <button
+            onClick={() => onOpenCouncilEvidence()}
+            className="btn-tactile w-full p-2 rounded-xl border border-nature-amber-300/80 dark:border-nature-amber-800/60 bg-nature-amber-50/70 dark:bg-nature-amber-950/20 hover:bg-nature-amber-100 dark:hover:bg-nature-amber-900/40 text-nature-amber-900 dark:text-nature-amber-300 font-mono text-xs flex items-center gap-2 transition-all font-bold"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400" />
+            <span>24 席 Best Practice 實證庫</span>
           </button>
         )}
       </div>

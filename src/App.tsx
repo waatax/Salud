@@ -16,6 +16,7 @@ import { ExerciseHub } from './components/pillars/ExerciseHub';
 import { SleepHub } from './components/pillars/SleepHub';
 import { SupplementsHub } from './components/pillars/SupplementsHub';
 import { ExpertCouncilModal } from './components/council/ExpertCouncilModal';
+import { ExpertBestPracticeView } from './components/council/ExpertBestPracticeView';
 import { EmergencyModal } from './components/common/EmergencyModal';
 import { AuditCModal } from './components/common/AuditCModal';
 import { CardiometabolicHubModal } from './components/hub/CardiometabolicHubModal';
@@ -48,6 +49,10 @@ const AppInner: React.FC = () => {
   const [viewMode, setViewMode] = useState<'landing' | 'page'>('landing');
   const [activePageId, setActivePageId] = useState<string>('PAGE-W-01');
 
+  // Council Evidence & Best Practice View state
+  const [isCouncilEvidenceView, setIsCouncilEvidenceView] = useState<boolean>(false);
+  const [selectedCouncilExpertId, setSelectedCouncilExpertId] = useState<string>('EC-03');
+
   // Exercise Sub-tab state: SportsDiscipline
   const [exerciseSubTab, setExerciseSubTab] = useState<SportsDiscipline>('PHYSIOLOGY');
 
@@ -77,41 +82,59 @@ const AppInner: React.FC = () => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash) {
-        if (hash === 'exercise' || hash === 'exercise/physiology') {
+        if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
+          setIsCouncilEvidenceView(true);
+          if (hash.includes('/')) {
+            setSelectedCouncilExpertId(hash.split('/')[1]);
+          }
+        } else if (hash === 'exercise' || hash === 'exercise/physiology') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('PHYSIOLOGY');
         } else if (hash === 'exercise/running' || hash === 'running') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('RUNNING');
         } else if (hash === 'exercise/cycling' || hash === 'cycling') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('CYCLING');
         } else if (hash === 'exercise/mountaineering' || hash === 'mountaineering' || hash === 'hiking') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('MOUNTAINEERING');
         } else if (hash === 'exercise/strength' || hash === 'strength' || hash === 'resistance') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('STRENGTH_TRAINING');
         } else if (hash === 'exercise/mobility' || hash === 'mobility' || hash === 'fascia' || hash === 'stretching') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('MOBILITY_FASCIA');
         } else if (hash === 'exercise/badminton' || hash === 'badminton') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('BADMINTON');
         } else if (hash === 'exercise/table-tennis' || hash === 'table-tennis' || hash === 'tabletennis' || hash === 'pingpong') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('TABLE_TENNIS');
         } else if (hash === 'exercise/pickleball' || hash === 'pickleball') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('PICKLEBALL');
         } else if (hash === 'sleep') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('sleep');
         } else if (hash === 'supplements') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('supplements');
         } else if (hash === 'diet' || hash === 'diet/patterns') {
+          setIsCouncilEvidenceView(false);
           setActivePillar('diet');
           setDietView('patterns');
         } else if (hash.startsWith('A')) {
+          setIsCouncilEvidenceView(false);
           setActivePillar('diet');
           setDietView('chapter');
           setCurrentChapterId('A');
@@ -122,6 +145,7 @@ const AppInner: React.FC = () => {
             setViewMode('landing');
           }
         } else if (hash.startsWith('O')) {
+          setIsCouncilEvidenceView(false);
           setActivePillar('diet');
           setDietView('chapter');
           setCurrentChapterId('O');
@@ -132,6 +156,7 @@ const AppInner: React.FC = () => {
             setViewMode('landing');
           }
         } else if (hash.startsWith('W')) {
+          setIsCouncilEvidenceView(false);
           setActivePillar('diet');
           setDietView('chapter');
           setCurrentChapterId('W');
@@ -150,8 +175,23 @@ const AppInner: React.FC = () => {
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
+  // Open Council Evidence View directly
+  const handleOpenCouncilEvidence = (expertId?: string) => {
+    if (expertId) {
+      setSelectedCouncilExpertId(expertId);
+      window.location.hash = `council-evidence/${expertId}`;
+    } else {
+      window.location.hash = 'council-evidence';
+    }
+    setIsCouncilEvidenceView(true);
+    setIsMobileSidebarOpen(false);
+    setIsCouncilOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Pillar Selector
   const handleSelectPillar = (pillar: HealthPillar) => {
+    setIsCouncilEvidenceView(false);
     setActivePillar(pillar);
     if (pillar === 'diet') {
       window.location.hash = 'diet';
@@ -163,6 +203,7 @@ const AppInner: React.FC = () => {
 
   // Chapter Selector (under Diet)
   const handleSelectChapter = (chId: string) => {
+    setIsCouncilEvidenceView(false);
     setActivePillar('diet');
     setDietView('chapter');
     setCurrentChapterId(chId);
@@ -213,9 +254,6 @@ const AppInner: React.FC = () => {
         onSelectPillar={handleSelectPillar}
         isDark={isDark}
         onToggleTheme={() => setIsDark(!isDark)}
-        onOpenCouncil={() => setIsCouncilOpen(true)}
-        onOpenEmergencyModal={() => setIsEmergencyOpen(true)}
-        onOpenAuditC={() => setIsAuditCOpen(true)}
         onOpenCardioHub={() => setIsCardioHubOpen(true)}
         onToggleMobileSidebar={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
       />
@@ -237,6 +275,8 @@ const AppInner: React.FC = () => {
             onOpenAuditC={() => setIsAuditCOpen(true)}
             onOpenCardioHub={() => setIsCardioHubOpen(true)}
             onOpenCouncil={() => setIsCouncilOpen(true)}
+            onOpenCouncilEvidence={handleOpenCouncilEvidence}
+            onOpenEmergencyModal={() => setIsEmergencyOpen(true)}
           />
         </div>
 
@@ -268,6 +308,8 @@ const AppInner: React.FC = () => {
                 onOpenAuditC={() => setIsAuditCOpen(true)}
                 onOpenCardioHub={() => setIsCardioHubOpen(true)}
                 onOpenCouncil={() => setIsCouncilOpen(true)}
+                onOpenCouncilEvidence={handleOpenCouncilEvidence}
+                onOpenEmergencyModal={() => setIsEmergencyOpen(true)}
               />
             </div>
             <div className="flex-1" onClick={() => setIsMobileSidebarOpen(false)} />
@@ -278,88 +320,125 @@ const AppInner: React.FC = () => {
         <main className="flex-1 px-4 sm:px-8 py-6 overflow-y-auto">
           {/* Breadcrumb Navigation */}
           <nav className="mb-5 flex items-center justify-between font-mono text-xs text-slate-500 dark:text-slate-400 border-b border-salud-light-border/60 dark:border-salud-dark-border/40 pb-2">
-            <div className="flex items-center gap-1.5">
+            {isCouncilEvidenceView ? (
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold text-slate-800 dark:text-slate-100">
+                  24 席專家治理架構
+                </span>
+                <span>/</span>
+                <span className="text-nature-amber-600 dark:text-nature-amber-400 font-bold">
+                  50+ 篇期刊實證與 Best Practice
+                </span>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => {
+                    if (activePillar === 'diet') setDietView('patterns');
+                  }}
+                  className="hover:text-salud-amber transition-colors font-bold flex items-center gap-1"
+                >
+                  <span>Pillar:</span>
+                  <span className="text-slate-800 dark:text-slate-100">
+                    {t(`pillar.${activePillar}`)}
+                  </span>
+                </button>
+
+                {activePillar === 'diet' && dietView === 'chapter' && (
+                  <>
+                    <span>/</span>
+                    <button
+                      onClick={() => setViewMode('landing')}
+                      className="hover:text-salud-amber font-bold text-salud-amber-600 dark:text-salud-amber"
+                    >
+                      Chapter {currentChapter.id}
+                    </button>
+                    {viewMode === 'page' && (
+                      <>
+                        <span>/</span>
+                        <span className="text-salud-cyan font-bold">{currentPage?.id}</span>
+                      </>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
+
+            {isCouncilEvidenceView ? (
               <button
                 onClick={() => {
-                  if (activePillar === 'diet') setDietView('patterns');
+                  setIsCouncilEvidenceView(false);
+                  handleSelectPillar('diet');
                 }}
-                className="hover:text-salud-amber transition-colors font-bold flex items-center gap-1"
+                className="text-[11px] text-nature-amber-600 dark:text-nature-amber-400 hover:underline flex items-center gap-1 font-bold"
               >
-                <span>Pillar:</span>
-                <span className="text-slate-800 dark:text-slate-100">
-                  {t(`pillar.${activePillar}`)}
-                </span>
+                ⟵ 返回四大健康支柱
               </button>
-
-              {activePillar === 'diet' && dietView === 'chapter' && (
-                <>
-                  <span>/</span>
-                  <button
-                    onClick={() => setViewMode('landing')}
-                    className="hover:text-salud-amber font-bold text-salud-amber-600 dark:text-salud-amber"
-                  >
-                    Chapter {currentChapter.id}
-                  </button>
-                  {viewMode === 'page' && (
-                    <>
-                      <span>/</span>
-                      <span className="text-salud-cyan font-bold">{currentPage?.id}</span>
-                    </>
-                  )}
-                </>
-              )}
-            </div>
-
-            {activePillar === 'diet' && dietView === 'chapter' && (
+            ) : activePillar === 'diet' && dietView === 'chapter' ? (
               <button
                 onClick={() => setDietView('patterns')}
                 className="text-[11px] text-salud-cyan hover:underline flex items-center gap-1"
               >
                 ⟵ 返回飲食模式全景
               </button>
-            )}
+            ) : null}
           </nav>
 
-          {/* ── Render Content based on Active Pillar ── */}
-
-          {/* 1. Diet & Nutrition Pillar */}
-          {activePillar === 'diet' && (
+          {/* ── Render Content: Either Council Evidence View or 4 Pillars ── */}
+          {isCouncilEvidenceView ? (
+            <ExpertBestPracticeView
+              initialExpertId={selectedCouncilExpertId}
+              onSelectPillar={(pillar) => {
+                setIsCouncilEvidenceView(false);
+                handleSelectPillar(pillar);
+              }}
+              onBackToMain={() => {
+                setIsCouncilEvidenceView(false);
+                handleSelectPillar('diet');
+              }}
+            />
+          ) : (
             <>
-              {dietView === 'patterns' ? (
-                <DietaryPatternsHub
-                  chapters={CHAPTERS}
-                  onSelectChapter={handleSelectChapter}
-                />
-              ) : viewMode === 'landing' ? (
-                <ChapterLanding
-                  chapter={currentChapter}
-                  pages={pagesForCurrent}
-                  onStartReading={handleSelectPage}
-                  onSelectPage={handleSelectPage}
-                />
-              ) : (
-                <KnowledgePage
-                  page={currentPage}
-                  onNavigatePage={handleSelectPage}
-                />
+              {/* 1. Diet & Nutrition Pillar */}
+              {activePillar === 'diet' && (
+                <>
+                  {dietView === 'patterns' ? (
+                    <DietaryPatternsHub
+                      chapters={CHAPTERS}
+                      onSelectChapter={handleSelectChapter}
+                    />
+                  ) : viewMode === 'landing' ? (
+                    <ChapterLanding
+                      chapter={currentChapter}
+                      pages={pagesForCurrent}
+                      onStartReading={handleSelectPage}
+                      onSelectPage={handleSelectPage}
+                    />
+                  ) : (
+                    <KnowledgePage
+                      page={currentPage}
+                      onNavigatePage={handleSelectPage}
+                    />
+                  )}
+                </>
               )}
+
+              {/* 2. Exercise & Movement Pillar */}
+              {activePillar === 'exercise' && (
+                <ExerciseHub key={exerciseSubTab} initialSubTab={exerciseSubTab} />
+              )}
+
+              {/* 3. Sleep & Recovery Pillar */}
+              {activePillar === 'sleep' && <SleepHub />}
+
+              {/* 4. Deep Supplements & Nutraceuticals Pillar */}
+              {activePillar === 'supplements' && <SupplementsHub />}
             </>
           )}
-
-          {/* 2. Exercise & Movement Pillar */}
-          {activePillar === 'exercise' && (
-            <ExerciseHub key={exerciseSubTab} initialSubTab={exerciseSubTab} />
-          )}
-
-          {/* 3. Sleep & Recovery Pillar */}
-          {activePillar === 'sleep' && <SleepHub />}
-
-          {/* 4. Deep Supplements & Nutraceuticals Pillar */}
-          {activePillar === 'supplements' && <SupplementsHub />}
         </main>
 
         {/* Desktop Context Inspector (Visible when reading a specific Knowledge Page in Chapter) */}
-        {activePillar === 'diet' && dietView === 'chapter' && viewMode === 'page' && currentPage && (
+        {!isCouncilEvidenceView && activePillar === 'diet' && dietView === 'chapter' && viewMode === 'page' && currentPage && (
           <div className="hidden xl:block">
             <ContextInspector
               page={currentPage}
@@ -383,6 +462,7 @@ const AppInner: React.FC = () => {
       <ExpertCouncilModal
         isOpen={isCouncilOpen}
         onClose={() => setIsCouncilOpen(false)}
+        onOpenBestPractice={handleOpenCouncilEvidence}
       />
 
       {/* ── Emergency Red Flag Modal ── */}
