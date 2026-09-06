@@ -2,7 +2,8 @@ import React from 'react';
 import { SimDietPatterns } from '../simulators/SimDietPatterns';
 import { Chapter } from '../../types';
 import { useLanguage } from '../../i18n';
-import { Utensils, Droplets, Flame, Wine, ArrowRight, Sparkles, BookOpen } from 'lucide-react';
+import { PillarHubTemplate } from '../common/PillarHubTemplate';
+import { Droplets, Flame, Wine, BookOpen } from 'lucide-react';
 
 interface Props {
   chapters: Chapter[];
@@ -10,36 +11,22 @@ interface Props {
 }
 
 export const DietaryPatternsHub: React.FC<Props> = ({ chapters, onSelectChapter }) => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   const chapterW = chapters.find((c) => c.id === 'W');
   const chapterO = chapters.find((c) => c.id === 'O');
   const chapterA = chapters.find((c) => c.id === 'A');
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto font-sans text-xs pb-16">
-      {/* Hero Header */}
-      <div className="p-6 sm:p-8 rounded-3xl border border-nature-amber-200/90 dark:border-nature-amber-800/40 bg-gradient-to-br from-nature-amber-100/70 via-white to-nature-green-50/50 dark:from-nature-amber-950/40 dark:via-salud-dark-card/60 dark:to-slate-950 relative overflow-hidden shadow-sm transition-colors">
-        <div className="relative space-y-3 max-w-2xl">
-          <span className="px-2.5 py-1 rounded-full font-mono text-xs font-bold border border-nature-amber-300/80 bg-nature-amber-100/80 text-nature-amber-800 dark:border-nature-amber-700/60 dark:bg-nature-amber-950/60 dark:text-nature-amber-300">
-            Health Pillar 01 · 飲食與營養總樞紐
-          </span>
-          <h1 className="text-2xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-salud-dark-text tracking-tight">
-            {language === 'zh-TW' ? '飲食模式與三大物質代謝' : 'Dietary Patterns & Substrate Metabolism'}
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-            人體能量與結構物質的根本來源。本支柱整合「五大主流飲食法深度生化機制對照」，並完整收整人體最關鍵的三大液態與脂質物質專章：水分（Chapter W）、食用油（Chapter O）與酒精（Chapter A）。
-          </p>
-        </div>
-      </div>
-
-      {/* ── Sub-module 1: 5 Major Dietary Patterns Interactive Simulator ── */}
-      <section className="space-y-3">
-        <SimDietPatterns />
-      </section>
-
-      {/* ── Sub-module 2: Core Deep Chapters (Water W, Oil O, Alcohol A) ── */}
-      <section className="space-y-4">
+    <PillarHubTemplate
+      pillarTag="Health Pillar 01 · 飲食與營養總樞紐"
+      title={language === 'zh-TW' ? '飲食模式與三大物質代謝' : 'Dietary Patterns & Substrate Metabolism'}
+      description="人體能量與結構物質的根本來源。本支柱整合「五大主流飲食法深度生化機制對照」，並完整收整人體最關鍵的三大液態與脂質物質專章：水分（Chapter W）、食用油（Chapter O）與酒精（Chapter A）。"
+      gradientClass="border-nature-amber-200/90 dark:border-nature-amber-800/40 bg-gradient-to-br from-nature-amber-100/70 via-white to-nature-green-50/50 dark:from-nature-amber-950/40 dark:via-salud-dark-card/60 dark:to-slate-950"
+      tagClass="border-nature-amber-300/80 bg-nature-amber-100/80 text-nature-amber-800 dark:border-nature-amber-700/60 dark:bg-nature-amber-950/60 dark:text-nature-amber-300"
+      simulatorSection={<SimDietPatterns />}
+      submodulesSection={
+        <div className="space-y-4">
         <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
           <h3 className="text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-nature-amber-600 dark:text-salud-amber" />
@@ -138,7 +125,8 @@ export const DietaryPatternsHub: React.FC<Props> = ({ chapters, onSelectChapter 
             </div>
           )}
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    }
+  />
+);
 };

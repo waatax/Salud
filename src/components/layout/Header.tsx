@@ -60,7 +60,7 @@ export const Header: React.FC<Props> = ({
               <span className="text-base font-display font-extrabold tracking-tight text-slate-900 dark:text-salud-dark-text flex items-center gap-1.5">
                 Salud
                 <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-nature-sky-100 dark:bg-nature-sky-950/60 text-nature-sky-700 dark:text-nature-sky-300 border border-nature-sky-200 dark:border-nature-sky-800/60 font-bold">
-                  v0.4
+                  v0.5
                 </span>
               </span>
               <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 hidden xl:block">

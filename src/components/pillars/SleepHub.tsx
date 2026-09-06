@@ -3,31 +3,22 @@ import { SLEEP_STAGES, SLEEP_TOPICS } from '../../data/sleepData';
 import { SimCircadian } from '../simulators/SimCircadian';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
-import { Moon, Brain, Sun, Sparkles, ChevronDown, ChevronUp, Layers, CheckCircle2 } from 'lucide-react';
+import { PillarHubTemplate } from '../common/PillarHubTemplate';
+import { Brain, ChevronDown, ChevronUp, Layers, CheckCircle2 } from 'lucide-react';
 
 export const SleepHub: React.FC = () => {
   const { t, language } = useLanguage();
   const [expandedTopic, setExpandedTopic] = useState<string | null>('SL-02');
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto font-sans text-xs pb-16">
-      {/* Hero Header */}
-      <div className="p-6 sm:p-8 rounded-3xl border border-purple-200 dark:border-purple-800/40 bg-gradient-to-br from-purple-100/70 via-white to-nature-sky-50/40 dark:from-purple-950/40 dark:via-salud-dark-card/60 dark:to-slate-950 relative overflow-hidden shadow-sm transition-colors">
-        <div className="relative space-y-3 max-w-2xl">
-          <span className="px-2.5 py-1 rounded-full font-mono text-xs font-bold border border-purple-300/80 bg-purple-100/80 text-purple-800 dark:border-purple-700/60 dark:bg-purple-950/60 dark:text-purple-300">
-            Health Pillar 03 · 睡眠與修復總樞紐
-          </span>
-          <h1 className="text-2xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-salud-dark-text tracking-tight">
-            {language === 'zh-TW' ? '睡眠神經生理與大腦排毒修復' : 'Sleep Neurobiology & Glymphatic Brain Recovery'}
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-            睡眠是大腦唯二進行結構性排毒與突觸重組的時刻。本支柱涵蓋 90 分鐘超晝夜睡眠架構、慢波深睡期的膠淋巴系統（Glymphatic System 沖刷 β-類澱粉蛋白）、視交叉上核 (SCN) 晝夜光照生物鐘、以及第一線臨床失眠治療 CBT-I 行為處方。
-          </p>
-        </div>
-      </div>
-
-      {/* ── Sub-module 1: Four Stages of Sleep Architecture ── */}
-      <section className="space-y-3">
+    <PillarHubTemplate
+      pillarTag="Health Pillar 03 · 睡眠與修復總樞紐"
+      title={language === 'zh-TW' ? '睡眠神經生理與大腦排毒修復' : 'Sleep Neurobiology & Glymphatic Brain Recovery'}
+      description="睡眠是大腦唯二進行結構性排毒與突觸重組的時刻。本支柱涵蓋 90 分鐘超晝夜睡眠架構、慢波深睡期的膠淋巴系統（Glymphatic System 沖刷 β-類澱粉蛋白）、視交叉上核 (SCN) 晝夜光照生物鐘、以及第一線臨床失眠治療 CBT-I 行為處方。"
+      gradientClass="border-purple-200 dark:border-purple-800/40 bg-gradient-to-br from-purple-100/70 via-white to-nature-sky-50/40 dark:from-purple-950/40 dark:via-salud-dark-card/60 dark:to-slate-950"
+      tagClass="border-purple-300/80 bg-purple-100/80 text-purple-800 dark:border-purple-700/60 dark:bg-purple-950/60 dark:text-purple-300"
+      overviewSection={
+        <div className="space-y-3">
         <div className="border-b border-slate-200 dark:border-slate-800 pb-2 flex items-center justify-between">
           <h3 className="text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Layers className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -64,16 +55,12 @@ export const SleepHub: React.FC = () => {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* ── Sub-module 2: Dynamic 24-Hour Circadian Simulator ── */}
-      <section className="space-y-3">
-        <SimCircadian />
-      </section>
-
-      {/* ── Sub-module 3: Core Sleep Topics ── */}
-      <section className="space-y-4">
-        <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+        </div>
+      }
+      simulatorSection={<SimCircadian />}
+      topicsSection={
+        <div className="space-y-4">
+          <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
           <h3 className="text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Brain className="w-4 h-4 text-purple-600 dark:text-purple-400" />
             睡眠神經醫學四大核心專題 (Core Sleep Topics)
@@ -148,7 +135,8 @@ export const SleepHub: React.FC = () => {
             );
           })}
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    }
+  />
+);
 };

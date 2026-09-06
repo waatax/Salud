@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { KnowledgePage as KnowledgePageType, DepthLevel } from '../../types';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { RedFlagAlert } from '../common/RedFlagAlert';
 import { FigureContainer } from '../figures/FigureContainer';
-import { FIGURES_CATALOG } from '../../data/figuresMeta';
-import { T1Mechanism } from '../figures/T1Mechanism';
-import { T2Anatomy } from '../figures/T2Anatomy';
-import { T3Molecular } from '../figures/T3Molecular';
-import { T5ScaleSpectrum } from '../figures/T5ScaleSpectrum';
-import { T6ComparisonBar } from '../figures/T6ComparisonBar';
-import { T8PortionVisual } from '../figures/T8PortionVisual';
 import { T10MythCard } from '../figures/T10MythCard';
+import { FIGURES_CATALOG } from '../../data/figuresMeta';
+import { getFigureComponent, getFigureProps } from '../figures/FigureRegistry';
 import { SimHydration } from '../simulators/SimHydration';
 import { SimOilSwap } from '../simulators/SimOilSwap';
 import { SimCookTemp } from '../simulators/SimCookTemp';
 import { SimBAC } from '../simulators/SimBAC';
 import { SbxALDH2 } from '../simulators/SbxALDH2';
 import { SelfCheckQuiz } from './SelfCheckQuiz';
+import { CHAPTERS } from '../../data/chapters';
 import {
   ChevronDown,
   ChevronUp,
@@ -45,19 +41,21 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
     setExpandedKPs((prev) => ({ ...prev, [kpId]: !prev[kpId] }));
   };
 
-  // Render proper SVG figure by ID
-  const renderFigureComponent = (figId: string) => {
-    if (figId === 'FIG-W-01-02') return <T2Anatomy />;
-    if (figId === 'FIG-W-03-01' || figId === 'FIG-W-03-02') return <T1Mechanism figureId={figId} />;
-    if (figId === 'FIG-W-06-01') return <T5ScaleSpectrum />;
-    if (figId === 'FIG-O-02-01' || figId === 'FIG-O-02-02') return <T3Molecular />;
-    if (figId === 'FIG-O-07-01') return <T6ComparisonBar />;
-    if (figId === 'FIG-W-10-02' || figId === 'FIG-O-11-02' || figId === 'FIG-A-01-01') return <T8PortionVisual />;
-    if (figId === 'FIG-A-02-01') return <T1Mechanism figureId={figId} />;
-    if (figId === 'FIG-A-03-01') return <T3Molecular />;
-    if (figId === 'FIG-A-06-03') return <T5ScaleSpectrum />;
-    if (figId === 'FIG-A-08-01') return <T6ComparisonBar />;
-    return <T6ComparisonBar />;
+  // Render proper SVG figure by ID and FigureType using FigureRegistry (WP6)
+  const renderFigureComponent = (figId: string, meta: (typeof FIGURES_CATALOG)[string]) => {
+    const Component = getFigureComponent(meta.type);
+    const props = getFigureProps(figId, meta.type);
+    return (
+      <Suspense
+        fallback={
+          <div className="h-48 flex items-center justify-center text-slate-400 font-mono text-xs">
+            載入實證圖解...
+          </div>
+        }
+      >
+        <Component {...props} />
+      </Suspense>
+    );
   };
 
   const isAlcoholPage12 = page.id === 'PAGE-A-12';
@@ -65,7 +63,8 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
   // Navigation calculation
   const prefix = `PAGE-${page.chapter_id}`;
   const currentIndex = page.order_index;
-  const maxPages = page.chapter_id === 'W' ? 10 : page.chapter_id === 'O' ? 11 : 12;
+  const currentChapter = CHAPTERS.find((c) => c.id === page.chapter_id);
+  const maxPages = currentChapter ? currentChapter.page_count : 12;
   const prevPageId = currentIndex > 1 ? `${prefix}-${String(currentIndex - 1).padStart(2, '0')}` : null;
   const nextPageId = currentIndex < maxPages ? `${prefix}-${String(currentIndex + 1).padStart(2, '0')}` : null;
 
@@ -265,11 +264,26 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           <div className="space-y-6">
             {page.figure_ids.map((figId) => {
               const meta = FIGURES_CATALOG[figId];
-              if (!meta) return null;
+              if (!meta) {
+                return (
+                  <div
+                    key={figId}
+                    className="p-4 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30 flex items-center justify-between text-xs font-mono text-slate-500"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-[10px] font-bold">
+                        {figId}
+                      </span>
+                      <span>實證圖解正在專家委員會審查與矢量排版中</span>
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-sans">Spec v0.3</span>
+                  </div>
+                );
+              }
 
               return (
                 <FigureContainer key={figId} meta={meta}>
-                  {renderFigureComponent(figId)}
+                  {renderFigureComponent(figId, meta)}
                 </FigureContainer>
               );
             })}
