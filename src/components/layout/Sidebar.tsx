@@ -100,20 +100,47 @@ export const Sidebar: React.FC<Props> = (props) => {
         </button>
       </div>
 
-      {/* ── 4 Pillars Selection ── */}
+      {/* ── Health Pillars Selection ── */}
       <div className="space-y-1.5">
         {!isCollapsed && (
           <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider px-1 block font-bold">
-            四大健康支柱 (4 Pillars)
+            健康核心架構 (Health Pillars)
           </span>
         )}
 
-        {/* 1. Diet & Nutrition Pillar */}
+        {/* 0. Human Organ Systems (Primary Home) */}
+        <div className="space-y-1">
+          <button
+            onClick={() => onSelectPillar('systems')}
+            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+              activePillar === 'systems'
+                ? 'border-salud-cyan dark:border-salud-cyan bg-salud-cyan/15 dark:bg-salud-cyan/20 text-slate-900 dark:text-salud-cyan font-bold shadow-sm'
+                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+            } ${isCollapsed ? 'justify-center px-2' : ''}`}
+            title={isCollapsed ? '人體系統' : undefined}
+          >
+            <div className="flex items-center gap-2">
+              <HeartPulse
+                className={`w-4 h-4 ${
+                  activePillar === 'systems' ? 'text-salud-cyan' : 'text-slate-400'
+                }`}
+              />
+              {!isCollapsed && <span className="text-xs">人體系統 (首頁)</span>}
+            </div>
+            {!isCollapsed && (
+              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40 font-bold">
+                8大系統
+              </span>
+            )}
+          </button>
+        </div>
+
+        {/* 1. Diet & Nutrition Pillar (Contains Nutrients, Supplements, W, O, A) */}
         <div className="space-y-1">
           <button
             onClick={() => onSelectPillar('diet')}
             className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'diet'
+              activePillar === 'diet' || activePillar === 'supplements'
                 ? 'border-nature-amber-300 dark:border-nature-amber-700 bg-nature-amber-50 dark:bg-nature-amber-950/40 text-nature-amber-900 dark:text-nature-amber-200 font-bold shadow-sm'
                 : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
             } ${isCollapsed ? 'justify-center px-2' : ''}`}
@@ -122,10 +149,10 @@ export const Sidebar: React.FC<Props> = (props) => {
             <div className="flex items-center gap-2">
               <Utensils
                 className={`w-4 h-4 ${
-                  activePillar === 'diet' ? 'text-nature-amber-600 dark:text-nature-amber-400' : 'text-slate-400'
+                  activePillar === 'diet' || activePillar === 'supplements' ? 'text-nature-amber-600 dark:text-nature-amber-400' : 'text-slate-400'
                 }`}
               />
-              {!isCollapsed && <span className="text-xs">{t('pillar.diet')}</span>}
+              {!isCollapsed && <span className="text-xs">飲食與營養保健</span>}
             </div>
             {!isCollapsed && (
               <button
@@ -141,9 +168,30 @@ export const Sidebar: React.FC<Props> = (props) => {
             )}
           </button>
 
-          {/* Sub-tree of Diet: Chapters O, W, A */}
+          {/* Sub-tree of Diet & Nutrition */}
           {!isCollapsed && expandedDietSub && (
             <div className="pl-4 space-y-1 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 py-1">
+              <button
+                onClick={() => {
+                  onSelectPillar('diet');
+                  window.location.hash = 'diet/patterns';
+                }}
+                className="btn-tactile w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              >
+                <span className="text-nature-amber-600 font-bold">•</span>
+                <span className="truncate">各式飲食重點 (碳水/纖維/蛋白)</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  onSelectPillar('supplements');
+                }}
+                className="btn-tactile w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              >
+                <Pill className="w-3.5 h-3.5 text-nature-green-600 dark:text-emerald-400" />
+                <span className="truncate">營養保健 (GRADE 實證)</span>
+              </button>
+
               {[
                 {
                   id: 'W',
@@ -173,7 +221,7 @@ export const Sidebar: React.FC<Props> = (props) => {
                       onSelectPillar('diet');
                       onSelectChapter(ch.id);
                     }}
-                    className={`btn-tactile w-full p-2 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 ${
+                    className={`btn-tactile w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 ${
                       isSelected
                         ? 'bg-slate-100 dark:bg-slate-800 text-nature-amber-700 dark:text-nature-amber-300 font-bold shadow-sm'
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
@@ -270,35 +318,10 @@ export const Sidebar: React.FC<Props> = (props) => {
             </span>
           )}
         </button>
-
-        {/* 4. Deep Supplements Pillar */}
-        <button
-          onClick={() => onSelectPillar('supplements')}
-          className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-            activePillar === 'supplements'
-              ? 'border-nature-green-300 dark:border-nature-green-700 bg-nature-green-50 dark:bg-nature-green-950/40 text-nature-green-900 dark:text-nature-green-200 font-bold shadow-sm'
-              : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-          } ${isCollapsed ? 'justify-center px-2' : ''}`}
-          title={isCollapsed ? t('pillar.supplements') : undefined}
-        >
-          <div className="flex items-center gap-2">
-            <Pill
-              className={`w-4 h-4 ${
-                activePillar === 'supplements' ? 'text-nature-green-600 dark:text-nature-green-400' : 'text-slate-400'
-              }`}
-            />
-            {!isCollapsed && <span className="text-xs">{t('pillar.supplements')}</span>}
-          </div>
-          {!isCollapsed && (
-            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-nature-green-100 dark:bg-nature-green-900/60 text-nature-green-800 dark:text-nature-green-300 border border-nature-green-200 dark:border-nature-green-800/50">
-              GRADE A-E
-            </span>
-          )}
-        </button>
       </div>
 
-      {/* Pages within current chapter */}
-      {!isCollapsed && activePillar === 'diet' && pagesForCurrent.length > 0 && (
+      {/* Pages within current chapter (Only shown when browsing inside a specific chapter) */}
+      {!isCollapsed && activePillar === 'diet' && nav.dietView === 'chapter' && pagesForCurrent.length > 0 && (
         <div className="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between px-1 text-xs font-mono font-bold text-slate-700 dark:text-slate-400">
             <span>Chapter {currentChapterId} 知識頁清單</span>

@@ -16,6 +16,7 @@ import { SleepHub } from '../pillars/SleepHub';
 import { SupplementsHub } from '../pillars/SupplementsHub';
 import { ChapterLanding } from '../knowledge/ChapterLanding';
 import { KnowledgePage } from '../knowledge/KnowledgePage';
+import { HumanSystemsHub } from '../systems/HumanSystemsHub';
 import { CHAPTERS } from '../../data/chapters';
 
 // Lazy-loaded heavy council governance and screening modals (Round 3 optimization)
@@ -139,6 +140,7 @@ export function AppShell() {
             </Suspense>
           ) : (
             <>
+              {activePillar === 'systems' && <HumanSystemsHub />}
               {activePillar === 'diet' && (
                 <>
                   {dietView === 'patterns' ? (

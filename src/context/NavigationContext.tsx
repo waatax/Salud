@@ -43,7 +43,7 @@ export interface NavigationContextProps {
 const NavigationContext = createContext<NavigationContextProps | undefined>(undefined);
 
 export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [activePillar, setActivePillar] = useState<HealthPillar>('diet');
+  const [activePillar, setActivePillar] = useState<HealthPillar>('systems');
   const [dietView, setDietView] = useState<'patterns' | 'chapter'>('patterns');
   const [currentChapterId, setCurrentChapterId] = useState<string>('W');
   const [viewMode, setViewMode] = useState<'landing' | 'page'>('landing');
@@ -57,11 +57,15 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        if (hash === 'synergy') {
-          setIsSynergyView(true);
-          setIsCouncilEvidenceView(false);
-        } else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
+      if (!hash || hash === 'systems' || hash.startsWith('systems/')) {
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        setActivePillar('systems');
+      } else if (hash === 'synergy') {
+        setIsSynergyView(true);
+        setIsCouncilEvidenceView(false);
+      }
+ else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
           setIsSynergyView(false);
           setIsCouncilEvidenceView(true);
           if (hash.includes('/')) {
@@ -147,8 +151,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
             setViewMode('landing');
           }
         }
-      }
-    };
+      };
 
     handleHash();
     window.addEventListener('hashchange', handleHash);
@@ -180,7 +183,9 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     setIsCouncilEvidenceView(false);
     setIsSynergyView(false);
     setActivePillar(pillar);
-    if (pillar === 'diet') {
+    if (pillar === 'systems') {
+      window.location.hash = 'systems';
+    } else if (pillar === 'diet') {
       window.location.hash = 'diet';
     } else {
       window.location.hash = pillar;

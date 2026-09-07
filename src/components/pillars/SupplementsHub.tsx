@@ -9,9 +9,9 @@ export const SupplementsHub: React.FC = () => {
 
   return (
     <PillarHubTemplate
-      pillarTag="Health Pillar 04 · 實證保健食品與健康食品總樞紐"
-      title={language === 'zh-TW' ? '保健營養品實證矩陣與交互作用防火牆' : 'Evidence Nutraceutical Matrix & Interaction Firewall'}
-      description="終結市售保健食品的概念置換與智商稅。嚴格依循國際 GRADE 實證醫學標準，完整盤點 30+ 種核心成分的真實人體臨床效益（A 至 E 級），並建置最嚴格的「處方西藥 × 保健品交互作用警示防火牆」與台灣衛福部 (TFDA) 小綠人法規指南。"
+      pillarTag="Dietary Nutrition · 飲食與營養保健總樞紐"
+      title={language === 'zh-TW' ? '營養保健品實證矩陣與交互作用防火牆' : 'Nutrition & Dietary Supplements Evidence Matrix'}
+      description="終結市售保健食品的概念置換與智商稅。嚴格依循國際 GRADE 實證醫學標準，完整盤點 30+ 種核心成分的真實人體臨床效益（A 至 E 級），並建置最嚴格的「處方西藥 × 營養保健品交互作用警示防火牆」與台灣衛福部 (TFDA) 小綠人法規指南。"
       gradientClass="border-nature-green-200/90 dark:border-nature-green-800/40 bg-gradient-to-br from-nature-green-100/70 via-white to-nature-sky-50/40 dark:from-nature-green-950/40 dark:via-salud-dark-card/60 dark:to-slate-950"
       tagClass="border-nature-green-300/80 bg-nature-green-100/80 text-nature-green-800 dark:border-nature-green-700/60 dark:bg-nature-green-950/60 dark:text-nature-green-300"
       overviewSection={

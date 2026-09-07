@@ -145,11 +145,12 @@ export const zhTW = {
   'auditc.title': 'AUDIT-C 飲酒習慣快速實證篩檢',
   'auditc.subtitle': 'WHO 實證 3 題快速篩檢工具（僅為篩檢，非診斷）',
 
-  // ── 4 Pillars Architecture (v0.4) ──
+  // ── Health Pillars Architecture (v0.5 Systems Update) ──
+  'pillar.systems': '人體系統',
   'pillar.diet': '飲食與營養',
-  'pillar.exercise': '運動與活力',
+  'pillar.exercise': '運動科學',
   'pillar.sleep': '睡眠與修復',
-  'pillar.supplements': '實證保健品',
+  'pillar.supplements': '營養保健',
 
   // Diet Patterns
   'diet.tab_patterns': '主流飲食法比對',

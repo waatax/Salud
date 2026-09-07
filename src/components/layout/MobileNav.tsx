@@ -1,7 +1,7 @@
 import React from 'react';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
-import { Utensils, Activity, Moon, Pill, AlertOctagon, ShieldCheck } from 'lucide-react';
+import { HeartPulse, Utensils, Activity, Moon, Pill, AlertOctagon, ShieldCheck } from 'lucide-react';
 
 interface Props {
   activePillar: HealthPillar;
@@ -20,32 +20,32 @@ export const MobileNav: React.FC<Props> = ({
 
   const pillars = [
     {
+      id: 'systems' as HealthPillar,
+      label: '系統',
+      icon: HeartPulse,
+      activeColor: 'text-salud-cyan dark:text-salud-cyan',
+      activeBg: 'bg-salud-cyan/20 dark:bg-salud-cyan/20',
+    },
+    {
       id: 'diet' as HealthPillar,
-      label: t('pillar.diet'),
+      label: '飲食',
       icon: Utensils,
       activeColor: 'text-nature-amber-600 dark:text-nature-amber-400',
       activeBg: 'bg-nature-amber-100/80 dark:bg-nature-amber-950/50',
     },
     {
       id: 'exercise' as HealthPillar,
-      label: t('pillar.exercise'),
+      label: '運動',
       icon: Activity,
       activeColor: 'text-nature-sky-600 dark:text-nature-sky-400',
       activeBg: 'bg-nature-sky-100/80 dark:bg-nature-sky-950/50',
     },
     {
       id: 'sleep' as HealthPillar,
-      label: t('pillar.sleep'),
+      label: '睡眠',
       icon: Moon,
       activeColor: 'text-purple-600 dark:text-purple-400',
       activeBg: 'bg-purple-100/80 dark:bg-purple-950/50',
-    },
-    {
-      id: 'supplements' as HealthPillar,
-      label: t('pillar.supplements'),
-      icon: Pill,
-      activeColor: 'text-nature-green-600 dark:text-nature-green-400',
-      activeBg: 'bg-nature-green-100/80 dark:bg-nature-green-950/50',
     },
   ];
 

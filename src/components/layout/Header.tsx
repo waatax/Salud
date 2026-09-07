@@ -48,18 +48,18 @@ export const Header: React.FC<Props> = ({
           {/* Logo */}
           <div
             className="flex items-center gap-2.5 cursor-pointer select-none group"
-            onClick={() => onSelectPillar('diet')}
-            title="回到健康生活起點"
+            onClick={() => onSelectPillar('systems')}
+            title="回到健康生活起點 · 人體系統主頁"
           >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-nature-amber-500 via-nature-green-500 to-nature-sky-500 p-0.5 shadow-sm group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-white dark:bg-slate-950 rounded-[9px] flex items-center justify-center text-nature-sky-600 dark:text-nature-sky-400 font-bold font-display text-sm">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-salud-cyan via-nature-green-500 to-nature-amber-500 p-0.5 shadow-sm group-hover:scale-105 transition-transform">
+              <div className="w-full h-full bg-white dark:bg-slate-950 rounded-[9px] flex items-center justify-center text-salud-cyan dark:text-salud-cyan font-bold font-display text-sm">
                 S
               </div>
             </div>
             <div>
               <span className="text-base font-display font-extrabold tracking-tight text-slate-900 dark:text-salud-dark-text flex items-center gap-1.5">
                 Salud
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-nature-sky-100 dark:bg-nature-sky-950/60 text-nature-sky-700 dark:text-nature-sky-300 border border-nature-sky-200 dark:border-nature-sky-800/60 font-bold">
+                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40 font-bold">
                   v0.5
                 </span>
               </span>
@@ -70,20 +70,35 @@ export const Header: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* ── 4 Pillars Desktop Navigation Tabs (v0.4) ── */}
+        {/* ── Desktop Navigation Tabs ── */}
         <div className="hidden md:flex items-center gap-1 bg-slate-100/90 dark:bg-slate-900/80 p-1 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs font-mono">
+          {/* 1. Human Body Systems (Home) */}
+          <button
+            onClick={() => onSelectPillar('systems')}
+            className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              activePillar === 'systems'
+                ? 'bg-salud-cyan/20 dark:bg-salud-cyan text-slate-900 dark:text-black font-bold border border-salud-cyan/60 dark:border-transparent shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-800/40'
+            }`}
+          >
+            <HeartPulse className="w-3.5 h-3.5 text-salud-cyan dark:text-black" />
+            <span>人體系統</span>
+          </button>
+
+          {/* 2. Diet & Nutrition (Contains Nutrients & Supplements) */}
           <button
             onClick={() => onSelectPillar('diet')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
-              activePillar === 'diet'
+              activePillar === 'diet' || activePillar === 'supplements'
                 ? 'bg-nature-amber-100 dark:bg-salud-amber text-nature-amber-900 dark:text-black font-bold border border-nature-amber-300 dark:border-transparent shadow-sm'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-800/40'
             }`}
           >
             <Utensils className="w-3.5 h-3.5 text-nature-amber-600 dark:text-black" />
-            <span>{t('pillar.diet')}</span>
+            <span>飲食與營養</span>
           </button>
 
+          {/* 3. Exercise Science */}
           <button
             onClick={() => onSelectPillar('exercise')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
@@ -96,6 +111,7 @@ export const Header: React.FC<Props> = ({
             <span>{t('pillar.exercise')}</span>
           </button>
 
+          {/* 4. Sleep & Glymphatic */}
           <button
             onClick={() => onSelectPillar('sleep')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
@@ -106,18 +122,6 @@ export const Header: React.FC<Props> = ({
           >
             <Moon className="w-3.5 h-3.5 text-purple-600 dark:text-purple-200" />
             <span>{t('pillar.sleep')}</span>
-          </button>
-
-          <button
-            onClick={() => onSelectPillar('supplements')}
-            className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
-              activePillar === 'supplements'
-                ? 'bg-nature-green-100 dark:bg-emerald-600 text-nature-green-900 dark:text-white font-bold border border-nature-green-300 dark:border-transparent shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-nature-green-600 dark:hover:text-emerald-300 hover:bg-white/60 dark:hover:bg-slate-800/40'
-            }`}
-          >
-            <Pill className="w-3.5 h-3.5 text-nature-green-600 dark:text-emerald-200" />
-            <span>{t('pillar.supplements')}</span>
           </button>
         </div>
 

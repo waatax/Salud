@@ -248,8 +248,136 @@ export interface SupplementEvaluation {
   false_sobriety_warning?: boolean;
 }
 
-// ── 4 Pillars Architecture Types (v0.4) ──
-export type HealthPillar = 'diet' | 'exercise' | 'sleep' | 'supplements';
+// ── Health Pillars Architecture Types (v0.5 Systems Redesign) ──
+export type HealthPillar = 'systems' | 'diet' | 'exercise' | 'sleep' | 'supplements';
+
+// ── Human Organ Systems Types (主頁人體系統總覽) ──
+export type HumanSystemId =
+  | 'digestive'
+  | 'respiratory'
+  | 'nervous'
+  | 'cardiovascular'
+  | 'endocrine'
+  | 'immune'
+  | 'musculoskeletal'
+  | 'renal';
+
+export interface SystemOrgan {
+  name_zh: string;
+  name_en: string;
+  role_zh: string;
+  clinical_note_zh: string;
+}
+
+export interface SystemPhysiologicalMechanism {
+  title_zh: string;
+  detail_zh: string;
+  biomolecules: string[];
+}
+
+export interface SystemKnowledgePoint {
+  id: string;
+  title_zh: string;
+  statement_zh: string;
+  evidence_grade: EvidenceGrade;
+  why_matters_zh: string;
+}
+
+export interface SystemPathology {
+  name_zh: string;
+  mechanism_zh: string;
+  risk_factors_zh: string[];
+  prevention_zh: string;
+}
+
+export interface SystemRedFlag {
+  flag_zh: string;
+  urgency: 'EMERGENT' | 'URGENT' | 'EVALUATE';
+  action_zh: string;
+}
+
+export interface SystemBestPractice {
+  category: 'NUTRITION' | 'EXERCISE' | 'SLEEP' | 'STRESS';
+  rule_zh: string;
+  mechanism_zh: string;
+  practical_action_zh: string;
+}
+
+export interface SystemResearchCitation {
+  authors: string;
+  year: number;
+  title: string;
+  journal: string;
+  doi?: string;
+  key_takeaway_zh: string;
+}
+
+export interface HumanSystem {
+  id: HumanSystemId;
+  name_zh: string;
+  name_en: string;
+  tagline_zh: string;
+  tagline_en: string;
+  description_zh: string;
+  icon_name: string;
+  theme_color: string;
+  accent_gradient: string;
+  major_organs: SystemOrgan[];
+  physiological_mechanisms: SystemPhysiologicalMechanism[];
+  high_yield_kps: SystemKnowledgePoint[];
+  common_pathologies: SystemPathology[];
+  clinical_red_flags: SystemRedFlag[];
+  lifestyle_best_practices: SystemBestPractice[];
+  expert_council_reviewers: string[];
+  research_citations: SystemResearchCitation[];
+}
+
+// ── Dietary Nutrients Types (各式飲食重點專頁架構) ──
+export type DietaryNutrientId =
+  | 'carbohydrates'
+  | 'fiber'
+  | 'protein'
+  | 'vitamins'
+  | 'minerals'
+  | 'fats'
+  | 'hydration'
+  | 'supplements'
+  | 'alcohol';
+
+export interface DietaryNutrient {
+  id: DietaryNutrientId;
+  order_index: number;
+  name_zh: string;
+  name_en: string;
+  tagline_zh: string;
+  category_type: 'MACRO' | 'MICRO' | 'FLUID' | 'SUPPLEMENT' | 'METABOLIC_RESTRICTED';
+  badge: string;
+  summary_zh: string;
+  biomolecules?: string[];
+  biochemical_mechanisms_zh: string[];
+  daily_intake_targets: {
+    target_zh: string;
+    note_zh: string;
+    upper_limit_zh?: string;
+  };
+  rich_food_sources_zh: string[];
+  deficiency_and_excess_zh: {
+    deficiency: string;
+    excess: string;
+  };
+  clinical_red_flags: string[];
+  common_myths_zh: {
+    myth: string;
+    reality: string;
+  }[];
+  best_practices_zh: string[];
+  research_citations: SystemResearchCitation[];
+  linked_chapter_or_tool?: {
+    type: 'chapter' | 'hub' | 'modal';
+    id: string;
+    label_zh: string;
+  };
+}
 
 // Pillar 1: Dietary Patterns
 export type DietaryPatternId = 'MEDITERRANEAN' | 'LOW_CARB' | 'KETOGENIC' | 'HIGH_FIBER_DASH' | 'VEGAN_VEGETARIAN';

@@ -145,11 +145,12 @@ export const enUS: Record<string, string> = {
   'auditc.title': 'AUDIT-C Alcohol Consumption Rapid Screening',
   'auditc.subtitle': 'WHO Validated 3-Question Rapid Screening Instrument (Screening Only, Not Diagnosis)',
 
-  // ── 4 Pillars Architecture (v0.4) ──
+  // ── Health Pillars Architecture (v0.5 Systems Update) ──
+  'pillar.systems': 'Body Systems',
   'pillar.diet': 'Diet & Nutrition',
   'pillar.exercise': 'Exercise & Movement',
   'pillar.sleep': 'Sleep & Recovery',
-  'pillar.supplements': 'Evidence Supplements',
+  'pillar.supplements': 'Nutrition & Supplements',
 
   // Diet Patterns
   'diet.tab_patterns': 'Dietary Patterns Matrix',
