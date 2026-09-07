@@ -1,10 +1,11 @@
-# Salud｜Evidence-Based Health Simulation & Knowledge Platform (v0.2)
+# Salud｜Evidence-Based Health Simulation & Knowledge Platform
 
 > **Salud 讓你看見身體裡正在發生的事，動手改一個變因，然後用真實資料檢查你猜得對不對。**
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-06B6D4?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Spec Version](https://img.shields.io/badge/Spec-v0.2-F59E0B)](./SALUD_Spec_v0.2.md)
+[![Version](https://img.shields.io/badge/Version-v0.5.0-F59E0B)](https://github.com/waatax/Salud)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
@@ -24,7 +25,7 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
 - **雙調性配色系統**：
   - **Dark Mode（預設推薦，前沿科研感）**：Deep Obsidian / Cosmic Slate 深黑太空格調，點綴生命溫暖琥珀金（Amber Gold `#F59E0B`）、細胞體液發光青（Bioluminescent Cyan `#06B6D4`）與警示血紅（Blood Crimson `#EF4444`）。
   - **Light Mode（清爽溫潤紙本感）**：溫潤象牙米白（Ivory Cream `#FAF8F5`）搭配深板岩深灰（Deep Slate），提供頂級醫學圖書館般的舒適閱讀體驗。
-- **圖解標準（Spec §4）**：
+- **醫學圖解標準**：
   - 線條主導（Line-led）、等距剖面（Isometric）、有限填色、留白充足。
   - 嚴格遵守 WCAG 2.2 AA 高對比度與灰階可讀性（即使去除色彩，資訊層級依然清晰）。
   - 所有向量圖解支援**全螢幕放大檢視**與**無障礙等價資料表（Equivalent Accessible Data Table）**切換。

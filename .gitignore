@@ -10,3 +10,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local & Internal Development Workspace (Never push to GitHub or Pages)
+Local/
+local/
+CORE.md
+*.local.md
+*Spec_v*.md
+ai-logs/
