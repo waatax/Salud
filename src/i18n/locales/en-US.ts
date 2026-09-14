@@ -1,7 +1,7 @@
 export const enUS: Record<string, string> = {
   // Brand & Navigation
   'app.name': 'Salud',
-  'app.version': 'v1.0.0',
+  'app.version': 'v1.0.1',
   'app.tagline': 'Evidence-Based Health Simulation & Knowledge Platform',
   'app.vision_title': 'Salud Product Vision',
   'app.vision_desc': 'See what is actually happening inside your body, adjust a single variable, and check your hypothesis with empirical data.',

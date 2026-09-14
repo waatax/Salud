@@ -200,7 +200,7 @@ export const Sidebar: React.FC<Props> = (props) => {
             </div>
             {!isCollapsed && (
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold">
-                7x迭代
+                個人藍圖
               </span>
             )}
           </button>

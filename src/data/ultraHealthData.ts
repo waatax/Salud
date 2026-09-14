@@ -164,7 +164,7 @@ export const EXPERT_ROUNDS: ExpertRound[] = [
     breakthrough_consensus_zh: [
       '在 Salud 頂部導航設立全新旗艦專區「✨ 個人超健康 (Ultra-Health)」，並列於人體系統、飲食、運動、睡眠。',
       '超健康旗艦頁面收斂為 5 大沉浸式互動核心視角：\n' +
-        '  1. 🌟 專家 7 次迭代紀要與方法論庫 (Expert Iteration Log)\n' +
+        '  1. 🧭 個人化客製健康藍圖評估 (Personal Health Blueprint & Phenotype Assessment)\n' +
         '  2. ⏰ 24H 個人超健康日常作息協議 (Daily Protocol Matrix)\n' +
         '  3. 🎯 14 天原子微習慣養成器 (Atomic Habit Tracker with Confetti)\n' +
         '  4. 🧘 物理治療與肌力體能實戰動作庫 (Physio & Movement Guide)\n' +

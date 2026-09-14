@@ -11,7 +11,6 @@ import {
 } from '../../data/obesityData';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { SimWeightTrajectory } from '../simulators/SimWeightTrajectory';
-import { ObesityIterationLog } from './obesity/ObesityIterationLog';
 import { UrgeSurfingTimer } from './obesity/UrgeSurfingTimer';
 import { TaiwanDiningGuide } from './obesity/TaiwanDiningGuide';
 import { DrugInteractionMatrix } from './obesity/DrugInteractionMatrix';
@@ -127,18 +126,6 @@ export const ObesityHub: React.FC = () => {
         >
           <Stethoscope className="w-4 h-4" />
           <span>專區綜覽與 EOSS 分級</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('ITERATIONS')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'ITERATIONS'
-              ? 'bg-amber-500 text-slate-950 font-extrabold border-amber-400 shadow-md ring-2 ring-amber-500/20'
-              : 'bg-white/80 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-amber-400'
-          }`}
-        >
-          <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-300 animate-pulse" />
-          <span>✨ 7 輪專家深度迭代紀要</span>
         </button>
 
         <button
@@ -386,11 +373,6 @@ export const ObesityHub: React.FC = () => {
       )}
 
       {/* ─────────────────────────────────────────────────────────────
-          TAB: ITERATIONS (7 輪專家深度迭代演進紀要)
-      ───────────────────────────────────────────────────────────── */}
-      {activeTab === 'ITERATIONS' && <ObesityIterationLog />}
-
-      {/* ─────────────────────────────────────────────────────────────
           TAB 2: PATHOPHYSIOLOGY & NEUROENDOCRINE
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'PATHOPHYSIOLOGY' && (
@@ -409,12 +391,12 @@ export const ObesityHub: React.FC = () => {
               </p>
             </div>
 
-            {/* Round 1 Feature: Microscopic Adipocyte Browning & UCP-1 Thermogenesis Banner */}
+            {/* Feature: Microscopic Adipocyte Browning & UCP-1 Thermogenesis Banner */}
             <div className="mb-6 p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 via-amber-500/10 to-transparent border border-purple-500/30 space-y-3">
               <div className="flex items-center justify-between text-xs font-bold text-slate-900 dark:text-white">
                 <span className="flex items-center gap-2 text-purple-600 dark:text-purple-300">
                   <Flame className="w-4 h-4 text-amber-500 animate-pulse" />
-                  <span>【第 1 輪迭代成果 · 微觀生化圖解】脂肪細胞褐變 (Browning) 與 UCP-1 粒線體生熱傳導鏈</span>
+                  <span>【臨床生理微觀圖解】脂肪細胞褐變 (Browning) 與 UCP-1 粒線體生熱傳導鏈</span>
                 </span>
                 <span className="text-[10px] font-mono text-slate-400">EC-31 審定</span>
               </div>

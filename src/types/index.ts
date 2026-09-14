@@ -864,7 +864,6 @@ export interface KpInfoGraph {
 // ── Obesity & Weight Management Types (肥胖與科學減重專區) ──
 export type ObesitySubTab = 
   | 'OVERVIEW' 
-  | 'ITERATIONS'
   | 'PATHOPHYSIOLOGY' 
   | 'PHARMACOTHERAPY' 
   | 'DIETARY_REGIMENS' 

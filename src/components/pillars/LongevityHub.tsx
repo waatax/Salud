@@ -7,7 +7,6 @@ import { InfographLongevityCompounds } from './longevity/InfographLongevityCompo
 import { InfographSenescenceSASP } from './longevity/InfographSenescenceSASP';
 import { InfographHormesisProtocol } from './longevity/InfographHormesisProtocol';
 import { LongevityMasteryQuiz } from './longevity/LongevityMasteryQuiz';
-import { LongevityIterationLog } from './longevity/LongevityIterationLog';
 import { SimLongevityTrajectory } from '../simulators/SimLongevityTrajectory';
 import {
   Hourglass,
@@ -170,7 +169,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Award className="w-4 h-4" />
-          <span>7 輪修訂紀要 · 14 題測驗 (INFOGRAPH 7)</span>
+          <span>長壽精熟認知測驗 (14 題交互評量)</span>
         </button>
       </div>
 
@@ -314,11 +313,10 @@ export const LongevityHub: React.FC = () => {
       )}
 
       {/* ─────────────────────────────────────────────────────────────
-          TAB 7: ITERATION LOGS & MASTERY QUIZ
+          TAB 7: MASTERY QUIZ & INTERACTIVE ASSESSMENT
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'BEHAVIOR_AND_QUIZ' && (
         <div className="space-y-8 animate-fade-in">
-          <LongevityIterationLog />
           <LongevityMasteryQuiz onNavigateToTab={(tab) => setActiveTab(tab)} />
         </div>
       )}

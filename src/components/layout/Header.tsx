@@ -71,10 +71,10 @@ export const Header: React.FC<Props> = ({
                     e.stopPropagation();
                     setIsManifestoOpen(true);
                   }}
-                  title="查看 Salud v1.0 全人健康長壽大憲章與 40 席專家理事會簽署"
+                  title="查看 Salud v1.0.1 全人健康長壽大憲章與 40 席專家理事會簽署"
                   className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-salud-cyan/20 text-salud-cyan dark:text-salud-cyan border border-salud-cyan/40 font-bold hover:bg-salud-cyan/30 transition-colors cursor-pointer flex items-center gap-1"
                 >
-                  <span>v1.0.0</span>
+                  <span>v1.0.1</span>
                   <Sparkles className="w-2.5 h-2.5 animate-pulse" />
                 </button>
               </span>
