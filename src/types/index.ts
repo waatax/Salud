@@ -766,3 +766,41 @@ export interface MasterySkillTreeNode {
     explanation_zh: string;
   };
 }
+
+// ── KP Info Graph Architecture (1 KP : 1 Info Graph Engine) ──
+export type KpGraphType =
+  | 'CASCADE'
+  | 'METABOLIC_PATHWAY'
+  | 'DECISION_TREE'
+  | 'SPECTRUM'
+  | 'COMPARISON'
+  | 'TRIAGE'
+  | 'ANATOMY';
+
+export interface KpInfoGraphStep {
+  label: string;
+  detail: string;
+  type: 'trigger' | 'process' | 'biomarker' | 'outcome' | 'warning';
+  value_badge?: string;
+}
+
+export interface KpInfoGraph {
+  kp_id: string;
+  title_zh: string;
+  title_en: string;
+  graph_type: KpGraphType;
+  prompt_blueprint: {
+    medical_context: string;
+    visual_metaphor: string;
+    cognitive_target: string;
+    wcag_contrast_spec: string;
+  };
+  ai_expert_review: {
+    reviewed_by: string;
+    clinical_fidelity_score: number;
+    safety_check: 'PASSED' | 'SAFE_WITH_CAUTION';
+    optimization_notes: string;
+  };
+  key_takeaway: string;
+  steps: KpInfoGraphStep[];
+}

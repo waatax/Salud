@@ -14,6 +14,7 @@ import { SimBAC } from '../simulators/SimBAC';
 import { SbxALDH2 } from '../simulators/SbxALDH2';
 import { SelfCheckQuiz } from './SelfCheckQuiz';
 import { VisualPlainEnglishDecoder } from './VisualPlainEnglishDecoder';
+import { KpInfoGraphRenderer } from '../figures/KpInfoGraphRenderer';
 import confetti from 'canvas-confetti';
 import { CHAPTERS } from '../../data/chapters';
 import { CHAPTER_W_PAGES } from '../../data/chapterW';
@@ -46,9 +47,25 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
   const { t, language } = useLanguage();
   const [depth, setDepth] = useState<DepthLevel>('L2');
   const [expandedKPs, setExpandedKPs] = useState<Record<string, boolean>>({});
+  const [expandedGraphs, setExpandedGraphs] = useState<Record<string, boolean>>({});
+  const [expandAllGraphs, setExpandAllGraphs] = useState<boolean>(false);
 
   const toggleKP = (kpId: string) => {
     setExpandedKPs((prev) => ({ ...prev, [kpId]: !prev[kpId] }));
+  };
+
+  const toggleGraph = (kpId: string) => {
+    setExpandedGraphs((prev) => ({ ...prev, [kpId]: !prev[kpId] }));
+  };
+
+  const toggleAllGraphs = () => {
+    const nextState = !expandAllGraphs;
+    setExpandAllGraphs(nextState);
+    const updated: Record<string, boolean> = {};
+    page.kps.forEach((k) => {
+      updated[k.id] = nextState;
+    });
+    setExpandedGraphs(updated);
   };
 
   // Render proper SVG figure by ID and FigureType using FigureRegistry (WP6)
@@ -319,14 +336,24 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── 01 Atomic Knowledge Points ── */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+        <div className="flex flex-wrap items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 gap-2">
           <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-nature-sky-600 dark:text-nature-sky-400" />
             {t('page.sec_01_kps')}
           </h3>
-          <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
-            {page.kps.length} 個原子化知識點
-          </span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+              {page.kps.length} 個原子化知識點
+            </span>
+            <button
+              onClick={toggleAllGraphs}
+              className="btn-tactile px-2.5 py-1 rounded-xl border border-salud-cyan/40 bg-salud-cyan/10 hover:bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-xs"
+              title="一鍵展開或收合所有知識點專屬 INFO Graph"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-salud-cyan" />
+              <span>{expandAllGraphs ? '收合全部 INFO Graph' : '展開全部 INFO Graph'}</span>
+            </button>
+          </div>
         </div>
 
         <div className="space-y-3.5">
@@ -410,6 +437,34 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                     </div>
                   </div>
                 )}
+
+                {/* Embedded KP Info Graph (1 KP : 1 Info Graph) */}
+                <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => toggleGraph(kp.id)}
+                      className={`btn-tactile px-3 py-1.5 rounded-xl border text-xs font-mono font-bold flex items-center gap-2 transition-all ${
+                        expandedGraphs[kp.id]
+                          ? 'bg-salud-cyan/20 border-salud-cyan text-salud-cyan-800 dark:text-salud-cyan-200 shadow-xs'
+                          : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-salud-cyan/60'
+                      }`}
+                    >
+                      <Sparkles className="w-3.5 h-3.5 text-salud-cyan animate-pulse" />
+                      <span>{expandedGraphs[kp.id] ? '收合專屬 INFO Graph' : '檢視專屬 INFO Graph (AI 審查優化版)'}</span>
+                      {expandedGraphs[kp.id] ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                    </button>
+
+                    <span className="hidden sm:inline-block text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                      ✓ AI 專家臨床機轉雙審認證
+                    </span>
+                  </div>
+
+                  {expandedGraphs[kp.id] && (
+                    <div className="mt-2 pt-1 animate-fade-in">
+                      <KpInfoGraphRenderer kp={kp} />
+                    </div>
+                  )}
+                </div>
               </div>
             );
           })}
