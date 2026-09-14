@@ -1,7 +1,7 @@
 export const zhTW = {
   // Brand & Navigation
   'app.name': 'Salud',
-  'app.version': 'v0.3',
+  'app.version': 'v1.0.0',
   'app.tagline': '實證健康人體模擬與知識平台',
   'app.vision_title': 'Salud 產品理念',
   'app.vision_desc': '讓你看見身體裡正在發生的事，動手改一個變因，用真實資料檢查你猜得對不對。',

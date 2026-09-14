@@ -46,6 +46,104 @@ export interface SynergyGoal {
 
 export const SYNERGY_GOALS: SynergyGoal[] = [
   {
+    id: 'OBESITY_METABOLIC_RESET',
+    icon: '⚖️',
+    badge: '肥胖醫學 · 全人體組成逆轉處方',
+    title_zh: '肥胖病理機轉、去脂體重保護與長期防復胖處方',
+    title_en: 'Obesity Neuroendocrine Reset & Lean Mass Defense Synergy',
+    targetPopulation_zh: 'BMI ≥ 27 或合併三高/脂肪肝/多囊性卵巢，或使用 GLP-1 減重伴隨肌肉流失擔憂者',
+    targetPopulation_en: 'BMI ≥ 27 with cardiometabolic comorbidity, or on GLP-1/GIP agonists needing muscle preservation',
+    coreMechanism_zh:
+      '肥胖本質是下視丘食慾設定點上移與脂肪細胞慢性冠狀發炎。單純節食會誘發代謝適應（基礎代謝率暴跌）與 40% 骨骼肌流失。透過高蛋白（1.6~2.2 g/kg/d）守護 mTOR、抗阻力訓練複合動作激發肌肥大信號、15分鐘衝動衝浪（Urge Surfing）切斷多巴胺渴求，並以充足睡眠防止飢餓素 (Ghrelin) 反撲，實現體重設定點下移。',
+    coreMechanism_en:
+      'Obesity involves elevated hypothalamic set-point and adipose crown-like inflammation. Pure caloric deficit induces adaptive thermogenesis and ~40% lean mass loss. High protein (1.6-2.2 g/kg/d), resistance training, urge surfing, and slow-wave sleep jointly defend lean mass and recalibrate the metabolic set-point.',
+    clinicalEndpoints_zh: [
+      '總體重下降 15% - 22.5% (達到 SURMOUNT/STEP 臨床級水準)',
+      '骨骼肌流失比例控制在 < 15% (遠優於傳統節食之 40%)',
+      '內臟脂肪等級降低 3 - 6 級',
+      '停藥後 52 週復胖率自 67% 顯著壓低至 < 20%',
+    ],
+    clinicalEndpoints_en: [
+      'Total body weight reduction of 15% - 22.5%',
+      'Lean body mass loss maintained below 15%',
+      'Visceral fat grade decreased by 3 - 6 levels',
+      'Post-cessation 52-week weight regain suppressed below 20%',
+    ],
+    pillarActions: {
+      diet_zh:
+        '實施蛋白質槓桿（每日 1.6~2.2 g/kg 去脂體重，單餐 ≥2.7g 亮氨酸）；掌握台灣外食紅黃綠燈（超商舒肥雞胸、自助餐蒸魚綠菜、避開糖醋勾芡）。',
+      diet_en:
+        'Enforce protein leverage (1.6-2.2 g/kg lean mass, ≥2.7g leucine/meal); utilize Taiwan green-light choices (chicken breast, steamed fish, raw greens).',
+      exercise_zh:
+        '每週 2~3 次多關節複合抗阻訓練（深蹲、硬舉、臥推、划船）最低有效劑量 (MED) 點火肌原纖維合成，搭配 150 分鐘 Zone 2 有氧氧化脂肪。',
+      exercise_en:
+        'Perform 2-3x/wk multi-joint compound resistance training (squat, deadlift, press) at minimum effective dose (MED), plus 150 min Zone 2 aerobic base.',
+      sleep_zh:
+        '固定每晚 23:00 前就寢確保 ≥7 小時睡眠；睡眠剝奪會使胃飢餓素 (Ghrelin) 暴衝 15% 並降低瘦素敏感度，瓦解日間飲食自律。',
+      sleep_en:
+        'Maintain ≥7h sleep; sleep debt surges Ghrelin by 15% and blunts leptin sensitivity, sabotaging daytime dietary discipline.',
+      supplements_zh:
+        '乳清分離蛋白粉（快速補足 30g 蛋白質）、高純度 Omega-3 (EPA/DHA 2g/d 減緩脂肪組織冠狀發炎)、肌酸 (Creatine 5g/d 維持肌肉爆發力)。',
+      supplements_en:
+        'Whey protein isolate (30g protein ruler), concentrated Omega-3 (2g/d blunting adipose inflammation), and Creatine monohydrate (5g/d).',
+      breathwork_zh:
+        '進食前或誘發食物渴求時，啟動「15 分鐘衝動衝浪」與 4-7-8 迷走神經呼吸法，平息大腦邊緣系統多巴胺暴衝波峰。',
+      breathwork_en:
+        'Trigger 15-minute urge surfing with 4-7-8 vagal breathing prior to eating or craving episodes to bypass dopamine craving peaks.',
+    },
+    evidenceGrade: 'A',
+    keyBiomarkers: ['骨骼肌質量 (SMM)', '內臟脂肪面積 (VFA)', '空腹飢餓素 (Ghrelin)', '基礎代謝率 (BMR)'],
+  },
+  {
+    id: 'LONGEVITY_MORBIDITY_COMPRESSION',
+    icon: '⏳',
+    badge: '長壽醫學 · 終身疾病壓縮處方',
+    title_zh: '12 大衰老標誌靶向、表觀遺傳減速與疾病壓縮處方',
+    title_en: '12 Hallmarks Targeting, Epigenetic Deceleration & Morbidity Compression',
+    targetPopulation_zh: '追求延長健康壽命 (Healthspan)、降低 DunedinPACE 衰老步速、預防慢性共病與失能者',
+    targetPopulation_en: 'Individuals pursuing healthspan extension, DunedinPACE deceleration, and active prevention of multimorbidity',
+    coreMechanism_zh:
+      '衰老是所有慢性病的共同源頭。透過熱休克蛋白 (Hsp70 桑拿)、冷休克蛋白 (RBM3 冷暴露)、巨自噬流（16/8 限時進食與亞精胺）清除受損粒線體與蛋白質聚集體；配合間歇性 Senolytics 清除內臟脂肪與組織中的「殭屍細胞」，阻斷 SASP 旁分泌毒性風暴，使 DunedinPACE 速率維持在 0.8x 以下，達成 James Fries 疾病壓縮。',
+    coreMechanism_en:
+      'Aging is the master upstream driver of chronic illness. Hormetic heat/cold stress, autophagy flux, and senolytics clear damaged organelles and zombie cells, blunting SASP inflammation and keeping DunedinPACE < 0.8x for morbidity compression.',
+    clinicalEndpoints_zh: [
+      'DunedinPACE 老化步速降至 0.80x 以下 (每年老化放慢 20%)',
+      'Morgan Levine 血液 PhenoAge 表型年齡逆轉 3 - 8 歲',
+      '頸股脈波傳播速度 (cfPWV) 改善，血管彈性顯著年輕化',
+      '全因死亡率預期相對風險降低 40% (比照 Kuopio 與 ITP 模型)',
+    ],
+    clinicalEndpoints_en: [
+      'DunedinPACE rate reduced below 0.80x (20% slower aging)',
+      'Morgan Levine PhenoAge reversed by 3 - 8 biological years',
+      'Arterial stiffness (cfPWV) normalized to youthful elasticity',
+      'Projected all-cause mortality hazard decreased by 40%',
+    ],
+    pillarActions: {
+      diet_zh:
+        '恪守全食物地中海飲食，結合 16/8 輕度斷食；每季一次 36 小時自噬斷食；大量攝取富含亞精胺的多胺食物（納豆、香菇、小麥胚芽）。',
+      diet_en:
+        'Adhere to Mediterranean whole-food nutrition with 16/8 TRF; quarterly 36h autophagy fast; incorporate spermidine-rich foods.',
+      exercise_zh:
+        '每週 150~240 分鐘 Zone 2 粒線體有氧金字塔基石（乳酸維持 1.5~2.0 mmol/L），每週 2 次大肌群重訓維持端粒長度與神經突觸完整。',
+      exercise_en:
+        'Accumulate 150-240 min/wk Zone 2 base (lactate 1.5-2.0 mmol/L) for mitochondrial density, plus twice-weekly compound lifting.',
+      sleep_zh:
+        '維持每晚 7.5~8.5 小時規律深睡；大腦膠淋巴系統在慢波睡眠期間擴張 60%，沖洗清運 Aβ 與 Tau 蛋白，預防神經表觀老化。',
+      sleep_en:
+        'Secure 7.5-8.5h sleep; glymphatic space expands 60% during SWS, flushing amyloid-beta and phosphorylated tau proteins.',
+      supplements_zh:
+        'NAD+ 前驅物 (NMN 500mg/d) 搭配芹菜素 (Apigenin 阻斷 CD38 消耗)、亞精胺 (Spermidine 3mg/d)、經醫師評估之脈衝式雷帕黴素 (3~6mg/wk)。',
+      supplements_en:
+        'NAD+ precursor (NMN 500mg/d) paired with Apigenin (CD38 inhibitor), Spermidine (3mg/d), and physician-monitored pulsed Rapamycin.',
+      breathwork_zh:
+        '每日晨間與睡前各進行 10 分鐘 0.1 Hz 共振呼吸（心率變異度 HRV 最大化），降低慢性全靜態負荷 (Allostatic Load) 對端粒酶之抑制。',
+      breathwork_en:
+        '10 min morning and evening 0.1 Hz coherence breathwork maximizing HRV and relieving allostatic load on telomerase.',
+    },
+    evidenceGrade: 'A',
+    keyBiomarkers: ['DunedinPACE 甲基化時鐘', 'Morgan Levine PhenoAge', '高敏 C 反應蛋白 (hs-CRP)', '脈波傳導速度 (PWV)'],
+  },
+  {
     id: 'METABOLIC_SYNDROME',
     icon: '⚡',
     badge: '代謝醫學 · 一線整合處方',

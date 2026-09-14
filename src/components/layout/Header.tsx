@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeToggle } from '../common/ThemeToggle';
 import { LanguageToggle } from '../common/LanguageToggle';
 import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
+import { GrandCouncilManifestoModal } from '../council/GrandCouncilManifestoModal';
 import {
   Menu,
   HeartPulse,
@@ -15,6 +16,7 @@ import {
   Wind,
   Scale,
   Hourglass,
+  Award,
 } from 'lucide-react';
 
 interface Props {
@@ -35,6 +37,7 @@ export const Header: React.FC<Props> = ({
   onToggleMobileSidebar,
 }) => {
   const { t, language } = useLanguage();
+  const [isManifestoOpen, setIsManifestoOpen] = useState<boolean>(false);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-salud-light-border/80 dark:border-salud-dark-border/80 bg-white/90 dark:bg-salud-dark-bg/90 backdrop-blur-md transition-colors">
@@ -63,9 +66,17 @@ export const Header: React.FC<Props> = ({
             <div>
               <span className="text-base font-display font-extrabold tracking-tight text-slate-900 dark:text-salud-dark-text flex items-center gap-1.5">
                 Salud
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold">
-                  v0.6
-                </span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsManifestoOpen(true);
+                  }}
+                  title="查看 Salud v1.0 全人健康長壽大憲章與 40 席專家理事會簽署"
+                  className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-salud-cyan/20 text-salud-cyan dark:text-salud-cyan border border-salud-cyan/40 font-bold hover:bg-salud-cyan/30 transition-colors cursor-pointer flex items-center gap-1"
+                >
+                  <span>v1.0.0</span>
+                  <Sparkles className="w-2.5 h-2.5 animate-pulse" />
+                </button>
               </span>
               <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 hidden xl:block">
                 {t('app.tagline')}
@@ -183,6 +194,16 @@ export const Header: React.FC<Props> = ({
 
         {/* Action Controls */}
         <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* v1.0 Charter & RPDCA Manifesto Shortcut */}
+          <button
+            onClick={() => setIsManifestoOpen(true)}
+            className="btn-tactile hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-salud-cyan/50 bg-salud-cyan/15 hover:bg-salud-cyan/25 text-salud-cyan dark:text-salud-cyan transition-all font-mono text-xs font-extrabold shadow-sm cursor-pointer"
+            title="查看 Salud v1.0 全人健康長壽大憲章 (40 席理事會簽署)"
+          >
+            <Award className="w-3.5 h-3.5 text-salud-cyan" />
+            <span>v1.0 專家憲章</span>
+          </button>
+
           {/* Quick Hub Shortcuts */}
           {onOpenCardioHub && (
             <button
@@ -195,7 +216,6 @@ export const Header: React.FC<Props> = ({
             </button>
           )}
 
-
           {/* Font Size Selector */}
           <FontSizeToggle variant="compact" />
 
@@ -206,6 +226,12 @@ export const Header: React.FC<Props> = ({
           <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
         </div>
       </div>
+
+      {/* v1.0 Grand Council Manifesto Modal */}
+      <GrandCouncilManifestoModal
+        isOpen={isManifestoOpen}
+        onClose={() => setIsManifestoOpen(false)}
+      />
     </header>
   );
 };
