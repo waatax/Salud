@@ -1,7 +1,7 @@
 import React from 'react';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
-import { HeartPulse, Utensils, Activity, Moon, Pill, AlertOctagon, ShieldCheck, Sparkles } from 'lucide-react';
+import { HeartPulse, Utensils, Activity, Moon, Pill, AlertOctagon, ShieldCheck, Sparkles, Wind, Scale, Hourglass } from 'lucide-react';
 
 interface Props {
   activePillar: HealthPillar;
@@ -34,6 +34,20 @@ export const MobileNav: React.FC<Props> = ({
       activeBg: 'bg-amber-100/80 dark:bg-amber-950/50',
     },
     {
+      id: 'obesity' as HealthPillar,
+      label: '減重',
+      icon: Scale,
+      activeColor: 'text-salud-cyan dark:text-salud-cyan',
+      activeBg: 'bg-salud-cyan/20 dark:bg-salud-cyan/20',
+    },
+    {
+      id: 'longevity' as HealthPillar,
+      label: '抗老',
+      icon: Hourglass,
+      activeColor: 'text-indigo-400 dark:text-indigo-300',
+      activeBg: 'bg-indigo-500/20 dark:bg-indigo-500/20',
+    },
+    {
       id: 'diet' as HealthPillar,
       label: '飲食',
       icon: Utensils,
@@ -53,6 +67,13 @@ export const MobileNav: React.FC<Props> = ({
       icon: Moon,
       activeColor: 'text-purple-600 dark:text-purple-400',
       activeBg: 'bg-purple-100/80 dark:bg-purple-950/50',
+    },
+    {
+      id: 'mental' as HealthPillar,
+      label: '呼吸',
+      icon: Wind,
+      activeColor: 'text-cyan-600 dark:text-cyan-400',
+      activeBg: 'bg-cyan-100/80 dark:bg-cyan-950/50',
     },
   ];
 

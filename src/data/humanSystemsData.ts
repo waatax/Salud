@@ -211,6 +211,11 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         title_zh: 'VO2 max 最大攝氧量與粒線體氧利用極限',
         detail_zh: '由心輸出量（心血管供氧能力）與動靜脈氧分壓差（骨骼肌粒線體攝取能力）共同決定。VO2 max 是全因死亡率預測力最強的生理指標。',
         biomolecules: ['VO2 max', 'Mitochondrial Density', 'Capillary Density', 'Myoglobin']
+      },
+      {
+        title_zh: '生理嘆氣 (Physiological Sigh) 肺泡微力學與迷走神經反射',
+        detail_zh: '淺快胸式呼吸使部分肺泡囊因表面張力過高微塌縮（Laplace 定律）；生理嘆氣的「第二段短促補吸」產生高跨肺壓，使第二型肺泡表面活性劑 (DPPC) 重新鋪平復張，隨後 6 秒長呼氣激發感壓反射即刻減慢心率。',
+        biomolecules: ['Surfactant (DPPC)', 'Laplace Surface Tension', 'Pulmonary Stretch Receptors', 'Acetylcholine']
       }
     ],
     high_yield_kps: [
@@ -234,6 +239,13 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '長期淺呼吸導致肺底部肺泡微萎陷；定時進行「深長吸氣-維持2秒-緩慢吐氣」可刺激第二型肺泡分泌表面活性劑，維持肺順應性。',
         evidence_grade: 'B',
         why_matters_zh: '久坐族每日 5 分鐘腹式深呼吸防範肺擴張不全。'
+      },
+      {
+        id: 'SYS-RESP-04',
+        title_zh: '波耳效應：為什麼焦慮時大口急促喘氣反而會大腦缺氧？',
+        statement_zh: '急促喘氣過度排出 CO2 造成急性呼吸性鹼中毒 (PaCO2 < 35 mmHg)，波耳效應使血紅素牢固結合氧氣不釋放，並誘發腦動脈收縮，使腦血流下降 40%。',
+        evidence_grade: 'A',
+        why_matters_zh: '感到急喘時應閉口純鼻慢吸慢吐，以維持正常動脈二氧化碳分壓。'
       }
     ],
     common_pathologies: [
@@ -364,6 +376,16 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         title_zh: '突觸神經傳導物質平衡 (GABA vs Glutamate)',
         detail_zh: '麩胺酸 (Glutamate) 為中樞主要興奮性遞質，過度累積會誘發 NMDA 受體介導之「興奮性毒性 (Excitotoxicity)」導致細胞死亡；GABA 則為主要抑制性煞車，維護神經安寧。',
         biomolecules: ['GABA', 'Glutamate', 'NMDA Receptor', 'Magnesium (Mg2+)']
+      },
+      {
+        title_zh: 'HPA 壓力軸線與海馬迴皮質醇神經毒性',
+        detail_zh: '下視丘 (CRH) → 腦下垂體 (ACTH) → 腎上腺皮質分泌「皮質醇」。急性皮質醇動員葡萄糖救命，但長期慢性過量會過度刺激海馬迴糖皮質激素受體 (GR)，誘發樹突萎縮並削弱前額葉對杏仁核的抑制。',
+        biomolecules: ['Cortisol (皮質醇)', 'CRH', 'ACTH', 'Glucocorticoid Receptors (GR)']
+      },
+      {
+        title_zh: '多迷走神經理論與腹側迷走煞車 (Vagal Brake)',
+        detail_zh: '有髓鞘的腹側迷走神經纖維直接投射至心臟竇房結。吸氣時迷走張力暫時放鬆讓心跳加速；呼氣延長時感壓反射興奮，迷走神經即刻釋放乙醯膽鹼踩下「迷走煞車」，是身心抗焦慮的生物開關。',
+        biomolecules: ['Ventral Vagus Nerve', 'Acetylcholine (ACh)', 'Sinoatrial Node', 'Baroreflex Sensitivity']
       }
     ],
     high_yield_kps: [
@@ -387,6 +409,13 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: 'HRV 的 RMSSD 指標直接反映副交感神經迷走神經張力；連續數日偏低代表中樞神經系統處於慢性交感亢奮或過度訓練。',
         evidence_grade: 'B',
         why_matters_zh: '根據 HRV 調整運動與工作強度可防範神經衰竭。'
+      },
+      {
+        id: 'SYS-NERV-04',
+        title_zh: '循環生理嘆氣的秒級副交感啟動',
+        statement_zh: '史丹佛大學 2023 年 RCT 證實：每日 5 分鐘「循環雙吸單呼」，在改善正向情緒、降低焦慮與減慢靜態呼吸頻率的效果上，顯著優於正念冥想。',
+        evidence_grade: 'A',
+        why_matters_zh: '掌握雙吸單呼為現代高壓族最迅速有效的非藥物神經減壓工具。'
       }
     ],
     common_pathologies: [

@@ -13,6 +13,7 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
+  Wind,
 } from 'lucide-react';
 
 export interface SynergyGoal {
@@ -36,6 +37,8 @@ export interface SynergyGoal {
     sleep_en: string;
     supplements_zh: string;
     supplements_en: string;
+    breathwork_zh?: string;
+    breathwork_en?: string;
   };
   evidenceGrade: 'A' | 'B';
   keyBiomarkers: string[];
@@ -83,6 +86,10 @@ export const SYNERGY_GOALS: SynergyGoal[] = [
         '經醫師評估補充微量元素鉻（Chromium 200μg）、小蘗鹼（Berberine 500mg 餐前，需防低血糖）與甘胺酸鎂（Magnesium Glycinate 300mg 提升胰島素敏感度）。',
       supplements_en:
         'Under physician supervision: Chromium picolinate (200μg), Berberine (500mg tid before meals), and Magnesium Glycinate (300mg) for insulin receptor sensitization.',
+      breathwork_zh:
+        '餐後執行 5 分鐘「0.1 Hz 諧振呼吸（5.5 秒吸、5.5 秒呼）」或「生理性嘆息」，迅速下調交感神經張力，阻斷皮質醇所誘發的肝臟糖質新生與高胰島素血症惡性循環。',
+      breathwork_en:
+        'Practice 5 min of 0.1 Hz resonance breathing (5.5s in / 5.5s out) postprandially to attenuate sympathetic tone, blunting cortisol-driven hepatic gluconeogenesis and insulin resistance.',
     },
     evidenceGrade: 'A',
     keyBiomarkers: ['HbA1c', 'HOMA-IR', 'Fasting Insulin', 'TG/HDL Ratio', 'Uric Acid'],
@@ -128,6 +135,10 @@ export const SYNERGY_GOALS: SynergyGoal[] = [
         '一水肌酸（Creatine Monohydrate 3-5g/日，提升肌內磷酸肌酸儲備與高強度做功能力）+ 維生素 D3（2000 IU/日）+ 維生素 K2（MK-7 100μg 導鈣入骨防止血管鈣化）。',
       supplements_en:
         'Creatine monohydrate (3-5g/day for phosphocreatine resynthesis) + Vitamin D3 (2000 IU/day) combined with Vitamin K2 (MK-7 100μg for bone mineralization).',
+      breathwork_zh:
+        '大重量抗阻訓練落實腹腔加壓防禦（Valsalva Maneuver）；組間休息執行 4 秒鼻吸、6 秒嘴吐的「長呼氣神經制動」，加速心率恢復（HRR）並將血壓平穩重置，保留最大發力神經潛能。',
+      breathwork_en:
+        'Execute intra-abdominal bracing (Valsalva) during heavy compound lifts; apply prolonged-exhalation breathing (4s in / 6s out) during inter-set rest to accelerate heart rate recovery.',
     },
     evidenceGrade: 'A',
     keyBiomarkers: ['ASMI', 'Grip Strength', 'Serum Albumin', '25(OH)D', 'IGF-1'],
@@ -173,6 +184,10 @@ export const SYNERGY_GOALS: SynergyGoal[] = [
         '高純度 rTG 魚油（EPA+DHA ≥ 84%，每日 2-4g 降低三酸甘油酯並抑制血栓）、輔酶 Q10（100-200mg 改善使用 Statin 降血脂藥物之肌肉酸痛與內皮功能）。',
       supplements_en:
         'High-purity rTG Omega-3 (EPA+DHA ≥ 84%, 2-4g/day to lower triglycerides) + CoQ10 (100-200mg to alleviate statin-associated muscle symptoms and improve endothelial tone).',
+      breathwork_zh:
+        '每日 2 次、每次 5-10 分鐘「0.1 Hz 血管舒張諧振呼吸」或「箱式呼吸（Box Breathing 4-4-4-4）」；深慢節律機械牽拉主動脈弓與頸動脈竇壓力感受器（Baroreflex），反射性抑制交感血管收縮，即時下降周邊阻力與血壓。',
+      breathwork_en:
+        'Perform 5-10 min of 0.1 Hz resonance or Box Breathing (4-4-4-4) twice daily to stimulate aortic baroreceptors, triggering reflex vasodilation and lowering peripheral arterial resistance.',
     },
     evidenceGrade: 'A',
     keyBiomarkers: ['Blood Pressure (722)', 'LDL-C', 'ApoB', 'hs-CRP', 'eGFR'],
@@ -218,9 +233,64 @@ export const SYNERGY_GOALS: SynergyGoal[] = [
         '南非醉茄根萃取物（Ashwagandha KSM-66 300-600mg 調節下視丘-腦垂體-腎上腺軸 HPA-Axis 皮質醇）+ 茶胺酸（L-Theanine 200mg 促進放鬆性 α 腦波）+ 活化型 B 群。',
       supplements_en:
         'Ashwagandha KSM-66 (300-600mg to modulate HPA axis cortisol) + L-Theanine (200mg to foster relaxing alpha waves) + active coenzymated B-Complex.',
+      breathwork_zh:
+        '睡前 10 分鐘進行「4-7-8 神經鎮靜呼吸法」或連續 5 次「雙吸氣單呼氣生理性嘆息」；大幅拉長呼氣比率（呼吸比 > 1.5），激活迷走神經背側運動核釋放乙醯膽鹼，降低心率與核心體溫，誘發深層慢波睡眠。',
+      breathwork_en:
+        'Execute 4-7-8 breathing or 5 physiological sighs prior to sleep to elevate acetylcholine release from the dorsal vagal complex, lowering core body temperature and facilitating slow-wave entry.',
     },
     evidenceGrade: 'A',
     keyBiomarkers: ['Sleep PSG N3 %', 'Morning Cortisol', 'AUDIT-C Score', 'Serum ALT/AST', 'hs-CRP'],
+  },
+  {
+    id: 'CHRONIC_STRESS_AUTONOMIC',
+    icon: '🧘',
+    badge: '自律神經 · 迷走重置處方',
+    title_zh: '慢性壓力、自律神經失調與皮質醇節律重置協同處方',
+    title_en: 'Chronic Stress, Dysautonomia & HPA-Axis Reset Synergy',
+    targetPopulation_zh: '自律神經失調（交感神經長期過盛）、心悸胸悶、慢性疲勞、高皮質醇血症、焦慮或恐慌傾向者',
+    targetPopulation_en: 'Dysautonomia, stress-induced palpitations, adrenal fatigue, elevated cortisol, anxiety or panic vulnerability',
+    coreMechanism_zh:
+      '長期心理與生理壓力活化下視丘-垂體-腎上腺（HPA）軸與交感神經，致使藍斑核（Locus Coeruleus）正腎上腺素與皮質醇持續偏高，迷走神經心臟煞車（Vagal Brake）失靈。結合抗發炎多酚飲食穩定「腸-腦軸」、Zone 2 低乳酸有氧代謝壓力荷爾蒙、慢波深睡修復神經突觸，並以生理性嘆息（Physiological Sigh）與 0.1 Hz 諧振呼吸直接重啟迷走神經張力（HRV RMSSD），達成全人五大維度的自律神經恆定。',
+    coreMechanism_en:
+      'Chronic stress triggers persistent HPA axis activation and sympathetic overdrive, eroding the parasympathetic vagal brake. Integrates gut-brain polyphenol nutrition, Zone 2 catecholamine clearance, slow-wave synaptic restoration, and evidence-based breathwork (Physiological Sigh & 0.1 Hz resonance) to directly reactivate cardiac vagal tone (HRV RMSSD) and normalize circadian cortisol rhythm.',
+    clinicalEndpoints_zh: [
+      '心率變異度（HRV RMSSD）提升 ≥ 30%',
+      '早晨皮質醇覺醒反應（CAR）恢復正常倒 U 曲線',
+      '焦慮自評量表（GAD-7 / BAI）評分下降 ≥ 40%',
+      '靜息心率（RHR）每分鐘下降 4 - 8 bpm',
+      '急性心理高壓耐受度與情緒回彈力（Emotional Resilience）顯著增強',
+    ],
+    clinicalEndpoints_en: [
+      'Heart Rate Variability (HRV RMSSD) increase ≥ 30%',
+      'Morning Cortisol Awakening Response (CAR) normalized to inverted-U curve',
+      'GAD-7 / BAI anxiety rating scores decreased ≥ 40%',
+      'Resting heart rate (RHR) decrease by 4-8 bpm',
+      'Enhanced emotional resilience and acute stress recovery speed',
+    ],
+    pillarActions: {
+      diet_zh:
+        '強化「腸-腦軸」微菌群多樣性：每日攝取發酵食物（優格、味噌、泡菜）與高多酚食物（深色莓果、85%+黑巧克力、綠茶）；嚴格戒斷精緻糖與高果糖漿；下午 2 點後杜絕咖啡因，防止干擾腺苷（Adenosine）受體結合。',
+      diet_en:
+        'Optimize gut-brain axis microbiota: fermented foods, high-polyphenol dark berries, 85%+ cacao; eliminate refined sugars; restrict caffeine after 14:00 to safeguard adenosine signaling.',
+      exercise_zh:
+        '每週 3-5 次 30 分鐘 Zone 2 綠色自然運動（戶外健行、慢跑），維持有氧代謝促進內生性大麻素（Endocannabinoids）與 BDNF 分泌；避免在急性疲勞期進行高心率竭盡無氧訓練以免誘發次級皮質醇風暴。',
+      exercise_en:
+        'Engage in 3-5 weekly 30-min Zone 2 outdoor sessions to stimulate endocannabinoids and BDNF; avoid exhaustive HIIT during acute exhaustion to prevent secondary cortisol surges.',
+      sleep_zh:
+        '打造嚴格恆溫（18-20°C）與全暗環境（黑膠窗簾或真絲眼罩）；睡前 60 分鐘進入零螢幕藍光緩衝期，落實認知卸載（Cognitive Offloading 筆記清單），徹底截斷睡前反芻思考（Rumination）。',
+      sleep_en:
+        'Maintain bedroom at 18-20°C with complete darkness; enforce a 60-min screen-free buffer; utilize journaling for cognitive offloading to eliminate pre-sleep rumination loops.',
+      supplements_zh:
+        '南非醉茄根萃取物（Ashwagandha KSM-66 600mg/日 阻斷皮質醇過度釋放）+ 磷脂醯絲胺酸（Phosphatidylserine 300mg 下調 HPA 軸亢進）+ 甘胺酸鎂（Magnesium Bisglycinate 400mg 活化 GABA 受體）+ L-茶胺酸（200mg 促進放鬆 α 腦波）。',
+      supplements_en:
+        'Ashwagandha KSM-66 (600mg/day to blunt hypercortisolemia) + Phosphatidylserine (300mg to tone down HPA reactivity) + Magnesium Bisglycinate (400mg) + L-Theanine (200mg).',
+      breathwork_zh:
+        '每日晨起、工作緊繃時進行 5 分鐘「生理性嘆息（Physiological Sigh：連吸兩次+長呼氣）」（Stanford 臨床 RCT 證實最速降心率）或「0.1 Hz 諧振呼吸（5.5s吸/5.5s呼）」；急性焦慮先兆時連續施作 3 組嘆息，即時重啟迷走神經煞車系統。',
+      breathwork_en:
+        'Practice 5 min of Stanford-validated Physiological Sighs or 0.1 Hz resonance breathing daily; execute 3 consecutive sighs immediately upon acute stress to recruit the vagal brake.',
+    },
+    evidenceGrade: 'A',
+    keyBiomarkers: ['HRV (RMSSD)', 'Resting Heart Rate', 'Salivary Cortisol Rhythm', 'GAD-7 Score', 'hs-CRP'],
   },
 ];
 
@@ -245,7 +315,7 @@ export const CrossPillarSynergy: React.FC = () => {
       <div className="p-6 rounded-3xl border border-salud-cyan/40 bg-gradient-to-br from-salud-cyan/10 via-white to-nature-amber-50/40 dark:from-slate-900 dark:via-salud-dark-card dark:to-slate-950 space-y-3 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="px-2.5 py-1 rounded-full font-mono text-xs font-bold border border-salud-cyan bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300">
-            Holistic Synergy · 四大支柱跨領域臨床綜效
+            Holistic Synergy · 全人多支柱跨領域臨床綜效
           </span>
           <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
             信達雅 · 整全資訊 · 深入淺出
@@ -257,12 +327,12 @@ export const CrossPillarSynergy: React.FC = () => {
         </h2>
 
         <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-          健康不是單一面向的孤立操作。飲食決定了代謝基質與燃料結構，運動提供了誘導細胞重塑的機械與代謝張力，睡眠負責大腦排毒與神經內分泌修復，而實證保健品則是針對生理短板的精準防火牆。
-          選擇下方四大健康目標，檢視四大支柱如何交織發揮加成效果：
+          健康不是單一面向的孤立操作。飲食決定了代謝基質與燃料結構，運動提供了誘導細胞重塑的機械與代謝張力，睡眠負責大腦排毒與神經內分泌修復，實證保健品構築精準防火牆，而實證呼吸法則是最迅速重啟自律神經與心率變異度（HRV）的生理槓桿。
+          選擇下方五大健康目標，檢視各支柱如何交織發揮加成效果：
         </p>
 
         {/* Goal Switcher Tabs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-2">
           {SYNERGY_GOALS.map((goal) => {
             const isSelected = goal.id === selectedGoalId;
             return (
@@ -315,11 +385,11 @@ export const CrossPillarSynergy: React.FC = () => {
           </p>
         </div>
 
-        {/* ── 4 Pillars Action Matrix ── */}
+        {/* ── Multi-Pillars Action Matrix ── */}
         <div className="space-y-3">
           <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-salud-cyan" />
-            <span>四大支柱多靶點執行清單 (4-Pillar Action Prescriptions)</span>
+            <span>全人支柱多靶點執行清單 (Multi-Pillar Action Prescriptions)</span>
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -380,6 +450,23 @@ export const CrossPillarSynergy: React.FC = () => {
                   : activeGoal.pillarActions.supplements_en}
               </p>
             </div>
+
+            {/* 5. Breathwork Action */}
+            {activeGoal.pillarActions.breathwork_zh && (
+              <div className="p-4 rounded-2xl border border-teal-200/80 dark:border-teal-800/40 bg-teal-50/50 dark:bg-teal-950/20 space-y-2 md:col-span-2">
+                <div className="flex items-center gap-2 text-teal-900 dark:text-teal-300 font-bold font-mono text-xs">
+                  <span className="w-6 h-6 rounded-lg bg-teal-100 dark:bg-teal-900/60 flex items-center justify-center text-sm">
+                    <Wind className="w-3.5 h-3.5 text-teal-600 dark:text-teal-300" />
+                  </span>
+                  <span>Pillar 05 · 心理健康與自主神經呼吸調節</span>
+                </div>
+                <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {language === 'zh-TW'
+                    ? activeGoal.pillarActions.breathwork_zh
+                    : activeGoal.pillarActions.breathwork_en}
+                </p>
+              </div>
+            )}
           </div>
         </div>
 

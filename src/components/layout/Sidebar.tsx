@@ -23,6 +23,9 @@ import {
   PanelLeft,
   Sparkles,
   Check,
+  Wind,
+  Scale,
+  Hourglass,
 } from 'lucide-react';
 
 interface Props {
@@ -198,6 +201,60 @@ export const Sidebar: React.FC<Props> = (props) => {
             {!isCollapsed && (
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold">
                 7x迭代
+              </span>
+            )}
+          </button>
+        </div>
+
+        {/* 0.8. Obesity & Weight Science Pillar */}
+        <div className="space-y-1">
+          <button
+            onClick={() => onSelectPillar('obesity')}
+            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+              activePillar === 'obesity'
+                ? 'border-salud-cyan dark:border-salud-cyan bg-salud-cyan/15 dark:bg-salud-cyan/20 text-slate-900 dark:text-salud-cyan font-bold shadow-sm'
+                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+            } ${isCollapsed ? 'justify-center px-2' : ''}`}
+            title={isCollapsed ? '肥胖與減重' : undefined}
+          >
+            <div className="flex items-center gap-2">
+              <Scale
+                className={`w-4 h-4 ${
+                  activePillar === 'obesity' ? 'text-salud-cyan' : 'text-slate-400'
+                }`}
+              />
+              {!isCollapsed && <span className="text-xs font-bold">肥胖與科學減重</span>}
+            </div>
+            {!isCollapsed && (
+              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan font-bold border border-salud-cyan/40">
+                GLP-1·模擬器
+              </span>
+            )}
+          </button>
+        </div>
+
+        {/* 0.9. Longevity & Anti-Aging Pillar */}
+        <div className="space-y-1">
+          <button
+            onClick={() => onSelectPillar('longevity')}
+            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+              activePillar === 'longevity'
+                ? 'border-indigo-500 dark:border-indigo-500 bg-indigo-500/15 dark:bg-indigo-500/20 text-slate-900 dark:text-indigo-300 font-bold shadow-sm'
+                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+            } ${isCollapsed ? 'justify-center px-2' : ''}`}
+            title={isCollapsed ? '抗老化與長壽' : undefined}
+          >
+            <div className="flex items-center gap-2">
+              <Hourglass
+                className={`w-4 h-4 ${
+                  activePillar === 'longevity' ? 'text-indigo-400' : 'text-slate-400'
+                }`}
+              />
+              {!isCollapsed && <span className="text-xs font-bold">抗老化與長壽</span>}
+            </div>
+            {!isCollapsed && (
+              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/40">
+                12標誌·時鐘
               </span>
             )}
           </button>
@@ -383,6 +440,31 @@ export const Sidebar: React.FC<Props> = (props) => {
           {!isCollapsed && (
             <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
               Glymphatic
+            </span>
+          )}
+        </button>
+
+        {/* 4. Mental Health & Breathwork Pillar */}
+        <button
+          onClick={() => onSelectPillar('mental')}
+          className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+            activePillar === 'mental'
+              ? 'border-cyan-300 dark:border-cyan-700 bg-cyan-50 dark:bg-cyan-950/40 text-cyan-900 dark:text-cyan-200 font-bold shadow-sm'
+              : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+          } ${isCollapsed ? 'justify-center px-2' : ''}`}
+          title={isCollapsed ? '心理呼吸' : undefined}
+        >
+          <div className="flex items-center gap-2">
+            <Wind
+              className={`w-4 h-4 ${
+                activePillar === 'mental' ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-400'
+              }`}
+            />
+            {!isCollapsed && <span className="text-xs">心理與實證呼吸</span>}
+          </div>
+          {!isCollapsed && (
+            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-100 dark:bg-cyan-900/60 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/50">
+              0.1 Hz
             </span>
           )}
         </button>

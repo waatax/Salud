@@ -416,6 +416,45 @@ export const ATOMIC_HABITS: UltraHealthAtomicHabit[] = [
     difficulty: 'MEDIUM',
     evidence_grade: 'A',
     why_it_works_zh: '切斷睡前無意識短影音多巴胺劫持，杜絕藍光抑制松果體褪黑激素釋放。'
+  },
+  {
+    id: 'HABIT-09',
+    title_zh: '會議開口前的 3 次生理嘆氣',
+    title_en: 'Pre-Meeting 3x Physiological Sigh',
+    pillar: 'mind',
+    anchor_moment_zh: '輪到自己發言、推開會議室大門或按下視訊「開麥克風」的前 15 秒',
+    micro_action_zh: '連續做 3 次生理嘆氣（鼻長吸一口氣，到頂再快速微補吸一口，緩慢悠長吐氣）',
+    dopamine_reward_zh: '感覺喉嚨與胸口的緊縮感瞬間鬆開，心跳立刻平穩下來，說話聲音沉穩有力',
+    duration_minutes: 1,
+    difficulty: 'EASY',
+    evidence_grade: 'A',
+    why_it_works_zh: '史丹佛大學證實：雙吸單呼能重整萎縮肺泡並激發感壓反射，秒級抑制交感神經狂飆。'
+  },
+  {
+    id: 'HABIT-10',
+    title_zh: '急躁心悸時的 4-4-4-4 箱式戰術呼吸',
+    title_en: 'Emergency 4-4-4-4 Box Breathing',
+    pillar: 'mind',
+    anchor_moment_zh: '發現自己打字手抖、心跳飆快或被突發突發工作訊息觸發焦慮時',
+    micro_action_zh: '雙手離開鍵盤平放桌面，執行 4 次箱式呼吸（吸 4 秒、停 4 秒、呼 4 秒、停 4 秒）',
+    dopamine_reward_zh: '原本雜亂的思緒瞬間安靜下來，前額葉大腦重新接管情緒，奪回掌控權',
+    duration_minutes: 1.5,
+    difficulty: 'EASY',
+    evidence_grade: 'A',
+    why_it_works_zh: '海豹特種部隊戰術抗壓標準，溫和累積 CO2 解鎖腦微血管，抑制杏仁核劫持。'
+  },
+  {
+    id: 'HABIT-11',
+    title_zh: '熄燈後的 4-7-8 助眠呼吸 4 循環',
+    title_en: 'Bedtime 4-7-8 Sleep Induction 4 Cycles',
+    pillar: 'sleep',
+    anchor_moment_zh: '房間電燈關閉、整個人躺平在枕頭上的那一刻',
+    micro_action_zh: '舌尖輕抵上顎門牙後方，鼻吸 4 秒、閉氣 7 秒、唇縫長吐 8 秒，連續 4 個循環',
+    dopamine_reward_zh: '每吐一口氣就感覺身體陷入床墊更深一層，溫暖睏意像潮水般自然湧上',
+    duration_minutes: 2,
+    difficulty: 'EASY',
+    evidence_grade: 'A',
+    why_it_works_zh: '超長 8 秒呼氣強制啟動迷走神經煞車，誘導大腦分泌 GABA 並降低核心體溫。'
   }
 ];
 
@@ -607,6 +646,90 @@ export const SKILL_TREE_NODES: MasterySkillTreeNode[] = [
       correct_index: 1,
       explanation_zh: '研究證實，深層睡眠期大腦細胞間隙擴大 60%，腦脊髓液得以高速流通沖刷掉一整天累積的神經毒性廢物；熬夜或飲酒會嚴重瓦解此修復機制。'
     }
+  },
+  {
+    id: 'TREE-MB-01',
+    code: 'SKILL-MB1',
+    title_zh: '生理嘆氣雙吸單呼與肺泡復張機轉',
+    title_en: 'Physiological Sigh Alveolar Recruitment',
+    branch: 'MENTAL_BREATHWORK',
+    level: 'L1',
+    prerequisites: [],
+    summary_zh: '掌握史丹佛大學 2023 年頂級實證：雙吸單呼如何重整肺泡表面活性劑並秒級啟動迷走神經煞車。',
+    plain_english_analogy_zh: '長時間打字淺呼吸，肺裡成千上萬顆小氣球就像黏住的氣球皮扁掉；深吸一大口後再「快速吸第二小口」，就是用氣壓把黏住的氣球硬生生彈開，接著慢慢吐氣讓心跳瞬間慢下來！',
+    quiz: {
+      question_zh: '史丹佛大學醫學院證實的「生理嘆氣 (Physiological Sigh)」之所以能在 3 次之內迅速減慢心跳，核心動作關鍵為何？',
+      options_zh: [
+        '張大嘴巴用最快速度連續喘氣 10 次',
+        '鼻孔深吸一口氣到頂後，立即「微補吸第二口氣」，接著緩慢極長地吐氣',
+        '吸飽氣後全力用力憋氣 1 分鐘以上'
+      ],
+      correct_index: 1,
+      explanation_zh: '第二段短促補吸能產生高跨肺壓使微小塌縮肺泡重新張開，隨後的長呼氣能刺激感壓受器，透過迷走神經釋放乙醯膽鹼減慢心率。'
+    }
+  },
+  {
+    id: 'TREE-MB-02',
+    code: 'SKILL-MB2',
+    title_zh: '0.1 Hz 共振呼吸與自律神經 HRV 極大化',
+    title_en: '0.1 Hz Resonance Respiration & HRV Biofeedback',
+    branch: 'MENTAL_BREATHWORK',
+    level: 'L2',
+    prerequisites: ['TREE-MB-01'],
+    summary_zh: '理解每分鐘 5.5 次（0.1 Hz）呼吸如何與血管邁爾波及心率變異度形成物理同頻共振。',
+    plain_english_analogy_zh: '就像盪鞦韆一樣，你在鞦韆盪到最高點的瞬間順勢推一把，幅度就會越來越大！以 5.5 秒吸、5.5 秒呼的節奏呼吸，你的心跳起伏正好跟血管放鬆節奏完全對齊，自律神經彈性直接拉滿！',
+    quiz: {
+      question_zh: '自律神經生理回饋醫學中，被證實能引發呼吸竇性心律不整 (RSA) 與血壓邁爾波「物理同頻共振」的黃金呼吸頻率約為多少？',
+      options_zh: [
+        '每分鐘 18-20 次（一般急促呼吸）',
+        '每分鐘約 5.5-6 次（約 0.1 Hz，5.5秒吸、5.5秒呼）',
+        '每分鐘 1-2 次（極限潛水閉氣）'
+      ],
+      correct_index: 1,
+      explanation_zh: '在 0.1 Hz 節奏下，感壓反射敏感度 (BRS) 與心率變異度 (HRV RMSSD) 的振幅將達到人體最高生理極限，顯著提升心理抗壓韌性。'
+    }
+  },
+  {
+    id: 'TREE-MB-03',
+    code: 'SKILL-MB3',
+    title_zh: '波耳效應：打破深呼吸大口喘氣越缺氧的悖論',
+    title_en: 'The Bohr Effect & True Respiration Depth',
+    branch: 'MENTAL_BREATHWORK',
+    level: 'L3',
+    prerequisites: ['TREE-MB-02'],
+    summary_zh: '理解動脈二氧化碳分壓 (PaCO2) 作為大腦釋氧關鍵的生化機轉，戒除過度換氣。',
+    plain_english_analogy_zh: '你的紅血球就像裝滿氧氣的貨車，而二氧化碳是打開車門的「鑰匙」！當你慌張大口狂喘把二氧化碳全部吹光時，鑰匙弄丟了，氧氣貨車只能在腦袋血管裡乾瞪眼，大腦反而嚴重缺氧暈眩！',
+    quiz: {
+      question_zh: '根據波耳效應 (Bohr Effect)，當人在焦慮時「急促大口過度換氣」把體內二氧化碳大量排出後，大腦微血管與組織氧合會發生何種變化？',
+      options_zh: [
+        '血氧大幅增加，大腦血管擴張，精神變得無比清醒',
+        '血液鹼化導致腦動脈痙攣收縮、血紅素牢咬氧氣不放，大腦血流反暴跌 40% 引發暈眩窒息感',
+        '沒有任何影響，呼吸量越大氧氣一定越多'
+      ],
+      correct_index: 1,
+      explanation_zh: '過度換氣造成低碳酸血症與呼吸性鹼中毒，使腦小動脈收縮，且血紅素解離曲線左移無法釋放氧氣，加劇恐慌感。'
+    }
+  },
+  {
+    id: 'TREE-MB-04',
+    code: 'SKILL-MB-SAFETY',
+    title_zh: '【絕對安全防護閘】驚恐發作鑑別與急診全面禁用紙袋',
+    title_en: 'Panic Attack Triage: Outlawing the Paper Bag Hazard',
+    branch: 'MENTAL_BREATHWORK',
+    level: 'SAFETY',
+    prerequisites: ['TREE-MB-01'],
+    summary_zh: '臨床鑑別心肌梗塞與肺栓塞一級紅旗，掌握現代醫學廢除紙袋套口鼻之致命安全風險。',
+    plain_english_analogy_zh: '看電影以為過度換氣拿紙袋套嘴巴很帥？那是會死人的古老錯誤！萬一胸口悶痛其實是「心肌梗塞」或「肺栓塞」，你拿紙袋套住讓他吸不到氧氣，會直接引發心臟停止！',
+    quiz: {
+      question_zh: '為何現代急救醫學臨床指引【全面嚴格禁止】使用牛皮紙袋或塑膠袋套住口鼻來處理換氣過度？',
+      options_zh: [
+        '因為紙袋成本太高，醫院買不起',
+        '若患者並非單純心因性換氣過度，而是潛在的急性心肌梗塞、肺栓塞或氣胸，紙袋重呼吸會迅速引發致命性極端低血氧，誘發心室顫動猝死',
+        '因為塑膠袋會產生靜電干擾心電圖'
+      ],
+      correct_index: 1,
+      explanation_zh: '院前環境無法立即排除致死性心肺急症。若患者實為心肌缺血或氣胸，用紙袋反覆重吸缺氧氣體會奪走最後的氧氣儲備導致猝死。正確作法是語言安撫、閉口鼻呼吸，有胸痛冷汗立即撥打 119。'
+    }
   }
 ];
 
@@ -637,6 +760,13 @@ export const STREET_MYTH_BUSTERS = [
     myth_zh: '迷思：腰酸背痛只要去給人按一按、推拿一下就會根治？',
     fact_zh: '真相：被動按摩只能暫時放鬆緊繃筋膜 24-48 小時。如果沒有透過主動拉伸緊繃的髖屈肌、鍛鍊沉睡的臀肌與核心，錯誤的受力代償會讓酸痛無止盡復發！',
     influencer_quote_zh: '「被動放鬆治標，主動鍛鍊治本！你不動手叫醒死掉的屁股，神仙按摩也救不了你的腰！」',
+    verdict: 'BUSTED'
+  },
+  {
+    id: 'MYTH-05',
+    myth_zh: '迷思：焦慮胸悶喘不過氣時，照電影演的拿牛皮紙袋套住口鼻呼吸準沒錯？',
+    fact_zh: '真相：這是可能奪命的危險偏方！急診指引已全面禁用。若患者實為心肌梗塞、肺栓塞或氣胸，紙袋重呼吸會迅速引發致命性低氧血症導致心跳停止！正確作法是閉嘴純鼻慢呼吸，劇烈胸痛冒冷汗請立即撥打 119。',
+    influencer_quote_zh: '「紙袋呼吸是老電影的致命誤導！萬一是心肌梗塞，拿紙袋套頭等於直接掐斷心臟最後一口氧氣！」',
     verdict: 'BUSTED'
   }
 ];

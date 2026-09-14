@@ -160,10 +160,13 @@ export const zhTW = {
   // ── Health Pillars Architecture (v0.5 Systems Update) ──
   'pillar.systems': '人體系統',
   'pillar.ultrahealth': '個人超健康',
+  'pillar.obesity': '肥胖與科學減重',
+  'pillar.longevity': '抗老化與長壽',
   'pillar.diet': '飲食與營養',
   'pillar.exercise': '運動科學',
   'pillar.sleep': '睡眠與修復',
   'pillar.supplements': '營養保健',
+  'pillar.mental': '心理與呼吸',
 
   // Diet Patterns
   'diet.tab_patterns': '主流飲食法比對',

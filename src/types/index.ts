@@ -258,7 +258,7 @@ export interface SupplementEvaluation {
 }
 
 // ── Health Pillars Architecture Types (v0.5 Systems Redesign) ──
-export type HealthPillar = 'systems' | 'ultrahealth' | 'diet' | 'exercise' | 'sleep' | 'supplements';
+export type HealthPillar = 'systems' | 'ultrahealth' | 'obesity' | 'longevity' | 'diet' | 'exercise' | 'sleep' | 'supplements' | 'mental';
 
 // ── Human Organ Systems Types (主頁人體系統總覽) ──
 export type HumanSystemId =
@@ -754,7 +754,7 @@ export interface MasterySkillTreeNode {
   code: string;
   title_zh: string;
   title_en: string;
-  branch: 'WATER' | 'OIL_METABOLISM' | 'ALCOHOL_TOXICOLOGY' | 'EXERCISE_PHYSIO' | 'SLEEP_CIRCADIAN';
+  branch: 'WATER' | 'OIL_METABOLISM' | 'ALCOHOL_TOXICOLOGY' | 'EXERCISE_PHYSIO' | 'SLEEP_CIRCADIAN' | 'MENTAL_BREATHWORK';
   level: 'L1' | 'L2' | 'L3' | 'SAFETY';
   prerequisites: string[];
   summary_zh: string;
@@ -765,6 +765,62 @@ export interface MasterySkillTreeNode {
     correct_index: number;
     explanation_zh: string;
   };
+}
+
+// ── Mental Health & Respiration Types (心理健康與實證呼吸調控) ──
+export type BreathworkPatternId =
+  | 'PHYSIOLOGICAL_SIGH'
+  | 'BOX_BREATHING'
+  | 'BREATH_478'
+  | 'RESONANCE_COHERENCE'
+  | 'DIAPHRAGMATIC_BELLY';
+
+export interface BreathworkProtocol {
+  id: BreathworkPatternId;
+  name_zh: string;
+  name_en: string;
+  tagline_zh: string;
+  tagline_en: string;
+  category: 'ACUTE_ANXIETY_RELIEF' | 'OPERATIONAL_FOCUS' | 'SLEEP_INDUCTION' | 'HRV_VAGAL_TONE' | 'DAILY_BASE_RELAX';
+  evidence_grade: EvidenceGrade;
+  timing_sec: {
+    inhale_1: number;
+    inhale_2?: number; // for physiological sigh top-up
+    hold_inhale?: number;
+    exhale: number;
+    hold_exhale?: number;
+  };
+  total_cycle_sec: number;
+  recommended_cycles: number;
+  daily_dosage_minutes: number;
+  primary_mechanism_zh: string;
+  primary_mechanism_en: string;
+  biochemical_targets: string[];
+  clinical_indications_zh: string[];
+  contraindications_zh: string[];
+  clinical_pearl_zh: string;
+  research_citation: {
+    lead_author: string;
+    year: number;
+    journal: string;
+    title: string;
+    doi?: string;
+  };
+}
+
+export interface MentalTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'NEUROBIOLOGY_HPA' | 'VAGAL_BRAKE_HRV' | 'BOHR_CAPNOMETRY' | 'AMYGDALA_DOWNREG' | 'PANIC_TRIAGE';
+  one_liner_zh: string;
+  one_liner_en: string;
+  evidence_grade: EvidenceGrade;
+  key_mechanisms_zh: string[];
+  key_mechanisms_en: string[];
+  actionable_rules_zh: string[];
+  actionable_rules_en: string[];
+  red_flags_zh?: string[];
 }
 
 // ── KP Info Graph Architecture (1 KP : 1 Info Graph Engine) ──
@@ -804,3 +860,201 @@ export interface KpInfoGraph {
   key_takeaway: string;
   steps: KpInfoGraphStep[];
 }
+
+// ── Obesity & Weight Management Types (肥胖與科學減重專區) ──
+export type ObesitySubTab = 
+  | 'OVERVIEW' 
+  | 'ITERATIONS'
+  | 'PATHOPHYSIOLOGY' 
+  | 'PHARMACOTHERAPY' 
+  | 'DIETARY_REGIMENS' 
+  | 'SURGERY_AND_SIM'
+  | 'BEHAVIOR_AND_QUIZ';
+
+export interface ObesityDrugReview {
+  id: string;
+  generic_name_zh: string;
+  generic_name_en: string;
+  brand_names: string[];
+  drug_class: string;
+  target_receptors: string[];
+  administration: string; // e.g. 每週皮下注射一次 / 每日口服二次
+  typical_dose: string;
+  mechanism_detail_zh: string;
+  primary_trial_name: string;
+  primary_trial_duration: string;
+  avg_weight_loss_pct: number; // e.g. 14.9
+  placebo_weight_loss_pct: number; // e.g. 2.4
+  trial_citation: string;
+  fda_approval_year: number;
+  tfda_approved: boolean;
+  tfda_status_note: string;
+  evidence_grade: EvidenceGrade;
+  cardiovascular_benefit_zh?: string;
+  common_adverse_effects: string[];
+  serious_warnings: string[];
+  contraindications: string[];
+  muscle_loss_mitigation_zh: string;
+  cessation_rebound_data_zh: string;
+  approx_monthly_cost_twd: string;
+  expert_review_summary: string;
+  lead_reviewer_id: string;
+}
+
+export interface DietRegimenEvaluation {
+  id: string;
+  name_zh: string;
+  name_en: string;
+  alias?: string;
+  macro_distribution: {
+    carbs_pct: string;
+    protein_pct: string;
+    fat_pct: string;
+  };
+  evidence_grade: EvidenceGrade;
+  radar_scores: {
+    weight_loss_speed: number;    // 1-10
+    muscle_preservation: number;   // 1-10
+    cardio_metabolic: number;      // 1-10
+    adherence_feasibility: number; // 1-10
+    micronutrient_safety: number;  // 1-10
+  };
+  biochemical_mechanism_zh: string;
+  clinical_benefits: string[];
+  risks_and_pitfalls: string[];
+  suitable_populations: string[];
+  contraindicated_populations: string[];
+  expert_verdict_zh: string;
+  lead_reviewer_id: string;
+}
+
+export interface ObesityMechanismTopic {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  badge: string;
+  lead_reviewer_id: string;
+  evidence_grade: EvidenceGrade;
+  one_liner: string;
+  physiological_mechanism_zh: string;
+  clinical_relevance_zh: string;
+  common_misconception_zh: string;
+  molecular_targets: string[];
+}
+
+export interface BariatricSurgeryOption {
+  id: string;
+  name_zh: string;
+  name_en: string;
+  procedure_type: 'RESTRICTIVE' | 'MALABSORPTIVE' | 'COMBINED';
+  anatomical_mechanism_zh: string;
+  neuroendocrine_impact_zh: string;
+  avg_excess_weight_loss_pct: string;
+  t2d_remission_rate_pct: string;
+  nih_indication_zh: string;
+  perioperative_risks: string[];
+  long_term_nutritional_deficits: string[];
+  revisional_surgery_rate: string;
+  expert_verdict: string;
+}
+
+export interface ObesityMythItem {
+  id: string;
+  myth_claim: string;
+  scientific_reality: string;
+  biochemical_why: string;
+  actionable_correction: string;
+  danger_level: 'LOW' | 'MEDIUM' | 'HIGH';
+  evidence_grade: EvidenceGrade;
+}
+
+export interface EossStage {
+  stage: number; // 0, 1, 2, 3, 4
+  title_zh: string;
+  medical_definition_zh: string;
+  mental_functional_status_zh: string;
+  recommended_clinical_action_zh: string;
+  intensity_badge: string;
+}
+
+// ── Longevity & Geroscience Hub Types (抗老化與長壽醫學專區) ──
+export type LongevitySubTab =
+  | 'OVERVIEW'
+  | 'HALLMARKS'
+  | 'EPIGENETIC_CLOCKS'
+  | 'PHARMACOTHERAPY'
+  | 'HORMESIS'
+  | 'SIMULATOR'
+  | 'BEHAVIOR_AND_QUIZ';
+
+export interface AgingHallmark {
+  id: string;
+  number: number;
+  title_zh: string;
+  title_en: string;
+  category: 'PRIMARY' | 'ANTAGONISTIC' | 'INTEGRATIVE';
+  summary_zh: string;
+  molecular_cascade_zh: string;
+  hallmark_markers: string[];
+  interventions_zh: string[];
+  evidence_grade: EvidenceGrade;
+  lead_reviewer_id: string;
+}
+
+export interface EpigeneticClockModel {
+  id: string;
+  name_zh: string;
+  generation: '1ST_GEN' | '2ND_GEN' | '3RD_GEN';
+  developer: string;
+  year: number;
+  training_target: string;
+  cpg_sites_count: number;
+  clinical_utility_zh: string;
+  key_biomarkers: string[];
+  evidence_grade: EvidenceGrade;
+}
+
+export interface LongevityCompound {
+  id: string;
+  name_zh: string;
+  name_en: string;
+  compound_class: string;
+  primary_mechanism_zh: string;
+  itp_max_lifespan_extension_pct: string;
+  human_clinical_stage: string;
+  evidence_grade: EvidenceGrade;
+  radar_scores: {
+    human_evidence: number;      // 1-10
+    lifespan_potential: number;  // 1-10
+    safety_profile: number;      // 1-10
+    accessibility: number;       // 1-10
+    biomarker_impact: number;    // 1-10
+  };
+  optimal_dosing_protocol: string;
+  contraindications_and_risks: string[];
+  lead_reviewer_id: string;
+}
+
+export interface HormesisProtocol {
+  id: string;
+  modality_zh: string;
+  modality_en: string;
+  biological_target: string;
+  effective_dose: string;
+  frequency_per_week: string;
+  clinical_evidence_summary: string;
+  cellular_mechanism_zh: string;
+  contraindications: string[];
+  biomarker_endpoints: string[];
+  lead_reviewer_id: string;
+}
+
+export interface LongevityQuizItem {
+  id: string;
+  question_zh: string;
+  options_zh: string[];
+  correct_index: number;
+  clinical_pearl_zh: string;
+  remedy_tab: LongevitySubTab;
+}
+

@@ -11,7 +11,10 @@ import {
   Utensils,
   Activity,
   Moon,
-  Sparkles
+  Sparkles,
+  Wind,
+  Scale,
+  Hourglass,
 } from 'lucide-react';
 
 interface Props {
@@ -99,7 +102,33 @@ export const Header: React.FC<Props> = ({
             <span className="font-bold">個人超健康</span>
           </button>
 
-          {/* 2. Diet & Nutrition (Contains Nutrients & Supplements) */}
+          {/* 3. Obesity & Weight Management Hub */}
+          <button
+            onClick={() => onSelectPillar('obesity')}
+            className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              activePillar === 'obesity'
+                ? 'bg-salud-cyan/20 dark:bg-salud-cyan text-slate-900 dark:text-black font-bold border border-salud-cyan/60 dark:border-transparent shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-800/40'
+            }`}
+          >
+            <Scale className="w-3.5 h-3.5 text-salud-cyan dark:text-black" />
+            <span>肥胖與減重</span>
+          </button>
+
+          {/* 4. Longevity & Anti-Aging Hub */}
+          <button
+            onClick={() => onSelectPillar('longevity')}
+            className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              activePillar === 'longevity'
+                ? 'bg-indigo-500/25 dark:bg-indigo-500 text-slate-900 dark:text-white font-bold border border-indigo-500 shadow-sm ring-1 ring-indigo-400'
+                : 'text-indigo-700 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/40'
+            }`}
+          >
+            <Hourglass className="w-3.5 h-3.5 text-indigo-500 dark:text-indigo-300" />
+            <span>抗老化</span>
+          </button>
+
+          {/* 4. Diet & Nutrition (Contains Nutrients & Supplements) */}
           <button
             onClick={() => onSelectPillar('diet')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
@@ -136,6 +165,19 @@ export const Header: React.FC<Props> = ({
           >
             <Moon className="w-3.5 h-3.5 text-purple-600 dark:text-purple-200" />
             <span>{t('pillar.sleep')}</span>
+          </button>
+
+          {/* 5. Mental Health & Breathwork */}
+          <button
+            onClick={() => onSelectPillar('mental')}
+            className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              activePillar === 'mental'
+                ? 'bg-cyan-100 dark:bg-cyan-600 text-cyan-900 dark:text-white font-bold border border-cyan-300 dark:border-transparent shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-300 hover:bg-white/60 dark:hover:bg-slate-800/40'
+            }`}
+          >
+            <Wind className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-200" />
+            <span>心理呼吸</span>
           </button>
         </div>
 

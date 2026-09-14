@@ -14,10 +14,13 @@ import { DietaryPatternsHub } from '../pillars/DietaryPatternsHub';
 import { ExerciseHub } from '../pillars/ExerciseHub';
 import { SleepHub } from '../pillars/SleepHub';
 import { SupplementsHub } from '../pillars/SupplementsHub';
+import { MentalHealthHub } from '../pillars/MentalHealthHub';
 import { ChapterLanding } from '../knowledge/ChapterLanding';
 import { KnowledgePage } from '../knowledge/KnowledgePage';
 import { HumanSystemsHub } from '../systems/HumanSystemsHub';
 import { UltraHealthHub } from '../ultrahealth/UltraHealthHub';
+import { ObesityHub } from '../pillars/ObesityHub';
+import { LongevityHub } from '../pillars/LongevityHub';
 import { CHAPTERS } from '../../data/chapters';
 
 // Lazy-loaded heavy council governance and screening modals (Round 3 optimization)
@@ -143,6 +146,8 @@ export function AppShell() {
             <>
               {activePillar === 'systems' && <HumanSystemsHub />}
               {activePillar === 'ultrahealth' && <UltraHealthHub />}
+              {activePillar === 'obesity' && <ObesityHub />}
+              {activePillar === 'longevity' && <LongevityHub />}
               {activePillar === 'diet' && (
                 <>
                   {dietView === 'patterns' ? (
@@ -165,6 +170,7 @@ export function AppShell() {
               )}
               {activePillar === 'sleep' && <SleepHub />}
               {activePillar === 'supplements' && <SupplementsHub />}
+              {activePillar === 'mental' && <MentalHealthHub />}
             </>
           )}
         </main>

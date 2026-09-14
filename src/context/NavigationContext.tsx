@@ -68,6 +68,14 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
         setIsSynergyView(false);
         setIsCouncilEvidenceView(false);
         setActivePillar('ultrahealth');
+      } else if (hash === 'obesity' || hash.startsWith('obesity')) {
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        setActivePillar('obesity');
+      } else if (hash === 'longevity' || hash.startsWith('longevity') || hash === 'anti-aging') {
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        setActivePillar('longevity');
       }
  else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
           setIsSynergyView(false);
@@ -111,6 +119,10 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
           setIsCouncilEvidenceView(false);
           setActivePillar('exercise');
           setExerciseSubTab('PICKLEBALL');
+        } else if (hash === 'mental' || hash.startsWith('mental') || hash === 'breathwork') {
+          setIsCouncilEvidenceView(false);
+          setIsSynergyView(false);
+          setActivePillar('mental');
         } else if (hash === 'sleep') {
           setIsCouncilEvidenceView(false);
           setActivePillar('sleep');

@@ -166,4 +166,33 @@ export const SLEEP_TOPICS: SleepTopic[] = [
       'Caffeine quarter-life cutoff: Caffeine clearance has an average half-life of 5-7 hrs and quarter-life of 12 hrs; abstain from caffeine past 2:00 PM.',
     ],
   },
+  {
+    id: 'SL-05',
+    title_zh: '睡前 4-7-8 呼吸與慢波深睡誘發：神經生理學入睡開關',
+    title_en: 'Pre-Sleep 4-7-8 Breathwork & Slow-Wave Sleep Induction',
+    category: 'CBTI_BEHAVIOR',
+    one_liner_zh: '8 秒延長吐氣強迫迷走神經釋放乙醯膽鹼，阻斷睡前皮質醇反芻，引導大腦滑入慢波深睡。',
+    one_liner_en: '8-second prolonged exhale triggers vagal acetylcholine surge, blunting nocturnal cortisol and ushering SWS sleep.',
+    evidence_grade: 'A',
+    mechanisms_zh: [
+      '入睡延遲 (Sleep Onset Latency) 過長的主因在於夜間交感神經高張力與腦波處於 Beta 頻段。',
+      '4-7-8 呼吸透過 7 秒閉氣溫和蓄積二氧化碳，刺激腦微血管舒張（波耳效應），8 秒極慢長呼氣活化感壓受器，向竇房結持續釋放乙醯膽鹼。',
+      '阻斷睡前焦慮反芻，誘導下視丘分泌褪黑激素，使腦電波快速平滑過渡至 Alpha 與 Theta 波，為前半夜 N3 慢波深睡鋪平道路。',
+    ],
+    mechanisms_en: [
+      'Prolonged sleep latency is primarily driven by nocturnal sympathetic hyperarousal and persistent Beta brainwaves.',
+      '4-7-8 breathwork gently elevates PaCO2 during the 7s hold to optimize cerebral perfusion, while the 8s exhale drives steady acetylcholine onto the heart.',
+      'Interrupts pre-sleep rumination, facilitating melatonin synthesis and a seamless transition from Beta to calming Theta and restorative N3 slow waves.',
+    ],
+    actionable_rules_zh: [
+      '熄燈後 4 循環儀式：躺平在床上，舌尖輕抵上顎門牙後方，鼻吸 4 秒、閉氣 7 秒、微開唇縫長吐 8 秒，連續進行 4 個循環。',
+      '配合腹部微起伏：吸氣時感受腹部如氣球微膨，吐氣時肚臍向脊椎放鬆下陷，消除肩頸肌電緊繃。',
+      '初學者切忌站姿練習：因閉氣與長呼氣會使血壓微降，躺姿或靠坐為唯一安全姿態。',
+    ],
+    actionable_rules_en: [
+      'Bedtime 4-cycle ritual: Lie flat, tongue behind upper front teeth; 4s nasal inhale, 7s hold, 8s pursed-lip exhale for 4 cycles.',
+      'Synchronize with abdominal rise: Allow the belly to expand gently on inhale and sink on exhale, extinguishing trapezius tension.',
+      'Always practice supine or seated: Transient baroreflex blood pressure dips necessitate a lying posture for beginners.',
+    ],
+  },
 ];

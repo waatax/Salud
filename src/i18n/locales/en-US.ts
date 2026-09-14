@@ -160,10 +160,13 @@ export const enUS: Record<string, string> = {
   // ── Health Pillars Architecture (v0.5 Systems Update) ──
   'pillar.systems': 'Body Systems',
   'pillar.ultrahealth': 'Ultra-Health',
+  'pillar.obesity': 'Obesity & Weight',
+  'pillar.longevity': 'Longevity & Anti-Aging',
   'pillar.diet': 'Diet & Nutrition',
   'pillar.exercise': 'Exercise & Movement',
   'pillar.sleep': 'Sleep & Recovery',
   'pillar.supplements': 'Nutrition & Supplements',
+  'pillar.mental': 'Mental & Breathwork',
 
   // Diet Patterns
   'diet.tab_patterns': 'Dietary Patterns Matrix',
