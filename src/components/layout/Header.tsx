@@ -10,7 +10,8 @@ import {
   Pill,
   Utensils,
   Activity,
-  Moon
+  Moon,
+  Sparkles
 } from 'lucide-react';
 
 interface Props {
@@ -59,8 +60,8 @@ export const Header: React.FC<Props> = ({
             <div>
               <span className="text-base font-display font-extrabold tracking-tight text-slate-900 dark:text-salud-dark-text flex items-center gap-1.5">
                 Salud
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40 font-bold">
-                  v0.5
+                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold">
+                  v0.6
                 </span>
               </span>
               <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 hidden xl:block">
@@ -83,6 +84,19 @@ export const Header: React.FC<Props> = ({
           >
             <HeartPulse className="w-3.5 h-3.5 text-salud-cyan dark:text-black" />
             <span>人體系統</span>
+          </button>
+
+          {/* 2. Personal Ultra-Health Project (New Flagship) */}
+          <button
+            onClick={() => onSelectPillar('ultrahealth')}
+            className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              activePillar === 'ultrahealth'
+                ? 'bg-amber-500/25 dark:bg-amber-500 text-slate-900 dark:text-black font-bold border border-amber-500 shadow-sm ring-1 ring-amber-400'
+                : 'text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-black animate-pulse" />
+            <span className="font-bold">個人超健康</span>
           </button>
 
           {/* 2. Diet & Nutrition (Contains Nutrients & Supplements) */}

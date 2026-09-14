@@ -1,7 +1,7 @@
 import React from 'react';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
-import { HeartPulse, Utensils, Activity, Moon, Pill, AlertOctagon, ShieldCheck } from 'lucide-react';
+import { HeartPulse, Utensils, Activity, Moon, Pill, AlertOctagon, ShieldCheck, Sparkles } from 'lucide-react';
 
 interface Props {
   activePillar: HealthPillar;
@@ -25,6 +25,13 @@ export const MobileNav: React.FC<Props> = ({
       icon: HeartPulse,
       activeColor: 'text-salud-cyan dark:text-salud-cyan',
       activeBg: 'bg-salud-cyan/20 dark:bg-salud-cyan/20',
+    },
+    {
+      id: 'ultrahealth' as HealthPillar,
+      label: '超健康',
+      icon: Sparkles,
+      activeColor: 'text-amber-500 dark:text-amber-400',
+      activeBg: 'bg-amber-100/80 dark:bg-amber-950/50',
     },
     {
       id: 'diet' as HealthPillar,

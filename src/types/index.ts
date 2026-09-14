@@ -125,6 +125,15 @@ export interface KnowledgePage {
   next_review: string;
   reviewed_by: string[];
   prerequisites: string[];
+  category?: string;
+  category_zh?: string;
+  tags?: string[];
+  difficulty?: '入門基礎' | '核心機轉' | '臨床鑑別' | '高階安全閘';
+  lead_expert_id?: string;
+  clinical_pearl?: string;
+  analogy_title?: string;
+  plain_analogy?: string;
+  life_hack?: string;
 }
 
 export interface Chapter {
@@ -249,7 +258,7 @@ export interface SupplementEvaluation {
 }
 
 // ── Health Pillars Architecture Types (v0.5 Systems Redesign) ──
-export type HealthPillar = 'systems' | 'diet' | 'exercise' | 'sleep' | 'supplements';
+export type HealthPillar = 'systems' | 'ultrahealth' | 'diet' | 'exercise' | 'sleep' | 'supplements';
 
 // ── Human Organ Systems Types (主頁人體系統總覽) ──
 export type HumanSystemId =
@@ -687,4 +696,73 @@ export interface DrugNutrientInteraction {
   guidance_en: string;
 }
 
+// ── Personal Ultra-Health Project (個人超健康 Project) Types ──
+export interface ExpertRound {
+  round: number;
+  title_zh: string;
+  title_en: string;
+  theme_zh: string;
+  lead_experts: string[];
+  core_debates_zh: string[];
+  breakthrough_consensus_zh: string[];
+  methodology_outputs_zh: string[];
+}
 
+export interface DailyProtocolSlot {
+  id: string;
+  time_range: string;
+  period_label: 'MORNING' | 'NOON' | 'AFTERNOON' | 'EVENING' | 'BEDTIME';
+  title_zh: string;
+  title_en: string;
+  target_systems: string[];
+  physiological_mechanism_zh: string;
+  action_checklist_zh: string[];
+  expert_advice_zh: string;
+  contraindication_warning_zh?: string;
+  icon_name: string;
+}
+
+export interface UltraHealthAtomicHabit {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  pillar: 'hydration' | 'diet' | 'exercise' | 'sleep' | 'mind';
+  anchor_moment_zh: string; // 行為觸發錨點
+  micro_action_zh: string;   // 2分鐘以內微行動
+  dopamine_reward_zh: string;// 即時多巴胺獎勵
+  duration_minutes: number;
+  difficulty: 'EASY' | 'MEDIUM' | 'ADVANCED';
+  evidence_grade: EvidenceGrade;
+  why_it_works_zh: string;
+}
+
+export interface PhysioExercise {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  category: 'DESK_RESCUE' | 'MOBILITY_RESTORE' | 'RESISTANCE_CORE' | 'POSTURE_RESET';
+  target_area_zh: string;
+  why_physio_recommends_zh: string;
+  step_by_step_zh: string[];
+  common_compensations_zh: string[]; // 避免代償
+  reps_and_sets_zh: string;
+  difficulty: 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
+}
+
+export interface MasterySkillTreeNode {
+  id: string;
+  code: string;
+  title_zh: string;
+  title_en: string;
+  branch: 'WATER' | 'OIL_METABOLISM' | 'ALCOHOL_TOXICOLOGY' | 'EXERCISE_PHYSIO' | 'SLEEP_CIRCADIAN';
+  level: 'L1' | 'L2' | 'L3' | 'SAFETY';
+  prerequisites: string[];
+  summary_zh: string;
+  plain_english_analogy_zh: string;
+  quiz: {
+    question_zh: string;
+    options_zh: string[];
+    correct_index: number;
+    explanation_zh: string;
+  };
+}

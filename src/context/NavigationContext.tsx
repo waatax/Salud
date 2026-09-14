@@ -64,6 +64,10 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
       } else if (hash === 'synergy') {
         setIsSynergyView(true);
         setIsCouncilEvidenceView(false);
+      } else if (hash === 'ultrahealth' || hash === 'ultra-health') {
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        setActivePillar('ultrahealth');
       }
  else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
           setIsSynergyView(false);

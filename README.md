@@ -4,7 +4,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-06B6D4?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v0.5.0-F59E0B)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v0.6.0-F59E0B)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -58,9 +58,23 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
   - `SIM-OIL-SWAP`（等熱量換油模擬器，支援 16 種油品、茶匙用量、WHO 10%E 參考線）
   - `SIM-COOK-TEMP`（這道菜該用什麼油，內建回鍋油總極性物累積警告）
 
+### 3. ✨ 個人超健康 Project (Personal Ultra-Health Project)
+- **29 席跨學科專家理事會 · 7 輪深度會議迭代演進**
+  - **均一教育平台核心團隊**（技術長、知識長、平台規劃長、教育專家）：導入原子化知識單元 (KPs) 與先備依賴拓撲、精熟學習技能樹 (Mastery Skill Tree) 與形成性評量。
+  - **全體各專科醫學專家**：四維生理機轉深化、臨床安全紅旗警報閘與多重共病反向禁忌。
+  - **頂級體能教練 & 物理治療大師**：動力鏈代償修復、辦公久坐救星、五大基礎動作模式 (深蹲/鉸鏈/推/拉/核心抗旋轉)。
+  - **醫療知識型網紅**：降維轉譯白話神比喻、街頭實戰避坑 10 大原則、迷思粉碎機 (Myth Busters)。
+  - **5 位戰略專家**（臨床營養師、微習慣架構師、晝夜節律專家、量化生物數據工程師、遊戲化設計師）：打造 24H 動態作息協議與 14 天原子微習慣養成器。
+- **5 大旗艦功能視角**：
+  1. `24H 日常作息協議`：晨曦甦醒、正午代謝、午後專注、傍晚巔峰、夜間降溫五大時段。
+  2. `14 天原子微習慣養成器`：福格行為模型 (B=MAP) 錨點觸發 + 2分鐘微行動 + 即時多巴胺打卡煙火。
+  3. `物理治療與肌力動作庫`：髂腰肌伸展、胸椎旋轉開展、蚌殼式臀中肌點火、高腳杯深蹲與代償防護。
+  4. `均一精熟技能樹`：水合、油脂、毒理、物治、睡眠 5 大分支自適應題庫與星星掌握度。
+  5. `7 次專家會議迭代紀要`：詳實記錄 7 輪爭鳴、突破共識與實作方法論產出。
+
 ---
 
-## 🛡️ 專家治理結構：Expert Council (22 席)
+## 🛡️ 專家治理結構：Expert Council (29 席)
 
 遵循醫學專業分工，由 22 席專家共同擔任內容治理角色模型：
 - **EC-01** Medical Director（醫療總監，終審安全閘）

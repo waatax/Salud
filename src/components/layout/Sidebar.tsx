@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Chapter, KnowledgePage, HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
@@ -22,6 +22,7 @@ import {
   PanelLeftClose,
   PanelLeft,
   Sparkles,
+  Check,
 } from 'lucide-react';
 
 interface Props {
@@ -50,6 +51,46 @@ export const Sidebar: React.FC<Props> = (props) => {
   // Desktop collapsed mode (w-64 vs w-16)
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [expandedDietSub, setExpandedDietSub] = useState(true);
+  const [sidebarCategory, setSidebarCategory] = useState<string>('all');
+  const [completedList, setCompletedList] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('salud_completed_pages');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [userXP, setUserXP] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('salud_user_xp');
+      return saved ? parseInt(saved, 10) : 120;
+    } catch {
+      return 120;
+    }
+  });
+  const [streakDays, setStreakDays] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('salud_streak_days');
+      return saved ? parseInt(saved, 10) : 3;
+    } catch {
+      return 3;
+    }
+  });
+
+  useEffect(() => {
+    const handleStorage = () => {
+      try {
+        const saved = localStorage.getItem('salud_completed_pages');
+        if (saved) setCompletedList(JSON.parse(saved));
+        const xpSaved = localStorage.getItem('salud_user_xp');
+        if (xpSaved) setUserXP(parseInt(xpSaved, 10));
+        const streakSaved = localStorage.getItem('salud_streak_days');
+        if (streakSaved) setStreakDays(parseInt(streakSaved, 10));
+      } catch {}
+    };
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, []);
 
   // Fallback to NavigationContext / ModalContext when props are omitted
   const activePillar = props.activePillar ?? nav.activePillar;
@@ -130,6 +171,33 @@ export const Sidebar: React.FC<Props> = (props) => {
             {!isCollapsed && (
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40 font-bold">
                 8大系統
+              </span>
+            )}
+          </button>
+        </div>
+
+        {/* 0.5. Personal Ultra-Health Project (New Flagship) */}
+        <div className="space-y-1">
+          <button
+            onClick={() => onSelectPillar('ultrahealth')}
+            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+              activePillar === 'ultrahealth'
+                ? 'border-amber-500 dark:border-amber-500 bg-amber-500/15 dark:bg-amber-500/20 text-slate-900 dark:text-amber-300 font-bold shadow-sm'
+                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+            } ${isCollapsed ? 'justify-center px-2' : ''}`}
+            title={isCollapsed ? '個人超健康' : undefined}
+          >
+            <div className="flex items-center gap-2">
+              <Sparkles
+                className={`w-4 h-4 ${
+                  activePillar === 'ultrahealth' ? 'text-amber-500 animate-pulse' : 'text-amber-500/70'
+                }`}
+              />
+              {!isCollapsed && <span className="text-xs font-bold text-amber-700 dark:text-amber-300">✨ 個人超健康</span>}
+            </div>
+            {!isCollapsed && (
+              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold">
+                7x迭代
               </span>
             )}
           </button>
@@ -320,31 +388,142 @@ export const Sidebar: React.FC<Props> = (props) => {
         </button>
       </div>
 
-      {/* Pages within current chapter (Only shown when browsing inside a specific chapter) */}
+      {/* 醫學知識庫 (Medical Knowledge Base) */}
       {!isCollapsed && activePillar === 'diet' && nav.dietView === 'chapter' && pagesForCurrent.length > 0 && (
         <div className="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-          <div className="flex items-center justify-between px-1 text-xs font-mono font-bold text-slate-700 dark:text-slate-400">
-            <span>Chapter {currentChapterId} 知識頁清單</span>
-            <span className="text-[10px] text-nature-sky-600 dark:text-nature-sky-400">{pagesForCurrent.length} 篇</span>
+          <div className="flex items-center justify-between px-1 text-xs font-display font-bold text-slate-800 dark:text-slate-200">
+            <div className="flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5 text-nature-sky-600 dark:text-salud-cyan" />
+              <span>{t('sidebar.knowledge_base')}</span>
+            </div>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-nature-sky-100 dark:bg-nature-sky-950/60 text-nature-sky-700 dark:text-nature-sky-300 font-bold">
+              {completedList.filter((id) => pagesForCurrent.some((p) => p.id === id)).length}/{pagesForCurrent.length} 篇
+            </span>
           </div>
 
-          <div className="space-y-1 max-h-[28vh] overflow-y-auto pr-1">
-            {pagesForCurrent.map((p) => {
+          <div className="text-[10px] font-mono text-slate-400 px-1 truncate">
+            Chapter {currentChapterId} · {currentChapterId === 'W' ? '水與體液平衡' : currentChapterId === 'O' ? '脂肪與食用油' : '酒精代謝毒理'}
+          </div>
+
+          {/* 學習段位與 XP 微型指示條 */}
+          <div className="flex items-center justify-between px-2 py-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 text-[10px] font-mono border border-slate-200/80 dark:border-slate-700/60 shadow-2xs">
+            <span className="flex items-center gap-1 font-bold text-amber-600 dark:text-salud-amber">
+              <Flame className="w-3 h-3 text-amber-500 fill-amber-500" />
+              <span>{streakDays} 天連續</span>
+            </span>
+            <span className="flex items-center gap-1 font-bold text-nature-sky-600 dark:text-salud-cyan">
+              <Sparkles className="w-3 h-3 text-nature-sky-500" />
+              <span>{userXP} XP</span>
+            </span>
+          </div>
+
+          {/* Mini Category Filter Chips */}
+          <div className="flex gap-1 overflow-x-auto pb-1 no-scrollbar text-[10px] font-mono px-1">
+            <button
+              onClick={() => setSidebarCategory('all')}
+              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
+                sidebarCategory === 'all'
+                  ? 'bg-nature-sky-500 text-white font-bold'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+              }`}
+            >
+              全部
+            </button>
+            <button
+              onClick={() => setSidebarCategory('fluid-homeostasis')}
+              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
+                sidebarCategory === 'fluid-homeostasis'
+                  ? 'bg-sky-500 text-white font-bold'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+              }`}
+            >
+              生理
+            </button>
+            <button
+              onClick={() => setSidebarCategory('hydration-guidelines')}
+              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
+                sidebarCategory === 'hydration-guidelines'
+                  ? 'bg-emerald-500 text-white font-bold'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+              }`}
+            >
+              監測
+            </button>
+            <button
+              onClick={() => setSidebarCategory('dehydration-pathology')}
+              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
+                sidebarCategory === 'dehydration-pathology'
+                  ? 'bg-amber-500 text-white font-bold'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+              }`}
+            >
+              病理
+            </button>
+            <button
+              onClick={() => setSidebarCategory('special-populations')}
+              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
+                sidebarCategory === 'special-populations'
+                  ? 'bg-rose-500 text-white font-bold'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+              }`}
+            >
+              安全閘
+            </button>
+          </div>
+
+          <div className="space-y-1 max-h-[30vh] overflow-y-auto pr-1">
+            {(sidebarCategory === 'all'
+              ? pagesForCurrent
+              : pagesForCurrent.filter((p) => p.category === sidebarCategory)
+            ).map((p) => {
               const isPageActive = p.id === activePageId;
+              const shortNum = p.order_index < 10 ? `W0${p.order_index}` : `W${p.order_index}`;
+              const dotColor =
+                p.category === 'fluid-homeostasis'
+                  ? 'bg-sky-400'
+                  : p.category === 'hydration-guidelines'
+                  ? 'bg-emerald-400'
+                  : p.category === 'dehydration-pathology'
+                  ? 'bg-amber-400'
+                  : p.category === 'special-populations'
+                  ? 'bg-rose-500'
+                  : 'bg-slate-400';
+
               return (
                 <button
                   key={p.id}
                   onClick={() => onSelectPage(p.id)}
-                  className={`btn-tactile w-full p-2 rounded-xl text-left font-mono text-[11px] transition-all flex items-center justify-between ${
+                  title={`${p.id}: ${p.title_zh}`}
+                  className={`btn-tactile w-full p-2 rounded-xl text-left transition-all flex items-center justify-between gap-1.5 ${
                     isPageActive
-                      ? 'bg-nature-sky-50 dark:bg-slate-800/90 text-nature-sky-800 dark:text-nature-sky-300 font-bold border border-nature-sky-200 dark:border-nature-sky-800/60 shadow-sm'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/40'
+                      ? 'bg-nature-sky-50 dark:bg-slate-800/95 text-nature-sky-900 dark:text-nature-sky-200 font-bold border border-nature-sky-300 dark:border-nature-sky-700 shadow-sm'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                   }`}
                 >
-                  <span className="truncate">{p.id}</span>
-                  <span className="text-[10px] text-slate-400 shrink-0 font-sans">
-                    {p.estimated_minutes}m
-                  </span>
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`} />
+                    <span className="font-mono text-[10px] font-bold text-nature-amber-700 dark:text-salud-amber shrink-0">
+                      {shortNum}
+                    </span>
+                    <span className="truncate text-xs font-sans">
+                      {language === 'zh-TW' ? p.title_zh : p.title_en}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0">
+                    {completedList.includes(p.id) && (
+                      <span title="已完成精讀">
+                        <Check className="w-3 h-3 text-emerald-500 shrink-0" />
+                      </span>
+                    )}
+                    {p.safety_gated && (
+                      <span title="SAFETY GATED">
+                        <AlertOctagon className="w-3 h-3 text-red-500 shrink-0 animate-pulse" />
+                      </span>
+                    )}
+                    <span className="text-[10px] text-slate-400 font-mono">
+                      {p.estimated_minutes}m
+                    </span>
+                  </div>
                 </button>
               );
             })}

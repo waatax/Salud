@@ -3,6 +3,7 @@ import { Chapter, KnowledgePage } from '../../types';
 import { useLanguage } from '../../i18n';
 import { KnowledgeGraph } from './KnowledgeGraph';
 import { BehaviorExperiment } from './BehaviorExperiment';
+import { MedicalKnowledgeBase } from './MedicalKnowledgeBase';
 import { Droplets, Flame, Wine, BookOpen, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
   onStartReading: (firstPageId: string) => void;
   onSelectPage: (pageId: string) => void;
   onOpenSim?: () => void;
+  onOpenCouncil?: () => void;
 }
 
 export const ChapterLanding: React.FC<Props> = ({
@@ -19,6 +21,7 @@ export const ChapterLanding: React.FC<Props> = ({
   onStartReading,
   onSelectPage,
   onOpenSim,
+  onOpenCouncil,
 }) => {
   const { t, language } = useLanguage();
   const isWater = chapter.id === 'W';
@@ -181,43 +184,14 @@ export const ChapterLanding: React.FC<Props> = ({
         </section>
       )}
 
-      {/* ── Chapter Pages Index List ── */}
-      <section className="space-y-3">
-        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
-          <h3 className="text-base font-display font-bold text-slate-900 dark:text-white">
-            {t('landing.section_pages')}
-          </h3>
-          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-            共 {pages.length} 篇知識頁
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-          {pages.map((p) => (
-            <div
-              key={p.id}
-              onClick={() => onSelectPage(p.id)}
-              className="btn-tactile p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 hover:border-nature-sky-300 dark:hover:border-nature-sky-700 cursor-pointer transition-all shadow-sm hover:shadow-md space-y-2.5 group"
-            >
-              <div className="flex items-center justify-between font-mono text-[11px]">
-                <span className="font-bold text-nature-amber-700 dark:text-salud-amber">{p.id}</span>
-                <span className="text-slate-500">約 {p.estimated_minutes} 分鐘</span>
-              </div>
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-nature-sky-700 dark:group-hover:text-nature-sky-400 transition-colors">
-                {language === 'zh-TW' ? p.title_zh : p.title_en}
-              </h4>
-              <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed font-sans">
-                {p.hook}
-              </p>
-              <div className="flex items-center justify-between pt-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800">
-                <span>{p.kps.length} 個 KP 知識點</span>
-                <span className="text-nature-sky-700 dark:text-salud-cyan flex items-center gap-1 group-hover:translate-x-1 transition-transform font-bold">
-                  {t('landing.view_page')} →
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* ── 醫學知識庫 (Medical Knowledge Base) ── */}
+      <section className="space-y-4">
+        <MedicalKnowledgeBase
+          pages={pages}
+          chapterId={chapter.id}
+          onSelectPage={onSelectPage}
+          onOpenCouncil={onOpenCouncil}
+        />
       </section>
 
       {/* ── 14-Day Behavior Experiment ── */}

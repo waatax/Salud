@@ -31,8 +31,11 @@ export const enUS: Record<string, string> = {
   'sidebar.status_dev': 'IN DEV',
   'sidebar.status_planned': 'PLANNED',
   'sidebar.pages_unit': 'pages',
+  'sidebar.knowledge_base': 'Medical Knowledge Base',
+  'sidebar.knowledge_base_sub': 'Clinical Guidelines & Teaching Archive',
+  'sidebar.knowledge_base_count': '{0} Clinical Pages',
 
-  // Chapter Landing
+  // Chapter Landing & Medical Knowledge Base
   'landing.safety_level': 'Safety Level',
   'landing.badge_flagship': 'Phase 1 Flagship Chapter',
   'landing.badge_dev': 'Phase 1 In Development',
@@ -44,9 +47,18 @@ export const enUS: Record<string, string> = {
   'landing.btn_sim': 'Launch Chapter Simulation',
   'landing.btn_graph': 'Explore Knowledge Graph',
   'landing.btn_sandbox': 'Launch Biochemical Sandbox',
-  'landing.section_pages': 'Chapter Pages & Reading Progress',
+  'landing.section_pages': 'Medical Knowledge Base · Clinical Repository',
   'landing.section_experiment': '14-Day Micro-Behavior Experiment',
   'landing.view_page': 'Read Page',
+  'landing.kb_title': 'Medical Knowledge Base · Clinical Repository',
+  'landing.kb_subtitle': 'Evidence-based fluid homeostasis repository ratified by 6-specialist Clinical Council',
+  'landing.council_badge': 'Interdisciplinary Clinical Peer-Review Board',
+  'landing.filter_all': 'All Knowledge Pages',
+  'landing.search_placeholder': 'Search knowledge pages, tags, physiology keywords or pearls...',
+  'landing.clear_filter': 'Clear Filter',
+  'landing.clinical_pearl_title': 'Expert Clinical Pearl',
+  'landing.lead_reviewer': 'Lead Reviewer',
+  'landing.learning_pathway': 'Recommended Learning Progression',
 
   // Knowledge Page
   'page.estimated_time': 'Approx. {0} min',
@@ -147,6 +159,7 @@ export const enUS: Record<string, string> = {
 
   // ── Health Pillars Architecture (v0.5 Systems Update) ──
   'pillar.systems': 'Body Systems',
+  'pillar.ultrahealth': 'Ultra-Health',
   'pillar.diet': 'Diet & Nutrition',
   'pillar.exercise': 'Exercise & Movement',
   'pillar.sleep': 'Sleep & Recovery',

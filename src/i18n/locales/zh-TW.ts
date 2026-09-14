@@ -31,8 +31,11 @@ export const zhTW = {
   'sidebar.status_dev': '研發中',
   'sidebar.status_planned': '規劃中',
   'sidebar.pages_unit': '頁',
+  'sidebar.knowledge_base': '醫學知識庫',
+  'sidebar.knowledge_base_sub': '臨床指引與教學文庫',
+  'sidebar.knowledge_base_count': '{0} 篇臨床文庫',
 
-  // Chapter Landing
+  // Chapter Landing & Medical Knowledge Base
   'landing.safety_level': '安全等級',
   'landing.badge_flagship': 'Phase 1 旗艦專章',
   'landing.badge_dev': 'Phase 1 研發中',
@@ -44,9 +47,18 @@ export const zhTW = {
   'landing.btn_sim': '啟動本章模擬引擎',
   'landing.btn_graph': '探索知識路徑圖',
   'landing.btn_sandbox': '啟動生化沙盒',
-  'landing.section_pages': '本章知識清單與學習進度',
+  'landing.section_pages': '醫學知識庫 · 臨床核心文庫',
   'landing.section_experiment': '14 天行為微實驗',
   'landing.view_page': '閱讀知識頁',
+  'landing.kb_title': '醫學知識庫 · 臨床核心文庫',
+  'landing.kb_subtitle': '由 6 大跨科專家審定委員會把關之水與體液恆定實證文庫',
+  'landing.council_badge': '跨科臨床同儕審定委員會 (Peer-Reviewed)',
+  'landing.filter_all': '全部醫學文庫',
+  'landing.search_placeholder': '搜尋知識頁、醫學 TAG、生理關鍵字或臨床珍珠...',
+  'landing.clear_filter': '清除篩選',
+  'landing.clinical_pearl_title': '專家臨床教學珍珠',
+  'landing.lead_reviewer': '主審專席',
+  'landing.learning_pathway': '建議循序學習階梯',
 
   // Knowledge Page
   'page.estimated_time': '約 {0} 分鐘',
@@ -147,6 +159,7 @@ export const zhTW = {
 
   // ── Health Pillars Architecture (v0.5 Systems Update) ──
   'pillar.systems': '人體系統',
+  'pillar.ultrahealth': '個人超健康',
   'pillar.diet': '飲食與營養',
   'pillar.exercise': '運動科學',
   'pillar.sleep': '睡眠與修復',

@@ -17,6 +17,7 @@ import { SupplementsHub } from '../pillars/SupplementsHub';
 import { ChapterLanding } from '../knowledge/ChapterLanding';
 import { KnowledgePage } from '../knowledge/KnowledgePage';
 import { HumanSystemsHub } from '../systems/HumanSystemsHub';
+import { UltraHealthHub } from '../ultrahealth/UltraHealthHub';
 import { CHAPTERS } from '../../data/chapters';
 
 // Lazy-loaded heavy council governance and screening modals (Round 3 optimization)
@@ -141,6 +142,7 @@ export function AppShell() {
           ) : (
             <>
               {activePillar === 'systems' && <HumanSystemsHub />}
+              {activePillar === 'ultrahealth' && <UltraHealthHub />}
               {activePillar === 'diet' && (
                 <>
                   {dietView === 'patterns' ? (
@@ -151,6 +153,7 @@ export function AppShell() {
                       pages={pagesForCurrent}
                       onStartReading={selectPage}
                       onSelectPage={selectPage}
+                      onOpenCouncil={() => openModal('council')}
                     />
                   ) : currentPage ? (
                     <KnowledgePage page={currentPage} onNavigatePage={selectPage} />

@@ -13,7 +13,11 @@ import { SimCookTemp } from '../simulators/SimCookTemp';
 import { SimBAC } from '../simulators/SimBAC';
 import { SbxALDH2 } from '../simulators/SbxALDH2';
 import { SelfCheckQuiz } from './SelfCheckQuiz';
+import { VisualPlainEnglishDecoder } from './VisualPlainEnglishDecoder';
+import confetti from 'canvas-confetti';
 import { CHAPTERS } from '../../data/chapters';
+import { CHAPTER_W_PAGES } from '../../data/chapterW';
+import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import {
   ChevronDown,
   ChevronUp,
@@ -25,6 +29,12 @@ import {
   BookOpen,
   Sparkles,
   ShieldAlert,
+  Tag,
+  Award,
+  CheckCircle2,
+  Check,
+  Bookmark,
+  BookmarkCheck,
 } from 'lucide-react';
 
 interface Props {
@@ -68,19 +78,133 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
   const prevPageId = currentIndex > 1 ? `${prefix}-${String(currentIndex - 1).padStart(2, '0')}` : null;
   const nextPageId = currentIndex < maxPages ? `${prefix}-${String(currentIndex + 1).padStart(2, '0')}` : null;
 
+  const leadExpert = EXPERT_COUNCIL.find((e) => e.id === page.lead_expert_id);
+
+  // 研讀狀態與書籤
+  const [isCompleted, setIsCompleted] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('salud_completed_pages');
+      return saved ? JSON.parse(saved).includes(page.id) : false;
+    } catch {
+      return false;
+    }
+  });
+
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('salud_bookmarked_pages');
+      return saved ? JSON.parse(saved).includes(page.id) : false;
+    } catch {
+      return false;
+    }
+  });
+
+  const togglePageComplete = () => {
+    try {
+      const saved = localStorage.getItem('salud_completed_pages');
+      const list: string[] = saved ? JSON.parse(saved) : [];
+      const updated = list.includes(page.id) ? list.filter((id) => id !== page.id) : [...list, page.id];
+      localStorage.setItem('salud_completed_pages', JSON.stringify(updated));
+      const willBeCompleted = !isCompleted;
+      setIsCompleted(willBeCompleted);
+
+      if (willBeCompleted) {
+        confetti({
+          particleCount: 80,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#06B6D4', '#10B981', '#F59E0B', '#8B5CF6']
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const togglePageBookmark = () => {
+    try {
+      const saved = localStorage.getItem('salud_bookmarked_pages');
+      const list: string[] = saved ? JSON.parse(saved) : [];
+      const updated = list.includes(page.id) ? list.filter((id) => id !== page.id) : [...list, page.id];
+      localStorage.setItem('salud_bookmarked_pages', JSON.stringify(updated));
+      setIsBookmarked(!isBookmarked);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <article className="space-y-8 font-sans text-xs pb-16 max-w-4xl mx-auto transition-colors">
+    <article className="space-y-8 font-sans text-xs pb-16 max-w-4xl mx-auto transition-colors relative">
       {/* ── Page Header & Depth Switcher ── */}
       <header className="space-y-4 border-b border-slate-200 dark:border-slate-800 pb-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-slate-500 dark:text-slate-400">
-          <div className="flex items-center gap-2">
-            <span className="text-nature-amber-700 dark:text-salud-amber font-bold">{page.id}</span>
-            <span>·</span>
-            <span>{t('page.page_order', page.order_index)}</span>
-            <span>·</span>
-            <span className="flex items-center gap-1 text-slate-700 dark:text-slate-300">
+        {/* Medical Knowledge Base Breadcrumb & Action Toolbar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-display font-bold text-nature-sky-700 dark:text-salud-cyan flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>醫學知識庫</span>
+            </span>
+            <span className="text-slate-300 dark:text-slate-700">/</span>
+            <span className="px-2 py-0.5 rounded-lg bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 font-mono text-[11px] font-bold border border-sky-200 dark:border-sky-800/60">
+              {page.category_zh || '臨床醫學專章'}
+            </span>
+            {page.difficulty && (
+              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-[11px] border border-slate-200 dark:border-slate-700">
+                {page.difficulty}
+              </span>
+            )}
+            {page.safety_gated && (
+              <span className="px-2 py-0.5 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-mono text-[11px] font-bold border border-rose-200 dark:border-rose-800 flex items-center gap-1">
+                <AlertTriangle className="w-3 h-3 text-rose-600 dark:text-rose-400" />
+                SAFETY GATED
+              </span>
+            )}
+          </div>
+
+          {/* 研讀完成與書籤操作列 */}
+          <div className="flex items-center gap-2 font-mono text-[11px]">
+            <span className="text-slate-500 dark:text-slate-400 hidden sm:inline flex items-center gap-1">
               <Clock className="w-3 h-3 text-nature-sky-600 dark:text-nature-sky-400" /> {t('page.estimated_time', page.estimated_minutes)}
             </span>
+
+            {/* 書籤按鈕 */}
+            <button
+              onClick={togglePageBookmark}
+              className={`btn-tactile px-2.5 py-1 rounded-xl border transition-all flex items-center gap-1 ${
+                isBookmarked
+                  ? 'bg-amber-100 dark:bg-amber-950/70 border-amber-300 dark:border-amber-800 text-amber-800 dark:text-amber-300 font-bold'
+                  : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-800'
+              }`}
+              title={isBookmarked ? '取消學習書籤' : '加入學習書籤'}
+            >
+              {isBookmarked ? <BookmarkCheck className="w-3.5 h-3.5 text-amber-600" /> : <Bookmark className="w-3.5 h-3.5" />}
+              <span>{isBookmarked ? '已收藏' : '收藏'}</span>
+            </button>
+
+            {/* 標記已精讀按鈕 */}
+            <button
+              onClick={togglePageComplete}
+              className={`btn-tactile px-3 py-1 rounded-xl border transition-all flex items-center gap-1.5 ${
+                isCompleted
+                  ? 'bg-emerald-500 border-emerald-600 text-white font-bold shadow-xs'
+                  : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-emerald-400'
+              }`}
+            >
+              <Check className={`w-3.5 h-3.5 ${isCompleted ? 'text-white' : 'text-emerald-500'}`} />
+              <span>{isCompleted ? '已完成精讀' : '標記已讀'}</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Depth Switcher L1 / L2 / L3 & Title */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+          <div className="space-y-1">
+            <h1 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-salud-dark-text tracking-tight">
+              {language === 'zh-TW' ? page.title_zh : page.title_en}
+            </h1>
+            <div className="text-sm font-mono text-slate-500 dark:text-slate-400">
+              {language === 'zh-TW' ? page.title_en : page.title_zh}
+            </div>
           </div>
 
           {/* Depth Switcher L1 / L2 / L3 */}
@@ -121,13 +245,54 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </div>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-salud-dark-text tracking-tight">
-          {language === 'zh-TW' ? page.title_zh : page.title_en}
-        </h1>
-        <div className="text-sm font-mono text-slate-500 dark:text-slate-400">
-          {language === 'zh-TW' ? page.title_en : page.title_zh}
-        </div>
+        {/* Medical TAGs list */}
+        {page.tags && page.tags.length > 0 && (
+          <div className="flex flex-wrap items-center gap-1.5 pt-1">
+            <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
+              <Tag className="w-3 h-3 text-nature-sky-600 dark:text-nature-sky-400" />
+              TAGs:
+            </span>
+            {page.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-[11px] font-mono px-2.5 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-nature-sky-400 transition-colors"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
       </header>
+
+      {/* ── Lead Clinical Reviewer & Clinical Pearl Banner ── */}
+      {(leadExpert || page.clinical_pearl) && (
+        <div className="p-4 sm:p-5 rounded-3xl border border-amber-200/80 dark:border-amber-900/50 bg-gradient-to-br from-amber-50/60 via-white to-sky-50/40 dark:from-slate-900 dark:via-salud-dark-card dark:to-slate-950 shadow-sm space-y-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-amber-100 dark:border-slate-800 pb-2">
+            <div className="flex items-center gap-2">
+              <div className="p-1 rounded-lg bg-amber-500 text-white shadow-warm-glow">
+                <Award className="w-3.5 h-3.5" />
+              </div>
+              <span className="font-display font-bold text-xs text-amber-900 dark:text-amber-300">
+                主審專席臨床指引 · 同儕審查核准 (Oxford CEBM Level 1a)
+              </span>
+            </div>
+            {leadExpert && (
+              <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 flex items-center gap-1">
+                <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                <span>{leadExpert.id} · {language === 'zh-TW' ? leadExpert.title_zh : leadExpert.title_en}</span>
+              </span>
+            )}
+          </div>
+          {page.clinical_pearl && (
+            <p className="text-xs text-slate-800 dark:text-slate-200 leading-relaxed font-sans italic">
+              💡 {page.clinical_pearl}
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* ── 深入淺出 · 生活視覺化解密卡 (Visual Plain-English Decoder) ── */}
+      <VisualPlainEnglishDecoder page={page} />
 
       {/* ── MANDATORY Harm Reduction Banner on PAGE-A-12 ── */}
       {isAlcoholPage12 && (
@@ -428,43 +593,50 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       </section>
 
       {/* ── Previous & Next Page Navigation Cards ── */}
-      <nav aria-label="前後頁導航" className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
-        {prevPageId ? (
-          <button
-            onClick={() => onNavigatePage(prevPageId)}
-            className="btn-tactile p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-sky-400 dark:hover:border-nature-sky-600 text-left transition-all shadow-sm hover:shadow-md flex items-center gap-3 group"
-          >
-            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-nature-sky-600 dark:group-hover:text-nature-sky-400 transition-colors">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-            </div>
-            <div>
-              <span className="text-[10px] font-mono text-slate-400 block uppercase">上一篇 · Previous</span>
-              <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 font-mono">
-                {prevPageId}
-              </strong>
-            </div>
-          </button>
-        ) : (
-          <div />
-        )}
+      {(() => {
+        const prevPage = prevPageId ? CHAPTER_W_PAGES.find((p) => p.id === prevPageId) : null;
+        const nextPage = nextPageId ? CHAPTER_W_PAGES.find((p) => p.id === nextPageId) : null;
 
-        {nextPageId && (
-          <button
-            onClick={() => onNavigatePage(nextPageId)}
-            className="btn-tactile p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-amber-400 dark:hover:border-nature-amber-600 text-right transition-all shadow-sm hover:shadow-md flex items-center justify-end gap-3 group"
-          >
-            <div>
-              <span className="text-[10px] font-mono text-slate-400 block uppercase">下一篇 · Next</span>
-              <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 font-mono">
-                {nextPageId}
-              </strong>
-            </div>
-            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-nature-amber-600 dark:group-hover:text-nature-amber-400 transition-colors">
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </div>
-          </button>
-        )}
-      </nav>
+        return (
+          <nav aria-label="前後頁導航" className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+            {prevPageId ? (
+              <button
+                onClick={() => onNavigatePage(prevPageId)}
+                className="btn-tactile p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-sky-400 dark:hover:border-nature-sky-600 text-left transition-all shadow-sm hover:shadow-md flex items-center gap-3 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-nature-sky-600 dark:group-hover:text-nature-sky-400 transition-colors shrink-0">
+                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[10px] font-mono text-slate-400 block uppercase">上一篇 · Previous</span>
+                  <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate block font-sans">
+                    {prevPage ? `${prevPage.id.replace('PAGE-', '')} · ${language === 'zh-TW' ? prevPage.title_zh : prevPage.title_en}` : prevPageId}
+                  </strong>
+                </div>
+              </button>
+            ) : (
+              <div />
+            )}
+
+            {nextPageId && (
+              <button
+                onClick={() => onNavigatePage(nextPageId)}
+                className="btn-tactile p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-sky-400 dark:hover:border-nature-sky-600 text-right transition-all shadow-sm hover:shadow-md flex items-center justify-end gap-3 group"
+              >
+                <div className="min-w-0 text-right">
+                  <span className="text-[10px] font-mono text-slate-400 block uppercase">下一篇 · Next</span>
+                  <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate block font-sans">
+                    {nextPage ? `${nextPage.id.replace('PAGE-', '')} · ${language === 'zh-TW' ? nextPage.title_zh : nextPage.title_en}` : nextPageId}
+                  </strong>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-nature-sky-600 dark:group-hover:text-nature-sky-400 transition-colors shrink-0">
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </button>
+            )}
+          </nav>
+        );
+      })()}
 
       {/* ── 11 Evidence Freshness & Governance Footer ── */}
       <footer className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 space-y-3 font-mono text-[11px] text-slate-600 dark:text-slate-400">
