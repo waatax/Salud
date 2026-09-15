@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { LongevitySubTab } from '../../types';
 import { InfographHallmarksWheel } from './longevity/InfographHallmarksWheel';
 import { InfographEpigeneticClocks } from './longevity/InfographEpigeneticClocks';
@@ -31,19 +30,14 @@ import {
 export const LongevityHub: React.FC = () => {
   const [activeTab, setActiveTab] = useState<LongevitySubTab>('OVERVIEW');
 
-  // Filter longevity council members EC-34 to EC-40
-  const longevityExperts = EXPERT_COUNCIL.filter((e) =>
-    ['EC-34', 'EC-35', 'EC-36', 'EC-37', 'EC-38', 'EC-39', 'EC-40'].includes(e.id)
-  );
-
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
       {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-indigo-500/40 bg-gradient-to-br from-indigo-950/80 via-slate-900/95 to-cyan-950/40 p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+      <div className="relative overflow-hidden rounded-3xl border border-emerald-500/40 bg-gradient-to-br from-emerald-950/80 via-slate-900/95 to-teal-950/40 p-6 sm:p-10 shadow-2xl backdrop-blur-md">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 text-xs font-mono font-bold">
-              <Sparkles className="w-4 h-4 text-salud-cyan animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-mono font-bold">
+              <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
               <span>Salud 旗艦支柱 · 長壽與抗老化醫學專科總樞紐</span>
             </div>
 
@@ -52,23 +46,15 @@ export const LongevityHub: React.FC = () => {
             </h1>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              破解「衰老是不可抗拒之宿命」的傳統認知，將衰老定義為一組可被測量、靶向並延緩的分子生物學病理進程。由{' '}
-              <span className="font-semibold text-cyan-400">EC-34 分子老年學家</span>、
-              <span className="font-semibold text-indigo-400">EC-35 表觀遺傳學家</span>、
-              <span className="font-semibold text-rose-400">EC-36 抗衰藥物學家</span>、
-              <span className="font-semibold text-amber-400">EC-37 粒線體自噬專家</span>、
-              <span className="font-semibold text-emerald-400">EC-38 臨床長壽醫師</span>、
-              <span className="font-semibold text-teal-400">EC-39 激效生理學家</span> 與{' '}
-              <span className="font-semibold text-purple-400">EC-40 系統生物學家</span> 跨領域審定。
-              深入 12 大衰老標誌、DunedinPACE 速率儀表、ITP 長壽化合物與健康壽命動態模擬！
+              破解「衰老是不可抗拒之宿命」的傳統認知，將衰老定義為一組可被測量、靶向並延緩的分子生物學病理進程。深入 Cell 12 大衰老分子標誌、表觀遺傳時鐘 DunedinPACE 速率儀表、NIH ITP 干預測試計畫與長壽生活醫學動態模擬！
             </p>
           </div>
 
           {/* Quick Stat Badges */}
           <div className="grid grid-cols-2 gap-3 shrink-0">
             <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-salud-cyan">7 席</div>
-              <div className="text-[10px] text-slate-400">長壽專科理事會</div>
+              <div className="text-xl font-mono font-extrabold text-emerald-400">CEBM 1a</div>
+              <div className="text-[10px] text-slate-400">實證醫學等級</div>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
               <div className="text-xl font-mono font-extrabold text-indigo-400">12 大</div>
@@ -227,41 +213,6 @@ export const LongevityHub: React.FC = () => {
             <p className="text-xs text-slate-300 leading-relaxed">
               肥胖患者腹腔內大量肥大的內臟脂肪細胞，是人體最大宗的「殭屍細胞」(p16 陽性) 與 SASP 發炎因子製造源。BMI 每增加 5，DNA 甲基化時鐘 (GrimAge) 加速 1.2 年！反之，積極維持健康體組成與去脂骨骼肌，是抗老化成本效益最高的干預手段。
             </p>
-          </div>
-
-          {/* Expert Council Seats (EC-34 ~ EC-40) */}
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 space-y-6">
-            <div className="border-b border-slate-800 pb-3 flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-salud-cyan">
-                <ShieldCheck className="w-4 h-4" />
-                <span>長壽與抗衰老醫學專家委員會 (EC-34 ~ EC-40 專席)</span>
-              </div>
-              <span className="text-[10px] font-mono text-slate-400">多學科共同治理</span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-              {longevityExperts.map((exp) => (
-                <div
-                  key={exp.id}
-                  className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 flex flex-col justify-between hover:border-salud-cyan/40 transition-colors"
-                >
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-salud-cyan">{exp.id}</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400">
-                        專科專席
-                      </span>
-                    </div>
-                    <div className="font-bold text-sm text-white">{exp.title_zh}</div>
-                    <div className="text-[10px] font-mono text-slate-400">{exp.name_en}</div>
-                  </div>
-
-                  <p className="text-[11px] text-slate-300 leading-relaxed pt-2 border-t border-slate-850">
-                    {exp.core_duty}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       )}

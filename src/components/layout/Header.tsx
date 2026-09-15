@@ -17,6 +17,7 @@ import {
   Scale,
   Hourglass,
   Award,
+  ShieldCheck,
 } from 'lucide-react';
 
 interface Props {
@@ -71,10 +72,10 @@ export const Header: React.FC<Props> = ({
                     e.stopPropagation();
                     setIsManifestoOpen(true);
                   }}
-                  title="查看 Salud v1.0.1 全人健康長壽大憲章與 40 席專家理事會簽署"
+                  title="查看 Salud v1.1.0 全人健康長壽大憲章與 40 席專家理事會簽署"
                   className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-salud-cyan/20 text-salud-cyan dark:text-salud-cyan border border-salud-cyan/40 font-bold hover:bg-salud-cyan/30 transition-colors cursor-pointer flex items-center gap-1"
                 >
-                  <span>v1.0.1</span>
+                  <span>v1.1.0</span>
                   <Sparkles className="w-2.5 h-2.5 animate-pulse" />
                 </button>
               </span>
@@ -86,17 +87,17 @@ export const Header: React.FC<Props> = ({
         </div>
 
         {/* ── Desktop Navigation Tabs ── */}
-        <div className="hidden md:flex items-center gap-1 bg-slate-100/90 dark:bg-slate-900/80 p-1 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs font-mono">
+        <nav className="hidden md:flex items-center gap-1 bg-emerald-50/50 dark:bg-[#0F1714] p-1 rounded-2xl border border-emerald-100 dark:border-[#1C2E25] text-xs font-mono">
           {/* 1. Human Body Systems (Home) */}
           <button
             onClick={() => onSelectPillar('systems')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'systems'
-                ? 'bg-salud-cyan/20 dark:bg-salud-cyan text-slate-900 dark:text-black font-bold border border-salud-cyan/60 dark:border-transparent shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-800/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <HeartPulse className="w-3.5 h-3.5 text-salud-cyan dark:text-black" />
+            <HeartPulse className={`w-3.5 h-3.5 ${activePillar === 'systems' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>人體系統</span>
           </button>
 
@@ -105,11 +106,11 @@ export const Header: React.FC<Props> = ({
             onClick={() => onSelectPillar('ultrahealth')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'ultrahealth'
-                ? 'bg-amber-500/25 dark:bg-amber-500 text-slate-900 dark:text-black font-bold border border-amber-500 shadow-sm ring-1 ring-amber-400'
-                : 'text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-black animate-pulse" />
+            <Sparkles className={`w-3.5 h-3.5 ${activePillar === 'ultrahealth' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'} animate-pulse`} />
             <span className="font-bold">個人超健康</span>
           </button>
 
@@ -118,11 +119,11 @@ export const Header: React.FC<Props> = ({
             onClick={() => onSelectPillar('obesity')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'obesity'
-                ? 'bg-salud-cyan/20 dark:bg-salud-cyan text-slate-900 dark:text-black font-bold border border-salud-cyan/60 dark:border-transparent shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-800/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <Scale className="w-3.5 h-3.5 text-salud-cyan dark:text-black" />
+            <Scale className={`w-3.5 h-3.5 ${activePillar === 'obesity' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>肥胖與減重</span>
           </button>
 
@@ -131,77 +132,87 @@ export const Header: React.FC<Props> = ({
             onClick={() => onSelectPillar('longevity')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'longevity'
-                ? 'bg-indigo-500/25 dark:bg-indigo-500 text-slate-900 dark:text-white font-bold border border-indigo-500 shadow-sm ring-1 ring-indigo-400'
-                : 'text-indigo-700 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <Hourglass className="w-3.5 h-3.5 text-indigo-500 dark:text-indigo-300" />
+            <Hourglass className={`w-3.5 h-3.5 ${activePillar === 'longevity' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>抗老化</span>
           </button>
 
-          {/* 4. Diet & Nutrition (Contains Nutrients & Supplements) */}
+          {/* 5. Diet & Nutrition (Contains Nutrients & Supplements) */}
           <button
             onClick={() => onSelectPillar('diet')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'diet' || activePillar === 'supplements'
-                ? 'bg-nature-amber-100 dark:bg-salud-amber text-nature-amber-900 dark:text-black font-bold border border-nature-amber-300 dark:border-transparent shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-800/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <Utensils className="w-3.5 h-3.5 text-nature-amber-600 dark:text-black" />
+            <Utensils className={`w-3.5 h-3.5 ${activePillar === 'diet' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>飲食與營養</span>
           </button>
 
-          {/* 3. Exercise Science */}
+          {/* 6. Exercise Science */}
           <button
             onClick={() => onSelectPillar('exercise')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'exercise'
-                ? 'bg-nature-sky-100 dark:bg-salud-cyan text-nature-sky-900 dark:text-black font-bold border border-nature-sky-300 dark:border-transparent shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-800/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <Activity className="w-3.5 h-3.5 text-nature-sky-600 dark:text-black" />
+            <Activity className={`w-3.5 h-3.5 ${activePillar === 'exercise' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>{t('pillar.exercise')}</span>
           </button>
 
-          {/* 4. Sleep & Glymphatic */}
+          {/* 7. Sleep & Glymphatic */}
           <button
             onClick={() => onSelectPillar('sleep')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'sleep'
-                ? 'bg-purple-100 dark:bg-purple-600 text-purple-900 dark:text-white font-bold border border-purple-300 dark:border-transparent shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-300 hover:bg-white/60 dark:hover:bg-slate-800/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <Moon className="w-3.5 h-3.5 text-purple-600 dark:text-purple-200" />
+            <Moon className={`w-3.5 h-3.5 ${activePillar === 'sleep' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>{t('pillar.sleep')}</span>
           </button>
 
-          {/* 5. Mental Health & Breathwork */}
+          {/* 8. Mental Health & Breathwork */}
           <button
             onClick={() => onSelectPillar('mental')}
             className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
               activePillar === 'mental'
-                ? 'bg-cyan-100 dark:bg-cyan-600 text-cyan-900 dark:text-white font-bold border border-cyan-300 dark:border-transparent shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-300 hover:bg-white/60 dark:hover:bg-slate-800/40'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
             }`}
           >
-            <Wind className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-200" />
+            <Wind className={`w-3.5 h-3.5 ${activePillar === 'mental' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>心理呼吸</span>
           </button>
-        </div>
+        </nav>
 
         {/* Action Controls */}
         <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Quick Jump to Bottom Expert Zone */}
+          <a
+            href="#expert-zone"
+            className="btn-tactile hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/80 dark:bg-emerald-950/40 hover:bg-emerald-100 text-emerald-800 dark:text-emerald-300 font-mono text-xs font-bold transition-all shadow-xs"
+            title="直達最下方專家專區 (40 席專科清單)"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <span>專家專區</span>
+          </a>
+
           {/* v1.0 Charter & RPDCA Manifesto Shortcut */}
           <button
             onClick={() => setIsManifestoOpen(true)}
-            className="btn-tactile hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-salud-cyan/50 bg-salud-cyan/15 hover:bg-salud-cyan/25 text-salud-cyan dark:text-salud-cyan transition-all font-mono text-xs font-extrabold shadow-sm cursor-pointer"
-            title="查看 Salud v1.0 全人健康長壽大憲章 (40 席理事會簽署)"
+            className="btn-tactile hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-300/80 dark:border-emerald-800 bg-emerald-100/60 dark:bg-emerald-950/60 hover:bg-emerald-200 text-emerald-900 dark:text-emerald-300 transition-all font-mono text-xs font-bold shadow-xs cursor-pointer"
+            title="查看 Salud v1.1.0 全人健康長壽大憲章 (40 席理事會簽署)"
           >
-            <Award className="w-3.5 h-3.5 text-salud-cyan" />
-            <span>v1.0 專家憲章</span>
+            <Award className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <span>v1.1 專家憲章</span>
           </button>
 
           {/* Quick Hub Shortcuts */}

@@ -26,6 +26,7 @@ import {
   Wind,
   Scale,
   Hourglass,
+  Award,
 } from 'lucide-react';
 
 interface Props {
@@ -654,6 +655,18 @@ export const Sidebar: React.FC<Props> = (props) => {
           {!isCollapsed && <span>{t('nav.cardio_hub')}</span>}
         </button>
 
+        {/* 專家專區快速導航 */}
+        <a
+          href="#expert-zone"
+          className={`btn-tactile w-full p-2.5 rounded-xl border border-emerald-300/80 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/50 hover:bg-emerald-200 text-emerald-900 dark:text-emerald-300 font-mono text-xs flex items-center gap-2 transition-all font-bold shadow-xs ${
+            isCollapsed ? 'justify-center px-2' : ''
+          }`}
+          title={isCollapsed ? '全人專家專區 (40 席名錄)' : undefined}
+        >
+          <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          {!isCollapsed && <span>專家專區 (40 席名錄)</span>}
+        </a>
+
         <button
           onClick={onOpenCouncil}
           className={`btn-tactile w-full p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-xs flex items-center gap-2 transition-all ${
@@ -661,29 +674,29 @@ export const Sidebar: React.FC<Props> = (props) => {
           }`}
           title={isCollapsed ? t('nav.council') : undefined}
         >
-          <ShieldCheck className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400 shrink-0" />
-          {!isCollapsed && <span>{t('nav.council')}</span>}
+          <Award className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          {!isCollapsed && <span>專家委員會總覽</span>}
         </button>
 
         <button
           onClick={() => onOpenCouncilEvidence && onOpenCouncilEvidence()}
-          className={`btn-tactile w-full p-2 rounded-xl border border-nature-amber-300/80 dark:border-nature-amber-800/60 bg-nature-amber-50/70 dark:bg-nature-amber-950/20 hover:bg-nature-amber-100 dark:hover:bg-nature-amber-900/40 text-nature-amber-900 dark:text-nature-amber-300 font-mono text-xs flex items-center gap-2 transition-all font-bold ${
+          className={`btn-tactile w-full p-2 rounded-xl border border-emerald-300/80 dark:border-emerald-800/60 bg-emerald-50/70 dark:bg-emerald-950/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-900 dark:text-emerald-300 font-mono text-xs flex items-center gap-2 transition-all font-bold ${
             isCollapsed ? 'justify-center px-2' : ''
           }`}
           title={isCollapsed ? '24 席 Best Practice 實證庫' : undefined}
         >
-          <BookOpen className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400 shrink-0" />
+          <BookOpen className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
           {!isCollapsed && <span>24 席 Best Practice 實證庫</span>}
         </button>
 
         <button
           onClick={() => nav.openSynergy()}
-          className={`btn-tactile w-full p-2 rounded-xl border border-salud-cyan/60 bg-salud-cyan/10 hover:bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 font-mono text-xs flex items-center gap-2 transition-all font-bold ${
+          className={`btn-tactile w-full p-2 rounded-xl border border-emerald-400/60 dark:border-emerald-700/60 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-900 dark:text-emerald-300 font-mono text-xs flex items-center gap-2 transition-all font-bold ${
             isCollapsed ? 'justify-center px-2' : ''
           }`}
           title={isCollapsed ? '全人跨領域處方協同' : undefined}
         >
-          <Sparkles className="w-3.5 h-3.5 text-salud-cyan shrink-0 animate-pulse" />
+          <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 animate-pulse" />
           {!isCollapsed && <span>全人跨領域處方協同</span>}
         </button>
       </div>

@@ -23,56 +23,64 @@
   }
 
   :root {
-    /* Light Mode: Warm Alabaster & Restful Nature Slate */
-    --bg: #FAF9F6;
+    /* Light Mode: Crisp White & Fresh Botanical Pastel Green */
+    --bg: #FFFFFF;
     --surface: #FFFFFF;
-    --card: #F5F2EB;
-    --border: #E5DFD7;
-    --border-hover: #CBD5E1;
-    --text: #1E293B;
-    --muted: #64748B;
-    --accent: #D97706; /* Warm Sunlight Amber */
-    --accent-glow: rgba(217, 119, 6, 0.15);
+    --card: #F6FAF7;
+    --card-subtle: #ECFDF5;
+    --border: #E2EBE5;
+    --border-hover: #A7F3D0;
+    --text: #0F172A;
+    --muted: #475569;
+    --accent: #059669; /* Medical Emerald Green */
+    --accent-glow: rgba(16, 185, 129, 0.20);
+    --pastel-green: #D1FAE5;
+    --pastel-green-bg: #ECFDF5;
+    --pastel-green-border: #A7F3D0;
     --info: #0284C7;   /* Sky Blue */
     --warning: #EA580C;
     --danger: #DC2626;
 
-    /* Nature Palette Tokens */
+    /* Nature Palette Tokens in Light Mode */
     --nature-sky: #0284C7;
     --nature-sky-bg: #F0F9FF;
     --nature-sky-border: #BAE6FD;
-    --nature-green: #16A34A;
-    --nature-green-bg: #F0FDF4;
-    --nature-green-border: #BBF7D0;
-    --nature-amber: #D97706;
-    --nature-amber-bg: #FFFBEB;
-    --nature-amber-border: #FDE68A;
+    --nature-green: #10B981;
+    --nature-green-bg: #ECFDF5;
+    --nature-green-border: #A7F3D0;
+    --nature-amber: #059669;
+    --nature-amber-bg: #ECFDF5;
+    --nature-amber-border: #BBF7D0;
 
     /* Spec §4.4.2 Figure Tokens */
-    --fig-ink: #1E293B;
-    --fig-ink-weak: #64748B;
+    --fig-ink: #0F172A;
+    --fig-ink-weak: #475569;
     --fig-surface: #FFFFFF;
-    --fig-border: #E5DFD7;
-    --fig-series-1: #D97706;
+    --fig-border: #E2EBE5;
+    --fig-series-1: #10B981;
     --fig-series-2: #0284C7;
-    --fig-series-3: #EA580C;
-    --fig-series-4: #7A6FA8;
-    --fig-series-5: #16A34A;
+    --fig-series-3: #14B8A6;
+    --fig-series-4: #8B5CF6;
+    --fig-series-5: #059669;
     --fig-alert: #DC2626;
-    --fig-highlight: rgba(217, 119, 6, 0.10);
+    --fig-highlight: rgba(16, 185, 129, 0.12);
   }
 
   .dark {
-    /* Dark Mode: Deep Cosmic Obsidian & Bioluminescent Accents */
-    --bg: #090D16;
-    --surface: #111827;
-    --card: #151F32;
-    --border: #1E293B;
-    --border-hover: #334155;
-    --text: #F8FAFC;
-    --muted: #94A3B8;
-    --accent: #F59E0B; /* Golden Amber */
-    --accent-glow: rgba(245, 158, 11, 0.22);
+    /* Dark Mode: Deep Obsidian Jade & Bioluminescent Mint Accents */
+    --bg: #090E0C;
+    --surface: #0F1714;
+    --card: #141F1A;
+    --card-subtle: #182620;
+    --border: #1C2E25;
+    --border-hover: #2B4538;
+    --text: #F1F5F3;
+    --muted: #8E9F97;
+    --accent: #34D399; /* Luminescent Mint Green */
+    --accent-glow: rgba(52, 211, 153, 0.25);
+    --pastel-green: #064E3B;
+    --pastel-green-bg: rgba(16, 185, 129, 0.12);
+    --pastel-green-border: rgba(52, 211, 153, 0.3);
     --info: #38BDF8;   /* Sky Blue */
     --warning: #FB923C;
     --danger: #EF4444;
@@ -82,24 +90,24 @@
     --nature-sky-bg: rgba(14, 165, 233, 0.12);
     --nature-sky-border: rgba(56, 189, 248, 0.3);
     --nature-green: #34D399;
-    --nature-green-bg: rgba(16, 185, 129, 0.12);
-    --nature-green-border: rgba(52, 211, 153, 0.3);
-    --nature-amber: #FBBF24;
-    --nature-amber-bg: rgba(245, 158, 11, 0.12);
-    --nature-amber-border: rgba(251, 191, 36, 0.3);
+    --nature-green-bg: rgba(16, 185, 129, 0.15);
+    --nature-green-border: rgba(52, 211, 153, 0.35);
+    --nature-amber: #34D399;
+    --nature-amber-bg: rgba(16, 185, 129, 0.12);
+    --nature-amber-border: rgba(52, 211, 153, 0.3);
 
     /* Spec §4.4.2 Figure Tokens in Dark Mode */
-    --fig-ink: #F8FAFC;
-    --fig-ink-weak: #94A3B8;
-    --fig-surface: #151F32;
-    --fig-border: #1E293B;
-    --fig-series-1: #F59E0B;
+    --fig-ink: #F1F5F3;
+    --fig-ink-weak: #8E9F97;
+    --fig-surface: #141F1A;
+    --fig-border: #1C2E25;
+    --fig-series-1: #34D399;
     --fig-series-2: #38BDF8;
-    --fig-series-3: #FB923C;
+    --fig-series-3: #2DD4BF;
     --fig-series-4: #A78BFA;
-    --fig-series-5: #34D399;
+    --fig-series-5: #10B981;
     --fig-alert: #EF4444;
-    --fig-highlight: rgba(245, 158, 11, 0.15);
+    --fig-highlight: rgba(52, 211, 153, 0.15);
   }
 
   body {
@@ -127,31 +135,31 @@
 
 /* Warm glow & glassmorphic utilities */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.85);
+  background: rgba(15, 23, 20, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
 }
 
 .light .glass-panel {
-  background: rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
 }
 
-/* Subtle tech grid background */
+/* Subtle tech grid background with mint green light */
 .bg-tech-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(245, 158, 11, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(52, 211, 153, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
 }
 
 .light .bg-tech-grid {
   background-image: 
-    linear-gradient(to right, rgba(217, 119, 6, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(2, 132, 199, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(5, 150, 105, 0.04) 1px, transparent 1px);
 }
 
 /* Custom sleek scrollbar */

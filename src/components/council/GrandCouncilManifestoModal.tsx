@@ -187,7 +187,7 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
         {/* Modal Bottom Footer */}
         <div className="p-4 sm:p-6 bg-slate-950 border-t border-slate-800 flex items-center justify-between shrink-0">
           <div className="text-[11px] font-mono text-slate-400">
-            Salud v1.0.1 · Released under Evidence-Based Open Medical Charter
+            Salud v1.1.0 · Released under Evidence-Based Open Medical Charter
           </div>
           <button
             onClick={onClose}

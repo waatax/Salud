@@ -21,6 +21,7 @@ import { HumanSystemsHub } from '../systems/HumanSystemsHub';
 import { UltraHealthHub } from '../ultrahealth/UltraHealthHub';
 import { ObesityHub } from '../pillars/ObesityHub';
 import { LongevityHub } from '../pillars/LongevityHub';
+import { ExpertZoneSection } from '../council/ExpertZoneSection';
 import { CHAPTERS } from '../../data/chapters';
 
 // Lazy-loaded heavy council governance and screening modals (Round 3 optimization)
@@ -172,6 +173,11 @@ export function AppShell() {
               {activePillar === 'supplements' && <SupplementsHub />}
               {activePillar === 'mental' && <MentalHealthHub />}
             </>
+          )}
+
+          {/* ── 最下方的專家專區 (Centralized Expert Zone & Registry) ── */}
+          {!isCouncilEvidenceView && !isSynergyView && (
+            <ExpertZoneSection onOpenBestPractice={openCouncilEvidence} />
           )}
         </main>
 

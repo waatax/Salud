@@ -60,11 +60,6 @@ export const ObesityHub: React.FC = () => {
   const selectedDiet = DIET_REGIMENS.find((d) => d.id === selectedDietId) || DIET_REGIMENS[0];
   const activeEoss = EOSS_STAGES.find((s) => s.stage === selectedEossStage) || EOSS_STAGES[2];
 
-  // Filter the obesity council experts
-  const obesityExperts = EXPERT_COUNCIL.filter((e) =>
-    ['EC-28', 'EC-29', 'EC-30', 'EC-31', 'EC-32', 'EC-33'].includes(e.id)
-  );
-
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
       {/* ── Grand Hero Header ── */}
@@ -81,22 +76,15 @@ export const ObesityHub: React.FC = () => {
             </h1>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              破除「少吃多動是意志力問題」的道德偏見，回歸下視丘食慾神經調控、瘦素抗性與脂肪細胞病理學。由{' '}
-              <span className="font-semibold text-salud-cyan">EC-28 肥胖專科醫師</span>、
-              <span className="font-semibold text-amber-400">EC-29 減重專科營養師</span>、
-              <span className="font-semibold text-rose-400">EC-30 減重外科主任</span>、
-              <span className="font-semibold text-purple-400">EC-31 神經內分泌學者</span>、
-              <span className="font-semibold text-blue-400">EC-32 行為心理學家</span> 與{' '}
-              <span className="font-semibold text-emerald-400">EC-33 運動生理學權威</span> 跨學科審定。
-              深入 STEP / SURMOUNT 臨床三期試驗、8 大飲食法五維度雷達評比與 52 週動態體組成軌跡模擬！
+              破除「少吃多動是意志力問題」的道德偏見，回歸下視丘食慾神經調控、瘦素抗性與脂肪細胞病理學。全方位整合內分泌調控、生活型態醫學、代謝外科紅旗鑑別與抗阻肌力生理學，深入 STEP / SURMOUNT 臨床三期試驗、8 大飲食法五維度雷達評比與 52 週動態體組成軌跡模擬！
             </p>
           </div>
 
           {/* Quick Metrics Badges */}
           <div className="grid grid-cols-2 gap-3 shrink-0">
             <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-salud-cyan">6 席</div>
-              <div className="text-[10px] text-slate-400">專科專家委員會</div>
+              <div className="text-xl font-mono font-extrabold text-emerald-400">CEBM 1a</div>
+              <div className="text-[10px] text-slate-400">臨床實證等級</div>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
               <div className="text-xl font-mono font-extrabold text-amber-400">8 大</div>
@@ -297,53 +285,6 @@ export const ObesityHub: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Expert Council Roster (EC-28 to EC-33) */}
-          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 p-6 sm:p-8 space-y-6 shadow-sm backdrop-blur-sm">
-            <div className="border-b border-slate-200 dark:border-slate-800 pb-4">
-              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amber-500 uppercase tracking-wider mb-1">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Governance Board</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-display font-bold text-slate-900 dark:text-white">
-                肥胖與代謝醫學跨領域專家委員會 (6 席專席)
-              </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                依循醫學專業分工，由 6 位專科專家對本專區之藥物劑量、試驗解讀、飲食安全性與手術紅旗負具名審查責任。
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {obesityExperts.map((exp) => (
-                <div
-                  key={exp.id}
-                  className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/60 space-y-2 hover:border-salud-cyan transition-colors"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-salud-cyan border border-slate-300 dark:border-slate-700">
-                      {exp.id}
-                    </span>
-                    <span className="text-[10px] font-mono text-slate-400">專席審定</span>
-                  </div>
-
-                  <div className="font-display font-bold text-sm text-slate-900 dark:text-white">
-                    {exp.title_zh}
-                  </div>
-                  <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                    {exp.name_en}
-                  </div>
-
-                  <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 pt-1 border-t border-slate-100 dark:border-slate-800">
-                    {exp.why_needed}
-                  </p>
-
-                  <div className="text-[11px] text-amber-700 dark:text-amber-300/90 font-mono bg-amber-500/10 p-2 rounded-xl">
-                    <strong>核心審查：</strong> {exp.core_duty}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -691,11 +632,11 @@ export const ObesityHub: React.FC = () => {
             </div>
 
             {/* Expert Verdict Box */}
-            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs text-slate-800 dark:text-slate-200 flex items-start gap-3">
-              <Stethoscope className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-slate-800 dark:text-slate-200 flex items-start gap-3">
+              <Stethoscope className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
               <div className="space-y-1">
-                <div className="font-bold text-amber-700 dark:text-amber-400">
-                  {selectedDrug.lead_reviewer_id} 專家臨床總結審定：
+                <div className="font-bold text-emerald-700 dark:text-emerald-400">
+                  臨床實證總結審定意見：
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
                   {selectedDrug.expert_review_summary}
@@ -871,7 +812,7 @@ export const ObesityHub: React.FC = () => {
               <Stethoscope className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <div className="font-bold text-emerald-700 dark:text-emerald-400">
-                  {selectedDiet.lead_reviewer_id} 專家臨床評審意見：
+                  臨床營養實證評審指引：
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
                   {selectedDiet.expert_verdict_zh}

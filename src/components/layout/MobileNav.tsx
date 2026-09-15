@@ -23,57 +23,57 @@ export const MobileNav: React.FC<Props> = ({
       id: 'systems' as HealthPillar,
       label: '系統',
       icon: HeartPulse,
-      activeColor: 'text-salud-cyan dark:text-salud-cyan',
-      activeBg: 'bg-salud-cyan/20 dark:bg-salud-cyan/20',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
       id: 'ultrahealth' as HealthPillar,
       label: '超健康',
       icon: Sparkles,
-      activeColor: 'text-amber-500 dark:text-amber-400',
-      activeBg: 'bg-amber-100/80 dark:bg-amber-950/50',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
       id: 'obesity' as HealthPillar,
       label: '減重',
       icon: Scale,
-      activeColor: 'text-salud-cyan dark:text-salud-cyan',
-      activeBg: 'bg-salud-cyan/20 dark:bg-salud-cyan/20',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
       id: 'longevity' as HealthPillar,
       label: '抗老',
       icon: Hourglass,
-      activeColor: 'text-indigo-400 dark:text-indigo-300',
-      activeBg: 'bg-indigo-500/20 dark:bg-indigo-500/20',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
       id: 'diet' as HealthPillar,
       label: '飲食',
       icon: Utensils,
-      activeColor: 'text-nature-amber-600 dark:text-nature-amber-400',
-      activeBg: 'bg-nature-amber-100/80 dark:bg-nature-amber-950/50',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
       id: 'exercise' as HealthPillar,
       label: '運動',
       icon: Activity,
-      activeColor: 'text-nature-sky-600 dark:text-nature-sky-400',
-      activeBg: 'bg-nature-sky-100/80 dark:bg-nature-sky-950/50',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
       id: 'sleep' as HealthPillar,
       label: '睡眠',
       icon: Moon,
-      activeColor: 'text-purple-600 dark:text-purple-400',
-      activeBg: 'bg-purple-100/80 dark:bg-purple-950/50',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
       id: 'mental' as HealthPillar,
       label: '呼吸',
       icon: Wind,
-      activeColor: 'text-cyan-600 dark:text-cyan-400',
-      activeBg: 'bg-cyan-100/80 dark:bg-cyan-950/50',
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
   ];
 
@@ -107,14 +107,14 @@ export const MobileNav: React.FC<Props> = ({
         <span className="font-bold">紅旗</span>
       </button>
 
-      <button
-        onClick={onOpenCouncil}
-        className="btn-tactile min-w-[52px] min-h-[44px] flex flex-col items-center justify-center gap-1 px-2 py-1 rounded-2xl text-nature-amber-600 dark:text-nature-amber-400 hover:bg-nature-amber-50 dark:hover:bg-nature-amber-950/40"
-        title="24人跨科專家治理委員會"
+      <a
+        href="#expert-zone"
+        className="btn-tactile min-w-[52px] min-h-[44px] flex flex-col items-center justify-center gap-1 px-2 py-1 rounded-2xl text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40"
+        title="40 席全人專家專區"
       >
-        <ShieldCheck className="w-4 h-4" />
+        <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
         <span className="font-bold">專家</span>
-      </button>
+      </a>
     </nav>
   );
 };

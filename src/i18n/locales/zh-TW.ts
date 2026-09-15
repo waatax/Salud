@@ -3,7 +3,7 @@ export const zhTW: Record<string, string> = {
   'app.title': 'Salud 醫學實證健康平台',
   'app.subtitle': '跨學科實證醫學 · 40席專家理事會聯合共識',
   'app.name': 'Salud',
-  'app.version': 'v1.0.1',
+  'app.version': 'v1.1.0',
   'app.tagline': '實證健康人體模擬與知識平台',
   'app.vision_title': 'Salud 產品理念',
   'app.vision_desc': '讓你看見身體裡正在發生的事，動手改一個變因，用真實資料檢查你猜得對不對。',

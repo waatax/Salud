@@ -3,8 +3,8 @@
 > **Salud 讓你看見身體裡正在發生的事，動手改一個變因，然後用真實資料檢查你猜得對不對。**
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
-[![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-06B6D4?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v0.6.0-F59E0B)](https://github.com/waatax/Salud)
+[![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
+[![Version](https://img.shields.io/badge/Version-v1.1.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -20,14 +20,14 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
 
 ---
 
-## 🎨 視覺美學：Futuristic & Warm（溫暖未來感醫學美學）
+## 🎨 視覺美學：Biophilic & Futuristic（白底翠綠與曜黑薄荷雙模美學）
 
-- **雙調性配色系統**：
-  - **Dark Mode（預設推薦，前沿科研感）**：Deep Obsidian / Cosmic Slate 深黑太空格調，點綴生命溫暖琥珀金（Amber Gold `#F59E0B`）、細胞體液發光青（Bioluminescent Cyan `#06B6D4`）與警示血紅（Blood Crimson `#EF4444`）。
-  - **Light Mode（清爽溫潤紙本感）**：溫潤象牙米白（Ivory Cream `#FAF8F5`）搭配深板岩深灰（Deep Slate），提供頂級醫學圖書館般的舒適閱讀體驗。
+- **雙調性配色系統 (v1.1.0 深度優化)**：
+  - **Light Mode（純淨白底與舒緩粉綠）**：純淨透亮白（`#FFFFFF`）基底，搭配健康翠綠（`#059669`）與柔和粉綠（`#D1FAE5`、`#ECFDF5`），營造專業、寧靜且具呼吸感的醫學圖書館閱讀體驗。
+  - **Dark Mode（曜黑玉石與生物發光薄荷）**：曜黑翡翠深暗背景（`#090E0C`）搭配暗面卡片（`#141F1A`），點綴生物發光薄荷綠（`#34D399`），夜讀清晰無疲勞。
 - **醫學圖解標準**：
   - 線條主導（Line-led）、等距剖面（Isometric）、有限填色、留白充足。
-  - 嚴格遵守 WCAG 2.2 AA 高對比度與灰階可讀性（即使去除色彩，資訊層級依然清晰）。
+  - 嚴格遵守 WCAG 2.2 AAA 高對比度標準。
   - 所有向量圖解支援**全螢幕放大檢視**與**無障礙等價資料表（Equivalent Accessible Data Table）**切換。
 
 ---
@@ -74,19 +74,17 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
 
 ---
 
-## 🛡️ 專家治理結構：Expert Council (29 席)
+## 🛡️ 專家治理結構：40 席專家理事會全景名錄 (Expert Council Directory)
 
-遵循醫學專業分工，由 22 席專家共同擔任內容治理角色模型：
-- **EC-01** Medical Director（醫療總監，終審安全閘）
-- **EC-13** Nephrology / Fluid & Electrolyte Specialist（腎臟科與電解質專科醫師）
-- **EC-14** Lipid Scientist / Food Oil Chemist（脂質科學與食用油化學家）
-- **EC-15** Food Science & Culinary Technologist（食品科學與烹飪技術專家）
-- **EC-16** Environmental / Thermal Physiology（環境與熱生理學家）
-- **EC-17** Medical / Scientific Illustrator（醫學科學插畫總監）
-- **EC-19** Learning Experience Designer（學習體驗架構師）
-- **EC-20** Health Communication / zh-TW Science Writer（繁體中文科普主筆）
-- **EC-21** Behavioral Scientist（行為科學架構師）
-- **EC-22** Regulatory / Legal Taiwan TFDA（台灣食品法規與合規審查）
+遵循 Oxford CEBM Level 1a 實證醫學規範，所有 40 席專家（EC-01 至 EC-40）統一配置於應用程式最下方的「專家專區」，涵蓋 8 大臨床專科與治理領域，支援專科分類、即時檢索與卡片/條列清單切換：
+- **臨床醫學與疾病防治 (7 席)**：EC-01 醫療總監、EC-13 腎臟內科、EC-02 心臟內科、EC-03 胸腔重症、EC-04 腸胃肝膽、EC-05 神經醫學、EC-06 家庭醫學。
+- **營養科學與食品科技 (3 席)**：EC-07 臨床營養、EC-14 脂質食用油化學、EC-15 食品安全與烹飪技術。
+- **肥胖與代謝醫學 (6 席)**：EC-28 內分泌新陳代謝、EC-29 代謝減重外科、EC-30 肥胖生活型態介入等。
+- **長壽與抗衰老科學 (7 席)**：EC-34 表觀遺傳時鐘、EC-35 粒線體與能量代謝、EC-36 幹細胞與再生醫學等。
+- **運動與環境生理學 (3 席)**：EC-16 熱環境生理、EC-08 運動心肺處方、EC-09 肌力體能與動力鏈。
+- **身心神經與行為科學 (4 席)**：EC-10 精神與晝夜睡眠、EC-21 行為科學與習慣養成、EC-11 成癮醫學等。
+- **藥學、毒理與基因體學 (2 席)**：EC-12 臨床藥學與藥物交互作用、EC-25 環境毒理與重金屬。
+- **實證醫學、科技與法規 (8 席)**：EC-18 Oxford CEBM 實證方法學、EC-22 TFDA 台灣法規合規、EC-24 醫學倫理與受試者保護等。
 
 ---
 

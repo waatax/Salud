@@ -50,14 +50,14 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
   return (
     <div className="space-y-8 animate-fade-in pb-12">
       {/* ── Top Hero Banner: Human Organ Systems Overview ── */}
-      <div className="p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-white via-slate-50 to-blue-50/30 dark:from-slate-900/90 dark:via-salud-dark-card/70 dark:to-slate-950 shadow-sm relative overflow-hidden">
+      <div className="p-6 sm:p-8 rounded-3xl border border-emerald-200/80 dark:border-emerald-900/60 bg-gradient-to-br from-white via-emerald-50/40 to-teal-50/20 dark:from-slate-900/90 dark:via-salud-dark-card/70 dark:to-slate-950 shadow-sm relative overflow-hidden">
         <div className="max-w-3xl space-y-3 relative z-10">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-3 py-1 rounded-full font-mono text-xs font-bold bg-salud-cyan/15 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40">
+            <span className="px-3 py-1 rounded-full font-mono text-xs font-bold bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
               Salud 旗艦首頁 · 8 大全人人體器官系統探索樞紐
             </span>
-            <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              24 席專家治理背書
+            <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+              Oxford CEBM 1a 實證醫學標竿
             </span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">

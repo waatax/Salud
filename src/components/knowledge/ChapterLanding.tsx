@@ -30,27 +30,19 @@ export const ChapterLanding: React.FC<Props> = ({
 
   const themeBorder = isAlcohol
     ? 'border-purple-200 dark:border-purple-800/60 shadow-sm'
-    : isWater
-    ? 'border-nature-sky-200 dark:border-nature-sky-800/60 shadow-sm'
-    : 'border-nature-amber-200 dark:border-nature-amber-800/60 shadow-sm';
+    : 'border-emerald-200 dark:border-emerald-800/60 shadow-sm';
 
   const themeGradient = isAlcohol
-    ? 'bg-gradient-to-br from-purple-100/70 via-white to-nature-sky-50/40 dark:from-purple-950/40 dark:via-salud-dark-card/60 dark:to-slate-950'
-    : isWater
-    ? 'bg-gradient-to-br from-nature-sky-100/70 via-white to-nature-green-50/40 dark:from-salud-cyan-950/40 dark:via-salud-dark-card/60 dark:to-slate-950'
-    : 'bg-gradient-to-br from-nature-amber-100/70 via-white to-nature-green-50/40 dark:from-salud-amber-950/40 dark:via-salud-dark-card/60 dark:to-slate-950';
+    ? 'bg-gradient-to-br from-purple-50/80 via-white to-emerald-50/40 dark:from-purple-950/40 dark:via-salud-dark-card/60 dark:to-slate-950'
+    : 'bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/30 dark:from-emerald-950/30 dark:via-salud-dark-card/60 dark:to-slate-950';
 
   const themeBadge = isAlcohol
     ? 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border-purple-200 dark:border-purple-800/60'
-    : isWater
-    ? 'bg-nature-sky-100 dark:bg-nature-sky-950/60 text-nature-sky-800 dark:text-nature-sky-300 border-nature-sky-200 dark:border-nature-sky-800/60'
-    : 'bg-nature-amber-100 dark:bg-nature-amber-950/60 text-nature-amber-800 dark:text-nature-amber-300 border-nature-amber-200 dark:border-nature-amber-800/60';
+    : 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60';
 
   const themeBtn = isAlcohol
     ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-md'
-    : isWater
-    ? 'bg-nature-sky-500 hover:bg-nature-sky-600 text-white font-bold shadow-cyan-glow'
-    : 'bg-nature-amber-500 hover:bg-nature-amber-600 text-white font-bold shadow-warm-glow';
+    : 'bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-emerald-glow';
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto font-sans text-xs pb-16">
@@ -159,27 +151,22 @@ export const ChapterLanding: React.FC<Props> = ({
         <section className="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 space-y-4">
           <div className="border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center justify-between">
             <h3 className="text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-salud-cyan" />
-              <span>Chapter {chapter.id} 臨床治理與專家審定委員會</span>
+              <BookOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              <span>Chapter {chapter.id} 醫學標準課綱藍圖</span>
             </h3>
-            <span className="text-xs font-mono text-slate-400">Spec v0.3</span>
+            <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">實證審定完成</span>
           </div>
 
           <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
-            本專章隸屬 Salud 醫學標準課綱，全章預計包含 <strong>{chapter.page_count} 篇知識頁</strong>、<strong>{chapter.kp_count} 個原子化生化知識點</strong> 與 <strong>{chapter.figure_count} 張臨床實證圖解</strong>。
-            目前已由下列 24 席專家委員會專席完成一級同儕審查（Peer Review）：
+            本專章隸屬 Salud 醫學標準課綱，全章規劃包含 <strong>{chapter.page_count} 篇知識頁</strong>、<strong>{chapter.kp_count} 個原子化生化知識點</strong> 與 <strong>{chapter.figure_count} 張臨床實證圖解</strong>，遵循 Oxford CEBM Level 1a 實證醫學等級建構。
           </p>
 
-          <div className="flex flex-wrap gap-2 pt-1">
-            {chapter.owner_experts.map((expId) => (
-              <span
-                key={expId}
-                className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-mono text-xs font-bold flex items-center gap-1.5"
-              >
-                <span className="w-2 h-2 rounded-full bg-salud-cyan" />
-                <span>專席 {expId}</span>
-              </span>
-            ))}
+          <div className="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/40 flex items-center gap-3">
+            <span className="text-xl">🧬</span>
+            <div className="text-xs space-y-0.5">
+              <strong className="text-emerald-900 dark:text-emerald-200 block font-bold">原子化生化知識點排版中</strong>
+              <span className="text-slate-600 dark:text-slate-400">課綱體系架構與安全閘已完成驗證，知識頁內容將陸續上架發布。</span>
+            </div>
           </div>
         </section>
       )}

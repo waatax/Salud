@@ -7,10 +7,10 @@ export interface RpdcaStep {
 }
 
 export const GRAND_COUNCIL_MANIFESTO = {
-  version: 'v1.0.1 Pure Architecture Release',
-  release_date: '2026-09-14',
-  title_zh: 'Salud v1.0.1 全人健康長壽大憲章 (Salud v1.0.1 Unified Health & Longevity Charter)',
-  title_en: 'Salud v1.0.1 Unified Health & Longevity Charter',
+  version: 'v1.1.0 Unified Expert Zone & Biophilic Theme Release',
+  release_date: '2026-09-15',
+  title_zh: 'Salud v1.1.0 全人健康長壽大憲章 (Salud v1.1.0 Unified Health & Longevity Charter)',
+  title_en: 'Salud v1.1.0 Unified Health & Longevity Charter',
   proclamation_zh:
     '我們，Salud 40 席跨領域專家理事會全體成員，在此鄭重宣告：人體不是孤立運作的零件集合，而是一個由生化受體、神經迴路、晝夜節律、代謝流與表觀遺傳交織構成的高階複雜系統。我們堅決拒絕片面零碎的偏方與商業炒作，以嚴謹的分子機轉、人體 RCT 臨床試驗數據、個人化動態模擬器與實證安全防火牆，為全人類打造最可信賴的現代健康長壽數位基建。',
   three_councils: [

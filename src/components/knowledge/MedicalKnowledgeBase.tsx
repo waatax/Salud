@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { KnowledgePage } from '../../types';
 import { useLanguage } from '../../i18n';
-import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { GamifiedLearningHub } from './GamifiedLearningHub';
 import {
   Droplets,
@@ -11,18 +10,15 @@ import {
   Search,
   Tag,
   BookOpen,
-  Award,
   Sparkles,
   ArrowRight,
   Filter,
-  CheckCircle2,
   X,
   Compass,
   AlertOctagon,
   Clock,
   Layers,
   FileText,
-  UserCheck,
   Check,
   Bookmark,
   BookmarkCheck,
@@ -177,9 +173,6 @@ const LEARNING_PATHWAY = [
   }
 ];
 
-// 針對 Chapter W 之審定專家委員會核心 6 席
-const CHAPTER_W_COUNCIL_IDS = ['EC-13', 'EC-01', 'EC-05', 'EC-06', 'EC-03', 'EC-02'];
-
 export const MedicalKnowledgeBase: React.FC<Props> = ({
   pages,
   chapterId,
@@ -193,7 +186,6 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [viewMode, setViewMode] = useState<'grid' | 'digest'>('grid');
   const [sortBy, setSortBy] = useState<'order' | 'minutes' | 'difficulty'>('order');
-  const [activeExpertDetail, setActiveExpertDetail] = useState<string | null>(null);
 
   // 本地學習進度狀態管理 (Completed & Bookmarked)
   const [completedPages, setCompletedPages] = useState<string[]>(() => {
@@ -239,21 +231,6 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
       return updated;
     });
   };
-
-  // 取得審定專家資料
-  const reviewingExperts = useMemo(() => {
-    return CHAPTER_W_COUNCIL_IDS.map((id) => {
-      const found = EXPERT_COUNCIL.find((e) => e.id === id);
-      return found || {
-        id,
-        name_en: 'Clinical Specialist',
-        title_zh: '專科臨床專家',
-        title_en: 'Clinical Specialist',
-        why_needed: '臨床驗證',
-        core_duty: '審核臨床實證等級'
-      };
-    });
-  }, []);
 
   // 萃取全量專屬 TAG 清單與計數
   const tagCounts = useMemo(() => {
@@ -375,117 +352,6 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
 
   return (
     <div className="space-y-8 font-sans">
-      {/* ── 1. 專家審定委員會背書橫幅 (Expert Council Governance Board) ── */}
-      <div className="p-6 sm:p-7 rounded-3xl border border-sky-200/90 dark:border-sky-900/60 bg-gradient-to-br from-sky-50/70 via-white to-emerald-50/50 dark:from-slate-900 dark:via-salud-dark-card dark:to-slate-950 shadow-sm relative overflow-hidden backdrop-blur-sm">
-        {/* 背景環境微光 */}
-        <div className="absolute -top-16 -right-16 w-80 h-80 bg-nature-sky-400/15 dark:bg-nature-sky-500/15 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-sky-100 dark:border-slate-800/80 pb-3.5">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-2xl bg-nature-sky-500 text-white shadow-cyan-glow">
-                <Award className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-base sm:text-lg font-display font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
-                  <span>Chapter {chapterId} 水與體液醫學專家審定委員會</span>
-                  <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 border border-sky-200 dark:border-sky-800">
-                    6 席跨科終審
-                  </span>
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                  恪守 Oxford CEBM Level 1a 與 GRADE 嚴謹標準，跨科同儕審定（Peer-Reviewed）之體液生化文庫
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-bold shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                CEBM 1a 審查簽核
-              </span>
-              {onOpenCouncil && (
-                <button
-                  onClick={onOpenCouncil}
-                  className="btn-tactile text-xs font-mono px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-nature-sky-600 dark:hover:text-nature-sky-400 hover:border-nature-sky-300 transition-all flex items-center gap-1 shadow-xs font-bold"
-                >
-                  <UserCheck className="w-3.5 h-3.5" />
-                  <span>24 席治理全景 →</span>
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* 6 席專家互動卡片 */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 pt-1">
-            {reviewingExperts.map((exp) => {
-              const isActive = activeExpertDetail === exp.id;
-              return (
-                <div
-                  key={exp.id}
-                  onClick={() => setActiveExpertDetail(isActive ? null : exp.id)}
-                  className={`btn-tactile p-3 rounded-2xl border transition-all text-left space-y-1.5 cursor-pointer shadow-xs ${
-                    isActive
-                      ? 'border-nature-sky-500 bg-sky-50 dark:bg-sky-950/60 ring-2 ring-nature-sky-400/30'
-                      : 'border-slate-200/90 dark:border-slate-800 bg-white/90 dark:bg-slate-800/70 hover:border-nature-sky-300 dark:hover:border-nature-sky-700'
-                  }`}
-                  title="點擊檢視專席職責"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] font-bold text-nature-sky-700 dark:text-salud-cyan px-1.5 py-0.5 rounded bg-sky-100/70 dark:bg-sky-900/60">
-                      {exp.id}
-                    </span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" title="在席審定" />
-                  </div>
-                  <div className="font-bold text-xs text-slate-900 dark:text-slate-100 truncate">
-                    {language === 'zh-TW' ? exp.title_zh.split('專家')[0] : exp.title_en}
-                  </div>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight">
-                    {exp.why_needed.split('、')[0]}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* 點擊專家後的展開詳情卡 */}
-          {activeExpertDetail && (
-            <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-nature-sky-300 dark:border-nature-sky-700 text-xs space-y-2 animate-fadeIn shadow-sm">
-              {(() => {
-                const exp = reviewingExperts.find((e) => e.id === activeExpertDetail);
-                if (!exp) return null;
-                return (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-1.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono font-bold text-nature-sky-600 dark:text-salud-cyan">{exp.id}</span>
-                        <strong className="text-slate-900 dark:text-white">{exp.title_zh}</strong>
-                        <span className="text-slate-400 font-mono text-[11px]">({exp.title_en})</span>
-                      </div>
-                      <button
-                        onClick={() => setActiveExpertDetail(null)}
-                        className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700 dark:text-slate-300">
-                      <div>
-                        <span className="font-bold text-slate-500 text-[11px] block">臨床專責背景：</span>
-                        <p>{exp.why_needed}</p>
-                      </div>
-                      <div>
-                        <span className="font-bold text-slate-500 text-[11px] block">專章核准職責 (Core Duty)：</span>
-                        <p className="text-nature-sky-800 dark:text-nature-sky-200">{exp.core_duty}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
-          )}
-        </div>
-      </div>
 
       {/* ── 2. 臨床黃金常數速查帶 (Physiological Constants Quick Reference) ── */}
       <div className="space-y-2">
@@ -788,7 +654,6 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
               const hasGated = page.safety_gated;
               const isCompleted = completedPages.includes(page.id);
               const isBookmarked = bookmarkedPages.includes(page.id);
-              const leadExpert = EXPERT_COUNCIL.find((e) => e.id === page.lead_expert_id);
 
               return (
                 <div
@@ -882,21 +747,16 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                       </div>
                     )}
 
-                    {/* 專家臨床教學珍珠 (Clinical Pearl) */}
+                    {/* 臨床教學珍珠 (Clinical Pearl) */}
                     {page.clinical_pearl && (
-                      <div className="p-3.5 rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/60 space-y-1.5 shadow-xs">
+                      <div className="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/60 space-y-1.5 shadow-xs">
                         <div className="flex items-center justify-between font-mono text-[10px]">
-                          <span className="font-bold text-amber-800 dark:text-salud-amber flex items-center gap-1.5">
-                            <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-salud-amber" />
+                          <span className="font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+                            <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                             <span>臨床教學珍珠 (Clinical Pearl)</span>
                           </span>
-                          {leadExpert && (
-                            <span className="text-amber-700/80 dark:text-amber-400 font-sans">
-                              {leadExpert.title_zh.split('專家')[0]}
-                            </span>
-                          )}
                         </div>
-                        <p className="text-xs text-amber-950 dark:text-amber-200 leading-relaxed italic font-sans">
+                        <p className="text-xs text-emerald-950 dark:text-emerald-200 leading-relaxed italic font-sans">
                           {page.clinical_pearl}
                         </p>
                       </div>
@@ -925,28 +785,20 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                     )}
                   </div>
 
-                  {/* 卡片底欄：原子化KP數、圖解數、主審專家、直達箭頭 */}
+                  {/* 卡片底欄：原子化KP數、圖解數、直達箭頭 */}
                   <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
                     <div className="flex items-center gap-2.5">
                       <span className="flex items-center gap-1 text-slate-700 dark:text-slate-300">
-                        <FileText className="w-3.5 h-3.5 text-nature-sky-600 dark:text-salud-cyan" />
+                        <FileText className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                         <strong>{page.kps?.length || 0}</strong> KP
                       </span>
                       <span className="text-slate-300 dark:text-slate-700">·</span>
                       <span>
                         <strong>{page.figure_ids?.length || 0}</strong> 圖解
                       </span>
-                      {leadExpert && (
-                        <>
-                          <span className="text-slate-300 dark:text-slate-700">·</span>
-                          <span className="text-slate-600 dark:text-slate-300 font-sans hidden sm:inline" title={leadExpert.why_needed}>
-                            審定：{leadExpert.id}
-                          </span>
-                        </>
-                      )}
                     </div>
 
-                    <span className="text-nature-sky-600 dark:text-salud-cyan font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                       <span>研讀文庫</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
@@ -962,7 +814,6 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
               {filteredPages.map((page) => {
                 const hasGated = page.safety_gated;
                 const isCompleted = completedPages.includes(page.id);
-                const leadExpert = EXPERT_COUNCIL.find((e) => e.id === page.lead_expert_id);
 
                 return (
                   <div
@@ -1014,12 +865,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                     </div>
 
                     <div className="flex items-center gap-3 shrink-0 sm:self-center font-mono text-xs">
-                      {leadExpert && (
-                        <span className="text-[11px] text-slate-400 hidden lg:inline font-sans">
-                          審定：{leadExpert.title_zh.split('專家')[0]}
-                        </span>
-                      )}
-                      <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 group-hover:bg-nature-sky-500 group-hover:text-white text-slate-700 dark:text-slate-300 font-bold transition-all flex items-center gap-1">
+                      <span className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 group-hover:bg-emerald-600 group-hover:text-white text-slate-700 dark:text-slate-300 font-bold transition-all flex items-center gap-1">
                         <span>開啟</span>
                         <ChevronRight className="w-3.5 h-3.5" />
                       </span>
