@@ -174,7 +174,7 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice }) => {
                     Salud 臨床治理架構
                   </span>
                   <span className="text-xs font-mono text-slate-500 dark:text-slate-400 hidden sm:inline">
-                    Spec v1.1.0 具名負責
+                    Spec v1.2.0 具名負責
                   </span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight mt-1">

@@ -63,53 +63,53 @@ export const ObesityHub: React.FC = () => {
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
       {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-salud-cyan/40 bg-gradient-to-br from-cyan-950/80 via-slate-900/95 to-amber-950/40 p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+      <div className="relative overflow-hidden rounded-3xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-br from-emerald-50 via-teal-50/70 to-emerald-100/50 dark:from-cyan-950/80 dark:via-slate-900/95 dark:to-emerald-950/40 p-6 sm:p-10 shadow-sm dark:shadow-2xl backdrop-blur-md">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-salud-cyan/20 text-salud-cyan border border-salud-cyan/40 text-xs font-mono font-bold">
-              <Sparkles className="w-4 h-4 text-salud-cyan animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/90 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 text-xs font-mono font-bold">
+              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
               <span>Salud 旗艦支柱 · 肥胖與代謝醫學專科總樞紐</span>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-white flex items-center gap-3">
+            <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
               <span>肥胖病理機轉、精準飲食法、減重用藥與代謝醫學</span>
             </h1>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
               破除「少吃多動是意志力問題」的道德偏見，回歸下視丘食慾神經調控、瘦素抗性與脂肪細胞病理學。全方位整合內分泌調控、生活型態醫學、代謝外科紅旗鑑別與抗阻肌力生理學，深入 STEP / SURMOUNT 臨床三期試驗、8 大飲食法五維度雷達評比與 52 週動態體組成軌跡模擬！
             </p>
           </div>
 
           {/* Quick Metrics Badges */}
           <div className="grid grid-cols-2 gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-400">CEBM 1a</div>
-              <div className="text-[10px] text-slate-400">臨床實證等級</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
+              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">CEBM 1a</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">臨床實證等級</div>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-amber-400">8 大</div>
-              <div className="text-[10px] text-slate-400">飲食法雷達評比</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
+              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-teal-400">8 大</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">飲食法雷達評比</div>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-purple-400">6 款</div>
-              <div className="text-[10px] text-slate-400">抗肥胖用藥評析</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
+              <div className="text-xl font-mono font-extrabold text-cyan-700 dark:text-cyan-400">6 款</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">抗肥胖用藥評析</div>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-400">Grade A</div>
-              <div className="text-[10px] text-slate-400">最高臨床實證等級</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
+              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">Grade A</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">最高臨床實證等級</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2 text-xs font-mono">
+      <div className="flex flex-wrap items-center gap-2 border-b border-emerald-200/80 dark:border-slate-800 pb-2 text-xs font-mono">
         <button
           onClick={() => setActiveTab('OVERVIEW')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
             activeTab === 'OVERVIEW'
-              ? 'bg-salud-cyan text-slate-950 font-extrabold border-salud-cyan shadow-md ring-2 ring-salud-cyan/20'
-              : 'bg-white/80 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-salud-cyan'
+              ? 'bg-emerald-600 text-white font-extrabold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
           }`}
         >
           <Stethoscope className="w-4 h-4" />
@@ -120,8 +120,8 @@ export const ObesityHub: React.FC = () => {
           onClick={() => setActiveTab('PATHOPHYSIOLOGY')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
             activeTab === 'PATHOPHYSIOLOGY'
-              ? 'bg-purple-600 text-white font-bold border-purple-500 shadow-md ring-2 ring-purple-500/20'
-              : 'bg-white/80 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-purple-400'
+              ? 'bg-teal-600 text-white font-bold border-teal-500 shadow-md ring-2 ring-teal-500/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-400 hover:bg-teal-50/40'
           }`}
         >
           <Brain className="w-4 h-4" />
@@ -132,8 +132,8 @@ export const ObesityHub: React.FC = () => {
           onClick={() => setActiveTab('PHARMACOTHERAPY')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
             activeTab === 'PHARMACOTHERAPY'
-              ? 'bg-amber-500 text-slate-950 font-extrabold border-amber-400 shadow-md ring-2 ring-amber-500/20'
-              : 'bg-white/80 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-amber-400'
+              ? 'bg-emerald-700 text-white font-extrabold border-emerald-600 shadow-md ring-2 ring-emerald-600/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-500 hover:bg-emerald-50/40'
           }`}
         >
           <Pill className="w-4 h-4" />
@@ -145,7 +145,7 @@ export const ObesityHub: React.FC = () => {
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
             activeTab === 'DIETARY_REGIMENS'
               ? 'bg-emerald-600 text-white font-bold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/80 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-400'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
           }`}
         >
           <Utensils className="w-4 h-4" />
@@ -156,8 +156,8 @@ export const ObesityHub: React.FC = () => {
           onClick={() => setActiveTab('SURGERY_AND_SIM')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
             activeTab === 'SURGERY_AND_SIM'
-              ? 'bg-rose-600 text-white font-bold border-rose-500 shadow-md ring-2 ring-rose-500/20'
-              : 'bg-white/80 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-rose-400'
+              ? 'bg-teal-700 text-white font-bold border-teal-600 shadow-md ring-2 ring-teal-600/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-500 hover:bg-teal-50/40'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -168,8 +168,8 @@ export const ObesityHub: React.FC = () => {
           onClick={() => setActiveTab('BEHAVIOR_AND_QUIZ')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
             activeTab === 'BEHAVIOR_AND_QUIZ'
-              ? 'bg-indigo-600 text-white font-bold border-indigo-500 shadow-md ring-2 ring-indigo-500/20'
-              : 'bg-white/80 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-indigo-400'
+              ? 'bg-emerald-600 text-white font-bold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -183,22 +183,22 @@ export const ObesityHub: React.FC = () => {
       {activeTab === 'OVERVIEW' && (
         <div className="space-y-8 animate-fade-in">
           {/* Cross-link to Longevity Hub */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-indigo-950/60 via-slate-900 to-cyan-950/40 border border-indigo-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="p-4 sm:p-5 rounded-2xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-r from-emerald-50 via-teal-50/70 to-emerald-100/40 dark:from-indigo-950/60 dark:via-slate-900 dark:to-cyan-950/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
             <div className="space-y-1">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-indigo-400">
-                <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 dark:text-emerald-300">
+                <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
                 <span>全新旗艦跨支柱聯動：肥胖與加速衰老病理</span>
               </div>
-              <div className="font-bold text-sm text-white">
+              <div className="font-bold text-sm text-slate-900 dark:text-white">
                 內臟脂肪是人體最大的「殭屍細胞」發炎風暴源！深入抗老化與長壽專區
               </div>
-              <p className="text-xs text-slate-300">
+              <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">
                 BMI 每增加 5，DNA 甲基化時鐘加速 1.2 年。立即檢視 12 大衰老標誌、DunedinPACE 老化步速與健康壽命模擬器。
               </p>
             </div>
             <a
               href="#longevity"
-              className="btn-tactile px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs font-mono shrink-0 flex items-center gap-1.5 shadow-md self-start sm:self-auto"
+              className="btn-tactile px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs font-mono shrink-0 flex items-center gap-1.5 shadow-md self-start sm:self-auto"
             >
               <span>前往抗老化專區</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -339,7 +339,7 @@ export const ObesityHub: React.FC = () => {
                   <Flame className="w-4 h-4 text-amber-500 animate-pulse" />
                   <span>【臨床生理微觀圖解】脂肪細胞褐變 (Browning) 與 UCP-1 粒線體生熱傳導鏈</span>
                 </span>
-                <span className="text-[10px] font-mono text-slate-400">EC-31 審定</span>
+                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">CEBM Level 1a 實證機轉</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5 text-xs text-center">
@@ -391,7 +391,6 @@ export const ObesityHub: React.FC = () => {
                             {mech.badge}
                           </span>
                           <EvidenceBadge grade={mech.evidence_grade} />
-                          <span className="text-slate-400">審定: {mech.lead_reviewer_id}</span>
                         </div>
 
                         <h3 className="text-base sm:text-lg font-display font-bold text-slate-900 dark:text-white">
@@ -503,7 +502,6 @@ export const ObesityHub: React.FC = () => {
                     {selectedDrug.drug_class}
                   </span>
                   <EvidenceBadge grade={selectedDrug.evidence_grade} />
-                  <span className="text-slate-400">主審專席: {selectedDrug.lead_reviewer_id}</span>
                 </div>
 
                 <h2 className="text-xl sm:text-2xl font-display font-extrabold text-slate-900 dark:text-white">
@@ -690,7 +688,6 @@ export const ObesityHub: React.FC = () => {
                     飲食模式評定
                   </span>
                   <EvidenceBadge grade={selectedDiet.evidence_grade} />
-                  <span className="text-slate-400">主審專席: {selectedDiet.lead_reviewer_id}</span>
                 </div>
 
                 <h2 className="text-xl sm:text-2xl font-display font-extrabold text-slate-900 dark:text-white">
@@ -845,7 +842,7 @@ export const ObesityHub: React.FC = () => {
                 減重與代謝手術：解剖重塑與腸道荷爾蒙風暴
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                重度肥胖與頑固難控第 2 型糖尿病的終極利器，由 EC-30 減重外科主任醫師審定。
+                重度肥胖與頑固難控第 2 型糖尿病的終極利器，依據國際 IFSO 臨床指引規範。
               </p>
             </div>
 
@@ -896,13 +893,13 @@ export const ObesityHub: React.FC = () => {
           </div>
 
           {/* Pontzer Constrained Energy Model Card */}
-          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 p-6 sm:p-8 space-y-4">
-            <div className="flex items-center gap-2 text-sm font-bold text-salud-cyan">
-              <Dumbbell className="w-5 h-5" />
+          <div className="rounded-3xl border border-emerald-300/80 dark:border-slate-800 bg-gradient-to-br from-emerald-50 via-teal-50/60 to-emerald-100/40 dark:bg-slate-900 text-slate-900 dark:text-slate-100 p-6 sm:p-8 space-y-4 shadow-sm">
+            <div className="flex items-center gap-2 text-sm font-bold text-emerald-800 dark:text-salud-cyan">
+              <Dumbbell className="w-5 h-5 text-emerald-600 dark:text-salud-cyan" />
               <span>運動在減重中的真實角色：Herman Pontzer 受限能量消耗模型</span>
             </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
               {EXERCISE_OBESITY_SCIENCE.pontzer_model_summary}
             </p>
 
@@ -910,10 +907,10 @@ export const ObesityHub: React.FC = () => {
               {EXERCISE_OBESITY_SCIENCE.exercise_true_roles.map((item, idx) => (
                 <div
                   key={`ex-${idx}`}
-                  className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs space-y-1"
+                  className="p-3.5 rounded-xl bg-white/90 dark:bg-slate-950 border border-emerald-200/80 dark:border-slate-800 text-xs space-y-1 shadow-xs"
                 >
-                  <div className="font-bold text-amber-400">{item.role_zh}</div>
-                  <p className="text-slate-400 text-[11px] leading-relaxed">{item.detail_zh}</p>
+                  <div className="font-bold text-emerald-700 dark:text-amber-400">{item.role_zh}</div>
+                  <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">{item.detail_zh}</p>
                 </div>
               ))}
             </div>

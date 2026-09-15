@@ -39,11 +39,11 @@ export const MentalHealthHub: React.FC = () => {
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
       {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 via-slate-900/90 to-purple-500/15 p-6 sm:p-10 shadow-xl backdrop-blur-md">
+      <div className="relative overflow-hidden rounded-3xl border border-emerald-300/80 dark:border-cyan-500/30 bg-gradient-to-br from-emerald-50 via-teal-50/70 to-emerald-100/50 dark:from-slate-950 dark:via-[#141F1A] dark:to-slate-950 p-6 sm:p-10 shadow-sm backdrop-blur-md">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
-              <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-cyan-500/20 text-emerald-800 dark:text-cyan-300 border border-emerald-300/80 dark:border-cyan-500/40 text-xs font-mono font-bold shadow-xs">
+              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-cyan-400 animate-pulse" />
               <span>Salud 旗艦支柱 · 心理健康、情緒壓力與實證呼吸總樞紐</span>
             </div>
 
@@ -53,33 +53,30 @@ export const MentalHealthHub: React.FC = () => {
                 : 'Mental Health, Autonomic Vagal Dynamics & Respiration Science'}
             </h1>
 
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              拒絕「你想太多」的空泛說教，回歸神經生理與生物化學本質。由{' '}
-              <span className="font-semibold text-cyan-400">EC-25 臨床心理學家</span>、
-              <span className="font-semibold text-purple-400">EC-26 胸腔神經生理權威</span> 與{' '}
-              <span className="font-semibold text-emerald-400">EC-27 生理回饋教練</span> 具名審定。整合史丹佛大學 2023 年{' '}
-              <span className="font-mono text-cyan-300">Cell Reports Medicine</span> 循環生理嘆氣臨床試驗、0.1 Hz 自律神經共振與波耳效應，
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+              拒絕「你想太多」的空泛說教，回歸神經生理與生物化學本質。由臨床心理學家、胸腔神經生理權威與生理回饋教練專家聯席審定。整合史丹佛大學 2023 年{' '}
+              <span className="font-mono text-teal-800 dark:text-cyan-300 font-bold">Cell Reports Medicine</span> 循環生理嘆氣臨床試驗、0.1 Hz 自律神經共振與波耳效應，
               為你的自律神經系統提供秒級啟動的「迷走神經煞車」！
             </p>
           </div>
 
           {/* Quick Metrics Badges */}
           <div className="grid grid-cols-2 gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-cyan-400">5 大</div>
-              <div className="text-[10px] text-slate-400">實證呼吸協定</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
+              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-cyan-400">5 大</div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">實證呼吸協定</div>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-400">0.1 Hz</div>
-              <div className="text-[10px] text-slate-400">黃金共振頻率</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
+              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-emerald-400">0.1 Hz</div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">黃金共振頻率</div>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-purple-400">100%</div>
-              <div className="text-[10px] text-slate-400">同行評審文獻</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
+              <div className="text-xl font-mono font-extrabold text-indigo-700 dark:text-purple-400">100%</div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">同行評審文獻</div>
             </div>
-            <div className="p-3.5 rounded-2xl bg-white/10 dark:bg-slate-900/80 border border-white/10 text-center">
-              <div className="text-xl font-mono font-extrabold text-amber-400">Grade A</div>
-              <div className="text-[10px] text-slate-400">最高臨床推薦</div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
+              <div className="text-xl font-mono font-extrabold text-emerald-800 dark:text-amber-400">Grade A</div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">最高臨床推薦</div>
             </div>
           </div>
         </div>
