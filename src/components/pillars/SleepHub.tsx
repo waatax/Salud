@@ -12,7 +12,7 @@ export const SleepHub: React.FC = () => {
 
   return (
     <PillarHubTemplate
-      pillarTag="Health Pillar 03 · 睡眠與修復總樞紐"
+      pillarTag="Health Pillar 03 · 睡眠修復總樞紐"
       title={language === 'zh-TW' ? '睡眠神經生理與大腦排毒修復' : 'Sleep Neurobiology & Glymphatic Brain Recovery'}
       description="睡眠是大腦唯二進行結構性排毒與突觸重組的時刻。本支柱涵蓋 90 分鐘超晝夜睡眠架構、慢波深睡期的膠淋巴系統（Glymphatic System 沖刷 β-類澱粉蛋白）、視交叉上核 (SCN) 晝夜光照生物鐘、以及第一線臨床失眠治療 CBT-I 行為處方。"
       gradientClass="border-purple-200 dark:border-purple-800/40 bg-gradient-to-br from-purple-100/70 via-white to-nature-sky-50/40 dark:from-purple-950/40 dark:via-salud-dark-card/60 dark:to-slate-950"

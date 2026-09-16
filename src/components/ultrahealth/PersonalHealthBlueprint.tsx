@@ -246,7 +246,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
   };
 
   const handleCopySummary = () => {
-    const summary = `【Salud 個人超健康專屬藍圖】
+    const summary = `【Salud 健康生活專屬藍圖】
 晝夜型態：${profile.chronotype} | 代謝狀態：${profile.metabolic} | 首要目標：${profile.goal}
 起床時間：${schedule.wakeTime} | 咖啡因截斷：${schedule.caffeineCutoff}
 黃金運動：${schedule.workoutWindow} | 入睡時間：${schedule.sleepTime}
@@ -266,10 +266,10 @@ export const PersonalHealthBlueprint: React.FC = () => {
           <div className="space-y-1">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amber-500 uppercase tracking-wider">
               <Compass className="w-4 h-4 text-amber-500 animate-spin" style={{ animationDuration: '8s' }} />
-              <span>Personal Ultra-Health Blueprint Assessment</span>
+              <span>Personal Healthy Living Blueprint Assessment</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-display font-extrabold text-slate-900 dark:text-white">
-              個人超健康客製藍圖與表型評估診斷
+              健康生活客製藍圖與表型評估診斷
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               勾選您的個人生理表型，系統將即刻合算量身定做的 24H 晝夜節律表、原子微習慣與動力鏈急救處方。
@@ -451,7 +451,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
       <div className="space-y-6 animate-fade-in">
         <div className="flex items-center gap-2 text-sm font-mono font-bold text-slate-900 dark:text-white">
           <ShieldCheck className="w-5 h-5 text-cyan-500" />
-          <span>根據您的體質與表型診斷，客製生成的「個人超健康精準實踐處方箋」</span>
+          <span>根據您的體質與表型診斷，客製生成的「健康生活精準實踐處方箋」</span>
         </div>
 
         {/* Section 1: Custom Circadian Timeline Card */}

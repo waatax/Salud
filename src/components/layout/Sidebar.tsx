@@ -189,7 +189,7 @@ export const Sidebar: React.FC<Props> = (props) => {
                 ? 'border-amber-500 dark:border-amber-500 bg-amber-500/15 dark:bg-amber-500/20 text-slate-900 dark:text-amber-300 font-bold shadow-sm'
                 : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
             } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '個人超健康' : undefined}
+            title={isCollapsed ? '健康生活' : undefined}
           >
             <div className="flex items-center gap-2">
               <Sparkles
@@ -197,17 +197,17 @@ export const Sidebar: React.FC<Props> = (props) => {
                   activePillar === 'ultrahealth' ? 'text-amber-500 animate-pulse' : 'text-amber-500/70'
                 }`}
               />
-              {!isCollapsed && <span className="text-xs font-bold text-amber-700 dark:text-amber-300">✨ 個人超健康</span>}
+              {!isCollapsed && <span className="text-xs font-bold text-amber-700 dark:text-amber-300">✨ 健康生活</span>}
             </div>
             {!isCollapsed && (
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold">
-                個人藍圖
+                生活藍圖
               </span>
             )}
           </button>
         </div>
 
-        {/* 0.8. Obesity & Weight Science Pillar */}
+        {/* 0.8. Muscle Building & Fat Loss Pillar */}
         <div className="space-y-1">
           <button
             onClick={() => onSelectPillar('obesity')}
@@ -216,7 +216,7 @@ export const Sidebar: React.FC<Props> = (props) => {
                 ? 'border-salud-cyan dark:border-salud-cyan bg-salud-cyan/15 dark:bg-salud-cyan/20 text-slate-900 dark:text-salud-cyan font-bold shadow-sm'
                 : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
             } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '肥胖與減重' : undefined}
+            title={isCollapsed ? '增肌減脂' : undefined}
           >
             <div className="flex items-center gap-2">
               <Scale
@@ -224,11 +224,11 @@ export const Sidebar: React.FC<Props> = (props) => {
                   activePillar === 'obesity' ? 'text-salud-cyan' : 'text-slate-400'
                 }`}
               />
-              {!isCollapsed && <span className="text-xs font-bold">肥胖與科學減重</span>}
+              {!isCollapsed && <span className="text-xs font-bold">增肌減脂</span>}
             </div>
             {!isCollapsed && (
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan font-bold border border-salud-cyan/40">
-                GLP-1·模擬器
+                增肌·減脂·雙軌
               </span>
             )}
           </button>
@@ -243,7 +243,7 @@ export const Sidebar: React.FC<Props> = (props) => {
                 ? 'border-indigo-500 dark:border-indigo-500 bg-indigo-500/15 dark:bg-indigo-500/20 text-slate-900 dark:text-indigo-300 font-bold shadow-sm'
                 : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
             } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '抗老化與長壽' : undefined}
+            title={isCollapsed ? '抗老延壽' : undefined}
           >
             <div className="flex items-center gap-2">
               <Hourglass
@@ -251,7 +251,7 @@ export const Sidebar: React.FC<Props> = (props) => {
                   activePillar === 'longevity' ? 'text-indigo-400' : 'text-slate-400'
                 }`}
               />
-              {!isCollapsed && <span className="text-xs font-bold">抗老化與長壽</span>}
+              {!isCollapsed && <span className="text-xs font-bold">抗老延壽</span>}
             </div>
             {!isCollapsed && (
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/40">
@@ -278,7 +278,7 @@ export const Sidebar: React.FC<Props> = (props) => {
                   activePillar === 'diet' || activePillar === 'supplements' ? 'text-nature-amber-600 dark:text-nature-amber-400' : 'text-slate-400'
                 }`}
               />
-              {!isCollapsed && <span className="text-xs">飲食與營養保健</span>}
+              {!isCollapsed && <span className="text-xs">飲食營養</span>}
             </div>
             {!isCollapsed && (
               <button

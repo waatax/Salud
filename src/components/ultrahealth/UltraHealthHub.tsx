@@ -32,14 +32,14 @@ export const UltraHealthHub: React.FC = () => {
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white">
-              Salud 個人超健康實踐系統
+              Salud 健康生活實踐系統
             </h1>
 
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
               拒絕「假健康」焦慮與「知易行難」。由 40 席跨學科專家理事會聯席審定，為每位追求極致狀態的自律者打造個人化生活醫學藍圖！結合 <span className="text-emerald-800 dark:text-emerald-400 font-bold">個人客製藍圖診斷</span>、<span className="text-teal-800 dark:text-cyan-400 font-bold">24H 晝夜作息協議</span>、
               <span className="text-emerald-800 dark:text-emerald-400 font-bold">14天原子微習慣</span>、
               <span className="text-rose-800 dark:text-rose-400 font-bold">物治動力鏈自救動作</span> 與 
-              <span className="text-indigo-800 dark:text-indigo-400 font-bold">均一自適應精熟學習</span> 的終身超健康實踐系統。
+              <span className="text-indigo-800 dark:text-indigo-400 font-bold">均一自適應精熟學習</span> 的終身健康生活實踐系統。
             </p>
           </div>
 

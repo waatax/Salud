@@ -81,7 +81,7 @@ export const AtomicHabitTracker: React.FC = () => {
               <span>行為科學 × BJ Fogg 微習慣模型 (B=MAP)</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">
-              14 天個人超健康原子微習慣養成器
+              14 天健康生活原子微習慣養成器
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
               跨越「知易行難」的終極解法：不靠飄渺的意志力，只靠「2 分鐘以內微行動」與「生活觸發錨點」。

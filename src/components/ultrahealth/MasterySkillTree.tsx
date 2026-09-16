@@ -80,7 +80,7 @@ export const MasterySkillTree: React.FC = () => {
               <span>均一教育平台核心架構 · 自適應精熟學習 (Mastery Learning)</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">
-              個人超健康知識圖譜與技能樹
+              健康生活知識圖譜與技能樹
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
               拒絕「填鴨式死記硬背」。比照均一精熟教學法，將生化機轉原子化（KPs），透過先備知識拓撲依賴，

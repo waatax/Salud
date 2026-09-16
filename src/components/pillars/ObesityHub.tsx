@@ -15,6 +15,9 @@ import { UrgeSurfingTimer } from './obesity/UrgeSurfingTimer';
 import { TaiwanDiningGuide } from './obesity/TaiwanDiningGuide';
 import { DrugInteractionMatrix } from './obesity/DrugInteractionMatrix';
 import { ObesityMasteryQuiz } from './obesity/ObesityMasteryQuiz';
+import { MuscleHypertrophyPanel } from './obesity/MuscleHypertrophyPanel';
+import { FatLossMetabolismPanel } from './obesity/FatLossMetabolismPanel';
+import { BodyRecompositionCalculator } from './obesity/BodyRecompositionCalculator';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { ObesitySubTab } from '../../types';
@@ -68,35 +71,35 @@ export const ObesityHub: React.FC = () => {
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/90 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 text-xs font-mono font-bold">
               <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
-              <span>Salud 旗艦支柱 · 肥胖與代謝醫學專科總樞紐</span>
+              <span>Salud 旗艦支柱 · 增肌減脂與體組成醫學專科總樞紐</span>
             </div>
 
             <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
-              <span>肥胖病理機轉、精準飲食法、減重用藥與代謝醫學</span>
+              <span>增肌肌肥大生理、減脂生化代謝、雙軌重組與臨床醫學</span>
             </h1>
 
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              破除「少吃多動是意志力問題」的道德偏見，回歸下視丘食慾神經調控、瘦素抗性與脂肪細胞病理學。全方位整合內分泌調控、生活型態醫學、代謝外科紅旗鑑別與抗阻肌力生理學，深入 STEP / SURMOUNT 臨床三期試驗、8 大飲食法五維度雷達評比與 52 週動態體組成軌跡模擬！
+              超越傳統「只看體重計數字、少吃挨餓掉肌肉」的單純減重思維，全面建構「增肌 (Hypertrophy) × 減脂 (Lipolysis) × 同步重組 (Recomposition)」現代體組成運動生理學與臨床代謝醫學雙翼體系！整合機械力學轉導、白胺酸蛋白質時序、脂肪水解級聯、胰島素阻斷閥、EOSS 分級、GLP-1/GIP 腸泌素評析與動態體組成預測。
             </p>
           </div>
 
           {/* Quick Metrics Badges */}
           <div className="grid grid-cols-2 gap-3 shrink-0">
             <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
+              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">三大機轉</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">肌肥大機械轉導</div>
+            </div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
+              <div className="text-xl font-mono font-extrabold text-rose-700 dark:text-rose-400">五部曲</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">脂肪水解與氧化</div>
+            </div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
+              <div className="text-xl font-mono font-extrabold text-cyan-700 dark:text-cyan-400">Recomp</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">雙軌同步試算器</div>
+            </div>
+            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
               <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">CEBM 1a</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">臨床實證等級</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-teal-400">8 大</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">飲食法雷達評比</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-cyan-700 dark:text-cyan-400">6 款</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">抗肥胖用藥評析</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">Grade A</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">最高臨床實證等級</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">最高實證醫學等級</div>
             </div>
           </div>
         </div>
@@ -117,15 +120,39 @@ export const ObesityHub: React.FC = () => {
         </button>
 
         <button
-          onClick={() => setActiveTab('PATHOPHYSIOLOGY')}
+          onClick={() => setActiveTab('HYPERTROPHY')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'PATHOPHYSIOLOGY'
-              ? 'bg-teal-600 text-white font-bold border-teal-500 shadow-md ring-2 ring-teal-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-400 hover:bg-teal-50/40'
+            activeTab === 'HYPERTROPHY'
+              ? 'bg-emerald-600 text-white font-extrabold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
           }`}
         >
-          <Brain className="w-4 h-4" />
-          <span>生化與神經內分泌機轉</span>
+          <Dumbbell className="w-4 h-4 text-amber-400" />
+          <span>增肌科學 · 肌肥大三大機轉</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('FAT_LOSS')}
+          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
+            activeTab === 'FAT_LOSS'
+              ? 'bg-rose-600 text-white font-extrabold border-rose-500 shadow-md ring-2 ring-rose-500/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-rose-400 hover:bg-rose-50/40'
+          }`}
+        >
+          <Flame className="w-4 h-4 text-amber-300" />
+          <span>減脂代謝 · 脂解級聯與氧化</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('RECOMP')}
+          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
+            activeTab === 'RECOMP'
+              ? 'bg-cyan-600 text-white font-extrabold border-cyan-500 shadow-md ring-2 ring-cyan-500/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-cyan-400 hover:bg-cyan-50/40'
+          }`}
+        >
+          <Scale className="w-4 h-4 text-cyan-200" />
+          <span>同步重組 · 增肌減脂試算器</span>
         </button>
 
         <button
@@ -137,7 +164,7 @@ export const ObesityHub: React.FC = () => {
           }`}
         >
           <Pill className="w-4 h-4" />
-          <span>抗肥胖用藥評析 (GLP-1/GIP)</span>
+          <span>抗肥胖用藥 (GLP-1/GIP)</span>
         </button>
 
         <button
@@ -153,6 +180,18 @@ export const ObesityHub: React.FC = () => {
         </button>
 
         <button
+          onClick={() => setActiveTab('PATHOPHYSIOLOGY')}
+          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
+            activeTab === 'PATHOPHYSIOLOGY'
+              ? 'bg-teal-600 text-white font-bold border-teal-500 shadow-md ring-2 ring-teal-500/20'
+              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-400 hover:bg-teal-50/40'
+          }`}
+        >
+          <Brain className="w-4 h-4" />
+          <span>神經內分泌病理機轉</span>
+        </button>
+
+        <button
           onClick={() => setActiveTab('SURGERY_AND_SIM')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
             activeTab === 'SURGERY_AND_SIM'
@@ -160,8 +199,8 @@ export const ObesityHub: React.FC = () => {
               : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-500 hover:bg-teal-50/40'
           }`}
         >
-          <Scale className="w-4 h-4" />
-          <span>代謝手術 · 迷思 · 動態模擬器</span>
+          <Activity className="w-4 h-4" />
+          <span>手術 · 迷思 · 動態模擬器</span>
         </button>
 
         <button
@@ -190,7 +229,7 @@ export const ObesityHub: React.FC = () => {
                 <span>全新旗艦跨支柱聯動：肥胖與加速衰老病理</span>
               </div>
               <div className="font-bold text-sm text-slate-900 dark:text-white">
-                內臟脂肪是人體最大的「殭屍細胞」發炎風暴源！深入抗老化與長壽專區
+                內臟脂肪是人體最大的「殭屍細胞」發炎風暴源！深入抗老延壽專區
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">
                 BMI 每增加 5，DNA 甲基化時鐘加速 1.2 年。立即檢視 12 大衰老標誌、DunedinPACE 老化步速與健康壽命模擬器。
@@ -200,7 +239,7 @@ export const ObesityHub: React.FC = () => {
               href="#longevity"
               className="btn-tactile px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs font-mono shrink-0 flex items-center gap-1.5 shadow-md self-start sm:self-auto"
             >
-              <span>前往抗老化專區</span>
+              <span>前往抗老延壽專區</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -314,7 +353,28 @@ export const ObesityHub: React.FC = () => {
       )}
 
       {/* ─────────────────────────────────────────────────────────────
-          TAB 2: PATHOPHYSIOLOGY & NEUROENDOCRINE
+          TAB 2: HYPERTROPHY & PROGRESSIVE OVERLOAD SCIENCE (增肌科學)
+      ───────────────────────────────────────────────────────────── */}
+      {activeTab === 'HYPERTROPHY' && (
+        <MuscleHypertrophyPanel />
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          TAB 3: FAT LOSS BIOCHEMICAL CASCADE (減脂生化代謝)
+      ───────────────────────────────────────────────────────────── */}
+      {activeTab === 'FAT_LOSS' && (
+        <FatLossMetabolismPanel />
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          TAB 4: BODY RECOMPOSITION & MACRO CALCULATOR (同步重組試算)
+      ───────────────────────────────────────────────────────────── */}
+      {activeTab === 'RECOMP' && (
+        <BodyRecompositionCalculator />
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          TAB 5: PATHOPHYSIOLOGY & NEUROENDOCRINE
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'PATHOPHYSIOLOGY' && (
         <div className="space-y-6 animate-fade-in">
@@ -729,7 +789,7 @@ export const ObesityHub: React.FC = () => {
                 {[
                   { label: '短期減重速度 (Weight Loss Speed)', score: selectedDiet.radar_scores.weight_loss_speed, color: 'bg-amber-400' },
                   { label: '去脂骨骼肌保存力 (Muscle Preservation)', score: selectedDiet.radar_scores.muscle_preservation, color: 'bg-emerald-400' },
-                  { label: '心血管代謝獲益 (Cardio-Metabolic)', score: selectedDiet.radar_scores.cardio_metabolic, color: 'bg-blue-400' },
+                  { label: '心血代謝獲益 (Cardio-Metabolic)', score: selectedDiet.radar_scores.cardio_metabolic, color: 'bg-blue-400' },
                   { label: '日常遵從與社交可行性 (Adherence)', score: selectedDiet.radar_scores.adherence_feasibility, color: 'bg-purple-400' },
                   { label: '微量營養素安全性 (Micronutrient Safety)', score: selectedDiet.radar_scores.micronutrient_safety, color: 'bg-teal-400' },
                 ].map((item, idx) => (

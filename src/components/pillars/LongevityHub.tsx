@@ -38,11 +38,11 @@ export const LongevityHub: React.FC = () => {
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/90 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 text-xs font-mono font-bold">
               <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
-              <span>Salud 旗艦支柱 · 長壽與抗老化醫學專科總樞紐</span>
+              <span>Salud 旗艦支柱 · 抗老延壽醫學專科總樞紐</span>
             </div>
 
             <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
-              <span>抗老化醫學、12大衰老標誌、表觀遺傳時鐘與疾病壓縮</span>
+              <span>抗老延壽醫學、12大衰老標誌、表觀遺傳時鐘與疾病壓縮</span>
             </h1>
 
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
@@ -205,13 +205,13 @@ export const LongevityHub: React.FC = () => {
           <div className="p-6 rounded-3xl border border-emerald-300/80 dark:border-amber-500/40 bg-gradient-to-r from-emerald-50 via-teal-50/70 to-emerald-100/40 dark:from-amber-950/40 dark:via-rose-950/30 dark:to-slate-900 space-y-3 shadow-xs">
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 dark:text-amber-400">
               <AlertTriangle className="w-4 h-4 text-emerald-600 dark:text-amber-400" />
-              <span>跨專區共病深度聯防：肥胖即是加速衰老之生理表型</span>
+              <span>跨專區共病深度聯防：肌肉流失與肥胖即是加速衰老之生理表型</span>
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              為什麼減重專區與抗老專區互為因果基石？
+              為什麼增肌減脂專區與抗老延壽專區互為因果基石？
             </h3>
             <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              肥胖患者腹腔內大量肥大的內臟脂肪細胞，是人體最大宗的「殭屍細胞」(p16 陽性) 與 SASP 發炎因子製造源。BMI 每增加 5，DNA 甲基化時鐘 (GrimAge) 加速 1.2 年！反之，積極維持健康體組成與去脂骨骼肌，是抗老化成本效益最高的干預手段。
+              肥胖患者腹腔內大量肥大的內臟脂肪細胞，是人體最大宗的「殭屍細胞」(p16 陽性) 與 SASP 發炎因子製造源。BMI 每增加 5，DNA 甲基化時鐘 (GrimAge) 加速 1.2 年！反之，積極維持健康體組成、增加骨骼肌質量與降低內臟脂肪，是抗老延壽成本效益最高的干預手段。
             </p>
           </div>
         </div>

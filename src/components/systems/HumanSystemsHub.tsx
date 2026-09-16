@@ -518,7 +518,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
             透過四大健康支柱為這套系統提供生活型態處方？
           </h4>
           <p className="text-xs text-slate-600 dark:text-slate-400 font-sans">
-            前往【飲食與營養】深入探討各營養素與營養保健，或啟動【全人跨領域處方協同引擎】查看多靶點聯動。
+            前往【飲食營養】深入探討各營養素與營養保健，或啟動【全人跨領域處方協同引擎】查看多靶點聯動。
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -527,7 +527,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
             className="btn-tactile px-4 py-2.5 rounded-2xl bg-nature-amber-500 hover:bg-nature-amber-600 text-black font-bold font-mono text-xs shadow-sm flex items-center gap-1.5"
           >
             <Utensils className="w-3.5 h-3.5" />
-            <span>探索飲食與營養</span>
+            <span>探索飲食營養</span>
           </button>
           <button
             onClick={() => nav.openSynergy()}

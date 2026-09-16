@@ -111,7 +111,7 @@ export const Header: React.FC<Props> = ({
             }`}
           >
             <Sparkles className={`w-3.5 h-3.5 ${activePillar === 'ultrahealth' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'} animate-pulse`} />
-            <span className="font-bold">個人超健康</span>
+            <span className="font-bold">健康生活</span>
           </button>
 
           {/* 3. Obesity & Weight Management Hub */}
@@ -124,7 +124,7 @@ export const Header: React.FC<Props> = ({
             }`}
           >
             <Scale className={`w-3.5 h-3.5 ${activePillar === 'obesity' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
-            <span>肥胖與減重</span>
+            <span>增肌減脂</span>
           </button>
 
           {/* 4. Longevity & Anti-Aging Hub */}
@@ -137,7 +137,7 @@ export const Header: React.FC<Props> = ({
             }`}
           >
             <Hourglass className={`w-3.5 h-3.5 ${activePillar === 'longevity' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
-            <span>抗老化</span>
+            <span>抗老延壽</span>
           </button>
 
           {/* 5. Diet & Nutrition (Contains Nutrients & Supplements) */}
@@ -150,7 +150,7 @@ export const Header: React.FC<Props> = ({
             }`}
           >
             <Utensils className={`w-3.5 h-3.5 ${activePillar === 'diet' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
-            <span>飲食與營養</span>
+            <span>飲食營養</span>
           </button>
 
           {/* 6. Exercise Science */}

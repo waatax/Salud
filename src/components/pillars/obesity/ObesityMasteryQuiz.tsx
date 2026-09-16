@@ -79,7 +79,7 @@ export const ObesityMasteryQuiz: React.FC<Props> = ({ onNavigateToTab }) => {
             <span>均一教育平台自適應學習哲學 · FORMATIVE MASTERY ASSESSMENT</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 dark:text-white">
-            肥胖與減重精熟情境評量 (Mastery Quiz)
+            增肌減脂與體組成精熟情境評量 (Mastery Quiz)
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             由 EC-19 學習體驗架構師與專科醫師設計，以實戰臨床情境測驗檢視你的知識抗體，答對釋放多巴胺煙火！

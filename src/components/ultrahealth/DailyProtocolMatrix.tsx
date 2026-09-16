@@ -41,7 +41,7 @@ export const DailyProtocolMatrix: React.FC = () => {
             <span>晝夜節律 × 臨床機轉 · 24H 動態全人作息守則</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">
-            個人超健康 24 小時時序動態生活協議
+            健康生活 24 小時時序動態生活協議
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             健康不是隨機的善意，而是精準對齊地球 24 小時自轉週期的生化交響樂。

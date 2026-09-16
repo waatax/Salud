@@ -5,6 +5,10 @@ import {
   BariatricSurgeryOption,
   ObesityMythItem,
   EossStage,
+  HypertrophyMechanism,
+  MuscleGroupVolumeItem,
+  FatLossMetabolismStep,
+  BodyRecompCandidate,
 } from '../types';
 
 /**
@@ -941,3 +945,256 @@ export const MDT_CONSENSUS_STATEMENTS = [
     consensus_zh: '認清運動在減重中的真實定位：運動不是讓你胡吃海喝的「卡路里橡皮擦」，而是熱量赤字下保護骨骼肌微結構、維持粒線體脂肪氧化天花板、以及長期預防復胖的最強生化煞車！',
   },
 ];
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * 增肌科學專題：肌肥大核心三大生化機轉 (Hypertrophy Mechanisms)
+ * 依據 Brad Schoenfeld 等權威運動生理學期刊實證
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+export const HYPERTROPHY_MECHANISMS: HypertrophyMechanism[] = [
+  {
+    id: 'HM-01',
+    name_zh: '機械張力 (Mechanical Tension) —— 肌肥大無可爭議的基石王牌',
+    name_en: 'Mechanical Tension & Costameric Mechanotransduction',
+    badge: '第一關鍵生化驅動力',
+    molecular_pathway: 'Costamere Integrin / FAK / Titin kinase → TSC2 抑制解除 → Rheb-GTP → mTORC1 磷酸化',
+    mechanism_detail_zh:
+      '當骨骼肌肌纖維主動抵抗外在阻力收縮或在受力下拉伸時，肌小節膜上的肋骨小體 (Costameres)、肌聯蛋白 (Titin kinase) 與整合素 (Integrins) 受到強烈牽拉變形。此物理形變觸發「力學化學信號轉導 (Mechanotransduction)」，活化黏著斑激酶 (FAK) 與磷脂酸 (PA)，促使抑癌蛋白複合物 TSC1/TSC2 解離，釋放 Rheb-GTP，進而強效活化細胞生長總司令 mTORC1，開啟核糖體對肌動蛋白 (Actin) 與肌球蛋白 (Myosin) 的爆發性轉譯。',
+    practical_execution_zh:
+      '在離力竭前 1~3 下 (RIR 1-3, RPE 7-9) 的強度下，採用能夠讓肌肉充分承受「離心拉伸負荷」的全活動度 (Full ROM) 動作。特別是肌肉在最長長度 (Long Muscle Length) 下承受大張力（如：深蹲底部、下斜啞鈴飛鳥拉伸點、上斜臥推），能刺激肌小節串聯增加 (Sarcomerogenesis in series)，肌肥大效益比短縮位訓練高出 30-40%。',
+    clinical_pearl_zh:
+      '沒有足夠的機械張力，再多的補充品或疲累感都無法激發深層快縮肌纖維肥大。負荷必須挑戰肌纖維的拉力極限。',
+    key_molecules: ['mTORC1', 'FAK', 'Titin Kinase', 'Phosphatidic Acid (PA)', 'Rheb', 'p70S6K'],
+  },
+  {
+    id: 'HM-02',
+    name_zh: '代謝壓力 (Metabolic Stress) —— 高閾值運動單元強迫徵召與細胞腫脹',
+    name_en: 'Metabolic Stress, Cell Swelling & High-Threshold Motor Unit Recruitment',
+    badge: '同化訊號放大器',
+    molecular_pathway: '無氧糖解乳酸/H+/Pi 累積 → 肌纖維局部乏氧 → Henneman 尺寸原則打破 → Type IIx 快肌強行徵召',
+    mechanism_detail_zh:
+      '在持續肌肉收縮（特別是中高次數 12-20RM、組間休息較短 45-75 秒）時，肌肉內血管受壓阻斷血流，組織陷入短暫缺氧。無氧糖解急速代謝產生乳酸、氫離子 ($H^+$)、無機磷酸鹽 ($P_i$) 與 ADP。局部酸中毒與代謝副產物使慢縮氧化型 Type I 肌纖維快速力竭，迫使中樞神經根據 Henneman 尺寸原則，緊急調度平時難以啟動的高閾值 Type IIa 與 IIx 快縮肌纖維接手！同時，代謝物造成細胞內滲透壓劇增，水分子湧入肌纖維產生「細胞腫脹 (Cell Swelling)」，膜張力直接刺激蛋白合成抑制蛋白分解。',
+    practical_execution_zh:
+      '採用「中等負荷、高次數、嚴格控制組間休息」模式（如：遞減組 Drop Sets、休息暫停法 Rest-Pause、超燃超級組）。確保肌肉在動作終點維持持續張力，不鎖死關節借力，製造極致的肌肉「泵感 (The Pump)」。',
+    clinical_pearl_zh:
+      '代謝壓力是中輕重量也能達成肌肥大的科學機制，尤其適合關節受損、結締組織敏感或中老年長者防肌少症訓練。',
+    key_molecules: ['Lactate', 'Inorganic Phosphate (Pi)', 'MAPK/ERK pathway', 'Systemic GH/IGF-1', 'Cell Swelling Osmolytes'],
+  },
+  {
+    id: 'HM-03',
+    name_zh: '肌纖維微損傷與衛星細胞增殖 (Muscle Damage & Satellite Cell Activation)',
+    name_en: 'Microtrauma, Satellite Cell Myonuclear Addition & Muscle Memory',
+    badge: '結構性重構與終身肌肉記憶',
+    molecular_pathway: '肌纖維 Z 盤超微結構撕裂 → 局部發炎 COX-2/PGE2 → 靜止幹細胞 (Pax7+) 喚醒 → 肌核融合',
+    mechanism_detail_zh:
+      '特別是在抗阻力訓練的「離心收縮 (Eccentric phase)」階段，肌原纖維承受超越其屈服點的牽引，導致肌節 Z 盤 (Z-line streaming) 與肌纖維膜 (Sarcolemma) 出現顯微微撕裂。局部肥大細胞與巨噬細胞浸潤，釋放前列腺素 $PGE_2$、FGF、HGF 與 IGF-1Ea (MGF)。這些局部生長因子迅速喚醒原本附著在肌纖維基底膜上的「衛星幹細胞 (Satellite Cells, Pax7+ 標記)」。衛星細胞開始爆發性有絲分裂，並「融合 (Fusion)」進受損肌纖維中，捐獻出全新的細胞核（肌核，Myonuclei）。',
+    practical_execution_zh:
+      '每一下動作的「離心下放」階段刻意維持 2~3 秒受控節奏，拒絕自由落體式墜落。每 4-6 週適度輪換 10-20% 的動作變體，給予肌纖維不同角度的微拉伸刺激。切記：微損傷適量即可（延遲性肌肉酸痛 DOMS 24-48 小時屬正常），過度損傷會拖垮中樞神經與恢復期。',
+    clinical_pearl_zh:
+      '捐獻進肌纖維的新肌核一旦形成將「終身永存」！即使日後數年不運動導致肌肉萎縮，肌核依然守在肌膜下；一旦重新開練，能以數倍速度急速膨脹恢復，這就是「肌肉記憶 (Muscle Memory)」的細胞生物學真相！',
+    key_molecules: ['Pax7', 'MyoD', 'Myogenin', 'MGF (Mechano-Growth Factor)', 'PGE2', 'IL-6 Myokine'],
+  },
+];
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * 漸進式超負荷訓練矩陣：各大肌群每週最佳訓練音量與動作建議
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+export const MUSCLE_GROUP_VOLUMES: MuscleGroupVolumeItem[] = [
+  {
+    muscle_group_zh: '胸大肌 (胸肌上/中/下束)',
+    muscle_group_en: 'Pectoralis Major & Minor',
+    weekly_mrv_sets: '12 - 20 組有效組 / 週',
+    frequency_per_week: '2 - 3 次 / 週',
+    stretch_loaded_exercise: '上斜啞鈴臥推 (底部深拉伸) / 機械式深夾胸',
+    rep_range: '6 - 12 次 / 組 (複合臥推)；10 - 15 次 / 組 (孤立夾胸)',
+    rir_recommendation: '複合臥推留 RIR 1-2 防力竭受傷；夾胸可推至 RIR 0',
+    biomechanical_note: '胸肌鎖骨頭（上胸）肌纖維走向為斜向上，臥推椅角度應設於 30°-45°，避免三角肌前束過度代償。',
+  },
+  {
+    muscle_group_zh: '背部肌群 (背闊肌/斜方肌/大圓肌)',
+    muscle_group_en: 'Latissimus Dorsi, Trapezius, Rhomboids',
+    weekly_mrv_sets: '14 - 22 組有效組 / 週',
+    frequency_per_week: '2 - 3 次 / 週',
+    stretch_loaded_exercise: '單臂滑輪下拉 (頂部肋間展開) / 胸支撐划船',
+    rep_range: '6 - 10 次 / 組 (大重量划船)；10 - 15 次 / 組 (垂直下拉)',
+    rir_recommendation: '全程維持腰椎中立，避免骨盆前傾借力，RIR 1-2',
+    biomechanical_note: '若練背闊肌寬度，下拉時手肘緊貼軀幹朝骨盆收回；若練上背厚度，手肘外展 45°-60° 肩胛強力後收。',
+  },
+  {
+    muscle_group_zh: '股四頭肌 (大腿前側四大束)',
+    muscle_group_en: 'Quadriceps Femoris',
+    weekly_mrv_sets: '12 - 18 組有效組 / 週',
+    frequency_per_week: '2 次 / 週',
+    stretch_loaded_exercise: '深蹲 (髖膝深屈曲拉伸) / 哈克深蹲 (Hack Squat)',
+    rep_range: '6 - 10 次 / 組 (槓鈴深蹲)；10 - 15 次 / 組 (腿推/腿屈伸)',
+    rir_recommendation: '自由重量深蹲留 RIR 2 確保核心呼吸；固定器械可推至 RIR 0-1',
+    biomechanical_note: '股直肌跨越髖與膝雙關節，唯有在髖關節後伸且膝關節極度屈曲時（如 Sissy Squat 或仰臥腿伸展）才能達到最大拉伸肥大。',
+  },
+  {
+    muscle_group_zh: '腿後肌群與臀大肌 (後側動力鏈)',
+    muscle_group_en: 'Hamstrings & Gluteus Maximus',
+    weekly_mrv_sets: '10 - 16 組有效組 / 週',
+    frequency_per_week: '2 次 / 週',
+    stretch_loaded_exercise: '羅馬尼亞硬舉 (RDL，極度髖屈拉伸) / 坐姿腿彎舉',
+    rep_range: '6 - 10 次 / 組 (RDL/臀推)；10 - 15 次 / 組 (腿彎舉)',
+    rir_recommendation: 'RDL 嚴格鎖住脊椎中立，於膕繩肌緊繃極限返程，RIR 1-2',
+    biomechanical_note: '坐姿腿彎舉在髖關節屈曲 90° 下執行，膕繩肌長度顯著大於俯臥腿彎舉，臨床研究證實坐姿增肌幅度高出近 1.5 倍！',
+  },
+  {
+    muscle_group_zh: '三角肌 (前束/中束/後束)',
+    muscle_group_en: 'Deltoid Complex (Anterior/Lateral/Posterior)',
+    weekly_mrv_sets: '14 - 24 組有效組 / 週 (側束耐受度極高)',
+    frequency_per_week: '2 - 4 次 / 週',
+    stretch_loaded_exercise: '滑輪背後側平舉 (底端持續張力) / 繩索面拉 (Face Pull)',
+    rep_range: '8 - 12 次 / 組 (站姿推舉)；12 - 20 次 / 組 (側平舉/反向飛鳥)',
+    rir_recommendation: '側束與後束幾乎無關節擠壓危險，建議多組直攻力竭 (RIR 0)',
+    biomechanical_note: '啞鈴側平舉在身體兩側垂放時力臂為零無張力；改用滑輪由下後方拉起，可在肌肉初始拉伸長度施加最大剪切力。',
+  },
+  {
+    muscle_group_zh: '手臂肌群 (肱二頭肌/肱三頭肌)',
+    muscle_group_en: 'Biceps Brachii & Triceps Brachii',
+    weekly_mrv_sets: '10 - 16 組有效組 / 週 (已含推拉複合動作間接刺激)',
+    frequency_per_week: '2 - 3 次 / 週',
+    stretch_loaded_exercise: '過頂繩索三頭伸展 (長頭拉伸) / 上斜啞鈴彎舉 (二頭長頭拉伸)',
+    rep_range: '8 - 15 次 / 組',
+    rir_recommendation: '孤立動作極耐疲勞，可適度加入遞減組，RIR 0-1',
+    biomechanical_note: '肱三頭肌長頭起於肩胛骨盂下結節，唯有「手臂舉過頭頂」時才能徹底拉伸長頭；下壓動作僅偏重內側與外側頭。',
+  },
+];
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * 減脂代謝生化學：脂肪動態水解、氧化與排除五部曲 (Fat Loss Cascade)
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+export const FAT_LOSS_METABOLISM_STEPS: FatLossMetabolismStep[] = [
+  {
+    step_number: 1,
+    stage_name_zh: '訊號動員：兒茶酚胺驅動脂肪細胞膜受體',
+    stage_name_en: 'Neuroendocrine Lipolytic Signaling',
+    biochemical_enzymes: ['β1/β2 Adrenergic Receptors', 'Adenylyl Cyclase (AC)', 'Protein Kinase A (PKA)'],
+    endocrine_regulators: '正腎上腺素 ↑、腎上腺素 ↑、皮質醇 (協同)、生長激素 ↑',
+    detailed_process_zh:
+      '在運動或熱量赤字誘發交感神經興奮時，交感神經末梢與腎上腺髓質釋放兒茶酚胺，專一性結合白色脂肪細胞膜上的 β-腎上腺素受體。受體活化 Gs 蛋白，促使腺苷酸環化酶 (AC) 將 ATP 轉化為環磷酸腺苷 (cAMP)。cAMP 飆升進而活化蛋白激酶 A (PKA)，為後續的三酸甘油酯水解大軍吹響集結號角。',
+    inhibition_factors_zh: 'α2-腎上腺素受體興奮（頑固脂肪特徵）、高胰島素血症。',
+    actionable_strategy_zh: '維持低胰島素狀態並安排規律 Zone 2 有氧或抗阻訓練，促使交感神經兒茶酚胺濃度處於有效激發窗口。',
+  },
+  {
+    step_number: 2,
+    stage_name_zh: '水解級聯：三步剪切三酸甘油酯釋放游離脂肪酸',
+    stage_name_en: 'Intracellular Lipolytic Cascade (ATGL → HSL → MGL)',
+    biochemical_enzymes: ['ATGL (Adipose Triglyceride Lipase)', 'HSL (Hormone-Sensitive Lipase)', 'MGL (Monoacylglycerol Lipase)', 'Perilipin-1'],
+    endocrine_regulators: 'PKA 磷酸化活化 Perilipin 與 HSL；胰島素強效反向去磷酸化',
+    detailed_process_zh:
+      '油滴表面被周脂素 (Perilipin-1) 嚴密包裹保護。PKA 將 Perilipin-1 與 HSL 磷酸化，使 CGI-58 輔助因子脫離 Perilipin 並強力活化第一步剪切酶「ATGL」，將三酸甘油酯剪為二酸甘油酯 (DAG)；隨後已活化的「HSL」精準剪下第二條脂肪酸生成單酸甘油酯 (MAG)；最後「MGL」剪下最後一條脂肪酸，留下一個甘油分子與三條游離脂肪酸 (Free Fatty Acids, FFA)。',
+    inhibition_factors_zh:
+      '【關鍵致命煞車】只要血液中胰島素微幅上升，活化 PDE3B 降解 cAMP，HSL 與 ATGL 的水解活性將在 10 分鐘內暴跌 >90%！脂肪分解立即全面停擺！',
+    actionable_strategy_zh: '避免運動前 1 小時攝取高 GI 精製純糖，防止過高胰島素峰值直接把脂肪水解閥門焊死。',
+  },
+  {
+    step_number: 3,
+    stage_name_zh: '血液運載：白蛋白結合轉運至目標肌肉粒線體',
+    stage_name_en: 'Circulatory Transport & Cellular Uptake',
+    biochemical_enzymes: ['Serum Albumin', 'CD36 / FAT (Fatty Acid Translocase)', 'FATP (Fatty Acid Transport Proteins)'],
+    endocrine_regulators: '微血管血流量 (Visceral > Subcutaneous)',
+    detailed_process_zh:
+      '游離脂肪酸不溶於水，必須迅速穿越脂肪細胞膜，牢牢吸附在血清白蛋白 (Albumin) 疏水袋中，順著毛細血管血流被載送至需要燃料的骨骼肌、心肌或肝臟。抵達肌纖維表面後，由 CD36 易位酶與 FATP 轉運蛋白捕獲，穿越肌纖維膜進入肌質細胞質中，被輔酶A活化形成脂醯輔酶A (Acyl-CoA)。',
+    inhibition_factors_zh: '周邊微血管灌流不足（久坐、皮下脂肪組織血流低落）、白蛋白不足。',
+    actionable_strategy_zh: '頑固脂肪區域（下腹、臀腿）通常微血管密度較低、溫度偏低；全身性阻力運動搭配充足水分攝取能大幅改善組織灌流。',
+  },
+  {
+    step_number: 4,
+    stage_name_zh: '跨膜閘門：CPT-1 肉鹼穿梭系統進入粒線體基質',
+    stage_name_en: 'Carnitine Shuttle & CPT-1 Mitochondrial Gatekeeper',
+    biochemical_enzymes: ['CPT-1 (Carnitine Palmitoyltransferase-1)', 'CACT (Carnitine-Acylcarnitine Translocase)', 'CPT-2'],
+    endocrine_regulators: 'Malonyl-CoA (最強變構抑制物)；AMPK 活化解鎖抑制',
+    detailed_process_zh:
+      '粒線體內膜對長鏈脂醯輔酶A完全不通透。粒線體外膜的關鍵守門員「CPT-1」將脂醯輔酶A與左旋肉鹼 (L-Carnitine) 結合成脂醯肉鹼，透過 CACT 穿梭載體運入粒線體基質內部，再由 CPT-2 還原為脂醯輔酶A。細胞內丙二醯輔酶A (Malonyl-CoA) 是 CPT-1 的天然煞車；當能量充沛或胰島素高時，Malonyl-CoA 飆高，CPT-1 關閉；當禁食或運動活化 AMPK 時，ACC 酶受抑，Malonyl-CoA 驟降，CPT-1 閘門全面暢通！',
+    inhibition_factors_zh: '高 Malonyl-CoA 濃度、細胞質游離肉鹼匱乏、高碳水持續供應。',
+    actionable_strategy_zh: '規律進行 Zone 2 耐力訓練或空腹晨間快走，能強烈活化肌細胞 AMPK，將 CPT-1 粒線體燃脂轉運效率推向最高峰。',
+  },
+  {
+    step_number: 5,
+    stage_name_zh: '生化燃燒與排出：β-氧化生成 ATP，84% 經呼吸排出！',
+    stage_name_en: 'Beta-Oxidation, Krebs Cycle & Respiratory Excretion',
+    biochemical_enzymes: ['Acyl-CoA Dehydrogenase', 'TCA Cycle Enzymes', 'Electron Transport Chain Complexes I-IV', 'ATP Synthase'],
+    endocrine_regulators: '細胞能量狀態 (AMP/ATP 比值)',
+    detailed_process_zh:
+      '在粒線體基質中，脂醯輔酶A歷經脫氫、加水、再脫氫、硫解四步重複循環（β-氧化），每輪剪下 2 個碳原子生成乙醯輔酶A (Acetyl-CoA)，並產出大量 NADH 與 FADH2。乙醯輔酶A湧入克氏循環 (TCA Cycle)，電子傳遞鏈利用氧氣合成大量 ATP。化學計量學真相（Ruben & Meerman 權威研究）：燃燒 10 公斤人體純脂肪需要吸入 29 公斤氧氣，最終生成 28 公斤二氧化碳 ($CO_2$) 與 11 公斤水 ($H_2O$)。其中整整 84% 的脂肪質量是透過「肺部呼吸」以 $CO_2$ 氣體形式呼出體外，僅 16% 化為尿液汗水！',
+    inhibition_factors_zh: '粒線體功能障礙、有氧氧化代謝產能受限。',
+    actionable_strategy_zh: '破除「出汗等於減脂」的低級迷思！流汗只是散熱排泄水分，脂肪真正的墓場是「粒線體氧氣燃燒」並「經由呼吸把碳原子吐向空氣」！',
+  },
+];
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * 同步增肌減脂 (Body Recomposition) 雙軌同化實踐體系
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+export const BODY_RECOMP_CANDIDATES: BodyRecompCandidate[] = [
+  {
+    phenotype_zh: '初階新手 / 阻力訓練新手紅利期 (Beginner Gains)',
+    phenotype_en: 'Untrained Beginners with High Neuromuscular Adaptability',
+    physiological_basis_zh:
+      '從未接受過系統性阻力訓練的肌纖維，其機械力學受體與同化基因極度敏感。阻力訓練初期，蛋白質合成效率 (MPS) 攀升幅度可達老手的 2-3 倍，且持續維持長達 48 小時以上。體內脂肪儲存充沛，即使在輕微赤字下，脂肪組織也能源源不絕釋放三酸甘油酯填補能量空缺，支援肌蛋白合成。',
+    calorie_strategy_zh: '每日等熱量維持 (Maintenance) 或微幅赤字 10% (約 200-250 kcal/天)。',
+    protein_requirement_zh: '每日體重每公斤 1.8 - 2.2 克優質蛋白質。',
+    training_focus_zh: '每週 3-4 次全身大肌群複合動作（深蹲、臥推、硬舉、划船、推舉），專注學習神經控制與動作軌跡。',
+    expected_timeline_zh: '前 3-6 個月內，普遍可實現體脂率下降 3-6%、同時去脂肌肉增加 1.5-3.0 公斤的奇蹟轉變！',
+  },
+  {
+    phenotype_zh: '停訓復練者 / 沉睡肌核喚醒 (Trained Detrained Individuals)',
+    phenotype_en: 'Previously Trained Lifters with Intact Myonuclear Domain',
+    physiological_basis_zh:
+      '過去曾有規律訓練但因工作、受傷或生活暫停數月至數年者。肌原纖維雖然萎縮變細，但過去透過衛星細胞捐獻的「肌核 (Myonuclei)」並未消失！肌纖維的轉錄引擎依然齊全，一旦重新恢復訓練，無需經歷漫長的衛星細胞分裂融合過程，肌核能立刻啟動高強度蛋白質合成，也就是「肌肉記憶 (Muscle Memory)」。',
+    calorie_strategy_zh: '等熱量維持 (Maintenance) 或 10-15% 輕度赤字。',
+    protein_requirement_zh: '每日體重每公斤 2.0 - 2.4 克高規格防禦性蛋白質。',
+    training_focus_zh: '迅速重建過去的每週 12-16 組有效組數，受控離心，避免過早超負荷導致嚴重結締組織疼痛。',
+    expected_timeline_zh: '通常在復練後的 6-10 週內即可快速追回 80% 以上過去流失的肌肉量，體脂同步急劇縮減。',
+  },
+  {
+    phenotype_zh: '體脂過高者 / 內源脂肪庫豐沛族群 (High Body Fat Phenotype)',
+    phenotype_en: 'Overweight or Class 1 Obesity with High Stored Energy Surplus',
+    physiological_basis_zh:
+      '男性體脂率 >23%、女性體脂率 >32% 者，體內儲存著數萬乃至數十萬大卡的內源化學能（每公斤脂肪組織含約 7,700 kcal）。只要蛋白質充足且阻力訓練發出明確的「禁止分解肌肉、必須修復肌原纖維」張力信號，身體會毫不猶豫地動員皮下與內臟脂肪作為合成代謝的供能原料。',
+    calorie_strategy_zh: '溫和至中度熱量赤字 15-20% (每日約 350-500 kcal 赤字)，嚴禁 >30% 飢餓節食。',
+    protein_requirement_zh: '以「理想去脂體重」計算每日每公斤 2.0 - 2.2 克蛋白質，避免高熱量肉類。',
+    training_focus_zh: '每週 3 次漸進阻力訓練防肌肉流失 + 每日 8,000-10,000 步 NEAT 步行，避免高衝擊跑步傷膝關節。',
+    expected_timeline_zh: '在體重大幅下降的同時，骨骼肌完全不受損甚至微幅增加，徹底打破「減肥一定會掉肌肉」的宿命。',
+  },
+  {
+    phenotype_zh: '劣質飲食改造者 / 長期蛋白質嚴重不足但重訓愛好者',
+    phenotype_en: 'Suboptimally Nourished Lifters Correcting Protein Deficiency',
+    physiological_basis_zh:
+      '雖然每週認真重訓，但過去飲食長期隨便、餐餐以精緻碳水充飢、每日蛋白質攝取連 0.8 g/kg 都達不到的訓練者。他們的肌肉長期處於「有訓練訊號、但缺乏建築磚塊」的饑渴同化抵抗狀態。一旦將蛋白質補足至 2.0 g/kg 並掌握白胺酸時序，肌肉合成開關被瞬間徹底激活！',
+    calorie_strategy_zh: '等熱量 (Maintenance) 或碳水循環 (Carb Cycling)。',
+    protein_requirement_zh: '每日 2.0 - 2.2 g/kg，分 4 餐平均攝取，確保每餐白胺酸 ≥ 2.7 克。',
+    training_focus_zh: '維持原有高品質訓練，但提升大重量複合組的動作專注度。',
+    expected_timeline_zh: '飲食修正後短短 4-8 週，充血感、肌肉飽滿度與肌肉硬度發生肉眼可見的立體蛻變。',
+  },
+];
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * 蛋白質時序與白胺酸閾值 (Leucine Trigger) 協議
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+export const LEUCINE_MPS_PROTOCOLS = {
+  daily_target_recomp: '1.8 - 2.4 g/kg 體重 (減脂期建議偏向高標 2.2-2.4 g/kg 以抵禦皮質醇分解)',
+  leucine_trigger_threshold: '每餐 2.7 - 3.2 克白胺酸 (依年齡與體重遞增，年長者需 3.5g 克服同化抗性)',
+  optimal_meals_per_day: '3 - 5 餐 (每餐間隔 3.5 - 5 小時，重置 MPS 難治期 Refractory Period)',
+  protein_distribution_rule: '每餐 0.40 - 0.55 g/kg 體重優質完整蛋白質',
+  pre_bed_casein_protocol: '睡前 30-45 分鐘補充 30-40 克慢速消化酪蛋白或希臘優格，維持夜間 7-8 小時睡眠修復期之 MPS 不歸零。',
+  common_leucine_sources: [
+    { food_zh: '分離乳清蛋白 (1 份 30g)', leucine_g: '3.0 - 3.5 g', note: '吸收極快，30-60分鐘達 MPS 峰值' },
+    { food_zh: '無皮雞胸肉 (熟重 150g)', leucine_g: '3.2 g', note: '高性價比、低脂肪優質蛋白金標準' },
+    { food_zh: '特選牛後腿肉/瘦牛肉 (熟重 150g)', leucine_g: '3.4 g', note: '天然富含肌酸 (Creatine)、鐵與維生素 B12' },
+    { food_zh: '雞蛋 (全蛋 4 顆約 200g)', leucine_g: '2.8 g', note: '生物利用率 (BV) 滿分，蛋黃富含膽鹼與維生素 D' },
+    { food_zh: '板豆腐/非基改大豆 (300g)', leucine_g: '2.4 g', note: '純素食者可適度增加分量或搭配白胺酸補劑補足' },
+    { food_zh: '希臘優格 (無糖脫脂 200g)', leucine_g: '2.6 g', note: '天然富含 80% 慢釋酪蛋白與活性益生菌' },
+  ],
+};
+

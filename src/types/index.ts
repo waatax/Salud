@@ -861,14 +861,61 @@ export interface KpInfoGraph {
   steps: KpInfoGraphStep[];
 }
 
-// ── Obesity & Weight Management Types (肥胖與科學減重專區) ──
+// ── Hypertrophy & Fat Loss Types (增肌減脂與體組成專區) ──
 export type ObesitySubTab = 
   | 'OVERVIEW' 
+  | 'HYPERTROPHY'
+  | 'FAT_LOSS'
+  | 'RECOMP'
   | 'PATHOPHYSIOLOGY' 
   | 'PHARMACOTHERAPY' 
   | 'DIETARY_REGIMENS' 
   | 'SURGERY_AND_SIM'
   | 'BEHAVIOR_AND_QUIZ';
+
+export interface HypertrophyMechanism {
+  id: string;
+  name_zh: string;
+  name_en: string;
+  badge: string;
+  molecular_pathway: string;
+  mechanism_detail_zh: string;
+  practical_execution_zh: string;
+  clinical_pearl_zh: string;
+  key_molecules: string[];
+}
+
+export interface MuscleGroupVolumeItem {
+  muscle_group_zh: string;
+  muscle_group_en: string;
+  weekly_mrv_sets: string; // 10-20
+  frequency_per_week: string; // 2-3x
+  stretch_loaded_exercise: string;
+  rep_range: string;
+  rir_recommendation: string;
+  biomechanical_note: string;
+}
+
+export interface FatLossMetabolismStep {
+  step_number: number;
+  stage_name_zh: string;
+  stage_name_en: string;
+  biochemical_enzymes: string[];
+  endocrine_regulators: string;
+  detailed_process_zh: string;
+  inhibition_factors_zh: string;
+  actionable_strategy_zh: string;
+}
+
+export interface BodyRecompCandidate {
+  phenotype_zh: string;
+  phenotype_en: string;
+  physiological_basis_zh: string;
+  calorie_strategy_zh: string;
+  protein_requirement_zh: string;
+  training_focus_zh: string;
+  expected_timeline_zh: string;
+}
 
 export interface ObesityDrugReview {
   id: string;

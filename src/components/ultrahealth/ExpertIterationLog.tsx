@@ -19,7 +19,7 @@ export const ExpertIterationLog: React.FC = () => {
               <span>跨學科 29 席理事會 · 7 次深度會議迭代紀錄</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">
-              打造最優質、實用、有手就能做的「個人超健康方法論」
+              打造最優質、實用、有手就能做的「健康生活方法論」
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
               匯聚 <span className="font-semibold text-amber-600 dark:text-amber-400">均一教育平台核心團隊</span>、
