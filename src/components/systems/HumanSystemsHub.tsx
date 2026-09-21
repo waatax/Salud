@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HUMAN_SYSTEMS } from '../../data/humanSystemsData';
 import { HumanSystemId, HumanSystem } from '../../types';
 import { SystemSchematicFigure } from './SystemSchematicFigure';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
 import { LatestEvidenceStrip } from '../meta/LatestEvidenceStrip';
+import { SystemDeepDiveView } from './SystemDeepDiveView';
+import { getDeepDive } from '../../data/systems';
 import {
   Utensils,
   Wind,
@@ -27,13 +29,31 @@ interface Props {
   initialSystemId?: HumanSystemId;
 }
 
+/** Read the system id out of a `#systems/<id>` hash so deep links land on the right system. */
+const systemIdFromHash = (fallback: HumanSystemId): HumanSystemId => {
+  const hash = window.location.hash.replace('#', '');
+  const sub = hash.startsWith('systems/') ? hash.slice('systems/'.length) : '';
+  return HUMAN_SYSTEMS.some((s) => s.id === sub) ? (sub as HumanSystemId) : fallback;
+};
+
 export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive' }) => {
   const { language } = useLanguage();
   const nav = useNavigation();
-  const [selectedSystemId, setSelectedSystemId] = useState<HumanSystemId>(initialSystemId);
+  const [selectedSystemId, setSelectedSystemId] = useState<HumanSystemId>(() =>
+    systemIdFromHash(initialSystemId)
+  );
+
+  useEffect(() => {
+    const onHash = () => setSelectedSystemId((prev) => systemIdFromHash(prev));
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
   const [activeTab, setActiveTab] = useState<'mechanisms' | 'kps' | 'pathologies' | 'red_flags' | 'best_practices' | 'citations'>('mechanisms');
 
   const currentSystem = HUMAN_SYSTEMS.find((s) => s.id === selectedSystemId) || HUMAN_SYSTEMS[0];
+  // Systems with authored v3 content get the full deep dive; the rest keep the legacy
+  // two-column dossier until their content is written.
+  const deepDive = getDeepDive(selectedSystemId);
 
   const getSystemIcon = (id: HumanSystemId) => {
     switch (id) {
@@ -125,6 +145,10 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
       </div>
 
       {/* ── System Detail Stage (Split 2-Column Responsive Layout) ── */}
+      {deepDive ? (
+        <SystemDeepDiveView data={deepDive} />
+      ) : (
+      <>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Interactive Vector Schematic Figure */}
         <div className="lg:col-span-5 space-y-4">
@@ -504,6 +528,8 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           )}
         </div>
       </div>
+      </>
+      )}
 
       {/* ── Action Footprint: Link into Diet, Exercise & Synergy ── */}
       <div className="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-r from-slate-100 via-white to-salud-cyan/10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
