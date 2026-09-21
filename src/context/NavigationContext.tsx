@@ -5,6 +5,8 @@ import { CHAPTER_W_PAGES } from '../data/chapterW';
 import { CHAPTER_O_PAGES } from '../data/chapterO';
 import { CHAPTER_A_PAGES } from '../data/chapterA';
 
+export type MetaView = 'about' | 'evidence' | null;
+
 export interface NavigationContextProps {
   activePillar: HealthPillar;
   setActivePillar: (pillar: HealthPillar) => void;
@@ -20,6 +22,9 @@ export interface NavigationContextProps {
   setIsCouncilEvidenceView: (isCouncil: boolean) => void;
   isSynergyView: boolean;
   setIsSynergyView: (isSynergy: boolean) => void;
+  /** Secondary, non-health pages (project governance & evidence method). Null = a health pillar is showing. */
+  metaView: MetaView;
+  setMetaView: (view: MetaView) => void;
   selectedCouncilExpertId: string;
   setSelectedCouncilExpertId: (id: string) => void;
   exerciseSubTab: SportsDiscipline;
@@ -32,8 +37,16 @@ export interface NavigationContextProps {
   selectPage: (pageId: string) => void;
   openCouncilEvidence: (expertId?: string) => void;
   openSynergy: () => void;
+  openMeta: (view: Exclude<MetaView, null>) => void;
   backToPatterns: () => void;
   toggleMobileSidebar: () => void;
+
+  /**
+   * The pillar navigation surfaces should mark as current. Null while a secondary view
+   * (about, evidence, synergy, best-practice library) is showing, so the chrome does not
+   * claim the reader is inside a health topic they have navigated away from.
+   */
+  highlightedPillar: HealthPillar | null;
 
   currentChapter: typeof CHAPTERS[number];
   pagesForCurrent: any[];
@@ -50,6 +63,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const [activePageId, setActivePageId] = useState<string>('PAGE-W-01');
   const [isCouncilEvidenceView, setIsCouncilEvidenceView] = useState<boolean>(false);
   const [isSynergyView, setIsSynergyView] = useState<boolean>(false);
+  const [metaView, setMetaView] = useState<MetaView>(null);
   const [selectedCouncilExpertId, setSelectedCouncilExpertId] = useState<string>('EC-03');
   const [exerciseSubTab, setExerciseSubTab] = useState<SportsDiscipline>('PHYSIOLOGY');
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
@@ -57,6 +71,20 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
+      // Secondary governance pages are matched first and short-circuit pillar routing.
+      if (hash === 'about' || hash === 'governance' || hash === 'council') {
+        setMetaView('about');
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        return;
+      }
+      if (hash === 'evidence' || hash === 'sources') {
+        setMetaView('evidence');
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        return;
+      }
+      setMetaView(null);
       if (!hash || hash === 'systems' || hash.startsWith('systems/')) {
         setIsSynergyView(false);
         setIsCouncilEvidenceView(false);
@@ -178,6 +206,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   }, []);
 
   const openCouncilEvidence = (expertId?: string) => {
+    setMetaView(null);
     if (expertId) {
       setSelectedCouncilExpertId(expertId);
       window.location.hash = `council-evidence/${expertId}`;
@@ -190,7 +219,17 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const openMeta = (view: Exclude<MetaView, null>) => {
+    setMetaView(view);
+    setIsCouncilEvidenceView(false);
+    setIsSynergyView(false);
+    window.location.hash = view;
+    setIsMobileSidebarOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const openSynergy = () => {
+    setMetaView(null);
     setIsCouncilEvidenceView(false);
     setIsSynergyView(true);
     window.location.hash = 'synergy';
@@ -199,6 +238,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const selectPillar = (pillar: HealthPillar) => {
+    setMetaView(null);
     setIsCouncilEvidenceView(false);
     setIsSynergyView(false);
     setActivePillar(pillar);
@@ -215,6 +255,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const selectChapter = (chId: string) => {
+    setMetaView(null);
     setIsCouncilEvidenceView(false);
     setIsSynergyView(false);
     setActivePillar('diet');
@@ -235,6 +276,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const selectPage = (pageId: string) => {
+    setMetaView(null);
     setIsCouncilEvidenceView(false);
     setIsSynergyView(false);
     setActivePillar('diet');
@@ -247,6 +289,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const backToPatterns = () => {
+    setMetaView(null);
     setIsCouncilEvidenceView(false);
     setIsSynergyView(false);
     setActivePillar('diet');
@@ -259,6 +302,9 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const toggleMobileSidebar = () => {
     setIsMobileSidebarOpen(prev => !prev);
   };
+
+  const highlightedPillar: HealthPillar | null =
+    metaView || isSynergyView || isCouncilEvidenceView ? null : activePillar;
 
   const currentChapter = CHAPTERS.find((c) => c.id === currentChapterId) || CHAPTERS[0];
   const pagesForCurrent =
@@ -286,6 +332,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     setIsCouncilEvidenceView,
     isSynergyView,
     setIsSynergyView,
+    metaView,
+    setMetaView,
     selectedCouncilExpertId,
     setSelectedCouncilExpertId,
     exerciseSubTab,
@@ -298,9 +346,11 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     selectPage,
     openCouncilEvidence,
     openSynergy,
+    openMeta,
     backToPatterns,
     toggleMobileSidebar,
 
+    highlightedPillar,
     currentChapter,
     pagesForCurrent,
     currentPage,

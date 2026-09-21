@@ -22,13 +22,10 @@ import { UltraHealthHub } from '../ultrahealth/UltraHealthHub';
 import { ObesityHub } from '../pillars/ObesityHub';
 import { LongevityHub } from '../pillars/LongevityHub';
 import { CardiometabolicHub } from '../pillars/CardiometabolicHub';
-import { ExpertZoneSection } from '../council/ExpertZoneSection';
+import { SiteFooter } from './SiteFooter';
 import { CHAPTERS } from '../../data/chapters';
 
 // Lazy-loaded heavy council governance and screening modals (Round 3 optimization)
-const ExpertCouncilModal = lazy(() =>
-  import('../council/ExpertCouncilModal').then((m) => ({ default: m.ExpertCouncilModal }))
-);
 const ExpertBestPracticeView = lazy(() =>
   import('../council/ExpertBestPracticeView').then((m) => ({ default: m.ExpertBestPracticeView }))
 );
@@ -47,6 +44,12 @@ const KnowledgeGraph = lazy(() =>
 const CrossPillarSynergy = lazy(() =>
   import('../hub/CrossPillarSynergy').then((m) => ({ default: m.CrossPillarSynergy }))
 );
+const AboutGovernancePage = lazy(() =>
+  import('../meta/AboutGovernancePage').then((m) => ({ default: m.AboutGovernancePage }))
+);
+const EvidenceLibraryPage = lazy(() =>
+  import('../meta/EvidenceLibraryPage').then((m) => ({ default: m.EvidenceLibraryPage }))
+);
 
 export function AppShell() {
   const {
@@ -57,6 +60,8 @@ export function AppShell() {
     activePageId,
     isCouncilEvidenceView,
     isSynergyView,
+    metaView,
+    highlightedPillar,
     selectedCouncilExpertId,
     exerciseSubTab,
     isMobileSidebarOpen,
@@ -79,7 +84,7 @@ export function AppShell() {
       <ReadingProgressBar />
       
       <Header 
-        activePillar={activePillar} 
+        activePillar={highlightedPillar} 
         onSelectPillar={selectPillar} 
         isDark={isDark} 
         onToggleTheme={toggleTheme} 
@@ -98,7 +103,7 @@ export function AppShell() {
           <div className="fixed inset-0 z-50 flex lg:hidden bg-black/80 backdrop-blur-sm animate-fade-in">
             <div className="w-72 h-full bg-salud-light-surface dark:bg-salud-dark-surface p-4 overflow-y-auto border-r border-salud-light-border dark:border-salud-dark-border">
               <div className="flex justify-between items-center pb-3 border-b border-salud-light-border dark:border-salud-dark-border mb-4">
-                <span className="font-display font-bold text-sm text-slate-800 dark:text-slate-100">Salud 四大支柱導航</span>
+                <span className="font-display font-bold text-sm text-slate-800 dark:text-slate-100">Salud 健康主題</span>
                 <button onClick={() => toggleMobileSidebar()} className="p-1 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white">✕</button>
               </div>
               <Sidebar />
@@ -112,7 +117,18 @@ export function AppShell() {
           <Breadcrumb />
           
           {/* Content routing */}
-          {isSynergyView ? (
+          {metaView ? (
+            <Suspense
+              fallback={
+                <div className="py-16 text-center font-mono text-xs text-slate-500">
+                  <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin mx-auto mb-2" />
+                  <span>載入中…</span>
+                </div>
+              }
+            >
+              {metaView === 'about' ? <AboutGovernancePage /> : <EvidenceLibraryPage />}
+            </Suspense>
+          ) : isSynergyView ? (
             <Suspense
               fallback={
                 <div className="py-16 text-center font-mono text-xs text-slate-500">
@@ -128,7 +144,7 @@ export function AppShell() {
               fallback={
                 <div className="py-16 text-center font-mono text-xs text-slate-500">
                   <div className="w-8 h-8 rounded-full border-2 border-nature-amber-500 border-t-transparent animate-spin mx-auto mb-2" />
-                  <span>載入 24 席專家治理架構與實證庫...</span>
+                  <span>載入分科實證庫...</span>
                 </div>
               }
             >
@@ -161,7 +177,6 @@ export function AppShell() {
                       pages={pagesForCurrent}
                       onStartReading={selectPage}
                       onSelectPage={selectPage}
-                      onOpenCouncil={() => openModal('council')}
                     />
                   ) : currentPage ? (
                     <KnowledgePage page={currentPage} onNavigatePage={selectPage} />
@@ -176,15 +191,12 @@ export function AppShell() {
               {activePillar === 'mental' && <MentalHealthHub />}
             </>
           )}
-
-          {/* ── 最下方的專家專區 (Centralized Expert Zone & Registry) ── */}
-          {!isCouncilEvidenceView && !isSynergyView && (
-            <ExpertZoneSection onOpenBestPractice={openCouncilEvidence} />
-          )}
+          <SiteFooter />
         </main>
 
         {/* Desktop Context Inspector */}
-        {!isCouncilEvidenceView &&
+        {!metaView &&
+          !isCouncilEvidenceView &&
           !isSynergyView &&
           activePillar === 'diet' &&
           dietView === 'chapter' &&
@@ -197,21 +209,13 @@ export function AppShell() {
       </div>
 
       <MobileNav
-        activePillar={activePillar}
+        activePillar={highlightedPillar}
         onSelectPillar={selectPillar}
         onOpenEmergencyModal={() => openModal('emergency')}
-        onOpenCouncil={() => openModal('council')}
       />
 
       {/* All Lazy-loaded Modals wrapped in Suspense */}
       <Suspense fallback={null}>
-        {isOpen('council') && (
-          <ExpertCouncilModal
-            isOpen={true}
-            onClose={() => closeModal('council')}
-            onOpenBestPractice={openCouncilEvidence}
-          />
-        )}
         {isOpen('emergency') && (
           <EmergencyModal isOpen={true} onClose={() => closeModal('emergency')} />
         )}

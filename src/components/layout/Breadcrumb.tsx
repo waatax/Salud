@@ -12,12 +12,17 @@ export function Breadcrumb() {
     currentPage,
     isCouncilEvidenceView,
     isSynergyView,
+    metaView,
     setDietView,
     setViewMode,
     setIsCouncilEvidenceView,
     setIsSynergyView,
     selectPillar,
   } = useNavigation();
+
+  // Secondary governance pages carry their own back-link and heading, so the
+  // pillar breadcrumb would misreport where the reader is.
+  if (metaView) return null;
 
   return (
     <nav className="mb-5 flex items-center justify-between font-mono text-xs text-slate-500 dark:text-slate-400 border-b border-salud-light-border/60 dark:border-salud-dark-border/40 pb-2">
@@ -37,7 +42,7 @@ export function Breadcrumb() {
             首頁
           </button>
           <span>/</span>
-          <span className="font-bold text-slate-800 dark:text-slate-100">24 席專家治理架構</span>
+          <span className="font-bold text-slate-800 dark:text-slate-100">實證庫</span>
           <span>/</span>
           <span className="text-nature-amber-600 dark:text-nature-amber-400 font-bold">50+ 篇期刊實證與 Best Practice</span>
         </div>

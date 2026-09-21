@@ -4,6 +4,7 @@ import { HumanSystemId, HumanSystem } from '../../types';
 import { SystemSchematicFigure } from './SystemSchematicFigure';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
+import { LatestEvidenceStrip } from '../meta/LatestEvidenceStrip';
 import {
   Utensils,
   Wind,
@@ -73,6 +74,9 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           <Stethoscope className="w-64 h-64 text-slate-900 dark:text-white" />
         </div>
       </div>
+
+      {/* ── Newest primary sources, ahead of the system picker ── */}
+      <LatestEvidenceStrip />
 
       {/* ── 8 Systems Quick Switcher Grid ── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
@@ -162,30 +166,23 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
             </div>
           </div>
 
-          {/* Expert Governance Callout */}
-          <div className="p-4 rounded-2xl border border-nature-amber-200/80 dark:border-nature-amber-800/40 bg-nature-amber-50/60 dark:bg-nature-amber-950/20 flex items-center justify-between">
-            <div className="space-y-0.5">
-              <span className="text-[10px] font-mono text-nature-amber-700 dark:text-nature-amber-400 font-bold block">
-                專科委員會治理審核 (Clinical Reviewers)
+          {/* Evidence callout — what backs this system, not who signed it off */}
+          <div className="p-4 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/40 bg-emerald-50/60 dark:bg-emerald-950/20 flex items-center justify-between gap-3">
+            <div className="space-y-0.5 min-w-0">
+              <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-bold block">
+                {language === 'zh-TW' ? '本系統的實證基礎' : 'Evidence behind this system'}
               </span>
-              <div className="flex items-center gap-1.5 pt-0.5">
-                {currentSystem.expert_council_reviewers.map((expId) => (
-                  <span
-                    key={expId}
-                    onClick={() => nav.openCouncilEvidence(expId)}
-                    className="cursor-pointer hover:underline font-mono text-xs font-bold text-slate-800 dark:text-slate-200"
-                  >
-                    {expId}
-                  </span>
-                ))}
-                <span className="text-xs text-slate-500">共同終審背書</span>
-              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300">
+                {language === 'zh-TW'
+                  ? `引用 ${currentSystem.research_citations.length} 篇原始文獻，並經 ${currentSystem.expert_council_reviewers.length} 位專科審核者覆核。`
+                  : `${currentSystem.research_citations.length} primary sources, reviewed by ${currentSystem.expert_council_reviewers.length} specialists.`}
+              </p>
             </div>
             <button
-              onClick={() => nav.openCouncilEvidence(currentSystem.expert_council_reviewers[0])}
-              className="btn-tactile px-2.5 py-1.5 rounded-xl text-[11px] font-mono font-bold bg-white dark:bg-slate-900 border border-nature-amber-300 dark:border-nature-amber-700 text-nature-amber-800 dark:text-nature-amber-300 flex items-center gap-1"
+              onClick={() => setActiveTab('citations')}
+              className="btn-tactile px-2.5 py-1.5 rounded-xl text-[11px] font-mono font-bold bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300 flex items-center gap-1 shrink-0"
             >
-              <span>查看證書</span>
+              <span>{language === 'zh-TW' ? '看文獻' : 'Sources'}</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>

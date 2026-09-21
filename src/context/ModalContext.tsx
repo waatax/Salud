@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-export type ModalId = 'council' | 'emergency' | 'auditC' | 'cardioHub' | 'graph';
+export type ModalId = 'emergency' | 'auditC' | 'cardioHub' | 'graph';
 
 interface ModalContextType {
   openModal: (id: ModalId) => void;

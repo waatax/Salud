@@ -35,7 +35,6 @@ interface Props {
   pages: KnowledgePage[];
   chapterId: string;
   onSelectPage: (pageId: string) => void;
-  onOpenCouncil?: () => void;
 }
 
 // 4 大臨床專科分類定義
@@ -177,7 +176,6 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
   pages,
   chapterId,
   onSelectPage,
-  onOpenCouncil
 }) => {
   const { language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');

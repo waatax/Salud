@@ -94,9 +94,15 @@ export const EXPERT_CATEGORIES = [
 
 interface Props {
   onOpenBestPractice?: (expertId: string) => void;
+  /**
+   * True when rendered inside the About page, which already supplies its own
+   * heading and charter button. Drops the standalone top border and spacing that
+   * this section needed back when it was appended to the bottom of content pages.
+   */
+  embedded?: boolean;
 }
 
-export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice }) => {
+export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedded = false }) => {
   const { language } = useLanguage();
   const { openCouncilEvidence } = useNavigation();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -157,7 +163,12 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice }) => {
   };
 
   return (
-    <section id="expert-zone" className="mt-16 pt-12 border-t-2 border-emerald-100 dark:border-emerald-950/60 font-sans space-y-8">
+    <section
+      id="expert-zone"
+      className={`font-sans space-y-8 ${
+        embedded ? '' : 'mt-16 pt-12 border-t-2 border-emerald-100 dark:border-emerald-950/60'
+      }`}
+    >
       {/* ── 頂部專區旗艦標題 ── */}
       <div className="p-6 sm:p-8 rounded-3xl border border-emerald-200/90 dark:border-emerald-900/60 bg-gradient-to-br from-emerald-50/80 via-white to-teal-50/40 dark:from-[#0F1A15] dark:via-[#141F1A] dark:to-slate-950 shadow-sm relative overflow-hidden backdrop-blur-sm">
         <div className="absolute -top-16 -right-16 w-80 h-80 bg-emerald-400/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />

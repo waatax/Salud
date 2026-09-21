@@ -36,7 +36,7 @@ export const UltraHealthHub: React.FC = () => {
             </h1>
 
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              拒絕「假健康」焦慮與「知易行難」。由 40 席跨學科專家理事會聯席審定，為每位追求極致狀態的自律者打造個人化生活醫學藍圖！結合 <span className="text-emerald-800 dark:text-emerald-400 font-bold">個人客製藍圖診斷</span>、<span className="text-teal-800 dark:text-cyan-400 font-bold">24H 晝夜作息協議</span>、
+              拒絕「假健康」焦慮與「知易行難」。為每位追求極致狀態的自律者打造個人化生活醫學藍圖，結合 <span className="text-emerald-800 dark:text-emerald-400 font-bold">個人客製藍圖診斷</span>、<span className="text-teal-800 dark:text-cyan-400 font-bold">24H 晝夜作息協議</span>、
               <span className="text-emerald-800 dark:text-emerald-400 font-bold">14天原子微習慣</span>、
               <span className="text-rose-800 dark:text-rose-400 font-bold">物治動力鏈自救動作</span> 與 
               <span className="text-indigo-800 dark:text-indigo-400 font-bold">均一自適應精熟學習</span> 的終身健康生活實踐系統。
@@ -50,8 +50,8 @@ export const UltraHealthHub: React.FC = () => {
               <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">個人實踐模組</div>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
-              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-cyan-400">40 席</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">專家審定指引</div>
+              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-cyan-400">14 天</div>
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">原子微習慣週期</div>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
               <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">24H</div>

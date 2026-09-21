@@ -1,36 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Chapter, KnowledgePage, HealthPillar } from '../../types';
+import { KnowledgePage, HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal } from '../../context/ModalContext';
 import { FontSizeToggle } from '../common/FontSizeToggle';
 import {
-  Utensils,
-  Activity,
-  Moon,
-  Pill,
-  Droplets,
-  Flame,
-  Wine,
+  PILLAR_NAV,
+  PILLAR_GROUPS,
+  DIET_SUB_NAV,
+  EXERCISE_SUB_NAV,
+  PillarNavItem,
+} from '../../config/navigation';
+import {
   ChevronDown,
   ChevronRight,
-  ShieldCheck,
   HeartPulse,
   ClipboardCheck,
   AlertOctagon,
-  BookOpen,
   PanelLeftClose,
   PanelLeft,
-  Sparkles,
   Check,
-  Wind,
-  Scale,
-  Hourglass,
-  Award,
 } from 'lucide-react';
 
 interface Props {
-  activePillar?: HealthPillar;
+  activePillar?: HealthPillar | null;
   onSelectPillar?: (pillar: HealthPillar) => void;
   currentChapterId?: string;
   activePageId?: string;
@@ -41,21 +34,30 @@ interface Props {
   chapterAPages?: KnowledgePage[];
   onOpenAuditC?: () => void;
   onOpenCardioHub?: () => void;
-  onOpenSupplements?: () => void;
-  onOpenCouncil?: () => void;
-  onOpenCouncilEvidence?: (expertId?: string) => void;
   onOpenEmergencyModal?: () => void;
 }
 
+const CHAPTER_IDS = [
+  { id: 'W', label_zh: '水分與水合', label_en: 'Water & hydration' },
+  { id: 'O', label_zh: '油脂與烹調', label_en: 'Fats & cooking' },
+  { id: 'A', label_zh: '酒精與代謝', label_en: 'Alcohol & metabolism' },
+];
+
+/**
+ * Sidebar — secondary navigation: the topic tree plus the reader-facing clinical tools.
+ *
+ * v2.0 renders the pillar list from config/navigation.ts instead of nine hand-written
+ * blocks, and no longer carries the four expert-council entries. Those described who
+ * reviewed the content, not what the reader can read, so they moved to the footer.
+ */
 export const Sidebar: React.FC<Props> = (props) => {
   const { t, language } = useLanguage();
   const nav = useNavigation();
   const modal = useModal();
+  const zh = language === 'zh-TW';
 
-  // Desktop collapsed mode (w-64 vs w-16)
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [expandedDietSub, setExpandedDietSub] = useState(true);
-  const [sidebarCategory, setSidebarCategory] = useState<string>('all');
+  const [expandedPillar, setExpandedPillar] = useState<HealthPillar | null>('diet');
   const [completedList, setCompletedList] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('salud_completed_pages');
@@ -64,40 +66,20 @@ export const Sidebar: React.FC<Props> = (props) => {
       return [];
     }
   });
-  const [userXP, setUserXP] = useState<number>(() => {
-    try {
-      const saved = localStorage.getItem('salud_user_xp');
-      return saved ? parseInt(saved, 10) : 120;
-    } catch {
-      return 120;
-    }
-  });
-  const [streakDays, setStreakDays] = useState<number>(() => {
-    try {
-      const saved = localStorage.getItem('salud_streak_days');
-      return saved ? parseInt(saved, 10) : 3;
-    } catch {
-      return 3;
-    }
-  });
 
   useEffect(() => {
     const handleStorage = () => {
       try {
         const saved = localStorage.getItem('salud_completed_pages');
         if (saved) setCompletedList(JSON.parse(saved));
-        const xpSaved = localStorage.getItem('salud_user_xp');
-        if (xpSaved) setUserXP(parseInt(xpSaved, 10));
-        const streakSaved = localStorage.getItem('salud_streak_days');
-        if (streakSaved) setStreakDays(parseInt(streakSaved, 10));
       } catch {}
     };
     window.addEventListener('storage', handleStorage);
     return () => window.removeEventListener('storage', handleStorage);
   }, []);
 
-  // Fallback to NavigationContext / ModalContext when props are omitted
-  const activePillar = props.activePillar ?? nav.activePillar;
+  // Fall back to context when props are omitted
+  const activePillar = props.activePillar ?? nav.highlightedPillar;
   const onSelectPillar = props.onSelectPillar ?? nav.selectPillar;
   const currentChapterId = props.currentChapterId ?? nav.currentChapterId;
   const activePageId = props.activePageId ?? nav.activePageId;
@@ -105,8 +87,6 @@ export const Sidebar: React.FC<Props> = (props) => {
   const onSelectPage = props.onSelectPage ?? nav.selectPage;
   const onOpenAuditC = props.onOpenAuditC ?? (() => modal.openModal('auditC'));
   const onOpenCardioHub = props.onOpenCardioHub ?? (() => modal.openModal('cardioHub'));
-  const onOpenCouncil = props.onOpenCouncil ?? (() => modal.openModal('council'));
-  const onOpenCouncilEvidence = props.onOpenCouncilEvidence ?? nav.openCouncilEvidence;
   const onOpenEmergencyModal = props.onOpenEmergencyModal ?? (() => modal.openModal('emergency'));
 
   const pagesForCurrent =
@@ -120,17 +100,134 @@ export const Sidebar: React.FC<Props> = (props) => {
         : []
       : nav.pagesForCurrent;
 
+  const isPillarActive = (item: PillarNavItem) =>
+    activePillar === item.id || (item.id === 'diet' && activePillar === 'supplements');
+
+  const hasSubNav = (id: HealthPillar) => id === 'diet' || id === 'exercise';
+
+  const renderPillar = (item: PillarNavItem) => {
+    const Icon = item.icon;
+    const isActive = isPillarActive(item);
+    const isExpanded = expandedPillar === item.id;
+
+    return (
+      <div key={item.id} className="space-y-1">
+        <div
+          className={`btn-tactile w-full rounded-xl border transition-all flex items-center ${
+            isActive
+              ? 'border-emerald-400 dark:border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold shadow-xs'
+              : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+          }`}
+        >
+          <button
+            onClick={() => onSelectPillar(item.id)}
+            className={`flex-1 min-w-0 p-2.5 text-left flex items-center gap-2 ${
+              isCollapsed ? 'justify-center px-2' : ''
+            }`}
+            title={zh ? item.label_zh : item.label_en}
+          >
+            <Icon
+              className={`w-4 h-4 shrink-0 ${
+                isActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'
+              }`}
+            />
+            {!isCollapsed && (
+              <span className="truncate text-xs">{zh ? item.label_zh : item.label_en}</span>
+            )}
+          </button>
+
+          {!isCollapsed &&
+            (hasSubNav(item.id) ? (
+              <button
+                onClick={() => setExpandedPillar(isExpanded ? null : item.id)}
+                className="p-2 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-300 rounded-lg shrink-0"
+                aria-label={zh ? '展開子項目' : 'Expand sub-topics'}
+              >
+                {isExpanded ? (
+                  <ChevronDown className="w-3.5 h-3.5" />
+                ) : (
+                  <ChevronRight className="w-3.5 h-3.5" />
+                )}
+              </button>
+            ) : (
+              <span className="pr-2.5 text-[10px] font-mono text-slate-400 dark:text-slate-500 shrink-0">
+                {zh ? item.blurb_zh : item.blurb_en}
+              </span>
+            ))}
+        </div>
+
+        {/* Sub-navigation */}
+        {!isCollapsed && isExpanded && item.id === 'diet' && (
+          <div className="pl-4 space-y-0.5 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 py-1">
+            {DIET_SUB_NAV.map((sub) => (
+              <button
+                key={sub.hash}
+                onClick={() => {
+                  if (sub.hash === 'supplements') {
+                    onSelectPillar('supplements');
+                  } else {
+                    onSelectPillar('diet');
+                    window.location.hash = sub.hash;
+                  }
+                }}
+                className="btn-tactile w-full p-1.5 rounded-lg text-left text-[11px] flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300"
+              >
+                <span className="text-emerald-500 font-bold">·</span>
+                <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
+              </button>
+            ))}
+            {CHAPTER_IDS.map((ch) => (
+              <button
+                key={ch.id}
+                onClick={() => onSelectChapter(ch.id)}
+                className={`btn-tactile w-full p-1.5 rounded-lg text-left text-[11px] flex items-center gap-2 ${
+                  currentChapterId === ch.id && nav.dietView === 'chapter'
+                    ? 'text-emerald-700 dark:text-emerald-300 font-bold'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300'
+                }`}
+              >
+                <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                  {ch.id}
+                </span>
+                <span className="truncate">{zh ? ch.label_zh : ch.label_en}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {!isCollapsed && isExpanded && item.id === 'exercise' && (
+          <div className="pl-4 space-y-0.5 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 py-1">
+            {EXERCISE_SUB_NAV.map((sub) => (
+              <button
+                key={sub.hash}
+                onClick={() => {
+                  window.location.hash = sub.hash;
+                }}
+                className="btn-tactile w-full p-1.5 rounded-lg text-left text-[11px] flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300"
+              >
+                <span className="text-emerald-500 font-bold">·</span>
+                <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const groupOrder: PillarNavItem['group'][] = ['foundation', 'goals', 'daily'];
+
   return (
     <aside
       className={`shrink-0 border-r border-salud-light-border/80 dark:border-salud-dark-border/80 bg-white/70 dark:bg-salud-dark-surface/50 p-4 space-y-5 overflow-y-auto text-xs font-sans transition-all duration-300 ${
         isCollapsed ? 'w-16 items-center px-2' : 'w-64'
       }`}
     >
-      {/* ── Top Collapse Toggle (Desktop only) ── */}
+      {/* Collapse toggle (desktop) */}
       <div className="hidden lg:flex items-center justify-between pb-1 border-b border-slate-200/60 dark:border-slate-800/60">
         {!isCollapsed && (
           <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-bold">
-            導航目錄 (Nav)
+            {zh ? '健康主題' : 'Topics'}
           </span>
         )}
         <button
@@ -138,467 +235,38 @@ export const Sidebar: React.FC<Props> = (props) => {
           className={`p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ${
             isCollapsed ? 'mx-auto' : ''
           }`}
-          title={isCollapsed ? '展開側邊欄' : '收合側邊欄'}
-          aria-label={isCollapsed ? '展開側邊欄' : '收合側邊欄'}
+          title={isCollapsed ? (zh ? '展開側邊欄' : 'Expand') : zh ? '收合側邊欄' : 'Collapse'}
+          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {isCollapsed ? <PanelLeft className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
         </button>
       </div>
 
-      {/* ── Health Pillars Selection ── */}
-      <div className="space-y-1.5">
-        {!isCollapsed && (
-          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider px-1 block font-bold">
-            健康核心架構 (Health Pillars)
-          </span>
-        )}
-
-        {/* 0. Human Organ Systems (Primary Home) */}
-        <div className="space-y-1">
-          <button
-            onClick={() => onSelectPillar('systems')}
-            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'systems'
-                ? 'border-salud-cyan dark:border-salud-cyan bg-salud-cyan/15 dark:bg-salud-cyan/20 text-slate-900 dark:text-salud-cyan font-bold shadow-sm'
-                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-            } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '人體系統' : undefined}
-          >
-            <div className="flex items-center gap-2">
-              <HeartPulse
-                className={`w-4 h-4 ${
-                  activePillar === 'systems' ? 'text-salud-cyan' : 'text-slate-400'
-                }`}
-              />
-              {!isCollapsed && <span className="text-xs">人體系統 (首頁)</span>}
-            </div>
+      {/* Grouped topic tree */}
+      {groupOrder.map((group) => {
+        const items = PILLAR_NAV.filter((p) => p.group === group);
+        if (!items.length) return null;
+        return (
+          <div key={group} className="space-y-1.5">
             {!isCollapsed && (
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40 font-bold">
-                8大系統
+              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider px-1 block font-bold">
+                {zh ? PILLAR_GROUPS[group].title_zh : PILLAR_GROUPS[group].title_en}
               </span>
             )}
-          </button>
-        </div>
-
-        {/* 0.5. Personal Ultra-Health Project (New Flagship) */}
-        <div className="space-y-1">
-          <button
-            onClick={() => onSelectPillar('ultrahealth')}
-            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'ultrahealth'
-                ? 'border-amber-500 dark:border-amber-500 bg-amber-500/15 dark:bg-amber-500/20 text-slate-900 dark:text-amber-300 font-bold shadow-sm'
-                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-            } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '健康生活' : undefined}
-          >
-            <div className="flex items-center gap-2">
-              <Sparkles
-                className={`w-4 h-4 ${
-                  activePillar === 'ultrahealth' ? 'text-amber-500 animate-pulse' : 'text-amber-500/70'
-                }`}
-              />
-              {!isCollapsed && <span className="text-xs font-bold text-amber-700 dark:text-amber-300">✨ 健康生活</span>}
-            </div>
-            {!isCollapsed && (
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold">
-                生活藍圖
-              </span>
-            )}
-          </button>
-        </div>
-
-        {/* 0.8. Muscle Building & Fat Loss Pillar */}
-        <div className="space-y-1">
-          <button
-            onClick={() => onSelectPillar('obesity')}
-            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'obesity'
-                ? 'border-salud-cyan dark:border-salud-cyan bg-salud-cyan/15 dark:bg-salud-cyan/20 text-slate-900 dark:text-salud-cyan font-bold shadow-sm'
-                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-            } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '增肌減脂' : undefined}
-          >
-            <div className="flex items-center gap-2">
-              <Scale
-                className={`w-4 h-4 ${
-                  activePillar === 'obesity' ? 'text-salud-cyan' : 'text-slate-400'
-                }`}
-              />
-              {!isCollapsed && <span className="text-xs font-bold">增肌減脂</span>}
-            </div>
-            {!isCollapsed && (
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-salud-cyan/20 text-salud-cyan font-bold border border-salud-cyan/40">
-                增肌·減脂·雙軌
-              </span>
-            )}
-          </button>
-        </div>
-
-        {/* 0.9. Longevity & Anti-Aging Pillar */}
-        <div className="space-y-1">
-          <button
-            onClick={() => onSelectPillar('longevity')}
-            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'longevity'
-                ? 'border-indigo-500 dark:border-indigo-500 bg-indigo-500/15 dark:bg-indigo-500/20 text-slate-900 dark:text-indigo-300 font-bold shadow-sm'
-                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-            } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '抗老延壽' : undefined}
-          >
-            <div className="flex items-center gap-2">
-              <Hourglass
-                className={`w-4 h-4 ${
-                  activePillar === 'longevity' ? 'text-indigo-400' : 'text-slate-400'
-                }`}
-              />
-              {!isCollapsed && <span className="text-xs font-bold">抗老延壽</span>}
-            </div>
-            {!isCollapsed && (
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/40">
-                12標誌·時鐘
-              </span>
-            )}
-          </button>
-        </div>
-
-        {/* 0.95. Cardiometabolic Medicine Pillar */}
-        <div className="space-y-1">
-          <button
-            onClick={() => onSelectPillar('cardiometabolic')}
-            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'cardiometabolic'
-                ? 'border-emerald-500 dark:border-emerald-500 bg-emerald-500/15 dark:bg-emerald-500/20 text-slate-900 dark:text-emerald-300 font-bold shadow-sm'
-                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-            } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? '心血代謝' : undefined}
-          >
-            <div className="flex items-center gap-2">
-              <HeartPulse
-                className={`w-4 h-4 ${
-                  activePillar === 'cardiometabolic' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'
-                }`}
-              />
-              {!isCollapsed && <span className="text-xs font-bold">心血代謝</span>}
-            </div>
-            {!isCollapsed && (
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-500/40">
-                ApoB·722·CAC
-              </span>
-            )}
-          </button>
-        </div>
-
-        {/* 1. Diet & Nutrition Pillar (Contains Nutrients, Supplements, W, O, A) */}
-        <div className="space-y-1">
-          <button
-            onClick={() => onSelectPillar('diet')}
-            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'diet' || activePillar === 'supplements'
-                ? 'border-nature-amber-300 dark:border-nature-amber-700 bg-nature-amber-50 dark:bg-nature-amber-950/40 text-nature-amber-900 dark:text-nature-amber-200 font-bold shadow-sm'
-                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-            } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? t('pillar.diet') : undefined}
-          >
-            <div className="flex items-center gap-2">
-              <Utensils
-                className={`w-4 h-4 ${
-                  activePillar === 'diet' || activePillar === 'supplements' ? 'text-nature-amber-600 dark:text-nature-amber-400' : 'text-slate-400'
-                }`}
-              />
-              {!isCollapsed && <span className="text-xs">飲食營養</span>}
-            </div>
-            {!isCollapsed && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setExpandedDietSub(!expandedDietSub);
-                }}
-                className="p-1 hover:text-nature-amber-600 dark:hover:text-white rounded"
-                aria-label="展開飲食專章"
-              >
-                {expandedDietSub ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
-              </button>
-            )}
-          </button>
-
-          {/* Sub-tree of Diet & Nutrition */}
-          {!isCollapsed && expandedDietSub && (
-            <div className="pl-4 space-y-1 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 py-1">
-              <button
-                onClick={() => {
-                  onSelectPillar('diet');
-                  window.location.hash = 'diet/patterns';
-                }}
-                className="btn-tactile w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
-              >
-                <span className="text-nature-amber-600 font-bold">•</span>
-                <span className="truncate">各式飲食重點 (碳水/纖維/蛋白)</span>
-              </button>
-
-              <button
-                onClick={() => {
-                  onSelectPillar('supplements');
-                }}
-                className="btn-tactile w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
-              >
-                <Pill className="w-3.5 h-3.5 text-nature-green-600 dark:text-emerald-400" />
-                <span className="truncate">營養保健 (GRADE 實證)</span>
-              </button>
-
-              {[
-                {
-                  id: 'W',
-                  name: language === 'zh-TW' ? 'Chapter W · 水與體液' : 'Chapter W · Hydration',
-                  icon: Droplets,
-                  color: 'text-nature-sky-600 dark:text-nature-sky-400',
-                },
-                {
-                  id: 'O',
-                  name: language === 'zh-TW' ? 'Chapter O · 脂肪與油' : 'Chapter O · Fats & Oils',
-                  icon: Flame,
-                  color: 'text-nature-amber-600 dark:text-nature-amber-400',
-                },
-                {
-                  id: 'A',
-                  name: language === 'zh-TW' ? 'Chapter A · 酒精專章' : 'Chapter A · Alcohol',
-                  icon: Wine,
-                  color: 'text-purple-600 dark:text-purple-400',
-                },
-              ].map((ch) => {
-                const isSelected = activePillar === 'diet' && currentChapterId === ch.id;
-                const Icon = ch.icon;
-                return (
-                  <button
-                    key={ch.id}
-                    onClick={() => {
-                      onSelectPillar('diet');
-                      onSelectChapter(ch.id);
-                    }}
-                    className={`btn-tactile w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 ${
-                      isSelected
-                        ? 'bg-slate-100 dark:bg-slate-800 text-nature-amber-700 dark:text-nature-amber-300 font-bold shadow-sm'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-                    }`}
-                  >
-                    <Icon className={`w-3.5 h-3.5 ${ch.color}`} />
-                    <span className="truncate">{ch.name}</span>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </div>
-
-        {/* 2. Exercise & Movement Pillar */}
-        <div className="space-y-1">
-          <button
-            onClick={() => onSelectPillar('exercise')}
-            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-              activePillar === 'exercise'
-                ? 'border-nature-sky-300 dark:border-nature-sky-700 bg-nature-sky-50 dark:bg-nature-sky-950/40 text-nature-sky-900 dark:text-nature-sky-200 font-bold shadow-sm'
-                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-            } ${isCollapsed ? 'justify-center px-2' : ''}`}
-            title={isCollapsed ? t('pillar.exercise') : undefined}
-          >
-            <div className="flex items-center gap-2">
-              <Activity
-                className={`w-4 h-4 ${
-                  activePillar === 'exercise' ? 'text-nature-sky-600 dark:text-nature-sky-400' : 'text-slate-400'
-                }`}
-              />
-              {!isCollapsed && <span className="text-xs">{t('pillar.exercise')}</span>}
-            </div>
-            {!isCollapsed && (
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-nature-sky-100 dark:bg-nature-sky-900/60 text-nature-sky-800 dark:text-nature-sky-300 border border-nature-sky-200 dark:border-nature-sky-800/50">
-                運動科學
-              </span>
-            )}
-          </button>
-
-          {/* Sub-tree of Exercise & Sports Science */}
-          {!isCollapsed && (
-            <div className="pl-4 space-y-1 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 py-1">
-              {[
-                { id: 'exercise', name: language === 'zh-TW' ? '運動生理與心率' : 'Exercise Physiology', hash: 'exercise', color: 'text-nature-sky-600 dark:text-nature-sky-400' },
-                { id: 'exercise/running', name: language === 'zh-TW' ? '跑步運動科學' : 'Running Science', hash: 'exercise/running', color: 'text-nature-amber-600 dark:text-nature-amber-400' },
-                { id: 'exercise/cycling', name: language === 'zh-TW' ? '自行車功率科學' : 'Cycling Science', hash: 'exercise/cycling', color: 'text-blue-600 dark:text-blue-400' },
-                { id: 'exercise/mountaineering', name: language === 'zh-TW' ? '登山高海拔科學' : 'Mountaineering Science', hash: 'exercise/mountaineering', color: 'text-purple-600 dark:text-purple-400' },
-                { id: 'exercise/strength', name: language === 'zh-TW' ? '肌肉重力訓練' : 'Strength Training', hash: 'exercise/strength', color: 'text-nature-green-600 dark:text-nature-green-400' },
-                { id: 'exercise/mobility', name: language === 'zh-TW' ? '伸展柔軟度筋骨' : 'Mobility & Fascia', hash: 'exercise/mobility', color: 'text-teal-600 dark:text-teal-400' },
-                { id: 'exercise/badminton', name: language === 'zh-TW' ? '羽毛球專項科學' : 'Badminton Science', hash: 'exercise/badminton', color: 'text-nature-amber-600 dark:text-nature-amber-400' },
-                { id: 'exercise/table-tennis', name: language === 'zh-TW' ? '乒乓球專項科學' : 'Table Tennis Science', hash: 'exercise/table-tennis', color: 'text-rose-600 dark:text-rose-400' },
-                { id: 'exercise/pickleball', name: language === 'zh-TW' ? '匹克球專項科學' : 'Pickleball Science', hash: 'exercise/pickleball', color: 'text-teal-600 dark:text-teal-400' },
-              ].map((sub) => {
-                return (
-                  <button
-                    key={sub.id}
-                    onClick={() => {
-                      onSelectPillar('exercise');
-                      window.location.hash = sub.hash;
-                    }}
-                    className="btn-tactile w-full p-1.5 rounded-lg text-left font-mono text-[11px] transition-all flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
-                  >
-                    <span className={`text-[10px] font-bold ${sub.color}`}>•</span>
-                    <span className="truncate">{sub.name}</span>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </div>
-
-        {/* 3. Sleep & Recovery Pillar */}
-        <button
-          onClick={() => onSelectPillar('sleep')}
-          className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-            activePillar === 'sleep'
-              ? 'border-purple-300 dark:border-purple-700 bg-purple-50 dark:bg-purple-950/40 text-purple-900 dark:text-purple-200 font-bold shadow-sm'
-              : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-          } ${isCollapsed ? 'justify-center px-2' : ''}`}
-          title={isCollapsed ? t('pillar.sleep') : undefined}
-        >
-          <div className="flex items-center gap-2">
-            <Moon
-              className={`w-4 h-4 ${
-                activePillar === 'sleep' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-400'
-              }`}
-            />
-            {!isCollapsed && <span className="text-xs">{t('pillar.sleep')}</span>}
+            {items.map(renderPillar)}
           </div>
-          {!isCollapsed && (
-            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
-              Glymphatic
-            </span>
-          )}
-        </button>
+        );
+      })}
 
-        {/* 4. Mental Health & Breathwork Pillar */}
-        <button
-          onClick={() => onSelectPillar('mental')}
-          className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
-            activePillar === 'mental'
-              ? 'border-cyan-300 dark:border-cyan-700 bg-cyan-50 dark:bg-cyan-950/40 text-cyan-900 dark:text-cyan-200 font-bold shadow-sm'
-              : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-          } ${isCollapsed ? 'justify-center px-2' : ''}`}
-          title={isCollapsed ? '心理呼吸' : undefined}
-        >
-          <div className="flex items-center gap-2">
-            <Wind
-              className={`w-4 h-4 ${
-                activePillar === 'mental' ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-400'
-              }`}
-            />
-            {!isCollapsed && <span className="text-xs">心理與實證呼吸</span>}
-          </div>
-          {!isCollapsed && (
-            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-100 dark:bg-cyan-900/60 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800/50">
-              0.1 Hz
-            </span>
-          )}
-        </button>
-      </div>
-
-      {/* 醫學知識庫 (Medical Knowledge Base) */}
+      {/* Page list for the chapter currently being read */}
       {!isCollapsed && activePillar === 'diet' && nav.dietView === 'chapter' && pagesForCurrent.length > 0 && (
-        <div className="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-          <div className="flex items-center justify-between px-1 text-xs font-display font-bold text-slate-800 dark:text-slate-200">
-            <div className="flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5 text-nature-sky-600 dark:text-salud-cyan" />
-              <span>{t('sidebar.knowledge_base')}</span>
-            </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-nature-sky-100 dark:bg-nature-sky-950/60 text-nature-sky-700 dark:text-nature-sky-300 font-bold">
-              {completedList.filter((id) => pagesForCurrent.some((p) => p.id === id)).length}/{pagesForCurrent.length} 篇
-            </span>
-          </div>
-
-          <div className="text-[10px] font-mono text-slate-400 px-1 truncate">
-            Chapter {currentChapterId} · {currentChapterId === 'W' ? '水與體液平衡' : currentChapterId === 'O' ? '脂肪與食用油' : '酒精代謝毒理'}
-          </div>
-
-          {/* 學習段位與 XP 微型指示條 */}
-          <div className="flex items-center justify-between px-2 py-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 text-[10px] font-mono border border-slate-200/80 dark:border-slate-700/60 shadow-2xs">
-            <span className="flex items-center gap-1 font-bold text-amber-600 dark:text-salud-amber">
-              <Flame className="w-3 h-3 text-amber-500 fill-amber-500" />
-              <span>{streakDays} 天連續</span>
-            </span>
-            <span className="flex items-center gap-1 font-bold text-nature-sky-600 dark:text-salud-cyan">
-              <Sparkles className="w-3 h-3 text-nature-sky-500" />
-              <span>{userXP} XP</span>
-            </span>
-          </div>
-
-          {/* Mini Category Filter Chips */}
-          <div className="flex gap-1 overflow-x-auto pb-1 no-scrollbar text-[10px] font-mono px-1">
-            <button
-              onClick={() => setSidebarCategory('all')}
-              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
-                sidebarCategory === 'all'
-                  ? 'bg-nature-sky-500 text-white font-bold'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
-              }`}
-            >
-              全部
-            </button>
-            <button
-              onClick={() => setSidebarCategory('fluid-homeostasis')}
-              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
-                sidebarCategory === 'fluid-homeostasis'
-                  ? 'bg-sky-500 text-white font-bold'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
-              }`}
-            >
-              生理
-            </button>
-            <button
-              onClick={() => setSidebarCategory('hydration-guidelines')}
-              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
-                sidebarCategory === 'hydration-guidelines'
-                  ? 'bg-emerald-500 text-white font-bold'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
-              }`}
-            >
-              監測
-            </button>
-            <button
-              onClick={() => setSidebarCategory('dehydration-pathology')}
-              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
-                sidebarCategory === 'dehydration-pathology'
-                  ? 'bg-amber-500 text-white font-bold'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
-              }`}
-            >
-              病理
-            </button>
-            <button
-              onClick={() => setSidebarCategory('special-populations')}
-              className={`px-2 py-0.5 rounded-md shrink-0 transition-all ${
-                sidebarCategory === 'special-populations'
-                  ? 'bg-rose-500 text-white font-bold'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
-              }`}
-            >
-              安全閘
-            </button>
-          </div>
-
-          <div className="space-y-1 max-h-[30vh] overflow-y-auto pr-1">
-            {(sidebarCategory === 'all'
-              ? pagesForCurrent
-              : pagesForCurrent.filter((p) => p.category === sidebarCategory)
-            ).map((p) => {
-              const isPageActive = p.id === activePageId;
-              const shortNum = p.order_index < 10 ? `W0${p.order_index}` : `W${p.order_index}`;
-              const dotColor =
-                p.category === 'fluid-homeostasis'
-                  ? 'bg-sky-400'
-                  : p.category === 'hydration-guidelines'
-                  ? 'bg-emerald-400'
-                  : p.category === 'dehydration-pathology'
-                  ? 'bg-amber-400'
-                  : p.category === 'special-populations'
-                  ? 'bg-rose-500'
-                  : 'bg-slate-400';
-
+        <div className="space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block px-1 font-bold">
+            {zh ? `第 ${currentChapterId} 章內容` : `Chapter ${currentChapterId}`}
+          </span>
+          <div className="space-y-0.5">
+            {pagesForCurrent.map((p) => {
+              const isPageActive = activePageId === p.id && nav.viewMode === 'page';
               return (
                 <button
                   key={p.id}
@@ -606,34 +274,22 @@ export const Sidebar: React.FC<Props> = (props) => {
                   title={`${p.id}: ${p.title_zh}`}
                   className={`btn-tactile w-full p-2 rounded-xl text-left transition-all flex items-center justify-between gap-1.5 ${
                     isPageActive
-                      ? 'bg-nature-sky-50 dark:bg-slate-800/95 text-nature-sky-900 dark:text-nature-sky-200 font-bold border border-nature-sky-300 dark:border-nature-sky-700 shadow-sm'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                      ? 'bg-emerald-50 dark:bg-slate-800/95 text-emerald-900 dark:text-emerald-200 font-bold border border-emerald-300 dark:border-emerald-800'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                   }`}
                 >
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`} />
-                    <span className="font-mono text-[10px] font-bold text-nature-amber-700 dark:text-salud-amber shrink-0">
-                      {shortNum}
-                    </span>
-                    <span className="truncate text-xs font-sans">
-                      {language === 'zh-TW' ? p.title_zh : p.title_en}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 shrink-0">
+                  <span className="truncate text-xs">{zh ? p.title_zh : p.title_en}</span>
+                  <span className="flex items-center gap-1 shrink-0">
                     {completedList.includes(p.id) && (
-                      <span title="已完成精讀">
-                        <Check className="w-3 h-3 text-emerald-500 shrink-0" />
-                      </span>
+                      <Check className="w-3 h-3 text-emerald-500" />
                     )}
                     {p.safety_gated && (
-                      <span title="SAFETY GATED">
-                        <AlertOctagon className="w-3 h-3 text-red-500 shrink-0 animate-pulse" />
-                      </span>
+                      <AlertOctagon className="w-3 h-3 text-red-500 animate-pulse" />
                     )}
                     <span className="text-[10px] text-slate-400 font-mono">
                       {p.estimated_minutes}m
                     </span>
-                  </div>
+                  </span>
                 </button>
               );
             })}
@@ -641,11 +297,11 @@ export const Sidebar: React.FC<Props> = (props) => {
         </div>
       )}
 
-      {/* Hub Tools & Quick Access */}
+      {/* Reader-facing clinical tools — these answer a health question, so they stay */}
       <div className="space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
         {!isCollapsed && (
           <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block px-1 font-bold">
-            臨床治理與篩檢工具
+            {zh ? '自我檢測工具' : 'Self-check tools'}
           </span>
         )}
 
@@ -656,7 +312,7 @@ export const Sidebar: React.FC<Props> = (props) => {
           }`}
           title={t('nav.red_flags_title')}
         >
-          <AlertOctagon className="w-3.5 h-3.5 text-red-600 dark:text-red-400 animate-pulse shrink-0" />
+          <AlertOctagon className="w-3.5 h-3.5 shrink-0 animate-pulse" />
           {!isCollapsed && <span>{t('nav.red_flags')}</span>}
         </button>
 
@@ -667,7 +323,7 @@ export const Sidebar: React.FC<Props> = (props) => {
           }`}
           title={isCollapsed ? t('nav.audit_c') : undefined}
         >
-          <ClipboardCheck className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
+          <ClipboardCheck className="w-3.5 h-3.5 shrink-0" />
           {!isCollapsed && <span>{t('nav.audit_c')}</span>}
         </button>
 
@@ -678,61 +334,15 @@ export const Sidebar: React.FC<Props> = (props) => {
           }`}
           title={isCollapsed ? t('nav.cardio_hub') : undefined}
         >
-          <HeartPulse className="w-3.5 h-3.5 text-nature-sky-600 dark:text-nature-sky-400 shrink-0" />
+          <HeartPulse className="w-3.5 h-3.5 shrink-0" />
           {!isCollapsed && <span>{t('nav.cardio_hub')}</span>}
-        </button>
-
-        {/* 專家專區快速導航 */}
-        <a
-          href="#expert-zone"
-          className={`btn-tactile w-full p-2.5 rounded-xl border border-emerald-300/80 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/50 hover:bg-emerald-200 text-emerald-900 dark:text-emerald-300 font-mono text-xs flex items-center gap-2 transition-all font-bold shadow-xs ${
-            isCollapsed ? 'justify-center px-2' : ''
-          }`}
-          title={isCollapsed ? '全人專家專區 (40 席名錄)' : undefined}
-        >
-          <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-          {!isCollapsed && <span>專家專區 (40 席名錄)</span>}
-        </a>
-
-        <button
-          onClick={onOpenCouncil}
-          className={`btn-tactile w-full p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-xs flex items-center gap-2 transition-all ${
-            isCollapsed ? 'justify-center px-2' : ''
-          }`}
-          title={isCollapsed ? t('nav.council') : undefined}
-        >
-          <Award className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-          {!isCollapsed && <span>專家委員會總覽</span>}
-        </button>
-
-        <button
-          onClick={() => onOpenCouncilEvidence && onOpenCouncilEvidence()}
-          className={`btn-tactile w-full p-2 rounded-xl border border-emerald-300/80 dark:border-emerald-800/60 bg-emerald-50/70 dark:bg-emerald-950/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-900 dark:text-emerald-300 font-mono text-xs flex items-center gap-2 transition-all font-bold ${
-            isCollapsed ? 'justify-center px-2' : ''
-          }`}
-          title={isCollapsed ? '24 席 Best Practice 實證庫' : undefined}
-        >
-          <BookOpen className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-          {!isCollapsed && <span>24 席 Best Practice 實證庫</span>}
-        </button>
-
-        <button
-          onClick={() => nav.openSynergy()}
-          className={`btn-tactile w-full p-2 rounded-xl border border-emerald-400/60 dark:border-emerald-700/60 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-900 dark:text-emerald-300 font-mono text-xs flex items-center gap-2 transition-all font-bold ${
-            isCollapsed ? 'justify-center px-2' : ''
-          }`}
-          title={isCollapsed ? '全人跨領域處方協同' : undefined}
-        >
-          <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 animate-pulse" />
-          {!isCollapsed && <span>全人跨領域處方協同</span>}
         </button>
       </div>
 
-      {/* Sidebar Font Scaling widget */}
       {!isCollapsed && (
         <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-1.5">
           <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block px-1 font-bold">
-            閱讀字級大小 (Font Size)
+            {zh ? '閱讀字級' : 'Font size'}
           </span>
           <FontSizeToggle variant="full" />
         </div>

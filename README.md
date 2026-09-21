@@ -4,7 +4,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v1.3.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v2.0.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -97,17 +97,25 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
 
 ---
 
-## 🛡️ 專家治理結構：40 席專家理事會全景名錄 (Expert Council Directory)
+## 🧭 資訊架構原則 (Information Architecture, v2.0.0)
 
-遵循 Oxford CEBM Level 1a 實證醫學規範，所有 40 席專家（EC-01 至 EC-40）統一配置於應用程式最下方的「專家專區」，涵蓋 8 大臨床專科與治理領域，支援專科分類、即時檢索與卡片/條列清單切換：
-- **臨床醫學與疾病防治 (7 席)**：EC-01 醫療總監、EC-13 腎臟內科、EC-02 心臟內科、EC-03 胸腔重症、EC-04 腸胃肝膽、EC-05 神經醫學、EC-06 家庭醫學。
-- **營養科學與食品科技 (3 席)**：EC-07 臨床營養、EC-14 脂質食用油化學、EC-15 食品安全與烹飪技術。
-- **增肌減脂與代謝醫學 (6 席)**：EC-28 內分泌新陳代謝、EC-29 代謝減重外科、EC-30 肥胖生活型態介入等。
-- **抗老延壽與長壽醫學 (7 席)**：EC-34 表觀遺傳時鐘、EC-35 粒線體與能量代謝、EC-36 幹細胞與再生醫學等。
-- **運動與環境生理學 (3 席)**：EC-16 熱環境生理、EC-08 運動心肺處方、EC-09 肌力體能與動力鏈。
-- **身心神經與行為科學 (4 席)**：EC-10 精神與晝夜睡眠、EC-21 行為科學與習慣養成、EC-11 成癮醫學等。
-- **藥學、毒理與基因體學 (2 席)**：EC-12 臨床藥學與藥物交互作用、EC-25 環境毒理與重金屬。
-- **實證醫學、科技與法規 (8 席)**：EC-18 Oxford CEBM 實證方法學、EC-22 TFDA 台灣法規合規、EC-24 醫學倫理與受試者保護等。
+v2.0 的主軸是一條規則：**主要瀏覽動線只承載健康內容**。專家席次、憲章與 RPDCA 迭代紀錄描述的是「這些內容怎麼來的」，屬於編輯履歷，不是讀者要找的健康資訊，因此全部退到頁尾的次要頁面。
+
+**三層導覽結構**
+1. **主要層（Header／Sidebar／行動底欄）**：9 大健康主題，全部由 `src/config/navigation.ts` 這一份設定產生，三個介面不再各寫一份而彼此漂移。側邊欄依「從身體開始／健康目標／日常實踐」分組。
+2. **工具層（Sidebar 底部）**：紅旗警訊、AUDIT-C、心血代謝三項自我檢測工具 —— 這些回答讀者的健康問題，因此留在主要動線。
+3. **次要層（頁尾）**：
+   - `#evidence` **實證來源與分級**：彙整全站引用的國際指引與原始研究，依年份排序、可搜尋，並說明 A–E 證據等級的意義。
+   - `#about` **關於 Salud 與專家審核**：編輯與審核政策、醫療免責聲明、40 席審核名錄，以及摺疊收納的 RPDCA 7×7 修訂紀錄。
+
+**v2.0 的具體變更**
+- 移除每個內容頁底部強制附掛的「專家專區」（原本 9 個主題頁重複出現 543 行的名錄）。
+- 側邊欄的 4 個專家委員會入口、頂欄的「專家專區」與「專家憲章」按鈕、行動底欄的「專家」分頁，全部移除或改置頁尾。
+- 首頁改以 **最新實證重點** 取代原本專家名錄的版位：直接呈現最新的原始文獻與其結論。
+- 人體系統頁的「專科委員會治理審核」區塊改為「本系統的實證基礎」，指向該系統的文獻清單。
+- 刪除已被 `#about` 取代的 `ExpertCouncilModal`，並清掉失效的 `onOpenCouncil` prop 串接。
+
+**40 席審核名錄** 仍完整保留於 `#about`，涵蓋 8 大專科：臨床醫學與疾病防治（7）、營養科學與食品科技（3）、增肌減脂與代謝醫學（6）、抗老延壽與長壽醫學（7）、運動與環境生理學（3）、身心神經與行為科學（4）、藥學毒理與基因體學（2）、實證醫學科技與法規（8）。
 
 ---
 

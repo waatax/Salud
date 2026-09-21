@@ -12,7 +12,6 @@ interface Props {
   onStartReading: (firstPageId: string) => void;
   onSelectPage: (pageId: string) => void;
   onOpenSim?: () => void;
-  onOpenCouncil?: () => void;
 }
 
 export const ChapterLanding: React.FC<Props> = ({
@@ -21,7 +20,6 @@ export const ChapterLanding: React.FC<Props> = ({
   onStartReading,
   onSelectPage,
   onOpenSim,
-  onOpenCouncil,
 }) => {
   const { t, language } = useLanguage();
   const isWater = chapter.id === 'W';
@@ -177,7 +175,6 @@ export const ChapterLanding: React.FC<Props> = ({
           pages={pages}
           chapterId={chapter.id}
           onSelectPage={onSelectPage}
-          onOpenCouncil={onOpenCouncil}
         />
       </section>
 
