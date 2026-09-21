@@ -3,6 +3,8 @@ import { SystemDeepDive } from '../../types/systemDeepDive';
 import { RESPIRATORY_DEEP } from './respiratoryDeep';
 import { CARDIOVASCULAR_DEEP } from './cardiovascularDeep';
 import { DIGESTIVE_DEEP } from './digestiveDeep';
+import { NERVOUS_DEEP } from './nervousDeep';
+import { MUSCULOSKELETAL_DEEP } from './musculoskeletalDeep';
 
 /**
  * Registry of the v3.0 deep dives. Systems appear here as their content is authored;
@@ -13,6 +15,8 @@ export const SYSTEM_DEEP_DIVES: Partial<Record<HumanSystemId, SystemDeepDive>> =
   respiratory: RESPIRATORY_DEEP,
   cardiovascular: CARDIOVASCULAR_DEEP,
   digestive: DIGESTIVE_DEEP,
+  nervous: NERVOUS_DEEP,
+  musculoskeletal: MUSCULOSKELETAL_DEEP,
 };
 
 export const getDeepDive = (id: HumanSystemId): SystemDeepDive | undefined =>
