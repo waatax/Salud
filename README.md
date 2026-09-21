@@ -4,7 +4,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v2.0.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v3.0.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -94,6 +94,24 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
   - `SIM-CAFFEINE-CLEARANCE`（腺苷-咖啡因受體競爭動態模擬器：支援 CYP1A2 快/中/慢代謝表型，推算就寢殘留量、A1/A2A 受體佔據率與 N3 深睡損失分鐘）
   - `SIM-CBTI-CALC`（CBT-I 睡眠效率與限睡時長試算器：每週作息窗口自動微調）
   - `SCALE-STOP-BANG`（STOP-BANG 阻塞型睡眠呼吸中止症 OSA 臨床篩檢量表）
+
+---
+
+## 🫁 人體系統深度解析 (v3.0.0)
+
+八大人體系統（消化、呼吸、神經、心血管、內分泌、免疫、骨骼肌肉、泌尿腎臟）全面改寫為讀者真正需要的五段式動線：
+
+1. **系統總覽**：白話介紹、關鍵數字、由外而內的構造圖
+2. **運作原理**：以讀者會問的問題為標題（例如「血氧機上的數字，到幾才該緊張？」），每題附證據等級
+3. **常見疾病**：每個系統 6 種，完整涵蓋 機轉 → 早期／惡化症狀 → 風險因子（區分可改變者）→ 診斷方式與判讀門檻 → 自我照護 → 分層醫療處置 → 何時就醫
+4. **預防與改善**：5 項可執行方案，皆標明具體劑量與頻率
+5. **危險警訊**：依「立即急診／盡速就醫／安排門診」分級
+
+**規模**：48 種疾病、40 項預防方案、63 個機轉知識點、58 項危險警訊，共 **159 張圖解——每一個教學知識點都附一張**。
+
+**圖解系統**：`src/components/systems/SystemDiagram.tsx` 以資料驅動產生真正的 SVG 向量圖，涵蓋七種型態（因果流程、對照、刻度區間、分層構造、循環、比例、時間軸），自動適配淺色／深色主題。資料結構 (`src/types/systemDeepDive.ts`) 將 `diagram` 設為必填，任何知識點都無法在沒有圖解的情況下上線。
+
+**臨床門檻依據**：GOLD 2024、GINA 2024、AASM、USPSTF 2021、台灣 2022 高血壓指引（130/80、722 量測）、ESC/EAS 2019、ADA、KDIGO、WHO DXA、AWGS 2019（亞洲肌少症標準）、Rome IV、鹿特丹準則，以及台灣本地的腰圍與 BMI 分界。內容不顯示任何審核者資訊。
 
 ---
 
