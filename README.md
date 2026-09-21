@@ -4,7 +4,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v1.1.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v1.3.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -71,6 +71,29 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
   3. `物理治療與肌力動作庫`：髂腰肌伸展、胸椎旋轉開展、蚌殼式臀中肌點火、高腳杯深蹲與代償防護。
   4. `均一精熟技能樹`：水合、油脂、毒理、物治、睡眠 5 大分支自適應題庫與星星掌握度。
   5. `7 次專家會議迭代紀要`：詳實記錄 7 輪爭鳴、突破共識與實作方法論產出。
+
+### 4. 🫀 心血代謝專科總樞紐 (Cardiometabolic Medicine Hub - v1.3.0 升格一級支柱)
+- **動脈粥狀硬化 5 階段分子細胞級聯**：內皮剪切力損傷 ➔ ApoB 滯留嵌合 ➔ oxLDL 氧化誘發與泡沫細胞 ➔ 纖維帽生成與壞死核心 ➔ 基質金屬蛋白酶 (MMP) 破裂與急性動脈血栓。
+- **現代脂質學革命**：
+  - `ApoB-100`：真正致病顆粒總數身分證（目標 <65–80 mg/dL），揭開高三酸甘油酯下小而緻密 LDL (sdLDL) 造成 LDL-C 假象正常的「不一致性 (Discordance)」盲區。
+  - `Lp(a)`：獨立遺傳性致病顆粒（致動脈硬化 + 促發炎 + 抗纖溶血栓三合一毒性）。
+  - `TG/HDL 比值`：臨床最靈敏的胰島素阻抗與 sdLDL 替代指標（理想 <2.0，>3.0 高危險）。
+  - `殘餘膽固醇 (Remnant Cholesterol)`：TRLs 殘餘物直接穿透內皮致病。
+- **2022 TSOC 居家 722 血壓標準**：連續 7 天、早晚 2 時段、每次量 2 遍取平均，精準診斷白袍高血壓與隱匿性高血壓。
+- **冠狀動脈鈣化積分 (CAC Agatston Score) 決策樹**：0 分 (Power of Zero) 至 ≥400 分高強度 Statin 處方與缺血評估。
+- **2023 AHA CKM 症候群 0–4 期** 與台灣衛福部代謝症候群 5 大標準。
+- **專屬互動工具**：
+  - `SIM-APOB-DISCORDANCE`（ApoB 與全血脂不一致性試算機）
+  - `SIM-BP-722`（TSOC 722 居家血壓連續記錄與評估器）
+
+### 5. 🌙 睡眠神經修復專科總樞紐 (Sleep & Recovery Hub - v1.3.0 旗艦重構)
+- **多導睡眠圖 (PSG) 四階段臨床分期**：N1 入睡過渡、N2 淺睡穩定 (紡錘波與K複合波)、N3 慢波深睡 (SWS / Delta波)、REM 快速動眼期 (情緒去敏化與創意突觸重組)。
+- **膠淋巴系統 (Glymphatic System) 大腦排毒**：星狀膠質細胞 AQP4 水通道蛋白沖刷 β-類澱粉蛋白與 Tau 蛋白（深睡期間質空間擴張 60%）。
+- **失眠第一線治療 CBT-I 行為處方**：刺激控制療法 (Stimulus Control)、睡眠限制療法 (Sleep Restriction)、睡眠效率公式 ($SE = \frac{TST}{TIB} \times 100\%$)。
+- **專屬互動工具**：
+  - `SIM-CAFFEINE-CLEARANCE`（腺苷-咖啡因受體競爭動態模擬器：支援 CYP1A2 快/中/慢代謝表型，推算就寢殘留量、A1/A2A 受體佔據率與 N3 深睡損失分鐘）
+  - `SIM-CBTI-CALC`（CBT-I 睡眠效率與限睡時長試算器：每週作息窗口自動微調）
+  - `SCALE-STOP-BANG`（STOP-BANG 阻塞型睡眠呼吸中止症 OSA 臨床篩檢量表）
 
 ---
 

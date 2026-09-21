@@ -1,7 +1,7 @@
 export const enUS: Record<string, string> = {
   // Brand & Navigation
   'app.name': 'Salud',
-  'app.version': 'v1.1.0',
+  'app.version': 'v1.3.0',
   'app.tagline': 'Evidence-Based Health Simulation & Knowledge Platform',
   'app.vision_title': 'Salud Product Vision',
   'app.vision_desc': 'See what is actually happening inside your body, adjust a single variable, and check your hypothesis with empirical data.',
@@ -162,6 +162,7 @@ export const enUS: Record<string, string> = {
   'pillar.ultrahealth': 'Ultra-Health',
   'pillar.obesity': 'Obesity & Weight',
   'pillar.longevity': 'Longevity & Anti-Aging',
+  'pillar.cardiometabolic': 'Cardiometabolic',
   'pillar.diet': 'Diet & Nutrition',
   'pillar.exercise': 'Exercise & Movement',
   'pillar.sleep': 'Sleep & Recovery',

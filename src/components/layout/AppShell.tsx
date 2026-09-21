@@ -21,6 +21,7 @@ import { HumanSystemsHub } from '../systems/HumanSystemsHub';
 import { UltraHealthHub } from '../ultrahealth/UltraHealthHub';
 import { ObesityHub } from '../pillars/ObesityHub';
 import { LongevityHub } from '../pillars/LongevityHub';
+import { CardiometabolicHub } from '../pillars/CardiometabolicHub';
 import { ExpertZoneSection } from '../council/ExpertZoneSection';
 import { CHAPTERS } from '../../data/chapters';
 
@@ -149,6 +150,7 @@ export function AppShell() {
               {activePillar === 'ultrahealth' && <UltraHealthHub />}
               {activePillar === 'obesity' && <ObesityHub />}
               {activePillar === 'longevity' && <LongevityHub />}
+              {activePillar === 'cardiometabolic' && <CardiometabolicHub />}
               {activePillar === 'diet' && (
                 <>
                   {dietView === 'patterns' ? (

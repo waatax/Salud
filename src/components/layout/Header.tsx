@@ -72,10 +72,10 @@ export const Header: React.FC<Props> = ({
                     e.stopPropagation();
                     setIsManifestoOpen(true);
                   }}
-                  title="查看 Salud v1.2.0 全人健康長壽大憲章與 40 席專家理事會簽署"
+                  title="查看 Salud v1.3.0 全人健康長壽大憲章與 40 席專家理事會簽署"
                   className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-salud-cyan/20 text-salud-cyan dark:text-salud-cyan border border-salud-cyan/40 font-bold hover:bg-salud-cyan/30 transition-colors cursor-pointer flex items-center gap-1"
                 >
-                  <span>v1.2.0</span>
+                  <span>v1.3.0</span>
                   <Sparkles className="w-2.5 h-2.5 animate-pulse" />
                 </button>
               </span>
@@ -138,6 +138,19 @@ export const Header: React.FC<Props> = ({
           >
             <Hourglass className={`w-3.5 h-3.5 ${activePillar === 'longevity' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
             <span>抗老延壽</span>
+          </button>
+
+          {/* 4.5. Cardiometabolic Medicine */}
+          <button
+            onClick={() => onSelectPillar('cardiometabolic')}
+            className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
+              activePillar === 'cardiometabolic'
+                ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
+                : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
+            }`}
+          >
+            <HeartPulse className={`w-3.5 h-3.5 ${activePillar === 'cardiometabolic' ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
+            <span>心血代謝</span>
           </button>
 
           {/* 5. Diet & Nutrition (Contains Nutrients & Supplements) */}

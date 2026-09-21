@@ -76,8 +76,11 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
         setIsSynergyView(false);
         setIsCouncilEvidenceView(false);
         setActivePillar('longevity');
-      }
- else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
+      } else if (hash === 'cardiometabolic' || hash === 'cardio' || hash.startsWith('cardio')) {
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        setActivePillar('cardiometabolic');
+      } else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
           setIsSynergyView(false);
           setIsCouncilEvidenceView(true);
           if (hash.includes('/')) {
@@ -203,6 +206,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
       window.location.hash = 'systems';
     } else if (pillar === 'diet') {
       window.location.hash = 'diet';
+    } else if (pillar === 'cardiometabolic') {
+      window.location.hash = 'cardiometabolic';
     } else {
       window.location.hash = pillar;
     }

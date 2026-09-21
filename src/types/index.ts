@@ -258,7 +258,7 @@ export interface SupplementEvaluation {
 }
 
 // ── Health Pillars Architecture Types (v0.5 Systems Redesign) ──
-export type HealthPillar = 'systems' | 'ultrahealth' | 'obesity' | 'longevity' | 'diet' | 'exercise' | 'sleep' | 'supplements' | 'mental';
+export type HealthPillar = 'systems' | 'ultrahealth' | 'obesity' | 'longevity' | 'cardiometabolic' | 'diet' | 'exercise' | 'sleep' | 'supplements' | 'mental';
 
 // ── Human Organ Systems Types (主頁人體系統總覽) ──
 export type HumanSystemId =
@@ -1102,5 +1102,92 @@ export interface LongevityQuizItem {
   correct_index: number;
   clinical_pearl_zh: string;
   remedy_tab: LongevitySubTab;
+}
+
+// ── Cardiometabolic Medicine Types (心血代謝專科總樞紐) ──
+export type CardiometabolicSubTab =
+  | 'OVERVIEW'
+  | 'LIPIDS_APOB'
+  | 'BP_722'
+  | 'ATHERO_CAC'
+  | 'METSYN_CKM'
+  | 'CALCULATORS';
+
+export interface AtherosclerosisStage {
+  stage_number: number;
+  name_zh: string;
+  name_en: string;
+  pathophysiological_mechanism_zh: string;
+  clinical_manifestation_zh: string;
+  biomarkers_zh: string[];
+  imaging_features: string;
+  oxford_level_1a_interventions_zh: string[];
+}
+
+export interface LipidBiomarkerProfile {
+  id: string;
+  name_zh: string;
+  name_en: string;
+  optimal_target_zh: string;
+  high_risk_threshold_zh: string;
+  unit: string;
+  atherogenic_role_zh: string;
+  clinical_superiority_zh: string;
+  evidence_grade: EvidenceGrade;
+}
+
+export interface CacStratification {
+  agatston_score_range: string;
+  risk_category_zh: string;
+  ten_year_ascvd_risk_zh: string;
+  statin_recommendation_zh: string;
+  lifestyle_and_followup_zh: string;
+  clinical_pearl_zh: string;
+}
+
+export interface CkmStageInfo {
+  stage: 0 | 1 | 2 | 3 | 4;
+  title_zh: string;
+  subtitle_zh: string;
+  criteria_zh: string[];
+  primary_goals_zh: string[];
+  pharmacological_options_zh: string[];
+}
+
+// ── Advanced Sleep Medicine Types (睡眠修復總樞紐) ──
+export type SleepSubTab =
+  | 'OVERVIEW'
+  | 'GLYMPHATIC'
+  | 'CAFFEINE_SIM'
+  | 'CBTI_CALC'
+  | 'OSA_SCREEN'
+  | 'CIRCADIAN';
+
+export interface CaffeineMetabolismOutput {
+  initialDoseMg: number;
+  hoursElapsed: number;
+  residualCaffeineMg: number;
+  adenosineReceptorOccupancyPct: number;
+  slowWaveSleepDeficitMinutes: number;
+  sleepLatencyDelayMinutes: number;
+  cyp1a2Speed: 'FAST' | 'AVERAGE' | 'SLOW';
+  clinicalRecommendation: string;
+}
+
+export interface CbtiCalculationResult {
+  timeInBedMinutes: number;
+  totalSleepTimeMinutes: number;
+  sleepEfficiencyPct: number;
+  clinicalCategory: 'POOR' | 'SUBOPTIMAL' | 'OPTIMAL';
+  recommendedWindowAdjustmentMinutes: number;
+  cbtiActionDirective: string;
+}
+
+export interface StopBangQuestion {
+  id: string;
+  letter: string;
+  title_zh: string;
+  description_zh: string;
+  risk_weight: number;
 }
 

@@ -196,3 +196,105 @@ export const SLEEP_TOPICS: SleepTopic[] = [
     ],
   },
 ];
+
+// ── 咖啡因藥物動力學與腺苷受體競爭模型 (Caffeine Pharmacokinetics Model) ──
+export interface CaffeineDoseOption {
+  name_zh: string;
+  name_en: string;
+  doseMg: number;
+}
+
+export const COMMON_CAFFEINE_SOURCES: CaffeineDoseOption[] = [
+  { name_zh: '義式濃縮咖啡 (Espresso 單份)', name_en: 'Espresso (Single Shot)', doseMg: 65 },
+  { name_zh: '美式黑咖啡 (中杯 360ml)', name_en: 'Americano (Medium)', doseMg: 150 },
+  { name_zh: '大杯精品手沖 / 冰美式 (480ml)', name_en: 'Large Pour-Over / Iced Black', doseMg: 220 },
+  { name_zh: '能量飲料 (Red Bull / Monster 1 罐)', name_en: 'Energy Drink (1 can)', doseMg: 80 },
+  { name_zh: '重焙烏龍茶 / 綠茶 (500ml 保溫瓶)', name_en: 'Brewed Oolong / Green Tea (500ml)', doseMg: 70 },
+  { name_zh: '拿鐵 / 卡布奇諾 (中杯雙份濃縮)', name_en: 'Latte / Cappuccino (Double Shot)', doseMg: 130 },
+];
+
+export const CYP1A2_METABOLIC_PROFILES = {
+  FAST: {
+    label_zh: '快代謝型 (CYP1A2 *1A/*1A)',
+    halfLifeHours: 3.5,
+    description_zh: '肝臟細胞色素 P450 1A2 活性旺盛，咖啡因清除迅速；但午後過量依然會延遲褪黑激素釋放。',
+  },
+  AVERAGE: {
+    label_zh: '一般常人型 (CYP1A2 *1A/*1F)',
+    halfLifeHours: 5.5,
+    description_zh: '人群最普遍表型。下午 2 點飲用 200mg 咖啡因，晚間 11 點就寢時體內仍殘留約 64mg（相當於睡前喝了一杯義式濃縮）！',
+  },
+  SLOW: {
+    label_zh: '慢代謝型 (CYP1A2 *1F/*1F 或服用口服避孕藥)',
+    halfLifeHours: 8.5,
+    description_zh: '半衰期極長，咖啡因在血液中滯留超過 16 小時！午後飲用幾乎 100% 嚴重毀損夜間慢波深睡 (N3 SWS)。',
+  },
+};
+
+// ── CBT-I 睡眠限制療法 (Sleep Restriction Therapy) 臨床指引 ──
+export const CBTI_TITRATION_RULES = {
+  optimal_efficiency_min: 85, // SE >= 85%: 擴大睡眠窗口 15-30 分鐘
+  suboptimal_efficiency_min: 80, // 80% <= SE < 85%: 維持目前臥床時間
+  poor_efficiency_max: 80, // SE < 80%: 限縮臥床時間 15-30 分鐘
+  minimum_safe_window_hours: 5.0, // 安全底線：臥床時間不可低於 5 小時
+};
+
+// ── STOP-BANG 阻塞型睡眠呼吸中止症 (OSA) 臨床篩檢量表 ──
+export const STOP_BANG_QUESTIONS = [
+  {
+    id: 'SB-01',
+    letter: 'S',
+    title_zh: '打鼾 (Snoring)',
+    description_zh: '您的打鼾聲是否非常大聲？（比一般說話聲更大，或隔著關閉的房門都能聽見）',
+    risk_weight: 1,
+  },
+  {
+    id: 'SB-02',
+    letter: 'T',
+    title_zh: '日間疲勞嗜睡 (Tiredness)',
+    description_zh: '您在白天是否經常感到精疲力竭、疲倦無力，或在看電視、開車停紅燈時容易打瞌睡？',
+    risk_weight: 1,
+  },
+  {
+    id: 'SB-03',
+    letter: 'O',
+    title_zh: '目擊呼吸暫停 (Observed Apnea)',
+    description_zh: '是否曾有同睡伴侶或家人注意到您在睡眠中「呼吸中斷暫停、嗆到或窒息驚醒」？',
+    risk_weight: 1,
+  },
+  {
+    id: 'SB-04',
+    letter: 'P',
+    title_zh: '高血壓病史 (Blood Pressure)',
+    description_zh: '您是否已被醫師診斷患有高血壓，或目前正在規律服用降血壓藥物？',
+    risk_weight: 1,
+  },
+  {
+    id: 'SB-05',
+    letter: 'B',
+    title_zh: '身體質量指數 (BMI)',
+    description_zh: '您的身體質量指數 BMI 是否大於 30 kg/m²？（亞洲族群若 > 27.5 kg/m² 即屬高危險）',
+    risk_weight: 1,
+  },
+  {
+    id: 'SB-06',
+    letter: 'A',
+    title_zh: '年齡 (Age)',
+    description_zh: '您的年齡是否超過 50 歲？',
+    risk_weight: 1,
+  },
+  {
+    id: 'SB-07',
+    letter: 'N',
+    title_zh: '頸圍粗度 (Neck Circumference)',
+    description_zh: '襯衫領圍是否偏緊？（男性頸圍 ≥ 40 cm / 16 英吋，女性頸圍 ≥ 38 cm / 15 英吋）',
+    risk_weight: 1,
+  },
+  {
+    id: 'SB-08',
+    letter: 'G',
+    title_zh: '生理性別 (Gender)',
+    description_zh: '您的生理性別是否為男性？（男性呼吸道解剖結構受雄性激素影響，軟顎塌陷率較高）',
+    risk_weight: 1,
+  },
+];

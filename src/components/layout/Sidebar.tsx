@@ -261,6 +261,33 @@ export const Sidebar: React.FC<Props> = (props) => {
           </button>
         </div>
 
+        {/* 0.95. Cardiometabolic Medicine Pillar */}
+        <div className="space-y-1">
+          <button
+            onClick={() => onSelectPillar('cardiometabolic')}
+            className={`btn-tactile w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+              activePillar === 'cardiometabolic'
+                ? 'border-emerald-500 dark:border-emerald-500 bg-emerald-500/15 dark:bg-emerald-500/20 text-slate-900 dark:text-emerald-300 font-bold shadow-sm'
+                : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+            } ${isCollapsed ? 'justify-center px-2' : ''}`}
+            title={isCollapsed ? '心血代謝' : undefined}
+          >
+            <div className="flex items-center gap-2">
+              <HeartPulse
+                className={`w-4 h-4 ${
+                  activePillar === 'cardiometabolic' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'
+                }`}
+              />
+              {!isCollapsed && <span className="text-xs font-bold">心血代謝</span>}
+            </div>
+            {!isCollapsed && (
+              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-500/40">
+                ApoB·722·CAC
+              </span>
+            )}
+          </button>
+        </div>
+
         {/* 1. Diet & Nutrition Pillar (Contains Nutrients, Supplements, W, O, A) */}
         <div className="space-y-1">
           <button

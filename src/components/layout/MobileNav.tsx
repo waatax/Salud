@@ -48,6 +48,13 @@ export const MobileNav: React.FC<Props> = ({
       activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
     },
     {
+      id: 'cardiometabolic' as HealthPillar,
+      label: '心血代謝',
+      icon: HeartPulse,
+      activeColor: 'text-emerald-700 dark:text-emerald-300',
+      activeBg: 'bg-emerald-100/90 dark:bg-emerald-950/60',
+    },
+    {
       id: 'diet' as HealthPillar,
       label: '飲食營養',
       icon: Utensils,
@@ -78,7 +85,7 @@ export const MobileNav: React.FC<Props> = ({
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-2 pt-1.5 pb-2.5 sm:pb-2 flex items-center justify-around lg:hidden font-mono text-[11px] shadow-lg transition-colors">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-2 pt-1.5 pb-2.5 sm:pb-2 flex items-center justify-start sm:justify-around overflow-x-auto no-scrollbar lg:hidden font-mono text-[11px] shadow-lg transition-colors gap-1">
       {pillars.map((p) => {
         const Icon = p.icon;
         const isActive = activePillar === p.id;

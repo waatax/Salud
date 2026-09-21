@@ -9,9 +9,17 @@ interface Props {
   onClose: () => void;
 }
 
+import { useNavigation } from '../../context/NavigationContext';
+
 export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const { t, language } = useLanguage();
+  const nav = useNavigation();
   const [activeTab, setActiveTab] = useState<'bp722' | 'metsyn' | 'prevent'>('bp722');
+
+  const handleJumpToFullHub = () => {
+    onClose();
+    nav.selectPillar('cardiometabolic');
+  };
 
   return (
     <Modal
@@ -22,6 +30,23 @@ export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) =>
       maxWidth="4xl"
     >
       <div className="space-y-6 font-sans text-xs text-slate-700 dark:text-slate-200">
+        {/* Banner to Full Hub */}
+        <div className="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-700/60">
+          <div className="flex items-center gap-2">
+            <Heart className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 animate-pulse" />
+            <span className="text-xs text-emerald-950 dark:text-emerald-200 font-medium">
+              Salud 旗艦專區：<strong>心血管與代謝專科總樞紐</strong>已全面升級！含 ApoB 血脂試算、動脈硬化 5 階段與 CAC 決策樹。
+            </span>
+          </div>
+          <button
+            onClick={handleJumpToFullHub}
+            className="btn-tactile shrink-0 px-3 py-1.5 rounded-xl bg-emerald-600 text-white font-mono text-xs font-bold hover:bg-emerald-700 shadow-xs flex items-center gap-1"
+          >
+            <span>進入完整專區</span>
+            <ChevronRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
         {/* Navigation Tabs */}
         <div className="flex border-b border-slate-200 dark:border-slate-800 gap-2 pb-2">
           <button
