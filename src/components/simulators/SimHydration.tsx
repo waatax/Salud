@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { ShieldAlert, Droplets, ArrowRight, Table, RefreshCw, AlertOctagon } from 'lucide-react';
+import { ShieldAlert, Droplets, ArrowRight, Table, RefreshCw, AlertOctagon, Info } from 'lucide-react';
+import { evaluateSafetyPredicates } from '../../compose/safety';
+import { evaluateHydrationHeuristic } from '../../compose/units';
 
 export const SimHydration: React.FC = () => {
   // Inputs
@@ -12,13 +14,27 @@ export const SimHydration: React.FC = () => {
   const [beverageIntakeL, setBeverageIntakeL] = useState<number>(2.0);
   const [showTable, setShowTable] = useState(false);
 
-  // Safety Gate: Gated populations (Heart failure, ESRD, SIADH, Diuretics)
+  // Safety Gate: Gated populations (Heart failure, CKD G4-G5, Cirrhosis, SIADH)
   const [hasHeartFailure, setHasHeartFailure] = useState<boolean>(false);
   const [hasKidneyDisease, setHasKidneyDisease] = useState<boolean>(false);
+  const [hasCirrhosis, setHasCirrhosis] = useState<boolean>(false);
+  const [hasSiadh, setHasSiadh] = useState<boolean>(false);
   const [onDiuretics, setOnDiuretics] = useState<boolean>(false);
 
-  // Check safety gate trigger (Spec §6.0 & §8.2 rule S-11)
-  const isSafetyGated = hasHeartFailure || hasKidneyDisease;
+  // Layer 2 Predicate Evaluation
+  const safetyEval = evaluateSafetyPredicates(
+    ['PRED-CKD-G4-G5', 'PRED-HF', 'PRED-CIRRHOSIS', 'PRED-SIADH', 'PRED-EXTREME-WEIGHT'],
+    {
+      heartFailure: hasHeartFailure,
+      ckdStage: hasKidneyDisease ? 'G4' : undefined,
+      cirrhosis: hasCirrhosis,
+      siadh: hasSiadh,
+      weightKg,
+    }
+  );
+
+  const isSafetyGated = safetyEval.blocked;
+  const heuristicRef = evaluateHydrationHeuristic(weightKg);
 
   // Calculation model
   const simulationResult = useMemo(() => {
@@ -240,7 +256,25 @@ export const SimHydration: React.FC = () => {
                   onChange={(e) => setHasKidneyDisease(e.target.checked)}
                   className="rounded border-red-500 text-red-600 focus:ring-red-500"
                 />
-                <span>慢性腎病第4–5期/透析</span>
+                <span>慢性腎病中晚期 (CKD G4–G5)</span>
+              </label>
+              <label className="flex items-center gap-1.5 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={hasCirrhosis}
+                  onChange={(e) => setHasCirrhosis(e.target.checked)}
+                  className="rounded border-red-500 text-red-600 focus:ring-red-500"
+                />
+                <span>肝硬化併腹水 (Cirrhosis)</span>
+              </label>
+              <label className="flex items-center gap-1.5 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={hasSiadh}
+                  onChange={(e) => setHasSiadh(e.target.checked)}
+                  className="rounded border-red-500 text-red-600 focus:ring-red-500"
+                />
+                <span>SIADH 抗利尿異常</span>
               </label>
             </div>
           </div>
@@ -254,12 +288,18 @@ export const SimHydration: React.FC = () => {
           <div className="p-5 rounded-xl border border-red-400 dark:border-red-500/60 bg-red-100/80 dark:bg-red-950/40 space-y-3">
             <div className="flex items-center gap-2 text-red-800 dark:text-red-300 font-bold text-sm">
               <AlertOctagon className="w-5 h-5 text-red-500 dark:text-red-400 animate-pulse" />
-              <span>限水族群專屬醫療安全鎖定（數值輸出已封閉）</span>
+              <span>【安全圖譜安全閘已阻擋 (Safety Predicate Blocked)】</span>
             </div>
-            <p className="text-xs sm:text-sm text-red-900 dark:text-red-200/90 leading-relaxed">
-              系統偵測到您標記為心衰竭或洗腎病史。對這些族群，一般化的「多喝水」建議具有引發急性肺水腫的實質危險。
-              本模擬器嚴格遵守 <strong>Simulation Contract S-11</strong>，已終止一般化數值計算，請遵照專科醫師指示之每日水分上限（通常為 800–1500 mL）。
-            </p>
+            <div className="space-y-2 text-xs sm:text-sm text-red-900 dark:text-red-200/90 leading-relaxed">
+              {safetyEval.explanations_zh.map((exp, idx) => (
+                <p key={idx} className="font-mono bg-red-950/30 p-2.5 rounded-lg border border-red-800/50">
+                  {exp}
+                </p>
+              ))}
+              <p className="opacity-90">
+                本模擬器嚴格遵守 <strong>SIM-HYDRATION 模擬器合約</strong>，已終止一般化自由水運算。請遵照專科醫師指示之限水醫囑。
+              </p>
+            </div>
           </div>
         ) : simulationResult ? (
           <>
@@ -327,6 +367,28 @@ export const SimHydration: React.FC = () => {
                       區間：{simulationResult.netLow} ~ {simulationResult.netHigh} L
                     </span>
                   </div>
+                </div>
+
+                {/* Heuristic Baseline Reference (Spec §6.3: Dashed outline, rule of thumb) */}
+                <div className="p-3.5 rounded-xl border border-dashed border-slate-400 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700 uppercase">
+                        經驗法則參考線 (Heuristic Only)
+                      </span>
+                      <strong className="text-slate-700 dark:text-slate-300 font-mono">
+                        體重乘數估算：{heuristicRef.formattedRange}
+                      </strong>
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                      {heuristicRef.disclaimer}
+                    </p>
+                  </div>
+                  {heuristicRef.isOutlier && (
+                    <span className="shrink-0 font-mono text-[10px] px-2 py-1 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
+                      ⚠ 極端體重防護中
+                    </span>
+                  )}
                 </div>
 
                 {/* Dominant Input Factor (Spec S-02) */}

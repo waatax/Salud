@@ -5,7 +5,7 @@ import { CHAPTER_W_PAGES } from '../data/chapterW';
 import { CHAPTER_O_PAGES } from '../data/chapterO';
 import { CHAPTER_A_PAGES } from '../data/chapterA';
 
-export type MetaView = 'about' | 'evidence' | null;
+export type MetaView = 'about' | 'evidence' | 'explore' | null;
 
 export interface NavigationContextProps {
   activePillar: HealthPillar;
@@ -71,7 +71,13 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
-      // Secondary governance pages are matched first and short-circuit pillar routing.
+      // Secondary governance and knowledge explorer pages
+      if (hash === 'explore' || hash === 'knowledge') {
+        setMetaView('explore');
+        setIsSynergyView(false);
+        setIsCouncilEvidenceView(false);
+        return;
+      }
       if (hash === 'about' || hash === 'governance' || hash === 'council') {
         setMetaView('about');
         setIsSynergyView(false);

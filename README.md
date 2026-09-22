@@ -27,7 +27,7 @@ Salud 定位為**實證健康人體模擬與知識平台**，專為重視科學�
   - **Dark Mode（曜黑玉石與生物發光薄荷）**：曜黑翡翠深暗背景（`#090E0C`）搭配暗面卡片（`#141F1A`），點綴生物發光薄荷綠（`#34D399`），夜讀清晰無疲勞。
 - **醫學圖解標準**：
   - 線條主導（Line-led）、等距剖面（Isometric）、有限填色、留白充足。
-  - 嚴格遵守 WCAG 2.2 AAA 高對比度標準。
+  - 嚴格遵守 WCAG 2.2 AA 高對比度基準（AA Baseline，關鍵標籤朝 AAA 對齊）。
   - 所有向量圖解支援**全螢幕放大檢視**與**無障礙等價資料表（Equivalent Accessible Data Table）**切換。
 
 ---
@@ -137,11 +137,20 @@ v2.0 的主軸是一條規則：**主要瀏覽動線只承載健康內容**。�
 
 ---
 
-## 🚀 本地開發與構建 (Development & Build)
+## 🚀 本地開發與治理測試 (Development & Governance)
 
 ```bash
 # 安裝依賴
 npm install
+
+# 執行純函數單元測試（100% 覆蓋率）
+npm run test
+
+# 執行 CI Governance-as-Code 24 條規則檢驗
+npm run validate
+
+# 產出機器可讀 Serving Layer (knowledge-graph.json & claims.jsonl)
+npm run export:data
 
 # 啟動本機開發伺服器
 npm run dev

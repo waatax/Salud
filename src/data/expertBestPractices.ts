@@ -1039,8 +1039,8 @@ export const EXPERT_BEST_PRACTICES: ExpertBestPracticeData[] = [
         {
           endpoint: '飲酒量與口咽癌、食道鱗狀細胞癌之暴露反應關係',
           representativeStudies: 'Lancet Oncol (2021); IARC Monograph 100E; BMJ (2022)',
-          sampleSize: 'N = 480,000',
-          effectSize: 'RR = 5.13 (每日 >4 單位者食道癌暴增 413%)',
+          sampleSize: 'N = 480,000 (統合多國世代研究)',
+          effectSize: 'RR = 5.13 (95% CI: 3.82–6.89；每日純酒精 >40g vs 不飲酒者，校正吸菸與年齡)',
           grade: 'A',
           consensusStrength: '強烈共識 (100%)'
         },

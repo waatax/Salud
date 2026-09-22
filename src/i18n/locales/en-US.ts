@@ -138,7 +138,7 @@ export const enUS: Record<string, string> = {
   'aldh2.title': 'SBX-A-01｜ALDH2 Genotype & Acetaldehyde Biochemical Sandbox',
   'aldh2.genotype_label': 'Select ALDH2 Genotype (rs671)',
   'aldh2.normal': 'Normal *1/*1 (Enzyme Activity 100%)',
-  'aldh2.hetero': 'Heterozygous Deficient *1/*2 (Activity ~10–20%)',
+  'aldh2.hetero': 'Heterozygous Deficient *1/*2 (Activity ~10% to 17–38%)',
   'aldh2.homo': 'Homozygous Deficient *2/*2 (Activity Near 0%)',
   'aldh2.drinks_label': 'Standard Drinks Consumed',
   'aldh2.exposure_mult': 'Acetaldehyde Relative Exposure Multiplier',

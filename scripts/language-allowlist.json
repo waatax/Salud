@@ -1,0 +1,26 @@
+[
+  {
+    "file": "src/data/chapterA.ts",
+    "line": 1872,
+    "atom_id": "KA-A-009",
+    "phrase": "完全不會",
+    "polarity": "protective_denial",
+    "rationale": "保護性否定陳述：減害協議（喝水、墊胃）完全不會降低酒精一級致癌物的基因突變致癌機率。禁止過度樂觀之保健承諾，在醫學上為必要之患者保護。"
+  },
+  {
+    "file": "src/data/chapterA.ts",
+    "line": 316,
+    "atom_id": "KA-A-008",
+    "phrase": "無法加速",
+    "polarity": "protective_denial",
+    "rationale": "保護性否定陳述：市售薑黃飲與解酒保健品在生化動力學上無法加速 ADH/ALDH2 清除速度。"
+  },
+  {
+    "file": "src/data/chapterW.ts",
+    "line": 1872,
+    "atom_id": "KA-W-005",
+    "phrase": "絕非固定值",
+    "polarity": "protective_denial",
+    "rationale": "否定單一人體水合公式：人體含水量與排汗量絕非固定常數，必須依情境動態調整。"
+  }
+]

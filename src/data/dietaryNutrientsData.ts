@@ -44,7 +44,7 @@ export const DIETARY_NUTRIENTS: DietaryNutrient[] = [
       },
       {
         myth: '果糖是天然糖所以比蔗糖更健康？',
-        reality: '游離果糖不經由胰島素調控，100% 進入肝臟直接進入脂肪合成路徑，是誘發高三酸甘油脂血症與脂肪肝的最強推手。'
+        reality: '游離果糖代謝不依賴胰島素調節，主要由肝臟果糖激酶 (KHK) 優先磷酸化處理，過量攝入時易直接驅動脂質新生路徑 (De Novo Lipogenesis)，是誘發高三酸甘油脂血症與脂肪肝的重要推手。'
       }
     ],
     best_practices_zh: [
@@ -579,12 +579,12 @@ export const DIETARY_NUTRIENTS: DietaryNutrient[] = [
     category_type: 'METABOLIC_RESTRICTED',
     badge: '7 kcal/g · 嚴格排在最後 · 代謝毒物',
     summary_zh: '酒精（乙醇）是中樞神經抑制劑，熱量高達 7 kcal/g，但為毫無營養價值的「空熱量」。WHO 國際癌症研究機構 (IARC) 將酒精列為 Group 1 一級致癌物。台灣近 47% 人口存在 ALDH2 乙醛去氫酶基因缺陷，喝酒臉紅即代表劇毒乙醛在體內大量蓄積。',
-    biomolecules: ['Ethanol', 'Acetaldehyde (乙醛)', 'ADH (醇去氫酶)', 'ALDH2 (醛去氫酶)', 'Acetate (乙酸)'],
+    biomolecules: ['Ethanol', 'Acetaldehyde (乙醛)', 'ADH (乙醇去氫酶)', 'ALDH2 (乙醛去氫酶 2)', 'Acetate (乙酸)'],
     biochemical_mechanisms_zh: [
-      '乙醇進入肝臟經由乙醇去氫酶 (ADH) 氧化為劇毒性「乙醛 (Acetaldehyde)」，乙醛具強烈親電性，直接與 DNA 共價結合形成致癌加合物 (DNA Adducts)。',
-      '正常人由 ALDH2 迅速將乙醛代謝為無害的乙酸 (Acetate)；ALDH2 缺乏基因突變者 (Glu504Lys) 酵素活性僅剩不到 10%，血中乙醛濃度飆升數十倍。',
+      '乙醇進入肝臟經由乙醇去氫酶 (Alcohol Dehydrogenase, ADH) 氧化為劇毒性「乙醛 (Acetaldehyde)」，乙醛具強烈親電性，直接與 DNA 共價結合形成致癌加合物 (DNA Adducts)。',
+      '正常人由 ALDH2 迅速將乙醛代謝為無害的乙酸 (Acetate)；ALDH2 缺乏基因突變者 (Glu504Lys) 雜合子 *1/*2 殘存活性依測量方法約 10% 至 17–38%，純合缺失 *2/*2 活性近 0%，造成血中乙醛顯著蓄積。',
       '酒精代謝消耗大量 NAD+ 轉為 NADH，使肝臟 NADH/NAD+ 比值劇增，全面阻斷檸檬酸循環與脂肪酸 β-氧化，迫使脂肪在肝臟堆積（酒精性脂肪肝）。',
-      '酒精抑制抗利尿激素 (ADH) 造成強迫性脫水；並強烈阻斷後半夜 REM 快速動眼期睡眠，造成神經記憶鞏固中斷。'
+      '酒精抑制腦下垂體分泌之抗利尿激素 (Vasopressin / 抗利尿荷爾蒙，非乙醇去氫酶) 造成強迫性脫水；並強烈阻斷後半夜 REM 快速動眼期睡眠，造成神經記憶鞏固中斷。'
     ],
     daily_intake_targets: {
       target_zh: '2023 WHO 最新官方聲明：「就癌症風險而言，沒有任何酒精攝取量是安全的 (No safe level of alcohol consumption)。」',
@@ -597,7 +597,7 @@ export const DIETARY_NUTRIENTS: DietaryNutrient[] = [
     ],
     deficiency_and_excess_zh: {
       deficiency: '完全不飲酒對人體生理機能有百利而無一害。',
-      excess: '慢性過量飲酒引發酒精性肝硬化、擴張型心肌病變、消化道癌症（食道癌風險飆升 50 倍）、Wernicke 腦病變與失智。'
+      excess: '慢性過量飲酒引發酒精性肝硬化、擴張型心肌病變、消化道癌症（相較於非飲酒者，重度飲酒合併 ALDH2 突變者食道鱗狀細胞癌相對危險度顯著倍增）、Wernicke 腦病變與失智。'
     },
     clinical_red_flags: [
       '一喝酒即迅速臉紅、心悸、頭痛（典型 ALDH2 基因缺陷，強烈警告應完全戒酒）',

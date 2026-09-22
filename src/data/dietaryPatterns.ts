@@ -314,13 +314,13 @@ export const DIETARY_PATTERNS: DietaryPattern[] = [
     core_principles_zh: [
       '全食物植物性 (Whole-Food Plant-Based, WFPB)：拒絕素食素肉素料等超加工化學添加物。',
       '胺基酸互補定律：每日跨餐次搭配「豆類（富含離胺酸）」與「全穀類（富含甲硫胺酸）」獲取完全蛋白質。',
-      '【絕對防禦鐵律 1：維生素 B12 必須外源補充】：植物完全不含人體可用之活性 B12，未補充者 100% 走向神經病變！',
+      '【關鍵防禦原則 1：維生素 B12 必須外源補充】：天然植物性食材不含人體生物可用之活性 B12，長期純素且未補充者具極高不可逆神經病變與巨球性貧血風險。',
       '【關鍵轉化防禦 2：微藻油補充 Omega-3】：直接補充裂殖壺藻萃取之植物性 EPA/DHA，繞過人體低於 5% 之 ALA 轉化瓶頸。',
     ],
     core_principles_en: [
       'Whole-Food Plant-Based (WFPB): Rejecting synthetic ultra-processed faux meats and isolated starches.',
       'Amino acid complementation: Daily pairing of legumes (rich in lysine) with grains (rich in methionine) for complete amino acid profiles.',
-      '【MANDATORY RULE 1: ORAL B12 SUPPLEMENTATION】: Plants contain zero bioavailable active B12; lack of supplementation leads to irreversible neuropathy!',
+      '【MANDATORY RULE 1: ORAL B12 SUPPLEMENTATION】: Plants contain no bioavailable active B12; long-term unsupplemented vegans face severe risk of irreversible neuropathy.',
       '【CRITICAL DEFENSE 2: ALGAL OMEGA-3】: Supplement microalgae-derived EPA/DHA directly, circumventing the <5% physiological ALA conversion limit.',
     ],
     biochemical_mechanisms_zh: [

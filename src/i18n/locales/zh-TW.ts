@@ -140,7 +140,7 @@ export const zhTW: Record<string, string> = {
   'aldh2.title': 'SBX-A-01｜ALDH2 基因型與乙醛蓄積生化沙盒',
   'aldh2.genotype_label': '選擇 ALDH2 基因型 (rs671)',
   'aldh2.normal': '正常型 *1/*1 (活性 100%)',
-  'aldh2.hetero': '雜合缺失 *1/*2 (活性約 10–20%)',
+  'aldh2.hetero': '雜合缺失 *1/*2 (活性約 10% 至 17–38%)',
   'aldh2.homo': '純合缺失 *2/*2 (活性近 0%)',
   'aldh2.drinks_label': '攝入酒精量 (標準杯數)',
   'aldh2.exposure_mult': '乙醛相對暴險倍數',

@@ -12,8 +12,10 @@ import {
   Sparkles,
   ExternalLink,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  OctagonAlert
 } from 'lucide-react';
+import { evaluateSafetyPredicates } from '../../compose/safety';
 
 export const SimBAC: React.FC = () => {
   const { t, language } = useLanguage();
@@ -28,7 +30,11 @@ export const SimBAC: React.FC = () => {
   const [stomachState, setStomachState] = useState<StomachState>('LIGHT_MEAL');
   const [withCarbonation, setWithCarbonation] = useState<boolean>(false);
   const [drinkingDurationHours, setDrinkingDurationHours] = useState<number>(1.5);
+  const [aldh2Genotype, setAldh2Genotype] = useState<'NORMAL' | 'HETERO' | 'HOMO'>('NORMAL');
   const [showDataTable, setShowDataTable] = useState<boolean>(false);
+
+  // Safety Predicate Evaluation (vNext.8 Safety Graph)
+  const safetyEval = evaluateSafetyPredicates(['PRED-ALDH2-DEFICIENT'], { aldh2Genotype });
 
   // Preset handler
   const handlePresetSelect = (category: BeverageCategory) => {
@@ -318,7 +324,79 @@ export const SimBAC: React.FC = () => {
             className="w-5 h-5 accent-salud-amber rounded cursor-pointer"
           />
         </div>
+
+        {/* ALDH2 Genotype Selection (Safety Graph Predicate Input) */}
+        <div className="space-y-1.5 p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 sm:col-span-2 lg:col-span-4">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-slate-300 font-bold flex items-center gap-1.5">
+              <ShieldAlert className="w-3.5 h-3.5 text-salud-amber" />
+              ALDH2 酵素基因型 (rs671) · 安全圖譜邊界
+            </span>
+            <span className="text-[10px] text-slate-400 font-mono">台灣約 47% 帶因</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <button
+              type="button"
+              onClick={() => setAldh2Genotype('NORMAL')}
+              className={`py-1.5 px-2 rounded-lg border text-left font-mono text-xs transition-all ${
+                aldh2Genotype === 'NORMAL'
+                  ? 'border-emerald-500 bg-emerald-950/50 text-emerald-200 font-bold'
+                  : 'border-slate-700 bg-slate-900/40 text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              *1/*1 正常型 (活性 100%)
+            </button>
+            <button
+              type="button"
+              onClick={() => setAldh2Genotype('HETERO')}
+              className={`py-1.5 px-2 rounded-lg border text-left font-mono text-xs transition-all ${
+                aldh2Genotype === 'HETERO'
+                  ? 'border-amber-400 bg-amber-950/60 text-amber-200 font-bold'
+                  : 'border-slate-700 bg-slate-900/40 text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              *1/*2 雜合缺失 (活性約 10%~38%)
+            </button>
+            <button
+              type="button"
+              onClick={() => setAldh2Genotype('HOMO')}
+              className={`py-1.5 px-2 rounded-lg border text-left font-mono text-xs transition-all ${
+                aldh2Genotype === 'HOMO'
+                  ? 'border-red-500 bg-red-950/70 text-red-200 font-bold animate-pulse'
+                  : 'border-slate-700 bg-slate-900/40 text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              *2/*2 純合缺失 (活性近 0%)
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* ── Safety Predicate Intercept Banner ── */}
+      {safetyEval.activePredicates.length > 0 && (
+        <div className={`p-4 rounded-2xl border transition-all ${
+          aldh2Genotype === 'HOMO'
+            ? 'bg-red-950/50 border-red-500/80 text-red-200 shadow-lg shadow-red-950/50'
+            : 'bg-amber-950/40 border-amber-500/60 text-amber-200'
+        }`}>
+          <div className="flex items-start gap-3">
+            <OctagonAlert className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+              aldh2Genotype === 'HOMO' ? 'text-red-400 animate-bounce' : 'text-amber-400'
+            }`} />
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 font-bold font-mono text-xs">
+                <span>【安全圖譜警示 PRED-ALDH2-DEFICIENT】</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-black/40 border border-current">
+                  模型邊界阻擋
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed opacity-90">
+                {safetyEval.explanations_zh[0]}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Key Mathematical Projections (Uncertainty Bands) ── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">

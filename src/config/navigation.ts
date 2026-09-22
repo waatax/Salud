@@ -195,6 +195,7 @@ export const EXERCISE_SUB_NAV = [
  * these describe how Salud is built, not what the reader should do about their health.
  */
 export const SECONDARY_LINKS = [
+  { hash: 'explore', label_zh: '知識點資料庫 (Explore)', label_en: 'Knowledge Explorer' },
   { hash: 'evidence', label_zh: '實證來源與分級', label_en: 'Evidence & grading' },
   { hash: 'about', label_zh: '關於 Salud 與專家審核', label_en: 'About & expert review' },
 ];

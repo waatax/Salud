@@ -50,6 +50,9 @@ const AboutGovernancePage = lazy(() =>
 const EvidenceLibraryPage = lazy(() =>
   import('../meta/EvidenceLibraryPage').then((m) => ({ default: m.EvidenceLibraryPage }))
 );
+const KnowledgeExplorerPage = lazy(() =>
+  import('../knowledge/KnowledgeExplorerPage').then((m) => ({ default: m.KnowledgeExplorerPage }))
+);
 
 export function AppShell() {
   const {
@@ -126,7 +129,13 @@ export function AppShell() {
                 </div>
               }
             >
-              {metaView === 'about' ? <AboutGovernancePage /> : <EvidenceLibraryPage />}
+              {metaView === 'about' ? (
+                <AboutGovernancePage />
+              ) : metaView === 'explore' ? (
+                <KnowledgeExplorerPage />
+              ) : (
+                <EvidenceLibraryPage />
+              )}
             </Suspense>
           ) : isSynergyView ? (
             <Suspense

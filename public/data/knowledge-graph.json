@@ -1,0 +1,2998 @@
+{
+  "version": "8.0.0",
+  "generated_at": "2026-09-22T11:21:00.058Z",
+  "nodes_count": 104,
+  "edges_count": 67,
+  "nodes": [
+    {
+      "id": "KA-BP-001",
+      "type": "atom",
+      "label": "成人血壓分級（2025 AHA/ACC）：正常 <120/<",
+      "data": {
+        "id": "KA-BP-001",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "blood_pressure",
+        "statement_zh": "成人血壓分級（2025 AHA/ACC）：正常 <120/<80；升高 120–129/<80；第 1 期高血壓 130–139 或 80–89；第 2 期高血壓 ≥140 或 ≥90 mmHg。",
+        "applies_to": {
+          "population": "一般成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-BP-001",
+            "citation": "2025 AHA/ACC Hypertension Guideline",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "單次診間量測不足以分級；須符合標準量測程序（安靜坐姿 5 分鐘、排空膀胱）之多次平均。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-BP-002",
+      "type": "atom",
+      "label": "2025 指引維持一般成年人治療目標為收縮壓與舒張壓 <13",
+      "data": {
+        "id": "KA-BP-002",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "blood_pressure",
+        "statement_zh": "2025 指引維持一般成年人治療目標為收縮壓與舒張壓 <130/80 mmHg。",
+        "applies_to": {
+          "population": "成年高血壓患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-BP-002",
+            "citation": "2025 AHA/ACC Hypertension Guideline Table 8",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "懷孕、長照機構長者、預期餘命有限或嚴重姿勢性低血壓者另有特殊目標，不可一律套用。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-BP-003",
+      "type": "atom",
+      "label": "2025 指引改用 PREVENT 心血管風險方程，高風險閾",
+      "data": {
+        "id": "KA-BP-003",
+        "assertion_kind": "quantitative",
+        "risk_class": "R2",
+        "topic": "blood_pressure",
+        "statement_zh": "2025 指引改用 PREVENT 心血管風險方程，高風險閾值由原 PCE 方程之 10 年 ≥10% 下調為 PREVENT 10 年 ≥7.5%。",
+        "applies_to": {
+          "population": "30–79 歲成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-BP-003",
+            "citation": "Circulation 2024; PREVENT Risk Equations Validation",
+            "design": "cohort",
+            "sample_size": 6000000,
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "PREVENT 與 PCE 分數不可互換比較；計算門檻數值改變不等於個人心血管風險突然改變。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-BP-004",
+      "type": "atom",
+      "label": "第 1 期高血壓且低心血管風險（PREVENT <7.5%）",
+      "data": {
+        "id": "KA-BP-004",
+        "assertion_kind": "procedural",
+        "risk_class": "R2",
+        "topic": "blood_pressure",
+        "statement_zh": "第 1 期高血壓且低心血管風險（PREVENT <7.5%）者，先行 3–6 個月積極生活型態調整；若平均血壓仍 ≥130/80 mmHg 再起始降壓藥物。",
+        "applies_to": {
+          "population": "低心血管風險第 1 期高血壓成人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-BP-004",
+            "citation": "2025 AHA/ACC Hypertension Guideline Section 4.2",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "已有心血管疾病 (CVD)、糖尿病、慢性腎臟病 (CKD) 或 PREVENT ≥7.5% 者不適用此觀察期，應立即合併藥物。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-BP-005",
+      "type": "atom",
+      "label": "機制鏈：高鈉負荷 → 細胞外液量上升 → 心輸出量與血管阻力",
+      "data": {
+        "id": "KA-BP-005",
+        "assertion_kind": "mechanism",
+        "risk_class": "R1",
+        "topic": "blood_pressure",
+        "statement_zh": "機制鏈：高鈉負荷 → 細胞外液量上升 → 心輸出量與血管阻力重設 → 壓力自然尿鈉排泄曲線右移 → 維持鈉平衡所需血壓升高。",
+        "applies_to": {
+          "population": "一般生理學",
+          "region": "全球"
+        },
+        "primary_source": "Guyton and Hall Textbook of Medical Physiology, 14th Ed.",
+        "evidence_records": [
+          {
+            "id": "EV-BP-005",
+            "citation": "Guyton & Hall Physiology Ch. 19",
+            "design": "mechanistic_in_vitro",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "鈉敏感性存在高度個體差異，不可推論「每個人減鈉都會降下同等毫米汞柱」。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-GL-001",
+      "type": "atom",
+      "label": "糖尿病診斷符合任一項：A1C ≥6.5%（≥48 mmol/",
+      "data": {
+        "id": "KA-GL-001",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "glucose",
+        "statement_zh": "糖尿病診斷符合任一項：A1C ≥6.5%（≥48 mmol/mol）；空腹血漿葡萄糖 FPG ≥126 mg/dL（≥7.0 mmol/L）；75g OGTT 2 小時血糖 ≥200 mg/dL；或具典型高血糖症狀下隨機血糖 ≥200 mg/dL。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-GL-001",
+            "citation": "ADA Standards of Care 2026 Section 2",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "無明確高血糖危象之無症狀者，須於同一樣本採用兩種檢驗或兩次採樣異常確認；A1C 須使用 NGSP 認證方法。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-GL-002",
+      "type": "atom",
+      "label": "糖尿病前期 (Prediabetes) 定義：A1C 5.7",
+      "data": {
+        "id": "KA-GL-002",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "glucose",
+        "statement_zh": "糖尿病前期 (Prediabetes) 定義：A1C 5.7–6.4%；空腹血糖異常 (IFG) 為 FPG 100–125 mg/dL；耐糖不良 (IGT) 為 75g OGTT 2 小時 140–199 mg/dL。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-GL-002",
+            "citation": "ADA Standards of Care 2026 Section 2",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "「糖尿病前期」代表代謝風險增高狀態，並非確定疾病診斷，亦不代表必然無可挽回進展為糖尿病。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-GL-003",
+      "type": "atom",
+      "label": "指引建議所有無症狀成年人應自 35 歲起常態篩檢糖尿病前期與",
+      "data": {
+        "id": "KA-GL-003",
+        "assertion_kind": "policy",
+        "risk_class": "R2",
+        "topic": "glucose",
+        "statement_zh": "指引建議所有無症狀成年人應自 35 歲起常態篩檢糖尿病前期與第 2 型糖尿病。",
+        "applies_to": {
+          "population": "成人 (美加指引基準)",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-GL-003",
+            "citation": "ADA Standards of Care 2026 Screening",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "過重/肥胖且具危險因子者應提前；此為指引篩檢基準，台灣健保成人預防保健之公費年齡另計。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-GL-004",
+      "type": "atom",
+      "label": "ADA 自 2026 年起全面轉為「活體指引（Living ",
+      "data": {
+        "id": "KA-GL-004",
+        "assertion_kind": "context",
+        "risk_class": "R2",
+        "topic": "glucose",
+        "statement_zh": "ADA 自 2026 年起全面轉為「活體指引（Living Guideline）」模式，全年線上即時滾動更新。",
+        "applies_to": {
+          "population": "醫療專業人員與衛教架構",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-GL-004",
+            "citation": "Diabetes Care 2026 Living Guideline Announcement",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "架構規範：引用 ADA 血糖門檻必須帶版本號與檢索日期，年度快照式引用不再足夠。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-GL-005",
+      "type": "atom",
+      "label": "糖化血色素 A1C 反映前 8–12 週之平均血糖，其數值主",
+      "data": {
+        "id": "KA-GL-005",
+        "assertion_kind": "quantitative",
+        "risk_class": "R2",
+        "topic": "glucose",
+        "statement_zh": "糖化血色素 A1C 反映前 8–12 週之平均血糖，其數值主要取決於紅血球在體內的壽命與代謝更新速率。",
+        "applies_to": {
+          "population": "一般健康成人",
+          "region": "全球"
+        },
+        "primary_source": "ADA Living Guideline 2026 / Clinical Chemistry",
+        "evidence_records": [
+          {
+            "id": "EV-GL-005",
+            "citation": "Clin Chem 2023; Hemoglobin variants and A1C validity",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "溶血性貧血、近期輸血、缺鐵性貧血、懷孕與血紅素變異體皆會使 A1C 失真，此時不可作為單一診斷依據。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-LP-001",
+      "type": "atom",
+      "label": "2026 ACC/AHA 多學會血脂指引採階梯式 LDL-C",
+      "data": {
+        "id": "KA-LP-001",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "lipids",
+        "statement_zh": "2026 ACC/AHA 多學會血脂指引採階梯式 LDL-C 目標：一般風險 <100 mg/dL；特定危險因子者 <70 mg/dL；極高風險者 <55 mg/dL（搭配 non-HDL-C <85 mg/dL）。",
+        "applies_to": {
+          "population": "成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-LP-001",
+            "citation": "2026 ACC/AHA Multisociety Guideline",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "「目標」屬於臨床治療決策範疇，非自我判讀門檻；個人心血管風險分層須由醫師專業評估。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-LP-002",
+      "type": "atom",
+      "label": "2026 血脂指引首次建議所有成人一生至少檢測一次脂蛋白(a",
+      "data": {
+        "id": "KA-LP-002",
+        "assertion_kind": "policy",
+        "risk_class": "R2",
+        "topic": "lipids",
+        "statement_zh": "2026 血脂指引首次建議所有成人一生至少檢測一次脂蛋白(a) [Lp(a)]，並對高值家族進行階梯式檢測。",
+        "applies_to": {
+          "population": "所有成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-LP-002",
+            "citation": "2026 ACC/AHA Multisociety Guideline Lp(a) Recommendation",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "Lp(a) 主要由基因決定，現行飲食與運動對其改變有限；其臨床價值在於風險再分層，非要求盲目降指標。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-LP-003",
+      "type": "atom",
+      "label": "Lp(a) >125 nmol/L 約對應 1.4 倍、>2",
+      "data": {
+        "id": "KA-LP-003",
+        "assertion_kind": "quantitative",
+        "risk_class": "R2",
+        "topic": "lipids",
+        "statement_zh": "Lp(a) >125 nmol/L 約對應 1.4 倍、>250 nmol/L 約對應 ≥2.0 倍 ASCVD 動脈硬化心血管風險。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-LP-003",
+            "citation": "JACC 2025; Lp(a) pooled prospective cohort meta-analysis",
+            "design": "systematic_review",
+            "sample_size": 450000,
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "nmol/L 與 mg/dL 不可用固定係數互換（Kringle 顆粒大小異質性）；跨實驗室評估須先確認單位與方法。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-LP-004",
+      "type": "atom",
+      "label": "達 LDL-C 與 non-HDL-C 目標後，apoB 量",
+      "data": {
+        "id": "KA-LP-004",
+        "assertion_kind": "quantitative",
+        "risk_class": "R2",
+        "topic": "lipids",
+        "statement_zh": "達 LDL-C 與 non-HDL-C 目標後，apoB 量測在三酸甘油酯 >200 mg/dL、糖尿病或 LDL-C <70 mg/dL 最有助於識別殘餘風險；apoB 檢驗不受空腹狀態影響。",
+        "applies_to": {
+          "population": "心血管代謝風險成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-LP-004",
+            "citation": "2026 ACC/AHA Multisociety Guideline apoB section",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "apoB 計算的是致粥狀硬化顆粒數，與 LDL-C 膽固醇含量不同；兩者不一致 (discordance) 時以 apoB 更具預後價值。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-LP-005",
+      "type": "atom",
+      "label": "以不飽和脂肪等熱量替代飽和脂肪對降 LDL-C 的效果，遠比",
+      "data": {
+        "id": "KA-LP-005",
+        "assertion_kind": "comparative",
+        "risk_class": "R2",
+        "topic": "lipids",
+        "statement_zh": "以不飽和脂肪等熱量替代飽和脂肪對降 LDL-C 的效果，遠比單純限制飲食中膽固醇更一致與強效。",
+        "applies_to": {
+          "population": "多數成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID / SRC-WHO-SFA-2023",
+        "evidence_records": [
+          {
+            "id": "EV-LP-005",
+            "citation": "Cochrane Systematic Review 2020 on Dietary Fats",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "不可簡化為「膽固醇吃多少都沒差」；家族性高膽固醇血症 (FH) 或高吸收反應者仍須個別控管膳食膽固醇。（取代 75–80% 內生膽固醇之因果簡化）",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-NA-001",
+      "type": "atom",
+      "label": "WHO 建議成人每日鈉攝取 <2000 mg（相當於食鹽 <",
+      "data": {
+        "id": "KA-NA-001",
+        "assertion_kind": "bound",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "WHO 建議成人每日鈉攝取 <2000 mg（相當於食鹽 <5g），鉀攝取 ≥3510 mg。",
+        "applies_to": {
+          "population": "一般成人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-SODIUM-POTASSIUM-2013",
+        "evidence_records": [
+          {
+            "id": "EV-NA-001",
+            "citation": "WHO Sodium and Potassium Guidelines",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "鉀攝取建議嚴格禁忌於慢性腎臟病中晚期 (CKD G4–G5) 或使用保鉀利尿劑者，高血鉀可致命。任何「補鉀」建議必須綁定 SafetyGate。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-001",
+      "type": "atom",
+      "label": "成人總體水 (TBW) 約占體重 50–60%，比例隨年齡、",
+      "data": {
+        "id": "KA-W-001",
+        "assertion_kind": "range",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "成人總體水 (TBW) 約占體重 50–60%，比例隨年齡、性別、體脂與瘦體組織量變動。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "Physiology Textbook Standard",
+        "evidence_records": [
+          {
+            "id": "EV-W-001",
+            "citation": "Hall JE. Guyton and Hall Textbook of Medical Physiology",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "這是族群解剖生理範圍，非個人固定值，不可據此反推每人每日必須喝下多少水。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-002",
+      "type": "atom",
+      "label": "美國 NASEM 總水分適當攝取量 AI：男性 3.7 L/",
+      "data": {
+        "id": "KA-W-002",
+        "assertion_kind": "range",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "美國 NASEM 總水分適當攝取量 AI：男性 3.7 L/日、女性 2.7 L/日，且已包含固體食物與所有飲品。",
+        "applies_to": {
+          "population": "健康成人",
+          "region": "美國"
+        },
+        "primary_source": "SRC-IOM-2005-WATER",
+        "evidence_records": [
+          {
+            "id": "EV-W-002",
+            "citation": "IOM DRI for Water 2005",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "AI 是族群參考攝取量，非個人目標；解讀為「每天喝 3.7 L 白水」會系統性高估需求 20–30%。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-003",
+      "type": "atom",
+      "label": "歐洲 EFSA 參考值（溫和氣候、中度活動）：男性總水 2.",
+      "data": {
+        "id": "KA-W-003",
+        "assertion_kind": "range",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "歐洲 EFSA 參考值（溫和氣候、中度活動）：男性總水 2.5 L/日、女性 2.0 L/日。",
+        "applies_to": {
+          "population": "成人",
+          "region": "歐洲"
+        },
+        "primary_source": "SRC-EFSA-2010-WATER",
+        "evidence_records": [
+          {
+            "id": "EV-W-003",
+            "citation": "EFSA Journal 2010; 1459",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "與美加數值差異主要源於調查方法學與文化族群，非對立矛盾，並列呈現有助讀者理解科學不確定度。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-004",
+      "type": "atom",
+      "label": "「體重 (kg) × 30–35 mL/日」為台灣常見之臨床",
+      "data": {
+        "id": "KA-W-004",
+        "assertion_kind": "heuristic",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "「體重 (kg) × 30–35 mL/日」為台灣常見之臨床經驗法則，非官方剛性處方指引。",
+        "applies_to": {
+          "population": "一般成人",
+          "region": "台灣"
+        },
+        "primary_source": "Taiwan Clinical Consensus Heuristic",
+        "evidence_records": [
+          {
+            "id": "EV-W-004",
+            "citation": "Clinical Dietitian Consensus Taiwan",
+            "design": "expert_consensus",
+            "risk_of_bias": "moderate",
+            "directness": "high",
+            "provenance_level": "expert-consensus"
+          }
+        ],
+        "derived_certainty": "low",
+        "misuse_guard": "不可外推至極端體重（120 kg 算得 4.2 L 會超出腎臟排泄步調）；不可作為模擬器剛性基準；不得標示為「公式」。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-005",
+      "type": "atom",
+      "label": "口渴是重要且在多數日常情境下足夠的飲水訊號；高溫勞動、長程運",
+      "data": {
+        "id": "KA-W-005",
+        "assertion_kind": "qualitative",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "口渴是重要且在多數日常情境下足夠的飲水訊號；高溫勞動、長程運動、發燒腹瀉與長者口渴遲鈍時需要結構化評估。",
+        "applies_to": {
+          "population": "一般成人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-EAH-CONSENSUS-2015 / CDC",
+        "evidence_records": [
+          {
+            "id": "EV-W-005",
+            "citation": "EAH 3rd Consensus BJSM 2015",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "「不要等口渴才喝水」對健康日常大眾是過度絕對化；耐力運動共識恰恰倡導依口渴飲水以防低血鈉。（取代 chapterW.ts:288）",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-006",
+      "type": "atom",
+      "label": "水合評估應多元並置：晨起體重趨勢、口渴感知、尿色與排尿頻率、",
+      "data": {
+        "id": "KA-W-006",
+        "assertion_kind": "comparative",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "水合評估應多元並置：晨起體重趨勢、口渴感知、尿色與排尿頻率、運動出汗量綜合判讀，不構成機械式診斷規則。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "Sports Med 2020; Hydration Biomarker Review",
+        "evidence_records": [
+          {
+            "id": "EV-W-006",
+            "citation": "Armstrong LE. Assessing hydration status. J Am Coll Nutr.",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "low",
+        "misuse_guard": "「WUT 三項出現兩項即診斷缺水」為坊間自行創造之診斷法，無臨床實證支持；尿色極易受 B 群、茶咖啡與晨尿濃縮干擾。（取代 chapterW.ts:752）",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-007",
+      "type": "atom",
+      "label": "短時間過量攝入低張純水可能超過腎臟當下自由水清除極限而誘發低",
+      "data": {
+        "id": "KA-W-007",
+        "assertion_kind": "bound",
+        "risk_class": "R3",
+        "topic": "hydration",
+        "statement_zh": "短時間過量攝入低張純水可能超過腎臟當下自由水清除極限而誘發低血鈉；排水能力由腎絲球濾過率、溶質攝取與 ADH 共同決定。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "Renal Physiology Literature (needs-provenance-review)",
+        "evidence_records": [
+          {
+            "id": "EV-W-007",
+            "citation": "Am J Kidney Dis Renal Water Clearance Dynamics",
+            "design": "mechanistic_in_vitro",
+            "risk_of_bias": "moderate",
+            "directness": "moderate",
+            "provenance_level": "needs-provenance-review"
+          }
+        ],
+        "derived_certainty": "low",
+        "misuse_guard": "現行 repo 的「0.8–1.0 L/h」不可作為個人安全上限；在取得原始測量文獻前，只能以定性方式呈現。（取代 chapterW.ts:1068）",
+        "status": "needs-provenance-review",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-008",
+      "type": "atom",
+      "label": "急性脫水導致體重流失超過 2% 即開始顯著削弱有氧運動耐力表",
+      "data": {
+        "id": "KA-W-008",
+        "assertion_kind": "quantitative",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "急性脫水導致體重流失超過 2% 即開始顯著削弱有氧運動耐力表現與體溫調節能力。",
+        "applies_to": {
+          "population": "運動員與運動情境",
+          "region": "全球"
+        },
+        "primary_source": "ACSM Position Stand 2007",
+        "evidence_records": [
+          {
+            "id": "EV-W-008",
+            "citation": "Med Sci Sports Exerc 2007;39(2):377-390",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "此閾值專指運動耐力表現終點，不是日常疾病脫水之臨床診斷切點。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-009",
+      "type": "atom",
+      "label": "運動相關低鈉血症 (EAH) 國際共識：長程耐力運動應依口渴",
+      "data": {
+        "id": "KA-W-009",
+        "assertion_kind": "procedural",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "運動相關低鈉血症 (EAH) 國際共識：長程耐力運動應依口渴感飲水，嚴格避免超量強行灌注低張純水。",
+        "applies_to": {
+          "population": "馬拉松與長程耐力運動者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-EAH-CONSENSUS-2015",
+        "evidence_records": [
+          {
+            "id": "EV-W-009",
+            "citation": "BJSM 2015;49:1432-1446",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "此共識與「運動多喝水」常識相反但能救命：EAH 死亡案例絕大多數源於超量飲水腦水腫，而非脫水。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-W-010",
+      "type": "atom",
+      "label": "常態適量飲用之咖啡與茶能淨貢獻全日液體攝取；但超大劑量咖啡因",
+      "data": {
+        "id": "KA-W-010",
+        "assertion_kind": "qualitative",
+        "risk_class": "R1",
+        "topic": "hydration",
+        "statement_zh": "常態適量飲用之咖啡與茶能淨貢獻全日液體攝取；但超大劑量咖啡因具急性輕度利尿效應，與純水生理等價性不完全相同。",
+        "applies_to": {
+          "population": "習慣飲用咖啡茶之成人",
+          "region": "全球"
+        },
+        "primary_source": "PLoS One 2014; Caffeine Hydration Balance",
+        "evidence_records": [
+          {
+            "id": "EV-W-010",
+            "citation": "Killer SC, et al. PLoS One 2014;9(1):e84154",
+            "design": "rct",
+            "sample_size": 50,
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "雙向防護：「咖啡因完全不算水」與「喝咖啡完全等同喝水」皆為極端錯誤解讀。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-O-001",
+      "type": "atom",
+      "label": "WHO 2023 指引：成人與兒童飽和脂肪酸攝取應 <10%",
+      "data": {
+        "id": "KA-O-001",
+        "assertion_kind": "bound",
+        "risk_class": "R2",
+        "topic": "diet",
+        "statement_zh": "WHO 2023 指引：成人與兒童飽和脂肪酸攝取應 <10%E、反式脂肪 <1%E，並應以不飽和脂肪取代。",
+        "applies_to": {
+          "population": "成人與兒童",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-SFA-2023",
+        "evidence_records": [
+          {
+            "id": "EV-O-001",
+            "citation": "WHO Guideline 2023 SFA and TFA",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "%E 為相對總熱量比例。UI 必須依使用者熱量情境換算克數（如 2000 kcal 對應約 22g），並明確標示不同熱量克數不同。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-O-002",
+      "type": "atom",
+      "label": "所有天然植物油與動物脂都是 SFA、MUFA 與 PUFA ",
+      "data": {
+        "id": "KA-O-002",
+        "assertion_kind": "comparative",
+        "risk_class": "R2",
+        "topic": "diet",
+        "statement_zh": "所有天然植物油與動物脂都是 SFA、MUFA 與 PUFA 的混合體；「好油/壞油」描述的是比例分佈上的主導成分。",
+        "applies_to": {
+          "population": "飲食大眾",
+          "region": "全球"
+        },
+        "primary_source": "USDA FoodData Central / TFDA 食品成分資料庫",
+        "evidence_records": [
+          {
+            "id": "EV-O-002",
+            "citation": "USDA FDC Standard Reference Legacy",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "自然界不存在 100% 單一脂肪酸的天然食用油，飲食選擇看重整體膳食脂肪酸平衡。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-O-003",
+      "type": "atom",
+      "label": "發煙點是油脂過熱之實務廚房警示，與（a）高溫氧化穩定性、（b",
+      "data": {
+        "id": "KA-O-003",
+        "assertion_kind": "qualitative",
+        "risk_class": "R2",
+        "topic": "diet",
+        "statement_zh": "發煙點是油脂過熱之實務廚房警示，與（a）高溫氧化穩定性、（b）長期心血管健康結果，是三件獨立變數，不可混為一談。",
+        "applies_to": {
+          "population": "家庭掌廚者",
+          "region": "全球"
+        },
+        "primary_source": "Acta Sci Nutr Health 2018 / Critical Reviews Food Sci 2024",
+        "evidence_records": [
+          {
+            "id": "EV-O-003",
+            "citation": "De Alzaa F, et al. Evaluation of Chemical and Physical Changes in Different Commercial Oils",
+            "design": "mechanistic_in_vitro",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "「發煙點最高代表最健康」是將三個維度壓扁；初榨橄欖油發煙點適中，但富含多酚抗氧化穩定性極高。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-O-004",
+      "type": "atom",
+      "label": "台灣油炸油衛生稽查法規：酸價 >2.0 初篩，總極性化合物 ",
+      "data": {
+        "id": "KA-O-004",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "diet",
+        "statement_zh": "台灣油炸油衛生稽查法規：酸價 >2.0 初篩，總極性化合物 (TPC) >25% 即屬劣化不合格，依食安法處辦。",
+        "applies_to": {
+          "population": "台灣餐飲業與消費者",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-TFDA-FRYING-2011",
+        "evidence_records": [
+          {
+            "id": "EV-O-004",
+            "citation": "TFDA 署授食字第 1001900044 號",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "這是餐飲稽查法定儀器標準，非家庭肉眼指標；家庭烹飪指標為油色變深、黏稠拉絲與起泡不易消退。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-O-005",
+      "type": "atom",
+      "label": "1 茶匙食用油脂重量約 5 公克，熱量約為 45 大卡 (k",
+      "data": {
+        "id": "KA-O-005",
+        "assertion_kind": "quantitative",
+        "risk_class": "R1",
+        "topic": "diet",
+        "statement_zh": "1 茶匙食用油脂重量約 5 公克，熱量約為 45 大卡 (kcal)。",
+        "applies_to": {
+          "population": "一般大眾",
+          "region": "全球"
+        },
+        "primary_source": "USDA / TFDA 營養成分基準表",
+        "evidence_records": [
+          {
+            "id": "EV-O-005",
+            "citation": "Standard Food Exchange Table",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "份量換算值，非特定疾病之建議攝取上限。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-001",
+      "type": "atom",
+      "label": "IARC 將酒精飲料與代謝產物乙醛列為 Group 1 一級",
+      "data": {
+        "id": "KA-A-001",
+        "assertion_kind": "qualitative",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "IARC 將酒精飲料與代謝產物乙醛列為 Group 1 一級致癌物；WHO 明確指出就癌症風險而言不存在安全飲用劑量。",
+        "applies_to": {
+          "population": "所有人群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-A-001",
+            "citation": "IARC Monograph 100E",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "Group 1 代表「致癌性證據充分確鑿」，不代表不同物質致癌強度相同，避免以「和石綿同級」進行聳動恐嚇。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-002",
+      "type": "atom",
+      "label": "ALDH2 rs671 變異之 *2/*2 基因型活性接近 ",
+      "data": {
+        "id": "KA-A-002",
+        "assertion_kind": "range",
+        "risk_class": "R2",
+        "topic": "alcohol",
+        "statement_zh": "ALDH2 rs671 變異之 *2/*2 基因型活性接近 0%；雜合子 *1/*2 殘存酵素活性在不同方法與組織下報告為約 10% 至 17–38% 之間。",
+        "applies_to": {
+          "population": "東亞人群",
+          "region": "全球"
+        },
+        "primary_source": "Pharmacogenomics / Human Genetics Standard",
+        "evidence_records": [
+          {
+            "id": "EV-A-002",
+            "citation": "Pharmacogenet Genomics ALDH2 Enzyme Kinetics Literature",
+            "design": "mechanistic_in_vitro",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "這是跨量測方法的生理區間，非固定常數；既有文案之「不到10%」或「固定10-20%」為點值偏誤。（修 DEFECT-01）",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-003",
+      "type": "atom",
+      "label": "rs671 變異在東亞次族群盛行率約 30–57%；台灣約 ",
+      "data": {
+        "id": "KA-A-003",
+        "assertion_kind": "distribution",
+        "risk_class": "R2",
+        "topic": "alcohol",
+        "statement_zh": "rs671 變異在東亞次族群盛行率約 30–57%；台灣約 45–47% 為帶因者，對應等位基因頻率約 0.27–0.30。",
+        "applies_to": {
+          "population": "台灣與東亞族群",
+          "region": "台灣"
+        },
+        "primary_source": "Taiwan Biobank / Genomic Medicine Cohort",
+        "evidence_records": [
+          {
+            "id": "EV-A-003",
+            "citation": "Taiwan Biobank rs671 Allele Frequency Census",
+            "design": "cohort",
+            "sample_size": 150000,
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "必須嚴格區分「帶因者比例（約47%）」與「等位基因頻率（約0.28）」，混淆會在流病統計產生巨額誤差。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-004",
+      "type": "atom",
+      "label": "飲酒後明顯臉紅心悸與 ALDH2 低活性高度相關，是重要的風",
+      "data": {
+        "id": "KA-A-004",
+        "assertion_kind": "qualitative",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "飲酒後明顯臉紅心悸與 ALDH2 低活性高度相關，是重要的風險警訊，但非臨床基因確診工具。",
+        "applies_to": {
+          "population": "東亞人群",
+          "region": "全球"
+        },
+        "primary_source": "Epidemiological Literature on Alcohol Flushing",
+        "evidence_records": [
+          {
+            "id": "EV-A-004",
+            "citation": "Alcohol Clin Exp Res Flushing Questionnaire vs rs671 Genotype",
+            "design": "cohort",
+            "sample_size": 4500,
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "禁止任何未經驗證的酒精棉花自測與虛假機率宣稱（徹底移除 chapterA.ts:496 之酒精棉貼 15 分鐘 70% 機率，修 DEFECT-04）。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-005",
+      "type": "atom",
+      "label": "ALDH2 缺失者若中重度飲酒（尤合併吸菸），食道鱗狀細胞癌",
+      "data": {
+        "id": "KA-A-005",
+        "assertion_kind": "comparative",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "ALDH2 缺失者若中重度飲酒（尤合併吸菸），食道鱗狀細胞癌風險顯著倍增，倍數強烈依賴酒精克數與吸菸分層。",
+        "applies_to": {
+          "population": "東亞飲酒者",
+          "region": "東亞"
+        },
+        "primary_source": "Lancet Oncology 2021; GWAS on Esophageal Cancer in East Asia",
+        "evidence_records": [
+          {
+            "id": "EV-A-005",
+            "citation": "Nature Genetics 2020 & Lancet Oncol 2021 (N=12,000)",
+            "design": "case_control",
+            "sample_size": 12000,
+            "effect": {
+              "measure": "OR",
+              "estimate": "102.5",
+              "ci_95": [
+                52.8,
+                199.1
+              ],
+              "comparator": "vs ALDH2*2 非飲酒者 (OR=0.98)",
+              "exposure_definition": "每週純酒精 >200g 且合併抽菸",
+              "adjusted_for": [
+                "年齡",
+                "性別",
+                "抽菸量"
+              ]
+            },
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "「50倍」「數十倍」不可作為無基準之一般性描述；任何倍數必須帶 comparator 與暴露劑量。（修 DEFECT-06/07）",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-006",
+      "type": "atom",
+      "label": "台灣公費五癌篩檢政策未包含以「臉紅＋年過40」為單一條件的一",
+      "data": {
+        "id": "KA-A-006",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "台灣公費五癌篩檢政策未包含以「臉紅＋年過40」為單一條件的一般性常態食道內視鏡普篩。",
+        "applies_to": {
+          "population": "台灣民眾",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "evidence_records": [
+          {
+            "id": "EV-A-006",
+            "citation": "HPA Cancer Screening Program Guidelines",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "正確建議為症狀導向：吞嚥困難、胸骨後疼痛或體重驟降應就醫；高風險族群是否進行內視鏡由專科臨床判定。（修 DEFECT-05）",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-007",
+      "type": "atom",
+      "label": "「喝酒配水」不能宣稱能加速乙醛清除、解酒或大幅減輕隔日宿醉；",
+      "data": {
+        "id": "KA-A-007",
+        "assertion_kind": "qualitative",
+        "risk_class": "R2",
+        "topic": "alcohol",
+        "statement_zh": "「喝酒配水」不能宣稱能加速乙醛清除、解酒或大幅減輕隔日宿醉；飲水有助維持液體，但乙醛毒理曲線未被改變。",
+        "applies_to": {
+          "population": "飲酒者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ALCOHOL-WATER-TRIAL-2026",
+        "evidence_records": [
+          {
+            "id": "EV-A-007",
+            "citation": "Front Pharmacol 2026 Trial; n=13 wildtype Japanese males",
+            "design": "rct",
+            "sample_size": 13,
+            "risk_of_bias": "low",
+            "directness": "low",
+            "precision": "imprecise",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "low",
+        "misuse_guard": "雙向防誤用：（a）不可宣稱配水能解酒（修 chapterW.ts:1385）；（b）亦不可將 n=13 野生型男性試驗當作對台灣缺失者之高確定性結論。水仍能補液。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-008",
+      "type": "atom",
+      "label": "「酒量變好」反映中樞神經 GABA/NMDA 受體之代償耐受",
+      "data": {
+        "id": "KA-A-008",
+        "assertion_kind": "qualitative",
+        "risk_class": "R2",
+        "topic": "alcohol",
+        "statement_zh": "「酒量變好」反映中樞神經 GABA/NMDA 受體之代償耐受，ALDH2 酵素活性並未改變，致癌物乙醛組織累積完全不變。",
+        "applies_to": {
+          "population": "經常性飲酒者",
+          "region": "全球"
+        },
+        "primary_source": "Neuropharmacology Literature",
+        "evidence_records": [
+          {
+            "id": "EV-A-008",
+            "citation": "Pharmacology Biochem Behav Central alcohol tolerance mechanisms",
+            "design": "mechanistic_in_vitro",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "大腦耐受性提升常誘使飲酒者增加劑量，導致致癌暴露反而進一步加劇。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-A-009",
+      "type": "atom",
+      "label": "任何減害協議（配水、墊胃、控速）僅能削平急性血中酒精峰值與隔",
+      "data": {
+        "id": "KA-A-009",
+        "assertion_kind": "qualitative",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "任何減害協議（配水、墊胃、控速）僅能削平急性血中酒精峰值與隔日負擔，「完全不會」降低酒精作為 Group 1 致癌物的長期基因突變風險。",
+        "applies_to": {
+          "population": "飲酒者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-A-009",
+            "citation": "IARC 100E & WHO Alcohol Policy",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "此為否證保健宣稱之保護性陳述（極性感知語言規則容許）；防止使用者將減害讀成「可以放膽多喝」之許可證。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-001",
+      "type": "atom",
+      "label": "台灣成人體位標準（18 歲以上）：過輕 BMI <18.5；",
+      "data": {
+        "id": "KA-TW-001",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R2",
+        "topic": "body_comp",
+        "statement_zh": "台灣成人體位標準（18 歲以上）：過輕 BMI <18.5；正常 18.5 ≤ BMI <24；過重 24 ≤ BMI <27；肥胖 BMI ≥27。",
+        "applies_to": {
+          "population": "台灣成年人",
+          "region": "台灣"
+        },
+        "primary_source": "衛生福利部國民健康署成人體位標準",
+        "evidence_records": [
+          {
+            "id": "EV-TW-001",
+            "citation": "Taiwan HPA BMI Cutoffs Regulation",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "台灣切點低於 WHO 國際切點（25/30），因東亞人在較低 BMI 即呈現代謝異常上升；跨國比較不可混用兩套切點。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-002",
+      "type": "atom",
+      "label": "台灣成人腹部肥胖門檻：男性腰圍 ≥90 公分、女性腰圍 ≥8",
+      "data": {
+        "id": "KA-TW-002",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R2",
+        "topic": "body_comp",
+        "statement_zh": "台灣成人腹部肥胖門檻：男性腰圍 ≥90 公分、女性腰圍 ≥80 公分。即使 BMI 正常，腰圍超標仍屬代謝高風險。",
+        "applies_to": {
+          "population": "台灣成年人",
+          "region": "台灣"
+        },
+        "primary_source": "衛生福利部代謝症候群判定標準",
+        "evidence_records": [
+          {
+            "id": "EV-TW-002",
+            "citation": "Taiwan HPA Metabolic Syndrome Definition",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "量測位置（肋骨下緣與腸骨上緣中線、呼氣末）影響數公分，須依標準程序測量。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-003",
+      "type": "atom",
+      "label": "BMI 不區分脂肪組織與瘦體組織，亦無法反映內臟脂肪分佈。",
+      "data": {
+        "id": "KA-TW-003",
+        "assertion_kind": "quantitative",
+        "risk_class": "R1",
+        "topic": "body_comp",
+        "statement_zh": "BMI 不區分脂肪組織與瘦體組織，亦無法反映內臟脂肪分佈。",
+        "applies_to": {
+          "population": "一般人群",
+          "region": "全球"
+        },
+        "primary_source": "Clinical Methodology Consensus",
+        "evidence_records": [
+          {
+            "id": "EV-TW-003",
+            "citation": "Lancet Diabetes Endocrinol BMI Limitations Review",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "高肌力運動員可能被分類為過重；個人判讀需搭配腰圍與體脂分佈評估。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-KD-001",
+      "type": "atom",
+      "label": "慢性腎臟病 (CKD) 定義為腎臟結構或功能異常持續 ≥3 ",
+      "data": {
+        "id": "KA-KD-001",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "慢性腎臟病 (CKD) 定義為腎臟結構或功能異常持續 ≥3 個月，依 CGA 架構分類。",
+        "applies_to": {
+          "population": "成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-KD-001",
+            "citation": "KDIGO 2024 CKD Guideline Chapter 1",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "單次健康檢查 eGFR 偏低不等於 CKD；「持續 ≥3 個月」是診斷不可或缺之核心條件。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-KD-002",
+      "type": "atom",
+      "label": "KDIGO 腎功能 GFR 分期：G1 ≥90、G2 60–",
+      "data": {
+        "id": "KA-KD-002",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "KDIGO 腎功能 GFR 分期：G1 ≥90、G2 60–89、G3a 45–59、G3b 30–44、G4 15–29、G5 <15 mL/min/1.73m²。白蛋白尿分期：A1 <30、A2 30–300、A3 >300 mg/g。",
+        "applies_to": {
+          "population": "成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-KD-002",
+            "citation": "KDIGO 2024 CKD Prognosis Heatmap",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "G1/G2 若無其他腎損傷標記（如蛋白尿、血尿）不構成 CKD；預後由 GFR × 白蛋白尿矩陣共同決定。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-KD-003",
+      "type": "atom",
+      "label": "Salud 的體液與高鉀相關 Best Practice 必",
+      "data": {
+        "id": "KA-KD-003",
+        "assertion_kind": "procedural",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "Salud 的體液與高鉀相關 Best Practice 必須以 KDIGO CGA 分期作為 SafetyGate 謂詞求值參數。",
+        "applies_to": {
+          "population": "健康平台使用者",
+          "region": "全球"
+        },
+        "primary_source": "Salud System Architecture Decision",
+        "evidence_records": [
+          {
+            "id": "EV-KD-003",
+            "citation": "KDIGO 2024 Safety & Salud Architecture Contract",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "「多喝水」與「高鉀飲食」對 G4–G5 腎病族群具高度急性致命風險，模擬器與知識頁必須強制攔阻。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-PA-001",
+      "type": "atom",
+      "label": "WHO 2020：成人每週應進行 150–300 分鐘中等強",
+      "data": {
+        "id": "KA-PA-001",
+        "assertion_kind": "range",
+        "risk_class": "R2",
+        "topic": "exercise",
+        "statement_zh": "WHO 2020：成人每週應進行 150–300 分鐘中等強度、或 75–150 分鐘高強度有氧運動，或等效組合。",
+        "applies_to": {
+          "population": "18–64 歲成年人",
+          "region": "全球"
+        },
+        "primary_source": "WHO Guidelines on Physical Activity and Sedentary Behaviour 2020",
+        "evidence_records": [
+          {
+            "id": "EV-PA-001",
+            "citation": "WHO Physical Activity Guidelines 2020",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "這是族群健康效益區間，非「必須達到 300 分鐘才及格」；由 0 增加到任何活動量效益斜率最陡峭。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-PA-002",
+      "type": "atom",
+      "label": "成人每週應有 ≥2 天針對全身主要肌群進行中等或更高強度之肌",
+      "data": {
+        "id": "KA-PA-002",
+        "assertion_kind": "procedural",
+        "risk_class": "R2",
+        "topic": "exercise",
+        "statement_zh": "成人每週應有 ≥2 天針對全身主要肌群進行中等或更高強度之肌力阻力訓練。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "WHO Guidelines 2020",
+        "evidence_records": [
+          {
+            "id": "EV-PA-002",
+            "citation": "WHO Physical Activity Guidelines 2020 Section 2",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "阻力肌力訓練對防範長者肌少症與提升胰島素敏感度有獨立於有氧運動的效益，不可被省略。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-PA-003",
+      "type": "atom",
+      "label": "≥65 歲長者應每週進行 ≥3 天強調功能性平衡與協調訓練的",
+      "data": {
+        "id": "KA-PA-003",
+        "assertion_kind": "procedural",
+        "risk_class": "R2",
+        "topic": "exercise",
+        "statement_zh": "≥65 歲長者應每週進行 ≥3 天強調功能性平衡與協調訓練的複合運動，以預防跌倒骨折。",
+        "applies_to": {
+          "population": "≥65 歲長者",
+          "region": "全球"
+        },
+        "primary_source": "WHO Guidelines 2020",
+        "evidence_records": [
+          {
+            "id": "EV-PA-003",
+            "citation": "WHO Older Adults Recommendations 2020",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "單純散步對神經肌肉本體感覺與防跌平衡訓練刺激不足，須結合多維度協調動作。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-PA-004",
+      "type": "atom",
+      "label": "WHO 建議日常應減少靜態久坐行為，但現有流行病學證據不足以",
+      "data": {
+        "id": "KA-PA-004",
+        "assertion_kind": "qualitative",
+        "risk_class": "R1",
+        "topic": "exercise",
+        "statement_zh": "WHO 建議日常應減少靜態久坐行為，但現有流行病學證據不足以訂定特定久坐時數之硬性上限切點。",
+        "applies_to": {
+          "population": "所有年齡",
+          "region": "全球"
+        },
+        "primary_source": "WHO Guidelines 2020",
+        "evidence_records": [
+          {
+            "id": "EV-PA-004",
+            "citation": "WHO Sedentary Behaviour Evidence Review 2020",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "任何「久坐超過 X 小時必得心血管病」的宣稱均缺乏指引級數字；此為醫學上誠實承認「無確定切點」的範例。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-SL-001",
+      "type": "atom",
+      "label": "美國 AASM / SRS 專家共識：成人為維護最佳身心代謝",
+      "data": {
+        "id": "KA-SL-001",
+        "assertion_kind": "bound",
+        "risk_class": "R2",
+        "topic": "sleep",
+        "statement_zh": "美國 AASM / SRS 專家共識：成人為維護最佳身心代謝健康，常態睡眠時間應 ≥7 小時/夜。",
+        "applies_to": {
+          "population": "成人",
+          "region": "全球"
+        },
+        "primary_source": "AASM and SRS Consensus Statement on Recommended Sleep",
+        "evidence_records": [
+          {
+            "id": "EV-SL-001",
+            "citation": "J Clin Sleep Med 2015;11(6):591-592",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "這是族群下限建議，非指「睡 6.5 小時必然致病」；個體睡眠需求存在常態分佈，且指引未訂剛性上限。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-004",
+      "type": "atom",
+      "label": "大腸癌篩檢：45–74 歲，以及 40–44 歲具一親等（父",
+      "data": {
+        "id": "KA-TW-004",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "policy",
+        "statement_zh": "大腸癌篩檢：45–74 歲，以及 40–44 歲具一親等（父母、子女、兄弟姊妹）大腸癌家族史者，每 2 年 1 次公費定量免疫法糞便潛血檢查 (FIT)。",
+        "applies_to": {
+          "population": "符合條件之台灣民眾",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "policy_ref_id": "POL-TW-COLORECTAL",
+        "evidence_records": [
+          {
+            "id": "EV-TW-004",
+            "citation": "Taiwan HPA Colorectal Screening Policy",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "FIT 陽性者必須於 3 個月內接受大腸鏡確診；FIT 陰性若出現排便習慣改變或貧血血便症狀，仍須立即就醫。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-005",
+      "type": "atom",
+      "label": "乳癌篩檢：自 114 年（2025）起由原 45–69 歲全",
+      "data": {
+        "id": "KA-TW-005",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "policy",
+        "statement_zh": "乳癌篩檢：自 114 年（2025）起由原 45–69 歲全面擴大為 40–74 歲婦女，每 2 年 1 次公費乳房 X 光攝影檢查。",
+        "applies_to": {
+          "population": "40–74 歲台灣女性",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "policy_ref_id": "POL-TW-BREAST-2025",
+        "evidence_records": [
+          {
+            "id": "EV-TW-005",
+            "citation": "Taiwan MOHW Expanded Screening Order 2025",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "此項於 2025 年正式擴大年齡；任何仍引用舊版 45–69 歲之衛教文案均為過期失效政策，Policy Registry 必須標記 supersedes。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-006",
+      "type": "atom",
+      "label": "口腔癌篩檢：30 歲以上有嚼檳榔（含已戒）或吸菸習慣者；18",
+      "data": {
+        "id": "KA-TW-006",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "policy",
+        "statement_zh": "口腔癌篩檢：30 歲以上有嚼檳榔（含已戒）或吸菸習慣者；18 歲以上有嚼檳榔習慣之原住民，每 2 年 1 次公費口腔黏膜檢查。",
+        "applies_to": {
+          "population": "吸菸/嚼檳榔高風險族群",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "policy_ref_id": "POL-TW-ORAL",
+        "evidence_records": [
+          {
+            "id": "EV-TW-006",
+            "citation": "Taiwan HPA Oral Cancer Screening Order",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "口腔黏膜檢查非治療；最關鍵之一級預防依然是徹底戒除菸、酒、檳榔。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-007",
+      "type": "atom",
+      "label": "子宮頸癌篩檢：30 歲以上女性每 3 年至少 1 次抹片補助",
+      "data": {
+        "id": "KA-TW-007",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "policy",
+        "statement_zh": "子宮頸癌篩檢：30 歲以上女性每 3 年至少 1 次抹片補助；114 年起增列 25–29 歲女性試辦補助。",
+        "applies_to": {
+          "population": "台灣女性",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "policy_ref_id": "POL-TW-CERVICAL",
+        "evidence_records": [
+          {
+            "id": "EV-TW-007",
+            "citation": "Taiwan HPA Cervical Cancer Policy 2025",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "即使已接種 HPV 疫苗，仍應定期接受抹片檢查，以維持完整防禦覆蓋。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-008",
+      "type": "atom",
+      "label": "肺癌 LDCT 篩檢：具肺癌家族史者與重度吸菸者（≥20 包",
+      "data": {
+        "id": "KA-TW-008",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "policy",
+        "statement_zh": "肺癌 LDCT 篩檢：具肺癌家族史者與重度吸菸者（≥20 包-年）每 2 年 1 次公費低劑量電腦斷層掃描。",
+        "applies_to": {
+          "population": "重度吸菸與肺癌家族史者",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "policy_ref_id": "POL-TW-LUNG-LDCT",
+        "evidence_records": [
+          {
+            "id": "EV-TW-008",
+            "citation": "Taiwan HPA LDCT Policy Draft Announcement",
+            "design": "guideline",
+            "risk_of_bias": "moderate",
+            "directness": "moderate",
+            "provenance_level": "needs-provenance-review"
+          }
+        ],
+        "derived_certainty": "low",
+        "misuse_guard": "【審查攔阻示範】：二手來源對家族史男女年齡下限存在衝突讀法（45/50 vs 40/45）。依 VAL-016，在取得 HPA 官方公告核定前不得正式發佈為 R3 級別。",
+        "status": "needs-provenance-review",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-TW-009",
+      "type": "atom",
+      "label": "台灣口腔癌與食道癌發生率居國際前列，主因為菸、酒、檳榔之併用",
+      "data": {
+        "id": "KA-TW-009",
+        "assertion_kind": "context",
+        "risk_class": "R2",
+        "topic": "policy",
+        "statement_zh": "台灣口腔癌與食道癌發生率居國際前列，主因為菸、酒、檳榔之併用暴露。",
+        "applies_to": {
+          "population": "台灣民眾",
+          "region": "台灣"
+        },
+        "primary_source": "Taiwan Cancer Registry Annual Report",
+        "evidence_records": [
+          {
+            "id": "EV-TW-009",
+            "citation": "Taiwan MOHW Cancer Registry Report",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "misuse_guard": "三者併用具相乘而非相加之超額致癌風險；單獨戒除其中任一項仍具顯著健康效益，非「要全戒才有救」。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-META-001",
+      "type": "atom",
+      "label": "任何在 repo 中出現 ≥2 次的醫學數字，必須有唯一 Q",
+      "data": {
+        "id": "KA-META-001",
+        "assertion_kind": "procedural",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "任何在 repo 中出現 ≥2 次的醫學數字，必須有唯一 QuantitativeClaim id；重複出現處只能引用 id。",
+        "applies_to": {
+          "population": "專案工程師與醫學編輯",
+          "region": "repo"
+        },
+        "primary_source": "Salud vNext.8 Architecture Specification",
+        "evidence_records": [
+          {
+            "id": "EV-META-001",
+            "citation": "Salud Architecture Decision Record 01",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "expert-consensus"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "結構性消除 DEFECT-01 之跨檔案同數字不同值缺陷。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-META-002",
+      "type": "atom",
+      "label": "任何縮寫在同一資料陣列中若可能有多種展開，必須在 Termi",
+      "data": {
+        "id": "KA-META-002",
+        "assertion_kind": "procedural",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "任何縮寫在同一資料陣列中若可能有多種展開，必須在 TerminologyRegistry 註冊且在首次出現處展開。",
+        "applies_to": {
+          "population": "專案工程師與醫學編輯",
+          "region": "repo"
+        },
+        "primary_source": "Salud vNext.8 Architecture Specification",
+        "evidence_records": [
+          {
+            "id": "EV-META-002",
+            "citation": "Salud Architecture Decision Record 02",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "expert-consensus"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "消解 DEFECT-03 ADH 等縮寫碰撞，捍衛臨床讀者理解力。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-META-003",
+      "type": "atom",
+      "label": "任何效應量（RR/OR/HR）必須帶 comparator ",
+      "data": {
+        "id": "KA-META-003",
+        "assertion_kind": "procedural",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "任何效應量（RR/OR/HR）必須帶 comparator 與 exposure_definition，否則 CI 檢驗阻擋。",
+        "applies_to": {
+          "population": "專案工程師與醫學編輯",
+          "region": "repo"
+        },
+        "primary_source": "Salud vNext.8 Architecture Specification",
+        "evidence_records": [
+          {
+            "id": "EV-META-003",
+            "citation": "Salud Architecture Decision Record 03",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "expert-consensus"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "消解 DEFECT-11，嚴禁脫離比較基準任意宣稱倍數。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-META-004",
+      "type": "atom",
+      "label": "任何專案自我宣稱（無障礙等級、審閱狀態、KP 數量）必須有對",
+      "data": {
+        "id": "KA-META-004",
+        "assertion_kind": "procedural",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "任何專案自我宣稱（無障礙等級、審閱狀態、KP 數量）必須有對應之自動化產出物支撐，否則改為 baseline。",
+        "applies_to": {
+          "population": "專案工程師與醫學編輯",
+          "region": "repo"
+        },
+        "primary_source": "Salud vNext.8 Architecture Specification",
+        "evidence_records": [
+          {
+            "id": "EV-META-004",
+            "citation": "Salud Architecture Decision Record 04",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "expert-consensus"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "修復 DEFECT-12，杜絕宣稱超出工程已驗證範圍。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "KA-META-005",
+      "type": "atom",
+      "label": "政策知識點與生理知識點在 UI 上必須視覺分離呈現，且政策物",
+      "data": {
+        "id": "KA-META-005",
+        "assertion_kind": "procedural",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "政策知識點與生理知識點在 UI 上必須視覺分離呈現，且政策物件必須標註 effective_from 生效日期。",
+        "applies_to": {
+          "population": "專案工程師與醫學編輯",
+          "region": "repo"
+        },
+        "primary_source": "Salud vNext.8 Architecture Specification",
+        "evidence_records": [
+          {
+            "id": "EV-META-005",
+            "citation": "Salud Architecture Decision Record 05",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "expert-consensus"
+          }
+        ],
+        "derived_certainty": "high",
+        "misuse_guard": "法規行政政策隨年修訂，人體生理相對恆常；視覺分離防止法規異動混淆生理機轉。",
+        "status": "published",
+        "last_reviewed": "2026-09-20"
+      }
+    },
+    {
+      "id": "CLAIM-ALDH2-HETERO-ACTIVITY",
+      "type": "claim",
+      "label": "ALDH2 rs671 (Glu504Lys) 雜合子 *1",
+      "data": {
+        "id": "CLAIM-ALDH2-HETERO-ACTIVITY",
+        "statement": "ALDH2 rs671 (Glu504Lys) 雜合子 *1/*2 在不同檢測方法與組織學下之殘存酵素活性約 10% 至 17–38% 之間。",
+        "value_kind": "range",
+        "range_min": 10,
+        "range_max": 38,
+        "unit": "%",
+        "derivation": "文獻依受質親和力、粒線體裂解酵素活性與肝組織檢測方法呈現跨研究區間",
+        "is_individual_prescription": false,
+        "misuse_guard": "此為實驗室測得之酵素催化活性範圍，非固定常數；不可將範圍簡化為「固定剩 10%」或「絕對 20%」。"
+      }
+    },
+    {
+      "id": "CLAIM-ALDH2-HOMO-ACTIVITY",
+      "type": "claim",
+      "label": "ALDH2 rs671 純合缺失 *2/*2 基因型之粒線體",
+      "data": {
+        "id": "CLAIM-ALDH2-HOMO-ACTIVITY",
+        "statement": "ALDH2 rs671 純合缺失 *2/*2 基因型之粒線體乙醛去氫酶活性接近 0%。",
+        "value_kind": "point",
+        "numeric_value": 0,
+        "unit": "%",
+        "derivation": "四聚體活性位點完全因 Glu504Lys 構型變形而喪失活性",
+        "is_individual_prescription": false,
+        "misuse_guard": "純合子體內乙醛排除幾近停擺，即使微量飲酒亦可誘發急性毒性反應。"
+      }
+    },
+    {
+      "id": "CLAIM-ALDH2-TAIWAN-PREVALENCE",
+      "type": "claim",
+      "label": "台灣人口中約 45%–47% 帶有 ALDH2 rs671 ",
+      "data": {
+        "id": "CLAIM-ALDH2-TAIWAN-PREVALENCE",
+        "statement": "台灣人口中約 45%–47% 帶有 ALDH2 rs671 變異等位基因（帶因者盛行率），對應等位基因頻率約 0.27–0.30。",
+        "value_kind": "distribution",
+        "range_min": 45,
+        "range_max": 47,
+        "unit": "% 帶因者",
+        "derivation": "台灣人體生物資料庫 (Taiwan Biobank) 與台灣多中心世代研究流病抽樣統計",
+        "is_individual_prescription": false,
+        "misuse_guard": "必須嚴格區分「帶因者比例 (Carrier prevalence ~47%)」與「等位基因頻率 (Allele frequency ~0.28)」，混用將在基因遺傳推算上產生巨幅倍率誤差。"
+      }
+    },
+    {
+      "id": "CLAIM-WHO-SFA-PCT",
+      "type": "claim",
+      "label": "WHO 2023 飲食脂質指引建議：成人與兒童飽和脂肪酸 (",
+      "data": {
+        "id": "CLAIM-WHO-SFA-PCT",
+        "statement": "WHO 2023 飲食脂質指引建議：成人與兒童飽和脂肪酸 (SFA) 每日攝取量應小於總熱量之 10% (<10%E)。",
+        "value_kind": "point",
+        "numeric_value": 10,
+        "unit": "%E",
+        "relative_to": "%E",
+        "derivation": "克數依個人每日總攝入熱量換算（2000 kcal 對應約 22.2 g；1200 kcal 對應約 13.3 g）",
+        "is_individual_prescription": false,
+        "misuse_guard": "總熱量比例是族群建議。直接寫為固定「22 g」對小熱量長者偏高、對重度勞動者偏低，UI 必須動態標註換算依據。"
+      }
+    },
+    {
+      "id": "CLAIM-WHO-SODIUM",
+      "type": "claim",
+      "label": "WHO 建議成人每日鈉離子攝取上限為 < 2000 mg（相",
+      "data": {
+        "id": "CLAIM-WHO-SODIUM",
+        "statement": "WHO 建議成人每日鈉離子攝取上限為 < 2000 mg（相當於食鹽 < 5 公克）。",
+        "value_kind": "point",
+        "numeric_value": 2000,
+        "unit": "mg/日",
+        "comparator": "vs 高鈉攝取對應舒張壓與收縮壓降幅",
+        "is_individual_prescription": false,
+        "misuse_guard": "鈉敏感性具個體差異；嚴重慢性低血鈉或腎失鹽患者不可無限制限鈉。"
+      }
+    },
+    {
+      "id": "CLAIM-WHO-POTASSIUM",
+      "type": "claim",
+      "label": "WHO 建議成人每日鉀離子適當攝取量為 ≥ 3510 mg（",
+      "data": {
+        "id": "CLAIM-WHO-POTASSIUM",
+        "statement": "WHO 建議成人每日鉀離子適當攝取量為 ≥ 3510 mg（90 mmol/日）。",
+        "value_kind": "point",
+        "numeric_value": 3510,
+        "unit": "mg/日",
+        "comparator": "vs 低鉀攝取對應中風與高血壓預防",
+        "is_individual_prescription": false,
+        "misuse_guard": "高鉀建議嚴格禁忌於慢性腎臟病 (CKD G4–G5)、高血鉀症或服用保鉀利尿劑/RAAS抑制劑者，高血鉀可能引發致命性心室心律不整。"
+      }
+    },
+    {
+      "id": "CLAIM-NASEM-WATER-MALE",
+      "type": "claim",
+      "label": "美國 NASEM / IOM 建議健康成年男性每日總水分適當",
+      "data": {
+        "id": "CLAIM-NASEM-WATER-MALE",
+        "statement": "美國 NASEM / IOM 建議健康成年男性每日總水分適當攝取量 (AI) 為 3.7 公升。",
+        "value_kind": "point",
+        "numeric_value": 3.7,
+        "unit": "L/日",
+        "derivation": "包含固體食物約 20% 水分與所有飲品約 80% 水分",
+        "is_individual_prescription": false,
+        "misuse_guard": "此為族群「總水分 (Total Water)」參考值，絕非要求個人每日「必須喝下 3.7 公升純白開水」。"
+      }
+    },
+    {
+      "id": "CLAIM-NASEM-WATER-FEMALE",
+      "type": "claim",
+      "label": "美國 NASEM / IOM 建議健康成年女性每日總水分適當",
+      "data": {
+        "id": "CLAIM-NASEM-WATER-FEMALE",
+        "statement": "美國 NASEM / IOM 建議健康成年女性每日總水分適當攝取量 (AI) 為 2.7 公升。",
+        "value_kind": "point",
+        "numeric_value": 2.7,
+        "unit": "L/日",
+        "derivation": "包含固體食物約 20% 水分與所有飲品約 80% 水分",
+        "is_individual_prescription": false,
+        "misuse_guard": "解讀為純水攝取量會系統性高估約 20%~30%。"
+      }
+    },
+    {
+      "id": "CLAIM-EFSA-WATER-MALE",
+      "type": "claim",
+      "label": "歐洲 EFSA 建議溫和氣候與中度活動量成人男性每日總水攝取",
+      "data": {
+        "id": "CLAIM-EFSA-WATER-MALE",
+        "statement": "歐洲 EFSA 建議溫和氣候與中度活動量成人男性每日總水攝取為 2.5 L/日。",
+        "value_kind": "point",
+        "numeric_value": 2.5,
+        "unit": "L/日",
+        "is_individual_prescription": false,
+        "misuse_guard": "與美加數值差異來自調查方法與生活型態定義，非對錯之分。"
+      }
+    },
+    {
+      "id": "CLAIM-EFSA-WATER-FEMALE",
+      "type": "claim",
+      "label": "歐洲 EFSA 建議溫和氣候與中度活動量成人女性每日總水攝取",
+      "data": {
+        "id": "CLAIM-EFSA-WATER-FEMALE",
+        "statement": "歐洲 EFSA 建議溫和氣候與中度活動量成人女性每日總水攝取為 2.0 L/日。",
+        "value_kind": "point",
+        "numeric_value": 2,
+        "unit": "L/日",
+        "is_individual_prescription": false,
+        "misuse_guard": "族群參考值，個人應結合環境溫濕度與流汗量調整。"
+      }
+    },
+    {
+      "id": "CLAIM-WATER-HEURISTIC-TW",
+      "type": "claim",
+      "label": "「體重 (kg) × 30 至 35 mL」為台灣常見之臨床",
+      "data": {
+        "id": "CLAIM-WATER-HEURISTIC-TW",
+        "statement": "「體重 (kg) × 30 至 35 mL」為台灣常見之臨床經驗拇指法則。",
+        "value_kind": "heuristic",
+        "range_min": 30,
+        "range_max": 35,
+        "unit": "mL/kg/日",
+        "derivation": "台灣基層門診衛教口訣",
+        "is_individual_prescription": false,
+        "misuse_guard": "此為粗略經驗法則，嚴禁標示為科學公式；不可線性外推至極端體重（如 120 kg 會得出 4.2 L 之過量高值）。"
+      }
+    },
+    {
+      "id": "CLAIM-BP-NORMAL",
+      "type": "claim",
+      "label": "2025 AHA/ACC 指引成人正常血壓定義為收縮壓 <1",
+      "data": {
+        "id": "CLAIM-BP-NORMAL",
+        "statement": "2025 AHA/ACC 指引成人正常血壓定義為收縮壓 <120 且舒張壓 <80 mmHg。",
+        "value_kind": "point",
+        "unit": "mmHg",
+        "is_individual_prescription": false,
+        "misuse_guard": "必須依循規範量測程序之多次安靜診間/居家平均值，單次讀數不得定性。"
+      }
+    },
+    {
+      "id": "CLAIM-BP-STAGE1",
+      "type": "claim",
+      "label": "2025 AHA/ACC 第 1 期高血壓定義為收縮壓 13",
+      "data": {
+        "id": "CLAIM-BP-STAGE1",
+        "statement": "2025 AHA/ACC 第 1 期高血壓定義為收縮壓 130–139 或舒張壓 80–89 mmHg。",
+        "value_kind": "range",
+        "unit": "mmHg",
+        "is_individual_prescription": false,
+        "misuse_guard": "低心血管風險者得先嘗試 3–6 個月生活型態介入，非立即用藥判準。"
+      }
+    },
+    {
+      "id": "CLAIM-BP-PREVENT-7_5",
+      "type": "claim",
+      "label": "2025 AHA/ACC 改採 PREVENT 方程，10 ",
+      "data": {
+        "id": "CLAIM-BP-PREVENT-7_5",
+        "statement": "2025 AHA/ACC 改採 PREVENT 方程，10 年 ASCVD 高風險閾值由原 10% 調整為 ≥7.5%。",
+        "value_kind": "point",
+        "numeric_value": 7.5,
+        "unit": "%",
+        "is_individual_prescription": false,
+        "misuse_guard": "PREVENT 與舊版 PCE 方程分數不可直接換算，切點調整反映模型校正。"
+      }
+    },
+    {
+      "id": "CLAIM-LPA-RISK-125",
+      "type": "claim",
+      "label": "Lp(a) 濃度大於 125 nmol/L（或約 50 mg",
+      "data": {
+        "id": "CLAIM-LPA-RISK-125",
+        "statement": "Lp(a) 濃度大於 125 nmol/L（或約 50 mg/dL）對應約 1.4 倍 ASCVD 相對風險。",
+        "value_kind": "point",
+        "numeric_value": 125,
+        "unit": "nmol/L",
+        "comparator": "vs Lp(a) < 75 nmol/L 基準族群",
+        "is_individual_prescription": false,
+        "misuse_guard": "nmol/L 與 mg/dL 不可用固定倍數互換，以檢驗室報告方法為準。"
+      }
+    },
+    {
+      "id": "CLAIM-LPA-RISK-250",
+      "type": "claim",
+      "label": "Lp(a) 濃度大於 250 nmol/L 對應大於等於 2",
+      "data": {
+        "id": "CLAIM-LPA-RISK-250",
+        "statement": "Lp(a) 濃度大於 250 nmol/L 對應大於等於 2.0 倍 ASCVD 重度風險。",
+        "value_kind": "point",
+        "numeric_value": 250,
+        "unit": "nmol/L",
+        "comparator": "vs Lp(a) < 75 nmol/L 基準族群",
+        "is_individual_prescription": false,
+        "misuse_guard": "Lp(a) 數值終生相對恆定，量測目的在於風險再分層而非頻繁監測。"
+      }
+    },
+    {
+      "id": "CLAIM-OIL-TEASPOON-ENERGY",
+      "type": "claim",
+      "label": "1 茶匙食用油脂重量約 5 公克，熱量約 45 大卡 (kc",
+      "data": {
+        "id": "CLAIM-OIL-TEASPOON-ENERGY",
+        "statement": "1 茶匙食用油脂重量約 5 公克，熱量約 45 大卡 (kcal)。",
+        "value_kind": "point",
+        "numeric_value": 45,
+        "unit": "kcal / 5g",
+        "derivation": "5g × 9 kcal/g = 45 kcal",
+        "is_individual_prescription": false,
+        "misuse_guard": "標準烹調換算單位，非建議每餐油量。"
+      }
+    },
+    {
+      "id": "CLAIM-ALCOHOL-ESOPHAGEAL-RR",
+      "type": "claim",
+      "label": "每日飲酒超過 4 單位（純酒精約 >40g/日）者，罹患食道",
+      "data": {
+        "id": "CLAIM-ALCOHOL-ESOPHAGEAL-RR",
+        "statement": "每日飲酒超過 4 單位（純酒精約 >40g/日）者，罹患食道鱗狀細胞癌之相對危險度 RR = 5.13 (95% CI: 3.82–6.89)。",
+        "value_kind": "point",
+        "numeric_value": 5.13,
+        "comparator": "vs 不飲酒或偶發飲酒者 (Non-drinkers / Occasional drinkers)",
+        "exposure_definition": "每日純酒精攝取 > 4 個標準單位 (NIAAA 14g/drink 或 40g/日)",
+        "adjusted_for": [
+          "吸菸狀態 (Smoking status)",
+          "年齡",
+          "性別"
+        ],
+        "is_individual_prescription": false,
+        "misuse_guard": "若合併抽菸與 ALDH2 rs671 缺乏基因型，致癌倍數將呈非線性倍增。"
+      }
+    },
+    {
+      "id": "POL-TW-COLORECTAL",
+      "type": "policy",
+      "label": "國民健康署公費大腸癌篩檢政策",
+      "data": {
+        "id": "POL-TW-COLORECTAL",
+        "title_zh": "國民健康署公費大腸癌篩檢政策",
+        "title_en": "Taiwan HPA Subsidized Colorectal Cancer Screening Policy",
+        "cancer_type": "大腸癌 (Colorectal Cancer)",
+        "target_population_zh": "45–74 歲民眾，以及 40–44 歲具一親等（父母、子女、兄弟姊妹）大腸癌家族史者",
+        "age_range_zh": "45–74 歲（一般風險）或 40–44 歲（家族史高風險）",
+        "screening_interval_zh": "每 2 年 1 次",
+        "modality_zh": "定量免疫法糞便潛血檢查 (FIT)",
+        "effective_from": "2020-01-01",
+        "policy_version": "2024-HPA-CRC-01",
+        "canonical_url": "https://www.hpa.gov.tw/Pages/List.aspx?nodeid=212",
+        "retrieved_date": "2026-09-20",
+        "status": "active",
+        "notes_zh": "FIT 陽性者應於 3 個月內接受大腸鏡確診；不可因無症狀而拒絕鏡檢。"
+      }
+    },
+    {
+      "id": "POL-TW-BREAST-2025",
+      "type": "policy",
+      "label": "民國 114 年擴大公費乳癌篩檢政策",
+      "data": {
+        "id": "POL-TW-BREAST-2025",
+        "title_zh": "民國 114 年擴大公費乳癌篩檢政策",
+        "title_en": "Taiwan HPA Expanded Breast Cancer Screening Policy (2025 Revision)",
+        "cancer_type": "乳癌 (Breast Cancer)",
+        "target_population_zh": "40–74 歲女性（114 年起放寬年齡上下限）",
+        "age_range_zh": "40–74 歲",
+        "screening_interval_zh": "每 2 年 1 次",
+        "modality_zh": "乳房 X 光攝影檢查 (Mammography)",
+        "effective_from": "2025-01-01",
+        "policy_version": "114-MOHW-EXPAND-01",
+        "canonical_url": "https://www.mohw.gov.tw/cp-16-79883-1.html",
+        "retrieved_date": "2026-09-20",
+        "supersedes": "POL-TW-BREAST-LEGACY-45-69",
+        "status": "active",
+        "notes_zh": "自 114 年元旦起年齡由原 45–69 歲全面擴大至 40–74 歲，早期偵測第 0 期與第 1 期乳癌。"
+      }
+    },
+    {
+      "id": "POL-TW-ORAL",
+      "type": "policy",
+      "label": "公費口腔癌篩檢政策",
+      "data": {
+        "id": "POL-TW-ORAL",
+        "title_zh": "公費口腔癌篩檢政策",
+        "title_en": "Taiwan HPA Subsidized Oral Cancer Screening Policy",
+        "cancer_type": "口腔癌 (Oral Cavity Cancer)",
+        "target_population_zh": "30 歲以上有嚼檳榔（含已戒）或吸菸習慣者；18 歲以上有嚼檳榔（含已戒）習慣之原住民",
+        "age_range_zh": "≥30 歲（一般吸菸/嚼檳榔）或 ≥18 歲（原住民嚼檳榔）",
+        "screening_interval_zh": "每 2 年 1 次",
+        "modality_zh": "牙科或耳鼻喉科醫師口腔黏膜檢查 (Oral Mucosal Examination)",
+        "effective_from": "2019-01-01",
+        "policy_version": "2023-HPA-ORAL-01",
+        "canonical_url": "https://www.hpa.gov.tw/Pages/List.aspx?nodeid=214",
+        "retrieved_date": "2026-09-20",
+        "status": "active",
+        "notes_zh": "檢查前應戒除菸檳；若發現紅白斑、潰瘍超過 2 週未癒合應立即切片。"
+      }
+    },
+    {
+      "id": "POL-TW-CERVICAL",
+      "type": "policy",
+      "label": "民國 114 年擴大公費子宮頸癌篩檢政策",
+      "data": {
+        "id": "POL-TW-CERVICAL",
+        "title_zh": "民國 114 年擴大公費子宮頸癌篩檢政策",
+        "title_en": "Taiwan HPA Subsidized Cervical Cancer Screening Policy (2025 Revision)",
+        "cancer_type": "子宮頸癌 (Cervical Cancer)",
+        "target_population_zh": "30 歲以上女性（每 3 年至少 1 次），114 年起增列 25–29 歲女性試辦補助",
+        "age_range_zh": "≥30 歲常態補助；25–29 歲試辦補助",
+        "screening_interval_zh": "建議每年 1 次，健保給付每 3 年至少 1 次",
+        "modality_zh": "子宮頸抹片檢查 (Pap Smear)",
+        "effective_from": "2025-01-01",
+        "policy_version": "114-MOHW-CERV-01",
+        "canonical_url": "https://www.hpa.gov.tw/Pages/List.aspx?nodeid=213",
+        "retrieved_date": "2026-09-20",
+        "status": "active",
+        "notes_zh": "即使已接種 HPV 疫苗，仍應定期接受抹片檢查以維持雙重防護。"
+      }
+    },
+    {
+      "id": "POL-TW-LUNG-LDCT",
+      "type": "policy",
+      "label": "公費肺癌早期偵測計畫 (低劑量電腦斷層 LDCT)",
+      "data": {
+        "id": "POL-TW-LUNG-LDCT",
+        "title_zh": "公費肺癌早期偵測計畫 (低劑量電腦斷層 LDCT)",
+        "title_en": "Taiwan HPA Subsidized Low-Dose CT (LDCT) Lung Cancer Screening Policy",
+        "cancer_type": "肺癌 (Lung Cancer)",
+        "target_population_zh": "具肺癌家族史者（父母、子女、兄弟姊妹罹患肺癌）及重度吸菸史者（≥20 包-年）",
+        "age_range_zh": "男性 50–74 歲 / 女性 45–74 歲（家族史組年齡下限現正查核中）",
+        "screening_interval_zh": "每 2 年 1 次",
+        "modality_zh": "胸部低劑量電腦斷層攝影 (LDCT)",
+        "effective_from": "2022-07-01",
+        "policy_version": "2022-HPA-LDCT-01",
+        "canonical_url": "https://www.hpa.gov.tw/Pages/List.aspx?nodeid=4622",
+        "retrieved_date": "2026-09-20",
+        "status": "needs-provenance-review",
+        "notes_zh": "【審查攔阻中】：二手來源對家族史組男女年齡下限（45/50 vs 40/45）存在歧異解讀。依 VAL-016 規範，在取得 HPA 官方公告精確核定前，不得以 R3 級別正式發佈。"
+      }
+    },
+    {
+      "id": "SRC-AHA-ACC-2025-HTN",
+      "type": "source",
+      "label": "2025 AHA/ACC/AAPA/ABC/ACPM/AGS",
+      "data": {
+        "id": "SRC-AHA-ACC-2025-HTN",
+        "title": "2025 AHA/ACC/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults",
+        "publisher": "Circulation / JACC",
+        "year": 2025,
+        "grade": "A",
+        "canonical_url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001200",
+        "version": "2025-AHA-ACC-HTN-01",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "us",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "維持高血壓第 1 期切點 ≥130/80 mmHg；全面導入 PREVENT 10 年心血管風險評估（高風險閾值下修至 ≥7.5%）。"
+      }
+    },
+    {
+      "id": "SRC-ACC-AHA-2026-LIPID",
+      "type": "source",
+      "label": "2026 ACC/AHA Multisociety Guid",
+      "data": {
+        "id": "SRC-ACC-AHA-2026-LIPID",
+        "title": "2026 ACC/AHA Multisociety Guideline on the Management of Blood Cholesterol",
+        "publisher": "Journal of the American College of Cardiology",
+        "year": 2026,
+        "grade": "A",
+        "canonical_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.12.001",
+        "version": "2026-ACC-AHA-LIPID",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "2026 多學會血脂指引：確立階梯式 LDL-C 目標（<100/<70/<55 mg/dL），首次建議每位成人一生至少檢測一次 Lp(a)，並以 apoB 進行剩餘風險再分層。"
+      }
+    },
+    {
+      "id": "SRC-ADA-2026",
+      "type": "source",
+      "label": "Standards of Care in Diabetes—",
+      "data": {
+        "id": "SRC-ADA-2026",
+        "title": "Standards of Care in Diabetes—2026",
+        "publisher": "American Diabetes Association (ADA)",
+        "year": 2026,
+        "grade": "A",
+        "canonical_url": "https://diabetesjournals.org/care/issue/49/Supplement_1",
+        "version": "ADA-Living-Guideline-2026.1",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "ADA 糖尿病診療標準：定義空腹血糖 ≥126 mg/dL、A1C ≥6.5% 診斷邊界；2026 起全面轉型為活體指引 (Living Guideline) 全年即時動態更新。"
+      }
+    },
+    {
+      "id": "SRC-KDIGO-2024-CKD",
+      "type": "source",
+      "label": "KDIGO 2024 Clinical Practice G",
+      "data": {
+        "id": "SRC-KDIGO-2024-CKD",
+        "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+        "publisher": "Kidney International",
+        "year": 2024,
+        "grade": "A",
+        "canonical_url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/",
+        "version": "KDIGO-CKD-2024-V1",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "KDIGO 慢性腎臟病權威指引：確立 CGA 分期架構（原因、eGFR G1–G5、白蛋白尿 A1–A3）；確立 ≥3 個月臨床病程定義。"
+      }
+    },
+    {
+      "id": "SRC-WHO-SFA-2023",
+      "type": "source",
+      "label": "Saturated Fatty Acid and Trans",
+      "data": {
+        "id": "SRC-WHO-SFA-2023",
+        "title": "Saturated Fatty Acid and Trans-Fatty Acid Intake for Adults and Children: WHO Guideline",
+        "publisher": "World Health Organization (WHO)",
+        "year": 2023,
+        "grade": "A",
+        "canonical_url": "https://www.who.int/publications/i/item/9789240073630",
+        "version": "WHO-NHD-2023.1",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "WHO 2023 指引：飽和脂肪攝取應小於總熱量 10% (<10%E)，反式脂肪 <1%E，並以多元不飽和脂肪 (PUFA) 等熱量取代。"
+      }
+    },
+    {
+      "id": "SRC-WHO-SODIUM-POTASSIUM-2013",
+      "type": "source",
+      "label": "WHO Guidelines on Sodium and P",
+      "data": {
+        "id": "SRC-WHO-SODIUM-POTASSIUM-2013",
+        "title": "WHO Guidelines on Sodium and Potassium Intake for Adults and Children",
+        "publisher": "World Health Organization (WHO)",
+        "year": 2013,
+        "grade": "A",
+        "canonical_url": "https://www.who.int/publications/i/item/9789241504836",
+        "version": "WHO-NHD-2013-Na-K",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "WHO 建議成人每日鈉離子攝取上限 <2000 mg（食鹽 <5g），每日鉀離子適量攝取 ≥3510 mg。"
+      }
+    },
+    {
+      "id": "SRC-IOM-2005-WATER",
+      "type": "source",
+      "label": "Dietary Reference Intakes for ",
+      "data": {
+        "id": "SRC-IOM-2005-WATER",
+        "title": "Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate",
+        "publisher": "National Academies of Sciences, Engineering, and Medicine (NASEM / IOM)",
+        "year": 2005,
+        "grade": "A",
+        "canonical_url": "https://nap.nationalacademies.org/catalog/10925/",
+        "version": "IOM-DRI-Water-2005",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "us",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "定義健康成人總水適當攝取量（男性 3.7 L/日、女性 2.7 L/日，包含飲食固體水與所有液體）。"
+      }
+    },
+    {
+      "id": "SRC-EFSA-2010-WATER",
+      "type": "source",
+      "label": "Scientific Opinion on Dietary ",
+      "data": {
+        "id": "SRC-EFSA-2010-WATER",
+        "title": "Scientific Opinion on Dietary Reference Values for Water",
+        "publisher": "European Food Safety Authority (EFSA)",
+        "year": 2010,
+        "grade": "A",
+        "canonical_url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459",
+        "version": "EFSA-NDA-2010-1459",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "europe",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "歐洲食品安全局建議溫和氣候中度活動下成人男性總水 2.5 L、女性 2.0 L。"
+      }
+    },
+    {
+      "id": "SRC-EAH-CONSENSUS-2015",
+      "type": "source",
+      "label": "Statement of the 3rd Internati",
+      "data": {
+        "id": "SRC-EAH-CONSENSUS-2015",
+        "title": "Statement of the 3rd International Exercise-Associated Hyponatremia Consensus Development Conference",
+        "publisher": "British Journal of Sports Medicine",
+        "year": 2015,
+        "grade": "A",
+        "canonical_url": "https://bjsm.bmj.com/content/49/22/1432",
+        "version": "EAH-3rd-Consensus",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "長程運動水合國際最高共識：依口渴飲水（Drink to thirst），防範過度灌注低張純水誘發運動型低血鈉 (EAH) 腦水腫。"
+      }
+    },
+    {
+      "id": "SRC-WHO-IARC-ALCOHOL",
+      "type": "source",
+      "label": "IARC Monographs on the Identif",
+      "data": {
+        "id": "SRC-WHO-IARC-ALCOHOL",
+        "title": "IARC Monographs on the Identification of Carcinogenic Hazards to Humans: Volume 100E (Personal Habits and Indoor Combustions - Alcohol Consumption)",
+        "publisher": "International Agency for Research on Cancer (IARC / WHO)",
+        "year": 2012,
+        "grade": "A",
+        "canonical_url": "https://monographs.iarc.who.int/wp-content/uploads/2018/06/mono100E-11.pdf",
+        "version": "IARC-Mono-100E",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "確立酒精飲料及與酒精相關之乙醛為 Group 1 一級致癌物；明確聲明就致癌性而言無安全攝取劑量。"
+      }
+    },
+    {
+      "id": "SRC-ALCOHOL-WATER-TRIAL-2026",
+      "type": "source",
+      "label": "Concurrent Water Consumption D",
+      "data": {
+        "id": "SRC-ALCOHOL-WATER-TRIAL-2026",
+        "title": "Concurrent Water Consumption Does Not Attenuate Breath Acetaldehyde Kinetics or Next-Day Hangover Severity: A Randomized Crossover Trial",
+        "publisher": "Frontiers in Pharmacology",
+        "year": 2026,
+        "grade": "B",
+        "canonical_url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2026.1345678",
+        "version": "FrontPharmacol-2026-Trial",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "global",
+        "provenance_level": "verified-primary",
+        "status": "active",
+        "description_zh": "隨機 2x2 交叉試驗（n=13，ALDH2 野生型男性，清酒 1.3 g/kg 酒精配水 15 mL/kg）：證實交替飲水未改變呼氣乙醇與乙醛時間曲線，亦無有意義減輕隔日宿醉。"
+      }
+    },
+    {
+      "id": "SRC-TFDA-FRYING-2011",
+      "type": "source",
+      "label": "食用油脂中總極性化合物之檢驗方法（署授食字第 1001900",
+      "data": {
+        "id": "SRC-TFDA-FRYING-2011",
+        "title": "食用油脂中總極性化合物之檢驗方法（署授食字第 1001900044 號公告）與餐飲油炸油稽查標準",
+        "publisher": "衛生福利部食品藥物管理署 (TFDA)",
+        "year": 2011,
+        "grade": "A",
+        "canonical_url": "https://www.fda.gov.tw/TC/siteContent.aspx?sid=2567",
+        "version": "TFDA-1001900044",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "taiwan",
+        "provenance_level": "regulatory-statute",
+        "status": "active",
+        "description_zh": "台灣餐飲業油炸油法定規範：先以酸價 >2.0 初篩，總極性化合物 (TPC) >25% 即屬劣變不得繼續使用。"
+      }
+    },
+    {
+      "id": "SRC-HPA-CANCER-SCREENING-2025",
+      "type": "source",
+      "label": "衛生福利部國民健康署擴大癌症篩檢服務政策（114 年起實施）",
+      "data": {
+        "id": "SRC-HPA-CANCER-SCREENING-2025",
+        "title": "衛生福利部國民健康署擴大癌症篩檢服務政策（114 年起實施）",
+        "publisher": "衛生福利部國民健康署",
+        "year": 2025,
+        "grade": "A",
+        "canonical_url": "https://www.mohw.gov.tw/cp-16-79883-1.html",
+        "version": "HPA-114-Screening-V1",
+        "retrieved_date": "2026-09-20",
+        "jurisdiction": "taiwan",
+        "provenance_level": "regulatory-statute",
+        "status": "active",
+        "description_zh": "114 年擴大公費五癌篩檢（乳癌放寬至 40–74 歲、大腸癌、子宮頸癌、口腔癌、肺癌 LDCT）。"
+      }
+    },
+    {
+      "id": "PRED-CKD-G4-G5",
+      "type": "predicate",
+      "label": "中重度慢性腎臟病 (CKD G4–G5) 安全防護閘",
+      "data": {
+        "id": "PRED-CKD-G4-G5",
+        "name": "中重度慢性腎臟病 (CKD G4–G5) 安全防護閘",
+        "description_zh": "腎絲球過濾率 eGFR < 30 mL/min/1.73m²，自由水排出與鉀離子排除機能大幅萎縮。",
+        "target_condition": "ckd_g4_g5",
+        "action_level": "block",
+        "boundary_explanation_zh": "您的腎功能分期屬中重度減退（eGFR < 30 mL/min），腎臟排出過量自由水能力受限，盲目補充大量水分可能引發肺水腫與嚴重低血鈉；高鉀飲食更有致死性心律不整風險。本功能已自動終止模擬，請依腎臟專科醫師處方攝水。"
+      }
+    },
+    {
+      "id": "PRED-HF",
+      "type": "predicate",
+      "label": "充血性心臟衰竭 (Heart Failure) 限水防護閘",
+      "data": {
+        "id": "PRED-HF",
+        "name": "充血性心臟衰竭 (Heart Failure) 限水防護閘",
+        "description_zh": "心臟泵血衰退引發有效循環血量不足與神經荷爾蒙過度代償，水分過量將誘發急性肺水腫。",
+        "target_condition": "heart_failure",
+        "action_level": "block",
+        "boundary_explanation_zh": "心衰竭患者若過度飲水，將急遽增加心臟前負荷並誘發急性肺水腫。日常水分攝取須恪守心臟科醫囑（通常每日上限 1500 mL 包括飲食），一般健康成人水合公式在此完全不適用。"
+      }
+    },
+    {
+      "id": "PRED-CIRRHOSIS",
+      "type": "predicate",
+      "label": "肝硬化併腹水 (Cirrhosis with Ascites) 防護閘",
+      "data": {
+        "id": "PRED-CIRRHOSIS",
+        "name": "肝硬化併腹水 (Cirrhosis with Ascites) 防護閘",
+        "description_zh": "門靜脈高壓與低白蛋白血症導致第三空間體液蓄積，水鈉排泄異常。",
+        "target_condition": "cirrhosis_ascites",
+        "action_level": "block",
+        "boundary_explanation_zh": "肝硬化合併腹水或水腫患者，排泄自由水機能低下，攝入過多低張液體極易引發稀釋性低血鈉與腹水加劇。"
+      }
+    },
+    {
+      "id": "PRED-SIADH",
+      "type": "predicate",
+      "label": "抗利尿激素分泌不當症候群 (SIADH) 防護閘",
+      "data": {
+        "id": "PRED-SIADH",
+        "name": "抗利尿激素分泌不當症候群 (SIADH) 防護閘",
+        "description_zh": "下視丘/腦下垂體異常持續分泌 ADH，腎臟無法稀釋尿液排除水分。",
+        "target_condition": "siadh",
+        "action_level": "block",
+        "boundary_explanation_zh": "SIADH 患者抗利尿激素無法被正常負回饋抑制，正常飲水量即可引發致命性水中毒與腦水腫。"
+      }
+    },
+    {
+      "id": "PRED-ALDH2-DEFICIENT",
+      "type": "predicate",
+      "label": "ALDH2 缺失基因型 (rs671 變異) 酒精毒性邊界防護閘",
+      "data": {
+        "id": "PRED-ALDH2-DEFICIENT",
+        "name": "ALDH2 缺失基因型 (rs671 變異) 酒精毒性邊界防護閘",
+        "description_zh": "東亞特有 ALDH2*2 突變造成乙醛代謝嚴重阻滯。BAC（血中乙醇）讀數正常絕不等於乙醛毒性安全！",
+        "target_condition": "aldh2_homo_or_hetero",
+        "action_level": "warn",
+        "boundary_explanation_zh": "【重要安全邊界】：BAC 模型僅描述「乙醇」在人體內的動力學；對於 ALDH2 缺失（*1/*2 或 *2/*2）的飲酒臉紅者而言，真正的毒性負擔是一級致癌物「乙醛」。即使計算顯示 BAC 在合法法定標準以內，乙醛對食道黏膜與 DNA 的突變毒性依然以十倍以上累積！請勿將 BAC 讀數作為放膽飲酒的許可證。"
+      }
+    },
+    {
+      "id": "PRED-EXTREME-WEIGHT",
+      "type": "predicate",
+      "label": "極端體重經驗法則防護閘 (Extreme Weight Heuristic Guard)",
+      "data": {
+        "id": "PRED-EXTREME-WEIGHT",
+        "name": "極端體重經驗法則防護閘 (Extreme Weight Heuristic Guard)",
+        "description_zh": "體重 < 40 kg 或 > 105 kg 時，線性體重水分乘數公式（kg × 30~35 mL）會嚴重失真。",
+        "target_condition": "extreme_weight",
+        "action_level": "cap",
+        "boundary_explanation_zh": "體重乘數（30–35 mL/kg）僅為中等體重成人之粗略經驗法則。當體重達 120 kg 時算出的 4.2 L/日已逼近人體安全排泄負荷。極端體重應依理想體重校正或依口渴與尿色動態補充。"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "KA-BP-001",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-002",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-003",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-004",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-005",
+      "target": "Guyton and Hall Textbook of Medical Physiology, 14th Ed.",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GL-001",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GL-002",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GL-003",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GL-004",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GL-005",
+      "target": "ADA Living Guideline 2026 / Clinical Chemistry",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LP-001",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LP-002",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LP-003",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LP-004",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LP-005",
+      "target": "SRC-ACC-AHA-2026-LIPID / SRC-WHO-SFA-2023",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-NA-001",
+      "target": "SRC-WHO-SODIUM-POTASSIUM-2013",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-001",
+      "target": "Physiology Textbook Standard",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-002",
+      "target": "SRC-IOM-2005-WATER",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-003",
+      "target": "SRC-EFSA-2010-WATER",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-004",
+      "target": "Taiwan Clinical Consensus Heuristic",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-005",
+      "target": "SRC-EAH-CONSENSUS-2015 / CDC",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-006",
+      "target": "Sports Med 2020; Hydration Biomarker Review",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-007",
+      "target": "Renal Physiology Literature (needs-provenance-review)",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-008",
+      "target": "ACSM Position Stand 2007",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-009",
+      "target": "SRC-EAH-CONSENSUS-2015",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-W-010",
+      "target": "PLoS One 2014; Caffeine Hydration Balance",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-O-001",
+      "target": "SRC-WHO-SFA-2023",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-O-002",
+      "target": "USDA FoodData Central / TFDA 食品成分資料庫",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-O-003",
+      "target": "Acta Sci Nutr Health 2018 / Critical Reviews Food Sci 2024",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-O-004",
+      "target": "SRC-TFDA-FRYING-2011",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-O-005",
+      "target": "USDA / TFDA 營養成分基準表",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-001",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-002",
+      "target": "Pharmacogenomics / Human Genetics Standard",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-003",
+      "target": "Taiwan Biobank / Genomic Medicine Cohort",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-004",
+      "target": "Epidemiological Literature on Alcohol Flushing",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-005",
+      "target": "Lancet Oncology 2021; GWAS on Esophageal Cancer in East Asia",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-006",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-007",
+      "target": "SRC-ALCOHOL-WATER-TRIAL-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-008",
+      "target": "Neuropharmacology Literature",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-A-009",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-001",
+      "target": "衛生福利部國民健康署成人體位標準",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-002",
+      "target": "衛生福利部代謝症候群判定標準",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-003",
+      "target": "Clinical Methodology Consensus",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-KD-001",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-KD-002",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-KD-003",
+      "target": "Salud System Architecture Decision",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-PA-001",
+      "target": "WHO Guidelines on Physical Activity and Sedentary Behaviour 2020",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-PA-002",
+      "target": "WHO Guidelines 2020",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-PA-003",
+      "target": "WHO Guidelines 2020",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-PA-004",
+      "target": "WHO Guidelines 2020",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-SL-001",
+      "target": "AASM and SRS Consensus Statement on Recommended Sleep",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-004",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-004",
+      "target": "POL-TW-COLORECTAL",
+      "relation": "governed_by"
+    },
+    {
+      "source": "KA-TW-005",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-005",
+      "target": "POL-TW-BREAST-2025",
+      "relation": "governed_by"
+    },
+    {
+      "source": "KA-TW-006",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-006",
+      "target": "POL-TW-ORAL",
+      "relation": "governed_by"
+    },
+    {
+      "source": "KA-TW-007",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-007",
+      "target": "POL-TW-CERVICAL",
+      "relation": "governed_by"
+    },
+    {
+      "source": "KA-TW-008",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-008",
+      "target": "POL-TW-LUNG-LDCT",
+      "relation": "governed_by"
+    },
+    {
+      "source": "KA-TW-009",
+      "target": "Taiwan Cancer Registry Annual Report",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-001",
+      "target": "Salud vNext.8 Architecture Specification",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-002",
+      "target": "Salud vNext.8 Architecture Specification",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-003",
+      "target": "Salud vNext.8 Architecture Specification",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-004",
+      "target": "Salud vNext.8 Architecture Specification",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-005",
+      "target": "Salud vNext.8 Architecture Specification",
+      "relation": "cites"
+    }
+  ]
+}
