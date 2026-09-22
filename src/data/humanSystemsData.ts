@@ -81,6 +81,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '食品乳化劑（如羧甲基纖維素 CMC、聚山梨酯 80）可直接溶解結腸 MUC2 黏液層保護層，使細菌直接貼附上皮細胞誘發結腸炎。',
         evidence_grade: 'B',
         why_matters_zh: '減少超加工食品可迅速修復黏膜厚度。'
+      },
+      {
+        id: 'SYS-DIG-04',
+        title_zh: '腸道移行性複合運動 (MMC) 與空腹清道夫機轉',
+        statement_zh: '在空腹 3-4 小時後，胃小腸會啟動 Phase III 強烈推進收縮波，如推土機般將小腸內未消化食物殘渣、脫落上皮細胞與蓄積細菌推入結腸；頻繁零食會持續中斷 MMC，是小腸細菌過度增生 (SIBO) 的核心關鍵。',
+        evidence_grade: 'A',
+        why_matters_zh: '餐間維持 4 小時空腹與夜間 12 小時禁食是啟動 MMC 清空小腸的生理關鍵。'
+      },
+      {
+        id: 'SYS-DIG-05',
+        title_zh: '膽汁酸腸肝循環與 FXR 受體調控代謝穩態',
+        statement_zh: '95% 的膽汁酸在迴腸末端透過 ASBT 轉運體再吸收回門靜脈。活化腸道細胞的法尼醇 X 受體 (FXR) 能刺激 FGF19 分泌，進一步抑制肝臟 CYP7A1 酵素並調控全身三酸甘油酯與胰島素敏感度。',
+        evidence_grade: 'A',
+        why_matters_zh: '迴腸病變或膽鹽吸收不良會直接引發嚴重脂肪瀉與脂溶性維生素缺乏。'
+      },
+      {
+        id: 'SYS-DIG-06',
+        title_zh: '腸上皮 MUC2 黏蛋白與嗜黏蛋白阿克曼氏菌 (Akkermansia)',
+        statement_zh: 'Akkermansia muciniphila 定殖於結腸外側黏液層，以宿主寡糖為食並持續刺激杯狀細胞 (Goblet Cells) 再生 MUC2 黏蛋白；其豐度與代謝健康、GLP-1 基礎分泌及對抗內毒素血症呈現高度正相關。',
+        evidence_grade: 'A',
+        why_matters_zh: '補充蔓越莓多酚與抗性澱粉能特異性滋養 Akkermansia 強化腸屏障。'
+      },
+      {
+        id: 'SYS-DIG-07',
+        title_zh: '腸道黏膜免疫 (GALT) 與分泌型 IgA (sIgA) 的免疫包被',
+        statement_zh: '腸道集合淋巴結 (Peyer patches) 之 M 細胞攝取腸腔抗原傳遞給樹突細胞，活化漿細胞每日分泌 3-5g 二聚體 sIgA。sIgA 以非炎性方式「免疫包被」共生菌與病原毒素，阻止其穿透黏膜上皮進入門脈系統。',
+        evidence_grade: 'A',
+        why_matters_zh: '慢性高壓與黏膜萎縮導致 sIgA 下降時，外源抗原滲入直接引發全身慢性過敏。'
+      },
+      {
+        id: 'SYS-DIG-08',
+        title_zh: '三甲胺-N-氧化物 (TMAO) 與心血管腸肝軸心病理',
+        statement_zh: '特定腸道菌群裂解紅肉/蛋黃中的肉鹼與膽鹼生成三甲胺 (TMA)，經門靜脈送達肝臟由 FMO3 酵素氧化為 TMAO。循環高 TMAO 活化血管巨噬細胞清道夫受體 CD36，加速動脈粥狀硬化泡沫細胞形成。',
+        evidence_grade: 'A',
+        why_matters_zh: '增加植物膳食纖維與地中海飲食可降低促 TMAO 生成之腸道菌屬豐度。'
       }
     ],
     common_pathologies: [
@@ -138,6 +173,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: '睡前 3 小時恪守斷食邊界',
         mechanism_zh: '使胃部在進入睡眠平躺前完成大部分排空，防止夜間平臥胃酸逆流，並啟動消化道移行性複合運動 (MMC) 清除殘渣。',
         practical_action_zh: '晚上 8 點後不再攝取熱量固體食物，只補充少量溫開水。'
+      },
+      {
+        category: 'NUTRITION',
+        rule_zh: '餐間間隔 4 小時啟動小腸 MMC 推土機清潔波',
+        mechanism_zh: '三餐之間不攝取含熱量零食或含糖飲料，維持餐間 4 小時空腹，確保 Phase III 移行性複合運動完整跑完 90-120 分鐘週期。',
+        practical_action_zh: '三餐定時吃飽，正餐間只喝黑咖啡、無糖茶或純水，避免頻繁「少量多餐」使小腸持續處於消化態。'
+      },
+      {
+        category: 'NUTRITION',
+        rule_zh: '每日階梯式攝取 30g 多元益生質 (Prebiotics)',
+        mechanism_zh: '包含洋蔥、蒜、燕麥的菊糖與冷藏隔夜米飯的抗性澱粉 (RS2/RS3)，專一性哺育結腸雙歧桿菌生成丁酸，修復緊密連接蛋白。',
+        practical_action_zh: '每日至少納入 1 份抗性澱粉與 2 份富含寡糖的根莖蔬菜，初次嘗試者由少量開始以防脹氣。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '晨起 300ml 溫水誘發胃結腸神經反射 (Gastrocolic Reflex)',
+        mechanism_zh: '晨起空腹飲用溫開水活化胃璧牽張受器，經由自主神經傳導誘發大腸下行強烈推進蠕動波，建立規律排便節律。',
+        practical_action_zh: '早晨起床後 10 分鐘內慢飲 300-400ml 溫開水，配合深蹲或腹部順時針輕柔環狀按摩。'
       }
     ],
     expert_council_reviewers: ['EC-14', 'EC-15', 'EC-01', 'EC-21'],
@@ -246,6 +299,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '急促喘氣過度排出 CO2 造成急性呼吸性鹼中毒 (PaCO2 < 35 mmHg)，波耳效應使血紅素牢固結合氧氣不釋放，並誘發腦動脈收縮，使腦血流下降 40%。',
         evidence_grade: 'A',
         why_matters_zh: '感到急喘時應閉口純鼻慢吸慢吐，以維持正常動脈二氧化碳分壓。'
+      },
+      {
+        id: 'SYS-RESP-05',
+        title_zh: '通氣/灌流比 (V/Q Matching) 與重力引力梯度',
+        statement_zh: '在直立姿態下，受跨胸壁靜水壓影響，肺尖 V/Q 高達 3.3（相對過度通氣），肺底 V/Q 降至 0.63（相對過度灌流）；俯臥位 (Prone Positioning) 能顯著均勻化背側肺泡通氣，是改善急性低血氧的生理利器。',
+        evidence_grade: 'A',
+        why_matters_zh: '嚴重呼吸道感染時俯臥或端坐位有助於優化全肺氧合交換效率。'
+      },
+      {
+        id: 'SYS-RESP-06',
+        title_zh: '2,3-二磷酸甘油酸 (2,3-BPG) 與組織缺氧代償',
+        statement_zh: '紅血球在高海拔或慢性貧血低氧刺激下，啟動 Rapoport-Luebering 分流大量合成 2,3-BPG，特異性結合去氧血紅素中心空腔，使氧合曲線顯著右移，促使微血管向周邊組織釋放更多氧氣。',
+        evidence_grade: 'A',
+        why_matters_zh: '長期缺乏耐力運動者紅血球 2,3-BPG 調節遲鈍，易提早感到肌肉酸痛疲勞。'
+      },
+      {
+        id: 'SYS-RESP-07',
+        title_zh: '鼻腔一氧化氮 (NO) 與副鼻竇微血管擴張動力學',
+        statement_zh: '副鼻竇黏膜具備高活性誘導型一氧化氮合成酶 (iNOS)，鼻腔氣體中的 NO 濃度高達數百 ppb。純鼻吸氣將自體生成的 NO 帶入下呼吸道，可專一性舒張肺毛細血管並發揮抗菌抗病毒防護。',
+        evidence_grade: 'A',
+        why_matters_zh: '堅持日常鼻呼吸能比口呼吸提升動脈血氧分壓達 10-15%。'
+      },
+      {
+        id: 'SYS-RESP-08',
+        title_zh: 'COPD 缺氧呼吸驅動 (Hypoxic Drive) 與氧中毒陷阱',
+        statement_zh: '重度慢性阻塞性肺病 (COPD) 患者中樞延腦對高 CO2 刺激鈍化，轉為依賴頸動脈體外周化學受器之低氧刺激；盲目給予高濃度純氧 (FiO2 > 60%) 會關閉缺氧驅動並加劇死腔通氣，誘發致死性高碳酸血症昏迷。',
+        evidence_grade: 'A',
+        why_matters_zh: '慢阻肺患者吸氧目標應嚴格設定在 SpO2 88-92% 區間，非盲目追求 100%。'
+      },
+      {
+        id: 'SYS-RESP-09',
+        title_zh: '氣道纖毛黏液毯 (Mucociliary Escalator) 與香菸毒素麻痺',
+        statement_zh: '支氣管偽複層纖毛柱狀上皮每秒協同擺動 10-15 次，推動黏液毯向上輸送排出吸入顆粒與病原；一支香菸的丙烯醛與自由基即可使纖毛即刻麻痺癱瘓數小時，造成黏液積聚與反覆下呼吸道感染。',
+        evidence_grade: 'B',
+        why_matters_zh: '戒菸 48-72 小時後纖毛即可重新開始微弱再生，展開深度清肺排毒。'
       }
     ],
     common_pathologies: [
@@ -303,6 +391,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: '高抗氧化與植化素保護肺黏膜上皮',
         mechanism_zh: '維生素 C、N-乙醯半胱胺酸 (NAC) 補充前驅物與十字花科蘿蔔硫素 (Sulforaphane)，活化 Nrf2 路徑抵抗空污氧化壓力。',
         practical_action_zh: '每日食用西蘭花芽菜或花椰菜，攝取柑橘類與深色莓果。'
+      },
+      {
+        category: 'EXERCISE',
+        rule_zh: '每週 1 次 Zone 5 高強度心肺間歇 (4x4 Protocol)',
+        mechanism_zh: '在 90-95% 最大心率下迫使左心室充盈最大化與肺小動脈微循環全開，是拉升 VO2 Max 峰值的最強刺激。',
+        practical_action_zh: '熱身後進行 4 分鐘高強度踩飛輪或快跑，接續 3 分鐘緩和，重複 4 輪，每週嚴格限 1 次。'
+      },
+      {
+        category: 'SLEEP',
+        rule_zh: '夜間睡眠低敏膠帶純鼻呼吸訓練 (Mouth Taping)',
+        mechanism_zh: '對於無嚴重鼻中膈彎曲者，夜間黏貼低敏膠帶強制鼻吸氣，防止口乾、打鼾與夜間間歇性低氧，保護呼吸道黏膜濕度。',
+        practical_action_zh: '就寢前使用微孔透氣膠帶縱向黏貼上下唇中央，日間工作時亦有意識緊閉雙唇純鼻吸吐。'
+      },
+      {
+        category: 'STRESS',
+        rule_zh: '箱式呼吸法 (Box Breathing 4-4-4-4) 自律神經定速調節',
+        mechanism_zh: '等時長的吸、停、吐、停能強效活化主動脈弓與頸動脈竇感壓反射，迅速平息急性交感神經高亢。',
+        practical_action_zh: '閉目進行：鼻吸氣 4 秒、閉氣 4 秒、慢吐氣 4 秒、閉氣 4 秒，連續循環 5 分鐘。'
       }
     ],
     expert_council_reviewers: ['EC-16', 'EC-03', 'EC-01', 'EC-17'],
@@ -416,6 +522,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '史丹佛大學 2023 年 RCT 證實：每日 5 分鐘「循環雙吸單呼」，在改善正向情緒、降低焦慮與減慢靜態呼吸頻率的效果上，顯著優於正念冥想。',
         evidence_grade: 'A',
         why_matters_zh: '掌握雙吸單呼為現代高壓族最迅速有效的非藥物神經減壓工具。'
+      },
+      {
+        id: 'SYS-NERV-05',
+        title_zh: '長期增益現象 (LTP) 與 NMDA 鎂離子阻斷解鎖',
+        statement_zh: '突觸前高頻刺激使突觸後膜持續去極化，驅逐微環境中堵塞 NMDA 受體的鎂離子 (Mg2+ block)，大量 Ca2+ 內流活化 CaMKII，將更多 AMPA 受體轉位鑲嵌至突觸後膜，使神經傳導效率永久性提升，為記憶形成的分子物理基石。',
+        evidence_grade: 'A',
+        why_matters_zh: '補充足量生物活性鎂（如 L-蘇糖酸鎂）有助於維持突觸可塑性與學習記憶密度。'
+      },
+      {
+        id: 'SYS-NERV-06',
+        title_zh: '微膠細胞 (Microglia) 突觸過度修剪與慢性神經發炎',
+        statement_zh: '在慢性全身發炎或代謝症候群下，腦內大腦免疫守護者「微膠細胞」轉為 M1 促炎表型，活化 C1q 與 C3 補體級聯標記健康神經元樹突棘並將其吞噬修剪，直接導致海馬迴突觸密度下降與憂鬱認知退化。',
+        evidence_grade: 'A',
+        why_matters_zh: '抑制外周發炎（如牙周炎、腸漏）能實質阻止微膠細胞向神經毒性表型極化。'
+      },
+      {
+        id: 'SYS-NERV-07',
+        title_zh: '腺苷 (Adenosine) 睡眠壓力累積與咖啡因半衰期拮抗',
+        statement_zh: '大腦清醒時持續水解 ATP 釋放腺苷，腺苷結合 A1/A2A 受體抑制上行網狀活化系統產生睏意；咖啡因分子結構類似腺苷可競爭性佔據受體但不啟動煞車信號。咖啡因在人體半衰期約 5 小時，午後 2 點飲用至晚間 10 點仍有超過 30% 殘留阻斷深睡。',
+        evidence_grade: 'A',
+        why_matters_zh: '就寢前 9-10 小時停止攝取咖啡因是守護慢波深度睡眠的剛性生理邊界。'
+      },
+      {
+        id: 'SYS-NERV-08',
+        title_zh: '膽鹼能抗發炎神經反射 (CAP) 與脾臟免疫中繼',
+        statement_zh: '刺激迷走神經傳出纖維能引導腹腔脾神經釋放正腎上腺素，作用於 ChAT+ 記憶 T 細胞分泌乙醯膽鹼 (ACh)。ACh 專一結合脾臟巨噬細胞表面 α7 菸鹼型受體 (α7nAChR)，直接抑制 NF-κB 轉錄並阻斷 TNF-α 釋放。',
+        evidence_grade: 'A',
+        why_matters_zh: '深慢呼吸、冷水臉部刺激等活化迷走神經之行為，具備實體生物學抗炎功效。'
+      },
+      {
+        id: 'SYS-NERV-09',
+        title_zh: '骨鈣素 (Osteocalcin) 與大腦神經新生之跨界溝通',
+        statement_zh: '骨骼成骨細胞在負重機械應力下分泌未羧化骨鈣素 (ucOCN)，穿透血腦屏障結合腦幹與海馬迴神經元 GPRC6A 受體，直接刺激多巴胺、血清素與 GABA 合成，並促進海馬迴神經元新生與記憶保存。',
+        evidence_grade: 'B',
+        why_matters_zh: '骨骼是積極調控大腦認知情緒的內分泌器官，負重訓練能直接健腦。'
       }
     ],
     common_pathologies: [
@@ -473,6 +614,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: 'MIND 飲食與高生物利用度抗發炎營養素',
         mechanism_zh: '富含花青素深色莓果、核桃 ALA、綠葉蔬菜葉黃素與深海魚高純度 DHA，提供神經突觸細胞膜流動性。',
         practical_action_zh: '每週至少吃 2 次藍莓、2 次高脂魚類（鮭魚、鯖魚），烹調使用特級初榨橄欖油。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '晨起 30 分鐘戶外 10,000 lux 自然日光錨定',
+        mechanism_zh: '晨間強光刺激視網膜 ipRGC 細胞活化視交叉上核 (SCN)，全面壓制殘留褪黑激素，並啟動 14 小時後的天然褪黑激素分泌計時器。',
+        practical_action_zh: '起床 1 小時內至室外不戴墨鏡散步或曬太陽 15-20 分鐘（陰天延長至 30 分鐘）。'
+      },
+      {
+        category: 'EXERCISE',
+        rule_zh: '雙重任務認知運動 (Dual-Task Training)',
+        mechanism_zh: '在有氧踩飛輪或快走時同步進行心算倒數（如 100 連續減 7）或記憶覆述，強迫運動皮質與額葉前額葉並行運算，擴增認知儲備 (Cognitive Reserve)。',
+        practical_action_zh: '每週於耐力運動中安排 2 次 10 分鐘的雙重任務挑戰。'
+      },
+      {
+        category: 'SLEEP',
+        rule_zh: '睡前 90 分鐘溫水浴誘發核心體溫驟降',
+        mechanism_zh: '浸泡 40-42°C 熱水使四肢微血管擴張，出浴後體熱迅速散逸，促使核心體溫下降 0.5-1.0°C，完美模擬入睡之生理體溫曲線。',
+        practical_action_zh: '就寢前 1.5 小時泡澡 15 分鐘或熱水淋浴，幫助順利切換入 N3 慢波深睡期。'
       }
     ],
     expert_council_reviewers: ['EC-07', 'EC-08', 'EC-01', 'EC-19'],
@@ -569,6 +728,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '低劑量胸部 CT 量測之 CAC 積分能直接反映冠狀動脈粥狀硬化斑塊總負擔；CAC=0 代表未來 5-10 年心臟病發作機率極低。',
         evidence_grade: 'A',
         why_matters_zh: '中度風險者評估是否需終身服用 Statin 的最佳決策工具。'
+      },
+      {
+        id: 'SYS-CV-04',
+        title_zh: '脂蛋白(a) [Lp(a)] 獨立致動脈硬化與抗纖溶血栓風險',
+        statement_zh: 'Lp(a) 是由 LDL 顆粒共價結合載脂蛋白(a) 構成，結構高度類似纖溶酶原 (Plasminogen)，具備「致動脈粥狀硬化 + 促發炎 + 阻礙血栓溶解」三重破壞力；其血中濃度 80-90% 由 LPA 基因決定，成年人一生至少應抽血篩檢一次。',
+        evidence_grade: 'A',
+        why_matters_zh: '若 Lp(a) > 50 mg/dL (125 nmol/L)，需將常規 ApoB 與 LDL-C 目標壓制至極嚴格標準。'
+      },
+      {
+        id: 'SYS-CV-05',
+        title_zh: '脈搏波傳導速度 (PWV) 與大動脈 Windkessel 彈性衰退',
+        statement_zh: '青年期彈性主動脈在心臟收縮時膨脹吸收壓力（Windkessel 效應）；隨年齡與進階糖化終產物 (AGEs) 沉積，主動脈壁膠原蛋白交聯硬化，頸動脈-股動脈 cfPWV 飆升 >10 m/s，使壓力反射波提早於收縮期折返，導致收縮壓劇烈衝高與脈搏壓拉大。',
+        evidence_grade: 'A',
+        why_matters_zh: '動脈硬化度是獨立於外周袖帶血壓之外預測腦中風的黃金硬指標。'
+      },
+      {
+        id: 'SYS-CV-06',
+        title_zh: 'TG/HDL-C 比值與小而緻密 LDL (sdLDL) 滲透沉積',
+        statement_zh: '當三酸甘油酯與高密度脂蛋白比值 (TG/HDL-C) > 2.0 (mg/dL) 時，膽固醇酯轉運蛋白 (CETP) 活性亢進，將 LDL 核心改裝為富含 TG 的小而緻密顆粒 (Pattern B)；sdLDL 極易穿透內皮細胞間隙且抗氧化力低，是心血管隱形殺手。',
+        evidence_grade: 'A',
+        why_matters_zh: '即使 LDL-C 表面正常，高 TG/HDL 比值仍高度提示嚴重心血管動脈硬化負擔。'
+      },
+      {
+        id: 'SYS-CV-07',
+        title_zh: '冠狀動脈側支循環 (Collateral Flow) 與剪切力適應訓練',
+        statement_zh: '規律有氧運動產生之間歇性心肌血流剪切力與輕度生理缺氧，能強烈刺激 VEGF 與 FGF 生長因子釋放，誘導冠狀動脈小血管與微側支新生 (Arteriogenesis)，在主冠狀動脈慢性狹窄時提供天然的「生物性搭橋救命血流」。',
+        evidence_grade: 'A',
+        why_matters_zh: '長年耐力訓練者即使發生冠脈閉塞，大面積心肌梗死發生率顯著低於久坐族。'
+      },
+      {
+        id: 'SYS-CV-08',
+        title_zh: '射血分數保留型心衰竭 (HFpEF) 的微血管內皮發炎假說',
+        statement_zh: '代謝症候群與內臟肥胖引發全身冠脈微血管內皮慢性發炎，內皮 NO 釋放崩潰導致心肌細胞 PKG 活性受阻，巨大肌纖蛋白 (Titin) 低度磷酸化，左心室心肌壁剛性僵硬無法在舒張期充分充盈，引發肺鬱血。',
+        evidence_grade: 'A',
+        why_matters_zh: '減脂抗炎與 SGLT2 抑制劑為目前逆轉 HFpEF 舒張功能衰退的核心干預手段。'
       }
     ],
     common_pathologies: [
@@ -626,6 +820,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: '居家落實「722」量血壓原則',
         mechanism_zh: '排除白袍高血壓與隱形高血壓干擾，捕捉早晨醒來時與睡前的真实基礎血管壓力。',
         practical_action_zh: '連續 7 天、早晚各量 2 遍取平均值，靜坐 5 分鐘後再量測。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '間隔 45 分鐘站立進行比目魚肌伏地挺身 (Soleus Pushup)',
+        mechanism_zh: '比目魚肌富含慢肌氧化肌纖維，坐姿提踵強烈擠壓深層靜脈瓣膜，啟動「人體第二心臟」泵血回流，預防下肢靜脈血栓並維持全身內皮剪切力。',
+        practical_action_zh: '每久坐 45 分鐘，雙腳前腳掌著地連續進行足跟抬落 30-50 次。'
+      },
+      {
+        category: 'NUTRITION',
+        rule_zh: '維持飲食天然抗氧化物保護血管內皮一氧化氮 (NO)',
+        mechanism_zh: '甜菜根甜菜鹼與生大蒜大蒜素能促進內皮型 eNOS 轉化，花青素與維生素 C 防止超氧陰離子 (O2-) 快速中和滅活 NO。',
+        practical_action_zh: '每週食用 2 次烤甜菜根或無糖甜菜汁，料理多融入新鮮生大蒜碎末。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '洗澡水溫嚴格避免極端冷熱劇烈衝擊',
+        mechanism_zh: '突入高溫熱水池或冷水會引發強烈周邊血管痙攣與血壓短時間劇升 40-50 mmHg，是冬季心肌梗塞與主動脈剝離高發主因。',
+        practical_action_zh: '沐浴水溫維持 38-40°C 溫和區間，由腳部與四肢末梢開始淋濕適應。'
       }
     ],
     expert_council_reviewers: ['EC-03', 'EC-02', 'EC-01', 'EC-13'],
@@ -722,6 +934,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '醒來後 30-60 分鐘內接受 10,000 lux 戶外自然陽光照射 10-15 分鐘，能強化健康的高峰皮質醇甦醒曲線，並精準定時 14-16 小時後的褪黑激素釋放。',
         evidence_grade: 'B',
         why_matters_zh: '晨光是最佳的天然無毒荷爾蒙時鐘校準器。'
+      },
+      {
+        id: 'SYS-ENDO-04',
+        title_zh: '維生素 D 作為固醇類激素之千種基因轉錄調控',
+        statement_zh: '維生素 D 在腎臟經 1α-羥化酶轉化為具荷爾蒙活性的 1,25(OH)2D，結合細胞核內 VDR 並與 RXR 形成異源二聚體，直接調控體內超過 1000 個基因（涵蓋胰島素分泌、免疫耐受與肌力），其生化本質是全身性類固醇荷爾蒙。',
+        evidence_grade: 'A',
+        why_matters_zh: '維持血清 25(OH)D 於 40-60 ng/mL 是保障代謝、甲狀腺與性荷爾蒙合成的底層基石。'
+      },
+      {
+        id: 'SYS-ENDO-05',
+        title_zh: '腸促胰素效應 (Incretin Effect) 與 GLP-1 / GIP 雙軸調控',
+        statement_zh: '口服葡萄糖引發之胰島素分泌量為靜脈注射等量葡萄糖的 2-3 倍（腸促胰素效應）。迴腸末端 L 細胞分泌的 GLP-1 具備葡萄糖依賴性降糖特性，同時作用於下視丘弓狀核抑制食慾並延緩胃排空，是現代抗肥胖降糖的核心機制靶點。',
+        evidence_grade: 'A',
+        why_matters_zh: '攝取足量膳食纖維刺激腸道短鏈脂肪酸生成，可天然促進內生性 GLP-1 基礎分泌。'
+      },
+      {
+        id: 'SYS-ENDO-06',
+        title_zh: '飢餓素 (Ghrelin) 與瘦素 (Leptin) 能量天平之抗肥胖反抗',
+        statement_zh: '胃底細胞在胃排空時分泌 Ghrelin 刺激下視丘 NPY/AgRP 神經元激發強烈食慾；脂肪細胞分泌瘦素 (Leptin) 抑制食慾。在肥胖個體中，下視丘多伴隨嚴重「瘦素阻抗」，使大腦誤判體內處於飢荒狀態而持續驅動暴食渴求。',
+        evidence_grade: 'A',
+        why_matters_zh: '充足睡眠與消除超加工食品是逆轉下視丘瘦素敏感度的核心生物干預。'
+      },
+      {
+        id: 'SYS-ENDO-07',
+        title_zh: '睪固酮/雌激素之芳香化酶 (Aromatase) 轉化平衡',
+        statement_zh: '內臟脂肪組織富含芳香化酶 (CYP19A1)，會將循環中的自由睪固酮不可逆轉化為雌二醇。男性腹部肥胖直接導致睪固酮銳減，低雄性素又反向加劇肌少症與內臟脂肪堆積，形成內分泌代謝的惡性閉環。',
+        evidence_grade: 'A',
+        why_matters_zh: '減脂消滅內臟脂肪是男性恢復自體睪固酮生理水平最持久安全的途徑。'
+      },
+      {
+        id: 'SYS-ENDO-08',
+        title_zh: '副甲狀腺素 (PTH) 與 FGF23-Klotho 鈣磷骨代謝軸',
+        statement_zh: '血鈣微幅下降即解除副甲狀腺鈣敏感受體 (CaSR) 抑制，數秒內釋放 PTH 動員骨鈣並刺激腎臟活化維生素 D；骨細胞分泌之 FGF23 則透過 α-Klotho 輔受體在近曲小管抑制磷酸鹽重吸收，維持嚴密的鈣磷乘積平衡。',
+        evidence_grade: 'A',
+        why_matters_zh: '長期高磷酸鹽加工食品會過度刺激 FGF23，加速血管內皮中層鈣化與動脈硬化。'
       }
     ],
     common_pathologies: [
@@ -779,6 +1026,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: '大肌群多關節阻力訓練提升全身代謝率',
         mechanism_zh: '深蹲、硬舉等複合動作活化大量第 II 型快肌纖維，釋放肌肉激素顯著提升全身胰島素敏感度。',
         practical_action_zh: '每週進行 2-3 次阻力訓練，重視腿臀等占全身 70% 肌肉量部位。'
+      },
+      {
+        category: 'NUTRITION',
+        rule_zh: '晨間攝取 30g 優質蛋白質平抑 Ghrelin 飢餓素',
+        mechanism_zh: '早餐富含必需胺基酸強效刺激腸道釋放 PYY 與 GLP-1，並深度壓抑胃底飢餓素分泌，平抑整日神經食慾波動。',
+        practical_action_zh: '早晨食用 3 顆全蛋或水煮雞胸肉搭配無糖豆漿，確保蛋白質達到 30g 門檻。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '鎖定 10 小時日間進食窗口 (TRF 晝夜節律斷食)',
+        mechanism_zh: '將進食時間對齊人體代謝時鐘（如 8:30-18:30），夜間斷食 14 小時，使胰島 β 細胞獲得充分休息修復，促進夜間 AMPK 與自噬活性。',
+        practical_action_zh: '晚間 7 點後停止進食固體熱量，夜間飢餓僅以溫水或洋甘菊茶潤喉。'
+      },
+      {
+        category: 'NUTRITION',
+        rule_zh: '補充生物活性螯合鎂活化酪胺酸激酶受體',
+        mechanism_zh: '鎂離子為胰島素受體酪胺酸激酶與甲狀腺去碘酶的重要輔因子，缺鎂會直接造成 GLUT4 轉位阻抗。',
+        practical_action_zh: '每日晚餐後補充甘胺酸鎂或檸檬酸鎂 200-300mg，改善胰島素敏感度並協助夜間神經肌肉放鬆。'
       }
     ],
     expert_council_reviewers: ['EC-05', 'EC-06', 'EC-01', 'EC-13'],
@@ -875,6 +1140,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '鋅為 300 多種酵素與轉錄因子鋅指蛋白 (Zinc Fingers) 的輔因子；鋅缺乏會導致胸腺萎縮、T 細胞增殖受阻與黏膜上皮屏障破損。',
         evidence_grade: 'B',
         why_matters_zh: '感冒初期 24 小時內補充電離鋅錠可顯著縮短病程。'
+      },
+      {
+        id: 'SYS-IMM-04',
+        title_zh: '補體系統 (Complement Cascade) 三大途徑與 MAC 膜破壞複合物',
+        statement_zh: '30 餘種肝源性血漿蛋白組成的生化放大級聯：分為古典、凝集素與替代途徑，匯聚於 C3 轉化酶裂解產生強效趨化素 C3a/C5a，並在病原表面組裝 C5b-9 膜攻擊複合物 (MAC) 穿孔溶胞；其過度活化也是微血管內皮損傷的核心機制。',
+        evidence_grade: 'A',
+        why_matters_zh: '補體穩態失調與非典型溶血尿毒症及自體免疫腎炎高度相關。'
+      },
+      {
+        id: 'SYS-IMM-05',
+        title_zh: '免疫檢查點 (PD-1 / CTLA-4) 的自體免疫防禦煞車',
+        statement_zh: 'T 細胞活化後表面表現 PD-1 與 CTLA-4，作為防止過度自體組織攻擊的「生理煞車」；腫瘤細胞常高表現 PD-L1 劫持此煞車逃避免疫清除。免疫檢查點抑制劑 (ICIs) 解除此煞車可強效抗癌，但同時會引發免疫相關不良事件 (irAEs)。',
+        evidence_grade: 'A',
+        why_matters_zh: '免疫系統的核心挑戰不是「越強越好」，而是維持攻擊與耐受的極致動態平衡。'
+      },
+      {
+        id: 'SYS-IMM-06',
+        title_zh: '嗜中性球胞外陷阱 (NETosis) 與微血栓形成的雙刃劍',
+        statement_zh: '嗜中性球在重度病原刺激下進行特殊程序性死亡，將去濃縮染色質 DNA 結合組蛋白與顆粒酵素彈射至胞外，形成網狀陷阱殺滅細菌；但在慢性發炎或重症感染中，過量 NETs 會直接損傷血管內皮並激活凝血因子 XII，誘發微血管血栓。',
+        evidence_grade: 'A',
+        why_matters_zh: '慢性牙周炎或腸漏持續激發 NETosis，是動脈血栓與關節炎隱匿惡化的重要病理環節。'
+      },
+      {
+        id: 'SYS-IMM-07',
+        title_zh: '淋巴動力學：骨骼肌泵與胸腔負壓驅動的無心泵回流',
+        statement_zh: '淋巴系統缺乏心臟般的中心動力泵，微淋巴管回收組織間液後，全靠周邊骨骼肌節律收縮壓迫、深吸氣時胸腔負壓抽取，配合管內單向半月瓣將淋巴液經由胸導管注入左鎖骨下靜脈。久坐不動直接造成組織液瘀滯與免疫巡航停擺。',
+        evidence_grade: 'A',
+        why_matters_zh: '日常活動與深慢橫膈呼吸是維持全身淋巴引流排毒的最核心物理動力。'
+      },
+      {
+        id: 'SYS-IMM-08',
+        title_zh: '訓練免疫 (Trained Immunity) 與骨髓祖細胞表觀遺傳記憶',
+        statement_zh: '先天免疫細胞（單核/巨噬/NK 細胞）在接受真菌 β-葡聚醣或卡介苗刺激後，其組蛋白 H3K4me3 甲基化修飾與糖解代謝重編程，使其在數月後對不相關病原體亦展現顯著增強的細胞激素分泌與殺菌反應。',
+        evidence_grade: 'A',
+        why_matters_zh: '攝取燕麥與菇蕈類多醣體（β-Glucan）能藉由訓練免疫機制賦能先天防線。'
       }
     ],
     common_pathologies: [
@@ -932,6 +1232,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: '維持固定晝夜作息，保障免疫細胞週期修復',
         mechanism_zh: '夜間生長激素與泌乳素促進天真 T 細胞增殖與抗原辨識記憶形成，降低促發炎單核球過激比例。',
         practical_action_zh: '每晚睡滿 7-8 小時，生病期間多臥床休息以利免疫能量集中調配。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '冷熱對比淋浴 (Contrast Shower) 促進淋巴管微循環',
+        mechanism_zh: '3 分鐘熱水使皮膚周邊微血管舒張，接續 30-60 秒冷水使微血管急遽收縮，形成強大流體擠壓脈衝，加速深層淋巴液回流胸導管。',
+        practical_action_zh: '洗澡結尾時進行 3 回「熱水 2 分鐘 + 冷水 30 秒」循環，有心血管高血壓者以四肢淋洗為主。'
+      },
+      {
+        category: 'NUTRITION',
+        rule_zh: '每日納入天然發酵食品刺激黏膜 sIgA 抗體分泌',
+        mechanism_zh: '納豆、無糖優格與未加熱泡菜中的共生乳酸菌株，持續溫和接觸迴腸集合淋巴結 M 細胞，顯著提高呼吸道與腸道 sIgA 防禦濃度。',
+        practical_action_zh: '每日隨正餐攝取 1 小碟無添加天然發酵食品。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '發燒感冒初期恪守「臥床休克期」嚴禁劇烈出汗',
+        mechanism_zh: '全身發炎狀態下骨髓全力製造白血球，肌肉蛋白質被分解供能；此時劇烈運動引發的高皮質醇會直接關閉淋巴增殖，誘發心肌炎或重度二次感染。',
+        practical_action_zh: '體溫超過 37.8°C 時完全暫停訓練，僅以臥床休息、補充電解質與充足睡眠為主。'
       }
     ],
     expert_council_reviewers: ['EC-09', 'EC-10', 'EC-01', 'EC-14'],
@@ -1028,6 +1346,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '維生素 D3 促進腸道吸收鈣質進入血液，維生素 K2 則負責活化骨鈣素 (Osteocalcin) 與基質 Gla 蛋白 (MGP)，引導鈣質沉積於骨質中並防止血管內壁鈣化硬化。',
         evidence_grade: 'B',
         why_matters_zh: '補鈣同時搭配 D3 與 K2 能兼顧骨質強度與心血管軟彈。'
+      },
+      {
+        id: 'SYS-MSK-04',
+        title_zh: '骨改建偶聯 (Bone Remodeling) 之 RANKL / OPG 分子天平',
+        statement_zh: '成骨細胞表現 RANKL 結合破骨細胞 RANK 受體促進骨質吸收；同時分泌骨保護素 (OPG) 作為假性誘餌受體中和 RANKL。停經後雌激素驟降導致 OPG 崩潰、RANKL 亢進，破骨速率超越造骨 3-5 倍，形成穿孔性骨質流失。',
+        evidence_grade: 'A',
+        why_matters_zh: '抗 RANKL 單株抗體 (Denosumab) 正是基於此分子天平的靶向治骨疏藥物。'
+      },
+      {
+        id: 'SYS-MSK-05',
+        title_zh: '關節軟骨 II 型膠原蛋白與 Aggrecan 滲透膨脹壓水墊',
+        statement_zh: '無血管關節軟骨由 II 型膠原纖維緊密束縛高親水帶負電荷的蛋白聚醣 (Aggrecan)，吸附大量水分子產生極高「滲透膨脹壓」；負重受壓時水分流出產生黏彈緩衝，卸載時重新吸回滑液養分，完全依賴日常動態關節活動維繫厚度。',
+        evidence_grade: 'A',
+        why_matters_zh: '長期完全靜態制動會加速軟骨脫水萎縮，適度規律承重才是軟骨真正養分泉源。'
+      },
+      {
+        id: 'SYS-MSK-06',
+        title_zh: '肌少肥胖症 (Sarcopenic Obesity) 與肌內脂肪浸潤 (Myosteatosis)',
+        statement_zh: '骨骼肌萎縮常伴隨異位脂肪滲入肌束與肌纖維間（肌脂肪沉積），不僅阻斷運動單位神經肌肉動作電位傳導，更局部釋放脂毒性發炎因子，使骨骼肌力量衰退速度高達純肌肉萎縮者的 3 倍，是長者失能骨折的最凶險型態。',
+        evidence_grade: 'A',
+        why_matters_zh: '單純看體重無法反映肌少肥胖，需透過雙能量 X 光 (DXA) 或生物電阻抗評估四肢骨骼肌指數 (ASMI)。'
+      },
+      {
+        id: 'SYS-MSK-07',
+        title_zh: '漸進式超負荷與肌衛星細胞 (Satellite Cells) 超量恢復',
+        statement_zh: '機械張力牽拉微損傷基底膜下靜止之肌衛星細胞，活化其增殖並融合成熟肌纖維，捐獻細胞核以突破單核轉譯上限；肌肉蛋白超量合成 (Supercompensation) 高峰在阻力訓練後 24-48 小時，需配合慢波睡眠與胺基酸供應。',
+        evidence_grade: 'A',
+        why_matters_zh: '訓練後 48 小時內若缺乏蛋白質與深睡修復，肌肉將陷入淨分解負平衡。'
+      },
+      {
+        id: 'SYS-MSK-08',
+        title_zh: '椎間盤髓核-纖維環液壓阻尼與屈曲剪切力受損機制',
+        statement_zh: '椎間盤中央親水膠狀髓核 (Nucleus Pulposus) 像水球般均勻分散脊柱軸向壓力至多層同心圓纖維環；彎腰屈曲同時合併扭轉搬重物時，後外側纖維環承受最大張力剪切峰值，髓核極易衝破薄弱環層壓迫坐骨神經。',
+        evidence_grade: 'A',
+        why_matters_zh: '搬重物時嚴守「髖鉸鏈 (Hip Hinge) 屈髖屈膝直背」原則，將剪切力轉移至臀大肌承擔。'
       }
     ],
     common_pathologies: [
@@ -1085,6 +1438,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: '融入衝擊性或跳躍性骨重塑刺激',
         mechanism_zh: '垂直地面反作用力 (Ground Reaction Force) 產生高應變率 (Strain Rate)，引發最強造骨訊號。',
         practical_action_zh: '健康成人在暖身時可加入跳繩、開合跳或羽球網前踏步跳躍，骨質脆弱者則以快走與台階登梯為主。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '晨間關節受控旋轉 (CARs, Controlled Articular Rotations)',
+        mechanism_zh: '頸椎、肩、胸椎與髖關節的全幅度緩慢極限主動旋轉，以機械海綿效應泵動關節滑液滋養無血管軟骨，並重設本體感覺神經受器。',
+        practical_action_zh: '晨起進行各大關節順逆時針旋轉各 5 次，動作過程保持核心收緊無痛原則。'
+      },
+      {
+        category: 'EXERCISE',
+        rule_zh: '農夫走路 (Farmer’s Walk) 握力與核心抗側屈強化',
+        mechanism_zh: '提重行走迫使手腕屈肌、斜方肌與腹橫肌同時發揮強烈等長收縮，大幅拉升握力（與全因死亡率高度負相關）並鍛鍊步態動態穩定。',
+        practical_action_zh: '雙手持 20-30% 體重之啞鈴或壺鈴，脊椎中立昂首闊步慢走 40-60 秒，重複 3-4 組。'
+      },
+      {
+        category: 'EXERCISE',
+        rule_zh: '阻力動作全程恪守 2-3 秒離心放慢 (Eccentric Control)',
+        mechanism_zh: '離心下放階段產生極高肌原纖維微結構機械張力，刺激肌節串聯增生與肌腱膠原交聯，在低心肺疲勞下引發更強肌肥大與抗受傷保護。',
+        practical_action_zh: '深蹲或伏地挺身下放時默數「1-2-3」，底部短暫停頓後再順暢發力推起。'
       }
     ],
     expert_council_reviewers: ['EC-04', 'EC-11', 'EC-12', 'EC-01'],
@@ -1181,6 +1552,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '維持每日尿量 > 2.0-2.5 公升可將尿液中草酸鈣、磷酸鈣與尿酸的飽和度稀釋在過飽和晶化閾值以下，結石復發風險直接降低 50% 以上。',
         evidence_grade: 'A',
         why_matters_zh: '依體重每日補充足夠水分（約 30-35 mL/kg）是護腎最低成本良方。'
+      },
+      {
+        id: 'SYS-REN-04',
+        title_zh: '足細胞裂隙隔膜 (Slit Diaphragm) 與白蛋白分子電荷篩',
+        statement_zh: '腎絲球濾過膜足細胞裂隙由 Nephrin 與 Podocin 蛋白交織成 4-14 nm 網孔，且基底膜富含帶負電的硫酸類肝素。利用「孔徑物理排除 + 負電荷同性相斥」雙重機制，阻絕 66 kDa 帶負電的白蛋白漏出；微量白蛋白尿代表此電荷篩屏障已遭破壞。',
+        evidence_grade: 'A',
+        why_matters_zh: 'UACR 30-300 mg/g 為不可忽視的早期可逆性微血管受損窗口。'
+      },
+      {
+        id: 'SYS-REN-05',
+        title_zh: '亨利氏環逆流倍增系統與髓質 1200 mOsm/kg 濃縮梯度',
+        statement_zh: '亨利氏環降支只透水不透鹽，升支粗段透過 NKCC2 共轉運體逆濃度主動泵出 Na+-K+-2Cl- 但對水完全不透，在腎髓質深處建立高達 1200 mOsm/kg 的極高滲梯度；此為集尿管在抗利尿激素 (ADH) 調控下濃縮尿液的物理原動力。',
+        evidence_grade: 'A',
+        why_matters_zh: 'Loop 利尿劑（如 Furosemide）即是專一阻斷 NKCC2 破壞髓質梯度以發揮強力脫水利尿。'
+      },
+      {
+        id: 'SYS-REN-06',
+        title_zh: '管球回饋 (Tubuloglomerular Feedback) 與緻密斑壓力煞車',
+        statement_zh: '遠曲小管緻密斑 (Macula Densa) 感應管腔中 NaCl 濃度。當腎絲球過濾壓過高、小管液流速過快時，緻密斑即刻釋放腺苷收縮入球小動脈，踩下「管球回饋煞車」保護微血管網；SGLT2 抑制劑正是透過恢復此生理煞車以長效保護腎絲球。',
+        evidence_grade: 'A',
+        why_matters_zh: 'SGLT2 抑制劑為近代腎臟醫學保護腎絲球血流動力的突破性基石。'
+      },
+      {
+        id: 'SYS-REN-07',
+        title_zh: '活性維生素 D 1α-羥化酶與促紅血球生成素 (EPO) 內分泌喪失',
+        statement_zh: '腎皮質間質細胞感應動脈血氧分壓分泌 EPO 刺激骨髓紅血球生成；近曲小管上皮細胞專屬表達 1α-羥化酶合成活性 1,25(OH)2D。當 CKD 進展至第 3-4 期時，兩大荷爾蒙分泌驟降，直接引發頑固性「腎因性貧血」與骨病變。',
+        evidence_grade: 'A',
+        why_matters_zh: '慢性腎病患者需及早評估活性維生素 D 與鐵劑/促紅素針劑補充。'
+      },
+      {
+        id: 'SYS-REN-08',
+        title_zh: '心腎症候群 (Cardiorenal Syndrome) 的容量過載與毒素閉環',
+        statement_zh: '腎功能下降導致水鈉滯留、容量超載與尿毒毒素（如硫酸吲哚酚 IS）累積，引發全身動脈中層鈣化與左心室心肌僵硬；而心衰竭輸出量下降又反向加劇腎動脈低灌流，構成互為因果的心腎下行螺旋。超過 50% 洗腎患者死於心血管事件。',
+        evidence_grade: 'A',
+        why_matters_zh: '保護腎臟實質即是在守護心臟，心腎代謝共病需整合式全人照護。'
       }
     ],
     common_pathologies: [
@@ -1238,6 +1644,24 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         rule_zh: '炎熱環境運動必須提前與動態補充電解質水分',
         mechanism_zh: '劇烈運動大量出汗若未及時補水，會造成有效循環血容量驟降、腎缺血灌流不足，嚴重橫紋肌溶解症肌紅蛋白沉積更可致急性腎衰竭。',
         practical_action_zh: '長時間戶外高溫運動每 15-20 分鐘補充 150-200 mL 含微量鈉鹽的運動水分。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '年度體檢堅持「eGFR 腎絲球過濾率 + UACR 尿微量白蛋白」雙軌篩檢',
+        mechanism_zh: '肌酸酐易受肌肉量影響，而微量白蛋白尿 (UACR) 能在腎功能實質損傷前數年發出微血管滲漏警訊。',
+        practical_action_zh: '每年抽血檢驗肌酸酐換算 eGFR，並留取單次清晨尿檢驗 UACR 比值。'
+      },
+      {
+        category: 'NUTRITION',
+        rule_zh: '草酸鈣結石預防之「隨餐補鈣非禁鈣」原則',
+        mechanism_zh: '隨餐攝取含鈣食物能使鈣質在小腸管腔直接與草酸結合成不溶性草酸鈣隨糞便排出，反而減少進入血液循環經腎臟濃縮排出的游離草酸量。',
+        practical_action_zh: '食用深綠色蔬菜或豆類時搭配含鈣食物，切勿因結石病史而盲目戒絕天然鈣質。'
+      },
+      {
+        category: 'HABIT',
+        rule_zh: '急性脫水發燒時恪守「病日安全用藥規則 (Sick Day Rules)」',
+        mechanism_zh: '在急性腸胃炎腹瀉嘔吐或嚴重脫水發燒時，暫時停用可能阻斷腎血流調節的藥物組合（ACEI/ARB + 利尿劑 + NSAIDs 止痛藥），防範急性腎缺血衰竭 (AKI)。',
+        practical_action_zh: '嚴重脫水時主動補液並諮詢醫師，避免在缺水狀態下大量吞服非類固醇消炎止痛藥。'
       }
     ],
     expert_council_reviewers: ['EC-13', 'EC-01', 'EC-16', 'EC-22'],

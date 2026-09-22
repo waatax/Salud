@@ -146,7 +146,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
 
       {/* ── System Detail Stage (Split 2-Column Responsive Layout) ── */}
       {deepDive ? (
-        <SystemDeepDiveView data={deepDive} />
+        <SystemDeepDiveView data={deepDive} systemMeta={currentSystem} />
       ) : (
       <>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">

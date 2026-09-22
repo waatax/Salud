@@ -306,7 +306,7 @@ export interface SystemRedFlag {
 }
 
 export interface SystemBestPractice {
-  category: 'NUTRITION' | 'EXERCISE' | 'SLEEP' | 'STRESS';
+  category: 'NUTRITION' | 'EXERCISE' | 'SLEEP' | 'STRESS' | 'HABIT';
   rule_zh: string;
   mechanism_zh: string;
   practical_action_zh: string;

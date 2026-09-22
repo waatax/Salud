@@ -137,6 +137,16 @@ export interface SystemOverviewNumber {
   note_zh: string;
 }
 
+export interface SystemChartItem {
+  id: string;
+  title_zh: string;
+  kind_badge_zh: string;
+  category: 'illustration' | 'chart';
+  summary_zh: string;
+  clinical_takeaway_zh: string;
+  diagram: Diagram;
+}
+
 export interface SystemDeepDive {
   system_id: HumanSystemId;
   /** One paragraph, no jargon, answering "what does this system actually do for me". */
@@ -147,4 +157,6 @@ export interface SystemDeepDive {
   conditions: DeepCondition[];
   protocols: DeepProtocol[];
   red_flags: DeepRedFlag[];
+  charts?: SystemChartItem[];
 }
+
