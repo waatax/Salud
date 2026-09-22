@@ -1168,5 +1168,25 @@ export const ENDOCRINE_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'ENDO-ILLUS-03',
+      title_zh: '副甲狀腺素 (PTH) 與活化型維生素 D 三維血鈣恆定負回饋循環圖',
+      kind_badge_zh: '鈣磷代謝反饋環',
+      category: 'illustration',
+      summary_zh: '展示副甲狀腺 CaSR 受體如何感應細胞外微量 Ca2+ 下降，刺激 PTH 釋放動員骨鈣、活化腎臟 1α-羥化酶 (CYP27B1) 生成 1,25(OH)2D3 促進腸鈣吸收，並在血鈣回穩後執行負回饋關閉。',
+      clinical_takeaway_zh: '慢性腎病 (CKD) 因功能性腎單位減少導致 1α-羥化酶衰竭，引發難治性低血鈣與次發性副甲狀腺亢進，為腎性骨病變的核心根源。',
+      diagram: {
+        kind: 'cycle',
+        caption: '人體透過副甲狀腺-腎臟-小腸-骨骼四角樞紐，將細胞外游離鈣濃度嚴密鎖定於 1.1-1.3 mmol/L 極窄生理安全區間。',
+        nodes: [
+          { label: '細胞外游離 Ca2+ 濃度微降', sub: '副甲狀腺主細胞膜 CaSR 鈣敏感受體解除抑制', tone: 'warn' },
+          { label: '副甲狀腺素 (PTH) 脈衝釋放', sub: '數秒內進入血液循環靶向作用於骨骼與腎臟', tone: 'accent' },
+          { label: '腎遠曲小管重吸收 Ca2+', sub: '同時抑制近曲小管磷重吸收（排磷保鈣）', tone: 'good' },
+          { label: '活化腎臟 1α-羥化酶 (CYP27B1)', sub: '將 25(OH)D 轉化為高活性荷爾蒙 1,25(OH)2D3 (Calcitriol)', tone: 'good' },
+          { label: '刺激十二指腸上皮主動吸收鈣', sub: '誘導結合蛋白 Calbindin 表現，大幅提升飲食鈣吸收率', tone: 'good' },
+          { label: '血鈣恢復正常 (2.2-2.6 mmol/L)', sub: '高親和力結合 CaSR 受體，負回饋抑制 PTH 合成與釋放', tone: 'neutral' },
+        ],
+      },
+    },
   ],
 };

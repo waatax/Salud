@@ -1145,5 +1145,25 @@ export const DIGESTIVE_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'DIG-ILLUS-03',
+      title_zh: '十二指腸胰酵素原級聯活化與腺泡自我保護機制圖',
+      kind_badge_zh: '生理酵素級聯流程圖',
+      category: 'illustration',
+      summary_zh: '展示胰外分泌腺泡細胞如何以無活性酵素原（Zymogens）形式分泌蛋白酶，並於十二指腸刷狀緣由腸激酶（Enteropeptidase）定點觸發級聯活化，防範腺泡自我消化。',
+      clinical_takeaway_zh: '急性胰臟炎的核心致命機轉為膽石嵌頓或酒精誘發胰管內 Trypsin 提早自發活化；腺泡 SPINK1 抑制劑失衡時將引爆全身性自體消化發炎風暴。',
+      diagram: {
+        kind: 'flow',
+        caption: '酵素原於十二指腸外的「定點活化」是人體消化高蛋白同時避免胰臟自我消化的精密屏障。',
+        nodes: [
+          { label: '胰腺腺泡細胞合成', sub: '無活性酵素原：胰蛋白酶原 (Trypsinogen) + SPINK1 抑制劑', tone: 'neutral' },
+          { label: '經胰管排入十二指腸', sub: '迷走神經與膽囊收縮素 (CCK) 共同刺激排出', tone: 'accent' },
+          { label: '十二指腸刷狀緣腸激酶 (Enteropeptidase)', sub: '專一識別並切除胰蛋白酶原前導胜肽', tone: 'good' },
+          { label: '活性胰蛋白酶 (Active Trypsin) 生成', sub: '引爆正向自體催化反饋與級聯活化', tone: 'good' },
+          { label: '級聯切割活化其他酶原', sub: '胰凝乳蛋白酶原、前彈性蛋白酶、羧肽酶原全面激活', tone: 'good' },
+          { label: '食物食糜蛋白質水解', sub: '裂解為寡肽與游離胺基酸供小腸上皮吸收', tone: 'good' },
+        ],
+      },
+    },
   ],
 };

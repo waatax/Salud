@@ -1149,5 +1149,25 @@ export const NERVOUS_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'NERV-ILLUS-03',
+      title_zh: '軸突動作電位離子流動與去極化/復極化微觀序列圖',
+      kind_badge_zh: '神經電生理流程圖',
+      category: 'illustration',
+      summary_zh: '展示神經元軸突膜由靜止膜電位 (-70 mV) 達到閾電位 (-55 mV) 時，電壓門控 Na+ 通道爆發開放、失活門關閉，及延遲整流 K+ 通道復極化超極化的精密物理化學序列。',
+      clinical_takeaway_zh: '神經細胞絕對不反應期與相對不反應期確保訊號跳躍式單向傳導不回流；局部麻醉劑（利多卡因）專一封鎖 Na+ 通道失活門，無痛阻斷痛覺神經。',
+      diagram: {
+        kind: 'flow',
+        caption: '神經衝動本質上是帶電離子（Na+ 與 K+）沿濃度差與電位差穿越特定通道形成的毫秒級物理脈衝。',
+        nodes: [
+          { label: '靜止狀態 (-70 mV)', sub: 'Na+/K+-ATPase 逆濃度泵離子，漏鉀通道維持外正內負', tone: 'neutral' },
+          { label: '去極化達閾電位 (-55 mV)', sub: '突觸後電位總和使軸突起始段達到開門臨界電壓', tone: 'accent' },
+          { label: '電壓門控 Na+ 通道爆發開放', sub: '大量 Na+ 順電化學梯度湧入神經元，引發超射 (+30 mV)', tone: 'good' },
+          { label: 'Na+ 通道失活門 (Inactivation gate) 關閉', sub: '動作電位峰值抵達，膜對鈉離子通透性驟降進入絕對不反應期', tone: 'warn' },
+          { label: '延遲整流 K+ 通道開放', sub: '大量 K+ 外流迅速拉低膜電位進行復極化，短暫超極化 (-80 mV)', tone: 'accent' },
+          { label: '離子泵恢復離子平衡', sub: 'Na+/K+-ATPase 水解 ATP 將 Na+ 泵出、K+ 泵回，重置靜止膜電位', tone: 'good' },
+        ],
+      },
+    },
   ],
 };

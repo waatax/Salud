@@ -116,6 +116,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '特定腸道菌群裂解紅肉/蛋黃中的肉鹼與膽鹼生成三甲胺 (TMA)，經門靜脈送達肝臟由 FMO3 酵素氧化為 TMAO。循環高 TMAO 活化血管巨噬細胞清道夫受體 CD36，加速動脈粥狀硬化泡沫細胞形成。',
         evidence_grade: 'A',
         why_matters_zh: '增加植物膳食纖維與地中海飲食可降低促 TMAO 生成之腸道菌屬豐度。'
+      },
+      {
+        id: 'SYS-DIG-09',
+        title_zh: '胰外分泌功能 (Exocrine Pancreas) 與酵素原級聯活化',
+        statement_zh: '胰臟腺泡分泌之蛋白酶皆為無活性的酵素原（如 Trypsinogen）。抵達十二指腸時，由黏膜刷狀緣腸激酶 (Enteropeptidase) 切割活化 Trypsin，進而引爆級聯活化胰凝乳蛋白酶、彈性蛋白酶與羧肽酶；腺泡內 SPINK1 抑制劑則防範胰臟自我消化。',
+        evidence_grade: 'A',
+        why_matters_zh: '急性胰臟炎核心病理即為酵素原於腺泡內異常提早活化，造成自體組織消化與壞死。'
+      },
+      {
+        id: 'SYS-DIG-10',
+        title_zh: '胃壁細胞質子泵 (H+/K+-ATPase) 調控與胃酸分泌三相調控',
+        statement_zh: '胃酸分泌受神經相（迷走神經 ACh/M3）、胃相（胃泌素 Gastrin/CCK-B）及組織胺（ECL 細胞 Histamine/H2）三重協同刺激，頂端質子泵 (H+/K+-ATPase) 逆巨大濃度差將 H+ 泵入胃腔。D 細胞分泌之生長抑素 (Somatostatin) 則經 Gi 蛋白進行負回饋抑制。',
+        evidence_grade: 'A',
+        why_matters_zh: 'PPI 與 P-CAB 藥物直接阻斷質子泵；長期過度抑酸可能導致維生素 B12 與鐵吸收不良及菌群失調。'
+      },
+      {
+        id: 'SYS-DIG-11',
+        title_zh: '分泌型免疫球蛋白 A (sIgA) 的跨上皮非炎性免疫排除',
+        statement_zh: '腸道派氏結 (Peyer patches) 漿細胞每日合成數克二聚體 IgA，藉由基底膜多聚免疫球蛋白受體 (pIgR) 進行跨細胞轉運至腸腔，形成 sIgA。sIgA 專一性中和病原菌與食物抗原（免疫排除），且不活化補體或召募嗜中性球，避免黏膜破壞。',
+        evidence_grade: 'A',
+        why_matters_zh: '選擇性 IgA 缺乏症病患易有反覆腸道感染、腹瀉及自體免疫疾病，黏膜屏障完整性極度脆弱。'
+      },
+      {
+        id: 'SYS-DIG-12',
+        title_zh: '腸嗜鉻細胞 (EC Cells) 與腸道感覺傳入/蠕動反射',
+        statement_zh: '食物團塊之化學與機械性刺激促使 EC 細胞釋放 5-HT，結合於黏膜下神經叢 (Meissner plexus) 5-HT4 受體，啟動肌間神經叢 (Auerbach plexus)：近端運動神經元釋放 ACh 與物質 P 促環狀肌收縮，遠端神經元釋放 NO 與 VIP 促環狀肌舒張，推動蠕動波。',
+        evidence_grade: 'B',
+        why_matters_zh: '便秘型 IBS 與胃輕癱常伴隨 5-HT 訊號衰竭；5-HT4 促效劑是改善腸道推進動力的精準用藥。'
+      },
+      {
+        id: 'SYS-DIG-13',
+        title_zh: '次級膽汁酸與短鏈脂肪酸對 GLP-1/PYY 腸泌素的協同調節',
+        statement_zh: '結腸共生菌將初級膽酸轉化為次級膽酸（DCA、LCA），活化腸道 L 細胞基底膜 TGR5 受體；結合短鏈脂肪酸活化之 FFA2/3 (GPR43/41) 受體，協同刺激迴腸與結腸 L 細胞分泌 GLP-1 與 PYY，發揮延緩胃排空、改善胰島素阻抗與傳遞中樞飽足訊號。',
+        evidence_grade: 'A',
+        why_matters_zh: '充足可溶性纖維與健康菌相可自然倍增內源性 GLP-1 分泌，平穩食慾與體重控制。'
       }
     ],
     common_pathologies: [
@@ -334,6 +369,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '支氣管偽複層纖毛柱狀上皮每秒協同擺動 10-15 次，推動黏液毯向上輸送排出吸入顆粒與病原；一支香菸的丙烯醛與自由基即可使纖毛即刻麻痺癱瘓數小時，造成黏液積聚與反覆下呼吸道感染。',
         evidence_grade: 'B',
         why_matters_zh: '戒菸 48-72 小時後纖毛即可重新開始微弱再生，展開深度清肺排毒。'
+      },
+      {
+        id: 'SYS-RESP-10',
+        title_zh: '哈登效應 (Haldane Effect) 與血液二氧化碳三種轉運型態',
+        statement_zh: 'CO2 在血液中以溶解態 (7%)、胺基甲酸血紅素 (23%) 及碳酸氫根離子 (HCO3-, 70%) 轉運。抵達肺部時，Hb 與 O2 結合降低了對 CO2 及 H+ 的親和力（哈登效應），促使大量 CO2 釋放進入肺泡；紅血球膜 AE1 陰離子交換蛋白同步驅動氯離子轉移 (Chloride Shift)。',
+        evidence_grade: 'A',
+        why_matters_zh: '哈登效應是重度 COPD 病患吸入高濃度氧氣時血碳酸急遽升高（誘發二氧化碳昏迷）的關鍵病理機轉之一。'
+      },
+      {
+        id: 'SYS-RESP-11',
+        title_zh: '缺氧性肺血管收縮 (HPV) 與尤勒-利耶斯特蘭德機制',
+        statement_zh: '不同於體循環缺氧時擴張，肺泡氧分壓 (PAO2 < 60 mmHg) 下降時，肺小動脈平滑肌電壓門控鉀通道 (Kv) 關閉致膜去極化，電壓依賴性鈣通道 (VDCC) 開放使胞內 Ca2+ 升高引發血管收縮，自動將血流分流至通氣良好之肺泡最佳化 V/Q 比值。',
+        evidence_grade: 'A',
+        why_matters_zh: '高海拔低氧或瀰漫性慢性肺病引發廣泛性 HPV，是繼發性肺動脈高壓與肺心症 (Cor Pulmonale) 的始動病因。'
+      },
+      {
+        id: 'SYS-RESP-12',
+        title_zh: '肺泡巨噬細胞 (Alveolar Macrophage) 清除呼吸道微粒機制',
+        statement_zh: '直徑 < 2 μm 的超細顆粒與病原能穿透纖毛電梯抵達無纖毛之肺泡腔。游離肺泡巨噬細胞透過清道夫受體吞噬外來微粒與凋亡表面活性物質，並向淋巴轉運或藉咳嗽排出。矽塵與石綿纖維因無法被酵素分解，會導致巨噬細胞破裂釋放致纖維化因子。',
+        evidence_grade: 'A',
+        why_matters_zh: '長期暴露於 PM2.5 與粉塵會造成肺泡巨噬細胞過載耗竭，誘發不可逆慢性間質性肺纖維化。'
+      },
+      {
+        id: 'SYS-RESP-13',
+        title_zh: '功能殘氣量 (FRC) 緩衝池與限制/阻塞性肺疾患容量鑑別',
+        statement_zh: '功能殘氣量 (FRC = ERV + RV) 是平靜呼氣末肺內殘留氣量，作為連續氣體交換的氣體緩衝池，防止呼氣末動脈血氧急遽下挫。限制性肺病（如特發性肺纖維化）肺總量 TLC < 80% 預測值且 FEV1/FVC 正常；阻塞性肺病（如氣喘/COPD）則為 FEV1/FVC < 70% 伴隨殘氣量 RV 陷閉升高。',
+        evidence_grade: 'A',
+        why_matters_zh: '肺計量學 (Spirometry) 與肺容量測試是精準鑑別呼吸困難本質與評估手術耐受力的國際金標準。'
+      },
+      {
+        id: 'SYS-RESP-14',
+        title_zh: '肺循環低阻力高順應性與毛細血管流體靜壓斯塔林平衡',
+        statement_zh: '肺循環承受全部心輸出量，但肺動脈平均壓僅 ~15 mmHg（體循環 1/6），總阻力極低。肺毛細血管流體靜壓 (~7-10 mmHg) 遠低於血漿膠體滲透壓 (~25-28 mmHg)，形成內向淨吸收壓 (~10 mmHg) 保持肺泡完全乾燥；當 PCWP > 18–20 mmHg 時打破平衡誘發心因性肺水腫。',
+        evidence_grade: 'A',
+        why_matters_zh: '監測左心充盈壓與及時給予利尿劑/血管擴張劑能精準阻斷肺水腫血氧崩潰危象。'
       }
     ],
     common_pathologies: [
@@ -557,6 +627,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '骨骼成骨細胞在負重機械應力下分泌未羧化骨鈣素 (ucOCN)，穿透血腦屏障結合腦幹與海馬迴神經元 GPRC6A 受體，直接刺激多巴胺、血清素與 GABA 合成，並促進海馬迴神經元新生與記憶保存。',
         evidence_grade: 'B',
         why_matters_zh: '骨骼是積極調控大腦認知情緒的內分泌器官，負重訓練能直接健腦。'
+      },
+      {
+        id: 'SYS-NERV-10',
+        title_zh: '軸突動作電位 (Action Potential) 離子流動與霍奇金-赫胥黎模型',
+        statement_zh: '靜止膜電位 (-70 mV) 達閾電位 (-55 mV) 時，電壓門控 Na+ 通道快速打開引發超射 (+30 mV)；隨後 Na+ 通道失活門迅速關閉，延遲整流 K+ 通道開放促使復極化並超極化 (-80 mV)。絕對不反應期確保神經衝動沿軸突朗氏結跳躍式單向快速傳導。',
+        evidence_grade: 'A',
+        why_matters_zh: '局部麻醉劑（如 Lidocaine）專一阻斷電壓門控 Na+ 通道，阻斷傷害性痛覺神經衝動上傳。'
+      },
+      {
+        id: 'SYS-NERV-11',
+        title_zh: '抑制性神經傳導 GABA-A/B 受體與氯離子超極化鎮靜機制',
+        statement_zh: 'GABA 是中樞神經系統主要抑制性遞質。GABA-A 受體為配體門控 Cl- 通道，結合 GABA 後 Cl- 湧入神經元引發膜電位超極化，產生抑制性突觸後電位 (IPSP) 壓制興奮性；GABA-B 則為 GPCR 促 K+ 外流並阻斷 Ca2+ 內流。苯二氮平類藥物即藉由變構增強 GABA-A 達成鎮靜抗焦慮。',
+        evidence_grade: 'A',
+        why_matters_zh: '長期慢性壓力或酒精濫用導致 GABA-A 受體下調與受體脫敏，造成中樞神經興奮過度、易感焦慮與失眠。'
+      },
+      {
+        id: 'SYS-NERV-12',
+        title_zh: '腦源性神經營養因子 (BDNF) 與 TrkB 軸在突觸生成之關鍵角色',
+        statement_zh: 'BDNF 與突觸後高親和力 TrkB 受體結合，啟動 MAPK/ERK 與 PI3K/Akt 訊號級聯，刺激突觸棘蛋白 (Synaptophysin) 與 PSD-95 表達，促進海馬迴齒狀回 (DG) 突觸新生與成體神經發生。慢性皮質醇過高強烈抑制 BDNF，引發海馬迴萎縮與憂鬱。',
+        evidence_grade: 'A',
+        why_matters_zh: '中高強度有氧運動是目前實證能最高幅度提升血液與大腦 BDNF 濃度的生活介入方式。'
+      },
+      {
+        id: 'SYS-NERV-13',
+        title_zh: '預設模式網絡 (DMN) 與任務正向網絡 (TPN) 的動態平衡',
+        statement_zh: 'DMN（後扣帶皮質 PCC、內側前額葉 mPFC、下頂葉 IPL）在未執行特定任務、自我回顧或心智游移時高度活化；當專注於外部目標時，背側注意網絡與執行控制網絡活化，DMN 被協同抗關聯抑制。重度憂鬱症常因 DMN 無法下調引發持續性負面反芻。',
+        evidence_grade: 'B',
+        why_matters_zh: '正念冥想與專注呼吸能強化前額葉對 DMN 的調控抑制，顯著改善情緒調節與專注力。'
+      },
+      {
+        id: 'SYS-NERV-14',
+        title_zh: '痛覺上行傳導與 PAG-RVM 下行痛覺抑制系統',
+        statement_zh: '傷害性刺激由 Aδ 與 C 纖維傳入脊髓背角膠質區。大腦皮質與邊緣系統投射至中腦導水管周圍灰質 (PAG)，經延腦頭端腹內側核 (RVM) 發出下行正腎上腺素與 5-HT 纖維，活化脊髓節段腦啡肽 (Enkephalin) 中間神經元突觸前抑制 Substance P 釋放，阻斷痛覺上傳。',
+        evidence_grade: 'A',
+        why_matters_zh: '慢性全身疼痛與纖維肌痛症常源於下行痛覺抑制系統功能低下；SNRI 藥物即藉由增強此下行通路發揮止痛療效。'
       }
     ],
     common_pathologies: [
@@ -763,6 +868,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '代謝症候群與內臟肥胖引發全身冠脈微血管內皮慢性發炎，內皮 NO 釋放崩潰導致心肌細胞 PKG 活性受阻，巨大肌纖蛋白 (Titin) 低度磷酸化，左心室心肌壁剛性僵硬無法在舒張期充分充盈，引發肺鬱血。',
         evidence_grade: 'A',
         why_matters_zh: '減脂抗炎與 SGLT2 抑制劑為目前逆轉 HFpEF 舒張功能衰退的核心干預手段。'
+      },
+      {
+        id: 'SYS-CV-09',
+        title_zh: '心肌細胞興奮-收縮偶聯與鈣誘發鈣釋放 (CICR) 機制',
+        statement_zh: '動作電位 2 期中，L 型電壓門控鈣通道 (Cav1.2) 開放引發微量胞外 Ca2+ 內流，觸發肌漿網 RyR2 蘭尼鹼受體爆發性釋放大量儲備鈣（CICR），胞質 Ca2+ 濃度驟升十倍結合 Troponin C 驅動強烈收縮。舒張期則由 SERCA2a 泵全力將 Ca2+ 抽回肌漿網。',
+        evidence_grade: 'A',
+        why_matters_zh: 'CCB 降血壓藥物阻斷 Cav1.2；受磷蛋白 (Phospholamban) 磷酸化調控 SERCA2a 活性是當前治療心衰竭與惡性心律不整的關鍵前沿靶點。'
+      },
+      {
+        id: 'SYS-CV-10',
+        title_zh: '竇房結自動節律性與 HCN 通道 Funny 電流 (If)',
+        statement_zh: '竇房結 P 細胞無穩定靜止電位。膜電位復極化超極化至 -60 mV 時，HCN 通道（Funny 電流 If 通道）被活化，Na+ 緩慢內流產生 4 期舒張期自動去極化，達到閾值觸發 0 期動作電位。交感神經經 cAMP 加速 If 提高心率；副交感 ACh 經 M2 受體減慢 If 降低心率。',
+        evidence_grade: 'A',
+        why_matters_zh: '選擇性 If 抑制劑（Ivabradine 伊伐布雷定）能純粹減慢心率而不降低心肌收縮力，為心衰竭與心絞痛重要精準藥物。'
+      },
+      {
+        id: 'SYS-CV-11',
+        title_zh: '感壓反射 (Baroreceptor Reflex) 之神經調諧與每搏動態調壓',
+        statement_zh: '頸動脈竇（CN IX）與主動脈弓（CN X）牽拉感受器感知平均動脈壓 (MAP) 與脈搏壓。動脈壓升高時，傳入神經興奮延腦孤束核 (NTS)，活化 CVLM 抑制 RVLM 交感輸出，並興奮迷走背核，在數秒內減慢心率、舒張外周小動脈與靜脈，迅速拉回血壓。',
+        evidence_grade: 'A',
+        why_matters_zh: '長期高血壓會造成感壓反射重設 (Resetting) 敏感度下調；姿勢性低血壓反映感壓神經迴路退化或失能。'
+      },
+      {
+        id: 'SYS-CV-12',
+        title_zh: '微循環物質交換三機制與內皮糖萼 (Glycocalyx) 屏障',
+        statement_zh: '微血管透過被動擴散（氣體）、細胞裂孔過濾（水溶性小分子）與質膜微囊 (Caveolae) 胞吞轉運（白蛋白）。內皮腔表面覆蓋一層富含硫酸乙醯肝素之帶負電荷「糖萼」，防範血漿外滲與白血球異常貼附；敗血症發炎導致糖萼脫落，引發廣泛毛細血管滲漏與休克。',
+        evidence_grade: 'A',
+        why_matters_zh: '保護血管內皮糖萼完整性（如控制血糖、避免嚴重缺氧復灌損傷）是預防全身微血管滲漏的關鍵。'
+      },
+      {
+        id: 'SYS-CV-13',
+        title_zh: '利鈉胜肽系統 (ANP/BNP) 容量過負荷防護與 ARNI 藥理',
+        statement_zh: '心室肌細胞感受充盈張力增強時裂解分泌活性 BNP 與無活性 NT-proBNP，結合 NPRA 受體提高 cGMP，舒張血管並抑制近曲/集合管 Na+ 重吸收（排鈉利尿），強力拮抗 RAAS 與交感神經。循環中腦啡肽酶 (Neprilysin) 負責降解利鈉胜肽。',
+        evidence_grade: 'A',
+        why_matters_zh: '血漿 NT-proBNP 是心衰竭黃金指標；ARNI（沙庫巴曲纈沙坦）抑制腦啡肽酶延長內源性利鈉胜肽半衰期，為心衰竭革命性基石療法。'
       }
     ],
     common_pathologies: [
@@ -969,6 +1109,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '血鈣微幅下降即解除副甲狀腺鈣敏感受體 (CaSR) 抑制，數秒內釋放 PTH 動員骨鈣並刺激腎臟活化維生素 D；骨細胞分泌之 FGF23 則透過 α-Klotho 輔受體在近曲小管抑制磷酸鹽重吸收，維持嚴密的鈣磷乘積平衡。',
         evidence_grade: 'A',
         why_matters_zh: '長期高磷酸鹽加工食品會過度刺激 FGF23，加速血管內皮中層鈣化與動脈硬化。'
+      },
+      {
+        id: 'SYS-ENDO-09',
+        title_zh: 'PTH、活性維生素 D 與降鈣素對血鈣穩態的三重精準調控',
+        statement_zh: '主細胞 CaSR 感測細胞外 Ca2+。血鈣下降時，CaSR 解除抑制分泌 PTH。PTH 促進腎小管重吸收 Ca2+、排泄磷，更活化腎臟 1α-羥化酶 (CYP27B1) 生成 1,25(OH)2D3，大幅刺激十二指腸上皮主動吸收鈣與磷；甲狀腺 C 細胞分泌降鈣素拮抗高血鈣。',
+        evidence_grade: 'A',
+        why_matters_zh: '慢性腎臟病 (CKD) 早期因 1α-羥化酶缺乏導致低血鈣與次發性副甲狀腺亢進，引發腎性骨營養不良。'
+      },
+      {
+        id: 'SYS-ENDO-10',
+        title_zh: '類固醇荷爾蒙膜透性與核受體超家族轉錄活化機制',
+        statement_zh: '類固醇（皮質醇、醛固酮、性荷爾蒙）具親脂性自由穿透細胞膜，結合胞質受體（如 GR）促使熱休克蛋白 Hsp90 解離，同源二聚化易位入核，精準識別 DNA 荷爾蒙反應元件 (HRE)，招募轉錄共活化因子啟動基因蛋白質合成。亦具備少數非基因體膜快速效應。',
+        evidence_grade: 'A',
+        why_matters_zh: '外源性類固醇藥物具有延遲性基因效應（數小時至數天起效）與強大抗炎抑制作用，不可驟然停藥以防腎上腺危象。'
+      },
+      {
+        id: 'SYS-ENDO-11',
+        title_zh: '瘦素與胃飢餓素在下視丘弓狀核能量穩態之對抗神經迴路',
+        statement_zh: '白色脂肪分泌瘦素 (Leptin) 結合下視丘弓狀核 (ARC) 的 LepR，活化 POMC/CART 神經元釋放 α-MSH 經 MC4R 抑制食慾並提升代謝，同時抑制 NPY/AgRP 促食神經元；空腹時胃底分泌 Ghrelin 則反向強烈興奮 NPY/AgRP 神經元驅動覓食行為。',
+        evidence_grade: 'A',
+        why_matters_zh: '肥胖病患常伴隨嚴重的下視丘「瘦素阻抗」，使得大腦無法感知外周充裕脂肪儲量而持續發出飢餓指令。'
+      },
+      {
+        id: 'SYS-ENDO-12',
+        title_zh: '腎上腺皮質三層帶狀結構與特異性酶促類固醇合成路徑',
+        statement_zh: '球狀帶專屬表現 CYP11B2（醛固酮合成酶）在血管張力素 II 刺激下生成醛固酮；束狀帶表現 CYP17A1 與 CYP11B1 在 ACTH 刺激下合成皮質醇；網狀帶表現 DHEA 硫酸轉移酶合成腎上腺雄性素。三層各自具備獨立酵素表現與生理反饋軸。',
+        evidence_grade: 'A',
+        why_matters_zh: '先天性腎上腺增生症 (CAH) 最常見 21-羥化酶缺乏，導致皮質醇合成中斷並反向使 ACTH 飆升，前驅物分流至雄性素造成女嬰男性化。'
+      },
+      {
+        id: 'SYS-ENDO-13',
+        title_zh: '腸泌素效應 (Incretin Effect) 與 DPP-4 快速水解失活機轉',
+        statement_zh: '口服葡萄糖引發之胰島素分泌量遠超靜脈等量注射，貢獻人體 50-70% 餐後胰島素釋放（腸泌素效應）。腸道 L 細胞之 GLP-1 與 K 細胞之 GIP 經 cAMP 以葡萄糖依賴性方式刺激 β 細胞；血漿及內皮結合型 DPP-4 酵素在 1-2 分鐘內迅速水解 GLP-1 N 端二肽使其失活。',
+        evidence_grade: 'A',
+        why_matters_zh: '第二型糖尿病中腸泌素效應嚴重鈍化；DPP-4 抑制劑與耐受水解之長效 GLP-1RA（如 Semaglutide）已成為降糖減重新標準。'
       }
     ],
     common_pathologies: [
@@ -1175,6 +1350,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '先天免疫細胞（單核/巨噬/NK 細胞）在接受真菌 β-葡聚醣或卡介苗刺激後，其組蛋白 H3K4me3 甲基化修飾與糖解代謝重編程，使其在數月後對不相關病原體亦展現顯著增強的細胞激素分泌與殺菌反應。',
         evidence_grade: 'A',
         why_matters_zh: '攝取燕麥與菇蕈類多醣體（β-Glucan）能藉由訓練免疫機制賦能先天防線。'
+      },
+      {
+        id: 'SYS-IMM-09',
+        title_zh: '樹突細胞 (DC) 之抗原交叉呈遞與 CD8+ 殺手 T 細胞啟動',
+        statement_zh: '樹突細胞能攝取細胞外外源性抗原，並透過獨特的「交叉呈遞」機制將抗原導入胞質體經蛋白酶體降解，裝載至 MHC-I 類分子呈遞給 CD40L 輔助活化的初始 CD8+ T 細胞，引爆專一性細胞毒性 T 淋巴細胞 (CTL) 殺傷反應。',
+        evidence_grade: 'A',
+        why_matters_zh: '病毒疫苗研發與抗腫瘤自體免疫細胞治療（如 DC 疫苗、CAR-T）的核心分子基礎。'
+      },
+      {
+        id: 'SYS-IMM-10',
+        title_zh: '輔助型 T 細胞亞群分化 (Th1, Th2, Th17) 與轉錄因子極化網絡',
+        statement_zh: '初始 CD4+ T 細胞 (Th0) 受微環境細胞因子分化：IL-12/IFN-γ 活化 T-bet 分化為 Th1（防禦胞內病原）；IL-4 活化 GATA3 分化為 Th2（促 IgE 合成防寄生蟲與過敏）；TGF-β + IL-6 活化 RORγt 分化為 Th17（分泌 IL-17 召募嗜中性球防細胞外菌）；TGF-β 活化 FoxP3 分化為 Treg 抑制反應。',
+        evidence_grade: 'A',
+        why_matters_zh: '乾癬與僵直性脊椎炎為 Th17/IL-17 軸過亢；生物製劑（抗 IL-17A 抗體）提供精準靶向治療。'
+      },
+      {
+        id: 'SYS-IMM-11',
+        title_zh: '自然殺手細胞 (NK Cell)「遺失自我」(Missing-Self) 假說與活化/抑制受體天平',
+        statement_zh: 'NK 細胞表面攜帶殺傷抑制受體 (KIR)，專一識別自體正常細胞表面的 MHC-I 類分子，傳導強烈抑制訊號；當病毒感染或腫瘤細胞下調 MHC-I 逃避 CTL 時，KIR 抑制解除（Missing-Self），NK 細胞活化受體 (NKG2D) 被靶細胞應激配體 (MICA/MICB) 活化，釋放穿孔素 (Perforin) 與顆粒酶 (Granzymes) 裂解靶細胞。',
+        evidence_grade: 'A',
+        why_matters_zh: '腫瘤免疫逃逸的雙軌攻防；異體造血幹細胞移植中利用 KIR 不相合效應提升抗白血病殺傷率。'
+      },
+      {
+        id: 'SYS-IMM-12',
+        title_zh: '胸腺中樞耐受性 (Central Tolerance) 與 AIRE 基因陰性選擇',
+        statement_zh: '未成熟 T 細胞在胸腺髓質進行陰性選擇。髓質胸腺上皮細胞 (mTEC) 在自體免疫調節因子 (AIRE) 驅動下，異位表現全身各種外周組織特異性抗原 (TRA，如胰島素、甲狀腺球蛋白)；與自體抗原結合過於緊密的 T 細胞被誘導凋亡，淘汰高親和力自體反應性克隆。',
+        evidence_grade: 'A',
+        why_matters_zh: 'AIRE 基因缺陷引發第一型自體免疫多腺體症候群 (APS-1)，病患同時發生副甲狀腺低下、腎上腺衰竭與慢性皮膚黏膜念珠菌病。'
+      },
+      {
+        id: 'SYS-IMM-13',
+        title_zh: '巨噬細胞 M1 促炎與 M2 抗炎修復表現型代謝重編程',
+        statement_zh: 'LPS/IFN-γ 誘導巨噬細胞極化為 M1 型，代謝轉向有氧糖解，三羧酸循環破裂導致琥珀酸 (Succinate) 累積，穩定 HIF-1α 並活化 NLRP3 發炎小體分泌 IL-1β；IL-4/IL-13 誘導 M2 型，依賴脂肪酸氧化 (FAO) 與粒線體氧化磷酸化，分泌 IL-10 與 TGF-β 促進組織修復與纖維化修補。',
+        evidence_grade: 'A',
+        why_matters_zh: '肥胖內臟脂肪中巨噬細胞向 M1 極化驅動全身慢性低度發炎；促進 M2 表型轉化能加速創傷癒合與減輕動脈硬化發炎。'
       }
     ],
     common_pathologies: [
@@ -1381,6 +1591,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '椎間盤中央親水膠狀髓核 (Nucleus Pulposus) 像水球般均勻分散脊柱軸向壓力至多層同心圓纖維環；彎腰屈曲同時合併扭轉搬重物時，後外側纖維環承受最大張力剪切峰值，髓核極易衝破薄弱環層壓迫坐骨神經。',
         evidence_grade: 'A',
         why_matters_zh: '搬重物時嚴守「髖鉸鏈 (Hip Hinge) 屈髖屈膝直背」原則，將剪切力轉移至臀大肌承擔。'
+      },
+      {
+        id: 'SYS-MSK-09',
+        title_zh: '亨尼曼尺寸原則 (Henneman Size Principle) 與運動單元募集',
+        statement_zh: '中樞神經系統募集運動單元嚴格遵循由小至大原則：施力初期先募集易興奮、抗疲勞的慢縮第 I 型運動單元；唯有當阻力負荷或發力速度提升至高門檻時，才依序招募快縮第 IIa 及爆發性第 IIx 型運動單元。',
+        evidence_grade: 'A',
+        why_matters_zh: '低強度有氧無法刺激高門檻第 II 型肌纖維；大重量阻力或訓練至接近力竭是刺激快肌纖維防止老年肌少症的生理前提。'
+      },
+      {
+        id: 'SYS-MSK-10',
+        title_zh: '本體感受器肌梭 (Ia) 牽張反射與高爾基腱器官 (Ib) 自體抑制',
+        statement_zh: '肌梭並聯於肌纖維感受長度與拉伸速率，經 Ia 纖維引發單突觸牽張反射（促收縮防撕裂）；高爾基腱器官 (GTO) 串聯於肌腱交界感受張力，經 Ib 纖維活化抑制性中間神經元引發自體抑制（反向牽張反射），在極端張力下強迫肌肉放鬆防肌腱撕脫。',
+        evidence_grade: 'A',
+        why_matters_zh: 'PNF 本體感覺神經肌肉促進伸展法即利用 GTO 自體抑制原理，在等長收縮後迅速突破關節被動活動度。'
+      },
+      {
+        id: 'SYS-MSK-11',
+        title_zh: '骨細胞壓電感應、硬化蛋白 (Sclerostin) 下調與 Wnt 訊號成骨',
+        statement_zh: '骨細胞為骨骼機械感測器。衝擊性負重產生的骨小管流體剪切力活化 Piezo1 通道，細胞內流 Ca2+ 下調 Sclerostin 與 Dkk-1 表現，解除對 LRP5/6 輔受體阻斷，完全啟動成骨 Wnt/β-catenin 通路，驅使成骨細胞沿力線方向沉積骨小樑。',
+        evidence_grade: 'A',
+        why_matters_zh: '長期臥床或無重力太空環境因流體剪切力消失致 Sclerostin 暴增，引發急遽骨流失；抗 Sclerostin 抗體 (Romosozumab) 即為此機制研發。'
+      },
+      {
+        id: 'SYS-MSK-12',
+        title_zh: '軟骨下骨微損傷、VEGF/NGF 感覺神經血管侵入與關節炎疼痛',
+        statement_zh: '骨關節炎為全關節器官病變。力線不正使軟骨下骨承受不均勻壓應力引發微骨折與骨髓水腫 (BMLs)；成骨細胞分泌大量 VEGF 與 NGF，誘使新生毛細血管與感覺神經纖維逆行侵入無血管神經的軟骨層，伴隨邊緣代償性骨贅（骨刺）生成引發慢性頑固性關節痛。',
+        evidence_grade: 'B',
+        why_matters_zh: '矯正下肢力線（足弓支撐、減重降低關節壓力）能從力學根源阻止軟骨下骨進行性微損傷與神經血管侵入。'
+      },
+      {
+        id: 'SYS-MSK-13',
+        title_zh: '肌肉離心收縮 (Eccentric) 超微結構損傷與重複效應 (RBE) 保護',
+        statement_zh: '肌肉在受載拉長（離心收縮）時，肌節承受極大被動拉力使肌原纖維 Z 盤錯位撕裂，釋放肌酸激酶 (CK)；24-48 小時內巨噬細胞浸潤釋放 PGE2 敏化神經引發 DOMS。該損傷刺激肌節串聯增加與結締組織重組，引發「重複效應 (RBE)」使後續訓練具高度抗損傷適應。',
+        evidence_grade: 'A',
+        why_matters_zh: '離心訓練是強化肌腱韌性與預防運動撕裂傷最強大的訓練範式，也是誘導肌纖維肥大的核心手段。'
       }
     ],
     common_pathologies: [
@@ -1587,6 +1832,41 @@ export const HUMAN_SYSTEMS: HumanSystem[] = [
         statement_zh: '腎功能下降導致水鈉滯留、容量超載與尿毒毒素（如硫酸吲哚酚 IS）累積，引發全身動脈中層鈣化與左心室心肌僵硬；而心衰竭輸出量下降又反向加劇腎動脈低灌流，構成互為因果的心腎下行螺旋。超過 50% 洗腎患者死於心血管事件。',
         evidence_grade: 'A',
         why_matters_zh: '保護腎臟實質即是在守護心臟，心腎代謝共病需整合式全人照護。'
+      },
+      {
+        id: 'SYS-REN-09',
+        title_zh: '近曲小管重吸收動力學與鈉-葡萄糖共轉運蛋白 (SGLT2/SGLT1) 腎糖閾',
+        statement_zh: '近曲小管承擔 65% 水鈉重吸收。基底側 Na+/K+-ATPase 建立細胞內低 Na+ 濃度，驅動頂端膜 SGLT2（S1/S2 段，重吸收 90% 葡萄糖）與 SGLT1（S3 段，重吸收 10% 葡萄糖）進行次級主動重吸收；當血糖超過腎糖閾（~180 mg/dL，TmG ~375 mg/min）時出現溢出性糖尿。',
+        evidence_grade: 'A',
+        why_matters_zh: '近曲小管細胞極高耗能，在腎缺血時最易發生急性腎小管壞死 (ATN)。'
+      },
+      {
+        id: 'SYS-REN-10',
+        title_zh: '抗利尿激素 (ADH/AVP) 經 V2 受體驅動水通道蛋白 2 (AQP2) 膜穿梭機制',
+        statement_zh: '血漿滲透壓上升（>280 mOsm/kg）刺激下視丘釋放 ADH，結合皮質與髓質集合管主細胞基底側 V2 受體，活化 Gs-cAMP-PKA 訊息軸，磷酸化含水通道蛋白 2 (AQP2) 的細胞質儲存囊泡，驅使其頂端管腔膜易位融合 (Exocytic Insertion)，使水分子順著髓質高滲梯度被動重吸收。',
+        evidence_grade: 'A',
+        why_matters_zh: '中樞性尿崩症（ADH 不足）vs 腎因性尿崩症（V2R 或 AQP2 突變）；SIADH 導致水中毒與嚴重低血鈉。'
+      },
+      {
+        id: 'SYS-REN-11',
+        title_zh: '皮質集合管主細胞與 α-閏細胞對鉀平衡 (Potassium Homeostasis) 的陰陽調控',
+        statement_zh: '皮質集合管主細胞在醛固酮刺激下，頂端上皮鈉通道 (ENaC) 大量吸收 Na+ 產生管腔負電位 (-10 to -20 mV)，驅動胞質 K+ 順電位梯度經 ROMK 通道主動分泌排入尿液；低血鉀或代謝性酸中毒時，相鄰之 α-閏細胞透過頂端 H+/K+-ATPase 逆向主動回收 K+ 並分泌 H+，維繫全身血鉀極限穩態。',
+        evidence_grade: 'A',
+        why_matters_zh: '保鉀利尿劑（Spironolactone 拮抗醛固酮，Amiloride 阻斷 ENaC）；高血鉀引發致命性心室顫動之緊急救治機制。'
+      },
+      {
+        id: 'SYS-REN-12',
+        title_zh: '酸鹼平衡維持：近曲小管碳酸氫鹽重吸收與集合管質子排泄',
+        statement_zh: '腎臟每日濾過 4500 mmol HCO3-，99.9% 需被回收。近曲小管頂端 NHE3 泵出 H+，在管腔側碳酸酐酶 IV (CA-IV) 催化下與濾過的 HCO3- 結合生成 CO2 與 H2O 穿透入胞，胞內 CA-II 重新解離生成 HCO3- 經基底側 NBCe1 轉運回血；遠端 α-閏細胞則由頂端 H+-ATPase 泵主動排泌質子並結合可滴定酸 (HPO4^2-) 與 NH4+ 排出。',
+        evidence_grade: 'A',
+        why_matters_zh: '第 1 型（遠端）與第 2 型（近端）腎小管酸中毒 (RTA) 的鑑別診斷與代謝性酸中毒代償極限。'
+      },
+      {
+        id: 'SYS-REN-13',
+        title_zh: '缺氧誘導因子脯胺醯羥化酶 (HIF-PHD) 軸與腎間質纖維化之惡性循環',
+        statement_zh: '腎間質周皮細胞 (Pericytes) 於組織缺氧時抑制 PHD 活性，使 HIF-2α 轉位入核啟動 EPO 轉錄；但在慢性蛋白尿與高血壓刺激下，周皮細胞發生肌成纖維細胞轉化 (Pericyte-Myofibroblast Transition)，大量分泌 I/III 型膠原蛋白引發間質纖維化，微血管床硬化閉塞加劇局部缺氧，造成 EPO 分泌永久喪失與不可逆 CKD 進展。',
+        evidence_grade: 'A',
+        why_matters_zh: '新型口服 HIF-PHD 抑制劑（如 Roxadustat 羅沙司他）模擬缺氧上調內源 EPO 生成與鐵利用，革新腎性貧血治療。'
       }
     ],
     common_pathologies: [

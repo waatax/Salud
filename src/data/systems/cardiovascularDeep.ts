@@ -1138,5 +1138,25 @@ export const CARDIOVASCULAR_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'CV-ILLUS-03',
+      title_zh: '心肌細胞興奮-收縮偶聯與鈣誘發鈣釋放 (CICR) 微觀機制圖',
+      kind_badge_zh: '心肌電生理微觀圖',
+      category: 'illustration',
+      summary_zh: '展示心室肌動作電位 2 期平台期中，Cav1.2 鈣通道開放引入微量胞外 Ca2+，觸發肌漿網 RyR2 爆發性釋出大量儲備鈣（CICR）結合 Troponin C 驅動收縮，及 SERCA2a 舒張回收循環。',
+      clinical_takeaway_zh: '鈣通道阻斷劑 (CCB) 透過阻斷 Cav1.2 發揮負性肌力與降壓作用；受磷蛋白 (PLN) 磷酸化程度決定 SERCA2a 活性，為心衰竭與惡性心律不整前沿基因標靶。',
+      diagram: {
+        kind: 'flow',
+        caption: '微量外源鈣的湧入扮演「導火線」，引爆肌漿網巨量儲備鈣的「火藥庫」釋放，驅動心肌每分鐘數十次強有力的泵血。',
+        nodes: [
+          { label: '心室肌動作電位去極化 (Phase 0)', sub: '電位沿橫小管 (T-tubule) 快速傳導至心肌深處', tone: 'accent' },
+          { label: 'L 型鈣通道 (Cav1.2) 開放 (Phase 2)', sub: '少量細胞外 Ca2+ 內流，進入 T 管與肌漿網交界接合隙', tone: 'good' },
+          { label: '結合肌漿網 RyR2 蘭尼鹼受體', sub: '觸發鈣誘發鈣釋放 (CICR)，引爆肌漿網鈣庫爆發性外流', tone: 'good' },
+          { label: '胞質游離 Ca2+ 濃度飆升 10 倍', sub: 'Ca2+ 專一結合肌鈣蛋白 C (Troponin C)，移開原肌球蛋白', tone: 'good' },
+          { label: '肌球蛋白頭部橫橋動力行程', sub: '消耗 ATP 水解能量向肌小節中央滑動，心室強烈收縮射血', tone: 'good' },
+          { label: '舒張期 SERCA2a 泵全力回抽', sub: 'Ca2+ 被抽回肌漿網儲存或經 NCX 交換排出，心肌充分鬆弛充盈', tone: 'accent' },
+        ],
+      },
+    },
   ],
 };

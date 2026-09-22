@@ -1162,5 +1162,25 @@ export const MUSCULOSKELETAL_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'MSK-ILLUS-03',
+      title_zh: '骨細胞力學感應、Sclerostin 下調與成骨 Wnt 訊號轉導圖',
+      kind_badge_zh: '骨力學轉導流程圖',
+      category: 'illustration',
+      summary_zh: '展示抗阻或衝擊性應力如何驅動骨小管腔內流體剪切力流動，牽拉骨細胞纖毛壓電通道，下調硬化蛋白 (Sclerostin) 釋放，全面解放成骨 Wnt/β-catenin 通路促進骨基質沉積。',
+      clinical_takeaway_zh: '臥床或太空無重力環境因缺乏骨小管剪切流體，Sclerostin 暴增抑制成骨引發極速骨鬆；跳躍與深蹲等衝擊負重是天然下調 Sclerostin 的最佳處方。',
+      diagram: {
+        kind: 'flow',
+        caption: '骨骼是精密的「力學-生物學」轉換器：受載壓應力藉由骨小管流體流動，直接下達細胞基因層級的成骨命令。',
+        nodes: [
+          { label: '骨骼承受抗阻衝擊載荷', sub: '骨小樑產生微小彈性形變，骨陷窩內壓力差上升', tone: 'accent' },
+          { label: '骨小管流體剪切力 (Fluid Shear)', sub: '富含離子的組織液在細長骨小管網絡中高速流動', tone: 'good' },
+          { label: '骨細胞 Piezo1 壓電通道開放', sub: '細胞外 Ca2+ 內流，誘導一氧化氮 (NO) 與 PGE2 瞬時釋放', tone: 'good' },
+          { label: '抑制硬化蛋白 (Sclerostin) 基因', sub: 'SOST 基因轉錄受阻，胞外 Sclerostin 濃度顯著暴跌', tone: 'good' },
+          { label: '成骨 Wnt/β-catenin 通路解除封鎖', sub: 'Wnt 配體順利結合 Frizzled/LRP5/6 輔受體複合體', tone: 'good' },
+          { label: '成骨細胞大量合成新骨基質', sub: 'Runx2 轉錄因子活化，定向沉積骨膠原蛋白與羥基磷灰石晶體', tone: 'good' },
+        ],
+      },
+    },
   ],
 };

@@ -1115,5 +1115,25 @@ export const RENAL_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'REN-ILLUS-03',
+      title_zh: '抗利尿激素 (ADH) 驅動 AQP2 水通道蛋白膜穿梭與尿液濃縮流程圖',
+      kind_badge_zh: '水分代謝分子流程圖',
+      category: 'illustration',
+      summary_zh: '展示體液滲透壓上升時，下視丘釋放 ADH 結合集合管 V2 受體，透過 cAMP-PKA 驅動水通道蛋白 2 (AQP2) 囊泡向管腔膜易位融合，順髓質高滲梯度回收純水的精準分子路徑。',
+      clinical_takeaway_zh: '中樞性尿崩症因缺乏 ADH 分泌導致每日排出 >5-10 公升極低張尿；腎因性尿崩症則多為 V2 受體或 AQP2 基因突變失能。鋰鹽中毒亦會阻斷此水通道膜穿梭。',
+      diagram: {
+        kind: 'flow',
+        caption: 'AQP2 水通道在管腔膜上的「插入」與「吞噬內吞」是人體在幾分鐘內調節尿量與血漿滲透壓的分子開關。',
+        nodes: [
+          { label: '下視丘滲透壓受體感應', sub: '血漿滲透壓升高 (>285 mOsm/kg) 或血容量下挫', tone: 'warn' },
+          { label: '腦下垂體後葉脈衝釋放 ADH', sub: '精胺酸血管加壓素 (AVP) 經血液循環抵達腎臟', tone: 'accent' },
+          { label: '結合集合管主細胞基底側 V2 受體', sub: '偶聯 Gs 蛋白，刺激腺苷酸環化酶合成第二信使 cAMP', tone: 'good' },
+          { label: '蛋白激酶 A (PKA) 磷酸化 AQP2', sub: '觸發胞質微管系統將含 AQP2 的儲存囊泡推向頂端膜', tone: 'good' },
+          { label: 'AQP2 囊泡向管腔膜融合插入', sub: '皮質與髓質集合管頂端膜水通透性暴增數十倍', tone: 'good' },
+          { label: '順 1200 mOsm 髓質高滲梯度吸水', sub: '管腔水分子被動迅速重吸收回直小血管，尿液高度濃縮', tone: 'good' },
+        ],
+      },
+    },
   ],
 };

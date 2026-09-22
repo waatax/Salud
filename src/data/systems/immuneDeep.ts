@@ -1099,5 +1099,25 @@ export const IMMUNE_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'IMM-ILLUS-03',
+      title_zh: '補體系統三大活化途徑、C3 樞紐與膜攻擊複合物 (MAC) 流程圖',
+      kind_badge_zh: '補體生化級聯圖',
+      category: 'illustration',
+      summary_zh: '展示古典、凝集素與替代三大途徑如何匯聚於 C3 轉化酶，裂解產生 C3a（過敏毒素）與 C3b（調理素），進而組裝 C5b-9 膜攻擊複合物 (MAC) 在病原體膜上打孔穿透溶胞。',
+      clinical_takeaway_zh: '陣發性夜間血紅素尿症 (PNH) 因紅血球表面缺乏 CD55/CD59 補體保護傘導致自體溶血；C5 單株抗體 (Eculizumab) 精準阻斷 MAC 組裝，挽救患者生命。',
+      diagram: {
+        kind: 'flow',
+        caption: '補體系統是體液免疫的「生化地雷陣」，能在幾分鐘內將微小抗原信號放大為致命的細胞膜穿孔攻擊。',
+        nodes: [
+          { label: '三大初始活化啟動', sub: '古典（抗原抗體複合物）、凝集素（MBL）、替代（C3 自發水解）', tone: 'neutral' },
+          { label: '組裝 C3 轉化酶 (C4b2a / C3bBb)', sub: '三大途徑匯聚的核心分子樞紐，展開級聯倍增放大', tone: 'accent' },
+          { label: '裂解 C3 生成 C3a 與 C3b', sub: 'C3a 引起微血管擴張過敏趨化；C3b 緊密塗抹病原（調理吞噬）', tone: 'good' },
+          { label: '活化 C5 轉化酶', sub: '裂解 C5 生成強效趨化因子 C5a 與引導片段 C5b', tone: 'warn' },
+          { label: '召募 C6, C7, C8 插入脂質雙層', sub: '形成親脂性預穿孔核心複合體', tone: 'accent' },
+          { label: '多聚體 C9 聚合形成 MAC (C5b-9)', sub: '組裝 10 nm 穿膜跨膜孔洞，水和溶質湧入導致靶細胞滲透性裂解', tone: 'good' },
+        ],
+      },
+    },
   ],
 };

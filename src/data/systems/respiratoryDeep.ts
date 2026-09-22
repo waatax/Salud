@@ -1104,5 +1104,25 @@ export const RESPIRATORY_DEEP: SystemDeepDive = {
         },
       },
     },
+    {
+      id: 'RESP-ILLUS-03',
+      title_zh: '紅血球二氧化碳運轉、氯離子轉移與哈登效應釋放圖',
+      kind_badge_zh: '氣體運載生化流程圖',
+      category: 'illustration',
+      summary_zh: '展示周邊組織代謝產生之 CO2 如何在紅血球內經碳酸酐酶 (CA) 轉化為 HCO3- 並藉 AE1 蛋白與 Cl- 進行氯離子轉移；抵達肺泡時藉由哈登效應促使 CO2 大量解離排出。',
+      clinical_takeaway_zh: '高濃度氧療在慢阻肺患者中誘發高碳酸血症，部分正是因為高氧合血紅素強效置換結合的 CO2（哈登效應）使血中游離 CO2 遽增。',
+      diagram: {
+        kind: 'flow',
+        caption: '紅血球利用陰離子交換蛋白 AE1 與碳酸酐酶，將 70% 毒性 CO2 轉化為溫和的重碳酸鹽緩衝液，並在肺泡端逆轉釋放。',
+        nodes: [
+          { label: '周邊組織代謝生成 CO2', sub: '被動擴散穿透毛細血管內皮與紅血球膜', tone: 'neutral' },
+          { label: '紅血球胞內碳酸酐酶 (CA-II)', sub: '催化 CO2 + H2O 快速水解生成 H+ + HCO3-', tone: 'accent' },
+          { label: 'AE1 蛋白驅動氯離子轉移 (Chloride Shift)', sub: 'HCO3- 排出進入血漿，胞外 Cl- 逆向內流維持電中性', tone: 'good' },
+          { label: '血液循環流經肺泡毛細血管', sub: '肺泡高 PO2 促使氧分子與去氧血紅素結合', tone: 'good' },
+          { label: '哈登效應 (Haldane Effect) 觸發', sub: '氧合血紅素酸性增強，釋放 H+ 迫使反應逆轉生成 CO2', tone: 'good' },
+          { label: '氣體分子越過呼吸膜呼出', sub: 'CO2 順濃度差迅速擴散進入肺泡腔排出體外', tone: 'good' },
+        ],
+      },
+    },
   ],
 };
