@@ -23,13 +23,19 @@ import {
   ExternalLink,
   ChevronRight,
   Info,
+  Network,
+  Scale,
+  ShieldCheck,
 } from 'lucide-react';
 import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
 import { CANONICAL_QUANTITATIVE_CLAIMS } from '../../knowledge/claims/claims';
 import { CANONICAL_TAIWAN_POLICIES } from '../../knowledge/policies/taiwanPolicies';
 import { CANONICAL_SAFETY_PREDICATES } from '../../compose/safety';
+import { CANONICAL_THRESHOLDS, CANONICAL_THRESHOLD_MAP } from '../../knowledge/thresholds/thresholdRegistry';
 import { deriveCertainty } from '../../compose/certainty';
 import { KnowledgeAtom, CertaintyLevel, RiskClass, AssertionKind, ProvenanceLevel } from '../../types/knowledge';
+import { KnowledgeGraphView } from './KnowledgeGraphView';
+import { GovernanceDashboardModal } from './GovernanceDashboardModal';
 
 type ViewMode = 'summary' | 'evidence' | 'safety';
 
@@ -42,6 +48,29 @@ export const KnowledgeExplorerPage: React.FC = () => {
   const [selectedProvenance, setSelectedProvenance] = useState<string>('all');
   const [activeViewMode, setActiveViewMode] = useState<ViewMode>('summary');
   const [selectedAtomId, setSelectedAtomId] = useState<string | null>(null);
+  const [displayLayout, setDisplayLayout] = useState<'cards' | 'graph'>('cards');
+  const [isGovModalOpen, setIsGovModalOpen] = useState(false);
+
+  // Hash listener for deep linking: e.g. #explore?atom=KA-BP-001
+  React.useEffect(() => {
+    const handleHashCheck = () => {
+      const hash = window.location.hash;
+      const match = hash.match(/[?&]atom=([^&]+)/);
+      if (match && match[1]) {
+        const atomId = decodeURIComponent(match[1]);
+        const found = CANONICAL_KNOWLEDGE_PACK_82.find((a) => a.id === atomId);
+        if (found) {
+          setSelectedAtomId(found.id);
+          setSelectedTopic('all');
+          setDisplayLayout('cards');
+        }
+      }
+    };
+
+    handleHashCheck();
+    window.addEventListener('hashchange', handleHashCheck);
+    return () => window.removeEventListener('hashchange', handleHashCheck);
+  }, []);
 
   // Extract unique facet values
   const topics = useMemo(() => {
@@ -107,27 +136,67 @@ export const KnowledgeExplorerPage: React.FC = () => {
             以原子化知識點（KnowledgeAtom）為最小引用單位的結構化醫學知識庫。每一條皆具備適用族群、演算法確定度推導、防誤用警示（Misuse Guard）與管轄政策來源，並支援機器可讀匯出。
           </p>
 
-          {/* Machine Readable Export Links */}
-          <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono">
-            <a
-              href="./data/knowledge-graph.json"
-              download="knowledge-graph.json"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-salud-cyan text-slate-200 hover:text-white transition-all shadow-sm"
-            >
-              <Download className="w-3.5 h-3.5 text-salud-cyan" />
-              <span>knowledge-graph.json</span>
-            </a>
-            <a
-              href="./data/claims.jsonl"
-              download="claims.jsonl"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-salud-amber text-slate-200 hover:text-white transition-all shadow-sm"
-            >
-              <Download className="w-3.5 h-3.5 text-salud-amber" />
-              <span>claims.jsonl (AI / RAG)</span>
-            </a>
-            <span className="text-slate-500 text-[11px] self-center">
-              CI 規則已通過：VAL-001 ~ VAL-024
-            </span>
+          {/* Machine Readable Export Links & Action Controls */}
+          <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <a
+                href="./data/knowledge-graph.json"
+                download="knowledge-graph.json"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-salud-cyan text-slate-200 hover:text-white transition-all shadow-sm"
+              >
+                <Download className="w-3.5 h-3.5 text-salud-cyan" />
+                <span>knowledge-graph.json (138 節點)</span>
+              </a>
+              <a
+                href="./data/claims.jsonl"
+                download="claims.jsonl"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-salud-amber text-slate-200 hover:text-white transition-all shadow-sm"
+              >
+                <Download className="w-3.5 h-3.5 text-salud-amber" />
+                <span>claims.jsonl (100 筆)</span>
+              </a>
+              <a
+                href="./data/a11y-audit.json"
+                download="a11y-audit.json"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-400 text-slate-200 hover:text-white transition-all shadow-sm"
+              >
+                <Download className="w-3.5 h-3.5 text-emerald-400" />
+                <span>a11y-audit.json (WCAG 2.2 AA)</span>
+              </a>
+              <button
+                onClick={() => setIsGovModalOpen(true)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-950/80 border border-emerald-500/50 hover:bg-emerald-900 text-emerald-300 font-bold transition-all shadow-sm"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>治理審計與新鮮度 SLA 監控</span>
+              </button>
+            </div>
+
+            {/* Layout Mode Switcher */}
+            <div className="flex rounded-xl bg-slate-800/90 border border-slate-700 p-1 text-xs">
+              <button
+                onClick={() => setDisplayLayout('cards')}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all ${
+                  displayLayout === 'cards'
+                    ? 'bg-salud-cyan text-slate-950 font-bold shadow'
+                    : 'text-slate-300 hover:text-white'
+                }`}
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>條目卡片</span>
+              </button>
+              <button
+                onClick={() => setDisplayLayout('graph')}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all ${
+                  displayLayout === 'graph'
+                    ? 'bg-salud-cyan text-slate-950 font-bold shadow'
+                    : 'text-slate-300 hover:text-white'
+                }`}
+              >
+                <Network className="w-3.5 h-3.5" />
+                <span>網絡圖譜</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -234,11 +303,20 @@ export const KnowledgeExplorerPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Main Content Split View ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Left List (5 cols) */}
-        <div className="lg:col-span-5 space-y-3 max-h-[750px] overflow-y-auto pr-1">
-          <div className="flex justify-between items-center text-xs font-mono text-slate-500 dark:text-slate-400 px-1">
+      {/* ── Main Content Area (Cards vs Graph) ── */}
+      {displayLayout === 'graph' ? (
+        <KnowledgeGraphView
+          atoms={filteredAtoms}
+          onSelectAtom={(atomId) => {
+            setSelectedAtomId(atomId);
+            setDisplayLayout('cards');
+          }}
+        />
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Left List (5 cols) */}
+          <div className="lg:col-span-5 space-y-3 max-h-[750px] overflow-y-auto pr-1">
+            <div className="flex justify-between items-center text-xs font-mono text-slate-500 dark:text-slate-400 px-1">
             <span>篩選結果：{filteredAtoms.length} 條知識點</span>
             <span>點擊展開三層視圖</span>
           </div>
@@ -388,6 +466,88 @@ export const KnowledgeExplorerPage: React.FC = () => {
                       {selectedAtom.primary_source}
                     </strong>
                   </div>
+
+                  {/* Clinical Diagnostic Thresholds (P2 Registry) */}
+                  {selectedAtom.threshold_ids && selectedAtom.threshold_ids.length > 0 && (
+                    <div className="p-4 rounded-2xl border border-indigo-500/30 bg-indigo-50/50 dark:bg-indigo-950/20 space-y-2">
+                      <div className="flex items-center justify-between text-indigo-700 dark:text-indigo-300 font-bold text-xs font-mono">
+                        <span className="flex items-center gap-1.5">
+                          <Activity className="w-3.5 h-3.5 text-indigo-500" />
+                          臨床診斷閥值與指引邊界 (Clinical Thresholds)
+                        </span>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/80">
+                          {selectedAtom.threshold_ids.length} 項登錄
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 font-mono text-xs">
+                        {selectedAtom.threshold_ids.map((tid) => {
+                          const th = CANONICAL_THRESHOLD_MAP[tid];
+                          if (!th) return null;
+                          return (
+                            <div
+                              key={tid}
+                              className="p-2.5 rounded-xl border border-indigo-200 dark:border-indigo-900/50 bg-white/80 dark:bg-slate-900/80 space-y-1"
+                            >
+                              <div className="flex items-center justify-between text-[11px]">
+                                <span className="font-bold text-slate-800 dark:text-slate-200">
+                                  {th.metric_name_zh}
+                                </span>
+                                <span className="px-1.5 py-0.2 rounded bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-[10px] font-bold">
+                                  {th.guideline_authority}
+                                </span>
+                              </div>
+                              <div className="text-indigo-600 dark:text-indigo-400 font-extrabold text-sm">
+                                {th.operator === 'range'
+                                  ? `${th.value} – ${th.value_upper} ${th.unit}`
+                                  : `${th.operator} ${th.value} ${th.unit}`}
+                              </div>
+                              <p className="text-[10px] text-slate-600 dark:text-slate-400 font-sans line-clamp-2">
+                                {th.actionable_implication_zh}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Clinical Ontology Mapping (MeSH / ICD-11 / SNOMED CT) */}
+                  {selectedAtom.ontology && (
+                    <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 text-xs font-mono space-y-2">
+                      <span className="text-slate-500 block text-[11px] font-bold">
+                        國際臨床本體代碼對應 (Clinical Ontologies)：
+                      </span>
+                      <div className="flex flex-wrap gap-2 text-[11px]">
+                        {selectedAtom.ontology.mesh_id && (
+                          <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300">
+                            <span className="font-bold">MeSH:</span>
+                            <span>{selectedAtom.ontology.mesh_id}</span>
+                            {selectedAtom.ontology.mesh_term && (
+                              <span className="text-[10px] text-emerald-600/80">({selectedAtom.ontology.mesh_term})</span>
+                            )}
+                          </div>
+                        )}
+                        {selectedAtom.ontology.icd11_code && (
+                          <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-700 dark:text-blue-300">
+                            <span className="font-bold">ICD-11:</span>
+                            <span>{selectedAtom.ontology.icd11_code}</span>
+                            {selectedAtom.ontology.icd11_title && (
+                              <span className="text-[10px] text-blue-600/80">({selectedAtom.ontology.icd11_title})</span>
+                            )}
+                          </div>
+                        )}
+                        {selectedAtom.ontology.snomed_ct && (
+                          <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-700 dark:text-purple-300">
+                            <span className="font-bold">SNOMED CT:</span>
+                            <span>{selectedAtom.ontology.snomed_ct}</span>
+                            {selectedAtom.ontology.snomed_term && (
+                              <span className="text-[10px] text-purple-600/80">({selectedAtom.ontology.snomed_term})</span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -525,6 +685,13 @@ export const KnowledgeExplorerPage: React.FC = () => {
           )}
         </div>
       </div>
+    )}
+
+      {/* Governance & Freshness SLA Monitoring Modal */}
+      <GovernanceDashboardModal
+        isOpen={isGovModalOpen}
+        onClose={() => setIsGovModalOpen(false)}
+      />
     </div>
   );
 };

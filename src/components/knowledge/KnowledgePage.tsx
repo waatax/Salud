@@ -19,6 +19,35 @@ import confetti from 'canvas-confetti';
 import { CHAPTERS } from '../../data/chapters';
 import { CHAPTER_W_PAGES } from '../../data/chapterW';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
+import { CanonicalBadge } from './CanonicalBadge';
+
+const KP_CANONICAL_MAPPING: Record<string, string> = {
+  // Chapter W
+  'KP-W-001': 'KA-W-001',
+  'KP-W-002': 'KA-W-002',
+  'KP-W-003': 'KA-W-003',
+  'KP-W-004': 'KA-W-004',
+  'KP-W-005': 'KA-W-005',
+  'KP-W-006': 'KA-W-006',
+  'KP-W-007': 'KA-W-007',
+  'KP-W-008': 'KA-W-008',
+  'KP-W-009': 'KA-W-009',
+  'KP-W-010': 'KA-W-010',
+  // Chapter O
+  'KP-O-001': 'KA-O-001',
+  'KP-O-002': 'KA-O-002',
+  'KP-O-003': 'KA-O-003',
+  'KP-O-004': 'KA-O-004',
+  'KP-O-005': 'KA-O-005',
+  // Chapter A
+  'KP-A-001': 'KA-A-001',
+  'KP-A-002': 'KA-A-002',
+  'KP-A-003': 'KA-A-003',
+  'KP-A-004': 'KA-A-004',
+  'KP-A-005': 'KA-A-005',
+  'KP-A-006': 'KA-A-006',
+  'KP-A-007': 'KA-A-007',
+};
 import {
   ChevronDown,
   ChevronUp,
@@ -376,6 +405,12 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                         {kp.kp_type}
                       </span>
                       <EvidenceBadge grade={kp.evidence_grade} />
+                      {(() => {
+                        const canonicalId = kp.canonical_atom_id || KP_CANONICAL_MAPPING[kp.id];
+                        return canonicalId ? (
+                          <CanonicalBadge atomId={canonicalId} variant="pill" />
+                        ) : null;
+                      })()}
                     </div>
                     <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white pt-0.5">
                       {kp.title}

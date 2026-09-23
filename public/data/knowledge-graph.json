@@ -1,8 +1,8 @@
 {
   "version": "8.0.0",
-  "generated_at": "2026-09-22T11:21:00.058Z",
-  "nodes_count": 104,
-  "edges_count": 67,
+  "generated_at": "2026-09-23T00:03:17.550Z",
+  "nodes_count": 138,
+  "edges_count": 103,
   "nodes": [
     {
       "id": "KA-BP-001",
@@ -30,6 +30,16 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-BP-NORMAL",
+          "TH-BP-STAGE1"
+        ],
+        "ontology": {
+          "mesh_id": "D006973",
+          "mesh_term": "Hypertension",
+          "icd11_code": "BA00",
+          "snomed_ct": "38341003"
+        },
         "misuse_guard": "單次診間量測不足以分級；須符合標準量測程序（安靜坐姿 5 分鐘、排空膀胱）之多次平均。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -61,6 +71,14 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-BP-TARGET"
+        ],
+        "ontology": {
+          "mesh_id": "D006973",
+          "mesh_term": "Hypertension",
+          "icd11_code": "BA00"
+        },
         "misuse_guard": "懷孕、長照機構長者、預期餘命有限或嚴重姿勢性低血壓者另有特殊目標，不可一律套用。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -93,6 +111,9 @@
           }
         ],
         "derived_certainty": "moderate",
+        "threshold_ids": [
+          "TH-BP-PREVENT-HIGH"
+        ],
         "misuse_guard": "PREVENT 與 PCE 分數不可互換比較；計算門檻數值改變不等於個人心血管風險突然改變。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -186,6 +207,16 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-GL-A1C-DIABETES",
+          "TH-GL-FPG-DIABETES"
+        ],
+        "ontology": {
+          "mesh_id": "D003920",
+          "mesh_term": "Diabetes Mellitus",
+          "icd11_code": "5A11",
+          "snomed_ct": "73211009"
+        },
         "misuse_guard": "無明確高血糖危象之無症狀者，須於同一樣本採用兩種檢驗或兩次採樣異常確認；A1C 須使用 NGSP 認證方法。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -217,6 +248,14 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-GL-A1C-PREDIABETES"
+        ],
+        "ontology": {
+          "mesh_id": "D011236",
+          "mesh_term": "Prediabetic State",
+          "icd11_code": "5A40"
+        },
         "misuse_guard": "「糖尿病前期」代表代謝風險增高狀態，並非確定疾病診斷，亦不代表必然無可挽回進展為糖尿病。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -341,6 +380,15 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-LP-LDL-GENERAL",
+          "TH-LP-LDL-HIGH"
+        ],
+        "ontology": {
+          "mesh_id": "D008078",
+          "mesh_term": "Cholesterol, LDL",
+          "icd11_code": "5C80.0"
+        },
         "misuse_guard": "「目標」屬於臨床治療決策範疇，非自我判讀門檻；個人心血管風險分層須由醫師專業評估。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -372,6 +420,15 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-LP-LPA-RISK"
+        ],
+        "ontology": {
+          "mesh_id": "D017270",
+          "mesh_term": "Lipoprotein(a)",
+          "icd11_code": "5C80",
+          "snomed_ct": "702580000"
+        },
         "misuse_guard": "Lp(a) 主要由基因決定，現行飲食與運動對其改變有限；其臨床價值在於風險再分層，非要求盲目降指標。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -994,6 +1051,11 @@
           }
         ],
         "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D000437",
+          "mesh_term": "Alcoholism",
+          "icd11_code": "6C40"
+        },
         "misuse_guard": "Group 1 代表「致癌性證據充分確鑿」，不代表不同物質致癌強度相同，避免以「和石綿同級」進行聳動恐嚇。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -1025,6 +1087,16 @@
           }
         ],
         "derived_certainty": "moderate",
+        "threshold_ids": [
+          "TH-ALDH2-HETERO-RANGE",
+          "TH-ALDH2-HOMO-NEAR-ZERO"
+        ],
+        "ontology": {
+          "mesh_id": "D000445",
+          "mesh_term": "Aldehyde Dehydrogenase",
+          "icd11_code": "5C54.1",
+          "snomed_ct": "25380004"
+        },
         "misuse_guard": "這是跨量測方法的生理區間，非固定常數；既有文案之「不到10%」或「固定10-20%」為點值偏誤。（修 DEFECT-01）",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -1293,6 +1365,13 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-TW-BMI-NORMAL"
+        ],
+        "ontology": {
+          "mesh_id": "D015992",
+          "mesh_term": "Body Mass Index"
+        },
         "misuse_guard": "台灣切點低於 WHO 國際切點（25/30），因東亞人在較低 BMI 即呈現代謝異常上升；跨國比較不可混用兩套切點。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -1324,6 +1403,15 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-TW-WC-CENTRAL-OBESITY-M",
+          "TH-TW-WC-CENTRAL-OBESITY-F"
+        ],
+        "ontology": {
+          "mesh_id": "D049629",
+          "mesh_term": "Waist Circumference",
+          "icd11_code": "5B81"
+        },
         "misuse_guard": "量測位置（肋骨下緣與腸骨上緣中線、呼氣末）影響數公分，須依標準程序測量。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -1386,6 +1474,15 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-KD-CKD-G4-SEVERE"
+        ],
+        "ontology": {
+          "mesh_id": "D051436",
+          "mesh_term": "Renal Insufficiency, Chronic",
+          "icd11_code": "GB61",
+          "snomed_ct": "709044004"
+        },
         "misuse_guard": "單次健康檢查 eGFR 偏低不等於 CKD；「持續 ≥3 個月」是診斷不可或缺之核心條件。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -1417,6 +1514,15 @@
           }
         ],
         "derived_certainty": "high",
+        "threshold_ids": [
+          "TH-KD-CKD-G4-SEVERE"
+        ],
+        "ontology": {
+          "mesh_id": "D051436",
+          "mesh_term": "Renal Insufficiency, Chronic",
+          "icd11_code": "GB61",
+          "snomed_ct": "709044004"
+        },
         "misuse_guard": "G1/G2 若無其他腎損傷標記（如蛋白尿、血尿）不構成 CKD；預後由 GFR × 白蛋白尿矩陣共同決定。",
         "status": "published",
         "last_reviewed": "2026-09-20"
@@ -2227,6 +2333,733 @@
       }
     },
     {
+      "id": "TH-BP-NORMAL",
+      "type": "threshold",
+      "label": "正常血壓 (< 120 mmHg)",
+      "data": {
+        "id": "TH-BP-NORMAL",
+        "topic": "blood_pressure",
+        "metric_name": "Blood Pressure",
+        "metric_name_zh": "正常血壓",
+        "unit": "mmHg",
+        "operator": "<",
+        "value": 120,
+        "value_upper": 80,
+        "clinical_category_zh": "正常血壓 (Normal)",
+        "clinical_category_en": "Normal Blood Pressure",
+        "guideline_authority": "AHA/ACC 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "一般成人 (>=18歲)",
+        "measurement_context_zh": "依標準量測規範，靜坐5分鐘後多次診間量測之平均值",
+        "actionable_implication_zh": "維持健康生活型態，每年至少定期測量一次。",
+        "canonical_atom_id": "KA-BP-001",
+        "canonical_claim_id": "CLAIM-BP-AHA-2025"
+      }
+    },
+    {
+      "id": "TH-BP-STAGE1",
+      "type": "threshold",
+      "label": "第 1 期高血壓 (range 130 mmHg)",
+      "data": {
+        "id": "TH-BP-STAGE1",
+        "topic": "blood_pressure",
+        "metric_name": "Blood Pressure Stage 1",
+        "metric_name_zh": "第 1 期高血壓",
+        "unit": "mmHg",
+        "operator": "range",
+        "value": 130,
+        "value_upper": 139,
+        "clinical_category_zh": "第 1 期高血壓 (Stage 1 Hypertension)",
+        "clinical_category_en": "Stage 1 Hypertension",
+        "guideline_authority": "AHA/ACC 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "一般成人 (>=18歲)",
+        "measurement_context_zh": "收縮壓 130–139 或 舒張壓 80–89 mmHg（多次平均）",
+        "actionable_implication_zh": "若 PREVENT 10年心血管風險 <7.5%，可先進行 3–6 個月生活型態介入；若 >=7.5% 則應即時評估藥物治療。",
+        "contraindications_or_exclusions_zh": "已確立心血管疾病、糖尿病或 CKD 患者不適用觀察期，應直接就醫。",
+        "canonical_atom_id": "KA-BP-001",
+        "canonical_claim_id": "CLAIM-BP-AHA-2025"
+      }
+    },
+    {
+      "id": "TH-BP-TARGET",
+      "type": "threshold",
+      "label": "成人常規血壓治療目標 (< 130 mmHg)",
+      "data": {
+        "id": "TH-BP-TARGET",
+        "topic": "blood_pressure",
+        "metric_name": "Blood Pressure Treatment Target",
+        "metric_name_zh": "成人常規血壓治療目標",
+        "unit": "mmHg",
+        "operator": "<",
+        "value": 130,
+        "value_upper": 80,
+        "clinical_category_zh": "治療目標 (Treatment Target)",
+        "clinical_category_en": "Treatment Target",
+        "guideline_authority": "AHA/ACC 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "接受高血壓治療之成人",
+        "measurement_context_zh": "標準化血壓量測平均值",
+        "actionable_implication_zh": "目標將血壓穩定控制於 <130/80 mmHg，以降低心肌梗塞、中風與心衰竭事件。",
+        "contraindications_or_exclusions_zh": "懷孕、長照衰弱長者、重大共病或預期餘命有限者須由臨床醫師個別訂定較寬鬆目標。",
+        "canonical_atom_id": "KA-BP-002",
+        "canonical_claim_id": "CLAIM-BP-AHA-2025"
+      }
+    },
+    {
+      "id": "TH-BP-PREVENT-HIGH",
+      "type": "threshold",
+      "label": "PREVENT 10 年高心血管風險切點 (>= 7.5 %)",
+      "data": {
+        "id": "TH-BP-PREVENT-HIGH",
+        "topic": "blood_pressure",
+        "metric_name": "PREVENT 10-Year CVD Risk High Threshold",
+        "metric_name_zh": "PREVENT 10 年高心血管風險切點",
+        "unit": "%",
+        "operator": ">=",
+        "value": 7.5,
+        "clinical_category_zh": "高心血管風險 (High 10-Year ASCVD Risk)",
+        "clinical_category_en": "High CVD Risk",
+        "guideline_authority": "AHA/ACC 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "30–79 歲無既往臨床心血管疾病成人",
+        "measurement_context_zh": "依 AHA PREVENT 方程計算（整合年齡、血壓、血脂、eGFR、尿白蛋白、糖尿病狀態）",
+        "actionable_implication_zh": "第 1 期高血壓合併 PREVENT >=7.5% 者應即刻評估起始藥物治療，不可僅依賴生活型態觀察期。",
+        "canonical_atom_id": "KA-BP-003"
+      }
+    },
+    {
+      "id": "TH-GL-A1C-DIABETES",
+      "type": "threshold",
+      "label": "糖化血色素糖尿病診斷切點 (>= 6.5 %)",
+      "data": {
+        "id": "TH-GL-A1C-DIABETES",
+        "topic": "glucose",
+        "metric_name": "Hemoglobin A1C Diabetes Cutoff",
+        "metric_name_zh": "糖化血色素糖尿病診斷切點",
+        "unit": "%",
+        "operator": ">=",
+        "value": 6.5,
+        "clinical_category_zh": "糖尿病診斷 (Diabetes Mellitus)",
+        "clinical_category_en": "Diabetes Mellitus",
+        "guideline_authority": "ADA Standards of Care 2026 §2",
+        "guideline_year": 2026,
+        "target_population_zh": "成人",
+        "measurement_context_zh": "採用 NGSP 認證且標準化至 DCCT 分析之檢驗方法",
+        "actionable_implication_zh": "無典型高血糖急性症狀者，需於同日不同檢驗或兩次不同採樣確認。",
+        "contraindications_or_exclusions_zh": "溶血性貧血、血紅素變異體、近期輸血、懷孕、終末期腎病者 A1C 易失真，需改用血糖檢驗。",
+        "canonical_atom_id": "KA-GL-001",
+        "canonical_claim_id": "CLAIM-GL-A1C-DIAB"
+      }
+    },
+    {
+      "id": "TH-GL-FPG-DIABETES",
+      "type": "threshold",
+      "label": "空腹血糖糖尿病診斷切點 (>= 126 mg/dL)",
+      "data": {
+        "id": "TH-GL-FPG-DIABETES",
+        "topic": "glucose",
+        "metric_name": "Fasting Plasma Glucose Diabetes Cutoff",
+        "metric_name_zh": "空腹血糖糖尿病診斷切點",
+        "unit": "mg/dL",
+        "operator": ">=",
+        "value": 126,
+        "clinical_category_zh": "糖尿病診斷 (Diabetes Mellitus)",
+        "clinical_category_en": "Diabetes Mellitus",
+        "guideline_authority": "ADA Standards of Care 2026 §2",
+        "guideline_year": 2026,
+        "target_population_zh": "成人",
+        "measurement_context_zh": "禁食至少 8 小時之靜脈血漿血糖",
+        "actionable_implication_zh": "需重複檢驗確認或搭配 A1C / OGTT。",
+        "canonical_atom_id": "KA-GL-001",
+        "canonical_claim_id": "CLAIM-GL-FPG-DIAB"
+      }
+    },
+    {
+      "id": "TH-GL-A1C-PREDIABETES",
+      "type": "threshold",
+      "label": "糖尿病前期 A1C 區間 (range 5.7 %)",
+      "data": {
+        "id": "TH-GL-A1C-PREDIABETES",
+        "topic": "glucose",
+        "metric_name": "A1C Prediabetes Range",
+        "metric_name_zh": "糖尿病前期 A1C 區間",
+        "unit": "%",
+        "operator": "range",
+        "value": 5.7,
+        "value_upper": 6.4,
+        "clinical_category_zh": "糖尿病前期 (Prediabetes)",
+        "clinical_category_en": "Prediabetes",
+        "guideline_authority": "ADA Standards of Care 2026 §2",
+        "guideline_year": 2026,
+        "target_population_zh": "成人",
+        "measurement_context_zh": "NGSP 認證檢驗法",
+        "actionable_implication_zh": "代謝風險警告狀態；建議生活型態介入（減重 7%、每週 >=150 分鐘運動）可顯著降低轉變為第2型糖尿病機率。",
+        "canonical_atom_id": "KA-GL-002",
+        "canonical_claim_id": "CLAIM-GL-A1C-PREDIAB"
+      }
+    },
+    {
+      "id": "TH-LP-LDL-GENERAL",
+      "type": "threshold",
+      "label": "一般成人 LDL-C 治療目標 (< 100 mg/dL)",
+      "data": {
+        "id": "TH-LP-LDL-GENERAL",
+        "topic": "lipids",
+        "metric_name": "LDL-C General Primary Target",
+        "metric_name_zh": "一般成人 LDL-C 治療目標",
+        "unit": "mg/dL",
+        "operator": "<",
+        "value": 100,
+        "clinical_category_zh": "一般風險目標 (General Risk Target)",
+        "clinical_category_en": "General Target",
+        "guideline_authority": "2026 ACC/AHA Multisociety Lipid Guideline",
+        "guideline_year": 2026,
+        "target_population_zh": "低至中度風險之一般成人",
+        "measurement_context_zh": "空腹或非空腹常規血脂分析",
+        "actionable_implication_zh": "基礎血脂健康標竿；若合併高風險因子應追求更嚴格階梯階層。",
+        "canonical_atom_id": "KA-LP-001",
+        "canonical_claim_id": "CLAIM-LP-LDL-TARGET"
+      }
+    },
+    {
+      "id": "TH-LP-LDL-HIGH",
+      "type": "threshold",
+      "label": "高風險成人 LDL-C 階梯目標 (< 70 mg/dL)",
+      "data": {
+        "id": "TH-LP-LDL-HIGH",
+        "topic": "lipids",
+        "metric_name": "LDL-C High Risk Target",
+        "metric_name_zh": "高風險成人 LDL-C 階梯目標",
+        "unit": "mg/dL",
+        "operator": "<",
+        "value": 70,
+        "clinical_category_zh": "高心血管風險目標 (High Risk Target)",
+        "clinical_category_en": "High Risk Target",
+        "guideline_authority": "2026 ACC/AHA Multisociety Lipid Guideline",
+        "guideline_year": 2026,
+        "target_population_zh": "確立心血管疾病、糖尿病合併多重心血管風險因子者",
+        "measurement_context_zh": "血脂常規檢查",
+        "actionable_implication_zh": "高強度生活型態搭配他汀類/非他汀降脂藥物組合。",
+        "canonical_atom_id": "KA-LP-001",
+        "canonical_claim_id": "CLAIM-LP-LDL-HIGH-RISK"
+      }
+    },
+    {
+      "id": "TH-LP-LPA-RISK",
+      "type": "threshold",
+      "label": "Lp(a) 升高 ASCVD 風險切點 (> 125 nmol/L)",
+      "data": {
+        "id": "TH-LP-LPA-RISK",
+        "topic": "lipids",
+        "metric_name": "Lipoprotein(a) Elevated ASCVD Risk",
+        "metric_name_zh": "Lp(a) 升高 ASCVD 風險切點",
+        "unit": "nmol/L",
+        "operator": ">",
+        "value": 125,
+        "clinical_category_zh": "Lp(a) 升高風險區間 (Elevated Lp(a))",
+        "clinical_category_en": "Elevated Lp(a)",
+        "guideline_authority": "2026 ACC/AHA Multisociety Lipid Guideline",
+        "guideline_year": 2026,
+        "target_population_zh": "成人一生建議至少檢驗一次",
+        "measurement_context_zh": "以 nmol/L 報告之同工型不敏感方法（Isoform-insensitive assays）",
+        "actionable_implication_zh": ">125 nmol/L 對應約 1.4 倍 ASCVD 風險；>250 nmol/L 對應 >=2.0 倍。作為終生獨立風險再分層依據。",
+        "contraindications_or_exclusions_zh": "nmol/L 與 mg/dL 因 Apolipoprotein(a) 分子異質性，絕不可用固定常數換算！",
+        "canonical_atom_id": "KA-LP-002",
+        "canonical_claim_id": "CLAIM-LP-LPA-RISK-125"
+      }
+    },
+    {
+      "id": "TH-TW-BMI-NORMAL",
+      "type": "threshold",
+      "label": "台灣成人健康體位標準 BMI 區間 (range 18.5 kg/m²)",
+      "data": {
+        "id": "TH-TW-BMI-NORMAL",
+        "topic": "body_composition",
+        "metric_name": "Taiwan Adult Healthy BMI Range",
+        "metric_name_zh": "台灣成人健康體位標準 BMI 區間",
+        "unit": "kg/m²",
+        "operator": "range",
+        "value": 18.5,
+        "value_upper": 23.9,
+        "clinical_category_zh": "正常體位 (Normal BMI)",
+        "clinical_category_en": "Normal BMI (Taiwan)",
+        "guideline_authority": "台灣衛生福利部國民健康署 (HPA)",
+        "guideline_year": 2024,
+        "target_population_zh": "台灣滿 18 歲以上成人",
+        "measurement_context_zh": "標準身高體重計脫鞋脫重外套量測",
+        "actionable_implication_zh": "東亞族群內臟脂肪累積敏感度高，故台灣過重切點為 24、肥胖切點為 27，低於西方 WHO 25/30 切點。",
+        "canonical_atom_id": "KA-TW-001",
+        "canonical_claim_id": "CLAIM-TW-BMI-NORMAL-MIN"
+      }
+    },
+    {
+      "id": "TH-TW-WC-CENTRAL-OBESITY-M",
+      "type": "threshold",
+      "label": "台灣男性腰圍腹部肥胖切點 (>= 90 cm)",
+      "data": {
+        "id": "TH-TW-WC-CENTRAL-OBESITY-M",
+        "topic": "body_composition",
+        "metric_name": "Taiwan Waist Circumference Male Cutoff",
+        "metric_name_zh": "台灣男性腰圍腹部肥胖切點",
+        "unit": "cm",
+        "operator": ">=",
+        "value": 90,
+        "clinical_category_zh": "男性腹部肥胖 (Central Obesity, Male)",
+        "clinical_category_en": "Central Obesity (Male)",
+        "guideline_authority": "台灣衛生福利部國民健康署 (HPA)",
+        "guideline_year": 2024,
+        "target_population_zh": "台灣成年男性",
+        "measurement_context_zh": "呼氣末期量測肋骨下緣與髂骨上緣中線之水平腰圍",
+        "actionable_implication_zh": "即使 BMI 正常，若腰圍 >=90 cm 仍屬代謝症候群與心血管高風險族群。",
+        "canonical_atom_id": "KA-TW-002",
+        "canonical_claim_id": "CLAIM-TW-WC-MALE"
+      }
+    },
+    {
+      "id": "TH-TW-WC-CENTRAL-OBESITY-F",
+      "type": "threshold",
+      "label": "台灣女性腰圍腹部肥胖切點 (>= 80 cm)",
+      "data": {
+        "id": "TH-TW-WC-CENTRAL-OBESITY-F",
+        "topic": "body_composition",
+        "metric_name": "Taiwan Waist Circumference Female Cutoff",
+        "metric_name_zh": "台灣女性腰圍腹部肥胖切點",
+        "unit": "cm",
+        "operator": ">=",
+        "value": 80,
+        "clinical_category_zh": "女性腹部肥胖 (Central Obesity, Female)",
+        "clinical_category_en": "Central Obesity (Female)",
+        "guideline_authority": "台灣衛生福利部國民健康署 (HPA)",
+        "guideline_year": 2024,
+        "target_population_zh": "台灣成年女性",
+        "measurement_context_zh": "呼氣末期量測肋骨下緣與髂骨上緣中線之水平腰圍",
+        "actionable_implication_zh": "女性腰圍 >=80 cm 具獨立胰島素阻抗與內臟脂肪風險。",
+        "canonical_atom_id": "KA-TW-002",
+        "canonical_claim_id": "CLAIM-TW-WC-FEMALE"
+      }
+    },
+    {
+      "id": "TH-KD-CKD-G4-SEVERE",
+      "type": "threshold",
+      "label": "慢性腎臟病 G4 期重度腎功能衰竭 (range 15 mL/min/1.73m²)",
+      "data": {
+        "id": "TH-KD-CKD-G4-SEVERE",
+        "topic": "kidney",
+        "metric_name": "KDIGO eGFR Stage G4 Severe Impairment",
+        "metric_name_zh": "慢性腎臟病 G4 期重度腎功能衰竭",
+        "unit": "mL/min/1.73m²",
+        "operator": "range",
+        "value": 15,
+        "value_upper": 29,
+        "clinical_category_zh": "CKD G4 期 (Severe eGFR Reduction)",
+        "clinical_category_en": "CKD Stage G4",
+        "guideline_authority": "KDIGO 2024 CKD Clinical Practice Guideline",
+        "guideline_year": 2024,
+        "target_population_zh": "腎功能損害持續 >= 3 個月之成人",
+        "measurement_context_zh": "CKD-EPI 2021 肌酸酐推算之 eGFR",
+        "actionable_implication_zh": "絕對禁用常規多喝水與高鉀飲食建議！強烈需要腎臟科專業個人化液體與電解質限制。",
+        "contraindications_or_exclusions_zh": "啟動 PRED-CKD-G4-G5 安全攔阻謂詞。",
+        "canonical_atom_id": "KA-KD-002",
+        "canonical_claim_id": "CLAIM-KD-CKD-G4-MIN"
+      }
+    },
+    {
+      "id": "TH-NA-DAILY-MAX",
+      "type": "threshold",
+      "label": "WHO 成人每日鈉攝取上限 (< 2000 mg/day)",
+      "data": {
+        "id": "TH-NA-DAILY-MAX",
+        "topic": "sodium_potassium",
+        "metric_name": "WHO Daily Sodium Ceiling",
+        "metric_name_zh": "WHO 成人每日鈉攝取上限",
+        "unit": "mg/day",
+        "operator": "<",
+        "value": 2000,
+        "clinical_category_zh": "鈉攝取上限目標 (Sodium Ceiling)",
+        "clinical_category_en": "Sodium Ceiling",
+        "guideline_authority": "WHO 2013 Sodium Intake for Adults and Children",
+        "guideline_year": 2013,
+        "target_population_zh": "一般健康成人",
+        "measurement_context_zh": "每日飲食總鈉（含調味料與加工食品），相當於食鹽 <5 公克",
+        "actionable_implication_zh": "控制每日鈉攝取低於 2000 mg，以維持健康血壓並預防心血管疾病。",
+        "canonical_atom_id": "KA-NA-001",
+        "canonical_claim_id": "CLAIM-NA-WHO-LIMIT"
+      }
+    },
+    {
+      "id": "TH-K-DAILY-ADEQUATE",
+      "type": "threshold",
+      "label": "WHO 成人每日鉀建議攝取量 (>= 3510 mg/day)",
+      "data": {
+        "id": "TH-K-DAILY-ADEQUATE",
+        "topic": "sodium_potassium",
+        "metric_name": "WHO Daily Potassium Adequate Target",
+        "metric_name_zh": "WHO 成人每日鉀建議攝取量",
+        "unit": "mg/day",
+        "operator": ">=",
+        "value": 3510,
+        "clinical_category_zh": "充足鉀攝取目標 (Adequate Potassium)",
+        "clinical_category_en": "Adequate Potassium",
+        "guideline_authority": "WHO 2013 Potassium Intake for Adults and Children",
+        "guideline_year": 2013,
+        "target_population_zh": "腎功能正常之健康成人",
+        "measurement_context_zh": "來自新鮮蔬果與全穀類之天然膳食鉀",
+        "actionable_implication_zh": "高鉀有助於促進尿鈉排泄並拮抗交感神經張力。",
+        "contraindications_or_exclusions_zh": "中晚期腎病（CKD G4–G5）、使用保鉀利尿劑或 RAAS 抑制劑者禁用此建議（有致命性高血鉀風險）。",
+        "canonical_atom_id": "KA-NA-001",
+        "canonical_claim_id": "CLAIM-K-WHO-TARGET"
+      }
+    },
+    {
+      "id": "TH-FAT-SFA-RATIO",
+      "type": "threshold",
+      "label": "WHO 飽和脂肪酸能量比例上限 (< 10 %E)",
+      "data": {
+        "id": "TH-FAT-SFA-RATIO",
+        "topic": "fats",
+        "metric_name": "WHO Saturated Fatty Acid Energy Ratio",
+        "metric_name_zh": "WHO 飽和脂肪酸能量比例上限",
+        "unit": "%E",
+        "operator": "<",
+        "value": 10,
+        "clinical_category_zh": "飽和脂肪上限比例 (SFA Ratio Ceiling)",
+        "clinical_category_en": "SFA Limit %E",
+        "guideline_authority": "WHO 2023 Saturated and Trans-fatty Acid Intake",
+        "guideline_year": 2023,
+        "target_population_zh": "成人與兒童 (>=2歲)",
+        "measurement_context_zh": "相對總熱量百分比（以 2000 kcal 換算約 22 克/日）",
+        "actionable_implication_zh": "必須同時顯示比例與依個人攝取熱量動態換算之克數。",
+        "canonical_atom_id": "KA-O-001",
+        "canonical_claim_id": "CLAIM-O-WHO-SFA-PCT"
+      }
+    },
+    {
+      "id": "TH-OIL-TPC-VIOLATION",
+      "type": "threshold",
+      "label": "台灣餐飲業油炸油總極性化合物違規切點 (> 25 %)",
+      "data": {
+        "id": "TH-OIL-TPC-VIOLATION",
+        "topic": "fats",
+        "metric_name": "Taiwan Commercial Frying Oil TPC Violation Cutoff",
+        "metric_name_zh": "台灣餐飲業油炸油總極性化合物違規切點",
+        "unit": "%",
+        "operator": ">",
+        "value": 25,
+        "clinical_category_zh": "油品劣變違規 (Commercial Oil Deterioration)",
+        "clinical_category_en": "TPC Violation Standard",
+        "guideline_authority": "台灣衛生福利部食品藥物管理署 (TFDA)",
+        "guideline_year": 2011,
+        "target_population_zh": "台灣餐飲營業場所",
+        "measurement_context_zh": "酸價 >2.0 時以標準層析法加驗之總極性化合物比例",
+        "actionable_implication_zh": "TPC >25% 即屬劣變油品，依法令不得繼續供作食品煎炸使用。",
+        "contraindications_or_exclusions_zh": "此為官方稽查標準，家庭廚房應以顏色、黏稠度、起泡程度為實用汰換依據。",
+        "canonical_atom_id": "KA-O-004",
+        "canonical_claim_id": "CLAIM-O-TFDA-TPC"
+      }
+    },
+    {
+      "id": "TH-ALDH2-HETERO-RANGE",
+      "type": "threshold",
+      "label": "ALDH2 *1/*2 雜合突變殘餘酵素活性區間 (range 10 %)",
+      "data": {
+        "id": "TH-ALDH2-HETERO-RANGE",
+        "topic": "alcohol_aldh2",
+        "metric_name": "ALDH2 Heterozygous *1/*2 Residual Activity",
+        "metric_name_zh": "ALDH2 *1/*2 雜合突變殘餘酵素活性區間",
+        "unit": "%",
+        "operator": "range",
+        "value": 10,
+        "value_upper": 38,
+        "clinical_category_zh": "顯著活性下降 (Substantially Reduced ALDH2 Activity)",
+        "clinical_category_en": "Reduced Activity Range",
+        "guideline_authority": "Frontiers in Pharmacology 2026 & Pharmacogenetics Studies",
+        "guideline_year": 2026,
+        "target_population_zh": "東亞族群 rs671 *1/*2 帶因者（台灣約 45–47%）",
+        "measurement_context_zh": "依不同組織樣本與活體外分析方法，報告為約 10% 至 17–38% 之範圍",
+        "actionable_implication_zh": "方法學依賴區間，不可宣稱為固定點值。即使少量飲酒亦導致全身乙醛急性蓄積。",
+        "canonical_atom_id": "KA-A-002",
+        "canonical_claim_id": "CLAIM-A-ALDH2-HETERO-MIN"
+      }
+    },
+    {
+      "id": "TH-ALDH2-HOMO-NEAR-ZERO",
+      "type": "threshold",
+      "label": "ALDH2 *2/*2 純合突變殘餘酵素活性 (<= 1 %)",
+      "data": {
+        "id": "TH-ALDH2-HOMO-NEAR-ZERO",
+        "topic": "alcohol_aldh2",
+        "metric_name": "ALDH2 Homozygous *2/*2 Residual Activity",
+        "metric_name_zh": "ALDH2 *2/*2 純合突變殘餘酵素活性",
+        "unit": "%",
+        "operator": "<=",
+        "value": 1,
+        "clinical_category_zh": "酵素活性喪失 (Near-Zero ALDH2 Activity)",
+        "clinical_category_en": "Near Zero Activity",
+        "guideline_authority": "Pharmacogenetics Literature & IARC Monograph",
+        "guideline_year": 2026,
+        "target_population_zh": "東亞族群 rs671 *2/*2 純合缺失者",
+        "measurement_context_zh": "線粒體 ALDH2 四聚體失去結合催化活性",
+        "actionable_implication_zh": "體內無法有效代謝乙醛，嚴禁任何飲酒，BAC 計算結果無法代表乙醛毒性安全！",
+        "contraindications_or_exclusions_zh": "觸發 PRED-ALDH2-DEFICIENT 強制警語與安全防護攔截。",
+        "canonical_atom_id": "KA-A-002",
+        "canonical_claim_id": "CLAIM-A-ALDH2-HOMO"
+      }
+    },
+    {
+      "id": "TERM-ADH",
+      "type": "term",
+      "label": "ADH: 乙醇去氫酶 (Alcohol Dehydroge",
+      "data": {
+        "term": "ADH",
+        "primary_expansion_zh": "乙醇去氫酶 (Alcohol Dehydrogenase)",
+        "secondary_expansions_zh": [
+          "抗利尿激素 (Antidiuretic Hormone / Vasopressin)"
+        ],
+        "domain": "生化代謝與內分泌生理",
+        "context_guidance_zh": "同一陣列或文案中若先後出現 ADH，必須明確展開為「乙醇去氫酶」或「抗利尿激素」，嚴禁在相鄰數句內以同一縮寫指涉兩種不同分子。",
+        "ambiguity_warning_zh": "肝臟代謝酒精的第一步由「乙醇去氫酶 ADH」催化；而下視丘分泌、控制腎臟排尿的則是「抗利尿激素 ADH」。兩者機制完全不同，易造成讀者極大認知混淆。",
+        "ontology": {
+          "mesh_id": "D000426",
+          "mesh_term": "Alcohol Dehydrogenase",
+          "snomed_ct": "44883002"
+        }
+      }
+    },
+    {
+      "id": "TERM-BP",
+      "type": "term",
+      "label": "BP: 血壓 (Blood Pressure)",
+      "data": {
+        "term": "BP",
+        "primary_expansion_zh": "血壓 (Blood Pressure)",
+        "secondary_expansions_zh": [
+          "最佳實踐 (Best Practice)"
+        ],
+        "domain": "心血管生理與知識架構",
+        "context_guidance_zh": "在生理數值中代表血壓 (mmHg)；在資料庫層級可代表 Best Practice 記錄。",
+        "ambiguity_warning_zh": "文案中提及臨床監測時應使用全稱「血壓」或標註單位 mmHg。",
+        "ontology": {
+          "mesh_id": "D001794",
+          "mesh_term": "Blood Pressure",
+          "icd11_code": "BA00",
+          "snomed_ct": "75367002"
+        }
+      }
+    },
+    {
+      "id": "TERM-PT",
+      "type": "term",
+      "label": "PT: 凝血酶原時間 (Prothrombin Time",
+      "data": {
+        "term": "PT",
+        "primary_expansion_zh": "凝血酶原時間 (Prothrombin Time)",
+        "secondary_expansions_zh": [
+          "物理治療 (Physical Therapy)"
+        ],
+        "domain": "檢驗醫學與復健醫學",
+        "context_guidance_zh": "運動專項篇章若指復健應寫全稱物理治療，避免與凝血檢驗混淆。",
+        "ambiguity_warning_zh": "醫學檢驗 PT 反映肝臟合成外因性凝血因子能力。",
+        "ontology": {
+          "mesh_id": "D011517",
+          "mesh_term": "Prothrombin Time",
+          "snomed_ct": "80502004"
+        }
+      }
+    },
+    {
+      "id": "TERM-CRP",
+      "type": "term",
+      "label": "CRP: C-反應蛋白 (C-Reactive Prote",
+      "data": {
+        "term": "CRP",
+        "primary_expansion_zh": "C-反應蛋白 (C-Reactive Protein)",
+        "secondary_expansions_zh": [
+          "高敏感 C-反應蛋白 (hs-CRP)"
+        ],
+        "domain": "發炎免疫與心血管風險評估",
+        "context_guidance_zh": "心血管預後評估應特異標註 hs-CRP (mg/L)。",
+        "ambiguity_warning_zh": "一般 CRP 用於急性感染，hs-CRP 專門用於微量慢性血管發炎偵測。",
+        "ontology": {
+          "mesh_id": "D002097",
+          "mesh_term": "C-Reactive Protein",
+          "snomed_ct": "55235003"
+        }
+      }
+    },
+    {
+      "id": "TERM-TPC",
+      "type": "term",
+      "label": "TPC: 總極性化合物 (Total Polar Comp",
+      "data": {
+        "term": "TPC",
+        "primary_expansion_zh": "總極性化合物 (Total Polar Compounds)",
+        "domain": "食用油脂安全衛生法規",
+        "context_guidance_zh": "台灣餐飲油炸油稽查標準，TPC > 25% 為不得繼續使用。",
+        "ambiguity_warning_zh": "酸價為快篩指標，TPC 是評定油脂裂解變質的決定性法規標準。",
+        "ontology": {
+          "mesh_id": "D005227",
+          "mesh_term": "Fatty Acids"
+        }
+      }
+    },
+    {
+      "id": "TERM-AI",
+      "type": "term",
+      "label": "AI: 適當攝取量 (Adequate Intake)",
+      "data": {
+        "term": "AI",
+        "primary_expansion_zh": "適當攝取量 (Adequate Intake)",
+        "secondary_expansions_zh": [
+          "人工智慧 (Artificial Intelligence)"
+        ],
+        "domain": "膳食營養素參考攝取量 (DRIs)",
+        "context_guidance_zh": "在水分與微量營養素篇章中，AI 均指 Adequate Intake，非 Artificial Intelligence。",
+        "ambiguity_warning_zh": "AI 是指引中缺乏足夠 RDA 數據時由健康族群觀察值推估之攝取量。",
+        "ontology": {
+          "mesh_id": "D012015",
+          "mesh_term": "Reference Values"
+        }
+      }
+    },
+    {
+      "id": "TERM-INTESTINAL_LEAK",
+      "type": "term",
+      "label": "腸漏: 腸道上皮通透性過高 (Intestinal Hy",
+      "data": {
+        "term": "腸漏",
+        "primary_expansion_zh": "腸道上皮通透性過高 (Intestinal Hyperpermeability)",
+        "domain": "消化生理與屏障醫學",
+        "context_guidance_zh": "避免使用商業行銷化之「腸漏症」獨立診斷名詞；應以「腸黏膜屏障緊密連接功能受損」精確描述。",
+        "ambiguity_warning_zh": "「腸漏」並非 ICD-11 正式獨立疾病編碼，而是多種慢性發炎、酒精濫用與菌群失調下的病理生理狀態。",
+        "ontology": {
+          "mesh_id": "D007413",
+          "mesh_term": "Intestinal Mucosa",
+          "snomed_ct": "235595009"
+        }
+      }
+    },
+    {
+      "id": "TERM-DETOX",
+      "type": "term",
+      "label": "排毒: 肝腎內源性生物轉化與排泄作用 (Hepatore",
+      "data": {
+        "term": "排毒",
+        "primary_expansion_zh": "肝腎內源性生物轉化與排泄作用 (Hepatorenal Biotransformation & Excretion)",
+        "domain": "毒理學與生理學",
+        "context_guidance_zh": "嚴禁使用坊間「果汁排毒」、「斷食排毒」等商業偽醫學概念；人體解毒是由肝臟 Phase I/II 酵素與腎臟排泄持續進行。",
+        "ambiguity_warning_zh": "健康人體不需要任何市售「排毒療程」，商業排毒多為瀉劑或低熱量引發之短暫水分流失。",
+        "ontology": {
+          "mesh_id": "D007249",
+          "mesh_term": "Biotransformation"
+        }
+      }
+    },
+    {
+      "id": "TERM-ACID_BODY",
+      "type": "term",
+      "label": "酸性體質: 迷思概念（正常血液酸鹼度嚴密恆定於 pH 7.3",
+      "data": {
+        "term": "酸性體質",
+        "primary_expansion_zh": "迷思概念（正常血液酸鹼度嚴密恆定於 pH 7.35–7.45）",
+        "domain": "酸鹼生理學",
+        "context_guidance_zh": "「酸性體質致癌」是已被醫學界全面否證之偽科學。飲食代謝產物由腎臟與肺臟即時緩衝代償。",
+        "ambiguity_warning_zh": "血液 pH 若偏離 7.35–7.45 即為急性重症（酸中毒/鹼中毒），非生活體質。",
+        "ontology": {
+          "mesh_id": "D000138",
+          "mesh_term": "Acid-Base Equilibrium"
+        }
+      }
+    },
+    {
+      "id": "TERM-ALDH2",
+      "type": "term",
+      "label": "ALDH2: 乙醛去氫酶 2 (Aldehyde Dehydr",
+      "data": {
+        "term": "ALDH2",
+        "primary_expansion_zh": "乙醛去氫酶 2 (Aldehyde Dehydrogenase 2)",
+        "domain": "藥物基因體學與腫瘤流行病學",
+        "context_guidance_zh": "東亞人群常見 rs671 (Glu504Lys) 基因變異，造成酵素活性顯著降低或近乎完全喪失。",
+        "ambiguity_warning_zh": "不可與 ADH (乙醇去氫酶) 混為一談；ALDH2 負責第二階段乙醛氧化為無毒乙酸。",
+        "ontology": {
+          "mesh_id": "D000445",
+          "mesh_term": "Aldehyde Dehydrogenase",
+          "icd11_code": "5C54.1",
+          "snomed_ct": "25380004"
+        }
+      }
+    },
+    {
+      "id": "TERM-CKD",
+      "type": "term",
+      "label": "CKD: 慢性腎臟病 (Chronic Kidney Di",
+      "data": {
+        "term": "CKD",
+        "primary_expansion_zh": "慢性腎臟病 (Chronic Kidney Disease)",
+        "domain": "腎臟醫學",
+        "context_guidance_zh": "腎臟結構或功能異常持續 >= 3 個月；依 CGA 架構（病因、GFR G1–G5、白蛋白尿 A1–A3）分期。",
+        "ambiguity_warning_zh": "不可依單次檢驗異常直接確診；G4–G5 為重度腎衰竭與尿毒症前期，嚴格限制水分與電解質。",
+        "ontology": {
+          "mesh_id": "D051436",
+          "mesh_term": "Renal Insufficiency, Chronic",
+          "icd11_code": "GB61",
+          "snomed_ct": "709044004"
+        }
+      }
+    },
+    {
+      "id": "TERM-LPA",
+      "type": "term",
+      "label": "Lp(a): 脂蛋白(a) (Lipoprotein(a))",
+      "data": {
+        "term": "Lp(a)",
+        "primary_expansion_zh": "脂蛋白(a) (Lipoprotein(a))",
+        "domain": "心血管代謝與血脂醫學",
+        "context_guidance_zh": "由基因決定的獨立動脈粥狀硬化及主動脈瓣狹窄風險因子。建議成人一生至少檢測一次。",
+        "ambiguity_warning_zh": "質量濃度 (mg/dL) 與顆粒莫耳濃度 (nmol/L) 絕不可直接用固定常數換算！",
+        "ontology": {
+          "mesh_id": "D017270",
+          "mesh_term": "Lipoprotein(a)",
+          "icd11_code": "5C80",
+          "snomed_ct": "702580000"
+        }
+      }
+    },
+    {
+      "id": "TERM-APOB",
+      "type": "term",
+      "label": "apoB: 載脂蛋白 B (Apolipoprotein B",
+      "data": {
+        "term": "apoB",
+        "primary_expansion_zh": "載脂蛋白 B (Apolipoprotein B)",
+        "domain": "血脂檢驗與心血管風險評估",
+        "context_guidance_zh": "每顆致粥狀硬化脂蛋白顆粒（VLDL, IDL, LDL, Lp(a)）均帶有一分子 apoB，精確反映總致病顆粒數。",
+        "ambiguity_warning_zh": "與 LDL-C 膽固醇含量不一致 (Discordance) 時，apoB 提供更高精度的真實心血管事件預測能力。",
+        "ontology": {
+          "mesh_id": "D001055",
+          "mesh_term": "Apolipoproteins B",
+          "snomed_ct": "75039002"
+        }
+      }
+    },
+    {
+      "id": "TERM-EAH",
+      "type": "term",
+      "label": "EAH: 運動相關低鈉血症 (Exercise-Assoc",
+      "data": {
+        "term": "EAH",
+        "primary_expansion_zh": "運動相關低鈉血症 (Exercise-Associated Hyponatremia)",
+        "domain": "運動醫學與體液平衡",
+        "context_guidance_zh": "因長時間運動中超量飲用低張液體超越腎臟最大自由水排泄能力所致之稀釋性低血鈉。",
+        "ambiguity_warning_zh": "嚴重者可併發腦水腫與死亡；國際共識原則為「依口渴飲水 (Drink to Thirst)」，切勿盲目定額強灌。",
+        "ontology": {
+          "mesh_id": "D007010",
+          "mesh_term": "Hyponatremia",
+          "icd11_code": "5C64.0"
+        }
+      }
+    },
+    {
       "id": "POL-TW-COLORECTAL",
       "type": "policy",
       "label": "國民健康署公費大腸癌篩檢政策",
@@ -2665,14 +3498,34 @@
       "relation": "cites"
     },
     {
+      "source": "KA-BP-001",
+      "target": "TH-BP-NORMAL",
+      "relation": "has_threshold"
+    },
+    {
+      "source": "KA-BP-001",
+      "target": "TH-BP-STAGE1",
+      "relation": "has_threshold"
+    },
+    {
       "source": "KA-BP-002",
       "target": "SRC-AHA-ACC-2025-HTN",
       "relation": "cites"
     },
     {
+      "source": "KA-BP-002",
+      "target": "TH-BP-TARGET",
+      "relation": "has_threshold"
+    },
+    {
       "source": "KA-BP-003",
       "target": "SRC-AHA-ACC-2025-HTN",
       "relation": "cites"
+    },
+    {
+      "source": "KA-BP-003",
+      "target": "TH-BP-PREVENT-HIGH",
+      "relation": "has_threshold"
     },
     {
       "source": "KA-BP-004",
@@ -2690,9 +3543,24 @@
       "relation": "cites"
     },
     {
+      "source": "KA-GL-001",
+      "target": "TH-GL-A1C-DIABETES",
+      "relation": "has_threshold"
+    },
+    {
+      "source": "KA-GL-001",
+      "target": "TH-GL-FPG-DIABETES",
+      "relation": "has_threshold"
+    },
+    {
       "source": "KA-GL-002",
       "target": "SRC-ADA-2026",
       "relation": "cites"
+    },
+    {
+      "source": "KA-GL-002",
+      "target": "TH-GL-A1C-PREDIABETES",
+      "relation": "has_threshold"
     },
     {
       "source": "KA-GL-003",
@@ -2715,9 +3583,24 @@
       "relation": "cites"
     },
     {
+      "source": "KA-LP-001",
+      "target": "TH-LP-LDL-GENERAL",
+      "relation": "has_threshold"
+    },
+    {
+      "source": "KA-LP-001",
+      "target": "TH-LP-LDL-HIGH",
+      "relation": "has_threshold"
+    },
+    {
       "source": "KA-LP-002",
       "target": "SRC-ACC-AHA-2026-LIPID",
       "relation": "cites"
+    },
+    {
+      "source": "KA-LP-002",
+      "target": "TH-LP-LPA-RISK",
+      "relation": "has_threshold"
     },
     {
       "source": "KA-LP-003",
@@ -2825,6 +3708,16 @@
       "relation": "cites"
     },
     {
+      "source": "KA-A-002",
+      "target": "TH-ALDH2-HETERO-RANGE",
+      "relation": "has_threshold"
+    },
+    {
+      "source": "KA-A-002",
+      "target": "TH-ALDH2-HOMO-NEAR-ZERO",
+      "relation": "has_threshold"
+    },
+    {
       "source": "KA-A-003",
       "target": "Taiwan Biobank / Genomic Medicine Cohort",
       "relation": "cites"
@@ -2865,9 +3758,24 @@
       "relation": "cites"
     },
     {
+      "source": "KA-TW-001",
+      "target": "TH-TW-BMI-NORMAL",
+      "relation": "has_threshold"
+    },
+    {
       "source": "KA-TW-002",
       "target": "衛生福利部代謝症候群判定標準",
       "relation": "cites"
+    },
+    {
+      "source": "KA-TW-002",
+      "target": "TH-TW-WC-CENTRAL-OBESITY-M",
+      "relation": "has_threshold"
+    },
+    {
+      "source": "KA-TW-002",
+      "target": "TH-TW-WC-CENTRAL-OBESITY-F",
+      "relation": "has_threshold"
     },
     {
       "source": "KA-TW-003",
@@ -2880,9 +3788,19 @@
       "relation": "cites"
     },
     {
+      "source": "KA-KD-001",
+      "target": "TH-KD-CKD-G4-SEVERE",
+      "relation": "has_threshold"
+    },
+    {
       "source": "KA-KD-002",
       "target": "SRC-KDIGO-2024-CKD",
       "relation": "cites"
+    },
+    {
+      "source": "KA-KD-002",
+      "target": "TH-KD-CKD-G4-SEVERE",
+      "relation": "has_threshold"
     },
     {
       "source": "KA-KD-003",
@@ -2993,6 +3911,101 @@
       "source": "KA-META-005",
       "target": "Salud vNext.8 Architecture Specification",
       "relation": "cites"
+    },
+    {
+      "source": "TH-BP-NORMAL",
+      "target": "CLAIM-BP-AHA-2025",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-BP-STAGE1",
+      "target": "CLAIM-BP-AHA-2025",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-BP-TARGET",
+      "target": "CLAIM-BP-AHA-2025",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-GL-A1C-DIABETES",
+      "target": "CLAIM-GL-A1C-DIAB",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-GL-FPG-DIABETES",
+      "target": "CLAIM-GL-FPG-DIAB",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-GL-A1C-PREDIABETES",
+      "target": "CLAIM-GL-A1C-PREDIAB",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-LP-LDL-GENERAL",
+      "target": "CLAIM-LP-LDL-TARGET",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-LP-LDL-HIGH",
+      "target": "CLAIM-LP-LDL-HIGH-RISK",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-LP-LPA-RISK",
+      "target": "CLAIM-LP-LPA-RISK-125",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-TW-BMI-NORMAL",
+      "target": "CLAIM-TW-BMI-NORMAL-MIN",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-TW-WC-CENTRAL-OBESITY-M",
+      "target": "CLAIM-TW-WC-MALE",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-TW-WC-CENTRAL-OBESITY-F",
+      "target": "CLAIM-TW-WC-FEMALE",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-KD-CKD-G4-SEVERE",
+      "target": "CLAIM-KD-CKD-G4-MIN",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-NA-DAILY-MAX",
+      "target": "CLAIM-NA-WHO-LIMIT",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-K-DAILY-ADEQUATE",
+      "target": "CLAIM-K-WHO-TARGET",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-FAT-SFA-RATIO",
+      "target": "CLAIM-O-WHO-SFA-PCT",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-OIL-TPC-VIOLATION",
+      "target": "CLAIM-O-TFDA-TPC",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-ALDH2-HETERO-RANGE",
+      "target": "CLAIM-A-ALDH2-HETERO-MIN",
+      "relation": "measures"
+    },
+    {
+      "source": "TH-ALDH2-HOMO-NEAR-ZERO",
+      "target": "CLAIM-A-ALDH2-HOMO",
+      "relation": "measures"
     }
   ]
 }

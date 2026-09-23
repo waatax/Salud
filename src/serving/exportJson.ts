@@ -14,6 +14,7 @@ import { CANONICAL_TAIWAN_POLICIES } from '../knowledge/policies/taiwanPolicies'
 import { CANONICAL_SOURCE_REGISTRY } from '../knowledge/sources/sourceRegistry';
 import { CANONICAL_TERMINOLOGY_REGISTRY } from '../knowledge/terms/terminology';
 import { CANONICAL_SAFETY_PREDICATES } from '../compose/safety';
+import { CANONICAL_THRESHOLDS } from '../knowledge/thresholds/thresholdRegistry';
 
 export function generateServingArtifacts() {
   const publicDataDir = path.resolve(process.cwd(), 'public', 'data');
@@ -24,7 +25,7 @@ export function generateServingArtifacts() {
   // 1. Build knowledge-graph.json
   const nodes: Array<{
     id: string;
-    type: 'atom' | 'claim' | 'policy' | 'source' | 'term' | 'predicate';
+    type: 'atom' | 'claim' | 'policy' | 'source' | 'term' | 'predicate' | 'threshold';
     label: string;
     data: any;
   }> = [];
@@ -32,7 +33,7 @@ export function generateServingArtifacts() {
   const edges: Array<{
     source: string;
     target: string;
-    relation: 'cites' | 'measures' | 'governed_by' | 'guarded_by' | 'defines';
+    relation: 'cites' | 'measures' | 'governed_by' | 'guarded_by' | 'defines' | 'has_threshold';
   }> = [];
 
   // Add Atoms
@@ -79,6 +80,16 @@ export function generateServingArtifacts() {
         });
       }
     }
+
+    if (atom.threshold_ids) {
+      for (const tid of atom.threshold_ids) {
+        edges.push({
+          source: atom.id,
+          target: tid,
+          relation: 'has_threshold',
+        });
+      }
+    }
   }
 
   // Add Claims
@@ -88,6 +99,33 @@ export function generateServingArtifacts() {
       type: 'claim',
       label: claim.statement.slice(0, 30),
       data: claim,
+    });
+  }
+
+  // Add Thresholds
+  for (const th of CANONICAL_THRESHOLDS) {
+    nodes.push({
+      id: th.id,
+      type: 'threshold',
+      label: `${th.metric_name_zh} (${th.operator} ${th.value} ${th.unit})`,
+      data: th,
+    });
+    if (th.canonical_claim_id) {
+      edges.push({
+        source: th.id,
+        target: th.canonical_claim_id,
+        relation: 'measures',
+      });
+    }
+  }
+
+  // Add Terms
+  for (const [key, term] of Object.entries(CANONICAL_TERMINOLOGY_REGISTRY)) {
+    nodes.push({
+      id: `TERM-${key}`,
+      type: 'term',
+      label: `${term.term}: ${term.primary_expansion_zh.slice(0, 24)}`,
+      data: term,
     });
   }
 
@@ -174,6 +212,27 @@ export function generateServingArtifacts() {
         comparator: claim.comparator,
         is_individual_prescription: claim.is_individual_prescription,
         misuse_guard: claim.misuse_guard,
+      })
+    );
+  }
+
+  for (const th of CANONICAL_THRESHOLDS) {
+    jsonlLines.push(
+      JSON.stringify({
+        record_type: 'clinical_threshold',
+        id: th.id,
+        topic: th.topic,
+        metric_name: th.metric_name,
+        metric_name_zh: th.metric_name_zh,
+        unit: th.unit,
+        operator: th.operator,
+        value: th.value,
+        value_upper: th.value_upper,
+        clinical_category_zh: th.clinical_category_zh,
+        guideline_authority: th.guideline_authority,
+        guideline_year: th.guideline_year,
+        measurement_context_zh: th.measurement_context_zh,
+        actionable_implication_zh: th.actionable_implication_zh,
       })
     );
   }

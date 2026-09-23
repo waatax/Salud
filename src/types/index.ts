@@ -46,6 +46,7 @@ export interface KnowledgePoint {
   excludes: string[];
   safety_flag: SafetyFlag;
   sim_hook?: string;
+  canonical_atom_id?: string;
   last_reviewed: string;
   reviewed_by: string[];
 }

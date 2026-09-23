@@ -7,3 +7,4 @@ export * from './claims/claims';
 export * from './terms/terminology';
 export * from './policies/taiwanPolicies';
 export * from './sources/sourceRegistry';
+export * from './thresholds/thresholdRegistry';

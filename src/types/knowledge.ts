@@ -163,6 +163,36 @@ export interface TaiwanPolicyObject {
   notes_zh?: string;
 }
 
+export interface ClinicalOntologyMapping {
+  mesh_id?: string;
+  mesh_term?: string;
+  icd11_code?: string;
+  icd11_title?: string;
+  snomed_ct?: string;
+  snomed_term?: string;
+}
+
+export interface ThresholdDefinition {
+  id: string; // e.g. 'TH-BP-STAGE1'
+  topic: string;
+  metric_name: string;
+  metric_name_zh: string;
+  unit: string;
+  operator: '<' | '<=' | '=' | '>=' | '>' | 'range';
+  value: number;
+  value_upper?: number;
+  clinical_category_zh: string;
+  clinical_category_en: string;
+  guideline_authority: string;
+  guideline_year: number;
+  target_population_zh: string;
+  measurement_context_zh: string;
+  actionable_implication_zh: string;
+  contraindications_or_exclusions_zh?: string;
+  canonical_claim_id?: string;
+  canonical_atom_id?: string;
+}
+
 export interface TerminologyItem {
   term: string; // e.g. 'ADH'
   primary_expansion_zh: string; // '乙醇去氫酶 (Alcohol Dehydrogenase)'
@@ -170,6 +200,7 @@ export interface TerminologyItem {
   domain: string;
   context_guidance_zh: string;
   ambiguity_warning_zh: string;
+  ontology?: ClinicalOntologyMapping;
 }
 
 export interface DerivedCopy {
@@ -208,6 +239,8 @@ export interface KnowledgeAtom {
   quantitative_claim_ids?: string[];
   safety_predicate_ids?: string[];
   policy_ref_id?: string;
+  threshold_ids?: string[];
+  ontology?: ClinicalOntologyMapping;
   status: 'published' | 'needs-provenance-review' | 'draft';
   last_reviewed: string;
   next_review?: string;

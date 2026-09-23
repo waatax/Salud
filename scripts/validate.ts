@@ -13,6 +13,7 @@ import { CANONICAL_TAIWAN_POLICIES } from '../src/knowledge/policies/taiwanPolic
 import { CANONICAL_SOURCE_REGISTRY } from '../src/knowledge/sources/sourceRegistry';
 import { CANONICAL_TERMINOLOGY_REGISTRY } from '../src/knowledge/terms/terminology';
 import { CANONICAL_SAFETY_PREDICATES, CANONICAL_SIMULATOR_CONTRACTS } from '../src/compose/safety';
+import { CANONICAL_THRESHOLDS } from '../src/knowledge/thresholds/thresholdRegistry';
 
 interface ValidationIssue {
   ruleId: string;
@@ -36,7 +37,7 @@ function checkRule(
 }
 
 console.log('====================================================');
-console.log('  Salud CI Governance-as-Code: 24-Rule Audit Engine ');
+console.log('  Salud CI Governance-as-Code: 27-Rule Audit Engine ');
 console.log('====================================================\n');
 
 // ----------------------------------------------------
@@ -313,6 +314,54 @@ for (const [id, contract] of Object.entries(CANONICAL_SIMULATOR_CONTRACTS)) {
       'error',
       Boolean(CANONICAL_SAFETY_PREDICATES[predId]),
       `Simulator ${id} references unregistered safety predicate ${predId}!`
+    );
+  }
+}
+
+// ----------------------------------------------------
+// VAL-025: ThresholdRegistry integrity
+// ----------------------------------------------------
+const thresholdMap = new Map(CANONICAL_THRESHOLDS.map((t) => [t.id, t]));
+checkRule(
+  'VAL-025',
+  'error',
+  CANONICAL_THRESHOLDS.length === thresholdMap.size,
+  `Threshold IDs must be globally unique. Found ${CANONICAL_THRESHOLDS.length} thresholds.`
+);
+
+for (const th of CANONICAL_THRESHOLDS) {
+  checkRule(
+    'VAL-025b',
+    'error',
+    Boolean(th.metric_name_zh && th.unit && th.guideline_authority && th.guideline_year),
+    `Threshold ${th.id} must declare metric_name_zh, unit, guideline_authority, and guideline_year.`
+  );
+}
+
+// ----------------------------------------------------
+// VAL-026: KnowledgeAtom threshold references
+// ----------------------------------------------------
+for (const atom of CANONICAL_KNOWLEDGE_PACK_82) {
+  if (atom.threshold_ids) {
+    for (const tid of atom.threshold_ids) {
+      checkRule(
+        'VAL-026',
+        'error',
+        thresholdMap.has(tid),
+        `Atom ${atom.id} references unregistered threshold ${tid}!`
+      );
+    }
+  }
+
+  // ----------------------------------------------------
+  // VAL-027: Ontology Code Formats
+  // ----------------------------------------------------
+  if (atom.ontology?.mesh_id) {
+    checkRule(
+      'VAL-027',
+      'error',
+      /^D\d{6}$/.test(atom.ontology.mesh_id),
+      `Atom ${atom.id} has invalid MeSH ID format: ${atom.ontology.mesh_id}`
     );
   }
 }
