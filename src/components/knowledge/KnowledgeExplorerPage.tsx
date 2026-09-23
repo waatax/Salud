@@ -55,6 +55,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
   const [selectedCertainty, setSelectedCertainty] = useState<string>('all');
   const [selectedProvenance, setSelectedProvenance] = useState<string>('all');
   const [activeViewMode, setActiveViewMode] = useState<ViewMode>('summary');
+  const [masteryLens, setMasteryLens] = useState<'all' | 'public' | 'clinical'>('all');
   const [selectedAtomId, setSelectedAtomId] = useState<string | null>(null);
   const [displayLayout, setDisplayLayout] = useState<'cards' | 'graph'>('cards');
   const [isGovModalOpen, setIsGovModalOpen] = useState(false);
@@ -655,103 +656,156 @@ export const KnowledgeExplorerPage: React.FC = () => {
                     </p>
                   </div>
 
+                  {/* Perspective Lens Filter Bar */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono">
+                    <span className="text-slate-500 font-bold flex items-center gap-1">
+                      <span>視角透鏡 (Perspective Lens)：</span>
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => setMasteryLens('all')}
+                        className={`px-3 py-1 rounded-lg transition-all ${
+                          masteryLens === 'all'
+                            ? 'bg-white dark:bg-slate-800 text-amber-600 dark:text-amber-400 font-bold shadow-xs ring-1 ring-amber-500/30'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        }`}
+                      >
+                        🌟 全覽畫布 (6維全開)
+                      </button>
+                      <button
+                        onClick={() => setMasteryLens('public')}
+                        className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1 ${
+                          masteryLens === 'public'
+                            ? 'bg-amber-500 text-white font-bold shadow-xs'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        }`}
+                      >
+                        <Lightbulb className="w-3 h-3" />
+                        <span>💡 大眾生活透鏡 (速懂心智/飲食/闢謠)</span>
+                      </button>
+                      <button
+                        onClick={() => setMasteryLens('clinical')}
+                        className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1 ${
+                          masteryLens === 'clinical'
+                            ? 'bg-indigo-600 text-white font-bold shadow-xs'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        }`}
+                      >
+                        <Dna className="w-3 h-3" />
+                        <span>🔬 醫護專業透鏡 (生化機轉/檢驗/用藥)</span>
+                      </button>
+                    </div>
+                  </div>
+
                   {selectedAtom.clinical_mastery ? (
                     <div className="space-y-4">
                       {/* Dim 1: 通俗核心與心智模型 */}
-                      <div className="p-4 sm:p-5 rounded-2xl border border-amber-200 dark:border-amber-900/60 bg-gradient-to-br from-amber-50/70 via-white to-amber-50/20 dark:from-amber-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-xs sm:text-sm font-sans">
-                            <Lightbulb className="w-4 h-4 text-amber-500 shrink-0" />
-                            <span>💡 通俗核心與心智模型</span>
+                      {(masteryLens === 'all' || masteryLens === 'public') && (
+                        <div className="p-4 sm:p-5 rounded-2xl border border-amber-200 dark:border-amber-900/60 bg-gradient-to-br from-amber-50/70 via-white to-amber-50/20 dark:from-amber-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-xs sm:text-sm font-sans">
+                              <Lightbulb className="w-4 h-4 text-amber-500 shrink-0" />
+                              <span>💡 通俗核心與心智模型</span>
+                            </div>
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 font-semibold">
+                              大眾 10 秒掌握 · 直覺譬喻
+                            </span>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 font-semibold">
-                            大眾 10 秒掌握 · 直覺譬喻
-                          </span>
+                          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans font-medium">
+                            {selectedAtom.clinical_mastery.plain_core_zh}
+                          </p>
                         </div>
-                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans font-medium">
-                          {selectedAtom.clinical_mastery.plain_core_zh}
-                        </p>
-                      </div>
+                      )}
 
                       {/* Dim 2: 病理生理與生化機轉 */}
-                      <div className="p-4 sm:p-5 rounded-2xl border border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50/70 via-white to-indigo-50/20 dark:from-indigo-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-indigo-800 dark:text-indigo-300 font-bold text-xs sm:text-sm font-sans">
-                            <Dna className="w-4 h-4 text-indigo-500 shrink-0" />
-                            <span>🔬 病理生理與生化機轉</span>
+                      {(masteryLens === 'all' || masteryLens === 'clinical') && (
+                        <div className="p-4 sm:p-5 rounded-2xl border border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50/70 via-white to-indigo-50/20 dark:from-indigo-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-indigo-800 dark:text-indigo-300 font-bold text-xs sm:text-sm font-sans">
+                              <Dna className="w-4 h-4 text-indigo-500 shrink-0" />
+                              <span>🔬 病理生理與生化機轉</span>
+                            </div>
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 font-semibold">
+                              專科醫師 · 分子受體路徑
+                            </span>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 font-semibold">
-                            專科醫師 · 分子受體路徑
-                          </span>
+                          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                            {selectedAtom.clinical_mastery.biochemical_mechanism_zh}
+                          </p>
                         </div>
-                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
-                          {selectedAtom.clinical_mastery.biochemical_mechanism_zh}
-                        </p>
-                      </div>
+                      )}
 
                       {/* Dim 3: 臨床數據判讀與檢驗標準 */}
-                      <div className="p-4 sm:p-5 rounded-2xl border border-cyan-200 dark:border-cyan-900/60 bg-gradient-to-br from-cyan-50/70 via-white to-cyan-50/20 dark:from-cyan-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-cyan-800 dark:text-cyan-300 font-bold text-xs sm:text-sm font-sans">
-                            <Activity className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
-                            <span>📊 臨床數據判讀與檢驗標準</span>
+                      {(masteryLens === 'all' || masteryLens === 'clinical') && (
+                        <div className="p-4 sm:p-5 rounded-2xl border border-cyan-200 dark:border-cyan-900/60 bg-gradient-to-br from-cyan-50/70 via-white to-cyan-50/20 dark:from-cyan-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-cyan-800 dark:text-cyan-300 font-bold text-xs sm:text-sm font-sans">
+                              <Activity className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+                              <span>📊 臨床數據判讀與檢驗標準</span>
+                            </div>
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 font-semibold">
+                              檢驗醫學 · 診斷臨界值
+                            </span>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 font-semibold">
-                            檢驗醫學 · 診斷臨界值
-                          </span>
+                          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                            {selectedAtom.clinical_mastery.diagnostic_cutoffs_zh}
+                          </p>
                         </div>
-                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
-                          {selectedAtom.clinical_mastery.diagnostic_cutoffs_zh}
-                        </p>
-                      </div>
+                      )}
 
                       {/* Dim 4: 精準營養處方與生活型態 */}
-                      <div className="p-4 sm:p-5 rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-gradient-to-br from-emerald-50/70 via-white to-emerald-50/20 dark:from-emerald-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-bold text-xs sm:text-sm font-sans">
-                            <Utensils className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                            <span>🥗 精準營養處方與生活型態</span>
+                      {(masteryLens === 'all' || masteryLens === 'public') && (
+                        <div className="p-4 sm:p-5 rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-gradient-to-br from-emerald-50/70 via-white to-emerald-50/20 dark:from-emerald-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-bold text-xs sm:text-sm font-sans">
+                              <Utensils className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                              <span>🥗 精準營養處方與生活型態</span>
+                            </div>
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 font-semibold">
+                              臨床營養師 · 劑量與搭配
+                            </span>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 font-semibold">
-                            臨床營養師 · 劑量與搭配
-                          </span>
+                          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                            {selectedAtom.clinical_mastery.nutritional_protocol_zh}
+                          </p>
                         </div>
-                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
-                          {selectedAtom.clinical_mastery.nutritional_protocol_zh}
-                        </p>
-                      </div>
+                      )}
 
                       {/* Dim 5: 用藥交互、禁忌與警訊紅線 */}
-                      <div className="p-4 sm:p-5 rounded-2xl border border-rose-200 dark:border-rose-900/60 bg-gradient-to-br from-rose-50/70 via-white to-rose-50/20 dark:from-rose-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-rose-800 dark:text-rose-300 font-bold text-xs sm:text-sm font-sans">
-                            <AlertOctagon className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
-                            <span>⚠️ 用藥交互、禁忌與警訊紅線</span>
+                      {(masteryLens === 'all' || masteryLens === 'clinical') && (
+                        <div className="p-4 sm:p-5 rounded-2xl border border-rose-200 dark:border-rose-900/60 bg-gradient-to-br from-rose-50/70 via-white to-rose-50/20 dark:from-rose-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-rose-800 dark:text-rose-300 font-bold text-xs sm:text-sm font-sans">
+                              <AlertOctagon className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+                              <span>⚠️ 用藥交互、禁忌與警訊紅線</span>
+                            </div>
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 font-semibold">
+                              藥師與急診 · 剛性禁忌
+                            </span>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 font-semibold">
-                            藥師與急診 · 剛性禁忌
-                          </span>
+                          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                            {selectedAtom.clinical_mastery.drug_interactions_red_flags_zh}
+                          </p>
                         </div>
-                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
-                          {selectedAtom.clinical_mastery.drug_interactions_red_flags_zh}
-                        </p>
-                      </div>
+                      )}
 
                       {/* Dim 6: 臨床珍珠與常見迷思闢謠 */}
-                      <div className="p-4 sm:p-5 rounded-2xl border border-purple-200 dark:border-purple-900/60 bg-gradient-to-br from-purple-50/70 via-white to-purple-50/20 dark:from-purple-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-purple-800 dark:text-purple-300 font-bold text-xs sm:text-sm font-sans">
-                            <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
-                            <span>💎 臨床珍珠與常見迷思闢謠</span>
+                      {(masteryLens === 'all' || masteryLens === 'public') && (
+                        <div className="p-4 sm:p-5 rounded-2xl border border-purple-200 dark:border-purple-900/60 bg-gradient-to-br from-purple-50/70 via-white to-purple-50/20 dark:from-purple-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-purple-800 dark:text-purple-300 font-bold text-xs sm:text-sm font-sans">
+                              <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                              <span>💎 臨床珍珠與常見迷思闢謠</span>
+                            </div>
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 font-semibold">
+                              實證闢謠 · 臨床錦囊
+                            </span>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 font-semibold">
-                            實證闢謠 · 臨床錦囊
-                          </span>
+                          <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                            {selectedAtom.clinical_mastery.clinical_pearls_myths_zh}
+                          </p>
                         </div>
-                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
-                          {selectedAtom.clinical_mastery.clinical_pearls_myths_zh}
-                        </p>
-                      </div>
+                      )}
                     </div>
                   ) : (
                     <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/40 text-center space-y-3 font-sans">

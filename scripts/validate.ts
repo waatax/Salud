@@ -396,6 +396,13 @@ for (const atom of CANONICAL_KNOWLEDGE_PACK_82) {
   // ----------------------------------------------------
   // VAL-029: 6-Dimensional Clinical Mastery Profile Completeness
   // ----------------------------------------------------
+  checkRule(
+    'VAL-029',
+    'error',
+    Boolean(atom.clinical_mastery),
+    `Atom ${atom.id} must have a clinical_mastery profile registered.`
+  );
+
   if (atom.clinical_mastery) {
     const cm = atom.clinical_mastery;
     const dimensions: (keyof typeof cm)[] = [
