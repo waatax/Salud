@@ -9,3 +9,4 @@ export * from './policies/taiwanPolicies';
 export * from './sources/sourceRegistry';
 export * from './sources/paperRegistry';
 export * from './thresholds/thresholdRegistry';
+export * from './mastery/clinicalMasteryRegistry';

@@ -218,6 +218,15 @@ export interface DerivedCopy {
   value_kind?: ValueKind;
 }
 
+export interface ClinicalMasteryProfile {
+  plain_core_zh: string;
+  biochemical_mechanism_zh: string;
+  diagnostic_cutoffs_zh: string;
+  nutritional_protocol_zh: string;
+  drug_interactions_red_flags_zh: string;
+  clinical_pearls_myths_zh: string;
+}
+
 export interface KnowledgeAtom {
   id: string; // e.g. 'KA-BP-001'
   assertion_kind: AssertionKind;
@@ -242,6 +251,7 @@ export interface KnowledgeAtom {
    * Misuse guard must explicitly protect against misreading public health science as prescription.
    */
   misuse_guard: string;
+  clinical_mastery?: ClinicalMasteryProfile;
   derivation?: string;
   quantitative_claim_ids?: string[];
   safety_predicate_ids?: string[];

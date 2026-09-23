@@ -26,6 +26,13 @@ import {
   Network,
   Scale,
   ShieldCheck,
+  GraduationCap,
+  Stethoscope,
+  Utensils,
+  AlertOctagon,
+  Lightbulb,
+  Dna,
+  Sparkles,
 } from 'lucide-react';
 import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
 import { CANONICAL_QUANTITATIVE_CLAIMS } from '../../knowledge/claims/claims';
@@ -38,7 +45,7 @@ import { KnowledgeGraphView } from './KnowledgeGraphView';
 import { GovernanceDashboardModal } from './GovernanceDashboardModal';
 import { buildPaperUrls } from '../../utils/paperLinks';
 
-type ViewMode = 'summary' | 'evidence' | 'safety';
+type ViewMode = 'summary' | 'mastery' | 'evidence' | 'safety';
 
 export const KnowledgeExplorerPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -415,6 +422,17 @@ export const KnowledgeExplorerPage: React.FC = () => {
                     簡要視圖
                   </button>
                   <button
+                    onClick={() => setActiveViewMode('mastery')}
+                    className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                      activeViewMode === 'mastery'
+                        ? 'bg-white dark:bg-slate-800 text-amber-600 dark:text-amber-400 shadow-sm font-bold ring-1 ring-amber-500/30'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                  >
+                    <GraduationCap className="w-3.5 h-3.5" />
+                    <span>🎓 臨床精通</span>
+                  </button>
+                  <button
                     onClick={() => setActiveViewMode('evidence')}
                     className={`px-3 py-1.5 rounded-lg transition-all ${
                       activeViewMode === 'evidence'
@@ -612,6 +630,141 @@ export const KnowledgeExplorerPage: React.FC = () => {
                             )}
                           </div>
                         )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* View 4: Clinical Mastery View (Public Intuition → Medical Professional Depth) */}
+              {activeViewMode === 'mastery' && (
+                <div className="space-y-5 animate-fade-in">
+                  {/* Mastery Framework Header */}
+                  <div className="p-4 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-purple-500/5 to-cyan-500/10 dark:from-amber-950/30 dark:via-purple-950/20 dark:to-cyan-950/30 space-y-1.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 font-mono text-xs font-bold text-amber-800 dark:text-amber-300">
+                        <GraduationCap className="w-4 h-4 text-amber-500" />
+                        <span>雙軌臨床精通架構 (Clinical Mastery Framework)</span>
+                      </div>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-700 dark:text-amber-300 font-bold">
+                        6 維全息醫學畫布
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                      第一軌賦予大眾 10 秒即懂的心智模型與生活譬喻；第二軌無縫銜接專科醫師、臨床營養師與專科藥師所需之受體路徑、檢驗臨界值、飲食處方、藥物交互紅線與實證闢謠。
+                    </p>
+                  </div>
+
+                  {selectedAtom.clinical_mastery ? (
+                    <div className="space-y-4">
+                      {/* Dim 1: 通俗核心與心智模型 */}
+                      <div className="p-4 sm:p-5 rounded-2xl border border-amber-200 dark:border-amber-900/60 bg-gradient-to-br from-amber-50/70 via-white to-amber-50/20 dark:from-amber-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-xs sm:text-sm font-sans">
+                            <Lightbulb className="w-4 h-4 text-amber-500 shrink-0" />
+                            <span>💡 通俗核心與心智模型</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 font-semibold">
+                            大眾 10 秒掌握 · 直覺譬喻
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans font-medium">
+                          {selectedAtom.clinical_mastery.plain_core_zh}
+                        </p>
+                      </div>
+
+                      {/* Dim 2: 病理生理與生化機轉 */}
+                      <div className="p-4 sm:p-5 rounded-2xl border border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50/70 via-white to-indigo-50/20 dark:from-indigo-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-indigo-800 dark:text-indigo-300 font-bold text-xs sm:text-sm font-sans">
+                            <Dna className="w-4 h-4 text-indigo-500 shrink-0" />
+                            <span>🔬 病理生理與生化機轉</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 font-semibold">
+                            專科醫師 · 分子受體路徑
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                          {selectedAtom.clinical_mastery.biochemical_mechanism_zh}
+                        </p>
+                      </div>
+
+                      {/* Dim 3: 臨床數據判讀與檢驗標準 */}
+                      <div className="p-4 sm:p-5 rounded-2xl border border-cyan-200 dark:border-cyan-900/60 bg-gradient-to-br from-cyan-50/70 via-white to-cyan-50/20 dark:from-cyan-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-cyan-800 dark:text-cyan-300 font-bold text-xs sm:text-sm font-sans">
+                            <Activity className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+                            <span>📊 臨床數據判讀與檢驗標準</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 font-semibold">
+                            檢驗醫學 · 診斷臨界值
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                          {selectedAtom.clinical_mastery.diagnostic_cutoffs_zh}
+                        </p>
+                      </div>
+
+                      {/* Dim 4: 精準營養處方與生活型態 */}
+                      <div className="p-4 sm:p-5 rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-gradient-to-br from-emerald-50/70 via-white to-emerald-50/20 dark:from-emerald-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-bold text-xs sm:text-sm font-sans">
+                            <Utensils className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                            <span>🥗 精準營養處方與生活型態</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 font-semibold">
+                            臨床營養師 · 劑量與搭配
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                          {selectedAtom.clinical_mastery.nutritional_protocol_zh}
+                        </p>
+                      </div>
+
+                      {/* Dim 5: 用藥交互、禁忌與警訊紅線 */}
+                      <div className="p-4 sm:p-5 rounded-2xl border border-rose-200 dark:border-rose-900/60 bg-gradient-to-br from-rose-50/70 via-white to-rose-50/20 dark:from-rose-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-rose-800 dark:text-rose-300 font-bold text-xs sm:text-sm font-sans">
+                            <AlertOctagon className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+                            <span>⚠️ 用藥交互、禁忌與警訊紅線</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 font-semibold">
+                            藥師與急診 · 剛性禁忌
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                          {selectedAtom.clinical_mastery.drug_interactions_red_flags_zh}
+                        </p>
+                      </div>
+
+                      {/* Dim 6: 臨床珍珠與常見迷思闢謠 */}
+                      <div className="p-4 sm:p-5 rounded-2xl border border-purple-200 dark:border-purple-900/60 bg-gradient-to-br from-purple-50/70 via-white to-purple-50/20 dark:from-purple-950/20 dark:via-slate-900 dark:to-slate-900 space-y-2 shadow-xs">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-purple-800 dark:text-purple-300 font-bold text-xs sm:text-sm font-sans">
+                            <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                            <span>💎 臨床珍珠與常見迷思闢謠</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 font-semibold">
+                            實證闢謠 · 臨床錦囊
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                          {selectedAtom.clinical_mastery.clinical_pearls_myths_zh}
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/40 text-center space-y-3 font-sans">
+                      <div className="w-10 h-10 mx-auto rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
+                        <GraduationCap className="w-5 h-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="font-bold text-slate-800 dark:text-slate-200 text-sm">
+                          本知識點（{selectedAtom.id}）專屬 6 維臨床精通卡正由醫學專門委員會定審中
+                        </h4>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 max-w-lg mx-auto leading-relaxed">
+                          目前已具備一級實證支持與安全邊界防護。您可點選切換至「簡要視圖」檢視核心陳述與防誤用守則，或至「實證推導」查閱同儕審查原始文獻。
+                        </p>
                       </div>
                     </div>
                   )}

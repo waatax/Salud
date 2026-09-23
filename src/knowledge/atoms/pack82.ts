@@ -7,6 +7,7 @@
 
 import { KnowledgeAtom } from '../../types/knowledge';
 import { CANONICAL_PAPER_REGISTRY } from '../sources/paperRegistry';
+import { CANONICAL_CLINICAL_MASTERY_REGISTRY } from '../mastery/clinicalMasteryRegistry';
 
 const RAW_CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
   // ==========================================
@@ -2740,6 +2741,7 @@ const RAW_CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
 export const CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = RAW_CANONICAL_KNOWLEDGE_PACK_82.map(
   (atom) => ({
     ...atom,
+    clinical_mastery: CANONICAL_CLINICAL_MASTERY_REGISTRY[atom.id] || atom.clinical_mastery,
     evidence_records: atom.evidence_records.map((ev) => ({
       ...ev,
       ...(CANONICAL_PAPER_REGISTRY[ev.id] || {}),

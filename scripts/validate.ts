@@ -37,7 +37,7 @@ function checkRule(
 }
 
 console.log('====================================================');
-console.log('  Salud CI Governance-as-Code: 28-Rule Audit Engine ');
+console.log('  Salud CI Governance-as-Code: 29-Rule Audit Engine ');
 console.log('====================================================\n');
 
 // ----------------------------------------------------
@@ -389,6 +389,29 @@ for (const atom of CANONICAL_KNOWLEDGE_PACK_82) {
         'error',
         /^\d{6,9}$/.test(ev.pmid.trim().replace(/^pmid:\s*/i, '')),
         `Atom ${atom.id} evidence record ${ev.id} has invalid PMID format: ${ev.pmid}`
+      );
+    }
+  }
+
+  // ----------------------------------------------------
+  // VAL-029: 6-Dimensional Clinical Mastery Profile Completeness
+  // ----------------------------------------------------
+  if (atom.clinical_mastery) {
+    const cm = atom.clinical_mastery;
+    const dimensions: (keyof typeof cm)[] = [
+      'plain_core_zh',
+      'biochemical_mechanism_zh',
+      'diagnostic_cutoffs_zh',
+      'nutritional_protocol_zh',
+      'drug_interactions_red_flags_zh',
+      'clinical_pearls_myths_zh',
+    ];
+    for (const dim of dimensions) {
+      checkRule(
+        'VAL-029',
+        'error',
+        Boolean(cm[dim] && cm[dim].trim().length >= 20),
+        `Atom ${atom.id} clinical_mastery.${dim} must be substantive (>= 20 chars). Current length: ${cm[dim]?.trim().length || 0}`
       );
     }
   }

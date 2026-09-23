@@ -68,6 +68,7 @@ import {
   Bookmark,
   BookmarkCheck,
   ExternalLink,
+  GraduationCap,
 } from 'lucide-react';
 
 interface Props {
@@ -563,6 +564,92 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                               <span>登錄實證出處：{kp.claim_ids.join(', ') || '經專門小組定審'}</span>
                             </div>
                           )}
+                        </div>
+                      );
+                    })()}
+
+                    {/* Clinical Mastery Profile (Doctor & Dietitian Depth) */}
+                    {(() => {
+                      const canonicalId = kp.canonical_atom_id || KP_CANONICAL_MAPPING[kp.id];
+                      const atom = canonicalId
+                        ? CANONICAL_KNOWLEDGE_PACK_82.find((a) => a.id === canonicalId)
+                        : null;
+                      const mastery = atom?.clinical_mastery;
+                      if (!mastery) return null;
+
+                      return (
+                        <div className="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-300/80 dark:border-amber-800/60 space-y-3 text-xs">
+                          <div className="flex items-center justify-between font-mono text-[11px] text-amber-800 dark:text-amber-300 font-bold border-b border-amber-200 dark:border-amber-900/60 pb-2">
+                            <span className="flex items-center gap-1.5">
+                              <GraduationCap className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                              🎓 專業醫護深度解析 (Clinical Mastery Profile)
+                            </span>
+                            <span className="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 text-[10px]">
+                              6 維臨床指引
+                            </span>
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                            {/* 1. 通俗核心 */}
+                            <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-amber-100 dark:border-amber-900/40 space-y-1">
+                              <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 block font-mono">
+                                💡 通俗核心與心智模型 (大眾)
+                              </span>
+                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                                {mastery.plain_core_zh}
+                              </p>
+                            </div>
+
+                            {/* 2. 生化機轉 */}
+                            <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-indigo-100 dark:border-indigo-900/40 space-y-1">
+                              <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-400 block font-mono">
+                                🔬 病理生理與生化機轉 (醫師)
+                              </span>
+                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                                {mastery.biochemical_mechanism_zh}
+                              </p>
+                            </div>
+
+                            {/* 3. 臨床數據 */}
+                            <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-cyan-100 dark:border-cyan-900/40 space-y-1">
+                              <span className="text-[10px] font-bold text-cyan-700 dark:text-cyan-400 block font-mono">
+                                📊 臨床數據與檢驗判讀 (診斷)
+                              </span>
+                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                                {mastery.diagnostic_cutoffs_zh}
+                              </p>
+                            </div>
+
+                            {/* 4. 精準營養 */}
+                            <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-emerald-100 dark:border-emerald-900/40 space-y-1">
+                              <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 block font-mono">
+                                🥗 精準營養與生活處方 (營養師)
+                              </span>
+                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                                {mastery.nutritional_protocol_zh}
+                              </p>
+                            </div>
+
+                            {/* 5. 用藥交互 */}
+                            <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-rose-100 dark:border-rose-900/40 space-y-1">
+                              <span className="text-[10px] font-bold text-rose-700 dark:text-rose-400 block font-mono">
+                                ⚠️ 用藥交互與警訊紅線 (藥師/急診)
+                              </span>
+                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                                {mastery.drug_interactions_red_flags_zh}
+                              </p>
+                            </div>
+
+                            {/* 6. 臨床珍珠 */}
+                            <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-purple-100 dark:border-purple-900/40 space-y-1">
+                              <span className="text-[10px] font-bold text-purple-700 dark:text-purple-400 block font-mono">
+                                💎 臨床珍珠與迷思闢謠 (實證)
+                              </span>
+                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                                {mastery.clinical_pearls_myths_zh}
+                              </p>
+                            </div>
+                          </div>
                         </div>
                       );
                     })()}
