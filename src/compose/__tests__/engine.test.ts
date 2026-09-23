@@ -146,3 +146,29 @@ test('units: formatLpaRiskContext should differentiate risk bands and provide di
   assert.ok(veryHigh.approxRiskMultiplier.includes('2.0 倍'));
   assert.ok(veryHigh.conversionDisclaimer.includes('nmol/L'));
 });
+
+test('paperLinks: buildPaperUrls should generate valid DOI, PubMed, and Google Scholar URLs', async () => {
+  const { buildPaperUrls, formatPaperCitation } = await import('../../utils/paperLinks');
+
+  const paper = {
+    title: 'A Randomized Trial of Intensive versus Standard Blood-Pressure Control',
+    authors: 'The SPRINT Research Group',
+    journal: 'New England Journal of Medicine',
+    year: 2015,
+    doi: '10.1056/NEJMoa1511939',
+    pmid: '26551272',
+  };
+
+  const urls = buildPaperUrls(paper);
+  assert.equal(urls.doiUrl, 'https://doi.org/10.1056/NEJMoa1511939');
+  assert.equal(urls.pubmedUrl, 'https://pubmed.ncbi.nlm.nih.gov/26551272/');
+  assert.ok(urls.scholarUrl.includes('scholar.google.com/scholar'));
+  assert.ok(urls.scholarUrl.includes('SPRINT'));
+  assert.equal(urls.primaryUrl, 'https://doi.org/10.1056/NEJMoa1511939');
+
+  const citation = formatPaperCitation(paper);
+  assert.ok(citation.includes('The SPRINT Research Group'));
+  assert.ok(citation.includes('2015'));
+  assert.ok(citation.includes('10.1056/NEJMoa1511939'));
+});
+

@@ -58,6 +58,13 @@ export interface EffectEstimate {
 export interface EvidenceRecord {
   id: string;
   citation: string;
+  title?: string;
+  authors?: string;
+  journal?: string;
+  year?: number;
+  doi?: string;
+  pmid?: string;
+  url?: string;
   pmidOrDoi?: string;
   design: StudyDesign;
   sample_size?: number;

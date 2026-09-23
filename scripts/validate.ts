@@ -37,7 +37,7 @@ function checkRule(
 }
 
 console.log('====================================================');
-console.log('  Salud CI Governance-as-Code: 27-Rule Audit Engine ');
+console.log('  Salud CI Governance-as-Code: 28-Rule Audit Engine ');
 console.log('====================================================\n');
 
 // ----------------------------------------------------
@@ -363,6 +363,34 @@ for (const atom of CANONICAL_KNOWLEDGE_PACK_82) {
       /^D\d{6}$/.test(atom.ontology.mesh_id),
       `Atom ${atom.id} has invalid MeSH ID format: ${atom.ontology.mesh_id}`
     );
+  }
+
+  // ----------------------------------------------------
+  // VAL-028: Paper Citation & DOI/PMID Format Integrity
+  // ----------------------------------------------------
+  for (const ev of atom.evidence_records) {
+    checkRule(
+      'VAL-028',
+      'error',
+      Boolean(ev.citation && ev.citation.trim().length > 3),
+      `Atom ${atom.id} evidence record ${ev.id} must have a valid non-empty citation.`
+    );
+    if (ev.doi) {
+      checkRule(
+        'VAL-028',
+        'error',
+        /^10\.\d{4,9}\/[-._;()/:A-Za-z0-9]+$/.test(ev.doi.trim().replace(/^doi:\s*/i, '')),
+        `Atom ${atom.id} evidence record ${ev.id} has invalid DOI format: ${ev.doi}`
+      );
+    }
+    if (ev.pmid) {
+      checkRule(
+        'VAL-028',
+        'error',
+        /^\d{6,9}$/.test(ev.pmid.trim().replace(/^pmid:\s*/i, '')),
+        `Atom ${atom.id} evidence record ${ev.id} has invalid PMID format: ${ev.pmid}`
+      );
+    }
   }
 }
 

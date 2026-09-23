@@ -36,6 +36,7 @@ import { deriveCertainty } from '../../compose/certainty';
 import { KnowledgeAtom, CertaintyLevel, RiskClass, AssertionKind, ProvenanceLevel } from '../../types/knowledge';
 import { KnowledgeGraphView } from './KnowledgeGraphView';
 import { GovernanceDashboardModal } from './GovernanceDashboardModal';
+import { buildPaperUrls } from '../../utils/paperLinks';
 
 type ViewMode = 'summary' | 'evidence' | 'safety';
 
@@ -459,12 +460,78 @@ export const KnowledgeExplorerPage: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Primary Source Meta */}
-                  <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 text-xs font-mono space-y-1">
-                    <span className="text-slate-500 block">主要實證出處 (Primary Source)：</span>
-                    <strong className="text-slate-800 dark:text-slate-200 block">
-                      {selectedAtom.primary_source}
-                    </strong>
+                  {/* Primary Source Meta with Paper Links */}
+                  <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 text-xs font-mono space-y-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-slate-500">主要實證出處 (Primary Source)：</span>
+                      <strong className="text-slate-800 dark:text-slate-200">
+                        {selectedAtom.primary_source}
+                      </strong>
+                    </div>
+
+                    {selectedAtom.evidence_records[0] && (() => {
+                      const firstEv = selectedAtom.evidence_records[0];
+                      const urls = buildPaperUrls(firstEv);
+                      return (
+                        <div className="pt-2 border-t border-slate-200/80 dark:border-slate-800 space-y-1.5 font-sans">
+                          {firstEv.title && (
+                            <h5 className="font-bold text-slate-800 dark:text-slate-200 text-xs leading-snug">
+                              {firstEv.title}
+                            </h5>
+                          )}
+                          <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 font-mono">
+                            {firstEv.authors && <span>{firstEv.authors}</span>}
+                            {firstEv.journal && <span>· {firstEv.journal}</span>}
+                            {firstEv.year && <span>({firstEv.year})</span>}
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[10px]">
+                            {urls.doiUrl && (
+                              <a
+                                href={urls.doiUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 transition-colors"
+                              >
+                                <span>DOI: {firstEv.doi}</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                            {urls.pubmedUrl && (
+                              <a
+                                href={urls.pubmedUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition-colors"
+                              >
+                                <span>PubMed: {firstEv.pmid}</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                            <a
+                              href={urls.scholarUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700 hover:bg-amber-100 font-bold transition-colors"
+                            >
+                              <span>Google Scholar 論文</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                            {firstEv.url && !urls.doiUrl && (
+                              <a
+                                href={firstEv.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 transition-colors"
+                              >
+                                <span>指引官方原文</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </div>
 
                   {/* Clinical Diagnostic Thresholds (P2 Registry) */}
@@ -579,36 +646,102 @@ export const KnowledgeExplorerPage: React.FC = () => {
                     <span className="font-mono text-[11px] text-slate-500 block font-bold">
                       登錄之實證紀錄 (Evidence Records)：
                     </span>
-                    {selectedAtom.evidence_records.map((ev) => (
-                      <div
-                        key={ev.id}
-                        className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 space-y-2 font-mono text-xs"
-                      >
-                        <div className="flex justify-between items-center text-[11px]">
-                          <strong className="text-salud-cyan-700 dark:text-salud-cyan">{ev.id}</strong>
-                          <span className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                            設計：{ev.design}
-                          </span>
-                        </div>
-                        <p className="text-slate-800 dark:text-slate-200 font-sans">{ev.citation}</p>
-                        {ev.effect && (
-                          <div className="p-2 rounded bg-slate-200/60 dark:bg-slate-800/80 text-[11px] space-y-1">
-                            <div>
-                              效應值：<strong>{ev.effect.measure} = {ev.effect.estimate}</strong>
+                    {selectedAtom.evidence_records.map((ev) => {
+                      const urls = buildPaperUrls(ev);
+                      return (
+                        <div
+                          key={ev.id}
+                          className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 space-y-2.5 font-mono text-xs"
+                        >
+                          <div className="flex justify-between items-center text-[11px]">
+                            <strong className="text-salud-cyan-700 dark:text-salud-cyan font-bold">{ev.id}</strong>
+                            <div className="flex items-center gap-1.5">
+                              <span className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                設計：{ev.design}
+                              </span>
+                              <span className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                偏差：{ev.risk_of_bias}
+                              </span>
                             </div>
-                            <div>比較基準 (Comparator)：{ev.effect.comparator}</div>
-                            {ev.effect.exposure_definition && (
-                              <div>暴露定義：{ev.effect.exposure_definition}</div>
+                          </div>
+
+                          {/* Paper Details */}
+                          {ev.title ? (
+                            <div className="space-y-1 font-sans">
+                              <h5 className="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm leading-snug">
+                                {ev.title}
+                              </h5>
+                              <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 font-mono">
+                                {ev.authors && <span>{ev.authors}</span>}
+                                {ev.journal && <span>· <strong className="text-slate-700 dark:text-slate-300">{ev.journal}</strong></span>}
+                                {ev.year && <span>({ev.year})</span>}
+                              </div>
+                            </div>
+                          ) : (
+                            <p className="text-slate-800 dark:text-slate-200 font-sans font-medium">{ev.citation}</p>
+                          )}
+
+                          {/* Effect Size if present */}
+                          {ev.effect && (
+                            <div className="p-2.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/80 text-[11px] space-y-1">
+                              <div>
+                                效應值：<strong>{ev.effect.measure} = {ev.effect.estimate}</strong>
+                              </div>
+                              <div>比較基準 (Comparator)：{ev.effect.comparator}</div>
+                              {ev.effect.exposure_definition && (
+                                <div>暴露定義：{ev.effect.exposure_definition}</div>
+                              )}
+                            </div>
+                          )}
+
+                          {/* External Academic Links Row */}
+                          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200 dark:border-slate-800 font-mono text-[10px]">
+                            {urls.doiUrl && (
+                              <a
+                                href={urls.doiUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 transition-colors"
+                              >
+                                <span>DOI: {ev.doi}</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                            {urls.pubmedUrl && (
+                              <a
+                                href={urls.pubmedUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition-colors"
+                              >
+                                <span>PubMed: {ev.pmid}</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                            <a
+                              href={urls.scholarUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700 hover:bg-amber-100 font-bold transition-colors"
+                            >
+                              <span>Google Scholar 檢索</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                            {ev.url && !urls.doiUrl && (
+                              <a
+                                href={ev.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 transition-colors"
+                              >
+                                <span>官方文獻原文</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
                             )}
                           </div>
-                        )}
-                        <div className="flex gap-3 text-[10px] text-slate-500">
-                          <span>偏差風險：{ev.risk_of_bias}</span>
-                          <span>直接性：{ev.directness}</span>
-                          <span>出處層級：{ev.provenance_level}</span>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}

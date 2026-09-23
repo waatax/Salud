@@ -6,8 +6,9 @@
  */
 
 import { KnowledgeAtom } from '../../types/knowledge';
+import { CANONICAL_PAPER_REGISTRY } from '../sources/paperRegistry';
 
-export const CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
+const RAW_CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
   // ==========================================
   // 8.A 血壓 (Tier 1 核心節點)
   // ==========================================
@@ -1616,3 +1617,13 @@ export const CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
     last_reviewed: '2026-09-20',
   },
 ];
+
+export const CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = RAW_CANONICAL_KNOWLEDGE_PACK_82.map(
+  (atom) => ({
+    ...atom,
+    evidence_records: atom.evidence_records.map((ev) => ({
+      ...ev,
+      ...(CANONICAL_PAPER_REGISTRY[ev.id] || {}),
+    })),
+  })
+);

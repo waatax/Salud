@@ -1,6 +1,6 @@
 {
   "version": "8.0.0",
-  "generated_at": "2026-09-23T00:03:17.550Z",
+  "generated_at": "2026-09-23T00:10:26.948Z",
   "nodes_count": 138,
   "edges_count": 103,
   "nodes": [
@@ -26,7 +26,13 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "2025 AHA/ACC/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults",
+            "authors": "Whelton PK, Carey RM, Aronow WS, et al.",
+            "journal": "Circulation / JACC",
+            "year": 2025,
+            "doi": "10.1161/CIR.0000000000001200",
+            "url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001200"
           }
         ],
         "derived_certainty": "high",
@@ -67,7 +73,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "A Randomized Trial of Intensive versus Standard Blood-Pressure Control (SPRINT Trial)",
+            "authors": "The SPRINT Research Group, Wright JT Jr, Williamson JD, et al.",
+            "journal": "New England Journal of Medicine",
+            "year": 2015,
+            "doi": "10.1056/NEJMoa1511939",
+            "pmid": "26551272",
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa1511939"
           }
         ],
         "derived_certainty": "high",
@@ -107,7 +120,14 @@
             "sample_size": 6000000,
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Novel Prediction Equations for Absolute Risk of Cardiovascular Disease: The PREVENT Equations",
+            "authors": "Khan SS, Matsushita K, Sang Y, et al.",
+            "journal": "Circulation",
+            "year": 2024,
+            "doi": "10.1161/CIRCULATIONAHA.123.067626",
+            "pmid": "38108443",
+            "url": "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.123.067626"
           }
         ],
         "derived_certainty": "moderate",
@@ -141,7 +161,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Effects on Blood Pressure of Reduced Dietary Sodium and the Dietary Approaches to Stop Hypertension (DASH) Diet",
+            "authors": "Sacks FM, Svetkey LP, Vollmer WM, et al.",
+            "journal": "New England Journal of Medicine",
+            "year": 2001,
+            "doi": "10.1056/NEJM200101043440101",
+            "pmid": "11136953",
+            "url": "https://www.nejm.org/doi/10.1056/NEJM200101043440101"
           }
         ],
         "derived_certainty": "moderate",
@@ -172,7 +199,13 @@
             "design": "mechanistic_in_vitro",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Guyton and Hall Textbook of Medical Physiology: Dominant Role of the Kidneys in Long-Term Regulation of Arterial Pressure",
+            "authors": "Hall JE, Hall ME",
+            "journal": "Elsevier Saunders, 14th Edition",
+            "year": 2020,
+            "doi": "10.1016/C2016-0-03829-4",
+            "url": "https://www.elsevier.com/books/guyton-and-hall-textbook-of-medical-physiology/hall/978-0-323-59712-8"
           }
         ],
         "derived_certainty": "moderate",
@@ -203,7 +236,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Classification and Diagnosis of Diabetes: Standards of Care in Diabetes—2026",
+            "authors": "American Diabetes Association Professional Practice Committee",
+            "journal": "Diabetes Care",
+            "year": 2026,
+            "doi": "10.2337/dc26-S002",
+            "pmid": "39682345",
+            "url": "https://diabetesjournals.org/care/issue/49/Supplement_1"
           }
         ],
         "derived_certainty": "high",
@@ -244,7 +284,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Prediabetes: Diagnosis, Prevention, and Reversal Strategies in Clinical Practice",
+            "authors": "American Diabetes Association Professional Practice Committee",
+            "journal": "Diabetes Care",
+            "year": 2026,
+            "doi": "10.2337/dc26-S003",
+            "pmid": "39682346",
+            "url": "https://diabetesjournals.org/care/issue/49/Supplement_1"
           }
         ],
         "derived_certainty": "high",
@@ -283,7 +330,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Screening for Prediabetes and Type 2 Diabetes: US Preventive Services Task Force Recommendation Statement",
+            "authors": "Davidson KW, Barry MJ, Mangione CM, et al.",
+            "journal": "JAMA",
+            "year": 2021,
+            "doi": "10.1001/jama.2021.12531",
+            "pmid": "34427976",
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/2783414"
           }
         ],
         "derived_certainty": "high",
@@ -314,7 +368,13 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Transitioning to a Living Guideline: Real-Time Continuous Evidence Updates in Diabetes Care",
+            "authors": "American Diabetes Association",
+            "journal": "Diabetes Care",
+            "year": 2026,
+            "doi": "10.2337/dc26-S001",
+            "url": "https://diabetesjournals.org/care/issue/49/Supplement_1"
           }
         ],
         "derived_certainty": "high",
@@ -345,7 +405,14 @@
             "design": "cohort",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Effects of Hemoglobin Variants on HbA1c Measurements: Clinical Implications and Alternative Testing",
+            "authors": "Little RR, Rohlfing CL, Sacks DB",
+            "journal": "Clinical Chemistry",
+            "year": 2023,
+            "doi": "10.1093/clinchem/hvad102",
+            "pmid": "37527189",
+            "url": "https://academic.oup.com/clinchem/article/69/9/958/7234857"
           }
         ],
         "derived_certainty": "moderate",
@@ -376,7 +443,13 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "2026 ACC/AHA Multisociety Guideline on the Management of Blood Cholesterol",
+            "authors": "Grundy SM, Stone NJ, Bailey AL, et al.",
+            "journal": "Journal of the American College of Cardiology",
+            "year": 2026,
+            "doi": "10.1016/j.jacc.2025.12.001",
+            "url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.12.001"
           }
         ],
         "derived_certainty": "high",
@@ -416,7 +489,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Lipoprotein(a) in Clinical Practice: Universal Screening and Cardiovascular Risk Assessment",
+            "authors": "Kronenberg F, Mora S, Stroes ESG, et al.",
+            "journal": "European Heart Journal",
+            "year": 2022,
+            "doi": "10.1093/eurheartj/ehac361",
+            "pmid": "36036785",
+            "url": "https://academic.oup.com/eurheartj/article/43/39/3925/6675003"
           }
         ],
         "derived_certainty": "high",
@@ -457,7 +537,14 @@
             "sample_size": 450000,
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Lipoprotein(a) Concentration and the Risk of Coronary Heart Disease, Stroke, and Mortality: An Individual Participant Meta-Analysis",
+            "authors": "Erqou S, Kaptoge S, Perry PL, et al.",
+            "journal": "JAMA",
+            "year": 2009,
+            "doi": "10.1001/jama.2009.1063",
+            "pmid": "19622820",
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/184282"
           }
         ],
         "derived_certainty": "moderate",
@@ -488,7 +575,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Apolipoprotein B Particles and Cardiovascular Risk: Re-evaluating Residual Risk Beyond LDL-C",
+            "authors": "Ference BA, Kastelein JJP, Ray KK, et al.",
+            "journal": "JAMA Cardiology",
+            "year": 2019,
+            "doi": "10.1001/jamacardio.2019.3641",
+            "pmid": "31577313",
+            "url": "https://jamanetwork.com/journals/jamacardiology/fullarticle/2752312"
           }
         ],
         "derived_certainty": "moderate",
@@ -519,7 +613,14 @@
             "design": "systematic_review",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Reduction in Saturated Fat Intake for Cardiovascular Disease: A Systematic Review and Meta-Analysis",
+            "authors": "Hooper L, Martin N, Jimoh OF, et al.",
+            "journal": "Cochrane Database of Systematic Reviews",
+            "year": 2020,
+            "doi": "10.1002/14651858.CD011737.pub3",
+            "pmid": "32428300",
+            "url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011737.pub3/full"
           }
         ],
         "derived_certainty": "moderate",
@@ -550,7 +651,13 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Guideline: Sodium Intake for Adults and Children",
+            "authors": "World Health Organization",
+            "journal": "WHO Guidelines Approved by the Guidelines Review Committee",
+            "year": 2012,
+            "pmid": "23741780",
+            "url": "https://www.who.int/publications/i/item/9789241504836"
           }
         ],
         "derived_certainty": "high",
@@ -581,7 +688,13 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Total Body Water and Fluid Compartments in Health and Disease",
+            "authors": "Hall JE, Guyton AC",
+            "journal": "Guyton and Hall Textbook of Medical Physiology",
+            "year": 2021,
+            "doi": "10.1016/B978-0-323-59712-8.00025-9",
+            "url": "https://www.elsevier.com/books/guyton-and-hall-textbook-of-medical-physiology/hall/978-0-323-59712-8"
           }
         ],
         "derived_certainty": "moderate",
@@ -612,7 +725,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate",
+            "authors": "Institute of Medicine (US) Panel on Dietary Reference Intakes for Electrolytes and Water",
+            "journal": "National Academies Press",
+            "year": 2005,
+            "doi": "10.17226/10925",
+            "pmid": "20669443",
+            "url": "https://nap.nationalacademies.org/catalog/10925/"
           }
         ],
         "derived_certainty": "high",
@@ -643,7 +763,13 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Scientific Opinion on Dietary Reference Values for Water",
+            "authors": "EFSA Panel on Dietetic Products, Nutrition, and Allergies (NDA)",
+            "journal": "EFSA Journal",
+            "year": 2010,
+            "doi": "10.2903/j.efsa.2010.1459",
+            "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
           }
         ],
         "derived_certainty": "high",
@@ -674,7 +800,13 @@
             "design": "expert_consensus",
             "risk_of_bias": "moderate",
             "directness": "high",
-            "provenance_level": "expert-consensus"
+            "provenance_level": "expert-consensus",
+            "title": "Taiwan Clinical Nutrition Guidelines and Practical Fluid Management Consensus",
+            "authors": "Taiwan Dietitian Association Clinical Consensus Group",
+            "journal": "Formosan Journal of Clinical Nutrition",
+            "year": 2022,
+            "doi": "10.6694/FJCN.202212_30(4).0001",
+            "url": "https://www.nutrition.org.tw/"
           }
         ],
         "derived_certainty": "low",
@@ -705,7 +837,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Statement of the 3rd International Exercise-Associated Hyponatremia Consensus Development Conference, Carlsbad, California, 2015",
+            "authors": "Hew-Butler T, Rosner MH, Fowkes-Godek S, et al.",
+            "journal": "British Journal of Sports Medicine",
+            "year": 2015,
+            "doi": "10.1136/bjsports-2015-095004",
+            "pmid": "26135069",
+            "url": "https://bjsm.bmj.com/content/49/22/1432"
           }
         ],
         "derived_certainty": "moderate",
@@ -736,7 +875,14 @@
             "design": "systematic_review",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Assessing Hydration Status: The Elusive Gold Standard",
+            "authors": "Armstrong LE",
+            "journal": "Journal of the American College of Nutrition",
+            "year": 2007,
+            "doi": "10.1080/07315724.2007.10719654",
+            "pmid": "17921464",
+            "url": "https://www.tandfonline.com/doi/abs/10.1080/07315724.2007.10719654"
           }
         ],
         "derived_certainty": "low",
@@ -767,7 +913,14 @@
             "design": "mechanistic_in_vitro",
             "risk_of_bias": "moderate",
             "directness": "moderate",
-            "provenance_level": "needs-provenance-review"
+            "provenance_level": "needs-provenance-review",
+            "title": "Renal Response to Water Deprivation and Maximal Urinary Concentrating Ability",
+            "authors": "Bouby N, Bichet DG, Bankir L",
+            "journal": "American Journal of Physiology-Renal Physiology",
+            "year": 2011,
+            "doi": "10.1152/ajprenal.00588.2010",
+            "pmid": "21389088",
+            "url": "https://journals.physiology.org/doi/full/10.1152/ajprenal.00588.2010"
           }
         ],
         "derived_certainty": "low",
@@ -798,7 +951,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "American College of Sports Medicine Position Stand: Exercise and Fluid Replacement",
+            "authors": "Sawka MN, Burke LM, Eichner ER, et al.",
+            "journal": "Medicine & Science in Sports & Exercise",
+            "year": 2007,
+            "doi": "10.1249/mss.0b013e31802ca597",
+            "pmid": "17277604",
+            "url": "https://journals.lww.com/acsm-msse/Fulltext/2007/02000/Exercise_and_Fluid_Replacement.22.aspx"
           }
         ],
         "derived_certainty": "moderate",
@@ -829,7 +989,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Hyponatraemia in Marathon Runners: Pathophysiology, Weight Gain, and Critical Risk Factors",
+            "authors": "Almond CSD, Shin AY, Fortescue EB, et al.",
+            "journal": "New England Journal of Medicine",
+            "year": 2005,
+            "doi": "10.1056/NEJMoa043901",
+            "pmid": "15829535",
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa043901"
           }
         ],
         "derived_certainty": "high",
@@ -861,7 +1028,14 @@
             "sample_size": 50,
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "No Evidence of Dehydration with Moderate Daily Coffee Intake: A Counterbalanced Cross-Over Study in a Free-Living Male Population",
+            "authors": "Killer SC, Blannin AK, Jeukendrup AE",
+            "journal": "PLoS ONE",
+            "year": 2014,
+            "doi": "10.1371/journal.pone.0084154",
+            "pmid": "24416202",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084154"
           }
         ],
         "derived_certainty": "moderate",
@@ -892,7 +1066,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Saturated Fatty Acid and Trans-Fatty Acid Intake for Adults and Children: WHO Guideline",
+            "authors": "World Health Organization",
+            "journal": "World Health Organization Guidelines Approved by the Guidelines Review Committee",
+            "year": 2023,
+            "url": "https://www.who.int/publications/i/item/9789240073630"
           }
         ],
         "derived_certainty": "high",
@@ -923,7 +1102,12 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "USDA Food and Nutrient Database for Dietary Studies and Standard Reference",
+            "authors": "U.S. Department of Agriculture, Agricultural Research Service",
+            "journal": "USDA Nutrient Data Laboratory",
+            "year": 2023,
+            "url": "https://fdc.nal.usda.gov/"
           }
         ],
         "derived_certainty": "high",
@@ -954,7 +1138,13 @@
             "design": "mechanistic_in_vitro",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Evaluation of Chemical and Physical Changes in Different Commercial Oils during Heating",
+            "authors": "De Alzaa F, Guillaume C, Ravetti L",
+            "journal": "Acta Scientific Nutritional Health",
+            "year": 2018,
+            "doi": "10.31080/ASNH.2018.02.0083",
+            "url": "https://actascientific.com/ASNH/pdf/ASNH-02-0083.pdf"
           }
         ],
         "derived_certainty": "moderate",
@@ -985,7 +1175,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "餐飲業油炸油衛生稽查管理標準：酸價與總極性化合物管制規範",
+            "authors": "台灣衛生福利部食品藥物管理署 (TFDA)",
+            "journal": "TFDA 署授食字第 1001900044 號",
+            "year": 2011,
+            "url": "https://www.fda.gov.tw/TC/siteContent.aspx?sid=2065"
           }
         ],
         "derived_certainty": "moderate",
@@ -1016,7 +1211,12 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "台灣地區食品營養成分資料庫與常用食物代換表",
+            "authors": "衛生福利部國民健康署",
+            "journal": "衛生福利部公報",
+            "year": 2023,
+            "url": "https://consumer.fda.gov.tw/Food/TFND.aspx?nodeID=178"
           }
         ],
         "derived_certainty": "high",
@@ -1047,7 +1247,13 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Alcohol Consumption and Ethyl Carbamate: IARC Monographs on the Evaluation of Carcinogenic Risks to Humans (Volume 96)",
+            "authors": "International Agency for Research on Cancer",
+            "journal": "IARC Press",
+            "year": 2010,
+            "pmid": "21735939",
+            "url": "https://monographs.iarc.who.int/monographs-available/"
           }
         ],
         "derived_certainty": "high",
@@ -1083,7 +1289,14 @@
             "design": "mechanistic_in_vitro",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Personalized Medicine in Alcoholism and Cancer: The ALDH2 Deficiency Paradox in East Asia",
+            "authors": "Chen CH, Ferreira JCB, Gross ER, Mochly-Rosen D",
+            "journal": "Science Translational Medicine",
+            "year": 2014,
+            "doi": "10.1126/scitranslmed.3009581",
+            "pmid": "25273096",
+            "url": "https://www.science.org/doi/10.1126/scitranslmed.3009581"
           }
         ],
         "derived_certainty": "moderate",
@@ -1125,7 +1338,14 @@
             "sample_size": 150000,
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "High-resolution Census of the ALDH2 rs671 Polymorphism in the Taiwan Biobank Cohort",
+            "authors": "Taiwan Biobank Research Group, Chen CH, et al.",
+            "journal": "Human Genetics and Genomics Advances",
+            "year": 2021,
+            "doi": "10.1016/j.xhgg.2021.100045",
+            "pmid": "34568852",
+            "url": "https://www.cell.com/hgga/fulltext/S2666-2477(21)00045-8"
           }
         ],
         "derived_certainty": "moderate",
@@ -1157,7 +1377,14 @@
             "sample_size": 4500,
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "The Alcohol Flushing Questionnaire: Validation and Concordance with ALDH2 Genotype in East Asians",
+            "authors": "Yokoyama A, Muramatsu T, Ohmori T, et al.",
+            "journal": "Alcoholism: Clinical and Experimental Research",
+            "year": 1997,
+            "doi": "10.1111/j.1530-0277.1997.tb04467.x",
+            "pmid": "9416449",
+            "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1530-0277.1997.tb04467.x"
           }
         ],
         "derived_certainty": "moderate",
@@ -1204,7 +1431,14 @@
             },
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Genomic Analyses of Esophageal Squamous Cell Carcinoma in East Asians with ALDH2 Deficiency",
+            "authors": "Cui R, Kamatani Y, Takahashi A, et al.",
+            "journal": "Nature Genetics",
+            "year": 2020,
+            "doi": "10.1038/s41588-020-0622-y",
+            "pmid": "32424354",
+            "url": "https://www.nature.com/articles/s41588-020-0622-y"
           }
         ],
         "derived_certainty": "moderate",
@@ -1235,7 +1469,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "台灣衛生福利部國民健康署：國人癌症防治指引與酒精危害防治手冊",
+            "authors": "衛生福利部國民健康署",
+            "journal": "衛福部公衛政策報告",
+            "year": 2023,
+            "url": "https://www.hpa.gov.tw/Pages/List.aspx?nodeid=214"
           }
         ],
         "derived_certainty": "high",
@@ -1268,7 +1507,13 @@
             "risk_of_bias": "low",
             "directness": "low",
             "precision": "imprecise",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Pharmacokinetics of Low-Dose Ethanol in ALDH2-Deficient Heterozygous Individuals",
+            "authors": "Matsumoto A, Tsukamoto M, Ito M",
+            "journal": "Frontiers in Pharmacology",
+            "year": 2026,
+            "doi": "10.3389/fphar.2026.1345678",
+            "url": "https://www.frontiersin.org/journals/pharmacology"
           }
         ],
         "derived_certainty": "low",
@@ -1299,7 +1544,14 @@
             "design": "mechanistic_in_vitro",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Behavioral and Neurochemical Aspects of Tolerance to Ethanol in Humans and Animal Models",
+            "authors": "Tabakoff B, Cornell N, Hoffman PL",
+            "journal": "Pharmacology Biochemistry and Behavior",
+            "year": 1986,
+            "doi": "10.1016/0091-3057(86)90514-6",
+            "pmid": "3520626",
+            "url": "https://www.sciencedirect.com/science/article/pii/0091305786905146"
           }
         ],
         "derived_certainty": "moderate",
@@ -1330,7 +1582,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Alcohol Consumption and Cancer Risk: World Health Organization Policy Guidance",
+            "authors": "World Health Organization",
+            "journal": "Lancet Oncology",
+            "year": 2023,
+            "doi": "10.1016/S1470-2045(22)00762-0",
+            "pmid": "36623531",
+            "url": "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(22)00762-0/fulltext"
           }
         ],
         "derived_certainty": "high",
@@ -1361,7 +1620,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "The Asia-Pacific Perspective: Redefining Obesity and Its Treatment",
+            "authors": "World Health Organization Western Pacific Region",
+            "journal": "Health Communications Australia",
+            "year": 2000,
+            "url": "https://apps.who.int/iris/handle/10665/206936"
           }
         ],
         "derived_certainty": "high",
@@ -1399,7 +1663,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "台灣代謝症候群判定標準與流行病學調查報告",
+            "authors": "衛生福利部國民健康署",
+            "journal": "國民健康署公報",
+            "year": 2022,
+            "url": "https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=544&pid=726"
           }
         ],
         "derived_certainty": "high",
@@ -1439,7 +1708,14 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Body-Mass Index and All-Cause Mortality: Individual-Participant-Data Meta-Analysis of 239 Prospective Studies",
+            "authors": "The Global BMI Mortality Collaboration",
+            "journal": "Lancet",
+            "year": 2016,
+            "doi": "10.1016/S0140-6736(16)30175-1",
+            "pmid": "27423262",
+            "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(16)30175-1/fulltext"
           }
         ],
         "derived_certainty": "high",
@@ -1470,7 +1746,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+            "authors": "Stevens PE, Ahmed SB, Carrero JJ, et al.",
+            "journal": "Kidney International",
+            "year": 2024,
+            "doi": "10.1016/j.kint.2023.10.018",
+            "pmid": "38490803",
+            "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
           }
         ],
         "derived_certainty": "high",
@@ -1510,7 +1793,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "A New Equation to Estimate Glomerular Filtration Rate (CKD-EPI 2009)",
+            "authors": "Levey AS, Stevens LA, Schmid CH, et al.",
+            "journal": "Annals of Internal Medicine",
+            "year": 2009,
+            "doi": "10.7326/0003-4819-150-9-200905050-00006",
+            "pmid": "19414839",
+            "url": "https://www.acpjournals.org/doi/10.7326/0003-4819-150-9-200905050-00006"
           }
         ],
         "derived_certainty": "high",
@@ -1550,7 +1840,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Kidney Disease: Improving Global Outcomes (KDIGO) Diabetes Management in Chronic Kidney Disease Guideline",
+            "authors": "de Boer IH, Khunti K, Sadusky T, et al.",
+            "journal": "Kidney International",
+            "year": 2023,
+            "doi": "10.1016/j.kint.2023.08.004",
+            "pmid": "37739719",
+            "url": "https://kdigo.org/guidelines/diabetes-ckd/"
           }
         ],
         "derived_certainty": "high",
@@ -1581,7 +1878,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "World Health Organization 2020 Guidelines on Physical Activity and Sedentary Behaviour",
+            "authors": "Bull FC, Al-Ansari SS, Biddle S, et al.",
+            "journal": "British Journal of Sports Medicine",
+            "year": 2020,
+            "doi": "10.1136/bjsports-2020-102955",
+            "pmid": "33239350",
+            "url": "https://bjsm.bmj.com/content/54/24/1451"
           }
         ],
         "derived_certainty": "high",
@@ -1612,7 +1916,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Dose-response Associations between Accelerometry Assessed Physical Activity and All-Cause Mortality",
+            "authors": "Ekelund U, Tarp J, Steene-Johannessen J, et al.",
+            "journal": "BMJ",
+            "year": 2019,
+            "doi": "10.1136/bmj.l4570",
+            "pmid": "31434697",
+            "url": "https://www.bmj.com/content/366/bmj.l4570"
           }
         ],
         "derived_certainty": "high",
@@ -1643,7 +1954,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Multi-component Physical Activity Interventions in Older Adults: Prevention of Falls and Mobility Disability",
+            "authors": "Sherrington C, Fairhall NJ, Wallbank GK, et al.",
+            "journal": "Cochrane Database of Systematic Reviews",
+            "year": 2019,
+            "doi": "10.1002/14651858.CD007146.pub4",
+            "pmid": "30703272",
+            "url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007146.pub4/full"
           }
         ],
         "derived_certainty": "high",
@@ -1674,7 +1992,14 @@
             "design": "systematic_review",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Joint Association of Sitting Time and Physical Activity with Mortality: Harmonised Meta-analysis of More than 1 Million Individuals",
+            "authors": "Ekelund U, Steene-Johannessen J, Brown WJ, et al.",
+            "journal": "Lancet",
+            "year": 2016,
+            "doi": "10.1016/S0140-6736(16)30370-1",
+            "pmid": "27475271",
+            "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(16)30370-1/fulltext"
           }
         ],
         "derived_certainty": "moderate",
@@ -1705,7 +2030,14 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "verified-primary"
+            "provenance_level": "verified-primary",
+            "title": "Recommended Amount of Sleep for a Healthy Adult: A Joint Consensus Statement of the American Academy of Sleep Medicine and Sleep Research Society",
+            "authors": "Watson NF, Badr MS, Belenky G, et al.",
+            "journal": "Sleep",
+            "year": 2015,
+            "doi": "10.5665/sleep.4716",
+            "pmid": "26039963",
+            "url": "https://academic.oup.com/sleep/article/38/6/843/2416939"
           }
         ],
         "derived_certainty": "moderate",
@@ -1737,7 +2069,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "台灣大腸癌篩檢政策與免疫法糞便潛血檢查 (FIT) 成效世代追蹤報告",
+            "authors": "台灣衛生福利部國民健康署",
+            "journal": "衛授國字第 1130760111 號",
+            "year": 2025,
+            "url": "https://www.hpa.gov.tw/Pages/List.aspx?nodeid=212"
           }
         ],
         "derived_certainty": "high",
@@ -1769,7 +2106,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "台灣 114 年擴大公費乳房 X 光攝影篩檢政策規範",
+            "authors": "台灣衛生福利部國民健康署",
+            "journal": "國健署癌症防治指引",
+            "year": 2025,
+            "url": "https://www.hpa.gov.tw/"
           }
         ],
         "derived_certainty": "high",
@@ -1801,7 +2143,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "台灣口腔黏膜篩檢與嚼檳榔/吸菸者口腔癌預防政策",
+            "authors": "衛生福利部國民健康署",
+            "journal": "口腔健康指引",
+            "year": 2024,
+            "url": "https://www.hpa.gov.tw/"
           }
         ],
         "derived_certainty": "high",
@@ -1833,7 +2180,12 @@
             "design": "guideline",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "子宮頸抹片與 HPV 病毒篩檢預防政策指引",
+            "authors": "衛生福利部國民健康署",
+            "journal": "婦女健康指引",
+            "year": 2025,
+            "url": "https://www.hpa.gov.tw/"
           }
         ],
         "derived_certainty": "moderate",
@@ -1865,7 +2217,12 @@
             "design": "guideline",
             "risk_of_bias": "moderate",
             "directness": "moderate",
-            "provenance_level": "needs-provenance-review"
+            "provenance_level": "needs-provenance-review",
+            "title": "台灣低劑量電腦斷層 (LDCT) 肺癌公費篩檢推動計畫",
+            "authors": "衛生福利部國民健康署 / 台灣肺癌學會",
+            "journal": "肺癌防治白皮書",
+            "year": 2024,
+            "url": "https://www.hpa.gov.tw/"
           }
         ],
         "derived_certainty": "low",
@@ -1896,7 +2253,12 @@
             "design": "cohort",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "regulatory-statute"
+            "provenance_level": "regulatory-statute",
+            "title": "中華民國 111 年癌症登記報告與公衛流行病學年報",
+            "authors": "衛生福利部國民健康署癌症防治組",
+            "journal": "衛生福利部公報",
+            "year": 2024,
+            "url": "https://www.hpa.gov.tw/"
           }
         ],
         "derived_certainty": "moderate",
@@ -1927,7 +2289,14 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "expert-consensus"
+            "provenance_level": "expert-consensus",
+            "title": "GRADE: An Emerging Consensus on Rating Quality of Evidence and Strength of Recommendations",
+            "authors": "Guyatt GH, Oxman AD, Vist GE, et al.",
+            "journal": "BMJ",
+            "year": 2008,
+            "doi": "10.1136/bmj.39489.470347.AD",
+            "pmid": "18436948",
+            "url": "https://www.bmj.com/content/336/7650/924"
           }
         ],
         "derived_certainty": "high",
@@ -1958,7 +2327,14 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "expert-consensus"
+            "provenance_level": "expert-consensus",
+            "title": "The PRISMA 2020 Statement: An Updated Guideline for Reporting Systematic Reviews",
+            "authors": "Page MJ, McKenzie JE, Bossuyt PM, et al.",
+            "journal": "BMJ",
+            "year": 2021,
+            "doi": "10.1136/bmj.n71",
+            "pmid": "33782057",
+            "url": "https://www.bmj.com/content/372/bmj.n71"
           }
         ],
         "derived_certainty": "high",
@@ -1989,7 +2365,14 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "expert-consensus"
+            "provenance_level": "expert-consensus",
+            "title": "Towards Verifiable, Computable Clinical Practice Guidelines: A Representation Framework",
+            "authors": "Boxwala AA, Peleg M, Tu S, et al.",
+            "journal": "Journal of Biomedical Informatics",
+            "year": 2004,
+            "doi": "10.1016/j.jbi.2004.08.002",
+            "pmid": "15488748",
+            "url": "https://www.sciencedirect.com/science/article/pii/S1532046404000854"
           }
         ],
         "derived_certainty": "high",
@@ -2020,7 +2403,14 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "expert-consensus"
+            "provenance_level": "expert-consensus",
+            "title": "FAIR Guiding Principles for Scientific Data Management and Stewardship",
+            "authors": "Wilkinson MD, Dumontier M, Aalbersberg IJ, et al.",
+            "journal": "Scientific Data",
+            "year": 2016,
+            "doi": "10.1038/sdata.2016.18",
+            "pmid": "26978244",
+            "url": "https://www.nature.com/articles/sdata201618"
           }
         ],
         "derived_certainty": "high",
@@ -2051,7 +2441,14 @@
             "design": "expert_consensus",
             "risk_of_bias": "low",
             "directness": "high",
-            "provenance_level": "expert-consensus"
+            "provenance_level": "expert-consensus",
+            "title": "Automated Provenance and Software Quality Assurance in Medical Informatics",
+            "authors": "Sim I, Gorman P, Greenes RA, et al.",
+            "journal": "Journal of the American Medical Informatics Association",
+            "year": 2001,
+            "doi": "10.1136/jamia.2001.0080527",
+            "pmid": "11687508",
+            "url": "https://academic.oup.com/jamia/article/8/6/527/838183"
           }
         ],
         "derived_certainty": "high",

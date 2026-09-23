@@ -19,6 +19,8 @@ import confetti from 'canvas-confetti';
 import { CHAPTERS } from '../../data/chapters';
 import { CHAPTER_W_PAGES } from '../../data/chapterW';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
+import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
+import { buildPaperUrls } from '../../utils/paperLinks';
 import { CanonicalBadge } from './CanonicalBadge';
 
 const KP_CANONICAL_MAPPING: Record<string, string> = {
@@ -65,6 +67,7 @@ import {
   Check,
   Bookmark,
   BookmarkCheck,
+  ExternalLink,
 } from 'lucide-react';
 
 interface Props {
@@ -470,6 +473,99 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                         </>
                       )}
                     </div>
+
+                    {/* Peer-Reviewed Research Papers & Google Scholar Direct Links */}
+                    {(() => {
+                      const canonicalId = kp.canonical_atom_id || KP_CANONICAL_MAPPING[kp.id];
+                      const atom = canonicalId
+                        ? CANONICAL_KNOWLEDGE_PACK_82.find((a) => a.id === canonicalId)
+                        : null;
+                      const hasPapers = atom && atom.evidence_records.length > 0;
+                      const scholarSearchQuery = `${kp.title} clinical medicine research paper`;
+
+                      return (
+                        <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
+                          <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
+                            <span className="font-bold text-salud-cyan-800 dark:text-salud-cyan flex items-center gap-1.5">
+                              <BookOpen className="w-3.5 h-3.5" />
+                              實證研究與論文出處 (Peer-Reviewed Papers)
+                            </span>
+                            <a
+                              href={`https://scholar.google.com/scholar?q=${encodeURIComponent(scholarSearchQuery)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[10px] text-amber-700 dark:text-amber-300 font-bold hover:underline"
+                            >
+                              <span>在 Google Scholar 檢索</span>
+                              <ExternalLink className="w-2.5 h-2.5" />
+                            </a>
+                          </div>
+
+                          {hasPapers ? (
+                            <div className="space-y-2 pt-1 font-mono text-[11px]">
+                              {atom.evidence_records.map((ev) => {
+                                const urls = buildPaperUrls(ev);
+                                return (
+                                  <div
+                                    key={ev.id}
+                                    className="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1"
+                                  >
+                                    {ev.title && (
+                                      <h6 className="font-bold text-slate-900 dark:text-slate-100 text-[11px] font-sans leading-snug">
+                                        {ev.title}
+                                      </h6>
+                                    )}
+                                    <div className="text-[10px] text-slate-500 flex flex-wrap items-center gap-1.5">
+                                      {ev.authors && <span>{ev.authors}</span>}
+                                      {ev.journal && <span>· <strong>{ev.journal}</strong></span>}
+                                      {ev.year && <span>({ev.year})</span>}
+                                    </div>
+
+                                    <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[10px]">
+                                      {urls.doiUrl && (
+                                        <a
+                                          href={urls.doiUrl}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 transition-colors"
+                                        >
+                                          <span>DOI 原文</span>
+                                          <ExternalLink className="w-2.5 h-2.5" />
+                                        </a>
+                                      )}
+                                      {urls.pubmedUrl && (
+                                        <a
+                                          href={urls.pubmedUrl}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition-colors"
+                                        >
+                                          <span>PubMed</span>
+                                          <ExternalLink className="w-2.5 h-2.5" />
+                                        </a>
+                                      )}
+                                      <a
+                                        href={urls.scholarUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700 hover:bg-amber-100 font-bold transition-colors"
+                                      >
+                                        <span>Google Scholar 論文</span>
+                                        <ExternalLink className="w-2.5 h-2.5" />
+                                      </a>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <div className="text-[11px] text-slate-500 font-mono">
+                              <span>登錄實證出處：{kp.claim_ids.join(', ') || '經專門小組定審'}</span>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
                   </div>
                 )}
 

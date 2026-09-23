@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck, ExternalLink, AlertTriangle, BookOpen, X, ChevronRight } from 'lucide-react';
 import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
+import { buildPaperUrls } from '../../utils/paperLinks';
 
 interface CanonicalBadgeProps {
   atomId: string;
@@ -110,6 +111,66 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                   最後審核：<span className="text-slate-200 font-mono">{atom.last_reviewed}</span>
                 </div>
               </div>
+
+              {/* Research Paper Citation & Direct Links */}
+              {atom.evidence_records[0] && (() => {
+                const firstEv = atom.evidence_records[0];
+                const urls = buildPaperUrls(firstEv);
+                return (
+                  <div className="p-3 rounded-xl bg-black/40 border border-emerald-900/60 space-y-1.5 font-mono text-[11px]">
+                    <div className="flex items-center justify-between text-slate-400">
+                      <span className="font-bold flex items-center gap-1 text-emerald-400">
+                        <BookOpen className="w-3 h-3" />
+                        出處研究論文 (Evidence Paper)
+                      </span>
+                      {firstEv.doi && (
+                        <a
+                          href={urls.doiUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:underline flex items-center gap-0.5 text-[10px]"
+                        >
+                          <span>DOI: {firstEv.doi}</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      )}
+                    </div>
+                    {firstEv.title ? (
+                      <div className="text-slate-200 font-sans font-medium line-clamp-2 leading-relaxed">
+                        {firstEv.title}
+                      </div>
+                    ) : (
+                      <div className="text-slate-300 font-sans">{firstEv.citation}</div>
+                    )}
+                    <div className="text-[10px] text-slate-500">
+                      {firstEv.journal} {firstEv.year ? `(${firstEv.year})` : ''} {firstEv.authors ? `· ${firstEv.authors}` : ''}
+                    </div>
+
+                    <div className="pt-1 flex flex-wrap items-center gap-2">
+                      <a
+                        href={urls.scholarUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[10px] bg-amber-950/70 hover:bg-amber-900/70 border border-amber-600/40 text-amber-300 px-2 py-0.5 rounded transition-colors font-bold"
+                      >
+                        <span>Google Scholar 檢索</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                      {urls.pubmedUrl && (
+                        <a
+                          href={urls.pubmedUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[10px] bg-emerald-950/70 hover:bg-emerald-900/70 border border-emerald-600/40 text-emerald-300 px-2 py-0.5 rounded transition-colors"
+                        >
+                          <span>PubMed 原文</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Jump to Explorer */}
