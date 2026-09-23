@@ -34,12 +34,15 @@ const DOMAINS: Record<string, { nameZh: string; color: string }> = {
   hydration: { nameZh: '水分與電解質', color: '#06B6D4' },
   diet: { nameZh: '膳食與脂肪', color: '#F59E0B' },
   alcohol: { nameZh: '酒精與ALDH2', color: '#EF4444' },
-  body_comp: { nameZh: '體位與肥胖', color: '#EC4899' },
-  renal: { nameZh: '腎臟生理', color: '#14B8A6' },
+  body_comp: { nameZh: '體位與MASLD', color: '#EC4899' },
+  renal: { nameZh: '腎臟與尿酸生理', color: '#14B8A6' },
   activity: { nameZh: '身體活動', color: '#84CC16' },
+  exercise: { nameZh: '身體活動與運動', color: '#84CC16' },
   sleep: { nameZh: '睡眠醫學', color: '#6366F1' },
   taiwan_policy: { nameZh: '台灣公共政策', color: '#F97316' },
+  policy: { nameZh: '台灣公衛法規', color: '#F97316' },
   methodology: { nameZh: '實證方法學', color: '#64748B' },
+  meta_architecture: { nameZh: '架構與實證方法學', color: '#64748B' },
 };
 
 export const KnowledgeGraphView: React.FC<KnowledgeGraphViewProps> = ({ atoms, onSelectAtom }) => {

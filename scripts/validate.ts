@@ -360,7 +360,7 @@ for (const atom of CANONICAL_KNOWLEDGE_PACK_82) {
     checkRule(
       'VAL-027',
       'error',
-      /^D\d{6}$/.test(atom.ontology.mesh_id),
+      /^D\d{6,9}$/.test(atom.ontology.mesh_id),
       `Atom ${atom.id} has invalid MeSH ID format: ${atom.ontology.mesh_id}`
     );
   }

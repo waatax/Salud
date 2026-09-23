@@ -202,4 +202,58 @@ export const CANONICAL_TERMINOLOGY_REGISTRY: Record<string, TerminologyItem> = {
       icd11_code: '5C64.0',
     },
   },
+
+  TIR: {
+    term: 'TIR',
+    primary_expansion_zh: '目標範圍時間 (Time in Range)',
+    domain: '連續血糖監測與代謝調控',
+    context_guidance_zh: '連續血糖監測 (CGM) 中血糖維持於 70–180 mg/dL 之時間百分比，臨床目標通常建議 >70%。',
+    ambiguity_warning_zh: '切勿與全內反射 (Total Internal Reflection) 或其他工程縮寫混淆。',
+    ontology: {
+      mesh_id: 'D001786',
+      mesh_term: 'Blood Glucose',
+      snomed_ct: '43491000124108',
+    },
+  },
+
+  MASLD: {
+    term: 'MASLD',
+    primary_expansion_zh: '代謝功能障礙相關脂肪性肝病 (Metabolic Dysfunction-Associated Steatotic Liver Disease)',
+    secondary_expansions_zh: ['原非酒精性脂肪肝 (NAFLD)'],
+    domain: '消化系與代謝醫學',
+    context_guidance_zh: '2023 年國際多學會取代 NAFLD 之新命名，要求具備肝脂肪堆積並合併至少一項心血管代謝風險因子。',
+    ambiguity_warning_zh: '避免帶有汙名化字眼 (non-alcoholic)，更能精準錨定心血管代謝根源。',
+    ontology: {
+      mesh_id: 'D005234',
+      mesh_term: 'Fatty Liver',
+      icd11_code: 'DB92',
+    },
+  },
+
+  OSA: {
+    term: 'OSA',
+    primary_expansion_zh: '阻塞型睡眠呼吸中止症 (Obstructive Sleep Apnea)',
+    domain: '睡眠醫學與心血管血流動力學',
+    context_guidance_zh: '睡眠中上呼吸道反覆塌陷導致間歇性缺氧與交感神經過度活化，為頑固型高血壓的重要病因。',
+    ambiguity_warning_zh: '需經多項生理睡眠檢查 (PSG) 測定 AHI 數值以確診嚴重程度。',
+    ontology: {
+      mesh_id: 'D020181',
+      mesh_term: 'Sleep Apnea, Obstructive',
+      icd11_code: 'CB41',
+      snomed_ct: '78275009',
+    },
+  },
+
+  VO2MAX: {
+    term: 'VO2max',
+    primary_expansion_zh: '最大攝氧量 (Maximal Oxygen Uptake)',
+    domain: '運動生理與心肺適能',
+    context_guidance_zh: '人體在極限有氧運動中每分鐘每公斤體重所能攝取並利用之最大氧氣毫升數 (mL/kg/min)。',
+    ambiguity_warning_zh: '為心肺耐力與長期全因死亡率之最強獨立預後指標之一，改善無益處上限天花板。',
+    ontology: {
+      mesh_id: 'D010101',
+      mesh_term: 'Oxygen Consumption',
+      snomed_ct: '251854005',
+    },
+  },
 };
