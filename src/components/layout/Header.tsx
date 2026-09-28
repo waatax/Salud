@@ -4,9 +4,8 @@ import { LanguageToggle } from '../common/LanguageToggle';
 import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
-import { PILLAR_NAV } from '../../config/navigation';
-import { Menu, HeartPulse } from 'lucide-react';
-import { APP_VERSION } from '../../config/version';
+import { useModal } from '../../context/ModalContext';
+import { Menu, Search } from 'lucide-react';
 
 interface Props {
   /** Null while a secondary page is showing. */
@@ -14,113 +13,96 @@ interface Props {
   onSelectPillar: (pillar: HealthPillar) => void;
   isDark: boolean;
   onToggleTheme: () => void;
-  onOpenCardioHub?: () => void;
   onToggleMobileSidebar: () => void;
 }
 
+const QUICK_LINKS: { id: HealthPillar; zh: string; en: string }[] = [
+  { id: 'start', zh: '4 週啟動', en: 'Start' },
+  { id: 'learn', zh: '學習路徑', en: 'Learn' },
+  { id: 'checkup', zh: '看懂健檢', en: 'Check-up' },
+];
+
+const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
+
 /**
- * Header — primary navigation.
+ * Header — v4.0.
  *
- * v2.0 rule: this bar carries health topics and reading controls only. The expert-roster
- * and charter shortcuts that used to sit in the action area were project metadata, not
- * health content; they now live in the footer under About.
+ * The v3 header squeezed all nine topic pills into one row, which wrapped CJK labels
+ * mid-word and duplicated the sidebar. The topic tree now lives only in the sidebar
+ * (desktop) and the drawer (mobile); the header carries the three things a reader
+ * reaches for from anywhere: search, the learning entry points, and reading controls.
  */
-export const Header: React.FC<Props> = ({
-  activePillar,
-  onSelectPillar,
-  isDark,
-  onToggleTheme,
-  onOpenCardioHub,
-  onToggleMobileSidebar,
-}) => {
+export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, isDark, onToggleTheme, onToggleMobileSidebar }) => {
   const { t, language } = useLanguage();
+  const { openModal } = useModal();
   const zh = language === 'zh-TW';
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-salud-light-border/80 dark:border-salud-dark-border/80 bg-white/90 dark:bg-salud-dark-bg/90 backdrop-blur-md transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-        {/* Brand */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onToggleMobileSidebar}
-            className="btn-tactile p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 lg:hidden"
-            aria-label={t('nav.open_menu')}
-          >
-            <Menu className="w-5 h-5" />
-          </button>
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-salud-dark-bg/90 backdrop-blur-md transition-colors">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center gap-2 sm:gap-4">
+        <button
+          onClick={onToggleMobileSidebar}
+          className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 lg:hidden"
+          aria-label={t('nav.open_menu')}
+        >
+          <Menu className="w-5 h-5" />
+        </button>
 
-          <button
-            className="flex items-center gap-2.5 select-none group text-left"
-            onClick={() => onSelectPillar('systems')}
-            title={zh ? '回到首頁' : 'Back to home'}
-          >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-salud-cyan via-nature-green-500 to-nature-amber-500 p-0.5 shadow-sm group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-white dark:bg-slate-950 rounded-[9px] flex items-center justify-center text-salud-cyan font-bold font-display text-sm">
-                S
-              </div>
-            </div>
-            <div>
-              <span className="text-base font-display font-extrabold tracking-tight text-slate-900 dark:text-salud-dark-text">
-                Salud
-              </span>
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 hidden xl:block">
-                {t('app.tagline')}
-              </span>
-            </div>
-          </button>
-        </div>
+        <button
+          className="flex items-center gap-2.5 select-none text-left shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          onClick={() => onSelectPillar('home')}
+          aria-label={zh ? 'Salud 首頁' : 'Salud home'}
+        >
+          <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 flex items-center justify-center text-white font-display font-bold text-base shadow-sm" aria-hidden="true">
+            S
+          </span>
+          <span className="hidden sm:block leading-tight">
+            <span className="block text-base font-display font-bold tracking-tight text-slate-900 dark:text-white">Salud</span>
+            <span className="block text-[11px] text-slate-500 dark:text-slate-400">{zh ? '給每個人的健康學習平台' : 'Health learning for everyone'}</span>
+          </span>
+        </button>
 
-        {/* ── Desktop topic navigation, rendered from the shared config ── */}
-        <nav className="hidden md:flex items-center gap-1 bg-emerald-50/50 dark:bg-[#0F1714] p-1 rounded-2xl border border-emerald-100 dark:border-[#1C2E25] text-xs font-mono">
-          {PILLAR_NAV.map((item) => {
-            const Icon = item.icon;
-            const isActive =
-              activePillar === item.id ||
-              (item.id === 'diet' && activePillar === 'supplements');
+        {/* Search: the fastest way in for a first-time reader */}
+        <button
+          onClick={() => openModal('search')}
+          className="flex-1 min-w-0 max-w-md ml-auto md:ml-4 flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-left text-sm text-slate-500 dark:text-slate-400 hover:border-emerald-400 dark:hover:border-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors"
+          aria-label={zh ? '搜尋（快捷鍵 Ctrl K）' : 'Search (Ctrl K)'}
+        >
+          <Search className="w-4 h-4 shrink-0" aria-hidden="true" />
+          <span className="flex-1 truncate">{zh ? '搜尋症狀、數值、主題' : 'Search topics, labs, symptoms'}</span>
+          <kbd className="hidden md:inline text-[10px] font-mono border border-slate-300 dark:border-slate-700 rounded px-1.5 py-0.5">
+            {isMac ? '⌘' : 'Ctrl'} K
+          </kbd>
+        </button>
+
+        <nav className="hidden xl:flex items-center gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
+          {QUICK_LINKS.map((l) => {
+            const active = activePillar === l.id;
             return (
               <button
-                key={item.id}
-                onClick={() => onSelectPillar(item.id)}
-                className={`btn-tactile flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all ${
-                  isActive
-                    ? 'bg-emerald-600 text-white font-bold shadow-emerald-glow'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 hover:bg-white/80 dark:hover:bg-[#141F1A]'
+                key={l.id}
+                onClick={() => onSelectPillar(l.id)}
+                aria-current={active ? 'page' : undefined}
+                className={`px-3 py-2 rounded-xl text-sm transition-colors ${
+                  active
+                    ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-semibold'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
-                <Icon
-                  className={`w-3.5 h-3.5 ${
-                    isActive ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'
-                  }`}
-                />
-                <span>{zh ? item.label_zh : item.label_en}</span>
+                {zh ? l.zh : l.en}
               </button>
             );
           })}
         </nav>
 
-        {/* Reading controls */}
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          {onOpenCardioHub && (
-            <button
-              onClick={onOpenCardioHub}
-              className="btn-tactile hidden xl:flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-nature-sky-200 dark:border-nature-sky-900/60 bg-nature-sky-50/80 dark:bg-nature-sky-950/30 text-nature-sky-800 dark:text-nature-sky-300 hover:bg-nature-sky-100 transition-all font-mono text-xs"
-              title={t('nav.cardio_hub_title')}
-            >
-              <HeartPulse className="w-3.5 h-3.5 text-nature-sky-600 dark:text-nature-sky-400" />
-              <span>{t('nav.cardio_hub')}</span>
-            </button>
-          )}
-
-          <FontSizeToggle variant="compact" />
-          <LanguageToggle />
-          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
-
-          <span
-            className="hidden lg:inline text-[10px] font-mono text-slate-400 dark:text-slate-600 pl-1"
-            title={zh ? '目前內容版本' : 'Content version'}
-          >
-            v{APP_VERSION}
+        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+          <span className="hidden md:inline-flex">
+            <FontSizeToggle variant="compact" />
           </span>
+          <span className="hidden sm:inline-flex">
+            <LanguageToggle />
+          </span>
+          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
         </div>
       </div>
     </header>

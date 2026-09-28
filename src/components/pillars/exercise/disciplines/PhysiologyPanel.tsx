@@ -2,6 +2,7 @@ import React from 'react';
 import { EXERCISE_TOPICS } from '../../../../data/exerciseData';
 import { SimExerciseZones } from '../../../simulators/SimExerciseZones';
 import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
+import { PhysiologyInfographics } from '../../../sports/PhysiologyInfographics';
 import { HeartPulse } from 'lucide-react';
 
 /**
@@ -50,7 +51,7 @@ export const PhysiologyPanel: React.FC = () => {
             運動生理學關鍵機制 (Key Physiological Mechanisms)
           </h3>
           <p className="text-xs font-mono text-slate-500">
-            心肺最大攝氧量 (VO2 max)、肌少症阻力訓練逆轉、NEAT 非運動性產熱與安全運動處方
+            心肺最大攝氧量 (VO2 max)、乳酸代謝穿梭、肌少症阻力訓練逆轉、NEAT 非運動性產熱與安全運動處方
           </p>
         </div>
 
@@ -62,6 +63,12 @@ export const PhysiologyPanel: React.FC = () => {
           idColor="text-salud-cyan"
         />
       </section>
+
+      {/* Sub-module 3: Pedagogical Infographics */}
+      <section className="space-y-3">
+        <PhysiologyInfographics />
+      </section>
     </div>
   );
 };
+

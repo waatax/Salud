@@ -2,6 +2,7 @@ import React from 'react';
 import { STRENGTH_TOPICS } from '../../../../data/strengthData';
 import { SimStrength1RM } from '../../../simulators/SimStrength1RM';
 import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
+import { StrengthInfographics } from '../../../sports/StrengthInfographics';
 import { Dumbbell } from 'lucide-react';
 
 /**
@@ -70,6 +71,12 @@ export const StrengthPanel: React.FC = () => {
           idColor="text-nature-green-600 dark:text-nature-green-400"
         />
       </section>
+
+      {/* Sub-module 3: Pedagogical Infographics */}
+      <section className="space-y-3">
+        <StrengthInfographics />
+      </section>
     </div>
   );
 };
+

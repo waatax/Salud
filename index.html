@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="dark">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/Salud/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Salud｜實證健康人體模擬與知識平台 (Evidence-Based Health Simulation)</title>
-    <meta name="description" content="Salud 讓你看見身體裡正在發生的事，動手改一個變因，然後用真實資料檢查你猜得對不對。嚴格以機制為核心（Mechanistic）、可操作（Manipulable）、誠實克制（Modest）的現代化健康知識平台。" />
-    
-    <!-- Google Web Fonts: Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
+    <!-- v4.0: pinch-zoom is allowed again (WCAG 1.4.4 Resize Text). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#090E0C" media="(prefers-color-scheme: dark)" />
+    <title>Salud｜給每個人的健康學習平台</title>
+    <meta name="description" content="Salud 用 7 條學習路徑、54 堂白話小課，帶一般人看懂身體、吃對食物、讀懂健檢報告。內容依據 2024–2026 年最新醫學指引，每一句都標示證據等級。" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script>
-      (function() {
-        var saved = localStorage.getItem('salud-theme');
-        if (saved === 'light') {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-        } else {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-        }
+      // Resolve the theme before first paint: an explicit choice wins, otherwise follow the OS.
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem('salud-theme-choice'); } catch (e) {}
+        var dark = saved ? saved === 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.add(dark ? 'dark' : 'light');
       })();
     </script>
   </head>
-  <body class="bg-salud-light-bg text-salud-light-text dark:bg-salud-dark-bg dark:text-salud-dark-text antialiased selection:bg-salud-amber-500/30 selection:text-salud-amber-300 transition-colors duration-200">
+  <body class="bg-salud-light-bg text-salud-light-text dark:bg-salud-dark-bg dark:text-salud-dark-text antialiased selection:bg-emerald-500/25 transition-colors duration-200">
+    <noscript>Salud 需要啟用 JavaScript 才能使用。</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

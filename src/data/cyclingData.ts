@@ -1,4 +1,4 @@
-import { CyclingTopic } from '../types';
+import { CyclingTopic, SportInfographicMeta } from '../types';
 
 export interface CogganPowerZone {
   zone: string;
@@ -272,4 +272,141 @@ export const CYCLING_TOPICS: CyclingTopic[] = [
       'Climbing gear ratios: Equip 34T or 36T cassette sprockets for Alpine climbs to guarantee cadence stays >75 rpm on 10%+ gradients.',
     ],
   },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'CYC-06',
+    title_zh: '騎車通勤的健康紅利：全因死亡風險下降約四成',
+    title_en: 'The Health Dividend of Cycle Commuting: ~40% Lower All-Cause Mortality',
+    category: 'CADENCE_PEDALING',
+    one_liner_zh: '英國 26 萬人研究：騎車通勤者全因死亡低 41%、癌症發生低 45%、心血管疾病低 46%。',
+    one_liner_en: 'In 260,000 UK adults, cycle commuting was linked to 41% lower mortality, 45% less cancer and 46% less CVD.',
+    evidence_grade: 'B',
+    principles_zh: [
+      'BMJ 2017 年 UK Biobank 分析：與開車或搭大眾運輸相比，騎車通勤與較低的全因死亡、癌症與心血管疾病相關；步行通勤則主要與較低心血管風險相關。',
+      '通勤把運動「嵌入」每天行程，是最容易長期維持的活動形式之一。',
+      '風險與效益權衡：多數研究估計騎車的健康效益遠大於交通事故與空污暴露的風險，但前提是安全的路線與裝備。',
+    ],
+    principles_en: [
+      'BMJ 2017 (UK Biobank): versus non-active commuting, cycle commuting was associated with lower all-cause mortality, cancer and CVD; walking mainly with lower CVD.',
+      'Commuting embeds exercise into the day, one of the easiest habits to sustain.',
+      'Most analyses find health gains far outweigh crash and pollution risks — provided routes and equipment are safe.',
+    ],
+    biomechanical_data_zh: [
+      '通勤騎乘多屬中等強度，每天來回 30–40 分鐘就能累積每週 150 分鐘以上。',
+      '空污暴露與路線關係很大：選擇遠離主要幹道的路線，可明顯降低 PM2.5 與黑碳吸入量。',
+    ],
+    biomechanical_data_en: [
+      'Commuter riding is mostly moderate intensity; 30–40 minutes a day round trip exceeds 150 minutes a week.',
+      'Pollution exposure depends on route: avoiding main arterial roads markedly lowers inhaled PM2.5 and black carbon.',
+    ],
+    action_guidelines_zh: [
+      '從每週 1–2 天、單程 20 分鐘內的路線開始，優先選擇自行車道與車流少的路。',
+      '配戴安全帽、夜間使用前後燈與反光裝備；空品不佳（AQI >100）時改搭其他交通工具。',
+      '公司若有淋浴或更衣空間，比較容易持續；也可以只騎一段搭配大眾運輸。',
+    ],
+    action_guidelines_en: [
+      'Start with 1–2 days a week on routes under 20 minutes, favouring bike lanes and quiet streets.',
+      'Wear a helmet and use front/rear lights and reflectives at night; switch modes when AQI > 100.',
+      'Workplace showers help adherence; combining a partial ride with public transport also counts.',
+    ],
+  },
+  {
+    id: 'CYC-07',
+    title_zh: '電動輔助自行車：運動量夠嗎？',
+    title_en: 'E-bikes: Do They Still Count as Exercise?',
+    category: 'FTP_POWER_ZONES',
+    one_liner_zh: 'e-bike 騎乘多落在中等強度；因為騎得更遠更常騎，每週總活動量可與傳統自行車相近。',
+    one_liner_en: 'E-biking mostly reaches moderate intensity; because riders go farther and more often, weekly activity can match pedal cycling.',
+    evidence_grade: 'B',
+    principles_zh: [
+      '研究量測顯示，電動輔助自行車騎乘時心率與攝氧量多落在中等強度範圍，低於傳統自行車但高於步行。',
+      '歐洲多城市研究發現，改用 e-bike 的人通勤距離更長、頻率更高，每週身體活動總量與傳統自行車騎士相近。',
+      '對體能較差、年長或有關節問題的人，e-bike 降低了「爬坡與距離」的門檻，是重新開始運動的好入口。',
+    ],
+    principles_en: [
+      'Measured heart rate and oxygen uptake during e-biking are mostly in the moderate range — below pedal cycling but above walking.',
+      'Multi-city European data show e-bike users ride longer and more often, reaching weekly activity similar to cyclists.',
+      'For less fit, older or joint-limited people, e-bikes lower the hill-and-distance barrier to starting exercise.',
+    ],
+    biomechanical_data_zh: [
+      '電動輔助自行車車重約 20–25 公斤、速度較快，煞車距離比一般自行車長。',
+      '輔助段位越高、心率越低；使用低段位並維持較高踏頻，可讓強度接近傳統自行車。',
+    ],
+    biomechanical_data_en: [
+      'E-bikes weigh ~20–25 kg and travel faster, so braking distances are longer.',
+      'Higher assist lowers heart rate; low assist with a higher cadence brings intensity close to pedal cycling.',
+    ],
+    action_guidelines_zh: [
+      '把輔助段位調低、用較高踏頻踩踏，就能提高運動強度。',
+      'e-bike 速度較快、車身較重，配戴安全帽並遵守速限，轉彎與下坡提早減速。',
+      '把它當作「交通 + 運動」的組合，每週累積 150 分鐘中等強度活動。',
+    ],
+    action_guidelines_en: [
+      'Use lower assist levels and a higher cadence to raise intensity.',
+      'E-bikes are faster and heavier: wear a helmet, keep to speed limits and brake early for turns and descents.',
+      'Treat it as transport plus exercise toward 150 min/week of moderate activity.',
+    ],
+  },
 ];
+
+export const CYCLING_INFOGRAPHICS: SportInfographicMeta[] = [
+  {
+    id: 'INFO-CYC-01',
+    discipline: 'CYCLING',
+    title_zh: 'Coggan 7-Zone 功率分區與生理代謝適應光譜',
+    title_en: 'Coggan 7-Zone Power & Adaptation Spectrum',
+    subtitle_zh: '以功能性閾值功率 (FTP) 為錨點：由 Zone 1 恢復至 Zone 7 神經肌肉爆發的能量受質與供能系統',
+    subtitle_en: 'Anchored around Functional Threshold Power (FTP): Energy systems from Z1 active recovery to Z7 neuromuscular sprint',
+    core_takeaways_zh: [
+      'FTP (100%) 代表人體可穩定維持約 45–60 分鐘的最大穩態功率，是所有訓練區間的生理基準',
+      'Zone 2 (56–75% FTP) 為公路車耐力之本，最大化提升脂肪酸氧化與粒線體毛細血管化',
+      '甜區訓練 (Sweet Spot, 88–94% FTP) 能在有限時間內取得極高的閾值拉升效率，性價比極高',
+    ],
+    core_takeaways_en: [
+      'FTP (100%) represents maximal 1-hour quasi-steady power, serving as the benchmark anchor.',
+      'Zone 2 endurance builds immense mitochondrial density with low systemic nervous system fatigue.',
+      'Sweet Spot (88-94% FTP) maximizes aerobic threshold gains per minute of training investment.',
+    ],
+    metrics_badge: 'Coggan 7-Zone Spectrum',
+  },
+  {
+    id: 'INFO-CYC-02',
+    discipline: 'CYCLING',
+    title_zh: '車速 vs 空氣阻力平方/立方指數曲線',
+    title_en: 'Aerodynamic Drag Exponential Power Demand',
+    subtitle_zh: '風阻方程式：克服空氣阻力所需功率與車速的立方 ($v^3$) 成正比，速度超過 25 km/h 風阻佔 80% 阻力',
+    subtitle_en: 'Aero physics: Overcoming aerodynamic drag requires power proportional to velocity cubed (v^3)',
+    core_takeaways_zh: [
+      '速度每提升 10 km/h，所需克服風阻的功率呈現指數級暴增，平路巡航 40 km/h 需輸出 300W+ 功率',
+      '人體迎風面積 (CdA) 佔總風阻的 75–80%（自行車器材僅佔 20–25%）',
+      '由「上把休閒騎姿 (Hoods)」切換為「彎肘水平小臂 (Aero Hoods)」或「下把 (Drops)」，能瞬間省下 20–35 瓦特',
+    ],
+    core_takeaways_en: [
+      'Power to overcome air resistance scales with v^3; cruising at 40 km/h consumes over 300 Watts against air alone.',
+      'Rider frontal area (CdA) accounts for 75-80% of total system drag; bikes account for only 20-25%.',
+      'Dropping into aero hoods (horizontal forearms) slashes drag coefficient, saving 20-35 Watts instantly.',
+    ],
+    metrics_badge: 'CdA & Velocity Cubed (v³)',
+  },
+  {
+    id: 'INFO-CYC-03',
+    discipline: 'CYCLING',
+    title_zh: '踩踏踏頻 (Cadence) 扭矩與心肺效率權衡 U 型曲線',
+    title_en: 'Cadence Torque vs Cardiovascular Trade-off',
+    subtitle_zh: '高踏頻 (85–95 rpm) 減輕骨骼肌每轉扭矩負擔轉嫁給心肺，低踏頻 (60 rpm) 易誘發快肌疲勞與髕骨發炎',
+    subtitle_en: 'Cadence biomechanics: 85-95 rpm shifts mechanical torque away from knees onto the cardiovascular engine',
+    core_takeaways_zh: [
+      '踩踏功率 (Watts) = 踏板扭矩 (Torque) × 踏頻角速度 (Cadence)；扭矩越大，肌纖維越容易提早無氧力竭',
+      '高踏頻 (85–95 rpm) 雖使心率微幅上升 3–5 bpm，但能持續依賴有氧慢肌纖維，節省有限的肌醣原',
+      '重齒比硬踩 (<60 rpm) 對髕股關節與髕腱施加極大壓力，長坡硬踩是單車族膝蓋髕骨軟化症首要元兇',
+    ],
+    core_takeaways_en: [
+      'Power = Torque x Cadence: Lower RPM requires massive muscular torque, prematurely burning fast-twitch fibers.',
+      '85-95 rpm slightly elevates heart rate (+3-5 bpm) but spares glycogen and preserves joint structures.',
+      'Mashing at <60 rpm concentrates acute joint compression on the patellofemoral interface.',
+    ],
+    metrics_badge: '85–95 rpm Torque Sweetspot',
+  },
+];
+

@@ -2,6 +2,7 @@ import React from 'react';
 import { MOBILITY_TOPICS } from '../../../../data/mobilityData';
 import { SimMobilityScreen } from '../../../simulators/SimMobilityScreen';
 import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
+import { MobilityInfographics } from '../../../sports/MobilityInfographics';
 import { RotateCw } from 'lucide-react';
 
 /**
@@ -70,6 +71,12 @@ export const MobilityPanel: React.FC = () => {
           idColor="text-teal-600 dark:text-teal-400"
         />
       </section>
+
+      {/* Sub-module 3: Pedagogical Infographics */}
+      <section className="space-y-3">
+        <MobilityInfographics />
+      </section>
     </div>
   );
 };
+

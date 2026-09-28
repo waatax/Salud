@@ -1,4 +1,4 @@
-import { StrengthTopic } from '../types';
+import { StrengthTopic, SportInfographicMeta } from '../types';
 
 export interface MuscleGroupInfo {
   id: string;
@@ -298,4 +298,160 @@ export const STRENGTH_TOPICS: StrengthTopic[] = [
       'Power for fall prevention: Train explosive sit-to-stand chair rises and rapid stair ascents to preserve Type II motor velocity for emergency tripping arrest.',
     ],
   },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'STR-06',
+    title_zh: 'ACSM 2026 重訓新指引：少即是多，不必練到力竭',
+    title_en: 'ACSM 2026 Resistance Training Position Stand: Less Is More, No Need for Failure',
+    category: 'PROGRESSIVE_OVERLOAD',
+    one_liner_zh: '17 年來首次更新：每週 2 次、每組保留 2–3 下，就能得到與力竭相近的效果。',
+    one_liner_en: 'First update in 17 years: twice weekly, stopping 2–3 reps short of failure, gives results similar to training to failure.',
+    evidence_grade: 'A',
+    mechanisms_zh: [
+      '彙整 137 篇系統性回顧、超過 3 萬名受試者：最大的效益來自「從不練到開始練」。',
+      '增肌約每肌群每週 10 組；最大肌力約用 1RM 的 80%、每動作 2–3 組；爆發力用 30–70% 1RM 並快速推起。',
+      '器材種類（機器或自由重量）、練到力竭、複雜週期化對一般成人結果影響不一致；彈力帶、自體重量與居家訓練同樣有效。',
+    ],
+    mechanisms_en: [
+      'Synthesising 137 systematic reviews (>30,000 participants): the biggest gain is going from no training to any training.',
+      'Hypertrophy: ~10 sets per muscle per week; strength: ~80% 1RM, 2–3 sets; power: 30–70% 1RM moved fast.',
+      'Equipment type, training to failure and complex periodisation did not consistently change outcomes; bands, bodyweight and home training work.',
+    ],
+    movement_analysis_zh: [
+      '全身主要肌群的五個動作：蹲（大腿、臀部）、髖鉸鏈（腿後、臀、背）、推（胸、肩、手臂後側）、拉（背、手臂前側）、核心。',
+      '初學者使用機器、啞鈴、彈力帶或自體重量都可以；動作品質比器材更重要。',
+    ],
+    movement_analysis_en: [
+      'Five movements cover the major muscles: squat, hip hinge, push, pull and core.',
+      'Machines, dumbbells, bands or bodyweight all work for beginners; technique matters more than equipment.',
+    ],
+    action_protocols_zh: [
+      '每週至少 2 次訓練全身主要肌群，每次 20–45 分鐘即可。',
+      '用 RIR（保留次數）控制強度：每組做到「還能再做 2–3 下」就停。',
+      '能輕鬆完成目標次數時，增加約 5–10% 的重量或次數。',
+    ],
+    action_protocols_en: [
+      'Train all major muscle groups at least twice a week; 20–45 min is enough.',
+      'Use reps-in-reserve: stop each set with 2–3 reps left.',
+      'When target reps feel easy, add ~5–10% load or reps.',
+    ],
+  },
+  {
+    id: 'STR-07',
+    title_zh: '爆發力訓練：長者防跌的秘密武器',
+    title_en: 'Power Training: The Hidden Key to Fall Prevention in Older Adults',
+    category: 'NEURAL_ADAPTATION',
+    one_liner_zh: '年齡增長時「爆發力」流失得比肌力更快，而爆發力決定你能不能在絆倒時穩住。',
+    one_liner_en: 'Power declines faster than strength with age — and power decides whether you recover from a trip.',
+    evidence_grade: 'B',
+    mechanisms_zh: [
+      '爆發力 = 力量 × 速度。快縮型（第 II 型）肌纖維隨年齡流失較多，使長者的爆發力下降速度快於最大肌力。',
+      '從椅子站起、上樓梯、絆倒時快速跨步穩住身體，靠的都是爆發力。',
+      '研究顯示以中等重量快速推起的爆發力訓練，改善長者日常功能的效果至少與傳統慢速重訓相當。',
+    ],
+    mechanisms_en: [
+      'Power = force × velocity. Fast-twitch type II fibres are lost preferentially with age, so power falls faster than maximal strength.',
+      'Rising from a chair, climbing stairs and stepping quickly to catch a trip all depend on power.',
+      'Moderate-load, fast-concentric power training improves daily function in older adults at least as well as slow traditional lifting.',
+    ],
+    movement_analysis_zh: [
+      '快速坐站：以最快但可控制的速度從椅子站起，再用 2–3 秒慢慢坐下。',
+      '快速登階：踏上 15–20 公分台階時快速發力，下台階時慢慢控制。',
+    ],
+    movement_analysis_en: [
+      'Fast sit-to-stand: rise from a chair as fast as you can control, then take 2–3 seconds to sit.',
+      'Fast step-ups: drive quickly onto a 15–20 cm step and lower slowly.',
+    ],
+    action_protocols_zh: [
+      '選擇安全動作（椅子坐站、登階、彈力帶划船），用約 30–70% 最大重量，「上升快、下降慢」。',
+      '每組 6–10 下、2–3 組，每週 2 次，搭配平衡訓練。',
+      '骨質疏鬆或平衡很差者，先在物理治療師指導下進行，避免跳躍類動作。',
+    ],
+    action_protocols_en: [
+      'Use safe movements (sit-to-stand, step-ups, band rows) at ~30–70% max: fast up, slow down.',
+      '2–3 sets of 6–10 reps, twice a week, combined with balance training.',
+      'With osteoporosis or poor balance, start under physiotherapist supervision and avoid jumping.',
+    ],
+  },
 ];
+
+export const STRENGTH_INFOGRAPHICS: SportInfographicMeta[] = [
+  {
+    id: 'INFO-STR-01',
+    discipline: 'STRENGTH_TRAINING',
+    title_zh: '肌肥大三大要素力學/代謝/損傷貢獻權重圖',
+    title_en: 'Mechanotransduction Triad in Hypertrophy',
+    subtitle_zh: 'Schoenfeld 實證運動生理學：機械張力佔 70% 決定性核心，代謝壓力佔 20%，微細損傷僅佔 10% 輔助',
+    subtitle_en: 'Schoenfeld hypertrophy evidence: Mechanical tension is the primary 70% driver, with metabolic stress contributing 20%',
+    core_takeaways_zh: [
+      '機械張力 (Mechanical Tension)：逼近力竭時的高強度加載直接拉動肋節 (Costamere)，啟動 mTORC1 級聯',
+      '代謝壓力 (Metabolic Stress)：高次數泵感累積代謝產物（乳酸、H+、無機磷酸），促進細胞水腫與自泌生長因子',
+      '肌纖維損傷 (Muscle Damage)：並非越多越好，過度損傷會拖延恢復週期、排擠有效訓練頻率',
+    ],
+    core_takeaways_en: [
+      'Mechanical tension: High-load straining near failure triggers mechanosensitive kinase phosphorylation.',
+      'Metabolic stress: Metabolite pooling upregulates local autocrine/paracrine growth factors.',
+      'Muscle damage: Excessive soreness impairs structural remodeling and delays progressive overload.',
+    ],
+    metrics_badge: 'Tension 70% · Stress 20% · Damage 10%',
+  },
+  {
+    id: 'INFO-STR-02',
+    discipline: 'STRENGTH_TRAINING',
+    title_zh: '六大基礎動作模式動力鏈圖譜',
+    title_en: 'Six Fundamental Movement Patterns Kinetic Mapping',
+    subtitle_zh: '深蹲、髖鉸鏈、水平推/拉、垂直推/拉、單腿步態與核心抗旋轉：覆蓋人體 95% 以上大肌群運動鏈',
+    subtitle_en: 'Squat, hinge, horizontal push/pull, vertical push/pull, lunge, and anti-rotation: Covering 95% of human motor chains',
+    core_takeaways_zh: [
+      '下肢雙樞紐：蹲（膝主導，股四頭肌與臀大肌）與鉸鏈（髖主導，臀大肌與膕繩肌後側動力鏈）',
+      '上肢推拉平衡：水平推臥推對應水平划船；垂直推肩推對應垂直引體向上，防範圓肩駝背',
+      '核心轉向抗扭：核心的主要功能是「抵抗外力變形（抗伸展、抗側屈、抗旋轉）」而非反覆折腰',
+    ],
+    core_takeaways_en: [
+      'Lower body dual pivots: Knee-dominant squats vs hip-dominant hinges for posterior chain power.',
+      'Upper body push-pull parity: Balances anterior vs posterior shoulder mechanics to shield rotator cuffs.',
+      'Core stabilization: Anti-extension and anti-rotation protect the lumbar spine under axial load.',
+    ],
+    metrics_badge: 'Six Master Kinetic Patterns',
+  },
+  {
+    id: 'INFO-STR-03',
+    discipline: 'STRENGTH_TRAINING',
+    title_zh: '運動單位大小原則徵召階梯 (Henneman’s Size Principle)',
+    title_en: 'Henneman’s Size Principle & Motor Unit Recruitment',
+    subtitle_zh: '運動神經元由小到大按部就班徵召：輕負荷僅啟動慢肌，只有大重量或逼近力竭才能完全喚醒高閾值快肌',
+    subtitle_en: 'Orderly motor unit recruitment: Small low-threshold Type I units fire first; high-threshold Type IIx require intense effort',
+    core_takeaways_zh: [
+      '低閾值運動神經元支配 I 型慢肌纖維：耐疲勞但力量小，日常走路與輕度家事即足以徵召',
+      '高閾值運動神經元支配 IIa / IIx 型快肌纖維：潛在增長空間大、爆發力強，抗肌少症的核心保護靶點',
+      '只要訓練組的自覺保留次數 (RIR) ≤ 2 次，無論是 6 下大重量還是 20 下輕重量均能達成同等快肌徵召',
+    ],
+    core_takeaways_en: [
+      'Low-threshold units control slow-twitch Type I fibers: Highly fatigue-resistant but low contractile force.',
+      'High-threshold units control fast-twitch Type II fibers: Possess greatest capacity for hypertrophy and rapid force.',
+      'Training within 0-2 RIR ensures full high-threshold recruitment across both heavy and moderate load spectrums.',
+    ],
+    metrics_badge: 'Henneman Size Recruitment',
+  },
+  {
+    id: 'INFO-STR-04',
+    discipline: 'STRENGTH_TRAINING',
+    title_zh: '漸進式超負荷超補償週期化波形',
+    title_en: 'Progressive Overload & Supercompensation Cycle Waves',
+    subtitle_zh: '刺激 ➔ 急性疲勞下墜 ➔ 蛋白質合成超補償 ➔ 減量週 (Deload) 消除中樞神經疲勞的神經內分泌模型',
+    subtitle_en: 'Stimulus ➔ Fatigue dip ➔ Supercompensation peak ➔ Deload phase for central nervous system restoration',
+    core_takeaways_zh: [
+      '漸進式超負荷 (Progressive Overload)：每週或每週期透過增加重量、增加次數或改善動作控制給予新刺激',
+      '超補償窗口 (Supercompensation)：訓練後 48–72 小時肌原纖維與神經適應達到短暫高峰，是最佳再次刺激時機',
+      '週期性減量週 (Deload)：每連續高強度訓練 4–6 週安排 1 週負荷減半（重量降 10%、組數降 50%），消除累積結締組織微創',
+    ],
+    core_takeaways_en: [
+      'Progressive overload: Systematically advancing load, reps, or mechanical tension across microcycles.',
+      'Supercompensation window: Peak adaptation occurs 48–72 hours post-session under adequate nutrition/sleep.',
+      'Deload integration: Every 4-6 weeks, reducing volume by 50% clears accumulated CNS and connective tissue strain.',
+    ],
+    metrics_badge: 'Supercompensation Waveform',
+  },
+];
+

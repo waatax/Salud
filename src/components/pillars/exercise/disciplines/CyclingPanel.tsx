@@ -2,6 +2,7 @@ import React from 'react';
 import { CYCLING_TOPICS } from '../../../../data/cyclingData';
 import { SimCyclingPower } from '../../../simulators/SimCyclingPower';
 import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
+import { CyclingInfographics } from '../../../sports/CyclingInfographics';
 import { Bike } from 'lucide-react';
 
 /**
@@ -70,6 +71,12 @@ export const CyclingPanel: React.FC = () => {
           idColor="text-blue-600 dark:text-blue-400"
         />
       </section>
+
+      {/* Sub-module 3: Pedagogical Infographics */}
+      <section className="space-y-3">
+        <CyclingInfographics />
+      </section>
     </div>
   );
 };
+

@@ -37,12 +37,12 @@ export const InfographLongevityCompounds: React.FC = () => {
         </div>
 
         <div className="px-3 py-1.5 rounded-xl bg-white/90 dark:bg-amber-500/10 border border-emerald-200 dark:border-amber-500/30 text-emerald-800 dark:text-amber-300 text-xs font-mono font-bold shrink-0 shadow-xs">
-          7 款代表性長壽化合物
+          {LONGEVITY_COMPOUNDS.length} 款代表性長壽化合物
         </div>
       </div>
 
       {/* Selector Pills */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         {LONGEVITY_COMPOUNDS.map((c) => {
           const isActive = selectedCompoundId === c.id;
           return (

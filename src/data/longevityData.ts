@@ -420,6 +420,31 @@ export const LONGEVITY_COMPOUNDS: LongevityCompound[] = [
     ],
     lead_reviewer_id: 'EC-38',
   },
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'COMP-08',
+    name_zh: 'GLP-1 類藥物 (Semaglutide / Tirzepatide) 與老化',
+    name_en: 'GLP-1-based Drugs and Ageing',
+    compound_class: '腸泌素受體促效劑（已上市藥物，老化適應症未核准）',
+    primary_mechanism_zh: '透過減重、降低內臟脂肪與全身發炎、改善血糖與血壓，同時影響心、腎、肝多個器官。SELECT 試驗中，已有心血管疾病的肥胖者重大心血管事件減少 20%；FLOW 試驗中，第 2 型糖尿病合併慢性腎病者的腎臟惡化事件減少約 24%。',
+    itp_max_lifespan_extension_pct: 'NIH ITP 尚無小鼠壽命數據',
+    human_clinical_stage: '已核准用於糖尿病、肥胖、心血管風險降低與 MASH；2025 年 EVOKE/EVOKE+ 兩項第 3 期試驗（3,808 人）顯示口服 semaglutide 未能減緩早期阿茲海默症進展',
+    evidence_grade: 'B',
+    radar_scores: {
+      human_evidence: 8.5,
+      lifespan_potential: 6.5,
+      safety_profile: 7.5,
+      accessibility: 5.5,
+      biomarker_impact: 8.5,
+    },
+    optimal_dosing_protocol: '僅在有適應症（肥胖、糖尿病、心血管或腎臟疾病）時由醫師處方；目前沒有證據支持健康人為了「抗老」而使用。',
+    contraindications_and_risks: [
+      '腸胃道副作用、膽囊疾病與少見的胰臟炎',
+      '減重時的肌肉流失，長者尤其需要搭配肌力訓練',
+      '甲狀腺髓質癌或 MEN2 家族史、懷孕者禁用',
+    ],
+    lead_reviewer_id: 'EC-38',
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -476,6 +501,20 @@ export const HORMESIS_PROTOCOLS: HormesisProtocol[] = [
     cellular_mechanism_zh: '刺激第一型慢肌纖維中 PGC-1$\\alpha$ 持續活化，促進粒線體新生、增強微血管床毛細管化密度，大幅降低內臟脂肪累積。',
     contraindications: ['急性心肌炎', '重度心肺衰竭未代償期'],
     biomarker_endpoints: ['安靜心率 (RHR) 降低至 < 60 bpm', '心率變異度 (HRV) 改善', 'VO2 Max 階梯式提升'],
+    lead_reviewer_id: 'EC-33',
+  },
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'HORM-05',
+    modality_zh: '肌力訓練：肌肉是長壽器官 (Resistance Training for Longevity)',
+    modality_en: 'Resistance Training for Longevity',
+    biological_target: '肌肉量與爆發力維持 + 胰島素敏感度 + 骨密度 + 肌肉激素 (Myokines) 分泌',
+    effective_dose: '全身主要肌群每週 ≥2 次；每組保留 2–3 下餘力（ACSM 2026）',
+    frequency_per_week: '每週 2–3 次，每次 20–45 分鐘',
+    clinical_evidence_summary: '統合分析顯示每週 30–60 分鐘的肌力訓練與全因死亡、心血管疾病及癌症風險降低約 10–20% 相關；與有氧運動合併時效益最大。ACSM 2026 立場聲明彙整 137 篇系統性回顧，確認從不練到開始練是最大的效益來源。',
+    cellular_mechanism_zh: '機械張力活化 mTORC1 促進肌蛋白合成；收縮肌肉釋放肌肉激素調節全身發炎與代謝；骨骼受力刺激成骨細胞，減緩骨質流失。',
+    contraindications: ['未控制的嚴重高血壓（避免閉氣用力）', '急性骨骼肌肉損傷期', '骨質疏鬆者避免高衝擊與脊椎大角度屈曲負重（需專業指導）'],
+    biomarker_endpoints: ['握力與 5 次起立坐下時間', '四肢骨骼肌量 (ASM)', '空腹胰島素與 HbA1c', '骨密度 T 值'],
     lead_reviewer_id: 'EC-33',
   },
 ];
@@ -665,5 +704,45 @@ export const LONGEVITY_MASTERY_QUIZZES: LongevityQuizItem[] = [
     correct_index: 1,
     clinical_pearl_zh: 'Maiken Nedergaard 發現的膠淋巴系統只在深度慢波睡眠期間全開。若長期睡眠不足，A$\\beta$ 與 Tau 毒性蛋白無法有效沖刷代謝，是造成大腦生物學年齡加速老化的主因。',
     remedy_tab: 'OVERVIEW',
+  },
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'LQ-15',
+    question_zh: '2025 年 EVOKE 與 EVOKE+ 兩項第 3 期試驗測試口服 semaglutide 治療早期阿茲海默症，結果如何？',
+    options_zh: [
+      '顯著延緩認知退化，已核准用於阿茲海默症',
+      '部分生物標記改善，但未能減緩疾病進展',
+      '造成認知退化加速，已被禁止使用',
+      '只對年輕人有效',
+    ],
+    correct_index: 1,
+    clinical_pearl_zh: '觀察性研究的好訊號不一定能在隨機試驗中被證實。GLP-1 類藥物對心、腎、肝有明確好處，但目前沒有證據支持用來預防或治療阿茲海默症。',
+    remedy_tab: 'PHARMACOTHERAPY',
+  },
+  {
+    id: 'LQ-16',
+    question_zh: '市售「生物年齡」或表觀遺傳時鐘檢測，目前在個人健康管理上的正確定位是？',
+    options_zh: [
+      '可以精準決定個人該吃哪些抗老藥物',
+      '研究工具為主，個人結果變異大，尚不足以作為臨床治療決策依據',
+      '數值年輕就代表不需要做健康檢查',
+      '比血壓、血糖、血脂更重要',
+    ],
+    correct_index: 1,
+    clinical_pearl_zh: '表觀遺傳時鐘在族群研究中很有價值，但個人重複檢測的差異與臨床意義仍有限。與其追蹤「生物年齡」，不如把血壓、LDL、血糖、腰圍與體能控制好。',
+    remedy_tab: 'EPIGENETIC_CLOCKS',
+  },
+  {
+    id: 'LQ-17',
+    question_zh: '依 ACSM 2026 年重訓立場聲明，對一般成人最重要的一件事是？',
+    options_zh: [
+      '每組都必須練到力竭',
+      '一定要使用自由重量而非機器',
+      '從不練到開始規律練：每週至少 2 次訓練全身主要肌群',
+      '每週至少 6 天、每天 2 小時',
+    ],
+    correct_index: 2,
+    clinical_pearl_zh: '保留 2–3 下餘力就足以達到與力竭相近的效果；彈力帶、自體重量與居家訓練同樣有效。對長者，肌力與爆發力訓練是對抗肌少症與跌倒的核心。',
+    remedy_tab: 'HORMESIS',
   },
 ];

@@ -455,7 +455,34 @@ export const ATOMIC_HABITS: UltraHealthAtomicHabit[] = [
     difficulty: 'EASY',
     evidence_grade: 'A',
     why_it_works_zh: '超長 8 秒呼氣強制啟動迷走神經煞車，誘導大腦分泌 GABA 並降低核心體溫。'
-  }
+  },
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'HABIT-12',
+    title_zh: '飯後散步 10 分鐘',
+    title_en: '10-Minute Post-Meal Walk',
+    pillar: 'exercise',
+    anchor_moment_zh: '吃完午餐或晚餐、放下筷子的那一刻',
+    micro_action_zh: '起身走路 10 分鐘（在辦公室走樓梯、在家附近繞一圈都可以）',
+    dopamine_reward_zh: '在手機步數 App 上看到當天步數往 7,000 步推進',
+    duration_minutes: 10,
+    difficulty: 'EASY',
+    evidence_grade: 'B',
+    why_it_works_zh: '飯後肌肉收縮能直接把血糖送進肌肉細胞，研究顯示即使是輕鬆散步也能降低餐後血糖高峰；同時累積每日步數。',
+  },
+  {
+    id: 'HABIT-13',
+    title_zh: '固定起床時間 + 晨光 10 分鐘',
+    title_en: 'Fixed Wake Time + 10 Minutes of Morning Light',
+    pillar: 'sleep',
+    anchor_moment_zh: '鬧鐘響起、每天同一時間（週末誤差 1 小時內）',
+    micro_action_zh: '拉開窗簾或走到陽台、門口，接觸自然光 10 分鐘',
+    dopamine_reward_zh: '在月曆上打勾，連續 7 天就獎勵自己一杯喜歡的無糖飲品',
+    duration_minutes: 10,
+    difficulty: 'EASY',
+    evidence_grade: 'B',
+    why_it_works_zh: '早晨光線是校正生理時鐘最強的訊號，固定起床時間能提升睡眠規律度——研究顯示規律度比睡眠時數更能預測健康。',
+  },
 ];
 
 export const PHYSIO_EXERCISES: PhysioExercise[] = [
@@ -768,5 +795,19 @@ export const STREET_MYTH_BUSTERS = [
     fact_zh: '真相：這是可能奪命的危險偏方！急診指引已全面禁用。若患者實為心肌梗塞、肺栓塞或氣胸，紙袋重呼吸會迅速引發致命性低氧血症導致心跳停止！正確作法是閉嘴純鼻慢呼吸，劇烈胸痛冒冷汗請立即撥打 119。',
     influencer_quote_zh: '「紙袋呼吸是老電影的致命誤導！萬一是心肌梗塞，拿紙袋套頭等於直接掐斷心臟最後一口氧氣！」',
     verdict: 'BUSTED'
-  }
+  },
+  {
+    id: 'MYTH-06',
+    myth_zh: '迷思：一天沒走到一萬步，運動就沒效果？',
+    fact_zh: '真相：2025 年 Lancet Public Health 整合 16 萬人資料，每天約 7,000 步就與全因死亡降低 47%、失智降低 38% 相關；從 2,000 步走到 4,000 步已有明顯差別。一萬步很好，但不是門檻。',
+    influencer_quote_zh: '「一萬步是 1960 年代日本計步器的廣告數字，你的身體從第一千步就開始感謝你！」',
+    verdict: 'BUSTED'
+  },
+  {
+    id: 'MYTH-07',
+    myth_zh: '迷思：重訓一定要練到力竭、隔天鐵腿才算有練到？',
+    fact_zh: '真相：ACSM 2026 年立場聲明指出，每組保留 2–3 下餘力就能得到與力竭相近的增肌效果；肌肉痠痛程度不等於訓練效果。每週 2 次、長期持續才是關鍵。',
+    influencer_quote_zh: '「鐵腿不是勳章，是恢復帳單！留兩三下的餘力，你才練得了下一次。」',
+    verdict: 'BUSTED'
+  },
 ];

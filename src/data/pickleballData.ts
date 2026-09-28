@@ -285,4 +285,43 @@ export const PICKLEBALL_TOPICS: PickleballTopic[] = [
       'Reset Drilling: Perform 100 daily transition zone resets, cultivating the soft-hand technique of absorbing ball velocity.',
     ],
   },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'PB-06',
+    title_zh: '匹克球傷害的真實樣貌：跌倒、手腕骨折與眼睛受傷',
+    title_en: 'What Pickleball Injuries Really Look Like: Falls, Wrist Fractures and Eye Injuries',
+    category: 'LONGEVITY_PREVENTION',
+    one_liner_zh: '匹克球傷害近年快速增加，多發生在 60 歲以上，最常見的是跌倒骨折與扭拉傷。',
+    one_liner_en: 'Pickleball injuries are rising fast, mostly in people over 60, led by fall-related fractures and sprains.',
+    evidence_grade: 'B',
+    mechanisms_zh: [
+      '美國急診資料顯示，隨著參與人數暴增，匹克球相關傷害快速增加，大多數發生在 60 歲以上族群。',
+      '常見傷害包括：往後退接高球時跌倒造成的手腕與髖部骨折、腳踝扭傷、小腿與阿基里斯腱拉傷，以及近距離被球擊中的眼部傷害。',
+      '骨質疏鬆、平衡較差與服用鎮靜或降壓藥物的長者，跌倒後骨折風險更高。',
+    ],
+    mechanisms_en: [
+      'US emergency-department data show pickleball injuries climbing with participation, with most in adults over 60.',
+      'Common injuries: wrist and hip fractures from backward falls chasing lobs, ankle sprains, calf and Achilles strains, and eye injuries from close-range balls.',
+      'Older players with osteoporosis, poor balance or sedating/antihypertensive drugs face higher fracture risk after falls.',
+    ],
+    biomechanics_zh: [
+      '倒退跑時重心落在腳跟後方，一旦絆倒，常是手腕或後腦先著地。',
+      '在廚房區近網對打時球速快、距離近，眼睛最容易被擊中。',
+    ],
+    biomechanics_en: [
+      'Backpedalling puts the centre of mass behind the heels; a trip often lands on the wrist or the back of the head.',
+      'At the kitchen line, balls travel fast at close range, making eye strikes most likely.',
+    ],
+    action_protocols_zh: [
+      '不要往後倒退跑追高球：側身交叉步移動，或讓搭檔處理。',
+      '配戴運動護目鏡，特別是在廚房區近距離截擊時。',
+      '每週 2 次平衡與下肢肌力訓練；有骨質疏鬆者先評估骨密度與跌倒風險再上場。',
+    ],
+    action_protocols_en: [
+      'Never backpedal for lobs: turn and cross-step, or let your partner take it.',
+      'Wear sports eyewear, especially during kitchen-line volley exchanges.',
+      'Train balance and leg strength twice weekly; those with osteoporosis should be assessed before playing.',
+    ],
+  },
 ];

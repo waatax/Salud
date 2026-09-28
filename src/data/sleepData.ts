@@ -195,6 +195,94 @@ export const SLEEP_TOPICS: SleepTopic[] = [
       'Always practice supine or seated: Transient baroreflex blood pressure dips necessitate a lying posture for beginners.',
     ],
   },
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'SL-06',
+    title_zh: '睡眠規律度：比睡多久更能預測健康',
+    title_en: 'Sleep Regularity: A Stronger Predictor Than Sleep Duration',
+    category: 'CIRCADIAN_BIOLOGY',
+    one_liner_zh: '每天固定時間睡覺與起床，比偶爾睡很久更重要；週末補眠會造成社交時差。',
+    one_liner_en: 'Consistent sleep and wake times matter more than occasional long sleeps; weekend catch-up creates social jet lag.',
+    evidence_grade: 'B',
+    mechanisms_zh: [
+      '以手環記錄約 6 萬人睡眠的研究發現，睡眠規律指數較高者全因死亡風險明顯較低，且預測力優於睡眠時數。',
+      '作息不固定讓大腦中樞時鐘與肝臟、腸道等周邊時鐘不同步，影響血糖、血壓與情緒調節。',
+      '規律睡眠也與較低的憂鬱與焦慮風險相關，獨立於睡眠長度之外。',
+    ],
+    mechanisms_en: [
+      'In ~60,000 accelerometer-tracked adults, higher sleep regularity predicted lower all-cause mortality better than sleep duration.',
+      'Irregular schedules desynchronise the central clock from peripheral clocks in liver and gut, disturbing glucose, blood pressure and mood.',
+      'Regular sleep is associated with lower depression and anxiety risk independent of duration.',
+    ],
+    actionable_rules_zh: [
+      '先固定起床時間，週末與平日相差不超過 1 小時。',
+      '起床後 30 分鐘內接觸自然光 10–15 分鐘。',
+      '想睡才上床；晚上刻意早睡卻睡不著，反而會打亂節律。',
+    ],
+    actionable_rules_en: [
+      'Anchor your wake time first, within 1 hour on weekends.',
+      'Get 10–15 minutes of daylight within 30 minutes of waking.',
+      'Go to bed when sleepy; forcing an early bedtime can disrupt rhythm.',
+    ],
+  },
+  {
+    id: 'SL-07',
+    title_zh: '睡眠呼吸中止的新選擇：減重藥與正壓呼吸器',
+    title_en: 'New Options for Sleep Apnoea: Weight-Loss Medication and CPAP',
+    category: 'ARCHITECTURE',
+    one_liner_zh: '2024 年底美國 FDA 核准 tirzepatide 用於肥胖合併中重度睡眠呼吸中止，但 CPAP 仍是核心治療。',
+    one_liner_en: 'In late 2024 the FDA approved tirzepatide for obesity with moderate–severe OSA, but CPAP remains core therapy.',
+    evidence_grade: 'A',
+    mechanisms_zh: [
+      '頸部與舌根的脂肪會讓上呼吸道在睡眠時更容易塌陷；減重可降低每小時呼吸中止次數（AHI）。',
+      'SURMOUNT-OSA 試驗中，tirzepatide 讓 AHI 大幅下降，部分患者降到輕度或緩解範圍。',
+      '正壓呼吸器（CPAP）直接用氣流撐開呼吸道，是立即有效的治療，能改善白天嗜睡與血壓。',
+    ],
+    mechanisms_en: [
+      'Fat around the neck and tongue base makes the airway collapse more easily; weight loss lowers the apnoea–hypopnoea index (AHI).',
+      'In SURMOUNT-OSA, tirzepatide produced large AHI reductions, with some patients reaching mild or remission ranges.',
+      'CPAP splints the airway open immediately, improving daytime sleepiness and blood pressure.',
+    ],
+    actionable_rules_zh: [
+      'STOP-BANG ≥3 分或有大聲打呼、白天嗜睡，先做睡眠檢查確認嚴重度。',
+      '中重度患者先使用 CPAP，同時與醫師討論減重策略（飲食、運動、藥物或手術）。',
+      '避免睡前飲酒與鎮靜安眠藥，側睡可減少仰睡時的呼吸道塌陷。',
+    ],
+    actionable_rules_en: [
+      'With STOP-BANG ≥3, loud snoring or daytime sleepiness, get a sleep study first.',
+      'Start CPAP for moderate–severe OSA while planning weight loss (diet, exercise, medication or surgery).',
+      'Avoid alcohol and sedatives at night; side-sleeping reduces supine collapse.',
+    ],
+  },
+  {
+    id: 'SL-08',
+    title_zh: '午睡：多久最剛好？',
+    title_en: 'Napping: How Long Is Just Right?',
+    category: 'CIRCADIAN_BIOLOGY',
+    one_liner_zh: '10–20 分鐘的短午睡能提升下午警覺度；長時間午睡可能是夜間睡眠或健康問題的警訊。',
+    one_liner_en: 'A 10–20 minute nap boosts afternoon alertness; long daily naps may signal poor night sleep or health problems.',
+    evidence_grade: 'B',
+    mechanisms_zh: [
+      '短午睡停留在淺睡期，醒來不容易昏沉，能改善注意力與反應時間。',
+      '超過 30 分鐘容易進入深睡，醒來時出現「睡眠慣性」（昏沉），也可能讓晚上更難入睡。',
+      '觀察性研究發現，長期每天午睡超過一小時與較高的心血管代謝與死亡風險相關，可能反映夜間睡眠不足或睡眠呼吸中止。',
+    ],
+    mechanisms_en: [
+      'Short naps stay in light sleep, avoiding grogginess and improving attention and reaction time.',
+      'Naps over 30 minutes often reach deep sleep, causing sleep inertia and possibly delaying night-time sleep.',
+      'Habitual naps over an hour are associated with higher cardiometabolic and mortality risk in cohorts, possibly reflecting poor night sleep or apnoea.',
+    ],
+    actionable_rules_zh: [
+      '午睡控制在 10–20 分鐘，最好在下午 3 點前結束。',
+      '有失眠問題的人，先不要午睡，把睡意留到晚上。',
+      '如果每天都需要長時間午睡才撐得住，請評估夜間睡眠與睡眠呼吸中止。',
+    ],
+    actionable_rules_en: [
+      'Keep naps to 10–20 minutes and finish before about 3 pm.',
+      'If you have insomnia, skip naps to build night-time sleep pressure.',
+      'Needing long naps daily warrants evaluation of night sleep and sleep apnoea.',
+    ],
+  },
 ];
 
 // ── 咖啡因藥物動力學與腺苷受體競爭模型 (Caffeine Pharmacokinetics Model) ──

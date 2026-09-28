@@ -285,4 +285,43 @@ export const TABLE_TENNIS_TOPICS: TableTennisTopic[] = [
       'Post-Match Soft Tissue Release: Lacrosse ball myofascial release on the pronator teres, brachioradialis, and subscapularis for 60s.',
     ],
   },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'TT-06',
+    title_zh: '桌球與大腦：協調、反應與長者的認知訓練',
+    title_en: 'Table Tennis and the Brain: Coordination, Reaction and Cognitive Training in Later Life',
+    category: 'PERCEPTION_ACTION_TIMELINE',
+    one_liner_zh: '桌球同時要求視覺追蹤、快速決策與精細動作，是低衝擊又能刺激大腦的運動。',
+    one_liner_en: 'Table tennis demands visual tracking, rapid decisions and fine motor control — a low-impact sport that also challenges the brain.',
+    evidence_grade: 'C',
+    mechanisms_zh: [
+      '每一球都需要在不到半秒內完成「看球旋轉 → 預測落點 → 選擇動作」，反覆訓練注意力、處理速度與手眼協調。',
+      '小型研究顯示長者規律打桌球後，執行功能與平衡表現有所改善；日本的初步研究也報告帕金森病患者的部分症狀改善，但仍需大型試驗確認。',
+      '對膝關節衝擊低、可依體能調整強度，並帶有社交互動，是長者容易持續的運動選項。',
+    ],
+    mechanisms_en: [
+      'Every rally requires reading spin, predicting the bounce and choosing a stroke in under half a second, training attention, processing speed and hand–eye coordination.',
+      'Small studies report better executive function and balance in older adults who play regularly; pilot data in Parkinson’s disease are encouraging but need large trials.',
+      'Low knee impact, adjustable intensity and built-in social contact make it easy for older adults to sustain.',
+    ],
+    biomechanics_zh: [
+      '在 2.74 公尺的球台上，來回的反應時間常只有約半秒甚至更短。',
+      '以小碎步與軀幹旋轉為主，對膝關節衝擊低，但要注意下背的反覆扭轉。',
+    ],
+    biomechanics_en: [
+      'On a 2.74 m table, reaction windows are often half a second or less.',
+      'Play relies on small steps and trunk rotation — low knee impact, but repetitive lumbar twisting needs care.',
+    ],
+    action_protocols_zh: [
+      '長者可從每週 2–3 次、每次 30–60 分鐘的輕鬆對打開始，搭配專注於落點的練習。',
+      '保持低重心與小碎步移動，避免快速倒退與扭轉造成跌倒或下背拉傷。',
+      '把桌球當作多面向護腦計畫的一部分，仍需搭配有氧、肌力訓練與社交活動。',
+    ],
+    action_protocols_en: [
+      'Older adults can start with relaxed rallies 2–3 times a week for 30–60 minutes, adding placement drills.',
+      'Keep a low centre of gravity with small steps; avoid fast backpedalling and twisting that cause falls or back strain.',
+      'Use table tennis as part of a broader brain-health plan alongside aerobic, strength and social activity.',
+    ],
+  },
 ];

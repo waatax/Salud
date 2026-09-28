@@ -1,4 +1,4 @@
-import { ExerciseZoneInfo, ExerciseTopic } from '../types';
+import { ExerciseZoneInfo, ExerciseTopic, SportInfographicMeta } from '../types';
 
 export const EXERCISE_ZONES: ExerciseZoneInfo[] = [
   {
@@ -214,4 +214,231 @@ export const EXERCISE_TOPICS: ExerciseTopic[] = [
       'Mandatory 8-10 min progressive warm-up and 5 min dynamic cool-down walk to prevent post-exercise venous pooling and syncope.',
     ],
   },
+  {
+    id: 'EX-06',
+    title_zh: '乳酸穿梭假說：乳酸不是廢物，而是全身最強大的代謝燃料與信號分子',
+    title_en: 'The Lactate Shuttle Hypothesis: Lactate as Supreme Fuel & Signaling Molecule',
+    category: 'LACTATE_SHUTTLE',
+    one_liner_zh: '乳酸是全身能量轉運與大腦神經元最優質的速效燃料，徹底顛覆延遲性肌肉酸痛的百年冤案。',
+    one_liner_en: 'Lactate is a high-grade metabolic substrate and brain fuel, debunking century-old lactic acid soreness myths.',
+    evidence_grade: 'A',
+    key_mechanisms_zh: [
+      '胞內與胞外乳酸穿梭（George Brooks 假說）：快肌酵解產生的乳酸透過 MCT4 轉運至細胞外，再經由 MCT1 被慢肌纖維、心肌細胞與大腦神經元攝取，直接進入粒線體氧化供能。',
+      '心肌與大腦的偏好燃料：在劇烈運動期間，心肌能量供應高達 60% 來自循環乳酸；大腦海馬體神經元更優先利用乳酸刺激 BDNF 表達以固化記憶。',
+      '延遲性肌肉酸痛（DOMS）由肌原纖維微細損傷與發炎修復引起，血乳酸在運動結束後 60–90 分鐘內即完全清除回歸基線（1–1.5 mmol/L）。',
+    ],
+    key_mechanisms_en: [
+      'Intracellular and cell-to-cell lactate shuttle (Brooks hypothesis): Lactate exported via MCT4 is taken up via MCT1 into oxidative slow-twitch fibers, myocardium, and brain.',
+      'Preferred cardiac and neuronal fuel: During vigorous exertion, circulating lactate provides up to 60% of cardiac oxidative fuel and stimulates cerebral BDNF synthesis.',
+      'Delayed-Onset Muscle Soreness (DOMS) stems from micro-mechanical ultrastructural disruption, while blood lactate is fully cleared within 60–90 min post-exercise.',
+    ],
+    action_guidelines_zh: [
+      '提升乳酸清除率：透過 Zone 2 有氧訓練增加慢肌纖維微血管密度與 MCT1 表現量，構築高速「乳酸清道夫」網絡。',
+      '動態緩和恢復（Active Recovery）：高強度訓練後進行 10–15 分鐘 Zone 1 低心率踩踏或漫步，乳酸消除速度是靜止坐臥的 2 倍以上。',
+      '破除排酸迷思：排酸針、排酸按摩或抗乳酸口服產品毫無科學根據，肌肉酸痛無須歸咎乳酸。',
+    ],
+    action_guidelines_en: [
+      'Clearance capacity training: Zone 2 aerobic volume upregulates capillary density and mitochondrial MCT1 transporters.',
+      'Active recovery protocol: 10-15 min of Zone 1 light spinning or easy walking clears lactate twice as fast as passive seated rest.',
+      'Debunking marketing myths: So-called "lactic acid flush" supplements lack physiological validation; lactate is a critical survival substrate.',
+    ],
+  },
+  {
+    id: 'EX-07',
+    title_zh: '肌原纖維機械張力與 mTORC1：抗衰老抗萎縮的分子級聯',
+    title_en: 'Mechanical Tension & mTORC1: The Molecular Signaling Cascade Against Sarcopenia',
+    category: 'HYPERTROPHY_SIGNALING',
+    one_liner_zh: '機械張力是肌纖維蛋白質合成的根本總開關，透過張力受體直接點火 mTORC1 與衛星細胞分裂。',
+    one_liner_en: 'Mechanical tension is the primal master switch for muscle protein synthesis, triggering mTORC1 and satellite cell recruitment.',
+    evidence_grade: 'A',
+    key_mechanisms_zh: [
+      '肋節（Costamere）與黏著斑機械力感應：骨骼肌收縮產生跨肌纖維膜張力，觸發機械敏感性蛋白激酶與磷脂酸（Phosphatidic Acid, PA）生成。',
+      'mTORC1 複合物激發：磷脂酸直接結合並活化雷帕黴素靶蛋白複合物 1（mTORC1），啟動核糖體 S6K1 與 4E-BP1 磷酸化，使肌原纖維蛋白質合成率（MPS）在訓後 24–48 小時內攀升 50–100%。',
+      '肌肉生長抑制素（Myostatin）下調：規律高機械張力阻力訓練能顯著抑制 Myostatin 基因表現，釋放骨骼肌生長天花板。',
+    ],
+    key_mechanisms_en: [
+      'Costamere mechanosensing: Lateral contractile force across the sarcolemma activates mechanosensitive kinase cascades and synthesizes phosphatidic acid (PA).',
+      'mTORC1 complex activation: Direct PA binding triggers mTORC1, phosphorylating p70S6K and 4E-BP1 to drive a 50–100% surge in muscle protein synthesis for 24–48 hours.',
+      'Myostatin down-regulation: Sustained resistance training represses myostatin expression, lifting the negative genetic brake on skeletal muscle preservation.',
+    ],
+    action_guidelines_zh: [
+      '機械張力處方：確保每組訓練在足夠負荷下進行，並逼近力竭（RPE 8–9，保留次數 RIR 1–2 次），確保高閾值快肌纖維經歷極限機械張力。',
+      '全關節活動度（Full ROM）：在離心伸展受載位（如深蹲底部、引體向上底部）維持可控張力，伸展加載帶來的肌肉重塑效益顯著高於半程訓練。',
+      '營養信號疊加：訓後補足 2.5–3g 白胺酸（Leucine，如乳清蛋白或大豆分離蛋白），白胺酸作為 Sestrin2 傳感器分子直接與機械張力產生加乘性 mTORC1 活化。',
+    ],
+    action_guidelines_en: [
+      'Mechanical tension prescription: Train with challenging resistance taken close to concentric failure (RPE 8-9, 1-2 RIR) to maximize high-threshold motor unit strain.',
+      'Full Range of Motion (ROM): Emphasize controlled loaded eccentric stretches (e.g. deep squat pocket) for superior sarcomere-in-series adaptation.',
+      'Nutritional synergy: Supply 2.5-3g of leucine post-workout; leucine serves as a molecular sensor via Sestrin2 to synergistically amplify mTORC1 signaling.',
+    ],
+  },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'EX-08',
+    title_zh: '每天 7,000 步：步數的劑量反應與實用目標',
+    title_en: '7,000 Steps a Day: The Dose-Response of Daily Steps',
+    category: 'NEAT_SEDENTARY',
+    one_liner_zh: '與每天 2,000 步相比，約 7,000 步者全因死亡低 47%、失智低 38%。',
+    one_liner_en: 'Compared with 2,000 steps/day, ~7,000 steps/day is linked to 47% lower mortality and 38% lower dementia.',
+    evidence_grade: 'A',
+    key_mechanisms_zh: [
+      '2025 年 Lancet Public Health 整合 57 篇研究、16 萬人：7,000 步者心血管疾病低 25%、憂鬱症狀低 22%、跌倒低 28%、第 2 型糖尿病低 14%。',
+      '效益在低步數區間上升最快：從 2,000 步增加到 4,000 步已有明顯差異，超過約 7,000 步後逐漸趨緩。',
+      '年齡影響平台：60 歲以上約在每天 6,000–8,000 步、60 歲以下約在 8,000–10,000 步後，死亡風險下降趨緩。',
+    ],
+    key_mechanisms_en: [
+      'A 2025 Lancet Public Health meta-analysis (57 studies, >160,000 people) found 25% lower CVD, 22% fewer depressive symptoms, 28% fewer falls and 14% less type 2 diabetes at ~7,000 steps.',
+      'Gains are steepest at the low end: moving from 2,000 to 4,000 steps already matters; benefits flatten beyond ~7,000.',
+      'Plateaus shift with age: ~6,000–8,000 steps for adults over 60 and ~8,000–10,000 for younger adults.',
+    ],
+    action_guidelines_zh: [
+      '先看手機過去一週的平均步數，每週只增加約 1,000 步/天，逐步推向 7,000 步。',
+      '步頻每分鐘約 100 步以上大致相當於中等強度快走，可以用節拍器 App 練習。',
+      '把步數「嵌入」生活：提早一站下車、走樓梯、講電話時走動、飯後散步 10–15 分鐘。',
+    ],
+    action_guidelines_en: [
+      'Check your weekly average step count and add ~1,000 steps/day each week toward 7,000.',
+      'A cadence of ~100 steps/min roughly equals moderate-intensity brisk walking.',
+      'Embed steps into life: get off one stop early, take stairs, walk during calls, walk 10–15 min after meals.',
+    ],
+  },
+  {
+    id: 'EX-09',
+    title_zh: '運動是癌症治療的一部分：CHALLENGE 試驗與運動腫瘤學',
+    title_en: 'Exercise as Cancer Therapy: The CHALLENGE Trial and Exercise Oncology',
+    category: 'SAFETY_PRESCRIPTION',
+    one_liner_zh: '大腸癌術後 3 年結構化運動，讓復發或死亡風險降低 28%、死亡風險降低 37%。',
+    one_liner_en: 'A 3-year structured exercise program after colon cancer cut recurrence-or-death by 28% and death by 37%.',
+    evidence_grade: 'A',
+    key_mechanisms_zh: [
+      'NEJM 2025 CHALLENGE 試驗：889 位第 2–3 期大腸癌患者完成化療後隨機分組，運動組 5 年無病存活 80.3% 對 73.9%（風險比 0.72），整體死亡風險比 0.63。',
+      '可能機制包括改善胰島素敏感度、降低慢性發炎、提升免疫監測，以及改變腫瘤微環境。',
+      '運動也能減輕化療相關疲勞、改善體能與生活品質，是癌症存活者照護的核心建議。',
+    ],
+    key_mechanisms_en: [
+      'NEJM 2025 CHALLENGE: 889 patients with stage II–III colon cancer after chemotherapy; 5-year disease-free survival 80.3% vs 73.9% (HR 0.72), overall survival HR 0.63.',
+      'Proposed mechanisms include better insulin sensitivity, lower chronic inflammation, enhanced immune surveillance and altered tumour microenvironment.',
+      'Exercise also reduces cancer-related fatigue and improves fitness and quality of life.',
+    ],
+    action_guidelines_zh: [
+      '治療結束後在醫療團隊評估下開始，目標逐步達到每週約 150 分鐘中等強度有氧，加上每週 2 次肌力訓練。',
+      '從每天 10 分鐘開始；化療期間以「盡量保持活動」為原則，避開血球低下與發燒時段。',
+      '有造口、骨轉移、周邊神經病變或淋巴水腫者，先由物理治療師設計個別化計畫。',
+    ],
+    action_guidelines_en: [
+      'Start after treatment with clinical clearance; build toward ~150 min/week of moderate aerobic activity plus 2 strength sessions.',
+      'Begin with 10 minutes a day; during chemotherapy aim to stay active, avoiding periods of low blood counts or fever.',
+      'People with stomas, bone metastases, neuropathy or lymphoedema should get an individualised plan from a physiotherapist.',
+    ],
+  },
+  {
+    id: 'EX-10',
+    title_zh: '運動治療憂鬱：走路、瑜伽、重訓都有效，強度越高效果越大',
+    title_en: 'Exercise for Depression: Walking, Yoga and Strength Training Work, More So at Higher Intensity',
+    category: 'CARDIO_VO2',
+    one_liner_zh: '2024 年 BMJ 分析 218 篇試驗：走路或慢跑、瑜伽、重訓改善憂鬱的效果達中等程度。',
+    one_liner_en: 'A 2024 BMJ network meta-analysis of 218 trials found moderate benefits for walking/jogging, yoga and strength training.',
+    evidence_grade: 'A',
+    key_mechanisms_zh: [
+      '相較對照組，走路或慢跑的效應量 g = −0.62、瑜伽 −0.55、肌力訓練 −0.49，效果與心理治療相當。',
+      '效果與運動強度呈正比；肌力訓練與瑜伽的持續率最高。',
+      '機制包括提升腦源性神經滋養因子（BDNF）、調節壓力荷爾蒙、改善睡眠與自我效能感。',
+    ],
+    key_mechanisms_en: [
+      'Versus controls: walking/jogging g = −0.62, yoga −0.55, strength training −0.49 — effects comparable to psychotherapy.',
+      'Effects scaled with prescribed intensity; strength training and yoga had the best adherence.',
+      'Mechanisms include raised BDNF, stress-hormone regulation, better sleep and self-efficacy.',
+    ],
+    action_guidelines_zh: [
+      '選一種你願意持續的運動，每週 3 次、每次 30–45 分鐘，逐步提高到「有點喘」的強度。',
+      '和朋友或團體一起運動，可同時增加社交連結與持續率。',
+      '中重度憂鬱或有自傷念頭時，運動是加法而非替代：請同時接受醫療評估，或撥打 1925 安心專線。',
+    ],
+    action_guidelines_en: [
+      'Pick an activity you will keep doing: 3 sessions a week, 30–45 min, progressing to a somewhat hard intensity.',
+      'Exercising with others adds social connection and improves adherence.',
+      'For moderate–severe depression or self-harm thoughts, exercise adds to — not replaces — clinical care.',
+    ],
+  },
 ];
+
+export const PHYSIOLOGY_INFOGRAPHICS: SportInfographicMeta[] = [
+  {
+    id: 'INFO-PHY-01',
+    discipline: 'PHYSIOLOGY',
+    title_zh: 'Zone 1–5 代謝受質切換與乳酸動力學曲線',
+    title_en: 'Metabolic Substrate Crossover & Lactate Dynamics',
+    subtitle_zh: '心率強度攀升下，脂肪氧化率 (FatMax) 與葡萄糖無氧酵解的交叉拐點與 LT1/LT2 生理門檻',
+    subtitle_en: 'The substrate crossover point from maximal fat oxidation (FatMax) to rapid glycolysis across LT1 & LT2',
+    core_takeaways_zh: [
+      'Zone 2 (60–70% HRmax) 為脂肪酸氧化峰值 (FatMax)，能最大化刺激粒線體 PGC-1α 擴增',
+      '第一乳酸轉折點 (LT1, ~2.0 mmol/L) 標誌著無氧酵解參與度顯著增加',
+      '第二乳酸轉折點 (LT2, ~4.0 mmol/L) 為乳酸生成超越清除極限，維持時間受限於體液酸化',
+    ],
+    core_takeaways_en: [
+      'Zone 2 (60-70% HRmax) represents the FatMax inflection, driving slow-twitch mitochondrial density.',
+      'Lactate Threshold 1 (LT1, ~2.0 mmol/L) marks the onset of progressive glycolytic substrate reliance.',
+      'Lactate Threshold 2 (LT2, ~4.0 mmol/L) is the critical clearance ceiling beyond which severe acidosis ensues.',
+    ],
+    metrics_badge: 'FatMax & LT1/LT2 Crossover',
+  },
+  {
+    id: 'INFO-PHY-02',
+    discipline: 'PHYSIOLOGY',
+    title_zh: '最大攝氧量 VO2 max 與全因死亡率斷崖階梯',
+    title_en: 'Cardiorespiratory Fitness & Mortality Hazard Ratio',
+    subtitle_zh: 'Cleveland Clinic 12 萬人世代研究：頂尖體能 (Elite, 前 2%) 相較低體能者，全因死亡風險斷崖驟降 80%',
+    subtitle_en: 'Cleveland Clinic 122,007-cohort findings: Elite cardiorespiratory fitness conveys an 80% reduction in all-cause mortality',
+    core_takeaways_zh: [
+      'VO2 max 每提高 1 MET (3.5 mL/kg/min)，全因死亡率下降 12–15%',
+      '體能低下者的死亡風險比 (HR 5.0) 甚至超越抽菸、糖尿病與重度高血壓',
+      '每週配置 1 次 Zone 5 (挪威 4×4 間歇)，是擴充左心室每搏輸出量的最高效槓桿',
+    ],
+    core_takeaways_en: [
+      'Every 1-MET increase in VO2 max reduces all-cause mortality by 12–15%.',
+      'Low fitness confers a higher mortality risk than smoking, CAD, or poorly controlled diabetes.',
+      'Norwegian 4x4 intervals once weekly drive optimal left ventricular eccentric hypertrophy.',
+    ],
+    metrics_badge: 'Cleveland Clinic 122k Cohort · HR=0.20',
+  },
+  {
+    id: 'INFO-PHY-03',
+    discipline: 'PHYSIOLOGY',
+    title_zh: '骨骼肌肌力素 (Myokines) 全身跨器官內分泌網絡',
+    title_en: 'Skeletal Muscle Myokine Endocrine Signaling Network',
+    subtitle_zh: '肌肉不只是運動器官：收縮時分泌數百種肌力素，穿透血腦屏障、靶向肝臟、白色脂肪與成骨細胞',
+    subtitle_en: 'Muscle as an endocrine powerhouse: Contracting myofibers secrete hundreds of bioactive myokines systemically',
+    core_takeaways_zh: [
+      '鳶尾素 (Irisin)：誘導白色脂肪細胞轉化為米色脂肪 (Beige Fat)，加速產熱解偶聯 UCP-1',
+      '腦源性神經營養因子 (BDNF)：穿透血腦屏障刺激海馬體齒狀回神經新生與認知保護',
+      '肌肉分泌型 IL-6：不同於巨噬細胞促炎 IL-6，運動誘發的 IL-6 具強大抗炎、增強胰島素敏感度效應',
+    ],
+    core_takeaways_en: [
+      'Irisin drives white adipose browning and UCP-1 mediated uncoupled thermogenesis.',
+      'Muscle-derived BDNF traverses the BBB to stimulate dentate gyrus neurogenesis.',
+      'Exercise-induced muscular IL-6 exerts systemic anti-inflammatory and insulin-sensitizing actions.',
+    ],
+    metrics_badge: 'Endocrine Muscle Network',
+  },
+  {
+    id: 'INFO-PHY-04',
+    discipline: 'PHYSIOLOGY',
+    title_zh: '久坐剪切力塌陷 vs 運動微血管內皮修復時間軸',
+    title_en: 'Sedentary Shear Stress Collapse vs Endothelial eNOS Repair',
+    subtitle_zh: '連續久坐 30 分鐘股動脈血流剪切力降至谷底；每 30 分鐘 2 分鐘微活動即時重啟內皮型一氧化氮合成',
+    subtitle_en: 'Femoral laminar shear stress collapses within 30 min of immobility; 2-min activity pulses restore eNOS phosphorylation',
+    core_takeaways_zh: [
+      '久坐 30 分鐘即造成股動脈層流剪應力下降 70%，引發急性血管內皮功能障礙 (FMD 下降)',
+      '每 30 分鐘起身深蹲 10 下或快走 2 分鐘，能立刻恢復脈衝性血流剪切力，重啟 eNOS 釋放 NO',
+      '骨骼肌脂蛋白脂酶 (LPL) 活性在打斷久坐後迅速復甦，大幅改善餐後血脂廓清率',
+    ],
+    core_takeaways_en: [
+      '30 min continuous sitting slashes femoral laminar shear stress by 70%, impairing FMD.',
+      '2-min active micro-breaks restore pulsatile endothelial shear stress and eNOS activation.',
+      'Skeletal muscle LPL activity promptly recovers, clearing postprandial circulating triglycerides.',
+    ],
+    metrics_badge: 'Endothelial Shear Stress Restoration',
+  },
+];
+

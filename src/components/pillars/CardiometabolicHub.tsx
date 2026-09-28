@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHashTab } from '../../hooks/useHashTab';
+import { CARDIO_TABS } from '../../config/routes';
 import {
   BP_722_PROTOCOL,
   TSOC_BP_CATEGORIES,
@@ -38,7 +40,7 @@ import {
 
 export const CardiometabolicHub: React.FC = () => {
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState<CardiometabolicSubTab>('OVERVIEW');
+  const [activeTab, setActiveTab] = useHashTab<CardiometabolicSubTab>('cardiometabolic', CARDIO_TABS, 'OVERVIEW');
   const [expandedAtheroStage, setExpandedAtheroStage] = useState<number | null>(2);
   const [selectedCacScore, setSelectedCacScore] = useState<string>(CAC_STRATIFICATIONS[1].agatston_score_range);
   const [expandedMyth, setExpandedMyth] = useState<string | null>('C-MYTH-01');

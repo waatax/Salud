@@ -1,4 +1,4 @@
-import { RunningTopic, MountaineeringTopic, AltitudeProfile } from '../types';
+import { RunningTopic, MountaineeringTopic, AltitudeProfile, SportInfographicMeta } from '../types';
 
 // ── 1. Running Science Topics (跑步運動科學) ──
 export const RUNNING_TOPICS: RunningTopic[] = [
@@ -195,6 +195,45 @@ export const RUNNING_TOPICS: RunningTopic[] = [
       'Glute medius activation: Monster walks with loop bands, single-leg clamshells, and side planks 3x weekly.',
       'Alfredson eccentric heel drops: Slow 3-second eccentric lower past the step edge on a single leg; 3 sets of 15 reps 3x/week.',
       'Step width cueing: Cue running along two parallel railroad tracks to eliminate ITB crossover impingement.',
+    ],
+  },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'RUN-06',
+    title_zh: '跑步會傷膝蓋嗎？休閒跑者的關節真相',
+    title_en: 'Does Running Wreck Your Knees? What the Data Say for Recreational Runners',
+    category: 'INJURY_PREVENTION',
+    one_liner_zh: '休閒跑者的膝關節炎比例反而低於久坐者；每天跑 5–10 分鐘就與較低死亡風險相關。',
+    one_liner_en: 'Recreational runners have lower knee osteoarthritis rates than sedentary people; even 5–10 min/day is linked to lower mortality.',
+    evidence_grade: 'B',
+    key_principles_zh: [
+      '統合分析顯示：休閒跑者髖膝關節炎盛行率約 3.5%，久坐者約 10.2%，高強度職業或競技跑者約 13.3%——適量跑步並不傷膝。',
+      '軟骨沒有血管，依靠規律的擠壓與放鬆從滑液獲得養分；適度負重反而有助軟骨健康。',
+      '大型世代研究發現，跑步者全因死亡風險約低 30%、心血管死亡約低 45%，每天 5–10 分鐘慢跑就已看得到好處。',
+    ],
+    key_principles_en: [
+      'Meta-analysis: hip/knee OA prevalence ~3.5% in recreational runners vs ~10.2% in sedentary controls and ~13.3% in elite runners.',
+      'Avascular cartilage is nourished by cyclic loading that pumps synovial fluid; moderate loading supports cartilage health.',
+      'Large cohorts show ~30% lower all-cause and ~45% lower cardiovascular mortality in runners, even at 5–10 min/day.',
+    ],
+    biomechanical_data_zh: [
+      '跑步時膝關節每一步承受約體重 2–3 倍的衝擊；步頻提高 5–10% 可降低每步衝擊與髕骨壓力。',
+      '影像研究顯示長跑後膝蓋軟骨會暫時變薄，數小時內恢復，屬於正常的適應性負荷。',
+    ],
+    biomechanical_data_en: [
+      'Each stride loads the knee at roughly 2–3× body weight; raising cadence by 5–10% lowers per-step impact and patellofemoral stress.',
+      'Imaging shows knee cartilage thins temporarily after a run and recovers within hours — a normal adaptive load.',
+    ],
+    action_protocols_zh: [
+      '從走跑交替開始，每週總量增加不超過約一成，給肌腱與骨骼適應時間。',
+      '每週 2 次下肢與臀部肌力訓練，是降低跑者膝與髂脛束症候群最有效的方法之一。',
+      '已有膝關節炎者可在疼痛可接受（0–10 分中 ≤3–4 分、隔天不加劇）的範圍內活動，並與物理治療師討論。',
+    ],
+    action_protocols_en: [
+      'Start with run–walk intervals and increase weekly volume by no more than ~10%.',
+      'Two weekly sessions of hip and leg strength work are among the best defences against runner’s knee and ITB syndrome.',
+      'With existing knee OA, stay within acceptable pain (≤3–4/10, not worse next day) and consult a physiotherapist.',
     ],
   },
 ];
@@ -454,4 +493,185 @@ export const MOUNTAINEERING_TOPICS: MountaineeringTopic[] = [
       'Avoid limb rubbing: Rubbing cold extremities dumps cold, acidotic blood back into the core, triggering fatal afterdrop cardiac arrest.',
     ],
   },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'MNT-06',
+    title_zh: '中高齡登山的兩大風險：心臟猝死與下山跌倒',
+    title_en: 'Two Big Risks for Older Hikers: Sudden Cardiac Death and Downhill Falls',
+    category: 'LOAD_BIOMECHANICS',
+    one_liner_zh: '心臟猝死是中年男性登山者最常見的非外傷死因，多發生在缺乏規律運動與第一天上山時。',
+    one_liner_en: 'Sudden cardiac death is the leading non-traumatic death in middle-aged male hikers, often on day one and in the untrained.',
+    evidence_grade: 'B',
+    pathophysiology_zh: [
+      '研究指出曾有心肌梗塞、糖尿病、高膽固醇、冠心病，以及平時缺乏規律運動，是登山心臟猝死的主要危險因子。',
+      '上坡時心臟負荷增加，高海拔與寒冷又讓血管收縮、血壓上升；第一天活動量最大、尚未適應時風險最高。',
+      '下坡時膝關節承受的衝擊遠大於平地，加上疲勞與天候，跌倒與骨折常發生在下山途中。',
+    ],
+    pathophysiology_en: [
+      'Prior myocardial infarction, diabetes, high cholesterol, coronary disease and lack of regular exercise are the main risk factors for SCD in hikers.',
+      'Uphill effort, altitude and cold raise cardiac workload and blood pressure; risk peaks on the first, unacclimatised day.',
+      'Descents impose far greater knee loads; with fatigue and weather, falls and fractures cluster on the way down.',
+    ],
+    clinical_criteria_zh: [
+      '胸痛、胸悶或壓迫感，尤其延伸到手臂、下巴或背部。',
+      '爬坡時異常喘到無法說話，或停下休息後心跳遲遲降不下來。',
+      '頭暈、快昏倒、冒冷汗：任何一項都應立即停止，撥打 119（山區收訊不佳可試 112）。',
+    ],
+    clinical_criteria_en: [
+      'Chest pain, tightness or pressure, especially radiating to the arm, jaw or back.',
+      'Breathlessness too severe to talk on climbs, or a heart rate that will not settle at rest.',
+      'Dizziness, near-fainting or cold sweat: stop immediately and call 119 (try 112 where coverage is poor).',
+    ],
+    survival_protocols_zh: [
+      '出發前 6–8 週規律訓練：每週 150 分鐘有氧加上爬樓梯與下肢肌力，而不是只靠假日爬山。',
+      '有心血管危險因子或胸悶病史者，高山行程前先諮詢醫師，必要時做運動心電圖評估。',
+      '第一天放慢配速、吃早餐並補水；使用雙登山杖並放慢下坡，出現胸痛、異常喘或頭暈立即停止並求救。',
+    ],
+    survival_protocols_en: [
+      'Train for 6–8 weeks beforehand: 150 min/week of aerobic work plus stair climbing and leg strength — not weekend hiking alone.',
+      'Those with cardiovascular risk factors or chest symptoms should see a doctor before high-mountain trips.',
+      'Go slow on day one, eat breakfast and hydrate; use two trekking poles on descents and stop at once for chest pain, unusual breathlessness or dizziness.',
+    ],
+  },
 ];
+
+export const RUNNING_INFOGRAPHICS: SportInfographicMeta[] = [
+  {
+    id: 'INFO-RUN-01',
+    discipline: 'RUNNING',
+    title_zh: '步頻 150 vs 180 spm 地面衝擊力與髕骨剪力波形對比',
+    title_en: 'Cadence Biomechanics: 150 vs 180 spm Ground Reaction Force & PFJRF',
+    subtitle_zh: '步頻每提高 10%，著地點縮回重心下方，膝關節髕骨峰值壓力減震 14–20%，消滅制動煞車剪力',
+    subtitle_en: 'A 10% cadence increase brings foot strike under center of mass, slashing peak knee joint reaction force by 20%',
+    core_takeaways_zh: [
+      '低步頻 (150 spm) 過度跨步產生雙峰衝擊波，第二煞車峰值對膝關節髕骨造成巨大剪力',
+      '高步頻 (180 spm) 垂直振幅由 10cm 壓縮至 6cm，衝擊力被小腿三頭肌與跟腱平滑吸收',
+      '觸地時間 (GCT) 縮短至 200ms 以內，最大化利用肌肉牽張收縮循環 (SSC)',
+    ],
+    core_takeaways_en: [
+      'Overstriding at 150 spm generates an aggressive transient impact spike, hammering patellofemoral cartilage.',
+      '180 spm compresses vertical oscillation down to <7cm, dampening impact via triceps surae.',
+      'Ground Contact Time falls below 210ms, recruiting Achilles tendon elastic return.',
+    ],
+    metrics_badge: '170–185 spm · -20% Knee Load',
+  },
+  {
+    id: 'INFO-RUN-02',
+    discipline: 'RUNNING',
+    title_zh: '80/20 極化訓練金字塔 vs 垃圾中度強度黑洞',
+    title_en: 'Polarized 80/20 Training Paradigm vs The Zone 3 Black Hole',
+    subtitle_zh: '世界頂尖耐力跑者的訓練分佈：80% 輕鬆 Zone 1–2 + 20% 高強度 Zone 4–5，避開不上不下的無效疲勞',
+    subtitle_en: 'Elite endurance training distribution: 80% low intensity + 20% high intensity, avoiding the junk-fatigue middle',
+    core_takeaways_zh: [
+      '業餘跑者常犯錯誤：每次都跑「微喘」的 Zone 3（馬拉松配速），慢跑不夠慢、快跑快不了',
+      '80% Zone 2 低心率能持續翻修慢肌纖維粒線體與微血管網，且自律神經恢復極快',
+      '20% Zone 4–5 (LT2 / VO2 max) 提供高強度的神經肌肉刺激與最大心輸出量擴展',
+    ],
+    core_takeaways_en: [
+      'Recreational runners chronically get sucked into Zone 3, building chronic autonomic fatigue without peak stimuli.',
+      '80% low-intensity Zone 2 expands capillarization and mitochondrial density with zero recovery debt.',
+      '20% high-intensity interval work triggers maximal stroke volume and neuromuscular velocity.',
+    ],
+    metrics_badge: 'Seiler 80/20 Polarized Model',
+  },
+  {
+    id: 'INFO-RUN-03',
+    discipline: 'RUNNING',
+    title_zh: '跟腱牽張-收縮循環 (SSC) 彈力回彈力學剖面',
+    title_en: 'Achilles Tendon Stretch-Shortening Cycle Elastic Recoil',
+    subtitle_zh: '人體天然彈簧系統：離心拉伸儲存彈性能量，著地支撐相轉換瞬間以 50% 零耗能回彈推動身體向前',
+    subtitle_en: 'The human spring mechanism: Eccentric storage and immediate elastic release delivering 50% free propulsion',
+    core_takeaways_zh: [
+      '阿基里斯腱（跟腱）是全身最粗壯的肌腱，其彈性剛性 (Stiffness) 決定了跑步經濟性 (RE)',
+      '觸地瞬態如果過長 (>280ms)，儲存的彈性能量將以熱能形式消散，迫使骨骼肌消耗 ATP 主動收縮',
+      '大重量下肢阻力訓練（大於 80% 1RM 深蹲與小腿提踵）能顯著增厚膠原纖維，提升肌腱剛性',
+    ],
+    core_takeaways_en: [
+      'Achilles stiffness is the primary mechanical determinant of elite running economy.',
+      'Excessive ground contact time (>280ms) dissipates stored elastic energy as thermal waste.',
+      'Heavy resistance training (>80% 1RM) increases tendon cross-sectional area and tensile recoil.',
+    ],
+    metrics_badge: 'SSC 50% Energy Recoil',
+  },
+  {
+    id: 'INFO-RUN-04',
+    discipline: 'RUNNING',
+    title_zh: '長跑雙通道碳水化合物 (SGLT1+GLUT5) 吸收速率',
+    title_en: 'Dual-Transport Carbohydrate Kinetics in Endurance Fueling',
+    subtitle_zh: '腸道轉運蛋白飽和飽和限制：單一葡萄糖上限 60g/h，配合果糖雙管齊下可突破至 90–120g/h 杜絕撞牆',
+    subtitle_en: 'Overcoming intestinal absorption bottlenecks: SGLT1 (glucose) + GLUT5 (fructose) elevates uptake to 90–120g/h',
+    core_takeaways_zh: [
+      '腸道 SGLT1 葡萄糖轉運蛋白在 60g/h 時達到飽和，超量攝取將在腸道積聚引發滲透性腹瀉與噁心',
+      '果糖使用獨立的 GLUT5 轉運載體，採用 1:0.8 或 2:1 葡萄糖:果糖比例，可達到 90–100g/h 吸收率',
+      '全馬 30 公里後「撞牆」的本質是肝醣原與肌醣原耗竭；雙通道補給可延緩外源性糖原赤字',
+    ],
+    core_takeaways_en: [
+      'Intestinal SGLT1 glucose transporters saturate at ~60g/h; excess unabsorbed glucose triggers GI distress.',
+      'Fructose utilizes independent GLUT5 transporters, unlocking a combined 90–120g/h fuel ceiling at a 1:0.8 ratio.',
+      'Hitting the 30km wall is systemic glycogen depletion; dual-fueling preserves endogenous muscle glycogen stores.',
+    ],
+    metrics_badge: 'Dual SGLT1+GLUT5 · 90g/h Fueling',
+  },
+];
+
+export const MOUNTAINEERING_INFOGRAPHICS: SportInfographicMeta[] = [
+  {
+    id: 'INFO-MNT-01',
+    discipline: 'MOUNTAINEERING',
+    title_zh: '海拔高度 vs 大氣壓與血氧 SpO2 下降階梯',
+    title_en: 'Altitude Hypoxia & Atmospheric Pressure Fall Profile',
+    subtitle_zh: '道爾頓分壓定律：空氣中氧氣比例恆定 20.9%，但氣壓隨高度指數下降，驅使動脈血氧分壓斷崖跌落',
+    subtitle_en: 'Dalton’s Law in the mountains: Oxygen fraction stays 20.9%, but falling atmospheric pressure drops PO2 and SpO2',
+    core_takeaways_zh: [
+      '2,500 公尺為急性高山病 (AMS) 初發門檻，動脈血氧飽和度 SpO2 降至約 90–92%',
+      '台灣百岳高山（玉山 3,952m / 雪山 3,886m）：氣壓僅剩海平面的 60%，正常未適應者 SpO2 約 80–85%',
+      '8,000 公尺以上死亡地帶 (Death Zone)：氣壓僅剩 1/3，人體無法長期適應，生理衰竭進入倒數',
+    ],
+    core_takeaways_en: [
+      '2,500m represents the AMS manifestation threshold; arterial SpO2 drops to ~90-92%.',
+      'Taiwan 3,000m+ peaks: Barometric pressure drops to 60% of sea level; unacclimatized SpO2 hovers around 80-85%.',
+      'Death Zone (>8,000m): Pressure collapses to one-third; supplemental oxygen is mandatory for survival.',
+    ],
+    metrics_badge: 'Dalton PO2 & SpO2 Cascade',
+  },
+  {
+    id: 'INFO-MNT-02',
+    discipline: 'MOUNTAINEERING',
+    title_zh: '2018 Lake Louise 急性高山病 (AMS) 臨床症狀診斷熱區矩陣',
+    title_en: '2018 Lake Louise Consensus AMS Diagnostic Matrix',
+    subtitle_zh: '國際高海拔醫學會權威標準：上升海拔後「頭痛」為核心必備主徵，加計腸胃/疲憊/頭暈三大維度總分評定',
+    subtitle_en: 'The definitive international consensus: Headache is mandatory, scored across GI, fatigue, and dizziness domains',
+    core_takeaways_zh: [
+      'AMS 核心診斷：近期上升高度＋頭痛（至少 1 分）＋ 其他三大症狀總分 ≥ 3 分即確立診斷',
+      '3–5 分為輕中度 AMS：必須立刻停止上升原地休息，若症狀未緩解或加重絕不可盲目攻頂',
+      '≥ 6 分或出現走路步態不穩（共濟失調 Ataxia）：高度警惕高海拔腦水腫 (HACE) 或肺水腫 (HAPE)，唯一解法是立即下撤！',
+    ],
+    core_takeaways_en: [
+      'AMS definition: Recent altitude gain + Headache (>=1) + Score >=3 across 3 other domains.',
+      'Score 3-5 (Mild-Moderate AMS): Halt ascent immediately; never climb higher with symptoms.',
+      'Score >=6 or Ataxia: Red alert for impending HACE/HAPE; immediate descent saves lives.',
+    ],
+    metrics_badge: 'Lake Louise 2018 Consensus',
+  },
+  {
+    id: 'INFO-MNT-03',
+    discipline: 'MOUNTAINEERING',
+    title_zh: '戶外三層洋蔥式穿搭水氣熱平衡模型',
+    title_en: 'Three-Layer Moisture & Thermal Equilibrium System',
+    subtitle_zh: '排汗底層、保暖中層、防風防雨外層三大防線，徹底隔絕風寒效應 (Windchill) 與濕冷導熱失溫危機',
+    subtitle_en: 'Wicking base, insulating mid, and weatherproof shell: Halting deadly windchill and evaporative conductive heat dumps',
+    core_takeaways_zh: [
+      '排汗底層（嚴禁棉質）：聚酯纖維或美麗諾羊毛，在大量出汗時快速將汗水毛細導離皮膚表面',
+      '保暖中層（空氣阻隔層）：抓絨 (Fleece) 或高蓬鬆羽絨 (Down)，鎖住不流動的空氣層阻止熱傳導',
+      '外殼層（防風防水透氣）：GORE-TEX 等微孔薄膜阻絕外界強風與雨雪，同時容許水蒸氣向外排出',
+    ],
+    core_takeaways_en: [
+      'Base layer (Zero cotton!): Merino or synthetic capillaries pull perspiration off skin instantaneously.',
+      'Midlayer: High-loft fleece or down traps static air pockets to prevent conductive heat loss.',
+      'Hard shell: Waterproof-breathable membrane blocks wind and rain while venting internal vapor.',
+    ],
+    metrics_badge: 'Thermal Layering Mechanics',
+  },
+];
+

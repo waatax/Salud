@@ -2,6 +2,7 @@ import React from 'react';
 import { RUNNING_TOPICS } from '../../../../data/sportsScienceData';
 import { SimRunningCalculator } from '../../../simulators/SimRunningCalculator';
 import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
+import { RunningInfographics } from '../../../sports/RunningInfographics';
 import { Zap } from 'lucide-react';
 
 /**
@@ -70,6 +71,12 @@ export const RunningPanel: React.FC = () => {
           idColor="text-salud-amber"
         />
       </section>
+
+      {/* Sub-module 3: Pedagogical Infographics */}
+      <section className="space-y-3">
+        <RunningInfographics />
+      </section>
     </div>
   );
 };
+

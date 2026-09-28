@@ -8,6 +8,7 @@
 import { KnowledgeAtom } from '../../types/knowledge';
 import { CANONICAL_PAPER_REGISTRY } from '../sources/paperRegistry';
 import { CANONICAL_CLINICAL_MASTERY_REGISTRY } from '../mastery/clinicalMasteryRegistry';
+import { EXPANDED_KNOWLEDGE_PACK_60 } from './packExpansion';
 
 const RAW_CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
   // ==========================================
@@ -1455,25 +1456,25 @@ const RAW_CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
     risk_class: 'R3',
     topic: 'policy',
     statement_zh:
-      '肺癌 LDCT 篩檢：具肺癌家族史者與重度吸菸者（≥20 包-年）每 2 年 1 次公費低劑量電腦斷層掃描。',
-    applies_to: { population: '重度吸菸與肺癌家族史者', region: '台灣' },
+      '肺癌 LDCT 篩檢（114 年起）：具肺癌家族史之 45–74 歲男性與 40–74 歲女性，以及 50–74 歲重度吸菸者（≥20 包-年），每 2 年 1 次公費低劑量電腦斷層掃描。',
+    applies_to: { population: '重度吸菸與肺癌家族史者', region: '台灣', age_range: '40–74 歲' },
     primary_source: 'SRC-HPA-CANCER-SCREENING-2025',
     policy_ref_id: 'POL-TW-LUNG-LDCT',
     evidence_records: [
       {
         id: 'EV-TW-008',
-        citation: 'Taiwan HPA LDCT Policy Draft Announcement',
+        citation: '衛生福利部〈健康臺灣-114年起擴大癌症篩檢 您的健康政府來顧〉官方公告（mohw.gov.tw/cp-16-80948-1.html）',
         design: 'guideline',
-        risk_of_bias: 'moderate',
-        directness: 'moderate',
-        provenance_level: 'needs-provenance-review', // Exemplifies Provenance Gate (VAL-016)
+        risk_of_bias: 'low',
+        directness: 'high',
+        provenance_level: 'regulatory-statute',
       },
     ],
-    derived_certainty: 'low',
+    derived_certainty: 'high',
     misuse_guard:
-      '【審查攔阻示範】：二手來源對家族史男女年齡下限存在衝突讀法（45/50 vs 40/45）。依 VAL-016，在取得 HPA 官方公告核定前不得正式發佈為 R3 級別。',
-    status: 'needs-provenance-review', // CANNOT be published until primary provenance is verified
-    last_reviewed: '2026-09-20',
+      'LDCT 為高危險群的篩檢，不能取代戒菸；無家族史、未達吸菸門檻者自費 LDCT 前應與醫師討論偽陽性與輻射暴露。本條目原因年齡下限來源衝突被 VAL-016 攔阻，已於 2026-09-28 比對官方公告原文後解除。',
+    status: 'published',
+    last_reviewed: '2026-09-28',
   },
   {
     id: 'KA-TW-009',
@@ -2643,8 +2644,8 @@ const RAW_CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
     assertion_kind: 'policy',
     risk_class: 'R3',
     topic: 'policy',
-    statement_zh: '台灣國健署 LDCT 肺癌公費篩檢：補助 50–74 歲重度吸菸史達 30 包-年以上或具肺癌家族史國人每 2 年一次低劑量電腦斷層掃描。',
-    applies_to: { population: '50–74 歲符合肺癌高風險條件國人', region: '台灣' },
+    statement_zh: '台灣國健署 LDCT 肺癌公費篩檢（114 年起）：補助 50–74 歲重度吸菸史達 20 包-年以上，或具肺癌家族史之 45–74 歲男性與 40–74 歲女性，每 2 年一次低劑量電腦斷層掃描。',
+    applies_to: { population: '40–74 歲符合肺癌高風險條件國人', region: '台灣' },
     primary_source: 'SRC-HPA-CANCER-SCREENING-2025',
     evidence_records: [
       {
@@ -2738,13 +2739,14 @@ const RAW_CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
   },
 ];
 
-export const CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = RAW_CANONICAL_KNOWLEDGE_PACK_82.map(
-  (atom) => ({
-    ...atom,
-    clinical_mastery: CANONICAL_CLINICAL_MASTERY_REGISTRY[atom.id] || atom.clinical_mastery,
-    evidence_records: atom.evidence_records.map((ev) => ({
-      ...ev,
-      ...(CANONICAL_PAPER_REGISTRY[ev.id] || {}),
-    })),
-  })
-);
+export const CANONICAL_KNOWLEDGE_PACK_82: KnowledgeAtom[] = [
+  ...RAW_CANONICAL_KNOWLEDGE_PACK_82,
+  ...EXPANDED_KNOWLEDGE_PACK_60,
+].map((atom) => ({
+  ...atom,
+  clinical_mastery: CANONICAL_CLINICAL_MASTERY_REGISTRY[atom.id] || atom.clinical_mastery,
+  evidence_records: atom.evidence_records.map((ev) => ({
+    ...ev,
+    ...(CANONICAL_PAPER_REGISTRY[ev.id] || {}),
+  })),
+}));

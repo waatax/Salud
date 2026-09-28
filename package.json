@@ -1,7 +1,7 @@
 {
   "name": "salud",
   "private": true,
-  "version": "3.0.0",
+  "version": "4.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,7 @@
     "validate": "tsx scripts/validate.ts",
     "export:data": "tsx src/serving/exportJson.ts && tsx scripts/a11y-audit.ts",
     "a11y:audit": "tsx scripts/a11y-audit.ts",
+    "content:metrics": "tsx scripts/content-metrics.ts --baseline scripts/content-baseline.json",
     "build": "npm run export:data && tsc -b && vite build",
     "preview": "vite preview"
   },

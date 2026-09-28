@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { LONGEVITY_MASTERY_QUIZZES } from '../../data/longevityData';
+import { useHashTab } from '../../hooks/useHashTab';
+import { LONGEVITY_TABS } from '../../config/routes';
 import { LongevitySubTab } from '../../types';
 import { InfographHallmarksWheel } from './longevity/InfographHallmarksWheel';
 import { InfographEpigeneticClocks } from './longevity/InfographEpigeneticClocks';
@@ -28,7 +31,7 @@ import {
 } from 'lucide-react';
 
 export const LongevityHub: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<LongevitySubTab>('OVERVIEW');
+  const [activeTab, setActiveTab] = useHashTab<LongevitySubTab>('longevity', LONGEVITY_TABS, 'OVERVIEW');
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
@@ -155,7 +158,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Award className="w-4 h-4" />
-          <span>長壽精熟認知測驗 (14 題交互評量)</span>
+          <span>長壽精熟認知測驗 ({LONGEVITY_MASTERY_QUIZZES.length} 題交互評量)</span>
         </button>
       </div>
 

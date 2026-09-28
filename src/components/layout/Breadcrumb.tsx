@@ -1,103 +1,71 @@
 import React from 'react';
+import { ChevronRight, House } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useLanguage } from '../../i18n';
+import { getPillarNav } from '../../config/navigation';
 
+/**
+ * Breadcrumb — v4.0. "Home" is the learning home, not the body-systems hub, and each
+ * crumb is a real link. Learner pages render their own headings and skip this bar.
+ */
 export function Breadcrumb() {
-  const { t } = useLanguage();
-  const {
-    activePillar,
-    dietView,
-    viewMode,
-    currentChapter,
-    currentPage,
-    isCouncilEvidenceView,
-    isSynergyView,
-    metaView,
-    setDietView,
-    setViewMode,
-    setIsCouncilEvidenceView,
-    setIsSynergyView,
-    selectPillar,
-  } = useNavigation();
+  const { language } = useLanguage();
+  const zh = language === 'zh-TW';
+  const { activePillar, dietView, viewMode, currentChapter, currentPage, isCouncilEvidenceView, isSynergyView, metaView, go, selectPillar } =
+    useNavigation();
 
-  // Secondary governance pages carry their own back-link and heading, so the
-  // pillar breadcrumb would misreport where the reader is.
   if (metaView) return null;
 
+  const crumbs: { label: string; onClick?: () => void }[] = [];
+
+  if (isSynergyView) {
+    crumbs.push({ label: zh ? '跨主題交互作用' : 'Cross-topic interactions' });
+  } else if (isCouncilEvidenceView) {
+    crumbs.push({ label: zh ? '分科實證庫' : 'Specialty evidence library' });
+  } else {
+    const pillarKey = activePillar === 'supplements' ? 'diet' : activePillar;
+    const item = getPillarNav(pillarKey);
+    if (item) {
+      crumbs.push({ label: zh ? item.label_zh : item.label_en, onClick: () => selectPillar(pillarKey) });
+    }
+    if (activePillar === 'supplements') {
+      crumbs.push({ label: zh ? '營養補充品' : 'Supplements' });
+    }
+    if (activePillar === 'diet' && dietView === 'chapter' && currentChapter) {
+      crumbs.push({ label: `${zh ? '第' : 'Chapter'} ${currentChapter.id} ${zh ? '章' : ''} ${zh ? currentChapter.title_zh : currentChapter.title_en}`, onClick: () => go(currentChapter.id) });
+      if (viewMode === 'page' && currentPage) {
+        crumbs.push({ label: zh ? currentPage.title_zh : currentPage.title_en });
+      }
+    }
+  }
+
   return (
-    <nav className="mb-5 flex items-center justify-between font-mono text-xs text-slate-500 dark:text-slate-400 border-b border-salud-light-border/60 dark:border-salud-dark-border/40 pb-2">
-      {isSynergyView ? (
-        <div className="flex items-center gap-1.5">
-          <button onClick={() => selectPillar('systems')} className="hover:text-salud-cyan transition-colors font-bold">
-            首頁
+    <nav aria-label={zh ? '目前位置' : 'Breadcrumb'} className="mb-5 text-sm text-slate-500 dark:text-slate-400">
+      <ol className="flex flex-wrap items-center gap-1">
+        <li>
+          <button onClick={() => selectPillar('home')} className="inline-flex items-center gap-1 hover:text-emerald-700 dark:hover:text-emerald-400">
+            <House className="w-3.5 h-3.5" aria-hidden="true" />
+            {zh ? '首頁' : 'Home'}
           </button>
-          <span>/</span>
-          <span className="font-bold text-slate-800 dark:text-slate-100">四大健康支柱全人醫療</span>
-          <span>/</span>
-          <span className="text-salud-cyan font-bold">跨領域處方協同引擎 (Holistic Synergy)</span>
-        </div>
-      ) : isCouncilEvidenceView ? (
-        <div className="flex items-center gap-1.5">
-          <button onClick={() => selectPillar('systems')} className="hover:text-nature-amber-600 dark:hover:text-nature-amber-400 transition-colors font-bold">
-            首頁
-          </button>
-          <span>/</span>
-          <span className="font-bold text-slate-800 dark:text-slate-100">實證庫</span>
-          <span>/</span>
-          <span className="text-nature-amber-600 dark:text-nature-amber-400 font-bold">50+ 篇期刊實證與 Best Practice</span>
-        </div>
-      ) : activePillar === 'systems' ? (
-        <div className="flex items-center gap-1.5">
-          <button onClick={() => selectPillar('systems')} className="hover:text-salud-cyan transition-colors font-bold flex items-center gap-1">
-            <span>🏠</span>
-            <span className="text-slate-800 dark:text-slate-100">首頁 / {t('pillar.systems')}</span>
-          </button>
-          <span>/</span>
-          <span className="text-salud-cyan font-bold">8 大生理系統高解晰圖式與實證醫學總覽</span>
-        </div>
-      ) : (
-        <div className="flex items-center gap-1.5">
-          <button onClick={() => selectPillar('systems')} className="hover:text-salud-cyan transition-colors font-bold">
-            首頁
-          </button>
-          <span>/</span>
-          <button onClick={() => { if (activePillar === 'diet') setDietView('patterns'); }} className="hover:text-salud-amber transition-colors font-bold flex items-center gap-1">
-            <span>支柱:</span>
-            <span className="text-slate-800 dark:text-slate-100">{t(`pillar.${activePillar}`)}</span>
-          </button>
-          {activePillar === 'diet' && dietView === 'chapter' && currentChapter && (
-            <>
-              <span>/</span>
-              <button onClick={() => setViewMode('landing')} className="hover:text-salud-amber font-bold text-salud-amber-600 dark:text-salud-amber">
-                Chapter {currentChapter.id}
-              </button>
-              {viewMode === 'page' && currentPage && (
-                <>
-                  <span>/</span>
-                  <span className="text-salud-cyan font-bold">{currentPage.id}</span>
-                </>
+        </li>
+        {crumbs.map((c, i) => {
+          const last = i === crumbs.length - 1;
+          return (
+            <li key={i} className="inline-flex items-center gap-1 min-w-0">
+              <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              {c.onClick && !last ? (
+                <button onClick={c.onClick} className="hover:text-emerald-700 dark:hover:text-emerald-400 truncate max-w-[16rem]">
+                  {c.label}
+                </button>
+              ) : (
+                <span aria-current={last ? 'page' : undefined} className={`truncate max-w-[20rem] ${last ? 'text-slate-800 dark:text-slate-200 font-semibold' : ''}`}>
+                  {c.label}
+                </span>
               )}
-            </>
-          )}
-        </div>
-      )}
-      {isSynergyView ? (
-        <button onClick={() => { setIsSynergyView(false); selectPillar('systems'); }} className="text-[11px] text-salud-cyan hover:underline flex items-center gap-1 font-bold">
-          ⇵ 返回首頁人體系統
-        </button>
-      ) : isCouncilEvidenceView ? (
-        <button onClick={() => { setIsCouncilEvidenceView(false); selectPillar('systems'); }} className="text-[11px] text-nature-amber-600 dark:text-nature-amber-400 hover:underline flex items-center gap-1 font-bold">
-          ⇵ 返回首頁人體系統
-        </button>
-      ) : activePillar === 'diet' && dietView === 'chapter' ? (
-        <button onClick={() => setDietView('patterns')} className="text-[11px] text-salud-cyan hover:underline flex items-center gap-1">
-          ⇵ 返回飲食模式與營養要素
-        </button>
-      ) : activePillar !== 'systems' ? (
-        <button onClick={() => selectPillar('systems')} className="text-[11px] text-salud-cyan hover:underline flex items-center gap-1">
-          🏠 返回人體系統
-        </button>
-      ) : null}
+            </li>
+          );
+        })}
+      </ol>
     </nav>
   );
 }

@@ -259,7 +259,23 @@ export interface SupplementEvaluation {
 }
 
 // ── Health Pillars Architecture Types (v0.5 Systems Redesign) ──
-export type HealthPillar = 'systems' | 'ultrahealth' | 'obesity' | 'longevity' | 'cardiometabolic' | 'diet' | 'exercise' | 'sleep' | 'supplements' | 'mental';
+export type HealthPillar =
+  | 'home'
+  | 'start'
+  | 'learn'
+  | 'updates'
+  | 'checkup'
+  | 'glossary'
+  | 'systems'
+  | 'ultrahealth'
+  | 'obesity'
+  | 'longevity'
+  | 'cardiometabolic'
+  | 'diet'
+  | 'exercise'
+  | 'sleep'
+  | 'supplements'
+  | 'mental';
 
 // ── Human Organ Systems Types (主頁人體系統總覽) ──
 export type HumanSystemId =
@@ -390,7 +406,14 @@ export interface DietaryNutrient {
 }
 
 // Pillar 1: Dietary Patterns
-export type DietaryPatternId = 'MEDITERRANEAN' | 'LOW_CARB' | 'KETOGENIC' | 'HIGH_FIBER_DASH' | 'VEGAN_VEGETARIAN';
+export type DietaryPatternId =
+  | 'MEDITERRANEAN'
+  | 'LOW_CARB'
+  | 'KETOGENIC'
+  | 'HIGH_FIBER_DASH'
+  | 'VEGAN_VEGETARIAN'
+  | 'MIND'
+  | 'TIME_RESTRICTED';
 
 export interface MacroRatio {
   carbs_pct: number; // e.g. 50%
@@ -452,7 +475,7 @@ export interface ExerciseTopic {
   id: string;
   title_zh: string;
   title_en: string;
-  category: 'CARDIO_VO2' | 'RESISTANCE_SARCOPENIA' | 'NEAT_SEDENTARY' | 'SAFETY_PRESCRIPTION';
+  category: 'CARDIO_VO2' | 'RESISTANCE_SARCOPENIA' | 'NEAT_SEDENTARY' | 'SAFETY_PRESCRIPTION' | 'LACTATE_SHUTTLE' | 'HYPERTROPHY_SIGNALING';
   one_liner_zh: string;
   one_liner_en: string;
   evidence_grade: EvidenceGrade;

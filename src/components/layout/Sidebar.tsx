@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { KnowledgePage, HealthPillar } from '../../types';
+import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal } from '../../context/ModalContext';
 import { FontSizeToggle } from '../common/FontSizeToggle';
+import { LanguageToggle } from '../common/LanguageToggle';
+import { useLearningProgress } from '../../hooks/useLearningProgress';
+import { ALL_LESSONS } from '../../data/learning/tracks';
 import {
   PILLAR_NAV,
   PILLAR_GROUPS,
+  GROUP_ORDER,
   DIET_SUB_NAV,
   EXERCISE_SUB_NAV,
   PillarNavItem,
 } from '../../config/navigation';
+import { DISCIPLINE_HASH } from '../../config/routes';
 import {
   ChevronDown,
   ChevronRight,
@@ -22,21 +27,6 @@ import {
   Check,
 } from 'lucide-react';
 
-interface Props {
-  activePillar?: HealthPillar | null;
-  onSelectPillar?: (pillar: HealthPillar) => void;
-  currentChapterId?: string;
-  activePageId?: string;
-  onSelectChapter?: (chapterId: string) => void;
-  onSelectPage?: (pageId: string) => void;
-  chapterWPages?: KnowledgePage[];
-  chapterOPages?: KnowledgePage[];
-  chapterAPages?: KnowledgePage[];
-  onOpenAuditC?: () => void;
-  onOpenCardioHub?: () => void;
-  onOpenEmergencyModal?: () => void;
-}
-
 const CHAPTER_IDS = [
   { id: 'W', label_zh: '水分與水合', label_en: 'Water & hydration' },
   { id: 'O', label_zh: '油脂與烹調', label_en: 'Fats & cooking' },
@@ -44,21 +34,23 @@ const CHAPTER_IDS = [
 ];
 
 /**
- * Sidebar — secondary navigation: the topic tree plus the reader-facing clinical tools.
+ * Sidebar — the full topic tree plus the reader-facing self-check tools.
  *
- * v2.0 renders the pillar list from config/navigation.ts instead of nine hand-written
- * blocks, and no longer carries the four expert-council entries. Those described who
- * reviewed the content, not what the reader can read, so they moved to the footer.
+ * v4.0 groups the tree by the learner's journey (開始學習 → 認識身體 → 吃動睡心 →
+ * 預防與目標), shows reading progress, and drops the monospace labels that rendered
+ * Chinese in a fallback serif on Windows.
  */
-export const Sidebar: React.FC<Props> = (props) => {
+export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant = 'desktop' }) => {
   const { t, language } = useLanguage();
   const nav = useNavigation();
   const modal = useModal();
+  const { progress } = useLearningProgress();
   const zh = language === 'zh-TW';
+  const inDrawer = variant === 'drawer';
 
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [expandedPillar, setExpandedPillar] = useState<HealthPillar | null>('diet');
-  const [completedList, setCompletedList] = useState<string[]>(() => {
+  const [expandedPillar, setExpandedPillar] = useState<HealthPillar | null>(null);
+  const [completedPages, setCompletedPages] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('salud_completed_pages');
       return saved ? JSON.parse(saved) : [];
@@ -71,39 +63,35 @@ export const Sidebar: React.FC<Props> = (props) => {
     const handleStorage = () => {
       try {
         const saved = localStorage.getItem('salud_completed_pages');
-        if (saved) setCompletedList(JSON.parse(saved));
-      } catch {}
+        if (saved) setCompletedPages(JSON.parse(saved));
+      } catch {
+        /* storage unavailable */
+      }
     };
     window.addEventListener('storage', handleStorage);
     return () => window.removeEventListener('storage', handleStorage);
   }, []);
 
-  // Fall back to context when props are omitted
-  const activePillar = props.activePillar ?? nav.highlightedPillar;
-  const onSelectPillar = props.onSelectPillar ?? nav.selectPillar;
-  const currentChapterId = props.currentChapterId ?? nav.currentChapterId;
-  const activePageId = props.activePageId ?? nav.activePageId;
-  const onSelectChapter = props.onSelectChapter ?? nav.selectChapter;
-  const onSelectPage = props.onSelectPage ?? nav.selectPage;
-  const onOpenAuditC = props.onOpenAuditC ?? (() => modal.openModal('auditC'));
-  const onOpenCardioHub = props.onOpenCardioHub ?? (() => modal.openModal('cardioHub'));
-  const onOpenEmergencyModal = props.onOpenEmergencyModal ?? (() => modal.openModal('emergency'));
+  // Auto-expand the pillar the reader is in, so its sub-pages are visible.
+  useEffect(() => {
+    if (nav.activePillar === 'diet' || nav.activePillar === 'exercise') setExpandedPillar(nav.activePillar);
+  }, [nav.activePillar]);
 
-  const pagesForCurrent =
-    props.chapterWPages && props.chapterOPages && props.chapterAPages
-      ? currentChapterId === 'W'
-        ? props.chapterWPages
-        : currentChapterId === 'O'
-        ? props.chapterOPages
-        : currentChapterId === 'A'
-        ? props.chapterAPages
-        : []
-      : nav.pagesForCurrent;
+  const collapsed = isCollapsed && !inDrawer;
+  const activePillar = nav.highlightedPillar;
+  const lessonsDone = progress.completed.filter((id) => ALL_LESSONS.some((l) => l.id === id)).length;
 
   const isPillarActive = (item: PillarNavItem) =>
     activePillar === item.id || (item.id === 'diet' && activePillar === 'supplements');
 
   const hasSubNav = (id: HealthPillar) => id === 'diet' || id === 'exercise';
+
+  const subLink = (active: boolean) =>
+    `w-full px-2 py-1.5 rounded-lg text-left text-[13px] flex items-center gap-2 transition-colors ${
+      active
+        ? 'text-emerald-800 dark:text-emerald-300 font-semibold bg-emerald-50/80 dark:bg-emerald-950/30'
+        : 'text-slate-600 dark:text-slate-400 hover:text-emerald-800 dark:hover:text-emerald-300'
+    }`;
 
   const renderPillar = (item: PillarNavItem) => {
     const Icon = item.icon;
@@ -111,240 +99,221 @@ export const Sidebar: React.FC<Props> = (props) => {
     const isExpanded = expandedPillar === item.id;
 
     return (
-      <div key={item.id} className="space-y-1">
+      <li key={item.id}>
         <div
-          className={`btn-tactile w-full rounded-xl border transition-all flex items-center ${
+          className={`w-full rounded-xl flex items-center transition-colors ${
             isActive
-              ? 'border-emerald-400 dark:border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-bold shadow-xs'
-              : 'border-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+              ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200'
+              : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
           }`}
         >
           <button
-            onClick={() => onSelectPillar(item.id)}
-            className={`flex-1 min-w-0 p-2.5 text-left flex items-center gap-2 ${
-              isCollapsed ? 'justify-center px-2' : ''
-            }`}
-            title={zh ? item.label_zh : item.label_en}
+            onClick={() => nav.selectPillar(item.id)}
+            className={`flex-1 min-w-0 px-2.5 py-2 text-left flex items-center gap-2.5 rounded-xl ${collapsed ? 'justify-center px-2' : ''}`}
+            title={collapsed ? (zh ? item.label_zh : item.label_en) : undefined}
+            aria-current={isActive ? 'page' : undefined}
           >
             <Icon
-              className={`w-4 h-4 shrink-0 ${
-                isActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'
-              }`}
+              className={`w-[18px] h-[18px] shrink-0 ${isActive ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-500'}`}
+              aria-hidden="true"
             />
-            {!isCollapsed && (
-              <span className="truncate text-xs">{zh ? item.label_zh : item.label_en}</span>
+            {!collapsed && (
+              <span className={`truncate text-sm ${isActive ? 'font-semibold' : ''}`}>{zh ? item.label_zh : item.label_en}</span>
+            )}
+            {!collapsed && !hasSubNav(item.id) && (
+              <span className="ml-auto pl-1 text-[11px] text-slate-400 dark:text-slate-500 shrink-0">
+                {item.id === 'learn' && lessonsDone > 0 ? `${lessonsDone}/${ALL_LESSONS.length}` : zh ? item.blurb_zh : item.blurb_en}
+              </span>
             )}
           </button>
 
-          {!isCollapsed &&
-            (hasSubNav(item.id) ? (
-              <button
-                onClick={() => setExpandedPillar(isExpanded ? null : item.id)}
-                className="p-2 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-300 rounded-lg shrink-0"
-                aria-label={zh ? '展開子項目' : 'Expand sub-topics'}
-              >
-                {isExpanded ? (
-                  <ChevronDown className="w-3.5 h-3.5" />
-                ) : (
-                  <ChevronRight className="w-3.5 h-3.5" />
-                )}
-              </button>
-            ) : (
-              <span className="pr-2.5 text-[10px] font-mono text-slate-400 dark:text-slate-500 shrink-0">
-                {zh ? item.blurb_zh : item.blurb_en}
-              </span>
-            ))}
+          {!collapsed && hasSubNav(item.id) && (
+            <button
+              onClick={() => setExpandedPillar(isExpanded ? null : item.id)}
+              className="p-2 text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300 rounded-lg shrink-0"
+              aria-label={zh ? `${isExpanded ? '收合' : '展開'}${item.label_zh}子項目` : 'Toggle sub-topics'}
+              aria-expanded={isExpanded}
+            >
+              {isExpanded ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            </button>
+          )}
         </div>
 
-        {/* Sub-navigation */}
-        {!isCollapsed && isExpanded && item.id === 'diet' && (
-          <div className="pl-4 space-y-0.5 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 py-1">
+        {!collapsed && isExpanded && item.id === 'diet' && (
+          <ul className="ml-5 pl-3 border-l border-slate-200 dark:border-slate-800 py-1 space-y-0.5">
             {DIET_SUB_NAV.map((sub) => (
-              <button
-                key={sub.hash}
-                onClick={() => {
-                  if (sub.hash === 'supplements') {
-                    onSelectPillar('supplements');
-                  } else {
-                    onSelectPillar('diet');
-                    window.location.hash = sub.hash;
-                  }
-                }}
-                className="btn-tactile w-full p-1.5 rounded-lg text-left text-[11px] flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300"
-              >
-                <span className="text-emerald-500 font-bold">·</span>
-                <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
-              </button>
+              <li key={sub.hash}>
+                <button
+                  onClick={() => nav.go(sub.hash)}
+                  className={subLink(
+                    sub.hash === 'supplements' ? nav.activePillar === 'supplements' : nav.activePillar === 'diet' && nav.dietView === 'patterns'
+                  )}
+                >
+                  <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
+                </button>
+              </li>
             ))}
             {CHAPTER_IDS.map((ch) => (
-              <button
-                key={ch.id}
-                onClick={() => onSelectChapter(ch.id)}
-                className={`btn-tactile w-full p-1.5 rounded-lg text-left text-[11px] flex items-center gap-2 ${
-                  currentChapterId === ch.id && nav.dietView === 'chapter'
-                    ? 'text-emerald-700 dark:text-emerald-300 font-bold'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300'
-                }`}
-              >
-                <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
-                  {ch.id}
-                </span>
-                <span className="truncate">{zh ? ch.label_zh : ch.label_en}</span>
-              </button>
+              <li key={ch.id}>
+                <button
+                  onClick={() => nav.selectChapter(ch.id)}
+                  className={subLink(nav.activePillar === 'diet' && nav.dietView === 'chapter' && nav.currentChapterId === ch.id)}
+                >
+                  <span className="font-semibold text-emerald-700 dark:text-emerald-400 w-3">{ch.id}</span>
+                  <span className="truncate">{zh ? ch.label_zh : ch.label_en}</span>
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
 
-        {!isCollapsed && isExpanded && item.id === 'exercise' && (
-          <div className="pl-4 space-y-0.5 border-l-2 border-slate-200 dark:border-slate-800 ml-3.5 py-1">
+        {!collapsed && isExpanded && item.id === 'exercise' && (
+          <ul className="ml-5 pl-3 border-l border-slate-200 dark:border-slate-800 py-1 space-y-0.5">
             {EXERCISE_SUB_NAV.map((sub) => (
-              <button
-                key={sub.hash}
-                onClick={() => {
-                  window.location.hash = sub.hash;
-                }}
-                className="btn-tactile w-full p-1.5 rounded-lg text-left text-[11px] flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300"
-              >
-                <span className="text-emerald-500 font-bold">·</span>
-                <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
-              </button>
+              <li key={sub.hash}>
+                <button
+                  onClick={() => nav.go(sub.hash)}
+                  className={subLink(nav.activePillar === 'exercise' && DISCIPLINE_HASH[nav.exerciseSubTab] === sub.hash)}
+                >
+                  <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
-      </div>
+      </li>
     );
   };
 
-  const groupOrder: PillarNavItem['group'][] = ['foundation', 'goals', 'daily'];
-
   return (
     <aside
-      className={`shrink-0 border-r border-salud-light-border/80 dark:border-salud-dark-border/80 bg-white/70 dark:bg-salud-dark-surface/50 p-4 space-y-5 overflow-y-auto text-xs font-sans transition-all duration-300 ${
-        isCollapsed ? 'w-16 items-center px-2' : 'w-64'
-      }`}
+      className={`shrink-0 ${
+        inDrawer
+          ? 'w-full'
+          : `sticky top-16 h-[calc(100vh-4rem)] border-r border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-salud-dark-surface/50 ${
+              collapsed ? 'w-16 px-2' : 'w-64 px-3'
+            }`
+      } py-4 space-y-5 overflow-y-auto transition-all duration-300`}
+      aria-label={zh ? '主題導覽' : 'Topic navigation'}
     >
-      {/* Collapse toggle (desktop) */}
-      <div className="hidden lg:flex items-center justify-between pb-1 border-b border-slate-200/60 dark:border-slate-800/60">
-        {!isCollapsed && (
-          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-bold">
-            {zh ? '健康主題' : 'Topics'}
-          </span>
-        )}
-        <button
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className={`p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ${
-            isCollapsed ? 'mx-auto' : ''
-          }`}
-          title={isCollapsed ? (zh ? '展開側邊欄' : 'Expand') : zh ? '收合側邊欄' : 'Collapse'}
-          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-        >
-          {isCollapsed ? <PanelLeft className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
-        </button>
-      </div>
+      {!inDrawer && (
+        <div className="flex items-center justify-end">
+          <button
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className={`p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ${
+              collapsed ? 'mx-auto' : ''
+            }`}
+            aria-label={collapsed ? (zh ? '展開側邊欄' : 'Expand sidebar') : zh ? '收合側邊欄' : 'Collapse sidebar'}
+          >
+            {collapsed ? <PanelLeft className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
+          </button>
+        </div>
+      )}
 
-      {/* Grouped topic tree */}
-      {groupOrder.map((group) => {
+      {GROUP_ORDER.map((group) => {
         const items = PILLAR_NAV.filter((p) => p.group === group);
         if (!items.length) return null;
         return (
-          <div key={group} className="space-y-1.5">
-            {!isCollapsed && (
-              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider px-1 block font-bold">
+          <nav key={group} aria-label={zh ? PILLAR_GROUPS[group].title_zh : PILLAR_GROUPS[group].title_en}>
+            {!collapsed && (
+              <p className="px-2.5 mb-1 text-xs font-semibold text-slate-500 dark:text-slate-400">
                 {zh ? PILLAR_GROUPS[group].title_zh : PILLAR_GROUPS[group].title_en}
-              </span>
+              </p>
             )}
-            {items.map(renderPillar)}
-          </div>
+            <ul className="space-y-0.5">{items.map(renderPillar)}</ul>
+          </nav>
         );
       })}
 
       {/* Page list for the chapter currently being read */}
-      {!isCollapsed && activePillar === 'diet' && nav.dietView === 'chapter' && pagesForCurrent.length > 0 && (
-        <div className="space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
-          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block px-1 font-bold">
-            {zh ? `第 ${currentChapterId} 章內容` : `Chapter ${currentChapterId}`}
-          </span>
-          <div className="space-y-0.5">
-            {pagesForCurrent.map((p) => {
-              const isPageActive = activePageId === p.id && nav.viewMode === 'page';
+      {!collapsed && nav.activePillar === 'diet' && nav.dietView === 'chapter' && nav.pagesForCurrent.length > 0 && (
+        <nav className="pt-3 border-t border-slate-200 dark:border-slate-800" aria-label={zh ? '本章頁面' : 'Chapter pages'}>
+          <p className="px-2.5 mb-1 text-xs font-semibold text-slate-500 dark:text-slate-400">
+            {zh ? `第 ${nav.currentChapterId} 章內容` : `Chapter ${nav.currentChapterId}`}
+          </p>
+          <ul className="space-y-0.5">
+            {nav.pagesForCurrent.map((p) => {
+              const isPageActive = nav.activePageId === p.id && nav.viewMode === 'page';
               return (
-                <button
-                  key={p.id}
-                  onClick={() => onSelectPage(p.id)}
-                  title={`${p.id}: ${p.title_zh}`}
-                  className={`btn-tactile w-full p-2 rounded-xl text-left transition-all flex items-center justify-between gap-1.5 ${
-                    isPageActive
-                      ? 'bg-emerald-50 dark:bg-slate-800/95 text-emerald-900 dark:text-emerald-200 font-bold border border-emerald-300 dark:border-emerald-800'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50'
-                  }`}
-                >
-                  <span className="truncate text-xs">{zh ? p.title_zh : p.title_en}</span>
-                  <span className="flex items-center gap-1 shrink-0">
-                    {completedList.includes(p.id) && (
-                      <Check className="w-3 h-3 text-emerald-500" />
-                    )}
-                    {p.safety_gated && (
-                      <AlertOctagon className="w-3 h-3 text-red-500 animate-pulse" />
-                    )}
-                    <span className="text-[10px] text-slate-400 font-mono">
-                      {p.estimated_minutes}m
+                <li key={p.id}>
+                  <button
+                    onClick={() => nav.selectPage(p.id)}
+                    className={`w-full px-2.5 py-1.5 rounded-lg text-left flex items-center justify-between gap-1.5 ${
+                      isPageActive
+                        ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-semibold'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                    }`}
+                  >
+                    <span className="truncate text-[13px]">{zh ? p.title_zh : p.title_en}</span>
+                    <span className="flex items-center gap-1 shrink-0">
+                      {completedPages.includes(p.id) && <Check className="w-3 h-3 text-emerald-600" aria-label="已讀" />}
+                      {p.safety_gated && <AlertOctagon className="w-3 h-3 text-red-500" aria-label="安全提醒" />}
+                      <span className="text-[11px] text-slate-400">{p.estimated_minutes}′</span>
                     </span>
-                  </span>
-                </button>
+                  </button>
+                </li>
               );
             })}
-          </div>
-        </div>
+          </ul>
+        </nav>
       )}
 
-      {/* Reader-facing clinical tools — these answer a health question, so they stay */}
-      <div className="space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
-        {!isCollapsed && (
-          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block px-1 font-bold">
-            {zh ? '自我檢測工具' : 'Self-check tools'}
-          </span>
-        )}
-
-        <button
-          onClick={onOpenEmergencyModal}
-          className={`btn-tactile w-full p-2 rounded-xl border border-red-200 dark:border-red-900/60 bg-red-50/80 dark:bg-red-950/20 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-800 dark:text-red-300 font-mono text-xs flex items-center gap-2 transition-all ${
-            isCollapsed ? 'justify-center px-2' : ''
-          }`}
-          title={t('nav.red_flags_title')}
-        >
-          <AlertOctagon className="w-3.5 h-3.5 shrink-0 animate-pulse" />
-          {!isCollapsed && <span>{t('nav.red_flags')}</span>}
-        </button>
-
-        <button
-          onClick={onOpenAuditC}
-          className={`btn-tactile w-full p-2 rounded-xl border border-purple-200 dark:border-purple-800/60 bg-purple-50/80 dark:bg-purple-950/20 hover:bg-purple-100 dark:hover:bg-purple-900/30 text-purple-800 dark:text-purple-300 font-mono text-xs flex items-center gap-2 transition-all ${
-            isCollapsed ? 'justify-center px-2' : ''
-          }`}
-          title={isCollapsed ? t('nav.audit_c') : undefined}
-        >
-          <ClipboardCheck className="w-3.5 h-3.5 shrink-0" />
-          {!isCollapsed && <span>{t('nav.audit_c')}</span>}
-        </button>
-
-        <button
-          onClick={onOpenCardioHub}
-          className={`btn-tactile w-full p-2 rounded-xl border border-nature-sky-200 dark:border-nature-sky-800/60 bg-nature-sky-50/80 dark:bg-nature-sky-950/20 hover:bg-nature-sky-100 dark:hover:bg-nature-sky-900/30 text-nature-sky-800 dark:text-nature-sky-300 font-mono text-xs flex items-center gap-2 transition-all ${
-            isCollapsed ? 'justify-center px-2' : ''
-          }`}
-          title={isCollapsed ? t('nav.cardio_hub') : undefined}
-        >
-          <HeartPulse className="w-3.5 h-3.5 shrink-0" />
-          {!isCollapsed && <span>{t('nav.cardio_hub')}</span>}
-        </button>
+      {/* Reader-facing self-check tools */}
+      <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-1.5">
+        {!collapsed && <p className="px-2.5 mb-1 text-xs font-semibold text-slate-500 dark:text-slate-400">{zh ? '自我檢測工具' : 'Self-check tools'}</p>}
+        {[
+          {
+            key: 'emergency',
+            onClick: () => {
+              nav.setIsMobileSidebarOpen(false);
+              modal.openModal('emergency');
+            },
+            icon: AlertOctagon,
+            label: t('nav.red_flags'),
+            cls: 'text-red-800 dark:text-red-300 bg-red-50/80 dark:bg-red-950/20 border-red-200 dark:border-red-900/60 hover:bg-red-100 dark:hover:bg-red-900/30',
+          },
+          {
+            key: 'auditC',
+            onClick: () => {
+              nav.setIsMobileSidebarOpen(false);
+              modal.openModal('auditC');
+            },
+            icon: ClipboardCheck,
+            label: t('nav.audit_c'),
+            cls: 'text-violet-800 dark:text-violet-300 bg-violet-50/80 dark:bg-violet-950/20 border-violet-200 dark:border-violet-900/60 hover:bg-violet-100 dark:hover:bg-violet-900/30',
+          },
+          {
+            key: 'cardio',
+            onClick: () => {
+              nav.setIsMobileSidebarOpen(false);
+              modal.openModal('cardioHub');
+            },
+            icon: HeartPulse,
+            label: t('nav.cardio_hub'),
+            cls: 'text-sky-800 dark:text-sky-300 bg-sky-50/80 dark:bg-sky-950/20 border-sky-200 dark:border-sky-900/60 hover:bg-sky-100 dark:hover:bg-sky-900/30',
+          },
+        ].map((tool) => (
+          <button
+            key={tool.key}
+            onClick={tool.onClick}
+            className={`w-full px-2.5 py-2 rounded-xl border text-sm flex items-center gap-2 transition-colors ${tool.cls} ${collapsed ? 'justify-center px-2' : ''}`}
+            title={collapsed ? tool.label : undefined}
+          >
+            <tool.icon className="w-4 h-4 shrink-0" aria-hidden="true" />
+            {!collapsed && <span className="truncate">{tool.label}</span>}
+          </button>
+        ))}
       </div>
 
-      {!isCollapsed && (
-        <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-1.5">
-          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block px-1 font-bold">
-            {zh ? '閱讀字級' : 'Font size'}
-          </span>
+      {!collapsed && (
+        <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-2">
+          <p className="px-2.5 text-xs font-semibold text-slate-500 dark:text-slate-400">{zh ? '閱讀設定' : 'Reading'}</p>
           <FontSizeToggle variant="full" />
+          {inDrawer && (
+            <div className="px-1">
+              <LanguageToggle />
+            </div>
+          )}
         </div>
       )}
     </aside>

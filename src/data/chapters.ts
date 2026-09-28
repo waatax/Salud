@@ -1,6 +1,9 @@
-import { Chapter } from '../types';
+import { Chapter, KnowledgePage } from '../types';
+import { CHAPTER_W_PAGES } from './chapterW';
+import { CHAPTER_O_PAGES } from './chapterO';
+import { CHAPTER_A_PAGES } from './chapterA';
 
-export const CHAPTERS: Chapter[] = [
+const CHAPTERS_BASE: Chapter[] = [
   {
     id: 'W',
     domain: 'nutrition',
@@ -200,3 +203,15 @@ export const CHAPTERS: Chapter[] = [
     badge: 'Phase 3 規劃中',
   },
 ];
+
+/**
+ * v4.0: page and knowledge-point counts for published chapters are computed from the
+ * page data, so the landing cards can no longer drift from what is actually on the pages.
+ */
+const LIVE_PAGES: Record<string, KnowledgePage[]> = { W: CHAPTER_W_PAGES, O: CHAPTER_O_PAGES, A: CHAPTER_A_PAGES };
+
+export const CHAPTERS: Chapter[] = CHAPTERS_BASE.map((c) => {
+  const pages = LIVE_PAGES[c.id];
+  if (!pages) return c;
+  return { ...c, page_count: pages.length, kp_count: pages.reduce((n, p) => n + p.kps.length, 0) };
+});

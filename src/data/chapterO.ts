@@ -1,6 +1,7 @@
 import { KnowledgePage } from '../types';
+import { PAGE_O_13 } from './chapterExpansion2026';
 
-export const CHAPTER_O_PAGES: KnowledgePage[] = [
+const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-01',
     chapter_id: 'O',
@@ -1779,3 +1780,6 @@ export const CHAPTER_O_PAGES: KnowledgePage[] = [
     prerequisites: ['PAGE-O-05', 'PAGE-O-07', 'PAGE-O-11']
   }
 ];
+
+/** v4.0: the 2026 evidence page is appended after the authored pages. */
+export const CHAPTER_O_PAGES: KnowledgePage[] = [...CHAPTER_O_BASE, PAGE_O_13];

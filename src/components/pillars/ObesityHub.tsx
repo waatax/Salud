@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHashTab } from '../../hooks/useHashTab';
+import { OBESITY_TABS } from '../../config/routes';
 import {
   EOSS_STAGES,
   OBESITY_MECHANISMS,
@@ -53,7 +55,7 @@ import {
 
 export const ObesityHub: React.FC = () => {
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState<ObesitySubTab>('OVERVIEW');
+  const [activeTab, setActiveTab] = useHashTab<ObesitySubTab>('obesity', OBESITY_TABS, 'OVERVIEW');
   const [expandedMechanism, setExpandedMechanism] = useState<string | null>('OM-01');
   const [selectedDrugId, setSelectedDrugId] = useState<string>('DRUG-01');
   const [selectedDietId, setSelectedDietId] = useState<string>('DIET-01');
@@ -984,7 +986,7 @@ export const ObesityHub: React.FC = () => {
                 <span>Myth Busters</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-display font-bold text-slate-900 dark:text-white">
-                5 大坊間流行偽科學迷思粉碎機
+                {OBESITY_MYTHS.length} 大坊間流行偽科學迷思粉碎機
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 以嚴謹生物化學與人體生理學數據，粉碎商業炒作與致命誤區。

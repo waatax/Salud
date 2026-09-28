@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "standard": "WCAG 2.2 Level AA",
-  "timestamp": "2026-09-23T00:56:32.519Z",
+  "timestamp": "2026-09-28T15:33:47.904Z",
   "summary": {
     "totalChecks": 6,
     "passed": 6,
@@ -16,9 +16,9 @@
       "description": "頁面佈局與各章節使用語意化標籤（header, nav, main, section）",
       "wcagCriterion": "1.3.1 Info and Relationships (Level A)",
       "status": "PASS",
-      "scannedCount": 126,
-      "passCount": 24,
-      "details": "在 24 個核心組件中檢測到明確之語意化 Landmark 結構標籤。"
+      "scannedCount": 142,
+      "passCount": 34,
+      "details": "在 34 個核心組件中檢測到明確之語意化 Landmark 結構標籤。"
     },
     {
       "checkId": "A11Y-002-INTERACTIVE-LABELS",
@@ -26,9 +26,9 @@
       "description": "互動按鈕與圖示控制器皆具備具名輔助標籤（aria-label / title / 內容文字）",
       "wcagCriterion": "4.1.2 Name, Role, Value (Level A)",
       "status": "PASS",
-      "scannedCount": 369,
-      "passCount": 369,
-      "details": "掃描全站 369 個互動按鈕，符合無障礙標籤規範率達 100%。"
+      "scannedCount": 436,
+      "passCount": 436,
+      "details": "掃描全站 436 個互動按鈕，符合無障礙標籤規範率達 100%。"
     },
     {
       "checkId": "A11Y-003-FOCUS-INDICATORS",
@@ -36,8 +36,8 @@
       "description": "鍵盤導航可見焦點（Visible Focus Indicator）與觸覺互動反饋",
       "wcagCriterion": "2.4.7 Focus Visible (Level AA) & 2.4.11 Focus Appearance (Level AA)",
       "status": "PASS",
-      "scannedCount": 126,
-      "passCount": 71,
+      "scannedCount": 142,
+      "passCount": 75,
       "details": "全站按鈕全面採用 btn-tactile 與 focus:ring 高對比焦點環樣式。"
     },
     {
@@ -66,9 +66,9 @@
       "description": "螢幕報讀機相容性（ARIA 狀態、屬性、角色與輔助朗讀支援）",
       "wcagCriterion": "1.3.2 Meaningful Sequence & 4.1.2 (Level AA)",
       "status": "PASS",
-      "scannedCount": 126,
-      "passCount": 22,
-      "details": "在 22 個組件中配置了完整之 ARIA 狀態與螢幕朗讀屬性。"
+      "scannedCount": 142,
+      "passCount": 41,
+      "details": "在 41 個組件中配置了完整之 ARIA 狀態與螢幕朗讀屬性。"
     }
   ],
   "scannedComponents": [
@@ -123,6 +123,16 @@
     "src/components/layout/MobileNav.tsx",
     "src/components/layout/Sidebar.tsx",
     "src/components/layout/SiteFooter.tsx",
+    "src/components/learn/ActionPlanPanel.tsx",
+    "src/components/learn/CheckupGuide.tsx",
+    "src/components/learn/EvidenceUpdatesPage.tsx",
+    "src/components/learn/GlossaryPage.tsx",
+    "src/components/learn/LearnHome.tsx",
+    "src/components/learn/learnUi.tsx",
+    "src/components/learn/QuickTips.tsx",
+    "src/components/learn/SearchPalette.tsx",
+    "src/components/learn/StarterPlanPage.tsx",
+    "src/components/learn/TrackView.tsx",
     "src/components/meta/AboutGovernancePage.tsx",
     "src/components/meta/EvidenceLibraryPage.tsx",
     "src/components/meta/LatestEvidenceStrip.tsx",
@@ -185,7 +195,13 @@
     "src/components/simulators/SimTableTennisSpin.tsx",
     "src/components/simulators/SimWeightTrajectory.tsx",
     "src/components/sports/BadmintonInfographics.tsx",
+    "src/components/sports/CyclingInfographics.tsx",
+    "src/components/sports/MobilityInfographics.tsx",
+    "src/components/sports/MountaineeringInfographics.tsx",
+    "src/components/sports/PhysiologyInfographics.tsx",
     "src/components/sports/PickleballInfographics.tsx",
+    "src/components/sports/RunningInfographics.tsx",
+    "src/components/sports/StrengthInfographics.tsx",
     "src/components/sports/TableTennisInfographics.tsx",
     "src/components/systems/HumanSystemsHub.tsx",
     "src/components/systems/SystemDeepDiveView.tsx",

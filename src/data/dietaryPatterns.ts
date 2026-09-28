@@ -388,4 +388,131 @@ export const DIETARY_PATTERNS: DietaryPattern[] = [
     not_for_zh: '無法規律補充維生素 B12 者、嚴重發育遲緩兒童、重度肌少症且無法消化大體積植物蛋白之高齡長者。',
     not_for_en: 'Individuals unable to ensure compliant B12 supplementation, infants without specialized pediatric guidance, severe frail sarcopenia.',
   },
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'MIND',
+    name_zh: '麥得飲食 (MIND Diet)',
+    name_en: 'MIND Diet',
+    tagline_zh: '結合地中海與得舒飲食，針對大腦健康設計',
+    tagline_en: 'A Mediterranean–DASH hybrid designed around brain health',
+    description_zh: 'MIND 是「地中海-得舒飲食介入延緩神經退化」的縮寫，強調綠葉蔬菜、莓果、堅果、全穀、豆類、魚與橄欖油，並限制紅肉、奶油、起司、油炸與甜食。觀察性研究顯示遵循度高者認知退化較慢；但 2023 年 NEJM 為期 3 年的隨機試驗中，與同樣輕度減少熱量的對照飲食相比，認知與腦部影像並無顯著差異。',
+    description_en: 'MIND (Mediterranean–DASH Intervention for Neurodegenerative Delay) emphasises leafy greens, berries, nuts, whole grains, legumes, fish and olive oil while limiting red meat, butter, cheese, fried food and sweets. Cohorts link high adherence to slower cognitive decline, but a 3-year NEJM 2023 RCT found no significant cognitive or MRI difference versus a mildly calorie-restricted control diet.',
+    evidence_grade: 'B',
+    macro_distribution: {
+      carbs_pct: 45,
+      protein_pct: 18,
+      fat_pct: 37,
+    },
+    core_principles_zh: [
+      '綠葉蔬菜每天一份以上，其他蔬菜每天至少一份。',
+      '莓果每週至少兩次、堅果每週五次以上、豆類每週三次以上、魚類每週至少一次。',
+      '以橄欖油為主要用油；紅肉、奶油、起司、油炸與甜點都要限量。',
+    ],
+    core_principles_en: [
+      'Leafy greens daily plus at least one other vegetable a day.',
+      'Berries ≥2×/week, nuts ≥5×/week, legumes ≥3×/week, fish ≥1×/week.',
+      'Olive oil as the main fat; limit red meat, butter, cheese, fried food and pastries.',
+    ],
+    biochemical_mechanisms_zh: [
+      '綠葉蔬菜富含葉酸、維生素 K、葉黃素，莓果富含花青素，被認為與神經保護相關。',
+      '整體飲食型態有助控制血壓、血糖與 LDL，間接保護腦血管。',
+    ],
+    biochemical_mechanisms_en: [
+      'Leafy greens supply folate, vitamin K and lutein; berries supply anthocyanins, all studied for neuroprotection.',
+      'The overall pattern supports blood pressure, glucose and LDL control, protecting cerebral vessels indirectly.',
+    ],
+    proven_benefits_zh: [
+      '多個世代研究中，遵循度最高者認知退化速度較慢、失智風險較低。',
+      '同時具備地中海與得舒飲食對血壓與心血管的好處。',
+    ],
+    proven_benefits_en: [
+      'In cohort studies, the highest adherence is associated with slower cognitive decline and lower dementia risk.',
+      'Carries the blood-pressure and cardiovascular benefits of Mediterranean and DASH diets.',
+    ],
+    precautions_and_risks_zh: [
+      '隨機試驗尚未證實它比一般健康飲食更能預防認知退化，不應誇大為「防失智飲食」。',
+      '堅果與橄欖油熱量高，需注意份量。',
+    ],
+    precautions_and_risks_en: [
+      'RCT evidence has not shown superiority over a generally healthy diet for cognition; avoid overselling it as an anti-dementia diet.',
+      'Nuts and olive oil are energy-dense; watch portions.',
+    ],
+    deficiency_risks: [
+      {
+        nutrient_zh: '鈣質 (Calcium)',
+        nutrient_en: 'Calcium',
+        risk_level: 'LOW',
+        solution_zh: '若同時減少乳製品，以板豆腐、深綠色蔬菜與小魚乾補足。',
+        solution_en: 'If dairy is reduced, use calcium-set tofu, dark greens and small fish.',
+      },
+    ],
+    ideal_for_zh: '重視腦部與心血管健康的中高齡族群，或家族有失智病史者。',
+    ideal_for_en: 'Middle-aged and older adults focused on brain and heart health, or with a family history of dementia.',
+    not_for_zh: '需嚴格限鉀或限磷的慢性腎臟病患者應由營養師調整蔬果與堅果份量。',
+    not_for_en: 'People with advanced CKD needing potassium/phosphorus restriction should adjust with a dietitian.',
+  },
+  {
+    id: 'TIME_RESTRICTED',
+    name_zh: '限時進食 (Time-Restricted Eating / 16:8)',
+    name_en: 'Time-Restricted Eating (16:8)',
+    tagline_zh: '把一天的進食集中在 8–10 小時內',
+    tagline_en: 'Confining daily eating to an 8–10 hour window',
+    description_zh: '限時進食是間歇性斷食的一種，把進食時間集中在固定時段（例如早上 10 點到晚上 6 點）。它最大的幫助是減少宵夜與零食、讓人自然少吃。2022 年 NEJM 一年期隨機試驗顯示：在同樣限制熱量的條件下，加上 8 小時進食窗並沒有帶來額外的減重效果——關鍵仍是總熱量與飲食品質。',
+    description_en: 'Time-restricted eating (a form of intermittent fasting) confines meals to a fixed window, e.g. 10:00–18:00. Its main benefit is cutting late-night eating and snacking. A 1-year NEJM 2022 RCT found that, with calories restricted equally, adding an 8-hour window gave no extra weight loss — total energy and diet quality still decide.',
+    evidence_grade: 'B',
+    macro_distribution: {
+      carbs_pct: 50,
+      protein_pct: 20,
+      fat_pct: 30,
+    },
+    core_principles_zh: [
+      '選一個能長期維持的進食窗（8–10 小時），盡量安排在白天，晚上早點結束。',
+      '進食窗內仍要吃均衡的正餐，確保每餐都有足夠蛋白質與蔬菜。',
+      '進食窗外可以喝水、無糖茶或黑咖啡。',
+    ],
+    core_principles_en: [
+      'Choose a sustainable 8–10 hour window, ideally earlier in the day, finishing in the early evening.',
+      'Eat balanced meals with adequate protein and vegetables inside the window.',
+      'Water, unsweetened tea or black coffee are fine outside the window.',
+    ],
+    biochemical_mechanisms_zh: [
+      '縮短進食時間通常會自然減少總熱量，特別是晚間零食。',
+      '與生理時鐘一致的「早段」進食，在小型研究中與較佳的胰島素敏感度相關。',
+    ],
+    biochemical_mechanisms_en: [
+      'A shorter eating window usually reduces total energy, especially evening snacks.',
+      'Earlier, circadian-aligned eating has been linked to better insulin sensitivity in small trials.',
+    ],
+    proven_benefits_zh: [
+      '減重效果與每日熱量限制相近，對部分人來說比計算熱量更容易執行。',
+      '減少夜間進食，可能改善胃食道逆流與睡眠。',
+    ],
+    proven_benefits_en: [
+      'Weight loss comparable to daily calorie restriction; easier for some than counting calories.',
+      'Less night-time eating may help reflux and sleep.',
+    ],
+    precautions_and_risks_zh: [
+      '一年期隨機試驗顯示，熱量相同時限時進食沒有額外減重優勢；不要期待「只改時間就會瘦」。',
+      '使用胰島素或磺醯尿素類降血糖藥者容易低血糖，須先與醫師調整藥物。',
+      '2024 年一項觀察性摘要曾提出與心血管死亡相關的疑慮，但研究設計限制大、尚未經同儕審查確認，目前不足以下結論。',
+    ],
+    precautions_and_risks_en: [
+      'With equal calories, a 1-year RCT showed no extra weight loss; do not expect timing alone to work.',
+      'People on insulin or sulfonylureas risk hypoglycaemia and must adjust medication with their doctor first.',
+      'A 2024 observational abstract raised cardiovascular concerns, but its design was weak and it is insufficient to draw conclusions.',
+    ],
+    deficiency_risks: [
+      {
+        nutrient_zh: '蛋白質 (Protein)',
+        nutrient_en: 'Protein',
+        risk_level: 'MODERATE',
+        solution_zh: '進食次數變少時，每餐要有一掌心以上的蛋白質，長者尤其重要。',
+        solution_en: 'With fewer meals, include at least a palm of protein at each; especially important for older adults.',
+      },
+    ],
+    ideal_for_zh: '習慣吃宵夜、零食不斷，且覺得計算熱量太麻煩的成人。',
+    ideal_for_en: 'Adults who snack late at night and find calorie counting burdensome.',
+    not_for_zh: '孕婦與哺乳婦女、青少年、有飲食疾患病史者，以及使用胰島素或易低血糖的糖尿病患者（需先諮詢醫師）。',
+    not_for_en: 'Pregnant or breastfeeding women, adolescents, anyone with an eating-disorder history, and people with diabetes at hypoglycaemia risk (consult first).',
+  },
 ];

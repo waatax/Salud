@@ -1,8 +1,8 @@
 export const enUS: Record<string, string> = {
   // Brand & Navigation
   'app.name': 'Salud',
-  'app.version': 'v1.3.0',
-  'app.tagline': 'Evidence-Based Health Simulation & Knowledge Platform',
+  'app.version': 'v4.0.0',
+  'app.tagline': 'Health learning for everyone',
   'app.vision_title': 'Salud Product Vision',
   'app.vision_desc': 'See what is actually happening inside your body, adjust a single variable, and check your hypothesis with empirical data.',
   'nav.open_menu': 'Open Navigation Menu',
@@ -158,6 +158,12 @@ export const enUS: Record<string, string> = {
   'auditc.subtitle': 'WHO Validated 3-Question Rapid Screening Instrument (Screening Only, Not Diagnosis)',
 
   // ── Health Pillars Architecture (v0.5 Systems Update) ──
+  'pillar.home': 'Home',
+  'pillar.start': '4-week starter',
+  'pillar.learn': 'Learning tracks',
+  'pillar.updates': "What's new",
+  'pillar.checkup': 'Check-up guide',
+  'pillar.glossary': 'Glossary',
   'pillar.systems': 'Body Systems',
   'pillar.ultrahealth': 'Ultra-Health',
   'pillar.obesity': 'Obesity & Weight',

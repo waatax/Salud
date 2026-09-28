@@ -149,10 +149,27 @@ export default {
           }
         }
       },
+      // v4.0: every stack falls back to a CJK sans face. Before this, Chinese glyphs in
+      // `font-mono` / `font-display` fell through to the OS default (a Ming serif on
+      // Windows), so labels rendered in two unrelated typefaces.
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'Menlo', 'Consolas', 'monospace'],
-        display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', '"PingFang TC"', '"Microsoft JhengHei"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', '"Noto Sans TC"', '"PingFang TC"', '"Microsoft JhengHei"', 'Menlo', 'Consolas', 'monospace'],
+        display: ['"Space Grotesk"', '"Noto Sans TC"', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif'],
+      },
+      keyframes: {
+        'fade-in': {
+          from: { opacity: '0', transform: 'translateY(4px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'slide-in-left': {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.22s ease-out both',
+        'slide-in-left': 'slide-in-left 0.22s cubic-bezier(0.16, 1, 0.3, 1) both',
       },
       boxShadow: {
         'mint-glow': '0 0 25px -5px rgba(52, 211, 153, 0.25)',

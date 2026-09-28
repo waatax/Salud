@@ -197,5 +197,42 @@ export const SOURCES_CATALOG: Record<string, SourceItem> = {
     grade: 'A',
     url: 'https://www.niaaa.nih.gov/',
     description: '重度酒精依賴急症戒斷紅旗（震顫性譫妄、癲癇、自主神經亢進）之臨床處置原則。',
-  }
+  },
+  // ── v4.0 (2026) additions ──
+  'SRC-SG-ALCOHOL-2025': {
+    id: 'SRC-SG-ALCOHOL-2025',
+    title: "Alcohol and Cancer Risk: The U.S. Surgeon General's Advisory",
+    publisher: 'U.S. Department of Health and Human Services',
+    year: 2025,
+    grade: 'A',
+    url: 'https://www.hhs.gov/surgeongeneral/reports-and-publications/alcohol-cancer/index.html',
+    description: '酒精與至少 7 種癌症具因果關係，為美國第三大可預防致癌因子；每日一杯以內即增加乳癌、口腔與咽喉癌風險。',
+  },
+  'SRC-LANCET-UPF-2025': {
+    id: 'SRC-LANCET-UPF-2025',
+    title: 'The Lancet Series on Ultra-Processed Foods and Human Health',
+    publisher: 'The Lancet',
+    year: 2025,
+    grade: 'B',
+    url: 'https://www.thelancet.com/series-do/ultra-processed-food',
+    description: '三篇系列文整合證據：超加工食品取代傳統飲食、降低飲食品質，並與多種慢性病及早逝風險上升相關。',
+  },
+  'SRC-AUA-STONE-2019': {
+    id: 'SRC-AUA-STONE-2019',
+    title: 'Medical Management of Kidney Stones: AUA Guideline',
+    publisher: 'American Urological Association',
+    year: 2019,
+    grade: 'A',
+    url: 'https://www.auanet.org/guidelines-and-quality/guidelines/kidney-stones-medical-mangement-guideline',
+    description: '結石患者應攝取足量液體使每日尿量達 2.5 公升以上；不建議限制飲食鈣質，應限制鈉與過量動物性蛋白。',
+  },
+  'SRC-CANADA-ALCOHOL-2023': {
+    id: 'SRC-CANADA-ALCOHOL-2023',
+    title: "Canada's Guidance on Alcohol and Health",
+    publisher: 'Canadian Centre on Substance Use and Addiction',
+    year: 2023,
+    grade: 'B',
+    url: 'https://www.ccsa.ca/canadas-guidance-alcohol-and-health',
+    description: '每週 0 杯無風險、1–2 杯低風險、3–6 杯中度風險、7 杯以上風險逐步升高；喝得越少越好。',
+  },
 };

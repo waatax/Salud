@@ -285,4 +285,43 @@ export const BADMINTON_TOPICS: BadmintonTopic[] = [
       'Side Chassé Rule: Never backpedal facing forward; rotate hips into a lateral chassé to keep Achilles forces aligned.',
     ],
   },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'BAD-06',
+    title_zh: '球拍運動與長壽：中年羽球族的心臟安全守則',
+    title_en: 'Racket Sports and Longevity: Heart-Safety Rules for Midlife Badminton Players',
+    category: 'INJURY_PREVENTION',
+    one_liner_zh: '球拍運動參與者全因死亡低 47%、心血管死亡低 56%；但中年人要注意熱身與心臟警訊。',
+    one_liner_en: 'Racket-sport players show 47% lower all-cause and 56% lower cardiovascular mortality — but midlife players must respect warm-ups and cardiac warnings.',
+    evidence_grade: 'B',
+    mechanisms_zh: [
+      '英國 8 萬人的世代研究（BJSM 2017）：球拍運動參與者全因死亡風險低 47%、心血管死亡低 56%，是各項運動中最高之一。',
+      '羽球是間歇性高強度運動，心率可在數秒內飆升；未熱身直接上場、悶熱的室內球館與脫水，會增加心律不整與猝死風險。',
+      '球拍運動同時結合有氧、敏捷、協調與社交，可能是效益特別高的原因之一。',
+    ],
+    mechanisms_en: [
+      'A UK cohort of 80,000 (BJSM 2017): racket-sport participation was linked to 47% lower all-cause and 56% lower cardiovascular mortality.',
+      'Badminton is intermittent high intensity; heart rate spikes in seconds. Skipping warm-up, hot indoor halls and dehydration raise arrhythmia risk.',
+      'Racket sports combine aerobic work, agility, coordination and social contact, which may explain their large benefit.',
+    ],
+    biomechanics_zh: [
+      '一分鐘的對打包含多次急停、跨步與跳躍，心率常達最大心率 80–90% 以上。',
+      '室內球館悶熱時，脫水與電解質流失會提高心律不整與抽筋風險。',
+    ],
+    biomechanics_en: [
+      'A minute of rallying involves repeated stops, lunges and jumps, often driving heart rate above 80–90% of maximum.',
+      'Hot indoor halls add dehydration and electrolyte loss, raising arrhythmia and cramp risk.',
+    ],
+    action_protocols_zh: [
+      '上場前 10 分鐘動態熱身與輕鬆對打，讓心率逐步上升；結束後緩和 5 分鐘再坐下。',
+      '35 歲以上、有高血壓、糖尿病、家族早發心臟病或吸菸者，提高強度前先評估心血管風險。',
+      '打球中出現胸悶、異常喘、心悸或頭暈，立即停止；確認球館 AED 位置，球友學會 CPR。',
+    ],
+    action_protocols_en: [
+      'Warm up dynamically and rally lightly for 10 minutes; cool down for 5 minutes before sitting.',
+      'Players over 35 with hypertension, diabetes, family history of early heart disease or smoking should be risk-assessed before intense play.',
+      'Stop at once for chest pressure, unusual breathlessness, palpitations or dizziness; know where the AED is and learn CPR.',
+    ],
+  },
 ];

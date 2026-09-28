@@ -1,0 +1,348 @@
+{
+  "generated": "2026-09-28",
+  "modules": [
+    {
+      "id": "system:respiratory",
+      "title": "人體系統・respiratory",
+      "parts": {
+        "how_it_works": 14,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 6,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 40,
+      "cjk": 19315
+    },
+    {
+      "id": "system:cardiovascular",
+      "title": "人體系統・cardiovascular",
+      "parts": {
+        "how_it_works": 14,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 7,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 41,
+      "cjk": 17762
+    },
+    {
+      "id": "system:digestive",
+      "title": "人體系統・digestive",
+      "parts": {
+        "how_it_works": 13,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 8,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 41,
+      "cjk": 17893
+    },
+    {
+      "id": "system:nervous",
+      "title": "人體系統・nervous",
+      "parts": {
+        "how_it_works": 13,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 8,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 41,
+      "cjk": 18888
+    },
+    {
+      "id": "system:musculoskeletal",
+      "title": "人體系統・musculoskeletal",
+      "parts": {
+        "how_it_works": 13,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 7,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 40,
+      "cjk": 18341
+    },
+    {
+      "id": "system:endocrine",
+      "title": "人體系統・endocrine",
+      "parts": {
+        "how_it_works": 12,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 8,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 40,
+      "cjk": 17841
+    },
+    {
+      "id": "system:renal",
+      "title": "人體系統・renal",
+      "parts": {
+        "how_it_works": 12,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 7,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 39,
+      "cjk": 16871
+    },
+    {
+      "id": "system:immune",
+      "title": "人體系統・immune",
+      "parts": {
+        "how_it_works": 12,
+        "conditions": 6,
+        "protocols": 5,
+        "red_flags": 7,
+        "charts": 5,
+        "numbers": 4
+      },
+      "total": 39,
+      "cjk": 17506
+    },
+    {
+      "id": "diet:water",
+      "title": "飲食・水與體液 (W)",
+      "parts": {
+        "kps": 56,
+        "myths": 5
+      },
+      "total": 61,
+      "cjk": 10722
+    },
+    {
+      "id": "diet:oil",
+      "title": "飲食・油脂 (O)",
+      "parts": {
+        "kps": 59,
+        "myths": 5,
+        "oils": 16
+      },
+      "total": 80,
+      "cjk": 12896
+    },
+    {
+      "id": "diet:alcohol",
+      "title": "飲食・酒精 (A)",
+      "parts": {
+        "kps": 73,
+        "myths": 13
+      },
+      "total": 86,
+      "cjk": 14314
+    },
+    {
+      "id": "diet:patterns",
+      "title": "飲食・飲食法與營養素",
+      "parts": {
+        "patterns": 5,
+        "nutrients": 9
+      },
+      "total": 14,
+      "cjk": 11115
+    },
+    {
+      "id": "supplements",
+      "title": "營養補充品",
+      "parts": {
+        "evaluations": 6,
+        "deep": 15,
+        "interactions": 5
+      },
+      "total": 26,
+      "cjk": 5149
+    },
+    {
+      "id": "exercise:physiology",
+      "title": "運動・生理與心率",
+      "parts": {
+        "topics": 7,
+        "zones": 5
+      },
+      "total": 12,
+      "cjk": 2185
+    },
+    {
+      "id": "exercise:running",
+      "title": "運動・跑步",
+      "parts": {
+        "topics": 5
+      },
+      "total": 5,
+      "cjk": 1864
+    },
+    {
+      "id": "exercise:cycling",
+      "title": "運動・自行車",
+      "parts": {
+        "topics": 5,
+        "zones": 7
+      },
+      "total": 12,
+      "cjk": 2420
+    },
+    {
+      "id": "exercise:mountaineering",
+      "title": "運動・登山",
+      "parts": {
+        "topics": 5,
+        "altitudes": 5
+      },
+      "total": 10,
+      "cjk": 2457
+    },
+    {
+      "id": "exercise:strength",
+      "title": "運動・重量訓練",
+      "parts": {
+        "topics": 5,
+        "muscles": 6
+      },
+      "total": 11,
+      "cjk": 3028
+    },
+    {
+      "id": "exercise:mobility",
+      "title": "運動・伸展筋膜",
+      "parts": {
+        "topics": 5,
+        "screens": 4
+      },
+      "total": 9,
+      "cjk": 3416
+    },
+    {
+      "id": "exercise:badminton",
+      "title": "運動・羽球",
+      "parts": {
+        "topics": 5
+      },
+      "total": 5,
+      "cjk": 2793
+    },
+    {
+      "id": "exercise:table-tennis",
+      "title": "運動・桌球",
+      "parts": {
+        "topics": 5
+      },
+      "total": 5,
+      "cjk": 2728
+    },
+    {
+      "id": "exercise:pickleball",
+      "title": "運動・匹克球",
+      "parts": {
+        "topics": 5
+      },
+      "total": 5,
+      "cjk": 3029
+    },
+    {
+      "id": "sleep",
+      "title": "睡眠修復",
+      "parts": {
+        "stages": 4,
+        "topics": 5,
+        "stopbang": 8
+      },
+      "total": 17,
+      "cjk": 2036
+    },
+    {
+      "id": "mental",
+      "title": "心理呼吸",
+      "parts": {
+        "breathwork": 5,
+        "topics": 5,
+        "myths": 4
+      },
+      "total": 14,
+      "cjk": 4381
+    },
+    {
+      "id": "obesity",
+      "title": "增肌減脂",
+      "parts": {
+        "eoss": 5,
+        "mechanisms": 6,
+        "drugs": 6,
+        "regimens": 8,
+        "surgeries": 3,
+        "myths": 5,
+        "consensus": 5,
+        "hypertrophy": 3,
+        "volumes": 6,
+        "fatloss": 5,
+        "recomp": 4
+      },
+      "total": 56,
+      "cjk": 16336
+    },
+    {
+      "id": "longevity",
+      "title": "抗老延壽",
+      "parts": {
+        "hallmarks": 12,
+        "clocks": 5,
+        "compounds": 7,
+        "hormesis": 4,
+        "quizzes": 14
+      },
+      "total": 42,
+      "cjk": 7236
+    },
+    {
+      "id": "cardiometabolic",
+      "title": "心血代謝",
+      "parts": {
+        "bp": 4,
+        "metsyn": 5,
+        "athero": 5,
+        "lipids": 6,
+        "cac": 4,
+        "ckm": 5,
+        "myths": 4
+      },
+      "total": 33,
+      "cjk": 4598
+    },
+    {
+      "id": "ultrahealth",
+      "title": "健康生活",
+      "parts": {
+        "slots": 8,
+        "habits": 11,
+        "physio": 4,
+        "skills": 9,
+        "myths": 5
+      },
+      "total": 37,
+      "cjk": 6773
+    },
+    {
+      "id": "canonical",
+      "title": "知識原子與門檻",
+      "parts": {
+        "atoms": 166,
+        "thresholds": 35,
+        "terms": 18
+      },
+      "total": 219,
+      "cjk": 115969
+    }
+  ]
+}

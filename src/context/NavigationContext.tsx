@@ -4,6 +4,7 @@ import { CHAPTERS } from '../data/chapters';
 import { CHAPTER_W_PAGES } from '../data/chapterW';
 import { CHAPTER_O_PAGES } from '../data/chapterO';
 import { CHAPTER_A_PAGES } from '../data/chapterA';
+import { parseHash, Route } from '../config/routes';
 
 export type MetaView = 'about' | 'evidence' | 'explore' | null;
 
@@ -31,6 +32,9 @@ export interface NavigationContextProps {
   setExerciseSubTab: (tab: SportsDiscipline) => void;
   isMobileSidebarOpen: boolean;
   setIsMobileSidebarOpen: (isOpen: boolean | ((prev: boolean) => boolean)) => void;
+  /** Learning track / lesson currently open under `#learn/...`. */
+  learnTrackId?: string;
+  learnLessonId?: string;
 
   selectPillar: (pillar: HealthPillar) => void;
   selectChapter: (chapterId: string) => void;
@@ -40,6 +44,8 @@ export interface NavigationContextProps {
   openMeta: (view: Exclude<MetaView, null>) => void;
   backToPatterns: () => void;
   toggleMobileSidebar: () => void;
+  /** Navigate to any in-app hash route and scroll to top. */
+  go: (hash: string) => void;
 
   /**
    * The pillar navigation surfaces should mark as current. Null while a secondary view
@@ -56,7 +62,7 @@ export interface NavigationContextProps {
 const NavigationContext = createContext<NavigationContextProps | undefined>(undefined);
 
 export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [activePillar, setActivePillar] = useState<HealthPillar>('systems');
+  const [activePillar, setActivePillar] = useState<HealthPillar>('home');
   const [dietView, setDietView] = useState<'patterns' | 'chapter'>('patterns');
   const [currentChapterId, setCurrentChapterId] = useState<string>('W');
   const [viewMode, setViewMode] = useState<'landing' | 'page'>('landing');
@@ -67,246 +73,109 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const [selectedCouncilExpertId, setSelectedCouncilExpertId] = useState<string>('EC-03');
   const [exerciseSubTab, setExerciseSubTab] = useState<SportsDiscipline>('PHYSIOLOGY');
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
+  const [learnTrackId, setLearnTrackId] = useState<string | undefined>();
+  const [learnLessonId, setLearnLessonId] = useState<string | undefined>();
+
+  /** Apply a parsed route to view state. Unknown hashes leave the current view untouched. */
+  const applyRoute = (route: Route | null) => {
+    if (!route) return;
+    setIsMobileSidebarOpen(false);
+
+    if (route.kind === 'meta') {
+      setMetaView(route.view);
+      setIsSynergyView(false);
+      setIsCouncilEvidenceView(false);
+      return;
+    }
+
+    setMetaView(null);
+    setIsSynergyView(route.kind === 'synergy');
+    setIsCouncilEvidenceView(route.kind === 'council');
+
+    switch (route.kind) {
+      case 'council':
+        if (route.expertId) setSelectedCouncilExpertId(route.expertId);
+        return;
+      case 'synergy':
+        return;
+      case 'learn':
+        setActivePillar('learn');
+        setLearnTrackId(route.trackId);
+        setLearnLessonId(route.lessonId);
+        return;
+      case 'exercise':
+        setActivePillar('exercise');
+        setExerciseSubTab(route.discipline);
+        return;
+      case 'chapter':
+        setActivePillar('diet');
+        setDietView('chapter');
+        setCurrentChapterId(route.chapterId);
+        if (route.pageId) {
+          setActivePageId(route.pageId);
+          setViewMode('page');
+        } else {
+          setActivePageId(`PAGE-${route.chapterId}-01`);
+          setViewMode('landing');
+        }
+        return;
+      case 'pillar':
+        setActivePillar(route.pillar);
+        if (route.pillar === 'diet') setDietView('patterns');
+        return;
+    }
+  };
 
   useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash.replace('#', '');
-      // Secondary governance and knowledge explorer pages
-      if (hash === 'explore' || hash === 'knowledge') {
-        setMetaView('explore');
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        return;
-      }
-      if (hash === 'about' || hash === 'governance' || hash === 'council') {
-        setMetaView('about');
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        return;
-      }
-      if (hash === 'evidence' || hash === 'sources') {
-        setMetaView('evidence');
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        return;
-      }
-      setMetaView(null);
-      if (!hash || hash === 'systems' || hash.startsWith('systems/')) {
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        setActivePillar('systems');
-      } else if (hash === 'synergy') {
-        setIsSynergyView(true);
-        setIsCouncilEvidenceView(false);
-      } else if (hash === 'ultrahealth' || hash === 'ultra-health') {
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        setActivePillar('ultrahealth');
-      } else if (hash === 'obesity' || hash.startsWith('obesity')) {
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        setActivePillar('obesity');
-      } else if (hash === 'longevity' || hash.startsWith('longevity') || hash === 'anti-aging') {
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        setActivePillar('longevity');
-      } else if (hash === 'cardiometabolic' || hash === 'cardio' || hash.startsWith('cardio')) {
-        setIsSynergyView(false);
-        setIsCouncilEvidenceView(false);
-        setActivePillar('cardiometabolic');
-      } else if (hash === 'council-evidence' || hash.startsWith('council-evidence/')) {
-          setIsSynergyView(false);
-          setIsCouncilEvidenceView(true);
-          if (hash.includes('/')) {
-            setSelectedCouncilExpertId(hash.split('/')[1]);
-          }
-        } else if (hash === 'exercise' || hash === 'exercise/physiology') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('PHYSIOLOGY');
-        } else if (hash === 'exercise/running' || hash === 'running') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('RUNNING');
-        } else if (hash === 'exercise/cycling' || hash === 'cycling') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('CYCLING');
-        } else if (hash === 'exercise/mountaineering' || hash === 'mountaineering' || hash === 'hiking') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('MOUNTAINEERING');
-        } else if (hash === 'exercise/strength' || hash === 'strength' || hash === 'resistance') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('STRENGTH_TRAINING');
-        } else if (hash === 'exercise/mobility' || hash === 'mobility' || hash === 'fascia' || hash === 'stretching') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('MOBILITY_FASCIA');
-        } else if (hash === 'exercise/badminton' || hash === 'badminton') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('BADMINTON');
-        } else if (hash === 'exercise/table-tennis' || hash === 'table-tennis' || hash === 'tabletennis' || hash === 'pingpong') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('TABLE_TENNIS');
-        } else if (hash === 'exercise/pickleball' || hash === 'pickleball') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('exercise');
-          setExerciseSubTab('PICKLEBALL');
-        } else if (hash === 'mental' || hash.startsWith('mental') || hash === 'breathwork') {
-          setIsCouncilEvidenceView(false);
-          setIsSynergyView(false);
-          setActivePillar('mental');
-        } else if (hash === 'sleep') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('sleep');
-        } else if (hash === 'supplements') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('supplements');
-        } else if (hash === 'diet' || hash === 'diet/patterns') {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('diet');
-          setDietView('patterns');
-        } else if (hash.startsWith('A')) {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('diet');
-          setDietView('chapter');
-          setCurrentChapterId('A');
-          if (hash.includes('/')) {
-            setActivePageId(hash.split('/')[1]);
-            setViewMode('page');
-          } else {
-            setViewMode('landing');
-          }
-        } else if (hash.startsWith('O')) {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('diet');
-          setDietView('chapter');
-          setCurrentChapterId('O');
-          if (hash.includes('/')) {
-            setActivePageId(hash.split('/')[1]);
-            setViewMode('page');
-          } else {
-            setViewMode('landing');
-          }
-        } else if (hash.startsWith('W')) {
-          setIsCouncilEvidenceView(false);
-          setActivePillar('diet');
-          setDietView('chapter');
-          setCurrentChapterId('W');
-          if (hash.includes('/')) {
-            setActivePageId(hash.split('/')[1]);
-            setViewMode('page');
-          } else {
-            setViewMode('landing');
-          }
-        }
-      };
-
+    const handleHash = () => applyRoute(parseHash(window.location.hash));
     handleHash();
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const openCouncilEvidence = (expertId?: string) => {
-    setMetaView(null);
-    if (expertId) {
-      setSelectedCouncilExpertId(expertId);
-      window.location.hash = `council-evidence/${expertId}`;
+  const go = (hash: string) => {
+    const target = hash.replace(/^#/, '');
+    if (window.location.hash.replace(/^#/, '') === target) {
+      // Same hash: no hashchange event will fire, so apply directly.
+      applyRoute(parseHash(target));
     } else {
-      window.location.hash = 'council-evidence';
+      window.location.hash = target;
     }
-    setIsCouncilEvidenceView(true);
-    setIsSynergyView(false);
-    setIsMobileSidebarOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const openMeta = (view: Exclude<MetaView, null>) => {
-    setMetaView(view);
-    setIsCouncilEvidenceView(false);
-    setIsSynergyView(false);
-    window.location.hash = view;
-    setIsMobileSidebarOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const openCouncilEvidence = (expertId?: string) => {
+    if (expertId) setSelectedCouncilExpertId(expertId);
+    go(expertId ? `council-evidence/${expertId}` : 'council-evidence');
   };
 
-  const openSynergy = () => {
-    setMetaView(null);
-    setIsCouncilEvidenceView(false);
-    setIsSynergyView(true);
-    window.location.hash = 'synergy';
-    setIsMobileSidebarOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const openMeta = (view: Exclude<MetaView, null>) => go(view);
+
+  const openSynergy = () => go('synergy');
 
   const selectPillar = (pillar: HealthPillar) => {
-    setMetaView(null);
-    setIsCouncilEvidenceView(false);
-    setIsSynergyView(false);
-    setActivePillar(pillar);
-    if (pillar === 'systems') {
-      window.location.hash = 'systems';
-    } else if (pillar === 'diet') {
-      window.location.hash = 'diet';
-    } else if (pillar === 'cardiometabolic') {
-      window.location.hash = 'cardiometabolic';
-    } else {
-      window.location.hash = pillar;
-    }
-    setIsMobileSidebarOpen(false);
+    // Apply immediately so the click feels instant even before hashchange fires.
+    applyRoute({ kind: 'pillar', pillar });
+    go(pillar === 'home' ? 'home' : pillar);
   };
 
   const selectChapter = (chId: string) => {
-    setMetaView(null);
-    setIsCouncilEvidenceView(false);
-    setIsSynergyView(false);
-    setActivePillar('diet');
-    setDietView('chapter');
-    setCurrentChapterId(chId);
-    setViewMode('landing');
-    if (chId === 'W') {
-      setActivePageId('PAGE-W-01');
-      window.location.hash = 'W';
-    } else if (chId === 'O') {
-      setActivePageId('PAGE-O-01');
-      window.location.hash = 'O';
-    } else if (chId === 'A') {
-      setActivePageId('PAGE-A-01');
-      window.location.hash = 'A';
+    if (chId === 'W' || chId === 'O' || chId === 'A') {
+      applyRoute({ kind: 'chapter', chapterId: chId });
+      go(chId);
     }
-    setIsMobileSidebarOpen(false);
   };
 
   const selectPage = (pageId: string) => {
-    setMetaView(null);
-    setIsCouncilEvidenceView(false);
-    setIsSynergyView(false);
-    setActivePillar('diet');
-    setDietView('chapter');
-    setActivePageId(pageId);
-    setViewMode('page');
-    window.location.hash = `${currentChapterId}/${pageId}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setIsMobileSidebarOpen(false);
+    const chId = (pageId.match(/^PAGE-([WOA])-/)?.[1] ?? currentChapterId) as 'W' | 'O' | 'A';
+    applyRoute({ kind: 'chapter', chapterId: chId, pageId });
+    go(`${chId}/${pageId}`);
   };
 
-  const backToPatterns = () => {
-    setMetaView(null);
-    setIsCouncilEvidenceView(false);
-    setIsSynergyView(false);
-    setActivePillar('diet');
-    setDietView('patterns');
-    window.location.hash = 'diet/patterns';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setIsMobileSidebarOpen(false);
-  };
+  const backToPatterns = () => go('diet/patterns');
 
   const toggleMobileSidebar = () => {
-    setIsMobileSidebarOpen(prev => !prev);
+    setIsMobileSidebarOpen((prev) => !prev);
   };
 
   const highlightedPillar: HealthPillar | null =
@@ -346,6 +215,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     setExerciseSubTab,
     isMobileSidebarOpen,
     setIsMobileSidebarOpen,
+    learnTrackId,
+    learnLessonId,
 
     selectPillar,
     selectChapter,
@@ -355,6 +226,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     openMeta,
     backToPatterns,
     toggleMobileSidebar,
+    go,
 
     highlightedPillar,
     currentChapter,
@@ -362,11 +234,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     currentPage,
   };
 
-  return (
-    <NavigationContext.Provider value={value}>
-      {children}
-    </NavigationContext.Provider>
-  );
+  return <NavigationContext.Provider value={value}>{children}</NavigationContext.Provider>;
 };
 
 export const useNavigation = () => {

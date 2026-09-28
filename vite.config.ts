@@ -28,9 +28,8 @@ export default defineConfig({
           ) {
             return 'salud-sports-data';
           }
-          if (id.includes('src/data/')) {
-            return 'salud-data';
-          }
+          // v4.0: other data files are no longer forced into one eager 'salud-data'
+          // chunk; Rollup splits them by importer so lazy hubs load their own data.
         },
       },
     },

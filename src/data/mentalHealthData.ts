@@ -410,6 +410,66 @@ export const MENTAL_TOPICS: MentalTopic[] = [
       '突發臉部不對稱、單側肢體癱軟無力、口齒不清（疑似急性中風）',
     ],
   },
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'MT-06',
+    title_zh: '孤獨與社會連結：WHO 2025 年的警訊',
+    title_en: 'Loneliness and Social Connection: The WHO 2025 Warning',
+    category: 'NEUROBIOLOGY_HPA',
+    one_liner_zh: '全球約每 6 人就有 1 人感到孤獨，孤獨每年與超過 87 萬人死亡相關。',
+    one_liner_en: 'About 1 in 6 people worldwide feel lonely; loneliness is linked to over 871,000 deaths a year.',
+    evidence_grade: 'B',
+    key_mechanisms_zh: [
+      '長期孤獨會讓壓力軸（HPA）持續活化，皮質醇與發炎指標上升、睡眠變差。',
+      '孤獨與社交孤立和心血管疾病、中風、第 2 型糖尿病、憂鬱與認知退化相關。',
+      '2024 年 Lancet 失智委員會把晚年社交孤立列為 14 項可改變因子之一。',
+    ],
+    key_mechanisms_en: [
+      'Chronic loneliness keeps the HPA stress axis switched on, raising cortisol and inflammation and worsening sleep.',
+      'Loneliness and isolation are associated with cardiovascular disease, stroke, type 2 diabetes, depression and cognitive decline.',
+      'The 2024 Lancet dementia commission lists late-life social isolation among 14 modifiable risk factors.',
+    ],
+    actionable_rules_zh: [
+      '每週安排至少一次固定的面對面社交（家人聚餐、社團、宗教團體、志工、運動班）。',
+      '聽力下降會讓人逐漸退出對話，及早檢查與配戴助聽器。',
+      '主動聯絡一位久未聯繫的朋友；對長輩，定期的電話與探訪同樣重要。',
+    ],
+    actionable_rules_en: [
+      'Schedule at least one regular in-person social activity each week.',
+      'Hearing loss drives withdrawal from conversation; test and treat it early.',
+      'Reach out to someone you have lost touch with; regular calls and visits matter for older relatives.',
+    ],
+  },
+  {
+    id: 'MT-07',
+    title_zh: '什麼時候該找專業協助？兩題快篩與 1925',
+    title_en: 'When to Seek Professional Help: Two-Question Screens and the 1925 Line',
+    category: 'PANIC_TRIAGE',
+    one_liner_zh: '過去兩週常提不起勁或心情低落，就值得進一步評估；有自傷念頭請立即求助。',
+    one_liner_en: 'Two weeks of low interest or low mood warrants assessment; thoughts of self-harm need help now.',
+    evidence_grade: 'A',
+    key_mechanisms_zh: [
+      'PHQ-2（憂鬱快篩）：過去兩週「做事提不起勁」與「心情低落、沮喪或絕望」的頻率，總分 ≥3 建議進一步以 PHQ-9 評估。',
+      'GAD-2（焦慮快篩）：過去兩週「感到緊張、焦慮」與「無法停止或控制擔憂」，總分 ≥3 建議進一步評估。',
+      '憂鬱與焦慮都是可治療的疾病，心理治療、藥物與運動都有證據，常合併使用效果更好。',
+    ],
+    key_mechanisms_en: [
+      'PHQ-2: frequency of little interest and of feeling down over two weeks; a score ≥3 warrants a PHQ-9.',
+      'GAD-2: feeling nervous and being unable to stop worrying over two weeks; a score ≥3 warrants further assessment.',
+      'Depression and anxiety are treatable; psychotherapy, medication and exercise all have evidence and often work best combined.',
+    ],
+    actionable_rules_zh: [
+      '快篩陽性時，可到家醫科、身心科或精神科評估，不必等到「很嚴重」才去。',
+      '衛福部安心專線 1925（依舊愛我）24 小時免費，也可以替家人朋友打。',
+      '有傷害自己的想法或計畫時，立即撥打 1925 或 119，或直接到急診，並請身邊的人陪伴。',
+    ],
+    actionable_rules_en: [
+      'After a positive screen, see a family physician or psychiatrist — no need to wait until it is severe.',
+      'Taiwan’s 1925 helpline is free and 24/7, and you can call on behalf of someone else.',
+      'For thoughts or plans of self-harm, call 1925 or 119 immediately or go to an emergency department with someone.',
+    ],
+    red_flags_zh: ['有傷害自己或結束生命的想法、計畫或準備行為', '幻覺、妄想或完全無法進食睡眠數天', '恐慌發作合併胸痛、冒冷汗（需先排除心臟問題）'],
+  },
 ];
 
 export const STRESS_MYTH_BUSTERS = [
@@ -436,5 +496,11 @@ export const STRESS_MYTH_BUSTERS = [
     myth: '正念冥想是放鬆大腦的唯一實證解答，呼吸法只是輔助？',
     reality: '史丹佛大學 2023 年 Cell Reports Medicine 重磅 RCT 證實：每日 5 分鐘「生理嘆氣法」在降低焦慮、改善情緒與減緩靜態呼吸頻率的效果上，顯著超越正念冥想！',
     solution: '冥想是被動觀察，而呼吸法是主動介入自律神經系統。兩者結合效果最佳，但急性焦慮時呼吸法見效更快。',
+  },
+  {
+    id: 'MYTH-05',
+    myth: '吃抗憂鬱藥會上癮，而且會讓人變成另一個人？',
+    reality: '常用的抗憂鬱藥（如 SSRI）不會造成渴求或越吃越多的成癮行為；它們的目的是讓情緒回到你原本的狀態。但突然停藥可能出現頭暈、噁心、情緒波動等「停藥症候群」。',
+    solution: '依醫囑規律服用，通常需 2–6 週才見效；想停藥或減藥時，與醫師一起訂定逐步減量計畫。',
   },
 ];

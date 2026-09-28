@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHashTab } from '../../hooks/useHashTab';
+import { MENTAL_TABS } from '../../config/routes';
 import { BREATHWORK_PROTOCOLS, MENTAL_TOPICS, STRESS_MYTH_BUSTERS } from '../../data/mentalHealthData';
 import { SimBreathwork } from '../simulators/SimBreathwork';
 import {
@@ -33,7 +35,7 @@ export type MentalTab = 'SIMULATOR' | 'NEUROBIOLOGY' | 'PROTOCOLS' | 'VAGUS_HRV'
 
 export const MentalHealthHub: React.FC = () => {
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState<MentalTab>('SIMULATOR');
+  const [activeTab, setActiveTab] = useHashTab<MentalTab>('mental', MENTAL_TABS, 'SIMULATOR');
   const [expandedTopic, setExpandedTopic] = useState<string | null>('MT-01');
 
   return (
@@ -430,6 +432,47 @@ export const MentalHealthHub: React.FC = () => {
       {activeTab === 'TRIAGE' && (
         <div className="space-y-6 animate-fade-in">
           <FigPanicTriageTree />
+
+          {/* v4.0: triage topics (when to seek professional help) */}
+          {MENTAL_TOPICS.filter((t) => t.category === 'PANIC_TRIAGE').map((topic) => (
+            <div
+              key={topic.id}
+              className="p-5 rounded-2xl border border-rose-200 dark:border-rose-900/60 bg-white dark:bg-slate-900/70 space-y-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-rose-600">{topic.id}</span>
+                <EvidenceBadge grade={topic.evidence_grade} />
+              </div>
+              <h4 className="text-base font-bold text-slate-900 dark:text-white">{topic.title_zh}</h4>
+              <p className="text-sm text-rose-700 dark:text-rose-300 font-medium">{topic.one_liner_zh}</p>
+              <ul className="list-disc pl-5 space-y-1 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                {topic.key_mechanisms_zh.map((m, idx) => (
+                  <li key={idx}>{m}</li>
+                ))}
+              </ul>
+              <div className="p-3 rounded-xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/40 text-sm space-y-1">
+                <span className="font-bold text-rose-800 dark:text-rose-300">怎麼做：</span>
+                <ul className="space-y-1 text-slate-700 dark:text-slate-300">
+                  {topic.actionable_rules_zh.map((r, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5">
+                      <span className="text-rose-600 font-bold">•</span>
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {topic.red_flags_zh && topic.red_flags_zh.length > 0 && (
+                <div className="p-3 rounded-xl bg-red-600 text-white text-sm space-y-1">
+                  <span className="font-bold">立即求助的紅旗（撥打 1925 或 119）：</span>
+                  <ul className="list-disc pl-5 space-y-0.5">
+                    {topic.red_flags_zh.map((r, idx) => (
+                      <li key={idx}>{r}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
 
           {/* Myths Busting Grid */}
           <div className="space-y-3">

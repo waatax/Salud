@@ -386,9 +386,9 @@ export const CANONICAL_QUANTITATIVE_CLAIMS: Record<string, QuantitativeClaim> = 
   },
   'CLAIM-TW-LDCT': {
     id: 'CLAIM-TW-LDCT',
-    statement: '台灣國健署 LDCT 肺癌公費篩檢對象：50–74 歲男性或 45–74 歲女性，具肺癌家族史或重度吸菸史達 30 包-年以上者。',
+    statement: '台灣國健署 LDCT 肺癌公費篩檢對象（114 年起）：具肺癌家族史之 45–74 歲男性或 40–74 歲女性，或 50–74 歲重度吸菸史達 20 包-年以上者。',
     value_kind: 'point',
-    numeric_value: 30,
+    numeric_value: 20,
     unit: 'pack-years',
     derivation: '衛生福利部國民健康署 114 年擴大肺癌篩檢服務實施方案',
     is_individual_prescription: false,

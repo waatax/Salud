@@ -6,6 +6,7 @@ import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
 import { LatestEvidenceStrip } from '../meta/LatestEvidenceStrip';
 import { SystemDeepDiveView } from './SystemDeepDiveView';
+import { QuickTips } from '../learn/QuickTips';
 import { getDeepDive } from '../../data/systems';
 import {
   Utensils,
@@ -29,10 +30,10 @@ interface Props {
   initialSystemId?: HumanSystemId;
 }
 
-/** Read the system id out of a `#systems/<id>` hash so deep links land on the right system. */
+/** Read the system id out of a `#systems/<id>[/<section>]` hash so deep links land on the right system. */
 const systemIdFromHash = (fallback: HumanSystemId): HumanSystemId => {
-  const hash = window.location.hash.replace('#', '');
-  const sub = hash.startsWith('systems/') ? hash.slice('systems/'.length) : '';
+  const [head, sub = ''] = window.location.hash.replace('#', '').split('/');
+  if (head !== 'systems') return fallback;
   return HUMAN_SYSTEMS.some((s) => s.id === sub) ? (sub as HumanSystemId) : fallback;
 };
 
@@ -49,6 +50,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
   const [activeTab, setActiveTab] = useState<'mechanisms' | 'kps' | 'pathologies' | 'red_flags' | 'best_practices' | 'citations'>('mechanisms');
+  const [selectedOrgan, setSelectedOrgan] = useState<string>('');
 
   const currentSystem = HUMAN_SYSTEMS.find((s) => s.id === selectedSystemId) || HUMAN_SYSTEMS[0];
   // Systems with authored v3 content get the full deep dive; the rest keep the legacy
@@ -75,17 +77,17 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
         <div className="max-w-3xl space-y-3 relative z-10">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 rounded-full font-mono text-xs font-bold bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-              Salud 旗艦首頁 · 8 大全人人體器官系統探索樞紐
+              認識身體 · 8 大人體系統
             </span>
             <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-              Oxford CEBM 1a 實證醫學標竿
+              每個知識點都附圖解與證據等級
             </span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {language === 'zh-TW' ? '人體生理系統與微觀機制總覽' : 'Human Organ Systems & Physiological Dynamics'}
+            {language === 'zh-TW' ? '認識你的 8 大人體系統' : 'Your 8 Body Systems'}
           </h1>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-            身體不是孤立零件的堆疊，而是 8 大器官系統在微觀分子與神經內分泌層級的動態交響。點擊任一系統探索高精度向量解剖圖解、細胞機制、臨床紅旗與奠基於《The Lancet》、《NEJM》與《Cell》頂級文獻的實證養生處方。
+            選一個系統開始：先看它在做什麼、再看常見疾病怎麼發生、最後是預防方法與「什麼時候該就醫」。每個系統都有白話問答、圖解、2025–2026 最新指引與危險警訊。
           </p>
         </div>
 
@@ -146,7 +148,10 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
 
       {/* ── System Detail Stage (Split 2-Column Responsive Layout) ── */}
       {deepDive ? (
-        <SystemDeepDiveView data={deepDive} systemMeta={currentSystem} />
+        <>
+          <QuickTips key={selectedSystemId} sectionKey={`systems:${selectedSystemId}`} />
+          <SystemDeepDiveView data={deepDive} systemMeta={currentSystem} />
+        </>
       ) : (
       <>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -170,22 +175,35 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
             </div>
 
             {/* Visual Vector SVG Figure */}
-            <SystemSchematicFigure system={currentSystem} />
+            <SystemSchematicFigure
+              system={currentSystem}
+              selectedOrgan={selectedOrgan}
+              onSelectOrgan={setSelectedOrgan}
+            />
 
             {/* Organs Quick Peek Chips */}
             <div className="space-y-2 pt-2">
               <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
-                主要解剖結構 (Major Anatomical Organs)
+                主要解剖結構 (Major Anatomical Organs) · 點擊連動標記
               </span>
               <div className="flex flex-wrap gap-1.5">
-                {currentSystem.major_organs.map((org, idx) => (
-                  <span
-                    key={idx}
-                    className="px-2.5 py-1 rounded-xl text-xs font-mono bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                  >
-                    {org.name_zh.split(' ')[0]}
-                  </span>
-                ))}
+                {currentSystem.major_organs.map((org, idx) => {
+                  const shortName = org.name_zh.split(' ')[0];
+                  const isSelected = selectedOrgan === org.name_zh || selectedOrgan.includes(shortName);
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedOrgan(isSelected ? '' : org.name_zh)}
+                      className={`btn-tactile px-2.5 py-1 rounded-xl text-xs font-mono transition-all border ${
+                        isSelected
+                          ? 'bg-emerald-600 text-white font-bold border-emerald-700 shadow-sm'
+                          : 'bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200/60 dark:border-slate-700/60 hover:border-emerald-300 dark:hover:border-emerald-700'
+                      }`}
+                    >
+                      {shortName}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

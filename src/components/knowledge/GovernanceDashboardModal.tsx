@@ -181,15 +181,15 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2 text-sm font-bold text-amber-300">
                     <AlertTriangle className="w-4 h-4 text-amber-400" />
-                    來源審查閘門運作範例 (Provenance Gate Blocked Item)
+                    來源審查閘門運作範例 (Provenance Gate: Held → Resolved)
                   </div>
-                  <span className="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">
-                    CI VAL-016 攔阻中
+                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">
+                    2026-09-28 已解除
                   </span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   <strong>KA-TW-008 · 肺癌低劑量電腦斷層 (LDCT)</strong>：
-                  本輪研究中，不同二手文獻對家族史組之適用年齡存在衝突讀法（男女下限有 45/50 與 40/45 兩種版本）。系統嚴守架構鐵律，將其標記為 <code className="text-amber-300">needs-provenance-review</code>，CI 規則 VAL-016 自動阻止其進入 R3 公開上線，體現「寧可標記未確定，絕不上線二手偽共識」的科學誠信。
+                  不同二手文獻對家族史組之適用年齡存在衝突讀法（男女下限有 45/50 與 40/45 兩種版本），因此先被標記為 <code className="text-amber-300">needs-provenance-review</code>，CI 規則 VAL-016 阻止其以 R3 上線。v4.0 取得衛福部官方公告原文，確認為「40–74 歲女性及 45–74 歲男性」、重度吸菸門檻 20 包-年後，才解除攔阻並正式發佈——完整示範「寧可標記未確定，確認原文後再上線」的流程。
                 </p>
               </div>
             </div>

@@ -40,11 +40,11 @@ export const CANONICAL_SOURCE_REGISTRY: Record<string, SourceItemV2> = {
 
   'SRC-ACC-AHA-2026-LIPID': {
     id: 'SRC-ACC-AHA-2026-LIPID',
-    title: '2026 ACC/AHA Multisociety Guideline on the Management of Blood Cholesterol',
-    publisher: 'Journal of the American College of Cardiology',
+    title: '2026 ACC/AHA/AACVPR/ABC/ACPM/ADA/AGS/APhA/ASPC/NLA/PCNA Guideline on the Management of Dyslipidemia',
+    publisher: 'Circulation / Journal of the American College of Cardiology',
     year: 2026,
     grade: 'A',
-    canonical_url: 'https://www.jacc.org/doi/10.1016/j.jacc.2025.12.001',
+    canonical_url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001423',
     version: '2026-ACC-AHA-LIPID',
     retrieved_date: '2026-09-20',
     jurisdiction: 'global',

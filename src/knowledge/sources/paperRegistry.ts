@@ -111,12 +111,12 @@ export const CANONICAL_PAPER_REGISTRY: Record<string, PaperMetadata> = {
 
   // --- Lipids & Atherosclerosis (ACC/AHA 2026, CTT, Lp(a), ApoB) ---
   'EV-LP-001': {
-    title: '2026 ACC/AHA Multisociety Guideline on the Management of Blood Cholesterol',
-    authors: 'Grundy SM, Stone NJ, Bailey AL, et al.',
-    journal: 'Journal of the American College of Cardiology',
+    title: '2026 ACC/AHA/Multisociety Guideline on the Management of Dyslipidemia',
+    authors: 'ACC/AHA Joint Committee on Clinical Practice Guidelines',
+    journal: 'Circulation',
     year: 2026,
-    doi: '10.1016/j.jacc.2025.12.001',
-    url: 'https://www.jacc.org/doi/10.1016/j.jacc.2025.12.001',
+    doi: '10.1161/CIR.0000000000001423',
+    url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001423',
   },
   'EV-LP-002': {
     title: 'Lipoprotein(a) in Clinical Practice: Universal Screening and Cardiovascular Risk Assessment',

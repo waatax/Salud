@@ -84,16 +84,17 @@ export const CANONICAL_TAIWAN_POLICIES: Record<string, TaiwanPolicyObject> = {
     title_en: 'Taiwan HPA Subsidized Low-Dose CT (LDCT) Lung Cancer Screening Policy',
     cancer_type: '肺癌 (Lung Cancer)',
     target_population_zh:
-      '具肺癌家族史者（父母、子女、兄弟姊妹罹患肺癌）及重度吸菸史者（≥20 包-年）',
-    age_range_zh: '男性 50–74 歲 / 女性 45–74 歲（家族史組年齡下限現正查核中）',
+      '具肺癌家族史者（父母、子女、兄弟姊妹罹患肺癌），以及 50–74 歲重度吸菸史者（≥20 包-年，有意願戒菸或戒菸未滿 15 年）',
+    age_range_zh: '家族史組：男性 45–74 歲 / 女性 40–74 歲；重度吸菸組：50–74 歲',
     screening_interval_zh: '每 2 年 1 次',
     modality_zh: '胸部低劑量電腦斷層攝影 (LDCT)',
-    effective_from: '2022-07-01',
-    policy_version: '2022-HPA-LDCT-01',
-    canonical_url: 'https://www.hpa.gov.tw/Pages/List.aspx?nodeid=4622',
-    retrieved_date: '2026-09-20',
-    status: 'needs-provenance-review', // Exemplifies VAL-016: Needs provenance review due to conflicting age cutoff reports
+    effective_from: '2025-01-01',
+    policy_version: '114-MOHW-LDCT-01',
+    canonical_url: 'https://www.mohw.gov.tw/cp-16-80948-1.html',
+    retrieved_date: '2026-09-28',
+    supersedes: '2022-HPA-LDCT-01',
+    status: 'active',
     notes_zh:
-      '【審查攔阻中】：二手來源對家族史組男女年齡下限（45/50 vs 40/45）存在歧異解讀。依 VAL-016 規範，在取得 HPA 官方公告精確核定前，不得以 R3 級別正式發佈。',
+      '【來源審查已解除 2026-09-28】：先前二手來源對家族史組年齡下限（45/50 vs 40/45）解讀不一而被 VAL-016 攔阻；經比對衛福部〈健康臺灣-114年起擴大癌症篩檢〉官方公告原文，確認為「40–74 歲女性及 45–74 歲男性」，重度吸菸門檻由 30 包-年放寬為 20 包-年。',
   },
 };

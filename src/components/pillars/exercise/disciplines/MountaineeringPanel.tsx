@@ -2,6 +2,7 @@ import React from 'react';
 import { MOUNTAINEERING_TOPICS } from '../../../../data/sportsScienceData';
 import { SimMountaineeringAltitude } from '../../../simulators/SimMountaineeringAltitude';
 import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
+import { MountaineeringInfographics } from '../../../sports/MountaineeringInfographics';
 import { Mountain } from 'lucide-react';
 
 /**
@@ -70,6 +71,12 @@ export const MountaineeringPanel: React.FC = () => {
           idColor="text-purple-600 dark:text-purple-400"
         />
       </section>
+
+      {/* Sub-module 3: Pedagogical Infographics */}
+      <section className="space-y-3">
+        <MountaineeringInfographics />
+      </section>
     </div>
   );
 };
+

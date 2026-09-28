@@ -68,7 +68,7 @@ export const LongevityMasteryQuiz: React.FC<LongevityMasteryQuizProps> = ({ onNa
             <span>INFOGRAPH 7 · 長壽醫學臨床情境精熟測驗</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-display font-extrabold text-slate-900 dark:text-white mt-1">
-            長壽生化機轉與抗老介入 14 題精熟檢驗
+            長壽生化機轉與抗老介入 {LONGEVITY_MASTERY_QUIZZES.length} 題精熟檢驗
           </h3>
           <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">
             驗收您對 12 大衰老標誌、表觀遺傳時鐘、雷帕黴素脈衝與桑拿激效的掌握深度。

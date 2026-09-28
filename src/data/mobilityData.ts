@@ -1,4 +1,4 @@
-import { MobilityTopic } from '../types';
+import { MobilityTopic, SportInfographicMeta } from '../types';
 
 export interface MobilityScreenTest {
   id: string;
@@ -272,4 +272,104 @@ export const MOBILITY_TOPICS: MobilityTopic[] = [
       'Synovial Imbibition Routine: Wall sits (45s holds) + full range gentle CARs 20 reps to circulate synovial nutrients.',
     ],
   },
+
+  // ── v4.0 (2026) additions ──
+  {
+    id: 'MOB-06',
+    title_zh: '伸展能預防運動傷害嗎？有證據的是「熱身計畫」與肌力訓練',
+    title_en: 'Does Stretching Prevent Injury? The Evidence Favours Warm-up Programs and Strength Training',
+    category: 'NEURO_STRETCHING',
+    one_liner_zh: '單靠靜態伸展幾乎不能降低運動傷害；結構化熱身與肌力訓練才有明確效果。',
+    one_liner_en: 'Static stretching alone barely reduces sports injuries; structured warm-ups and strength training do.',
+    evidence_grade: 'A',
+    neuro_mechanisms_zh: [
+      'BJSM 統合分析：伸展介入對運動傷害沒有顯著保護；肌力訓練可降低約三分之二的傷害、本體感覺訓練約降低一半。',
+      '結構化熱身計畫（如足球的 FIFA 11+，結合跑動、肌力、平衡與敏捷）可讓整體傷害減少約三到四成。',
+      '運動前長時間（>60 秒）靜態伸展可能短暫降低爆發力；伸展的主要價值在改善關節活動度與放鬆。',
+    ],
+    neuro_mechanisms_en: [
+      'BJSM meta-analysis: stretching showed no significant injury protection; strength training cut injuries by about two-thirds, proprioceptive training by about half.',
+      'Structured warm-ups (e.g. FIFA 11+: running, strength, balance, agility) reduce overall injuries by roughly 30–40%.',
+      'Long (>60 s) static stretches before activity may briefly reduce power; stretching’s value is mobility and relaxation.',
+    ],
+    biomechanical_alignment_zh: [
+      '肌力訓練提高肌肉與肌腱承受負荷的能力，是預防拉傷與肌腱病變的核心。',
+      '動態熱身提高肌肉溫度與神經傳導速度，讓關節在運動中更穩定。',
+    ],
+    biomechanical_alignment_en: [
+      'Strength training raises the load capacity of muscle and tendon — the core of strain and tendinopathy prevention.',
+      'Dynamic warm-ups raise muscle temperature and nerve conduction velocity, stabilising joints during play.',
+    ],
+    action_routines_zh: [
+      '運動前 10–15 分鐘動態熱身：慢跑、擺腿、弓箭步走、側併步與幾組漸進加速。',
+      '每週 2 次肌力與平衡訓練，是預防運動傷害投資報酬率最高的方法。',
+      '靜態伸展放在運動後或睡前，每個部位 30 秒、重複 2–3 次，用來改善活動度。',
+    ],
+    action_routines_en: [
+      'Warm up dynamically for 10–15 min: easy jog, leg swings, walking lunges, shuffles and a few build-ups.',
+      'Twice-weekly strength and balance work is the highest-yield injury prevention.',
+      'Save static stretching for after exercise or bedtime: 30 s per area, 2–3 times, to improve mobility.',
+    ],
+  },
 ];
+
+export const MOBILITY_INFOGRAPHICS: SportInfographicMeta[] = [
+  {
+    id: 'INFO-MOB-01',
+    discipline: 'MOBILITY_FASCIA',
+    title_zh: '關節相鄰假說交替動力鏈 (Joint-by-Joint Concept)',
+    title_en: 'Joint-by-Joint Alternating Architecture',
+    subtitle_zh: 'Gray Cook & Mike Boyle 生物理學：人體關節呈現「靈活性 (Mobility)」與「穩定性 (Stability)」嚴格交替分佈',
+    subtitle_en: 'Gray Cook & Mike Boyle paradigm: Alternating stack of mobility-focused and stability-focused articulations',
+    core_takeaways_zh: [
+      '交替動力鏈：踝 (靈活) ➔ 膝 (穩定) ➔ 髖 (靈活) ➔ 腰椎 (穩定) ➔ 胸椎 (靈活) ➔ 肩胛 (穩定) ➔ 盂肱肩關節 (靈活)',
+      '代償破壞法則：當相鄰的「靈活關節（如踝關節或髖關節）」受限時，上下的「穩定關節（如膝蓋或腰椎）」被迫代償移動而損傷',
+      '膝蓋痛常非膝蓋問題：膝外翻痛通常肇因於髖外展肌力不足與踝背屈受限；腰痛常肇因於胸椎活動度不足與骨盆前傾',
+    ],
+    core_takeaways_en: [
+      'Alternating stack: Ankle (Mobility) ➔ Knee (Stability) ➔ Hip (Mobility) ➔ Lumbar (Stability) ➔ Thoracic (Mobility).',
+      'Compensatory cascade: When mobility joints freeze, stability joints are forced to twist, driving degeneration.',
+      'Knee pain is rarely a knee problem: Restricted ankles and weak hip abductors overload the passive knee hinge.',
+    ],
+    metrics_badge: 'Joint-by-Joint Architecture',
+  },
+  {
+    id: 'INFO-MOB-02',
+    discipline: 'MOBILITY_FASCIA',
+    title_zh: '筋膜解剖列車淺背線 (SBL) 全身張力連鎖圖',
+    title_en: 'Anatomy Trains Superficial Back Line Tension Chain',
+    subtitle_zh: 'Thomas Myers 筋膜巨著：由足底筋膜、跟腱、膕繩肌、薦結節韌帶至帽狀腱膜，一條無縫相連的連續結締張力帶',
+    subtitle_en: 'Thomas Myers myofascial continuity: From plantar fascia and Achilles up to cranial galea aponeurotica',
+    core_takeaways_zh: [
+      '張力連續傳導：用網球滾壓放鬆腳底足底筋膜，可直接增加膕繩肌伸展度與站姿前彎體前屈幅度 3–5 cm',
+      '久坐縮短效應：長期坐姿使膕繩肌與骨盆後側筋膜僵硬，向下牽拉腰薦筋膜，引發慢性頑固性下背緊繃',
+      '筋膜水合與觸變性 (Thixotropy)：筋膜基質在受壓滾筒放鬆後，如海綿吸水般重新充盈玻尿酸水分子，降低黏滯摩擦阻力',
+    ],
+    core_takeaways_en: [
+      'Force transmission: Rolling the plantar fascia with a lacrosse ball immediately improves toe-touch flexion by 3-5 cm.',
+      'Sedentary shortening: Chronic sitting tightens the hamstrings and sacrotuberous ligament, dragging down the lumbar spine.',
+      'Thixotropy and rehydration: Foam rolling decompresses ground substance, allowing hyaluronic acid water uptake.',
+    ],
+    metrics_badge: 'Superficial Back Line (SBL)',
+  },
+  {
+    id: 'INFO-MOB-03',
+    discipline: 'MOBILITY_FASCIA',
+    title_zh: 'PNF 高爾基腱器官 (GTO) 自體抑制與牽張反射神經圖',
+    title_en: 'PNF Autogenic Inhibition & Golgi Tendon Reflex',
+    subtitle_zh: '本體感覺神經肌肉促進術 (PNF)：利用 6 秒抗阻等長收縮刺激高爾基腱器官 (GTO)，抑制肌梭反射並瞬間深化活動度',
+    subtitle_en: 'Proprioceptive Neuromuscular Facilitation: 6-sec isometric holds trigger GTO firing, overriding the stretch reflex',
+    core_takeaways_zh: [
+      '牽張反射保護機制：肌肉被急速拉長時，肌梭 (Muscle Spindle) 放電誘發肌肉反射性痙攣收縮，防止撕裂',
+      'GTO 自體抑制 (Autogenic Inhibition)：在極限拉伸位進行 5–6 秒 20–30% 最大肌力等長收縮，GTO 感應張力釋放抑制性神經傳導物質',
+      '收縮-放鬆 (Contract-Relax) 協議：等長收縮後呼氣放鬆，肌肉可瞬間安全多推進 5°–10° 關節角度',
+    ],
+    core_takeaways_en: [
+      'Myotatic stretch reflex: Muscle spindles trigger protective contraction when a muscle is lengthened abruptly.',
+      'GTO autogenic inhibition: Isometric tension at stretch limits triggers Golgi Tendon Organs to override spindle tone.',
+      'Contract-Relax Protocol: Inhale, hold 6-second mild isometric contraction, exhale into an expanded 5-10° range.',
+    ],
+    metrics_badge: 'PNF & GTO Neuromuscular Reflex',
+  },
+];
+

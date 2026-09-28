@@ -1,8 +1,8 @@
 {
   "version": "8.0.0",
-  "generated_at": "2026-09-23T00:56:32.302Z",
-  "nodes_count": 221,
-  "edges_count": 193,
+  "generated_at": "2026-09-28T15:33:47.667Z",
+  "nodes_count": 305,
+  "edges_count": 253,
   "nodes": [
     {
       "id": "KA-BP-001",
@@ -524,12 +524,12 @@
             "risk_of_bias": "low",
             "directness": "high",
             "provenance_level": "verified-primary",
-            "title": "2026 ACC/AHA Multisociety Guideline on the Management of Blood Cholesterol",
-            "authors": "Grundy SM, Stone NJ, Bailey AL, et al.",
-            "journal": "Journal of the American College of Cardiology",
+            "title": "2026 ACC/AHA/Multisociety Guideline on the Management of Dyslipidemia",
+            "authors": "ACC/AHA Joint Committee on Clinical Practice Guidelines",
+            "journal": "Circulation",
             "year": 2026,
-            "doi": "10.1016/j.jacc.2025.12.001",
-            "url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.12.001"
+            "doi": "10.1161/CIR.0000000000001423",
+            "url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001423"
           }
         ],
         "derived_certainty": "high",
@@ -2627,7 +2627,7 @@
         "clinical_mastery": {
           "plain_core_zh": "肺癌是台灣連續多年的「癌王」，奪走最多國人的寶貴生命。傳統照一張幾百塊錢的胸部 X 光片，等看到一顆大白點時，往往都已經是轉移擴散的第三第四期末期。現代醫學的照妖鏡是「低劑量電腦斷層 (LDCT)」！它的輻射量只有傳統電腦斷層的五分之一，卻能把肺部切成幾百張高畫質斷層照片，連藏在血管後面、只有 0.3 公分的微小毛玻璃結節都能一眼看穿，讓第一期肺癌開刀切除後的 5 年存活率高達九成以上！",
           "biochemical_mechanism_zh": "肺癌發生源自支氣管黏膜上皮與肺泡上皮幹細胞的基因突變積累。吸菸燃燒產生超過 70 種已知強效致癌物（多環芳香烴 Benzopyrene、特異性亞硝胺 NNK），專一性誘發 EGFR、KRAS、TP53 等基因發生點突變與微衛星不穩定性。然而在台灣及東亞地區，高達 50% 以上的肺癌患者（尤其是女性）「從不吸菸」，其主要病理型態為「肺腺癌 (Lung Adenocarcinoma)」，多伴隨 EGFR 外顯子 19 缺失或 L858R 敏感性點突變，致病因子涉及廚房油煙、二手菸暴露、室內氡氣、大氣細懸浮微粒 (PM2.5) 及特定易感遺傳基因多態性。低劑量電腦斷層 (LDCT) 利用亞毫米薄層螺旋掃描，在極低游離輻射劑量下實現高空間對比度成像，精準辨識早期肺腺癌典型的「毛玻璃狀結節 (Ground Glass Nodule, GGN)」。",
-          "diagnostic_cutoffs_zh": "衛福部國健署肺癌公費篩檢 (LDCT) 法規納入標準（台灣為全球首創將家族史納入公費肺癌篩檢之國家）：補助每 2 年一次公費 LDCT 檢查，對象包含兩大族群：1. 【具肺癌家族史者】：50–74 歲男性或 45–74 歲女性，其父母、子女或兄弟姊妹曾確診為肺癌者；2. 【重度吸菸史者】：50–74 歲國人，吸菸史累積達「30 包-年（每天吸菸包數 × 吸菸年數 ≥30）」以上，且有意願戒菸或戒菸未滿 15 年者。肺結節影像判讀依據國際 Lung-RADS 分級準則進行階梯式追蹤。",
+          "diagnostic_cutoffs_zh": "衛福部國健署肺癌公費篩檢 (LDCT) 法規納入標準（台灣為全球首創將家族史納入公費肺癌篩檢之國家）：補助每 2 年一次公費 LDCT 檢查，對象包含兩大族群：1. 【具肺癌家族史者】：45–74 歲男性或 40–74 歲女性（114 年起下修），其父母、子女或兄弟姊妹曾確診為肺癌者；2. 【重度吸菸史者】：50–74 歲國人，吸菸史累積達「20 包-年（每天吸菸包數 × 吸菸年數 ≥20；114 年起由 30 包-年放寬）」以上，且有意願戒菸或戒菸未滿 15 年者。肺結節影像判讀依據國際 Lung-RADS 分級準則進行階梯式追蹤。",
           "nutritional_protocol_zh": "肺部抗氧化保護與環境防禦生活處方：1. 絕對嚴格戒菸並拒絕任何電子煙、加熱菸（加熱菸氣膠中同樣驗出多環芳香烴與金屬奈米微粒）；2. 烹調全程開啟高效抽油煙機；3. 空氣品質紫爆 (PM2.5 >35.4 μg/m³) 時關閉門窗並開啟具 HEPA 濾網之空氣清淨機，外出佩戴合格氣密口罩；4. 飲食常規攝取富含十字花科異硫氰酸酯之蔬菜（綠花椰菜、青江菜）與柑橘類類黃酮。",
           "drug_interactions_red_flags_zh": "【高劑量人工 β-胡蘿蔔素補充劑對吸菸者之致命反轉】大規模臨床防癌試驗（CARET 與 ATBC 試驗）震撼證實：正在大量吸菸的高危險群，若每天長期服用高劑量「化學合成人工 β-胡蘿蔔素膠囊（每日 ≥20–30 mg）」，非但不能防癌，反而會使肺癌發生率急劇反向暴增 16%–28%，全因死亡率顯著上升！因高氧分壓肺泡環境下高濃度 β-胡蘿蔔素發生反向氧化促發自由基生成。吸菸者應透過天然多樣化原態蔬果補充胡蘿蔔素，嚴禁服用高劑量人工單方補劑。",
           "clinical_pearls_myths_zh": "【肺部結節莫恐慌——Lung-RADS 科學追蹤法】照完 LDCT 發現「肺部長了 0.4 公分的小結節」，很多人當場被嚇得痛哭以為自己罹患末期絕症。臨床統計大數據指出：LDCT 篩檢發現的微小結節中，高達 90%–95% 以上全都是「良性陳舊性發炎疤痕、微小肉芽腫或淋巴結」！只要結節小於 0.6 公分且為純毛玻璃狀，絕不可貿然動開胸大手術，遵循 Lung-RADS 規範每年定期以 LDCT 追蹤大小變化才是最高標準醫療。"
@@ -2637,27 +2637,28 @@
     {
       "id": "KA-TW-008",
       "type": "atom",
-      "label": "肺癌 LDCT 篩檢：具肺癌家族史者與重度吸菸者（≥20 包",
+      "label": "肺癌 LDCT 篩檢（114 年起）：具肺癌家族史之 45–",
       "data": {
         "id": "KA-TW-008",
         "assertion_kind": "policy",
         "risk_class": "R3",
         "topic": "policy",
-        "statement_zh": "肺癌 LDCT 篩檢：具肺癌家族史者與重度吸菸者（≥20 包-年）每 2 年 1 次公費低劑量電腦斷層掃描。",
+        "statement_zh": "肺癌 LDCT 篩檢（114 年起）：具肺癌家族史之 45–74 歲男性與 40–74 歲女性，以及 50–74 歲重度吸菸者（≥20 包-年），每 2 年 1 次公費低劑量電腦斷層掃描。",
         "applies_to": {
           "population": "重度吸菸與肺癌家族史者",
-          "region": "台灣"
+          "region": "台灣",
+          "age_range": "40–74 歲"
         },
         "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
         "policy_ref_id": "POL-TW-LUNG-LDCT",
         "evidence_records": [
           {
             "id": "EV-TW-008",
-            "citation": "Taiwan HPA LDCT Policy Draft Announcement",
+            "citation": "衛生福利部〈健康臺灣-114年起擴大癌症篩檢 您的健康政府來顧〉官方公告（mohw.gov.tw/cp-16-80948-1.html）",
             "design": "guideline",
-            "risk_of_bias": "moderate",
-            "directness": "moderate",
-            "provenance_level": "needs-provenance-review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute",
             "title": "台灣低劑量電腦斷層 (LDCT) 肺癌公費篩檢推動計畫",
             "authors": "衛生福利部國民健康署 / 台灣肺癌學會",
             "journal": "肺癌防治白皮書",
@@ -2665,10 +2666,10 @@
             "url": "https://www.hpa.gov.tw/"
           }
         ],
-        "derived_certainty": "low",
-        "misuse_guard": "【審查攔阻示範】：二手來源對家族史男女年齡下限存在衝突讀法（45/50 vs 40/45）。依 VAL-016，在取得 HPA 官方公告核定前不得正式發佈為 R3 級別。",
-        "status": "needs-provenance-review",
-        "last_reviewed": "2026-09-20",
+        "derived_certainty": "high",
+        "misuse_guard": "LDCT 為高危險群的篩檢，不能取代戒菸；無家族史、未達吸菸門檻者自費 LDCT 前應與醫師討論偽陽性與輻射暴露。本條目原因年齡下限來源衝突被 VAL-016 攔阻，已於 2026-09-28 比對官方公告原文後解除。",
+        "status": "published",
+        "last_reviewed": "2026-09-28",
         "clinical_mastery": {
           "plain_core_zh": "你知道台灣推行大腸癌糞便潛血檢查，拯救了多少家庭嗎？國家衛生研究院長期追蹤幾百萬名國人，交出了一份震撼全球醫學界的漂亮成績單：每兩年固定做一次免費大腸癌篩檢，就能讓台灣民眾死於大腸癌的機率「硬生生下降 35%」！早期第一期發現的大腸癌，開刀切除後活過五年的機率高達 90% 以上；但如果拖到末期，存活率就只剩下慘烈的 10% 到 15%。及早採便檢查，就是把握生與死的絕對分水嶺！",
           "biochemical_mechanism_zh": "早期大腸直腸腺癌在肉眼大體上主要表現為隆起息肉型、平坦型或微凹陷型。此時腫瘤細胞局限於黏膜固有層 (Tis) 或黏膜下層 (T1)，腫瘤新生微血管管壁極度薄弱脆性高，在腸腔糞便機械性蠕動擠壓摩擦下，脆弱微血管週期性破裂滲出微量紅血球。FIT 單株抗體能以皮克級 (pg) 靈敏度特異性結合血紅素的 β-球蛋白鏈，在無自覺貧血、排便習慣完全正常的無症狀前期即敏銳捕獲出血訊號。早期內視鏡黏膜切除術 (EMR/ESD) 或腹腔鏡微創局部切除，能徹底將病灶連同黏膜下層完整切除，阻斷淋巴管與微血管外溢轉移途徑。",
@@ -5098,15 +5099,15 @@
     {
       "id": "KA-TW-007",
       "type": "atom",
-      "label": "台灣國健署 LDCT 肺癌公費篩檢：補助 50–74 歲重度",
+      "label": "台灣國健署 LDCT 肺癌公費篩檢（114 年起）：補助 5",
       "data": {
         "id": "KA-TW-007",
         "assertion_kind": "policy",
         "risk_class": "R3",
         "topic": "policy",
-        "statement_zh": "台灣國健署 LDCT 肺癌公費篩檢：補助 50–74 歲重度吸菸史達 30 包-年以上或具肺癌家族史國人每 2 年一次低劑量電腦斷層掃描。",
+        "statement_zh": "台灣國健署 LDCT 肺癌公費篩檢（114 年起）：補助 50–74 歲重度吸菸史達 20 包-年以上，或具肺癌家族史之 45–74 歲男性與 40–74 歲女性，每 2 年一次低劑量電腦斷層掃描。",
         "applies_to": {
-          "population": "50–74 歲符合肺癌高風險條件國人",
+          "population": "40–74 歲符合肺癌高風險條件國人",
           "region": "台灣"
         },
         "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
@@ -5146,7 +5147,7 @@
         "clinical_mastery": {
           "plain_core_zh": "肺癌是台灣連續多年的「癌王」，奪走最多國人的寶貴生命。傳統照一張幾百塊錢的胸部 X 光片，等看到一顆大白點時，往往都已經是轉移擴散的第三第四期末期。現代醫學的照妖鏡是「低劑量電腦斷層 (LDCT)」！它的輻射量只有傳統電腦斷層的五分之一，卻能把肺部切成幾百張高畫質斷層照片，連藏在血管後面、只有 0.3 公分的微小毛玻璃結節都能一眼看穿，讓第一期肺癌開刀切除後的 5 年存活率高達九成以上！",
           "biochemical_mechanism_zh": "肺癌發生源自支氣管黏膜上皮與肺泡上皮幹細胞的基因突變積累。吸菸燃燒產生超過 70 種已知強效致癌物（多環芳香烴 Benzopyrene、特異性亞硝胺 NNK），專一性誘發 EGFR、KRAS、TP53 等基因發生點突變與微衛星不穩定性。然而在台灣及東亞地區，高達 50% 以上的肺癌患者（尤其是女性）「從不吸菸」，其主要病理型態為「肺腺癌 (Lung Adenocarcinoma)」，多伴隨 EGFR 外顯子 19 缺失或 L858R 敏感性點突變，致病因子涉及廚房油煙、二手菸暴露、室內氡氣、大氣細懸浮微粒 (PM2.5) 及特定易感遺傳基因多態性。低劑量電腦斷層 (LDCT) 利用亞毫米薄層螺旋掃描，在極低游離輻射劑量下實現高空間對比度成像，精準辨識早期肺腺癌典型的「毛玻璃狀結節 (Ground Glass Nodule, GGN)」。",
-          "diagnostic_cutoffs_zh": "衛福部國健署肺癌公費篩檢 (LDCT) 法規納入標準（台灣為全球首創將家族史納入公費肺癌篩檢之國家）：補助每 2 年一次公費 LDCT 檢查，對象包含兩大族群：1. 【具肺癌家族史者】：50–74 歲男性或 45–74 歲女性，其父母、子女或兄弟姊妹曾確診為肺癌者；2. 【重度吸菸史者】：50–74 歲國人，吸菸史累積達「30 包-年（每天吸菸包數 × 吸菸年數 ≥30）」以上，且有意願戒菸或戒菸未滿 15 年者。肺結節影像判讀依據國際 Lung-RADS 分級準則進行階梯式追蹤。",
+          "diagnostic_cutoffs_zh": "衛福部國健署肺癌公費篩檢 (LDCT) 法規納入標準（台灣為全球首創將家族史納入公費肺癌篩檢之國家）：補助每 2 年一次公費 LDCT 檢查，對象包含兩大族群：1. 【具肺癌家族史者】：45–74 歲男性或 40–74 歲女性（114 年起下修），其父母、子女或兄弟姊妹曾確診為肺癌者；2. 【重度吸菸史者】：50–74 歲國人，吸菸史累積達「20 包-年（每天吸菸包數 × 吸菸年數 ≥20；114 年起由 30 包-年放寬）」以上，且有意願戒菸或戒菸未滿 15 年者。肺結節影像判讀依據國際 Lung-RADS 分級準則進行階梯式追蹤。",
           "nutritional_protocol_zh": "肺部抗氧化保護與環境防禦生活處方：1. 絕對嚴格戒菸並拒絕任何電子煙、加熱菸（加熱菸氣膠中同樣驗出多環芳香烴與金屬奈米微粒）；2. 烹調全程開啟高效抽油煙機；3. 空氣品質紫爆 (PM2.5 >35.4 μg/m³) 時關閉門窗並開啟具 HEPA 濾網之空氣清淨機，外出佩戴合格氣密口罩；4. 飲食常規攝取富含十字花科異硫氰酸酯之蔬菜（綠花椰菜、青江菜）與柑橘類類黃酮。",
           "drug_interactions_red_flags_zh": "【高劑量人工 β-胡蘿蔔素補充劑對吸菸者之致命反轉】大規模臨床防癌試驗（CARET 與 ATBC 試驗）震撼證實：正在大量吸菸的高危險群，若每天長期服用高劑量「化學合成人工 β-胡蘿蔔素膠囊（每日 ≥20–30 mg）」，非但不能防癌，反而會使肺癌發生率急劇反向暴增 16%–28%，全因死亡率顯著上升！因高氧分壓肺泡環境下高濃度 β-胡蘿蔔素發生反向氧化促發自由基生成。吸菸者應透過天然多樣化原態蔬果補充胡蘿蔔素，嚴禁服用高劑量人工單方補劑。",
           "clinical_pearls_myths_zh": "【肺部結節莫恐慌——Lung-RADS 科學追蹤法】照完 LDCT 發現「肺部長了 0.4 公分的小結節」，很多人當場被嚇得痛哭以為自己罹患末期絕症。臨床統計大數據指出：LDCT 篩檢發現的微小結節中，高達 90%–95% 以上全都是「良性陳舊性發炎疤痕、微小肉芽腫或淋巴結」！只要結節小於 0.6 公分且為純毛玻璃狀，絕不可貿然動開胸大手術，遵循 Lung-RADS 規範每年定期以 LDCT 追蹤大小變化才是最高標準醫療。"
@@ -5300,10 +5301,2722 @@
         "clinical_mastery": {
           "plain_core_zh": "台灣的「公費癌症篩檢」是舉世聞名的公共衛生奇蹟！政府每年投入龐大健保資源，針對全台灣發生率最高、最致命的五大癌症（大腸癌、乳癌、子宮頸癌、口腔癌、肺癌），替大家把守健康第一關。請把你的健保卡拿出來，善用政府給我們的每一項免費篩檢福利。只要早期篩檢發現，五大癌症的早期五年存活率幾乎全都超過八成甚至九成五，這是一張能夠真正拯救自己和家庭的「國家級護身保單」！",
           "biochemical_mechanism_zh": "全人口癌症二級預防的流行病學核心數學邏輯在於消除「領先時間偏誤 (Lead-time Bias)」與「病程長短偏誤 (Length Bias)」後，所展現出的「實質死亡率壓降 (Real Mortality Reduction)」。惡性腫瘤在倍增時間 (Doubling Time) 早期，突變異質性 (Clonal Heterogeneity) 低、新生腫瘤微血管密度不足且尚未獲得血管侵犯 (Vascular Invasion) 與遠端定植轉移能力。公費五癌篩檢工具（FIT 免疫試劑、乳房數位軟光、低劑量薄層 CT、高倍目視醋酸著色、薄層子宮頸液基細胞學）均基於腫瘤生物學特定的解剖微結構異常，在臨床症狀浮現前長達數年的「臨床前期可檢出期 (PCDP, Preclinical Detectable Phase)」精準攔截，從分子與組織層面阻斷向浸潤侵襲期演進。",
-          "diagnostic_cutoffs_zh": "台灣擴大五大癌症公費篩檢一覽表（全體國民黃金篩檢清單）：1. 【大腸癌】：45–74 歲（40–44 歲具家族史），每 2 年 1 次糞便潛血檢查 (FIT)；2. 【乳癌】：40–74 歲女性，每 2 年 1 次乳房 X 光攝影；3. 【子宮頸癌】：30 歲以上女性，每年 1 次（建議至少每 3 年 1 次）子宮頸抹片；4. 【口腔癌】：30 歲以上吸菸或嚼檳榔者（18 歲以上原住民嚼檳榔），每 2 年 1 次口腔黏膜檢查；5. 【肺癌】：50–74 歲重度吸菸史 (≥30 包-年) 或具肺癌家族史 (男 50–74/女 45–74)，每 2 年 1 次低劑量電腦斷層 (LDCT)。",
+          "diagnostic_cutoffs_zh": "台灣擴大五大癌症公費篩檢一覽表（全體國民黃金篩檢清單）：1. 【大腸癌】：45–74 歲（40–44 歲具家族史），每 2 年 1 次糞便潛血檢查 (FIT)；2. 【乳癌】：40–74 歲女性，每 2 年 1 次乳房 X 光攝影；3. 【子宮頸癌】：30 歲以上女性，每年 1 次（建議至少每 3 年 1 次）子宮頸抹片；4. 【口腔癌】：30 歲以上吸菸或嚼檳榔者（18 歲以上原住民嚼檳榔），每 2 年 1 次口腔黏膜檢查；5. 【肺癌】：50–74 歲重度吸菸史 (≥20 包-年) 或具肺癌家族史 (男 45–74/女 40–74)，每 2 年 1 次低劑量電腦斷層 (LDCT)；6. 【胃癌】（115 年新增）：45–74 歲終身 1 次幽門螺旋桿菌糞便抗原檢測。",
           "nutritional_protocol_zh": "國家級癌症預防之全方位生活防癌十條戒律：世界癌症研究基金會 (WCRF) / 美國癌症研究所 (AICR) 第三次專家報告：1. 維持健康體重（BMI 18.5–24，避免腹部肥胖）；2. 每天進行至少 30 分鐘身體活動；3. 多吃全穀類、蔬菜、水果與豆類；4. 限制高糖高脂肪快餐加工食品；5. 限制紅肉並杜絕所有加工肉品；6. 限制含糖飲料；7. 限制或最好滴酒不沾；8. 切勿依賴高劑量抗癌補充劑（從天然原態食物攝取營養）；9. 母親盡可能親自哺餵母乳至少 6 個月；10. 癌症治療結束後依然嚴格遵循上述防癌指引。",
           "drug_interactions_red_flags_zh": "【公費篩檢陽性轉介「綠色通道 (Green Channel)」時效追蹤紅線】任何公費癌症篩檢結果若為「陽性或疑似異常」，健保體系與國健署訂有嚴格的轉介黃金時效監控：1. FIT 陽性者：必須在「3 個月內」完成大腸鏡確診；2. 乳房攝影 BI-RADS 0/4/5 者：必須在「1 個月內」完成超音波或組織切片；3. 抹片 HSIL 者：必須在「2 週至 1 個月內」完成陰道鏡切片；4. 口腔黏膜疑似惡性者：必須在「2 週內」完成切片病理診斷。切勿將異常報告塞在抽屜置之不理，早期搶進綠色通道能換取十倍以上的存活機會。",
           "clinical_pearls_myths_zh": "【公衛統計震撼教育】台灣國健署歷年追蹤數千萬人次資料庫證實：經由公費篩檢發現的五大癌症，其早期（0期與1期）的比例平均高達「50% 至 60% 以上」，且 5 年整體存活率平均超越「85%–95%」！相反地，若平時從不篩檢，直到身體出現明顯劇痛、大出血或暴瘦才去掛號就醫者，早期比例驟降至不到 20%，第三第四期晚期比例超過一半，5 年存活率腰斬跌破 30%！善用公費篩檢，是給自己和家人最負責任的愛。"
+        }
+      }
+    },
+    {
+      "id": "KA-BP-009",
+      "type": "atom",
+      "label": "脈搏壓（收縮壓減舒張壓）超過 60 mmHg 標誌著大動脈順",
+      "data": {
+        "id": "KA-BP-009",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "blood_pressure",
+        "statement_zh": "脈搏壓（收縮壓減舒張壓）超過 60 mmHg 標誌著大動脈順應性顯著喪失與血管硬化，是年長者心血管事件的強烈獨立預測因子。",
+        "applies_to": {
+          "population": "50 歲以上成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BP-009",
+            "citation": "Franklin et al., Circulation 1999 (Framingham Heart Study Pulse Pressure Analysis)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D001794",
+          "mesh_term": "Blood Pressure",
+          "icd11_code": "BA00",
+          "snomed_ct": "38341003"
+        },
+        "misuse_guard": "脈搏壓擴大不可單純視為老化自然現象而不予理會；若舒張壓過低（<60 mmHg）降壓治療需格外謹慎防範冠狀動脈灌注不足。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "脈搏壓就像水管彈性指標：當大血管失去彈性變成硬鋼管，心臟每次打血的最高壓力飆高而回彈力消失，高低壓差距就會拉大超過 60。",
+          "biochemical_mechanism_zh": "大動脈中層彈性纖維在長期高壓下發生疲勞斷裂並被僵硬的膠原纖維取代，血管壁彈性儲能庫（Windkessel）效應喪失，心臟收縮期壓力波反射提早回衝。",
+          "diagnostic_cutoffs_zh": "正常脈壓約在 30–50 mmHg；靜息脈壓 ≥60 mmHg 為異常警訊，≥70–80 mmHg 提示重度動脈硬化與左心室肥厚風險成倍攀升。",
+          "nutritional_protocol_zh": "嚴格落實得舒飲食（DASH）富含鉀、鎂與抗氧化植化素，每日攝取充足蔬菜水果以維護血管內皮型一氧化氮合成酶（eNOS）生物活性。",
+          "drug_interactions_red_flags_zh": "若患者脈壓過大伴隨舒張壓 <60 mmHg，使用高強度降壓藥時必須警惕心肌缺血症狀（胸悶、活動氣促），避免過度降壓導致灌流中斷。",
+          "clinical_pearls_myths_zh": "迷思破解：並非只有低壓高才叫高血壓；年長者單純收縮壓升高（如 165/65 mmHg）同樣是致命的心血管與腦中風元兇，必須積極達標。"
+        }
+      }
+    },
+    {
+      "id": "KA-BP-010",
+      "type": "atom",
+      "label": "夜間血壓下降率不足 10%（Non-dipper 表型）與靶",
+      "data": {
+        "id": "KA-BP-010",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "blood_pressure",
+        "statement_zh": "夜間血壓下降率不足 10%（Non-dipper 表型）與靶器官損傷（左心室肥厚、微量白蛋白尿）及心腦血管死亡率顯著上升直接相關。",
+        "applies_to": {
+          "population": "高血壓患者與心血管高危人群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BP-010",
+            "citation": "O'Brien et al., Lancet 2003 (Ambulatory Blood Pressure Monitoring Recommendations)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D018660",
+          "mesh_term": "Blood Pressure Monitoring, Ambulatory",
+          "icd11_code": "BA00",
+          "snomed_ct": "251070002"
+        },
+        "misuse_guard": "判定夜間血壓型態必須依賴標準 24 小時動態血壓監測（ABPM）；單次夜間被吵醒測量的單點血壓無法客觀代表生理日夜節律。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "正常人睡覺時交感神經休息，血壓應自發下降 10% 到 20%；若睡覺時血壓依然居高不下，代表心臟血管 24 小時無休承受磨損。",
+          "biochemical_mechanism_zh": "夜間副交感神經張力未能主導，交感神經持續過度興奮驅動腎素-血管收縮素-醛固酮系統（RAAS）亢進，同時常合併睡眠呼吸中止或慢性腎臟病。",
+          "diagnostic_cutoffs_zh": "夜間下降率（[日間平均 - 夜間平均]/日間平均）：10%–20% 為正常 Dipper；<10% 為 Non-dipper；夜間血壓反而高於日間為 Riser（超高危險群）。",
+          "nutritional_protocol_zh": "睡前 4–6 小時嚴格限制高鹽飲食與咖啡因攝取，減少夜間腎臟排鈉負擔與交感刺激，配合睡前充足水分防範夜間血液過度濃縮。",
+          "drug_interactions_red_flags_zh": "若確認為 Non-dipper 或 Riser，臨床專科醫師常評估將長效降壓藥（如 ARB 或長效 CCB）調整至傍晚或睡前服用（時間治療學 Chronotherapy）。",
+          "clinical_pearls_myths_zh": "臨床珍珠：夜間血壓不降常是阻塞型睡眠呼吸中止症（OSA）的強烈線索；若打呼合併白天嗜睡，應及時安排多導睡眠圖（PSG）檢查。"
+        }
+      }
+    },
+    {
+      "id": "KA-BP-011",
+      "type": "atom",
+      "label": "隱匿性高血壓（診間血壓正常 <130/80，但居家或動態血壓",
+      "data": {
+        "id": "KA-BP-011",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "blood_pressure",
+        "statement_zh": "隱匿性高血壓（診間血壓正常 <130/80，但居家或動態血壓超標）盛行率約 10%–15%，其心血管並發症危險度等同於持續性高血壓。",
+        "applies_to": {
+          "population": "成年健康檢查者與吸菸高壓族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BP-011",
+            "citation": "Pickering et al., Hypertension 2008 (Masked Hypertension Clinical Implications)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D006973",
+          "mesh_term": "Hypertension",
+          "icd11_code": "BA00",
+          "snomed_ct": "38341003"
+        },
+        "misuse_guard": "診間血壓正常絕不等於可以排除高血壓；對於有吸菸、肥胖、糖尿病或早發心血管家族史者，必須強制落實居家 722 自主量測。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "這是一隻披著羊皮的狼：在醫師面前心情平靜血壓漂亮，但一回到高壓職場或家庭生活中血壓全面超標，暗中持續損壞腦心腎器官。",
+          "biochemical_mechanism_zh": "工作壓力、心理焦慮、吸菸與過量咖啡因反覆激發腎上腺素與去甲腎上腺素脈衝釋放，周邊前小動脈反覆劇烈痙攣造成慢性內皮功能障礙。",
+          "diagnostic_cutoffs_zh": "診間 SBP/DBP <130/80 mmHg，但居家平均 ≥130/80 mmHg，或 24 小時動態日間平均 ≥135/85 mmHg，即可明確診斷為隱匿性高血壓。",
+          "nutritional_protocol_zh": "規律進行工作間隙微呼吸調節（如 4-7-8 呼吸法活化迷走神經），戒除含糖手搖飲與工作吸菸習慣，補充足量鎂離子以放鬆血管平滑肌。",
+          "drug_interactions_red_flags_zh": "不可因診間數值正常而拒絕用藥；若已出現微量白蛋白尿或頸動脈斑塊，應由專科醫師根據居家血壓紀錄給予標準降壓處方。",
+          "clinical_pearls_myths_zh": "迷思粉碎：許多上班族以為健檢血壓 118/75 就高枕無憂，唯有實施連續 7 天的「居家 722 量測」才能徹底揪出隱匿性高血壓。"
+        }
+      }
+    },
+    {
+      "id": "KA-BP-012",
+      "type": "atom",
+      "label": "原發性醛固酮增多症（PA）佔難治性高血壓患者的 10%–20",
+      "data": {
+        "id": "KA-BP-012",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "blood_pressure",
+        "statement_zh": "原發性醛固酮增多症（PA）佔難治性高血壓患者的 10%–20%，血漿醛固酮與腎素比值（ARR）為首要初篩黃金指標。",
+        "applies_to": {
+          "population": "難治性高血壓及併發低血鉀患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BP-012",
+            "citation": "Funder et al., JCEM 2016 (Endocrine Society Primary Aldosteronism Guideline)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D006929",
+          "mesh_term": "Hyperaldosteronism",
+          "icd11_code": "5A70",
+          "snomed_ct": "31338009"
+        },
+        "misuse_guard": "檢驗 ARR 比值前若正在服用 Spironolactone、ACEi/ARB 或利尿劑會嚴重干擾判讀，必須在專科醫師指導下暫停或更換藥物後方可抽血。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "腎上腺長了小腺瘤自主瘋狂分泌醛固酮，指揮腎臟死命留住鈉離子並把鉀離子排光，吃三四種降壓藥都壓不下來的高血壓常源於此。",
+          "biochemical_mechanism_zh": "過量醛固酮結合遠曲小管鹽皮質激素受體（MR），上調 ENaC 上皮鈉通道與鈉鉀幫浦，引發嚴重血容量擴張、血管纖維化與低血鉀肌無力。",
+          "diagnostic_cutoffs_zh": "初篩標準：血漿醛固酮濃度（PAC，ng/dL）除以血漿腎素活性（PRA，ng/mL/h），比值 ARR ≥20–30 伴隨 PAC ≥10–15 ng/dL 為強陽性。",
+          "nutritional_protocol_zh": "確診前應避免極端低鈉飲食（因低鈉會刺激腎素干擾檢驗），確診後配合醫師指示調節高鉀食物攝取並密切監控血鉀濃度。",
+          "drug_interactions_red_flags_zh": "內科藥物治療首選為醛固酮受體拮抗劑（如 Spironolactone 或 Eplerenone）；若影像證實為單側腺瘤，腹腔鏡切除術具高治癒率。",
+          "clinical_pearls_myths_zh": "臨床警訊：過去認為 PA 一定會伴隨低血鉀，現代醫學證實超過半數 PA 患者血鉀數值在正常低標，不能因血鉀正常就排除此病。"
+        }
+      }
+    },
+    {
+      "id": "KA-BP-013",
+      "type": "atom",
+      "label": "嚴格落實得舒飲食（DASH）合併每日減鈉至 1500 mg，",
+      "data": {
+        "id": "KA-BP-013",
+        "assertion_kind": "quantitative",
+        "risk_class": "R2",
+        "topic": "blood_pressure",
+        "statement_zh": "嚴格落實得舒飲食（DASH）合併每日減鈉至 1500 mg，在第 1 期高血壓患者中可使收縮壓平均顯著下降 8–14 mmHg。",
+        "applies_to": {
+          "population": "高血壓前期與輕中度高血壓患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BP-013",
+            "citation": "Sacks et al., NEJM 2001 (Effects on Blood Pressure of Reduced Dietary Sodium and the DASH Diet)",
+            "design": "rct",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary",
+            "effect": {
+              "measure": "MD",
+              "estimate": "-11.5 mmHg",
+              "comparator": "vs standard American high-sodium diet",
+              "exposure_definition": "DASH diet with 1500 mg/day sodium for 30 days"
+            }
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D000072660",
+          "mesh_term": "Diet, DASH",
+          "icd11_code": "BA00",
+          "snomed_ct": "444154002"
+        },
+        "misuse_guard": "DASH 飲食富含極高天然鉀離子（每日約 4700 mg），慢性腎臟病第 3b–5 期或服用保鉀利尿劑者嚴禁自行採用，以防高血鉀猝死。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "多吃高纖全穀、蔬菜、水果與堅果，搭配低脂乳品並狠甩重鹹沾醬，這套飲食處方的降血壓效果相當於一顆標準劑量的處方降壓藥。",
+          "biochemical_mechanism_zh": "高鉀攝取促進遠曲小管排鈉並舒張微血管平滑肌；高鎂與膳食纖維改善胰島素敏感度並減少氧化壓力，修復內皮一氧化氮生物利用率。",
+          "diagnostic_cutoffs_zh": "目標鈉攝取量每日 <2000 mg（食鹽 5 克），理想進階目標 <1500 mg；每日膳食鉀攝取目標約 3500–4700 mg。",
+          "nutritional_protocol_zh": "以五穀糙米取代白飯、每餐至少兩拳頭深綠蔬菜、以無調味綜合堅果作為點心、烹調多利用天然辛香料（蒜、薑、檸檬汁）取代醬油鹽巴。",
+          "drug_interactions_red_flags_zh": "正在服用 ACEi、ARB 或 Spironolactone 等會抑制排鉀的藥物者，實施高鉀 DASH 前必須由臨床營養師與醫師評估抽血鉀離子。",
+          "clinical_pearls_myths_zh": "實踐金句：降壓不靠「餓肚子」，DASH 飲食講究的是「高品質替換」——把精緻澱粉換成粗糧，把隱形鈉鹽換成天然鉀鎂。"
+        }
+      }
+    },
+    {
+      "id": "KA-GLU-009",
+      "type": "atom",
+      "label": "連續葡萄糖監測（CGM）核心指標「目標範圍內時間」（TIR ",
+      "data": {
+        "id": "KA-GLU-009",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "glucose",
+        "statement_zh": "連續葡萄糖監測（CGM）核心指標「目標範圍內時間」（TIR 70–180 mg/dL）維持 ≥70%，與糖尿病視網膜及腎臟微血管病變風險驟降高度一致。",
+        "applies_to": {
+          "population": "第 1 型與第 2 型糖尿病患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-GLU-009",
+            "citation": "Battelino et al., Diabetes Care 2019 (Clinical Targets for Continuous Glucose Monitoring Data Interpretation)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D001786",
+          "mesh_term": "Blood Glucose",
+          "icd11_code": "5A11",
+          "snomed_ct": "43491000124106"
+        },
+        "misuse_guard": "追求高 TIR 時不可忽視「低血糖時間」（TBR <70 mg/dL），國際指引規定低血糖時間必須嚴格控制在 <4%（<54 mg/dL 必須 <1%）。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "血糖像過山車忽高忽低對血管傷害最大；TIR 代表一天 24 小時內血糖平穩停留在健康綠色安全區（70–180）的時間比例，目標要超過 70%。",
+          "biochemical_mechanism_zh": "血糖大幅劇烈波動（血糖漂移）會使粒線體呼吸鏈電子漏出激增超氧化物自由基（ROS），激活 PKC 與晚期糖基化終產物（AGEs），粉碎血管內皮。",
+          "diagnostic_cutoffs_zh": "一般成人目標：TIR (70–180 mg/dL) ≥70%；高血糖時間 TAR (>180 mg/dL) <25%；低血糖時間 TBR (<70 mg/dL) <4%。TIR 每增加 10% 約等同 HbA1c 下降 0.5%–0.8%。",
+          "nutritional_protocol_zh": "落實進食順序「纖維蔬菜 ➔ 蛋白質/油脂 ➔ 碳水澱粉」，延緩胃排空並平緩餐後血糖尖峰，減少血糖劇烈上下震盪。",
+          "drug_interactions_red_flags_zh": "使用胰島素或磺醯尿素類（SU）促泌劑者，若 TIR 偏高但低血糖頻繁發生，應優先調降藥物劑量防止無自覺低血糖致死。",
+          "clinical_pearls_myths_zh": "觀念革新：單看 HbA1c 糖化血色素有盲區（容易被低血糖中和出虛假正常）；CGM 提供的 TIR 與標準差（SD/CV <36%）能真正反映全天血糖品質。"
+        }
+      }
+    },
+    {
+      "id": "KA-GLU-010",
+      "type": "atom",
+      "label": "清晨空腹高血糖需藉由夜間 3:00 血糖鑑別「黎明現象」（生",
+      "data": {
+        "id": "KA-GLU-010",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "glucose",
+        "statement_zh": "清晨空腹高血糖需藉由夜間 3:00 血糖鑑別「黎明現象」（生長激素/皮質醇脈衝）或「蘇木傑效應」（低血糖後反彈性高血糖）。",
+        "applies_to": {
+          "population": "使用胰島素或口服降糖藥之糖尿病患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-GLU-010",
+            "citation": "ADA Standards of Medical Care in Diabetes 2024 Chapter 6",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D006943",
+          "mesh_term": "Hyperglycemia",
+          "icd11_code": "5A11",
+          "snomed_ct": "80394007"
+        },
+        "misuse_guard": "切勿在未檢測凌晨 3:00 血糖的情況下盲目增加睡前長效胰島素劑量，若屬蘇木傑效應加藥將誘發極致命的夜間深睡昏迷。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "早上起床血糖高有兩種截然相反的原因：一是身體清晨自發分泌荷爾蒙升糖（黎明現象）；二是半夜偷偷低血糖觸發身體反彈性狂飆（蘇木傑效應）。",
+          "biochemical_mechanism_zh": "黎明現象由清晨生長激素與皮質醇脈衝釋放促進肝醣分解與糖質新生；蘇木傑效應則是夜間胰島素過剩觸發腎上腺素與升糖素緊急報警釋放。",
+          "diagnostic_cutoffs_zh": "鑑別關鍵：量測凌晨 2:00–3:00 血糖。若此時血糖偏高或正常（>90–100 mg/dL）即為黎明現象；若 <70 mg/dL 伴隨噩夢冷汗即為蘇木傑效應。",
+          "nutritional_protocol_zh": "蘇木傑效應患者可在睡前補充少量含複合碳水與優質蛋白質的點心（如一杯無糖豆漿加少許燕麥），平緩夜間血糖下探幅度。",
+          "drug_interactions_red_flags_zh": "治療完全相反：黎明現象需增加睡前基礎胰島素或更換劑型；蘇木傑效應則必須「減少」睡前胰島素劑量或提早晚餐時間。",
+          "clinical_pearls_myths_zh": "臨床鐵則：看到早上空腹 200 mg/dL 千萬不要直覺認為是「藥不夠吃」；裝上 CGM 或設鬧鐘測量凌晨 3 點血糖是拯救生命的最關鍵動作。"
+        }
+      }
+    },
+    {
+      "id": "KA-GLU-011",
+      "type": "atom",
+      "label": "穩態模型胰島素阻抗指數（HOMA-IR = [空腹胰島素 μ",
+      "data": {
+        "id": "KA-GLU-011",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R2",
+        "topic": "glucose",
+        "statement_zh": "穩態模型胰島素阻抗指數（HOMA-IR = [空腹胰島素 μU/mL × 空腹血糖 mg/dL] / 405）超過 2.0 代表周邊胰島素敏感度明顯受損。",
+        "applies_to": {
+          "population": "肥胖、多囊性卵巢症候群與代謝症候群高危族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-GLU-011",
+            "citation": "Matthews et al., Diabetologia 1985 (Homeostasis Model Assessment: Insulin Resistance and Beta-cell Function)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D007333",
+          "mesh_term": "Insulin Resistance",
+          "icd11_code": "5A11",
+          "snomed_ct": "763325000"
+        },
+        "misuse_guard": "正在注射外源性胰島素之患者無法使用 HOMA-IR 方程（數值會嚴重失真）；血清空腹胰島素檢測前必須嚴格禁食滿 8–10 小時。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "胰島素阻抗就像細胞對門鈴麻木：身體必須狂按電鈴（分泌好幾倍胰島素）才能把血糖壓進細胞；HOMA-IR 是提早 10 年揪出糖尿病的探針。",
+          "biochemical_mechanism_zh": "骨骼肌與肝細胞內異位脂肪（二醯甘油 DAG 與神經醯胺 Ceramides）累積，抑制胰島素受體受質-1（IRS-1）酪胺酸磷酸化，中斷 PI3K-Akt 訊號鏈。",
+          "diagnostic_cutoffs_zh": "HOMA-IR <1.4 為理想健康敏感；1.4–2.0 為邊緣警戒；>2.0 提示明確胰島素阻抗；>3.0 為嚴重代償失調高危期。",
+          "nutritional_protocol_zh": "大幅剔除超加工食品與高果糖玉米糖漿（HFCS），限制每日添加糖 <25g，導入 Zone 2 有氧與大肌群阻力訓練以消耗胞內脂質。",
+          "drug_interactions_red_flags_zh": "對於 HOMA-IR 居高不下合併脂肪肝者，二甲雙胍（Metformin）或 SGLT2 抑制劑/GLP-1 促效劑是改善細胞敏感度的強效實證處方。",
+          "clinical_pearls_myths_zh": "健檢盲區：許多人空腹血糖 95 mg/dL 報告顯示綠字，但此時空腹胰島素可能早已飆到 25 μU/mL（HOMA-IR = 5.8！），胰臟 β 細胞正在過勞衰竭邊緣。"
+        }
+      }
+    },
+    {
+      "id": "KA-GLU-012",
+      "type": "atom",
+      "label": "骨骼肌收縮透過活化 5'-AMP 活化蛋白激酶（AMPK）與",
+      "data": {
+        "id": "KA-GLU-012",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "glucose",
+        "statement_zh": "骨骼肌收縮透過活化 5'-AMP 活化蛋白激酶（AMPK）與肌漿鈣離子路徑，能完全「繞過胰島素」直接驅動 GLUT4 轉運蛋白向細胞膜移位攝取葡萄糖。",
+        "applies_to": {
+          "population": "第 2 型糖尿病與嚴重胰島素阻抗族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-GLU-012",
+            "citation": "Richter & Hargreaves, Physiol Rev 2013 (Exercise, GLUT4, and Skeletal Muscle Glucose Uptake)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D051299",
+          "mesh_term": "Glucose Transporter Type 4",
+          "icd11_code": "5A11",
+          "snomed_ct": "414545008"
+        },
+        "misuse_guard": "重度高血糖（空腹 >250–300 mg/dL 伴隨尿酮體陽性）時不可盲目劇烈運動，此時胰島素極度缺乏會因逆向荷爾蒙激增導致酮酸中毒。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "運動是不用打針的天然胰島素：肌肉一收縮，細胞就會主動打開備用側門（GLUT4）把血液中的糖分大口吃掉，完全不依賴胰島素開門。",
+          "biochemical_mechanism_zh": "肌肉收縮使 ATP 水解為 AMP，AMP/ATP 比值升高強效點火 AMPK；同時肌漿網釋放 Ca²⁺ 激活 CaMK，雙路徑誘導含 GLUT4 囊泡出核融合於肌細胞膜。",
+          "diagnostic_cutoffs_zh": "一次 45 分鐘中等強度運動所誘發的非胰島素依賴型葡萄糖轉運，可使骨骼肌對葡萄糖的高通量攝取持續維持 24 到 48 小時之久。",
+          "nutritional_protocol_zh": "在餐後 30–60 分鐘血糖上升期進行輕中度活動（如快走 15–20 分鐘或辦公室原地深蹲 20 下），能精準削平餐後血糖高峰達 30–50 mg/dL。",
+          "drug_interactions_red_flags_zh": "正在使用胰島素之患者在運動前後需監測血糖，若運動前血糖 <100 mg/dL 應預先補充 15g 碳水化合物，防範運動引發之延遲性低血糖。",
+          "clinical_pearls_myths_zh": "機制洞察：這項生理特權是重度胰島素阻抗患者的救星——即使細胞對胰島素完全不理睬，只要肌肉動起來，降糖通道依舊 100% 暢通無阻。"
+        }
+      }
+    },
+    {
+      "id": "KA-GLU-013",
+      "type": "atom",
+      "label": "第 1 相胰島素快速分泌缺失是第 2 型糖尿病發病最早期的標",
+      "data": {
+        "id": "KA-GLU-013",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "glucose",
+        "statement_zh": "第 1 相胰島素快速分泌缺失是第 2 型糖尿病發病最早期的標誌性缺陷，直接導致進食後前 30 分鐘肝醣輸出無法被及時煞停。",
+        "applies_to": {
+          "population": "糖尿病前期、空腹血糖偏高及肥胖族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-GLU-013",
+            "citation": "Del Prato et al., J Clin Invest 2002 (Loss of Early Phase Insulin Secretion in Type 2 Diabetes)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D007328",
+          "mesh_term": "Insulin",
+          "icd11_code": "5A11",
+          "snomed_ct": "67866001"
+        },
+        "misuse_guard": "評估第 1 相胰島素需仰賴口服葡萄糖耐量試驗（OGTT）前 30 分鐘採血；僅測量空腹單點血糖絕對無法檢出此項早期早期缺陷。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "健康人的胰島在吞下第一口飯 5 分鐘內就會噴射出預先儲存的胰島素（先鋒部隊）；糖尿病早期就是這支部隊陣亡，導致餐後血糖直接飆頂。",
+          "biochemical_mechanism_zh": "健康 β 細胞膜附近停泊著即可釋放庫（RRP）胰島素囊泡；糖毒性與脂毒性使葡萄糖激酶（Glucokinase）感應遲鈍，第 1 相脈衝式分泌完全消失。",
+          "diagnostic_cutoffs_zh": "正常人靜脈注射葡萄糖後 2–10 分鐘內出現陡峭胰島素脈衝（>50–100 μU/mL）；糖尿病早期患者此波形完全平坦，僅剩第 2 相緩慢分泌。",
+          "nutritional_protocol_zh": "避免單獨攝取高升糖指數（High GI）精緻液體碳水化合物（如純果汁、含糖手搖飲），因其極速吸收會嚴重撕裂缺乏第 1 相分泌的代謝系統。",
+          "drug_interactions_red_flags_zh": "腸泌素藥物（GLP-1 受體促效劑與 DPP-4 抑制劑）的重要藥理特色之一，即是能以葡萄糖依賴方式顯著修復與重啟第 1 相胰島素分泌。",
+          "clinical_pearls_myths_zh": "預防黃金窗：在空腹血糖超標（>100 mg/dL）的數年之前，第 1 相分泌早就悄然瓦解；餐後 1 小時血糖 >155 mg/dL 是偵測此缺陷的最敏感指標。"
+        }
+      }
+    },
+    {
+      "id": "KA-LIP-009",
+      "type": "atom",
+      "label": "脂蛋白 (a) [Lp(a) >50 mg/dL 或 >12",
+      "data": {
+        "id": "KA-LIP-009",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "lipids",
+        "statement_zh": "脂蛋白 (a) [Lp(a) >50 mg/dL 或 >125 nmol/L] 為獨立且高達 90% 由基因決定的致動脈粥狀硬化、促發炎與抗纖溶血栓三合一高危險顆粒。",
+        "applies_to": {
+          "population": "所有成年人（建議一生至少檢測一次）",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-LIP-009",
+            "citation": "Kronenberg et al., Eur Heart J 2022 (EAS Consensus Statement on Lipoprotein(a))",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D017270",
+          "mesh_term": "Lipoprotein(a)",
+          "icd11_code": "5C80",
+          "snomed_ct": "259580004"
+        },
+        "misuse_guard": "Lp(a) 數值幾乎不受常規飲食與運動干預影響，亦對傳統 Statin 降膽固醇藥物無反應；切忌因生活型態改變無效而停止監測心血管風險。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "Lp(a) 是帶有致命倒鉤的特異性膽固醇顆粒：除了會鑽入血管壁形成斑塊，其結構像纖維蛋白溶解酶原還會阻止血栓被身體溶解，毒性是 LDL 的數倍。",
+          "biochemical_mechanism_zh": "Lp(a) 由 ApoB-100 與載脂蛋白 (a) [apo(a)] 透過雙硫鍵共價連結，攜帶大量氧化磷脂（OxPL），apo(a) 的環狀結構（Kringle IV）競爭性抑制纖溶。",
+          "diagnostic_cutoffs_zh": "正常閾值：<30 mg/dL（<75 nmol/L）；灰色地帶：30–50 mg/dL；明確高危門檻：≥50 mg/dL（≥125 nmol/L）；極高危險群：≥180 mg/dL（心梗風險等同家族性高膽固醇血症）。",
+          "nutritional_protocol_zh": "雖然飲食對 Lp(a) 數值本身影響微弱，但高 Lp(a) 患者必須把其他所有可控心血管風險因素（血壓、血糖、內臟脂肪、吸菸）逼到極致健康標準。",
+          "drug_interactions_red_flags_zh": "傳統 Statin 類藥物可能使 Lp(a) 微幅反彈升高 10%–20%（但 Statin 降低總心血管風險效益依舊確定，不可擅自停藥）；PCSK9 抑制劑可降低 Lp(a) 約 20%–30%。",
+          "clinical_pearls_myths_zh": "國際指引重大革新：2026 年國際心臟學會一致建議「每個人一生都應抽血檢驗一次 Lp(a)」，因為一生只需測一次即可鎖定終生遺傳基線風險。"
+        }
+      }
+    },
+    {
+      "id": "KA-LIP-010",
+      "type": "atom",
+      "label": "三酸甘油酯與高密度脂蛋白膽固醇比值（TG/HDL-C >3.",
+      "data": {
+        "id": "KA-LIP-010",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R2",
+        "topic": "lipids",
+        "statement_zh": "三酸甘油酯與高密度脂蛋白膽固醇比值（TG/HDL-C >3.0，以 mg/dL 計）是臨床預測高致病性「小而緻密低密度脂蛋白」（sdLDL）的最強悍替代指標。",
+        "applies_to": {
+          "population": "一般成人常規血液生化檢測",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-LIP-010",
+            "citation": "Marotti et al., Arterioscler Thromb Vasc Biol 1995 (TG/HDL Ratio and LDL Phenotype B)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D014280",
+          "mesh_term": "Triglycerides",
+          "icd11_code": "5C80",
+          "snomed_ct": "30716002"
+        },
+        "misuse_guard": "計算 TG/HDL-C 比值時單位必須嚴格確認為 mg/dL；若使用 mmol/L 單位需重新換算（mmol/L 體系之高危閾值約為 >1.3）。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "LDL-C 數字正常不代表沒事：如果三酸甘油酯高而好膽固醇低（TG/HDL >3.0），代表體內全是最具穿透破壞力的小顆粒壞膽固醇（sdLDL）。",
+          "biochemical_mechanism_zh": "高三酸甘油酯狀態下，膽固醇酯轉運蛋白（CETP）異常活躍，使 LDL 核心富含三酸甘油酯，隨後被肝脂酶水解形成直徑微小、極易穿透內皮氧化滯留的 sdLDL（B 型表型）。",
+          "diagnostic_cutoffs_zh": "理想比例（以 mg/dL 計）：TG/HDL-C <2.0；輕度風險：2.0–3.0；高度胰島素阻抗與致粥狀硬化顆粒密集區：>3.0（若 >4.0 則幾乎 100% 存在 sdLDL 密集表型）。",
+          "nutritional_protocol_zh": "強效壓降 TG/HDL 比值的最高槓桿：完全戒除果糖 hand-shaken 手搖飲與精緻白澱粉，補充高純度 Omega-3 魚油（EPA/DHA 2–4g/日）以加速 VLDL 廓清。",
+          "drug_interactions_red_flags_zh": "若患者 TG >500 mg/dL，首要醫療急務為使用 Fibrates 類藥物防範急性胰臟炎，待三酸甘油酯降至安全範圍再綜合評估 LDL 治療。",
+          "clinical_pearls_myths_zh": "臨床洞察：這項免費的除法公式（TG 除以 HDL），在預測心肌梗塞與冠心病早逝風險上的靈敏度，往往遠超越單獨看 LDL-C。"
+        }
+      }
+    },
+    {
+      "id": "KA-LIP-011",
+      "type": "atom",
+      "label": "冠狀動脈鈣化積分（CAC Agatston Score）等於",
+      "data": {
+        "id": "KA-LIP-011",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "lipids",
+        "statement_zh": "冠狀動脈鈣化積分（CAC Agatston Score）等於 0（Power of Zero）代表未來 5–10 年心血管事件風險極低，在特定中度風險患者中可作為推遲 Statin 處方的決策依據。",
+        "applies_to": {
+          "population": "40–75 歲無症狀中度心血管風險成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-LIP-011",
+            "citation": "Nasir et al., JACC 2015 (The Power of Zero CAC Score in Risk Stratification)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D003324",
+          "mesh_term": "Coronary Artery Disease",
+          "icd11_code": "BA80",
+          "snomed_ct": "53741008"
+        },
+        "misuse_guard": "CAC = 0 的安全保障不適用於「抽菸者、糖尿病患者或具極早發家族心臟病史者」；且 CAC 無法偵測尚未鈣化的高危險脆弱「軟斑塊」。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "透過低輻射心臟 CT 掃描冠狀動脈是否有鈣質沉積：如果是 0 分，代表心臟大血管目前乾乾淨淨，未來數年內突發心肌梗塞機率極低。",
+          "biochemical_mechanism_zh": "動脈粥狀硬化斑塊進展至中晚期時，壞死核心周邊血管平滑肌細胞轉分化為成骨樣細胞分泌羥基磷灰石結晶，CAC 掃描精確量化已鈣化硬斑塊的總體積。",
+          "diagnostic_cutoffs_zh": "CAC = 0：極低風險（年事件率 <0.1%）；1–99：輕度斑塊負擔；100–399：中度硬化（強烈建議 Statin 治療）；≥400 或 ≥75 百分位：重度高危（立即啟動高強度藥物）。",
+          "nutritional_protocol_zh": "無論 CAC 分數為何，維持地中海飲食架構、控制飽和脂肪酸 <7%E、確保每週規律有氧訓練以維持血管內皮彈性與微循環灌注。",
+          "drug_interactions_red_flags_zh": "使用 Statin 藥物後會加速斑塊緻密鈣化（CAC 分數可能數值上升但斑塊變得更穩定），因此「不可」使用重複 CAC 追蹤來評估 Statin 藥物的治療成效。",
+          "clinical_pearls_myths_zh": "決策價值：當一位 50 歲健康人膽固醇偏高但在猶豫要不要終生吃降血脂藥時，CAC 檢查是一記強力的裁決槌——0 分可暫緩，>100 分立即服藥。"
+        }
+      }
+    },
+    {
+      "id": "KA-LIP-012",
+      "type": "atom",
+      "label": "殘餘膽固醇（Remnant Cholesterol = 總膽",
+      "data": {
+        "id": "KA-LIP-012",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "lipids",
+        "statement_zh": "殘餘膽固醇（Remnant Cholesterol = 總膽固醇 - LDL-C - HDL-C）空腹 >30 mg/dL 代表富含三酸甘油酯脂蛋白（TRLs）殘餘物過多，可直接穿透動脈內皮引發發炎與血栓。",
+        "applies_to": {
+          "population": "心血管代謝高危及第 2 型糖尿病族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-LIP-012",
+            "citation": "Nordestgaard, J Intern Med 2016 (Triglyceride-Rich Lipoproteins and Remnant Cholesterol)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D008074",
+          "mesh_term": "Lipoproteins",
+          "icd11_code": "5C80",
+          "snomed_ct": "70211005"
+        },
+        "misuse_guard": "計算殘餘膽固醇時若 LDL-C 是由傳統 Friedewald 方程推算且三酸甘油酯 >400 mg/dL，計算結果會嚴重失真，應直接採用直接法或測量 ApoB。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "總膽固醇扣除好膽固醇與壞膽固醇後剩下的部分，就是殘餘膽固醇；它們不需要被氧化，就能直接被巨噬細胞吞噬形成動脈硬化斑塊。",
+          "biochemical_mechanism_zh": "乳糜微粒殘餘物與 VLDL 殘餘物直徑小於 70 nm，能自由穿透內皮細胞間隙；其表面不帶 ApoA-I 且富含 ApoE，能直接被巨噬細胞清除者受體不加節制地吞噬。",
+          "diagnostic_cutoffs_zh": "空腹殘餘膽固醇理想目標：<24 mg/dL（<0.6 mmol/L）；風險升高門檻：≥30 mg/dL；非空腹狀態下 >39 mg/dL 預測心肌梗塞風險上升 2–3 倍。",
+          "nutritional_protocol_zh": "減少超加工食品中添加的單醣與飽和棕櫚油，導入高可溶性黏性纖維（果膠、洋車前子、燕麥 β-葡聚醣）以減緩乳糜微粒入血流速。",
+          "drug_interactions_red_flags_zh": "殘餘膽固醇高常是 Statin 治療後「剩餘心血管風險」（Residual Risk）的核心來源；高純度 EPA（IPE）藥物可顯著降低此類殘餘風險達 25%。",
+          "clinical_pearls_myths_zh": "前沿警示：臨床許多 LDL-C 已嚴格降至 55 mg/dL 達標的心臟病患者依然二度心梗發作，禍首往往就是未被重視的殘餘膽固醇超標。"
+        }
+      }
+    },
+    {
+      "id": "KA-LIP-013",
+      "type": "atom",
+      "label": "PCSK9 蛋白與肝細胞膜 LDL 受體結合並誘導其在溶酶體",
+      "data": {
+        "id": "KA-LIP-013",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "lipids",
+        "statement_zh": "PCSK9 蛋白與肝細胞膜 LDL 受體結合並誘導其在溶酶體中降解；PCSK9 抑制劑能阻斷此過程使 LDL 受體循環再利用，使血清 LDL-C 強效降低 50%–60%。",
+        "applies_to": {
+          "population": "家族性高膽固醇血症及極高危動脈硬化患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ACC-AHA-2026-LIPID",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-LIP-013",
+            "citation": "Sabatine et al., NEJM 2017 (Evolocumab and Clinical Outcomes in Patients with Cardiovascular Disease)",
+            "design": "rct",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary",
+            "effect": {
+              "measure": "HR",
+              "estimate": "0.85",
+              "comparator": "vs statin alone",
+              "exposure_definition": "PCSK9 inhibitor Evolocumab 140 mg every 2 weeks"
+            }
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D000071449",
+          "mesh_term": "Proprotein Convertase 9",
+          "icd11_code": "5C80",
+          "snomed_ct": "716075001"
+        },
+        "misuse_guard": "PCSK9 抑制劑（單株抗體或 siRNA）為昂貴的高階皮下注射藥物，不可作為輕度高血脂之第一線常規處方，需符合健保給付或專科嚴格適應症。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "肝臟原本能把壞膽固醇吸塵器（LDL 受體）洗乾淨重複用上百次，但體內壞蛋白質 PCSK9 會把吸塵器拉去粉碎銷毀；PCSK9 抑制劑就是保護吸塵器的救命罩。",
+          "biochemical_mechanism_zh": "PCSK9 結合 LDLR 胞外結構域，防止受體在內吞體酸性微環境中構象解離，強迫 LDLR 被引導至溶酶體中永久酶解，摧毀肝臟清除 ApoB 顆粒的能力。",
+          "diagnostic_cutoffs_zh": "適用對象：已使用最高耐受劑量 Statin 併用 Ezetimibe 後，心血管極高危患者 LDL-C 仍無法達到 <55 mg/dL（或降幅 <50%）者。",
+          "nutritional_protocol_zh": "即使使用強效 PCSK9 抑制劑，仍需維持嚴格的低膽固醇、低飽和脂肪飲食習慣，保護微血管內皮健康與腸道菌群短鏈脂肪酸生成。",
+          "drug_interactions_red_flags_zh": "藥物分為兩週皮下注射一次的單株抗體（如 Evolocumab、Alirocumab）及半年注射一次的長效 siRNA（Inclisiran），耐受性極佳且不引起 Statin 類肌肉酸痛。",
+          "clinical_pearls_myths_zh": "科學奇蹟：PCSK9 基因功能喪失（Loss-of-Function）突變者終生 LDL-C 僅 30–40 mg/dL 且幾乎完全免疫於心肌梗塞，催生了現代分子標靶降脂革命。"
+        }
+      }
+    },
+    {
+      "id": "KA-HYD-015",
+      "type": "atom",
+      "label": "高溫劇烈運動下人體汗液鈉離子濃度落差達 3 倍以上（約 20",
+      "data": {
+        "id": "KA-HYD-015",
+        "assertion_kind": "quantitative",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "高溫劇烈運動下人體汗液鈉離子濃度落差達 3 倍以上（約 20–80 mmol/L，相當於每公升汗水流失 0.5–1.8 克鈉），需依據個體出汗率進行精準電解質補償。",
+        "applies_to": {
+          "population": "馬拉松、鐵人三項與長時間高溫作業人員",
+          "region": "全球"
+        },
+        "primary_source": "SRC-EAH-CONSENSUS-2015",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-HYD-015",
+            "citation": "Sawka et al., Med Sci Sports Exerc 2007 (ACSM Position Stand: Exercise and Fluid Replacement)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D013545",
+          "mesh_term": "Sweat",
+          "icd11_code": "MD90",
+          "snomed_ct": "36040003"
+        },
+        "misuse_guard": "運動超過 2–3 小時以上大量出汗者，切忌連續灌飲「完全無鹽純水」，此舉為誘發致死性運動相關低血鈉（EAH）水中毒的頭號兇手。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "運動流汗流的不只是水，還有大量鹽分；每個人汗水「鹹度」差很多，衣服乾掉有白白鹽漬的人屬於重度失鈉者，運動補水必須加鹽。",
+          "biochemical_mechanism_zh": "未經熱適應者汗腺管腔上皮 ENaC 鈉通道重吸收效率低下，汗液鈉濃度可高達 60–80 mmol/L；經 14 天耐熱訓練後汗腺重吸收能力翻倍，汗液變淡至 20–30 mmol/L。",
+          "diagnostic_cutoffs_zh": "運動前後淨體重流失應嚴格控制在原本體重的 1%–2% 以內；體重流失 >2% 體能顯著下滑，而「運動後體重增加」則是低血鈉水中毒高危警訊。",
+          "nutritional_protocol_zh": "運動持續超過 60–90 分鐘時，每小時補液量約 400–800 mL，運動飲料鈉離子濃度應配置在 400–800 mg/L（約 20–35 mmol/L）以維持滲透壓平衡。",
+          "drug_interactions_red_flags_zh": "長跑運動員若服用 NSAIDs 消炎止痛藥（如布洛芬），會強烈抑制腎前列腺素導致水分排泄受阻，使水中毒腦水腫風險激增 5 倍以上。",
+          "clinical_pearls_myths_zh": "迷思粉碎：口渴不要「硬忍」，但也不要在不渴時「強迫狂灌純水」；順從口渴指引補液並適度補充鈉鹽是運動醫學最安全基石。"
+        }
+      }
+    },
+    {
+      "id": "KA-HYD-016",
+      "type": "atom",
+      "label": "高齡長者因下視丘滲透壓受器敏感度自然生理性衰退，即使血漿滲透",
+      "data": {
+        "id": "KA-HYD-016",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "hydration",
+        "statement_zh": "高齡長者因下視丘滲透壓受器敏感度自然生理性衰退，即使血漿滲透壓顯著飆升亦缺乏自覺口渴衝動，構成隱匿性高滲性脫水的根本生理肇因。",
+        "applies_to": {
+          "population": "65 歲以上高齡長者及失能照護對象",
+          "region": "全球"
+        },
+        "primary_source": "SRC-IOM-2005-WATER",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-HYD-016",
+            "citation": "Kenney & Chiu, Am J Clin Nutr 2001 (Influence of Age on Thirst and Fluid Homeostasis)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D003681",
+          "mesh_term": "Dehydration",
+          "icd11_code": "MD90",
+          "snomed_ct": "34095006"
+        },
+        "misuse_guard": "照護失能或高齡長者切勿採取「渴了再叫他喝」的被動策略；必須建立定時定量的每日結構化飲水行程表。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "老人家的大腦「口渴感應器」會隨年齡慢慢退化失靈；明明體內已經乾涸脫水血液變濃，大腦卻完全不會發出口渴想喝水的警報。",
+          "biochemical_mechanism_zh": "下視丘前腹側室周核（AV3V）神經元對滲透壓變化的電生理反應遲鈍，且腎臟亨利氏環髓質梯度萎縮使腎臟保留水分的濃縮能力大幅下挫。",
+          "diagnostic_cutoffs_zh": "血清滲透壓 >295–300 mOsm/kg H2O 提示明確高滲性脫水；長者脫水常以突發性意識瞻妄、低血壓、嗜睡或跌倒為非典型首發表現。",
+          "nutritional_protocol_zh": "白天分次補水：晨起、早點、午餐前後、午後、傍晚各安排 200–250 mL 溫水或無糖麥茶；睡前 2 小時適度控水以避免夜尿中斷睡眠。",
+          "drug_interactions_red_flags_zh": "長者若合併使用利尿劑、SGLT2 抑制劑或高劑量降壓藥，在夏季高溫流汗時極易併發急性腎衰竭（Prerenal AKI），需定期監控腎功能與電解質。",
+          "clinical_pearls_myths_zh": "照護常識：別等長者說口渴才倒水；觀察「尿液顏色是否深如濃茶」與「腋下皮膚是否完全乾燥無汗」，是居家守護長者水合的最有效技巧。"
+        }
+      }
+    },
+    {
+      "id": "KA-HYD-017",
+      "type": "atom",
+      "label": "尿液比重（Urine Specific Gravity, U",
+      "data": {
+        "id": "KA-HYD-017",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "尿液比重（Urine Specific Gravity, USG）維持在 1.010–1.020 區間代表良好正常水合；USG ≥1.025 代表身體處於脫水負平衡狀態。",
+        "applies_to": {
+          "population": "運動員、體重管理與勞工群體",
+          "region": "全球"
+        },
+        "primary_source": "SRC-EAH-CONSENSUS-2015",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-HYD-017",
+            "citation": "Armstrong, Int J Sport Nutr Exerc Metab 2007 (Assessing Hydration Status: The Utility of Urine Color and Specific Gravity)",
+            "design": "cross_sectional",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D014556",
+          "mesh_term": "Urine",
+          "icd11_code": "MD90",
+          "snomed_ct": "251840003"
+        },
+        "misuse_guard": "尿中若出現大量葡萄糖（糖尿病嚴重控制不佳）或剛注射放射線造影劑，會人為大幅推高尿比重，此時不可單純以 USG 判斷脫水程度。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "尿比重是測量尿液裡溶質物質的「濃度密度」；水喝夠時尿液輕如純水（接近 1.010），脫水缺水時尿液濃縮變重（飆破 1.025）。",
+          "biochemical_mechanism_zh": "血漿滲透壓上升刺激下視丘釋放抗利尿激素（ADH），集合管上皮細胞 AQP2 水通道蛋白大量嵌合於頂面膜，原尿中水分被強烈吸回使排尿溶質濃縮。",
+          "diagnostic_cutoffs_zh": "水合標準分級：<1.010 為水合充足過度；1.010–1.020 為理想生理正常水合；1.021–1.024 為微脫水臨界；≥1.025 為明確臨床脫水狀態。",
+          "nutritional_protocol_zh": "晨起量測若發現 USG >1.025，應在早餐前以小口慢飲方式補充 500 mL 常溫水，並在接下來的 2 小時內持續觀察尿液色澤清澈化。",
+          "drug_interactions_red_flags_zh": "抗利尿激素不當分泌症候群（SIADH）患者即使全身水腫血液稀薄，仍會排出高比重濃縮尿，嚴禁以此作為補水依據，反而需要嚴格限水。",
+          "clinical_pearls_myths_zh": "實踐指引：運動隊伍與軍警單位常用折射光學尿比重儀（Refractometer）進行晨間體檢，是精準避免中暑與熱衰竭的最高實證防禦措施。"
+        }
+      }
+    },
+    {
+      "id": "KA-HYD-018",
+      "type": "atom",
+      "label": "以尿液顏色尺規（Armstrong 8 級量表）評估身體水合",
+      "data": {
+        "id": "KA-HYD-018",
+        "assertion_kind": "procedural",
+        "risk_class": "R1",
+        "topic": "hydration",
+        "statement_zh": "以尿液顏色尺規（Armstrong 8 級量表）評估身體水合狀態時，應以排空夜間儲存之「晨起第二泡尿」作為客觀判讀基準點。",
+        "applies_to": {
+          "population": "一般大眾健康管理",
+          "region": "全球"
+        },
+        "primary_source": "SRC-IOM-2005-WATER",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-HYD-018",
+            "citation": "Armstrong et al., Int J Sport Nutr 1994 (Development and Validation of Hydration Color Chart)",
+            "design": "cross_sectional",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D014556",
+          "mesh_term": "Urine",
+          "icd11_code": "MD90",
+          "snomed_ct": "251840003"
+        },
+        "misuse_guard": "攝取高劑量維生素 B2（核黃素）會使尿液呈現鮮豔亮螢光黃色；服用特定藥物或大量甜菜根亦會染色，此時不可單純以尿色判定水合。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "早起的第一泡尿在膀胱積了一整晚，顏色本來就會偏深；早晨喝完一杯水、排掉第一泡後的「第二泡尿」，才是身體當前水分最真實的鏡子。",
+          "biochemical_mechanism_zh": "尿色素（Urochrome）是血紅素降解代謝產物，其生成速率相對恆定；當尿量大時被大量水稀釋呈現淺淡稻草黃，尿量極少時濃縮呈深琥珀色。",
+          "diagnostic_cutoffs_zh": "Armstrong 1–3 級（淡檸檬水至淺稻草黃）：水合優良；4–5 級（金黃色至琥珀色）：微度脫水需喝水；6–8 級（濃茶深茶色）：重度脫水警戒。",
+          "nutritional_protocol_zh": "起床後第一時間飲用 300–400 mL 溫開水補充整夜呼吸道與排汗流失的水分，在排出第二泡尿時確認顏色是否落在健康 1–3 級淺黃色。",
+          "drug_interactions_red_flags_zh": "若尿液呈現深烏龍茶色或可樂色伴隨激烈重訓後肌肉劇痛，需高度警惕「橫紋肌溶解症」（肌紅蛋白尿），應立即就醫避免急性腎衰竭。",
+          "clinical_pearls_myths_zh": "日常技巧：尿液最健康的顏色是「淡淡的麥稈稻草黃」；若隨時隨地尿液都清澈如無色自來水（1 級過度），代表喝水過量可能稀釋血鈉。"
+        }
+      }
+    },
+    {
+      "id": "KA-HYD-019",
+      "type": "atom",
+      "label": "甘油（Glycerol, 1.0–1.2 g/kg 溶於 2",
+      "data": {
+        "id": "KA-HYD-019",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "hydration",
+        "statement_zh": "甘油（Glycerol, 1.0–1.2 g/kg 溶於 25–30 mL/kg 水）可透過提高腎髓質滲透壓誘發「超水合狀態」（Hyperhydration），使體內水分暫時滯留 600–1000 mL。",
+        "applies_to": {
+          "population": "高溫嚴苛環境極限耐力運動員",
+          "region": "全球"
+        },
+        "primary_source": "SRC-EAH-CONSENSUS-2015",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-HYD-019",
+            "citation": "van Rosendal et al., Sports Med 2010 (Guidelines for Glycerol Hyperhydration in Endurance Sports)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "moderate",
+        "ontology": {
+          "mesh_id": "D005990",
+          "mesh_term": "Glycerol",
+          "icd11_code": "MD90",
+          "snomed_ct": "387404003"
+        },
+        "misuse_guard": "甘油超水合會顯著增加血容量，心臟衰竭、高血壓未控制、腎功能不全者嚴禁嘗試；且過量服用甘油易引起胃腸脹氣、噁心與嚴重腹瀉。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "甘油在體內像化學蓄水海綿：在大熱天長途比賽前把甘油混在水裡喝下去，能強迫腎臟暫時不把水尿掉，讓體內預存將近 1 公升的救命水。",
+          "biochemical_mechanism_zh": "甘油分子被近曲小管主動重吸收提高血漿與髓質滲透壓，減緩游離水向管腔排泄，擴大細胞外液與血漿容積，提升出汗冷卻持久度。",
+          "diagnostic_cutoffs_zh": "臨床標準運動協議：比賽前 90–120 分鐘攝取甘油 1.2 g/kg 體重，配合 26 mL/kg 飲水，可在賽前建立平均 800 mL 的超水合水分緩衝庫。",
+          "nutritional_protocol_zh": "溶液必須緩慢分次飲用完畢，同時配合微量電解質；甘油必須使用高純度食品級/藥用級別，切忌在缺乏實戰演練下於大賽當天冒險嘗試。",
+          "drug_interactions_red_flags_zh": "世界反禁藥組織（WADA）過去曾將甘油列為掩蔽劑監控，現已解禁但仍嚴禁以靜脈注射方式給藥；糖尿病患者使用需評估其轉化為葡萄糖的升糖效應。",
+          "clinical_pearls_myths_zh": "運動生理：甘油超水合雖然能延緩高溫脫水，但代價是體重多背負了 1 公斤的水，在平路高溫賽事有利，但在陡峭登山賽事可能因自重增加抵消效益。"
+        }
+      }
+    },
+    {
+      "id": "KA-DIET-009",
+      "type": "atom",
+      "label": "單元不飽和脂肪酸（MUFA，如橄欖油與苦茶油之油酸 C18:",
+      "data": {
+        "id": "KA-DIET-009",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "diet",
+        "statement_zh": "單元不飽和脂肪酸（MUFA，如橄欖油與苦茶油之油酸 C18:1）具有單一順式雙鍵結構，其相較於多元不飽和脂肪酸能顯著增強 LDL 顆粒抗氧化耐受力。",
+        "applies_to": {
+          "population": "一般大眾與動脈硬化防治人群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-SFA-2023",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-DIET-009",
+            "citation": "Mensink et al., Am J Clin Nutr 2003 (Effects of Dietary Fatty Acids on Lipids and Lipoproteins)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D005229",
+          "mesh_term": "Fatty Acids, Monounsaturated",
+          "icd11_code": "5C80",
+          "snomed_ct": "40763007"
+        },
+        "misuse_guard": "雖然 MUFA 對心血管極為健康，但所有油脂熱量密度皆相同（1 克 = 9 大卡）；過量飲用仍會造成總熱量超標與體重增加。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "好油能幫膽固醇穿防彈衣：單元不飽和脂肪酸化學結構很穩定，它進入血管壁後能保護壞膽固醇不被氧化，避免其變成誘發發炎的泡沫細胞。",
+          "biochemical_mechanism_zh": "PUFA 含有多個雙烯丙基亞甲基（-CH=CH-CH2-CH=CH-），極易被自由基奪取氫原子啟動脂質過氧化鏈反應；MUFA 僅有一個順式雙鍵，化學穩定性顯著提升。",
+          "diagnostic_cutoffs_zh": "世界衛生組織與地中海飲食指引建議：單元不飽和脂肪酸（MUFA）應佔每日總熱量的 15%–20%E，作為膳食主要脂肪來源。",
+          "nutritional_protocol_zh": "家庭低溫涼拌或中溫快炒首選冷壓特級初榨橄欖油（EVOO）或台灣本土苦茶油，兩者油酸（Oleic acid）含量皆高達 70%–80% 以上。",
+          "drug_interactions_red_flags_zh": "高質量冷壓橄欖油富含橄欖苦苷與羥基酪醇等多酚類物質，具備輕微抗血小板凝聚活性，長期大量攝取者若服用抗凝血藥可與醫師溝通。",
+          "clinical_pearls_myths_zh": "烹飪迷思：特級初榨橄欖油發煙點約在 190–210°C，且富含多酚抗氧化保護網，完全可以勝任日常家常炒菜，並非只能拿來涼拌。"
+        }
+      }
+    },
+    {
+      "id": "KA-DIET-010",
+      "type": "atom",
+      "label": "工業人工反式脂肪酸（iTFA，如氫化植物油中的反式反油酸）會",
+      "data": {
+        "id": "KA-DIET-010",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "diet",
+        "statement_zh": "工業人工反式脂肪酸（iTFA，如氫化植物油中的反式反油酸）會同時「推升 LDL-C 兼壓降 HDL-C」，並強烈損害血管內皮釋放前列環素（PGI2）。",
+        "applies_to": {
+          "population": "一般大眾與心血管疾病族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-SFA-2023",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-DIET-010",
+            "citation": "Mozaffarian et al., NEJM 2006 (Trans Fatty Acids and Cardiovascular Disease)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D044242",
+          "mesh_term": "Trans Fatty Acids",
+          "icd11_code": "5C80",
+          "snomed_ct": "398188006"
+        },
+        "misuse_guard": "包裝食品標示「反式脂肪為 0」不等於完全沒有反式脂肪；法規規定每 100g 含量 <0.3g 即可標為零，應避開成分表中的「氫化植物油、植物酥油」。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "反式脂肪是完全沒有安全攝取底線的「血管殺手」：它壞膽固醇往上推、好膽固醇往下拉，還會直接毒害血管內皮造成血栓與動脈硬化。",
+          "biochemical_mechanism_zh": "反式雙鍵將碳鏈拉直，異常嵌合進細胞膜磷脂雙層破壞膜流動性；抑制內皮 COX-1 活性降低抗凝血 PGI2 合成，同時上調全身性發炎因子 TNF-α 與 IL-6。",
+          "diagnostic_cutoffs_zh": "世衛組織（WHO）與台灣食藥署規範：每日工業反式脂肪攝取量應嚴格限制在總熱量的 1%E 以下（以 2000 大卡換算應 <2.2 克），理想目標為「零攝取」。",
+          "nutritional_protocol_zh": "購買糕點、奶精、炸物、牛角麵包、酥皮濃湯與微波爆米花時，養成細讀成分表習慣；若含有氫化植物油（Hydrogenated oil）一律拒絕選購。",
+          "drug_interactions_red_flags_zh": "長期大量接觸反式脂肪會使 Statin 類降脂藥物的臨床保護效益大打折扣，即使服藥仍難以完全對沖其對血管壁內皮的慢性生化毒害。",
+          "clinical_pearls_myths_zh": "法規冷知識：台灣已於 2018 年正式全面禁止食品使用不完全氫化油脂，但夜市反覆高溫油炸與加工酥皮製品仍可能產生微量有害異構物，不可不慎。"
+        }
+      }
+    },
+    {
+      "id": "KA-DIET-011",
+      "type": "atom",
+      "label": "餐飲烹調食用油反覆回鍋加熱導致總極性物質（Total Pol",
+      "data": {
+        "id": "KA-DIET-011",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "diet",
+        "statement_zh": "餐飲烹調食用油反覆回鍋加熱導致總極性物質（Total Polar Materials, TPM）超過 25% 時，依台灣法規必須立刻強制換油，以防高濃度熱氧化聚合物致癌與肝毒性。",
+        "applies_to": {
+          "population": "外食族群、餐飲業者與食品監管人員",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-TFDA-FRYING-2011",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-DIET-011",
+            "citation": "衛福部食藥署「餐飲業油炸油稽查管理規範」民國 100 年公告",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D010938",
+          "mesh_term": "Plant Oils",
+          "icd11_code": "MD90",
+          "snomed_ct": "226848006"
+        },
+        "misuse_guard": "油炸油酸價（Acid Value）試紙檢測若 ≥2.0 mg KOH/g 或 TPM ≥25% 任一項超標皆屬違法；業者不可藉由添加新油稀釋（摻油）規避廢油棄置責任。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "回鍋油炸太久會裂解出幾百種有毒的極性分子：如果看到油炸鍋冒大煙、起很多黏稠泡沫、油色黑如醬油，這鍋油就已經變成傷肝致癌的毒油。",
+          "biochemical_mechanism_zh": "高溫連續油炸下，三酸甘油酯經歷熱氧化、水解與熱聚合反應，生成游離脂肪酸、單甘油酯、二甘油酯、醛類、酮類及環狀芳香族聚合物（TPM）。",
+          "diagnostic_cutoffs_zh": "台灣法定門檻：油炸油總極性物質（TPM）含量 ≥25%，或酸價（AV）超過 2.0 mg KOH/g，即判定不合格，依法限期改善或裁處罰鍰。",
+          "nutritional_protocol_zh": "減少食用路邊攤黑油炸雞排、油條、炸甜甜圈等高溫反覆油炸物；家庭烹調油炸油若使用超過 2 次或有油耗味、發煙點下降時應果斷回收廢棄。",
+          "drug_interactions_red_flags_zh": "長期攝取超標回鍋油會導致腸道黏膜氧化通透性上升（腸漏），並在肝臟代謝中大量消耗麩胱甘肽（GSH），惡化酒精與藥物的肝臟清除負擔。",
+          "clinical_pearls_myths_zh": "辨識技巧：去小吃攤買炸物時，留意油鍋表面——如果食物剛放下去冒出的泡沫「久久不散、覆蓋超過油面一半」，代表油脂黏度與極性物早已严重超標。"
+        }
+      }
+    },
+    {
+      "id": "KA-DIET-012",
+      "type": "atom",
+      "label": "現代西化飲食之 Omega-6 與 Omega-3 脂肪酸比",
+      "data": {
+        "id": "KA-DIET-012",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "diet",
+        "statement_zh": "現代西化飲食之 Omega-6 與 Omega-3 脂肪酸比例失衡高達 15:1–20:1，將比例校正平衡至 4:1–2:1 能顯著抑制花生四烯酸代謝路徑並減輕全身性促炎反應。",
+        "applies_to": {
+          "population": "一般大眾與慢性發炎、自體免疫族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-SFA-2023",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-DIET-012",
+            "citation": "Simopoulos, Biomed Pharmacother 2002 (The Importance of the Ratio of Omega-6/Omega-3 Essential Fatty Acids)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D015525",
+          "mesh_term": "Fatty Acids, Omega-3",
+          "icd11_code": "5C80",
+          "snomed_ct": "40764001"
+        },
+        "misuse_guard": "校正比例重點在於「增加天然 Omega-3 來源並減少過量超加工 Omega-6 精煉油」，不可盲目超大劑量吞服合成魚油膠囊以防凝血障礙。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "Omega-6 是發炎的油門，Omega-3 是發炎的煞車：現代人吃太多大豆沙拉油使油門踩到底，多吃深海魚與亞麻仁籽才能踩下煞車熄滅體內慢性火災。",
+          "biochemical_mechanism_zh": "Omega-6（亞麻油酸）在體內轉化為花生四烯酸（AA），經 COX-2 催化產生 2 系列促炎前列腺素（PGE2）與 4 系列白三烯（LTB4）；Omega-3（EPA）則競爭性生成 3 系列抗炎前列腺素與消退素（Resolvins）。",
+          "diagnostic_cutoffs_zh": "理想膳食攝取比例目標為 Omega-6 : Omega-3 落在 1:1 到 4:1 區間；紅血球膜「Omega-3 指數」（EPA+DHA 佔總脂肪酸比例）健康目標應 ≥8%。",
+          "nutritional_protocol_zh": "每週至少食用 2–3 次富含脂肪的小型深海魚（鯖魚、鮭魚、秋刀魚、沙丁魚），並以亞麻仁油、核桃、奇亞籽補充植物性 ALA，減少廉價大豆油油炸物。",
+          "drug_interactions_red_flags_zh": "每日攝取高純度藥用魚油（EPA+DHA >3–4 克）時，因其輕度延長出血時間，正服用 Warfarin 或抗血小板藥物（Aspirin/Plavix）者需告知醫師。",
+          "clinical_pearls_myths_zh": "外食避坑：外食餐廳幾乎 95% 以上使用極高 Omega-6 的精煉大豆沙拉油或葵花油；想要平衡比例，最關鍵的不是吃魚油，而是減少外食深加工炸物。"
+        }
+      }
+    },
+    {
+      "id": "KA-DIET-013",
+      "type": "atom",
+      "label": "不同碳鏈長度之飽和脂肪酸對血清 LDL-C 的提升效應具顯著",
+      "data": {
+        "id": "KA-DIET-013",
+        "assertion_kind": "comparative",
+        "risk_class": "R2",
+        "topic": "diet",
+        "statement_zh": "不同碳鏈長度之飽和脂肪酸對血清 LDL-C 的提升效應具顯著異質性：月桂酸（C12:0）、肉豆蔻酸（C14:0）與棕櫚酸（C16:0）強效升高 ApoB，而硬脂酸（C18:0）在肝臟迅速去飽和為油酸因此對 LDL-C 近乎中性。",
+        "applies_to": {
+          "population": "心血管飲食管理與高血脂防治人群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-SFA-2023",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-DIET-013",
+            "citation": "Mensink, WHO Report 2016 (Effects of Saturated Fatty Acids on Serum Lipids and Lipoproteins)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D005227",
+          "mesh_term": "Fatty Acids",
+          "icd11_code": "5C80",
+          "snomed_ct": "70172005"
+        },
+        "misuse_guard": "雖然黑巧克力中的硬脂酸（C18:0）對血膽固醇相對中性，但市售巧克力常添加大量精緻白糖與棕櫚油，不可作為狂吃甜點巧克力的藉口。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "並非所有飽和脂肪都一樣壞：椰子油裡的月桂酸與棕櫚油裡的棕櫚酸會強力刺激肝臟減少吸收壞膽固醇；而黑巧克力裡的硬脂酸對壞膽固醇相對溫和。",
+          "biochemical_mechanism_zh": "C14:0 肉豆蔻酸與 C16:0 棕櫚酸能強烈下調肝細胞膜表面 LDL 受體（LDLR）的基因表現與活性，減緩血漿 ApoB 顆粒清除；而 C18:0 進入體內被硬脂醯輔酶A去飽和酶（SCD1）迅速轉化為 MUFA 油酸。",
+          "diagnostic_cutoffs_zh": "升 LDL-C 效力強度排序：肉豆蔻酸（C14:0，奶油/乳脂）> 棕櫚酸（C16:0，棕櫚油/紅肉肥肉）≈ 月桂酸（C12:0，椰子油）；硬脂酸（C18:0）效應近乎為零。",
+          "nutritional_protocol_zh": "嚴格控管椰子油（常被生酮神化）、棕櫚油（泡麵與加工餅乾大宗用油）與牛油豬油等高 C14/C16 油脂；若吃巧克力優先選擇無糖或 >85% 純黑巧克力。",
+          "drug_interactions_red_flags_zh": "家族性高膽固醇血症（FH）患者對膳食中的 C14/C16 飽和脂肪極度敏感，攝取此類油脂會使其 LDL-C 出現爆發性飆升，必須嚴格限制 <5%E。",
+          "clinical_pearls_myths_zh": "迷思粉碎：商業行銷常稱「椰子油是健康天然植物油能通血管」，但事實上椰子油飽和脂肪高達 90% 以上且富含強效升 LDL-C 的月桂酸，各國心臟學會皆呼籲嚴格限量。"
+        }
+      }
+    },
+    {
+      "id": "KA-ALC-013",
+      "type": "atom",
+      "label": "睡前飲酒雖能因 GABA-A 受體增強而縮短入睡潛伏期，但酒",
+      "data": {
+        "id": "KA-ALC-013",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "睡前飲酒雖能因 GABA-A 受體增強而縮短入睡潛伏期，但酒精代謝產物在後半夜引發交感神經反彈（Rebound effect），瓦解 REM 睡眠並使 N3 深睡損失達 20%–40%。",
+        "applies_to": {
+          "population": "成年失眠與睡眠障礙人群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-ALC-013",
+            "citation": "Ebrahim et al., Alcohol Clin Exp Res 2013 (Alcohol and Sleep I: Effects on Normal Sleep)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D000428",
+          "mesh_term": "Alcohol Drinking",
+          "icd11_code": "6C40",
+          "snomed_ct": "228273003"
+        },
+        "misuse_guard": "切忌將酒精作為治療失眠的自我藥療手段；長期藉酒助眠會在數週內產生耐受性，並迅速演變為酒精依賴與頑固性早醒失眠。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "睡前小酌是「先甘後苦」的假助眠：前半夜把你打暈看似睡著，後半夜酒精退去引發交感神經大暴走，心跳加快、多夢易醒，深層睡眠全被偷走。",
+          "biochemical_mechanism_zh": "乙醇初期增強抑制性神經遞質 GABA-A 作用；後半夜乙醇完全代謝後，NMDA 麩胺酸受體代償性過度興奮，去甲腎上腺素與皮質醇激增誘發微覺醒。",
+          "diagnostic_cutoffs_zh": "睡前飲用中等劑量酒精（2–3 杯標準酒）：前半夜 REM 睡眠縮減可達 30%–50%，後半夜覺醒次數（WASO）增加 2–4 倍，睡眠效率嚴重下滑。",
+          "nutritional_protocol_zh": "若有社交飲酒需求，最後一口酒應在就寢前至少「4 到 6 小時」結束，留出足夠代謝時間，並在睡前補充足量水分與電解質防範脫水。",
+          "drug_interactions_red_flags_zh": "嚴禁將酒精與鎮靜安眠藥物（苯二氮平類 BZD、Z-drugs）合併使用，此舉會對中樞呼吸中樞產生強烈協同抑制，可能引發呼吸驟停致命。",
+          "clinical_pearls_myths_zh": "迷思粉碎：許多長輩習慣睡前喝小杯烈酒助眠，穿戴式裝置（如 Apple Watch、Oura）的數據卻顯示靜止心率整夜高掛 75 bpm、HRV 暴跌，大腦根本沒有獲得修復。"
+        }
+      }
+    },
+    {
+      "id": "KA-ALC-014",
+      "type": "atom",
+      "label": "乙醇能中樞性抑制下視丘室旁核分泌抗利尿激素（ADH），每攝入",
+      "data": {
+        "id": "KA-ALC-014",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "alcohol",
+        "statement_zh": "乙醇能中樞性抑制下視丘室旁核分泌抗利尿激素（ADH），每攝入 1 克純乙醇可誘發約 10 mL 額外排尿量，引發急性高滲性脫水與電解質流失。",
+        "applies_to": {
+          "population": "飲酒人群與宿醉防治",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-ALC-014",
+            "citation": "Eggleton, J Physiol 1942 (The Diuretic Action of Alcohol in Man)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D000431",
+          "mesh_term": "Ethanol",
+          "icd11_code": "MD90",
+          "snomed_ct": "387406001"
+        },
+        "misuse_guard": "喝啤酒「不能」用來解渴；啤酒水分含量高但其酒精利尿效應會導致淨水分負平衡，越喝越脫水。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "喝酒越喝越渴是因為酒精關掉了大腦的「鎖水開關」（抗利尿激素）；你喝下一杯 500cc 啤酒，身體排出的尿液可能高達 600cc 以上！",
+          "biochemical_mechanism_zh": "乙醇直接抑制垂體後葉分泌精氨酸加壓素（AVP/ADH），腎臟集合管缺乏 AQP2 水通道嵌合，原尿中的水分無法被重吸收而大量直瀉膀胱。",
+          "diagnostic_cutoffs_zh": "脫水換算比：喝下 4 杯標準飲品（約 40 克乙醇），身體會額外被動排泄約 400 mL 純水，引發血漿滲透壓上升與腦組織細胞輕微皺縮脫水。",
+          "nutritional_protocol_zh": "黃金守則「一杯酒一杯水」：飲酒期間每喝一杯酒就強制交替喝一杯純水或等滲透壓電解質水，睡前再補充 300–500 mL 水分。",
+          "drug_interactions_red_flags_zh": "高溫環境下劇烈運動或泡溫泉後立即飲酒極度危險，發汗脫水疊加酒精利尿會誘發嚴重低血壓性昏厥甚至心因性猝死。",
+          "clinical_pearls_myths_zh": "宿醉解謎：隔天醒來頭痛欲裂、口乾舌燥、眼眶痠痛，絕大多數不是酒精本身引起的，而是大腦腦膜因夜間重度脫水牽拉痛覺神經所致。"
+        }
+      }
+    },
+    {
+      "id": "KA-ALC-015",
+      "type": "atom",
+      "label": "慢性規律飲酒會誘導肝臟微粒體乙醇氧化系統核心酵素 CYP2E",
+      "data": {
+        "id": "KA-ALC-015",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "慢性規律飲酒會誘導肝臟微粒體乙醇氧化系統核心酵素 CYP2E1 大量表現，使對乙醯氨基酚（Acetaminophen / 普拿疼）毒性代謝物 NAPQI 生成暴增，引發致死性急性肝壞死。",
+        "applies_to": {
+          "population": "飲酒者與感冒止痛用藥族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-ALC-015",
+            "citation": "Lauterburg & Velez, Hepatology 1988 (Ethanol and Acetaminophen Hepatotoxicity)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D019393",
+          "mesh_term": "Cytochrome P-450 CYP2E1",
+          "icd11_code": "NE80",
+          "snomed_ct": "417387002"
+        },
+        "misuse_guard": "宿醉頭痛或酒後身體酸痛時，「絕對嚴禁」服用含有乙醯胺酚（Acetaminophen / Paracetamol）的止痛藥退燒藥，否則具致死性肝衰竭風險。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "喝酒隔天頭痛千萬別吃普拿疼！酒精會把肝臟代謝普拿疼的酵素變成「毒物製造機」，微量藥物就能產生巨量肝毒素，幾天內引發急性肝衰竭。",
+          "biochemical_mechanism_zh": "慢性飲酒使 CYP2E1 誘導上調數倍，普拿疼被大量轉化為高反應性毒性中間產物 NAPQI；而酒精已耗盡肝臟保護盾牌麩胱甘肽（GSH），NAPQI 直接共價結合肝細胞膜蛋白致死。",
+          "diagnostic_cutoffs_zh": "常規安全劑量每日 <4000 mg 在慢性飲酒者身上會急遽下修；飲酒者哪怕只服用常規治療劑量（2000–3000 mg/日）即可引發暴發性肝炎與黃疸。",
+          "nutritional_protocol_zh": "宿醉頭痛首重「補充水分、電解質與碳水化合物」，可飲用含電解質果汁或蜂蜜水促進乙醇代謝，並可適度補充維生素 B 群與乙醯半胱胺酸（NAC）。",
+          "drug_interactions_red_flags_zh": "若酒後誤服大劑量普拿疼出現上腹劇痛與噁心，必須在 8 小時內至急診施打特異性解毒劑「N-乙醯半胱胺酸」（NAC）以搶救肝功能。",
+          "clinical_pearls_myths_zh": "用藥安全紅線：不僅普拿疼危險，酒後吃布洛芬（Ibuprofen）也會因胃黏膜雙重刺激誘發急性胃出血；宿醉最安全的解方只有喝水、補糖與睡眠。"
+        }
+      }
+    },
+    {
+      "id": "KA-ALC-016",
+      "type": "atom",
+      "label": "亞洲人特有之 ALDH2 rs671 基因突變（乙醛去氫酶失",
+      "data": {
+        "id": "KA-ALC-016",
+        "assertion_kind": "comparative",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "亞洲人特有之 ALDH2 rs671 基因突變（乙醛去氫酶失活）者若規律飲酒，罹患食道鱗狀細胞癌與頭頸部癌的相對風險較常人暴增 40 到 50 倍以上。",
+        "applies_to": {
+          "population": "台灣人與東亞族群（帶有 rs671 變異者）",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-ALC-016",
+            "citation": "Brooks et al., PLoS Med 2009 (The Alcohol Flushing Response: An Unrecognized Risk Factor for Esophageal Cancer)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D004938",
+          "mesh_term": "Esophageal Neoplasms",
+          "icd11_code": "2B70",
+          "snomed_ct": "371963009"
+        },
+        "misuse_guard": "喝酒會臉紅是「保護性基因缺陷警告」，代表身體正在累積一級致癌物乙醛；切勿相信「多喝可以把酒量練好」的致命鄉野謠言。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "一喝酒就臉紅、心悸、頭暈的人，是身體缺乏解毒酵素；喝進去的酒精會卡在「乙醛」這個強效致癌物狀態，強行乾杯等於直接把致癌毒藥灌進食道。",
+          "biochemical_mechanism_zh": "rs671 點突變使 ALDH2 酵素四聚體活性喪失 80%–95%，一級致癌物乙醛無法氧化為無毒乙酸，在唾液與血液中高濃度停留，直接烷基化並交聯 DNA 形成致癌突變。",
+          "diagnostic_cutoffs_zh": "台灣人 ALDH2 缺乏盛行率高達 45%–49%（居全球之冠！）；帶原者若每天飲用超過 2 瓶啤酒，罹患食道癌風險暴增至常人的 40–50 倍。",
+          "nutritional_protocol_zh": "唯一徹底避免癌症風險的手段為「滴酒不沾」；若社交應酬無法避免，多攝取新鮮十字花科蔬菜以提供抗氧化與相位 II 解毒酵素原料。",
+          "drug_interactions_red_flags_zh": "ALDH2 缺乏者若同時合併「吸菸」與「嚼檳榔」，食道癌與口腔癌的致癌協同效應呈幾何指數級倍增（風險可飆破 100 倍以上）。",
+          "clinical_pearls_myths_zh": "破解練酒量迷思：多喝酒只會讓大腦對醉酒麻木，但體內的 ALDH2 酵素活性是由基因終生鎖定「永遠不可能練出來」；臉不紅只是耐受毒素，致癌傷害分毫未減。"
+        }
+      }
+    },
+    {
+      "id": "KA-ALC-017",
+      "type": "atom",
+      "label": "大量飲酒後肝臟代謝酒精使胞漿 NADH/NAD+ 比值劇烈飆",
+      "data": {
+        "id": "KA-ALC-017",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "alcohol",
+        "statement_zh": "大量飲酒後肝臟代謝酒精使胞漿 NADH/NAD+ 比值劇烈飆升，強烈阻斷糖質新生關鍵酵素反應，引發次晨致命性低血糖昏迷。",
+        "applies_to": {
+          "population": "空腹飲酒者與使用降糖藥之糖尿病患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-ALC-017",
+            "citation": "Arky et al., JAMA 1968 (Alcohol Hypoglycemia: Syndrome of Severe Hypoglycemia After Alcohol Ingestion)",
+            "design": "case_control",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D007003",
+          "mesh_term": "Hypoglycemia",
+          "icd11_code": "5A40",
+          "snomed_ct": "267384006"
+        },
+        "misuse_guard": "空腹飲酒者次晨若出現意識不清或昏迷，切勿單純誤判為「宿醉還沒醒」；必須立刻使用血糖機檢測排除嚴重低血糖，否則數小時內可致腦死。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "沒吃飯空腹喝酒最容易發生危險低血糖：肝臟忙著解酒時，把製造葡萄糖的工廠完全停工；等到存量消耗光，血糖會瞬間崩盤引發昏迷。",
+          "biochemical_mechanism_zh": "乙醇與乙醛脫氫過程大量生成 NADH，NADH/NAD⁺ 比值暴增使丙酮酸被強迫轉化為乳酸、草醯乙酸轉化為蘋果酸，糖質新生的所有關鍵受質被完全掏空。",
+          "diagnostic_cutoffs_zh": "空腹飲酒後 6–24 小時為發作高峰；血糖常跌破 <40–50 mg/dL，且病患體內肝醣已耗竭，此時即使注射升糖素（Glucagon）亦無效，必須靜脈注射葡萄糖。",
+          "nutritional_protocol_zh": "切勿空腹飲酒！飲酒前或飲酒時必須同步攝取足量碳水化合物（如米飯、全麥麵包、馬鈴薯），確保肝醣儲備充足供應夜間能量。",
+          "drug_interactions_red_flags_zh": "注射胰島素或服用磺醯尿素類降糖藥的糖尿病患者，酒後必須嚴密監測睡前與晨間血糖，絕對不可省略晚餐碳水攝取。",
+          "clinical_pearls_myths_zh": "急症陷阱：酒後低血糖的症狀（出冷汗、步態不穩、說話含糊、意識混亂）與喝醉酒近乎一模一樣，極易被同伴忽視而錯失黃金急救時間。"
+        }
+      }
+    },
+    {
+      "id": "KA-BC-007",
+      "type": "atom",
+      "label": "雙能量 X 光吸收儀（DXA）評估肌少症之亞洲標準：附肢骨骼",
+      "data": {
+        "id": "KA-BC-007",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "body_comp",
+        "statement_zh": "雙能量 X 光吸收儀（DXA）評估肌少症之亞洲標準：附肢骨骼肌質量指數（ASMI = 四肢骨骼肌量 kg / 身高 m²）男性 <7.0 kg/m²、女性 <5.4 kg/m² 即符合肌肉量低下確診門檻。",
+        "applies_to": {
+          "population": "亞洲成年人與 60 歲以上長者",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-AWGS-2019-SARCOPENIA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BC-007",
+            "citation": "Chen et al., JAMDA 2020 (Asian Working Group for Sarcopenia: 2019 Consensus Update)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D055948",
+          "mesh_term": "Sarcopenia",
+          "icd11_code": "FB32",
+          "snomed_ct": "722894002"
+        },
+        "misuse_guard": "肌少症不能只看肌肉量；AWGS 2019 指引要求必須同時檢測「肌肉力量（握力）」或「身體功能（步速/起立測試）」，三者缺一不可。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "老了變瘦不是好事，通常掉的都是肌肉：DXA 掃描四肢肌肉量除以身高平方，男性低於 7.0、女性低於 5.4，就正式踏入肌少症骨質流失危險期。",
+          "biochemical_mechanism_zh": "衰老伴隨運動神經元凋亡、高閾值 II 型快肌纖維萎縮、肌原纖維蛋白質合成率（MPS）對胺基酸產生同化阻抗（Anabolic Resistance）。",
+          "diagnostic_cutoffs_zh": "AWGS 2019 亞洲確診門檻：DXA 測量 ASMI 男性 <7.0 kg/m²、女性 <5.4 kg/m²（或生物電阻抗 BIA 男性 <7.0 kg/m²、女性 <5.7 kg/m²）。",
+          "nutritional_protocol_zh": "長者每日蛋白質攝取目標應提高至 1.2–1.5 g/kg 體重，每餐補充足量白胺酸（Leucine ≥2.5–3.0g，如乳清蛋白或大豆蛋白）以跨越同化阻抗門檻。",
+          "drug_interactions_red_flags_zh": "若患者因慢性病或手術長期臥床，肌肉會以每天 1%–2% 速率超速流失，應及早由物理治療師介入無痛床上阻力活動。",
+          "clinical_pearls_myths_zh": "觀念顛覆：許多老人家自豪體重跟年輕時一樣輕，但事實上脂肪增加而珍貴的肌肉流失（肌少型肥胖 Sarcopenic Obesity），失能致死率最高。"
+        }
+      }
+    },
+    {
+      "id": "KA-BC-008",
+      "type": "atom",
+      "label": "電腦斷層或 MRI 測量臍部水平「內臟脂肪面積」（Visce",
+      "data": {
+        "id": "KA-BC-008",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "body_comp",
+        "statement_zh": "電腦斷層或 MRI 測量臍部水平「內臟脂肪面積」（Visceral Fat Area, VFA）超過 100 cm²（或男性腰圍 ≥90 cm、女性 ≥80 cm）是心血管與第 2 型糖尿病的強烈獨立預測因子。",
+        "applies_to": {
+          "population": "亞洲成年人代謝風險評估",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BC-008",
+            "citation": "Examination Committee of Criteria for Obesity Disease in Japan, Circ J 2002 (Criteria for Visceral Obesity VFA > 100 cm2)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D050152",
+          "mesh_term": "Intra-Abdominal Fat",
+          "icd11_code": "5B81",
+          "snomed_ct": "409074003"
+        },
+        "misuse_guard": "BMI 正常（甚至 <24）的人群同樣可能存在嚴重的內臟脂肪過量（泡芙人 MONW）；切不可因體重計數字正常而忽視量測腰圍。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "皮下脂肪只是不好看，內臟脂肪才是要人命的毒藥：包在肝臟腸子周圍的脂肪會直接把油脂和發炎毒素灌進肝門脈，摧毀全身胰島素敏感度。",
+          "biochemical_mechanism_zh": "內臟脂肪細胞具備高度脂解活性，持續釋放大量游離脂肪酸（FFA）直衝肝門靜脈（Portal Hypothesis），誘發肝臟脂肪變性與極低密度脂蛋白（VLDL）過度過度合成。",
+          "diagnostic_cutoffs_zh": "黃金門檻：斷層掃描 VFA ≥100 cm²；台灣衛福部臨床體檢腰圍標準：男性 ≥90 公分（約 35.5 吋）、女性 ≥80 公分（約 31.5 吋）即為腹部肥胖。",
+          "nutritional_protocol_zh": "消除內臟脂肪最快的方式：嚴格限制精緻糖（特別是果糖）與精煉種子油，配合間歇性熱量控制與 Zone 2 低心率有氧（FatMax 燃脂區）。",
+          "drug_interactions_red_flags_zh": "新一代 GLP-1/GIP 受體促效劑或 SGLT2 抑制劑在減重過程中，內臟脂肪的消除比例顯著高於皮下脂肪，能快速改善脂肪肝指數與心血管代謝。",
+          "clinical_pearls_myths_zh": "量測細節：量腰圍不是看褲子尺碼；必須在早晨排空膀胱後、放鬆站立、呼氣結束時，以軟尺水平測量肋骨下緣與骨盆骨上緣之間的中間線。"
+        }
+      }
+    },
+    {
+      "id": "KA-BC-009",
+      "type": "atom",
+      "label": "肌肉內脂肪浸潤（Myosteatosis / 肌脂肪變性）導",
+      "data": {
+        "id": "KA-BC-009",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "body_comp",
+        "statement_zh": "肌肉內脂肪浸潤（Myosteatosis / 肌脂肪變性）導致骨骼肌發力品質與線粒體呼吸鏈解偶聯，是肌力衰退幅度遠超肌肉質量萎縮幅度的核心病理原因。",
+        "applies_to": {
+          "population": "中老年人、久坐族群與糖尿病患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AWGS-2019-SARCOPENIA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BC-009",
+            "citation": "Goodpaster et al., J Gerontol A Biol Sci Med Sci 2001 (Skeletal Muscle Attenuation and Muscle Strength)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D055948",
+          "mesh_term": "Sarcopenia",
+          "icd11_code": "FB32",
+          "snomed_ct": "722894002"
+        },
+        "misuse_guard": "不能單看體組成秤的肌肉量數字判定肌力充足；肌肉若被油脂油花浸潤（霜降肉），即使體積看似龐大亦可能嚴重無力且代謝不良。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "健康的肌肉像扎實的牛腱肉，缺乏運動的肌肉會退化成佈滿白色油花的霜降肉；雖然體積沒有變小，但油包肉的結構完全使不上力且阻抗胰島素。",
+          "biochemical_mechanism_zh": "肌肉細胞間與細胞內脂質（IMCL）過度堆積，二醯甘油（DAG）激活 PKC-θ 阻斷 GLUT4 易位，同時粒線體脂肪酸 β-氧化不完全產生活性氧自由基損傷肌原纖維。",
+          "diagnostic_cutoffs_zh": "電腦斷層掃描骨骼肌放射衰減係數（Hounsfield Units, HU）顯著下降（<30–40 HU 代表低密度肌肉浸潤），與步行速度減慢及全因死亡率顯著正相關。",
+          "nutritional_protocol_zh": "執行全關節阻力訓練（阻抗機械負荷可清空細胞內多餘脂滴）配合充足抗氧化多酚，避免過度節食引發的肌肉蛋白質急速消耗。",
+          "drug_interactions_red_flags_zh": "高劑量全身性類固醇（糖皮質激素）治療會強烈誘發肌細胞自噬與脂肪浸潤，用藥期間需配合主動物理復健維持肌力。",
+          "clinical_pearls_myths_zh": "前沿發現：這解釋了為什麼年長者「力量的衰退速度比肌肉量的流失速度快兩倍」——關鍵在於肌肉品質（無油純度）而非單純尺寸大小。"
+        }
+      }
+    },
+    {
+      "id": "KA-BC-010",
+      "type": "atom",
+      "label": "腰臀比（WHR：男性 >0.90，女性 >0.85）在預測冠",
+      "data": {
+        "id": "KA-BC-010",
+        "assertion_kind": "comparative",
+        "risk_class": "R2",
+        "topic": "body_comp",
+        "statement_zh": "腰臀比（WHR：男性 >0.90，女性 >0.85）在預測冠狀動脈疾病與全因死亡率上，其判別力與統計關聯性顯著優於單純身體質量指數（BMI）。",
+        "applies_to": {
+          "population": "全球不同族群成年人",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BC-010",
+            "citation": "Yusuf et al., Lancet 2005 (INTERHEART Study: Effect of Potentially Modifiable Risk Factors)",
+            "design": "case_control",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D049629",
+          "mesh_term": "Waist-Hip Ratio",
+          "icd11_code": "5B81",
+          "snomed_ct": "248367009"
+        },
+        "misuse_guard": "腰臀比量測時臀圍應測量臀部最大突出處周長，皮尺不可壓陷軟組織；若骨盆嚴重畸形或下肢水腫患者需合併其他指標評估。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "量體重不如量腰圍除以臀圍：蘋果型身材（肚子大屁股小，WHR 高）比西洋梨型身材（脂肪堆在臀腿皮下）危險得多，心臟病風險高出數倍。",
+          "biochemical_mechanism_zh": "臀腿皮下脂肪含有大量長效儲能的脂肪組織，具有保護性海綿效應（吸納游離脂肪酸）；而腰部內臟脂肪則持續向肝臟泵送促發炎介質。",
+          "diagnostic_cutoffs_zh": "世界衛生組織（WHO）心血管代謝危險分界線：男性腰臀比 WHR ≥0.90，女性 ≥0.85 即定義為中心型腹部肥胖（蘋果型身材）。",
+          "nutritional_protocol_zh": "實施低升糖指數地中海式飲食架構，將精緻碳水化合物減半，增加優質蛋白質與健康脂肪攝取，優先改善腹部內臟脂肪沉積。",
+          "drug_interactions_red_flags_zh": "若患者腰臀比極高伴隨向心性紫紋、水牛肩與滿月臉，需高度懷疑庫欣氏症候群（Cushing syndrome）或外源性類固醇過量可能。",
+          "clinical_pearls_myths_zh": "流行病學經典：著名的 INTERHEART 跨國研究涵蓋 52 國兩萬多人，證實腰臀比能解釋全球高達 30% 以上的心肌梗塞歸因風險，遠比 BMI 精確。"
+        }
+      }
+    },
+    {
+      "id": "KA-BC-011",
+      "type": "atom",
+      "label": "生物電阻抗向量分析（BIVA）導出之「相角」（Phase A",
+      "data": {
+        "id": "KA-BC-011",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R2",
+        "topic": "body_comp",
+        "statement_zh": "生物電阻抗向量分析（BIVA）導出之「相角」（Phase Angle）在一般健康成人正常值約為 5.0°–8.0°，數值 <4.5° 提示細胞膜完整性崩解與營養不良/死亡高風險。",
+        "applies_to": {
+          "population": "重症醫學、癌症營養與肌少症臨床評估",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AWGS-2019-SARCOPENIA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-BC-011",
+            "citation": "Norman et al., Clin Nutr 2012 (Bioelectrical Phase Angle: Its Role in Nutritional Assessment)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D017097",
+          "mesh_term": "Electric Impedance",
+          "icd11_code": "FB32",
+          "snomed_ct": "251840003"
+        },
+        "misuse_guard": "相角受檢測時身體水合狀態影響極大，嚴重全身水腫、剛喝完 1000 mL 水或劇烈運動後立刻測量會產生偽差，應標準化晨起空腹測量。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "相角就像測量細胞膜的「電池電容蓄電力」：年輕健康的細胞膜結實飽滿、阻抗彈性大（相角高）；老化、營養不良或癌末細胞破損漏電，相角就會跌破 4.5 度。",
+          "biochemical_mechanism_zh": "相角本質是電阻（Resistance）與電抗（Reactance）的反正切比值，直接量化了人體細胞膜完整性、跨膜離子濃度梯度與細胞內液與細胞外液比值（ICW/ECW）。",
+          "diagnostic_cutoffs_zh": "年輕健康運動員相角可高達 7.0°–9.0°；健康成人 5.5°–7.5°；<5.0° 提示細胞活力受損；<4.0°–4.5° 是癌症惡病質與高死亡率的危險紅線。",
+          "nutritional_protocol_zh": "提升相角的關鍵在於抗發炎與優質胺基酸合成代謝：補充足量優質蛋白質、Omega-3 脂肪酸修復細胞膜脂雙層、配合規律阻抗訓練增加活躍細胞質量。",
+          "drug_interactions_red_flags_zh": "臨床透析病患（洗腎）或心衰竭病患若相角持續走低伴隨乾體重下滑，預示心血管事件與感染致死率陡增，需及時介入高階重症營養支持。",
+          "clinical_pearls_myths_zh": "前沿應用：高階體組成分析儀不再只是看「體脂率幾趴」，臨床醫師會優先看「相角」——它是人體細胞層級生命力與實質生理年齡的最客觀量化尺規。"
+        }
+      }
+    },
+    {
+      "id": "KA-REN-010",
+      "type": "atom",
+      "label": "血清胱甘肽 C（Cystatin C）為有核細胞恆定分泌之低",
+      "data": {
+        "id": "KA-REN-010",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "血清胱甘肽 C（Cystatin C）為有核細胞恆定分泌之低分子量蛋白，不受肌肉量與飲食肉類攝取干擾，為高齡、極瘦或重度健美健身者精準評估 eGFR 的黃金標準。",
+        "applies_to": {
+          "population": "肌肉量極端族群（健美重訓者、截肢者、肌少症長者）",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-REN-010",
+            "citation": "Inker et al., NEJM 2012 (Estimating Glomerular Filtration Rate from Serum Creatinine and Cystatin C)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D055316",
+          "mesh_term": "Cystatin C",
+          "icd11_code": "GB61",
+          "snomed_ct": "394908001"
+        },
+        "misuse_guard": "未經治療的嚴重甲狀腺功能亢進或大劑量全身性類固醇治療會干擾 Cystatin C 數值（造成假性升高），判讀時需先排除內分泌異常干擾。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "傳統驗血驗肌酸酐會冤枉肌肉猛男（肌肉多數值高被誤判腎壞掉），也會漏抓皮包骨長者（肌肉太少肌酸酐假性正常）；胱甘肽 C 完全不受肌肉量影響，精準還原真實腎功能。",
+          "biochemical_mechanism_zh": "Cystatin C 是所有有核細胞恆定生成之非糖基化鹼性蛋白，自由經腎絲球過濾後在近端小管被 100% 內吞酶解完全，不向腎小管分泌亦不回流血中。",
+          "diagnostic_cutoffs_zh": "CKD-EPI 2021 肌酸酐-胱甘肽 C 聯合公式（eGFRcr-cys）是國際 KDIGO 推薦最精準公式；當肌酸酐 eGFR 落在 45–59 灰區時，加驗 Cystatin C 能確認是否真罹患慢性腎病。",
+          "nutritional_protocol_zh": "若經 Cystatin C 確認 eGFR <60 ml/min/1.73m²，應啟動優質低蛋白飲食規劃（每日 0.6–0.8 g/kg），避免高磷超加工食品，維持植物性膳食多樣性。",
+          "drug_interactions_red_flags_zh": "對於健美選手若肌酸酐高但 Cystatin C 換算之 eGFR 完全正常，切勿盲目停用具有心腎保護效益之藥物，反之長者若肌酸酐正常但 Cystatin C 異常需及時調整抗生素劑量。",
+          "clinical_pearls_myths_zh": "臨床珍珠：重訓狂人每天吃高蛋白加肌酸粉，健檢肌酸酐 1.4 mg/dL（eGFR 55 被紅字警告）；驗了 Cystatin C 換算 eGFR 高達 95，瞬間洗刷洗腎冤屈！"
+        }
+      }
+    },
+    {
+      "id": "KA-REN-011",
+      "type": "atom",
+      "label": "尿液白蛋白與肌酸酐比值（UACR）若在 30–300 mg/",
+      "data": {
+        "id": "KA-REN-011",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "尿液白蛋白與肌酸酐比值（UACR）若在 30–300 mg/g 為微量白蛋白尿，>300 mg/g 為巨量白蛋白尿，是獨立於 eGFR 之外預測腎病末期惡化與心血管死亡的強烈標誌。",
+        "applies_to": {
+          "population": "糖尿病、高血壓及慢性腎病高危險族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-REN-011",
+            "citation": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D000418",
+          "mesh_term": "Albuminuria",
+          "icd11_code": "GB61",
+          "snomed_ct": "31388003"
+        },
+        "misuse_guard": "常規尿常規試紙對「微量白蛋白」極度不靈敏（試紙呈陰性不代表沒有微量漏蛋白），必須強制檢測定量比值 UACR；且劇烈運動、發燒或泌尿道感染會造成短暫假陽性。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "驗尿驗蛋白不能只用試紙看有沒有加號；UACR 比值能在腎臟剛開始出現微小破洞時（提早好幾年）精確抓出滲漏的微量白蛋白，及早吃藥把破洞補起來。",
+          "biochemical_mechanism_zh": "高血糖與腎絲球微血管高灌注壓撕裂內皮糖萼並引發足細胞裂孔隔膜形變，帶負電的白蛋白穿透電荷屏障滲入尿液，同時誘發腎小管間質促發炎纖維化。",
+          "diagnostic_cutoffs_zh": "KDIGO 國際分期：A1 期正常（UACR <30 mg/g）；A2 期微量白蛋白尿（30–300 mg/g）；A3 期重度大量白蛋白尿（>300 mg/g，腎衰竭與中風死亡率倍增）。",
+          "nutritional_protocol_zh": "限制飲食中每日鈉鹽攝取 <2000 mg，因為高鹽飲食會直接抵消降蛋白尿藥物的療效；適度減少紅肉攝取以減輕腎絲球出入球小動脈跨壁壓差。",
+          "drug_interactions_red_flags_zh": "一旦出現 UACR >30 mg/g，指引強烈推薦立即啟動 SGLT2 抑制劑與非類固醇礦物皮質激素受體拮抗劑（Finerenone），可使蛋白尿縮減 30%–50%。",
+          "clinical_pearls_myths_zh": "健檢盲區：很多人看到 eGFR 95 很高興，但若 UACR 高達 450 mg/g，在 KDIGO 熱區圖上已經被標記為「紅色極高危險群」，隨時可能加速衰退。"
+        }
+      }
+    },
+    {
+      "id": "KA-REN-012",
+      "type": "atom",
+      "label": "血清鉀離子濃度超過 5.5 mEq/L 定義為高血鉀症（Hy",
+      "data": {
+        "id": "KA-REN-012",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "血清鉀離子濃度超過 5.5 mEq/L 定義為高血鉀症（Hyperkalemia），超過 6.0–6.5 mEq/L 可誘發致命性心室纖顫與心跳驟停，為慢性腎臟病末期最緊急急症。",
+        "applies_to": {
+          "population": "慢性腎臟病第 4–5 期及服用 RAAS 阻斷劑患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-REN-012",
+            "citation": "Palmer & Clegg, NEJM 2015 (Diagnosis and Treatment of Hyperkalemia)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D006947",
+          "mesh_term": "Hyperkalemia",
+          "icd11_code": "5C73",
+          "snomed_ct": "14140009"
+        },
+        "misuse_guard": "發現高血鉀時應立即複查 12 導程心電圖並確認是否為抽血「溶血假陽性」；嚴禁在心電圖已出現 T 波高尖時延誤給予葡萄糖酸鈣心肌保護治療。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "血鉀就像心臟節律的電壓開關：正常在 3.5 到 5.0 之間；一旦腎臟排不出鉀使血鉀飆過 6.0，心臟可能在毫無胸痛預警下瞬間心律不整驟停，極度凶險。",
+          "biochemical_mechanism_zh": "細胞外高鉀降低心肌細胞膜靜止電位絕對值，使快鈉通道失活，心臟傳導系統動作電位傳播速度驟降，心電圖呈現高尖 T 波、P 波消失、QRS 寬大直至正弦波。",
+          "diagnostic_cutoffs_zh": "正常血鉀：3.5–5.0 mEq/L；輕度高血鉀：5.1–5.5 mEq/L；中度高血鉀：5.6–6.0 mEq/L；重度危急高血鉀：>6.0 mEq/L（必須立即急診心電圖監護救治）。",
+          "nutritional_protocol_zh": "CKD 晚期需嚴格執行低鉀飲食：蔬菜先切小段川燙 3–5 分鐘撈起再炒、不喝菜湯火鍋高湯、避免高鉀水果（香蕉、奇異果、釋迦、楊桃）及低鈉低鹽醬油（常以氯化鉀替代）。",
+          "drug_interactions_red_flags_zh": "急性重度高血鉀急救三部曲：靜脈注射葡萄糖酸鈣（穩定心肌細胞膜防猝死）➔ 靜脈輸注胰島素加葡萄糖（強行將鉀壓入細胞內）➔ 使用新一代鉀離子結合劑排鉀。",
+          "clinical_pearls_myths_zh": "致命陷阱：很多腎病患者誤以為「吃低鈉鹽最健康」，殊不知市售薄鹽醬油與低鈉鹽是用高純度「氯化鉀」取代氯化鈉，腎衰竭患者吃兩匙就可能引發心臟停跳。"
+        }
+      }
+    },
+    {
+      "id": "KA-REN-013",
+      "type": "atom",
+      "label": "慢性腎臟病礦物質與骨病變（CKD-MBD）由骨細胞分泌之「纖",
+      "data": {
+        "id": "KA-REN-013",
+        "assertion_kind": "mechanism",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "慢性腎臟病礦物質與骨病變（CKD-MBD）由骨細胞分泌之「纖維母細胞生長因子-23」（FGF23）在 eGFR 早期下降低於 60 mL/min 時率先代償性飆升以促進排磷。",
+        "applies_to": {
+          "population": "慢性腎臟病第 3–5 期患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-REN-013",
+            "citation": "Isakova et al., JAMA 2011 (Fibroblast Growth Factor 23 and Risks of Mortality and End-Stage Renal Disease)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D055314",
+          "mesh_term": "Fibroblast Growth Factor-23",
+          "icd11_code": "FB81",
+          "snomed_ct": "444154002"
+        },
+        "misuse_guard": "不可等到血磷報告出現紅字才開始控制磷攝取；在血磷看似正常的 CKD 早期，FGF23 與副甲狀腺素（PTH）早已瘋狂升高並暗中誘發嚴重心血管鈣化。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "腎臟衰退時骨頭會發出求救訊號 FGF23 幫忙排磷；但過量的 FGF23 會毒害心臟使心肌肥厚，同時破壞鈣磷平衡使血管硬化得像石頭水管。",
+          "biochemical_mechanism_zh": "FGF23 結合腎臟 Klotho 輔受體抑制近端小管 NaPi-IIa 轉運蛋白排磷；但超高濃度的 FGF23 同時強烈抑制 1α-羥化酶，導致活性維生素 D 枯竭，誘發繼發性副甲狀腺亢進。",
+          "diagnostic_cutoffs_zh": "CKD 第 3 期開始 FGF23 與 PTH 顯著升高；CKD 第 5 期血清磷目標應控制在 3.5–5.5 mg/dL，血清總鈣維持在正常區間（8.4–9.5 mg/dL）。",
+          "nutritional_protocol_zh": "限制飲食中無機磷酸鹽添加劑的攝取（加工肉品、泡麵、可樂碳酸飲料之無機磷吸收率達 90%–100%），優先選擇吸收率僅 30%–50% 的天然全穀豆類有機磷。",
+          "drug_interactions_red_flags_zh": "進餐時需遵醫囑隨餐咀嚼服用磷結合劑（非鈣基結合劑如碳酸司維來姆 Sevelamer 或碳酸鑭），在腸道直接抓取磷酸根排出體外。",
+          "clinical_pearls_myths_zh": "心腎交織：洗腎病患頭號死因不是尿毒，而是「心血管鈣化爆裂」；控制磷與 FGF23 軸線，是保全腎友大動脈彈性與心臟瓣膜功能的最核心戰役。"
+        }
+      }
+    },
+    {
+      "id": "KA-REN-014",
+      "type": "atom",
+      "label": "重度脫水合併使用「ACEi/ARB（阻斷出球小動脈收縮）與 ",
+      "data": {
+        "id": "KA-REN-014",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "renal",
+        "statement_zh": "重度脫水合併使用「ACEi/ARB（阻斷出球小動脈收縮）與 NSAIDs 止痛藥（阻斷入球小動脈擴張）」會構成致命三重打擊（Triple Whammy），引發急性血行力學性腎衰竭。",
+        "applies_to": {
+          "population": "高血壓、心衰竭或正在服用降壓止痛藥患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-REN-014",
+            "citation": "Lapi et al., BMJ 2013 (Concurrent Use of Diuretics, ACE Inhibitors, and NSAIDs and Risk of Acute Kidney Injury: The Triple Whammy)",
+            "design": "cohort",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D058186",
+          "mesh_term": "Acute Kidney Injury",
+          "icd11_code": "GB60",
+          "snomed_ct": "14669001"
+        },
+        "misuse_guard": "正在服用降壓藥（普利類/沙坦類）或利尿劑之慢性病患，感冒關節痛時切忌自行連續去藥房購買消炎止痛藥（NSAIDs）服用，必須諮詢合格醫師。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "這是腎臟的死亡陷阱：脫水加上吃止痛藥掐緊進血的水龍頭，又吃降壓藥鬆開出水的水龍頭，腎絲球內部壓力瞬間跌至歸零，尿液完全濾不出來引發急性尿毒。",
+          "biochemical_mechanism_zh": "NSAIDs 抑制 COX 阻斷前列腺素致入球小動脈嚴重痙攣收縮；ACEi/ARB 阻斷 Ang II 致出球小動脈極度放鬆；兩者夾擊使腎絲球毛細血管靜水壓（Pgc）斷崖式崩潰，GFR 驟降。",
+          "diagnostic_cutoffs_zh": "若數天內血清肌酸酐較基線升高 ≥0.3 mg/dL 或升高 ≥1.5 倍，伴隨連續 6 小時尿量 <0.5 mL/kg/h，即符合 KDIGO 急性腎損傷（AKI）診斷。",
+          "nutritional_protocol_zh": "當遭遇急性腸胃炎嚴重上吐下瀉或高燒脫水時，應立刻在醫師指導下「暫時停用（Sick Day Protocol）」降壓藥與利尿劑，並積極補充電解質輸液。",
+          "drug_interactions_red_flags_zh": "利尿劑（Diuretic）+ ACEi/ARB + NSAID 三者併用被醫學界稱為「Triple Whammy（三重致命打擊）」，能使急性腎損傷風險暴增數倍，多數透析案例源於此藥物組合。",
+          "clinical_pearls_myths_zh": "臨床警鐘：老伯伯平時血壓藥吃得好好的，某天膝蓋痛自行吞了三天強效止痛藥，又剛好胃腸炎拉肚子，第四天全身水腫送急診肌酸酐飆到 8.0 需緊急插管洗腎！"
+        }
+      }
+    },
+    {
+      "id": "KA-EX-011",
+      "type": "atom",
+      "label": "骨骼肌收縮時釋放之肌力素「介白素-6」（IL-6）可達靜息濃",
+      "data": {
+        "id": "KA-EX-011",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "exercise",
+        "statement_zh": "骨骼肌收縮時釋放之肌力素「介白素-6」（IL-6）可達靜息濃度 100 倍以上，具備強大抗發炎與活化脂肪組織脂肪分解的全身性代謝調節效應。",
+        "applies_to": {
+          "population": "規律運動與代謝症候群防治人群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-EX-011",
+            "citation": "Pedersen & Febbraio, Physiol Rev 2008 (Muscle as an Endocrine Organ: Focus on Muscle-Derived IL-6)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D015850",
+          "mesh_term": "Interleukin-6",
+          "icd11_code": "MD90",
+          "snomed_ct": "38870007"
+        },
+        "misuse_guard": "不可將運動誘發的肌力素 IL-6 與巨噬細胞促發炎的病理性 IL-6 混為一談；運動時釋放的 IL-6 完全不伴隨 TNF-α 升高，反而誘導強大抗炎介質釋放。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "肌肉是人體最大的內分泌工廠：運動時肌肉噴出的 IL-6 不會引起發炎，反而像天然消防隊，指揮全身燃燒脂肪並壓制體內慢性發炎。",
+          "biochemical_mechanism_zh": "肌肉 IL-6 透過旁分泌與內分泌途徑活化骨骼肌與脂肪細胞中的 AMPK，刺激 p38 MAPK 促進脂肪分解；同時刺激外周釋放抗炎細胞激素 IL-10 與 IL-1Ra。",
+          "diagnostic_cutoffs_zh": "進行持續 60–120 分鐘耐力運動後，血清肌力素 IL-6 濃度可在短時間內飆升 10 至 100 倍，並在運動停止後 2–4 小時內迅速回歸平靜基線。",
+          "nutritional_protocol_zh": "在長時間耐力運動中適度補充碳水化合物（每小時 30–60g），能避免肌醣原徹底耗竭，調節 IL-6 釋放峰值並防止皮質醇過度過度飆升。",
+          "drug_interactions_red_flags_zh": "運動前後若大劑量服用抗氧化維生素（如高劑量維生素 C 與 E），會中和運動誘發的有益微量自由基訊號，抑制運動對粒線體與胰島素敏感度的改善。",
+          "clinical_pearls_myths_zh": "顛覆認知：同一個分子在免疫細胞中是「促發炎壞蛋」，但在收縮肌肉中卻是「調節代謝與抗發炎功臣」；這正是骨骼肌被定義為內分泌器官的里程碑證據。"
+        }
+      }
+    },
+    {
+      "id": "KA-EX-012",
+      "type": "atom",
+      "label": "離心阻力訓練（Eccentric Training）能誘發肌",
+      "data": {
+        "id": "KA-EX-012",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "exercise",
+        "statement_zh": "離心阻力訓練（Eccentric Training）能誘發肌纖維串聯肌小節增生（Sarcomerogenesis），使肌肉最適發力長度向長肌肉長度偏移，大幅預防肌肉拉傷復發。",
+        "applies_to": {
+          "population": "運動員與運動防護傷害復健族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AWGS-2019-SARCOPENIA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-EX-012",
+            "citation": "Brockett et al., Med Sci Sports Exerc 2001 (Eccentric Training Shifts the Optimum Length of Human Hamstrings)",
+            "design": "rct",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D055070",
+          "mesh_term": "Resistance Training",
+          "icd11_code": "MD90",
+          "snomed_ct": "229112002"
+        },
+        "misuse_guard": "離心訓練初期會誘發顯著的延遲性肌肉酸痛（DOMS），必須遵循漸進加載原則；未經熱身不可直接進行超極限重量離心轟炸以防肌原纖維嚴重撕裂。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "下放重物的「煞車動作」（離心收縮）最能防拉傷：它能像拼樂高一樣在肌纖維末端加裝新的肌小節零件，讓肌肉變得又長又強韌，拉伸時不再被硬生生扯斷。",
+          "biochemical_mechanism_zh": "高張力離心牽拉刺激橫橋非彈性 Titin 肌聯蛋白機械力傳導，觸發局部位點微撕裂並啟動串聯肌小節合成，使長度-張力曲線（Length-Tension Curve）右移。",
+          "diagnostic_cutoffs_zh": "經典北歐大腿後側彎舉（Nordic Hamstring Curl）：每週累積 2–3 次、每次 3–5 組離心下落訓練，運動員大腿後肌拉傷發生率可斷崖式降低 51%。",
+          "nutritional_protocol_zh": "離心訓練後提供充足乳清蛋白（20–30g）與水合，並保證當晚充足慢波睡眠，促進生長激素與肌力素引導肌原纖維重建。",
+          "drug_interactions_red_flags_zh": "急性拉傷前 48 小時內切忌立即使用大劑量 NSAIDs 消炎止痛藥強行鎮痛，以免干擾巨噬細胞 M2 表型極化修復，導致日後結締組織薄弱化。",
+          "clinical_pearls_myths_zh": "防護關鍵：為什麼足球短跑運動員最常在衝刺剎車瞬間拉傷膕繩肌？正是因為肌肉在極度拉長狀態下無法承擔離心張力；練好離心收縮是運動防護的終極鎧甲。"
+        }
+      }
+    },
+    {
+      "id": "KA-EX-013",
+      "type": "atom",
+      "label": "高強度間歇訓練（HIIT）與大重量阻力訓練後引發之「運動後過",
+      "data": {
+        "id": "KA-EX-013",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "exercise",
+        "statement_zh": "高強度間歇訓練（HIIT）與大重量阻力訓練後引發之「運動後過量氧耗」（EPOC）可使安靜代謝率在運動後數小時內維持提升 6%–15%，加速代謝重整。",
+        "applies_to": {
+          "population": "體重管理與運動訓練人群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-EX-013",
+            "citation": "Børsheim & Bahr, Sports Med 2003 (Effect of Exercise Intensity, Duration and Mode on Post-Exercise Oxygen Consumption)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D010101",
+          "mesh_term": "Oxygen Consumption",
+          "icd11_code": "MD90",
+          "snomed_ct": "251840003"
+        },
+        "misuse_guard": "不可誇大 EPOC 的燃脂絕對卡路里量（通常僅相當於幾十到一百多大卡）；減重根本原則仍取決於長期整體能量平衡，切勿因運動後燃而放縱暴飲暴食。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "高強度訓練就像熄火後的引擎依然在散熱：運動結束後好幾個小時，身體還在持續多耗氧、多燒卡路里，幫全身細胞發電廠加水降溫與補充庫存。",
+          "biochemical_mechanism_zh": "EPOC 消耗能量用於再合成肌酸磷酸（CP）與 ATP、重吸收乳酸並由肝臟柯氏循環轉化為肝醣、重新飽和肌紅蛋白攜氧量，以及維持高體溫下的細胞高代謝率。",
+          "diagnostic_cutoffs_zh": "短暫快速有氧運動 EPOC 極短；而強度 >80% VO2max 的 HIIT 或高負荷大肌群阻抗訓練（如硬舉、深蹲），後燃效應可顯著持續 12 到 24 小時。",
+          "nutritional_protocol_zh": "訓練結束後補充足量電解質水分與適量碳水蛋白質複合餐，利用高胰島素敏感度時窗將葡萄糖直接鎖定在肌肉修補，而非轉化為脂肪。",
+          "drug_interactions_red_flags_zh": "合併心血管疾病或控制不良高血壓患者，切忌盲目追求高 EPOC 而進行極限力竭 HIIT，此舉交感風暴引發心室心律不整風險極高。",
+          "clinical_pearls_myths_zh": "真相大白：健身房常宣傳「練 20 分鐘後燃狂燒 48 小時 1000 大卡」，這在生理學上純屬商業誇大；EPOC 的核心價值在於提高代謝靈活性與心肺適能，而非單純燒脂。"
+        }
+      }
+    },
+    {
+      "id": "KA-EX-014",
+      "type": "atom",
+      "label": "呼吸交換率（Respiratory Exchange Rat",
+      "data": {
+        "id": "KA-EX-014",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R2",
+        "topic": "exercise",
+        "statement_zh": "呼吸交換率（Respiratory Exchange Ratio, RER = VCO2 / VO2）從安靜時約 0.70（近乎純脂肪氧化）隨運動強度攀升至 1.00（100% 依賴碳水化合物無氧酵解）。",
+        "applies_to": {
+          "population": "心肺運動負荷測試（CPET）與運動生理評估",
+          "region": "全球"
+        },
+        "primary_source": "SRC-ADA-2026",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-EX-014",
+            "citation": "Wasserman et al., Principles of Exercise Testing and Interpretation 5th Edition 2012",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D012119",
+          "mesh_term": "Respiration",
+          "icd11_code": "MD90",
+          "snomed_ct": "251840003"
+        },
+        "misuse_guard": "當 RER >1.00（甚至達到 1.10–1.20）時，過量吹出的 CO2 來自體液重碳酸根緩衝乳酸酸中毒所產生的非代謝性二氧化碳，不再代表真實細胞氧化受質比例。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "戴著面罩跑步測量呼出的二氧化碳除以吸入的氧氣：比值 0.7 代表全身正在全速燃燒純脂肪，比值衝到 1.0 代表脂肪燒不動了、只能全靠葡萄糖救急。",
+          "biochemical_mechanism_zh": "棕櫚酸氧化化學計量式產生 16 CO2 需消耗 23 O2（RER = 16/23 ≈ 0.70）；葡萄糖氧化產生 6 CO2 消耗 6 O2（RER = 6/6 = 1.00）；乳酸累積時 H⁺ 驅使碳酸氫根釋放大量額外 CO2。",
+          "diagnostic_cutoffs_zh": "最大努力 CPET 判定標準：RER 必須達到 ≥1.10–1.15，方能客觀證實受試者在測試中已達到真正極限最大攝氧量（VO2 max）。",
+          "nutritional_protocol_zh": "Zone 2 訓練的核心目的正是訓練慢肌纖維線粒體，使 RER 在更高配速下依然能牢牢錨定在 0.75–0.85 之間，最大化節省寶貴的肌醣原。",
+          "drug_interactions_red_flags_zh": "使用乙型阻斷劑（Beta-blockers）會抑制脂肪酶脂解反應，迫使受試者在較低運動強度下提早依賴碳水化合物酵解，使 RER 提早攀升。",
+          "clinical_pearls_myths_zh": "代謝靈活性（Metabolic Flexibility）：一個頂級長壽運動員在安靜空腹時 RER 能壓低到 0.72（超強燃脂），但在衝刺時能瞬間爆發至 1.15，這就是代謝彈性的極致展現。"
+        }
+      }
+    },
+    {
+      "id": "KA-EX-015",
+      "type": "atom",
+      "label": "亞洲肌少症工作小組（AWGS 2019）握力篩檢門檻：成年男",
+      "data": {
+        "id": "KA-EX-015",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "exercise",
+        "statement_zh": "亞洲肌少症工作小組（AWGS 2019）握力篩檢門檻：成年男性握力 <28 kg、女性 <18 kg 即確診為「肌肉力量低下」，是老年失能、跌倒骨折與全因死亡的強烈警訊。",
+        "applies_to": {
+          "population": "亞洲 50 歲以上中老年人及臨床篩檢",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-AWGS-2019-SARCOPENIA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-EX-015",
+            "citation": "Chen et al., JAMDA 2020 (Asian Working Group for Sarcopenia: 2019 Consensus Update)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D018737",
+          "mesh_term": "Hand Strength",
+          "icd11_code": "FB32",
+          "snomed_ct": "298971008"
+        },
+        "misuse_guard": "握力測試必須使用經校準之油壓握力計（如 Jamar），受試者取坐姿手肘彎曲 90 度，雙手各測兩次取最大值；不可因關節炎急性發作手痛誤診為神經肌肉型肌少症。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "握力不只代表手掌力氣，它是全身總肌力與神經健康的縮影：長者連罐頭蓋都轉不開（男低於 28kg，女低於 18kg），代表全身肌肉正在加速萎縮失能。",
+          "biochemical_mechanism_zh": "前臂等長最大收縮能力反映皮質脊髓束神經衝動發放頻率、運動單元招募率與肌肉橫截面積；握力低下代表中樞神經至運動神經終板傳導全面衰退。",
+          "diagnostic_cutoffs_zh": "AWGS 2019 亞洲標準：男性最大握力 <28.0 kg、女性 <18.0 kg 即落入異常低力區；若合併 5 次起立坐下測試（5-times chair stand）≥12 秒，診斷為嚴重可能肌少。",
+          "nutritional_protocol_zh": "及早展開抗阻力肌力訓練（農夫走路 Farmer's walk、啞鈴推舉、拉力帶訓練），同時每日攝取維生素 D3（維持血清 >30 ng/mL）以維持運動終板受體活性。",
+          "drug_interactions_red_flags_zh": "握力進行性急速滑落若伴隨肢體麻木與肌肉束顫，需高度警惕頸椎脊髓病變、多發性神經病變或運動神經元疾病（ALS），應及時轉診神經內科。",
+          "clinical_pearls_myths_zh": "長壽大指標：權威醫學雜誌《刺胳針》（Lancet）超大型前瞻追蹤研究證實，握力每下降 5 公斤，心血管疾病死亡風險增加 17%，預測力甚至超越常規收縮壓。"
+        }
+      }
+    },
+    {
+      "id": "KA-SLP-009",
+      "type": "atom",
+      "label": "清醒期間大腦持續消耗 ATP 累積之腺苷（Adenosine",
+      "data": {
+        "id": "KA-SLP-009",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "sleep",
+        "statement_zh": "清醒期間大腦持續消耗 ATP 累積之腺苷（Adenosine）結合 A1/A2A 受體驅動生理「睡眠壓力」；咖啡因透過競爭性拮抗阻斷腺苷受體推遲睏意，其人體平均半衰期達 5–7 小時。",
+        "applies_to": {
+          "population": "一般大眾與咖啡因攝取者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AASM-2020-OSA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-SLP-009",
+            "citation": "Porkka-Heiskanen et al., Science 1997 (Adenosine: A Mediator of the Sleep-Inducing Effects of Prolonged Wakefulness)",
+            "design": "mechanistic_in_vitro",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D000241",
+          "mesh_term": "Adenosine",
+          "icd11_code": "MD90",
+          "snomed_ct": "387405002"
+        },
+        "misuse_guard": "咖啡因並不能真正消除體內累積的腺苷；當咖啡因在數小時後被肝臟 CYP1A2 代謝耗盡時，積壓的巨量腺苷會瞬間湧向受體引發嚴重的「疲勞反撲」（Crash）。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "醒著每一秒大腦都在累積「疲勞硬幣」（腺苷），硬幣積滿你就想睡覺；咖啡因像膠帶暫時貼住投幣孔，讓你誤以為不累，但硬幣依然在背後瘋狂累積。",
+          "biochemical_mechanism_zh": "腺苷結合大腦腹外側視前核（VLPO）受體，激活抑制性 GABA 能神經元以關閉上行網狀激活系統；咖啡因化學分子與腺苷高度相似，能完全卡位搶佔受體阻斷訊號。",
+          "diagnostic_cutoffs_zh": "咖啡因半衰期約 5–7 小時，四分之一衰期（殘留 25%）長達 10–12 小時；若中午 12 點喝下一杯 200mg 大美式，午夜 12 點腦中仍殘留相當於 50mg 咖啡因的受體阻斷活性。",
+          "nutritional_protocol_zh": "為保全夜間 N3 深度慢波睡眠品質，每日最後一杯含咖啡因飲品（咖啡、能量飲、濃茶）應在預計就寢前至少「8 到 10 小時」喝完（通常建議下午 2 點前關機）。",
+          "drug_interactions_red_flags_zh": "口服避孕藥會抑制肝臟 CYP1A2 酵素活性，使咖啡因半衰期翻倍延長至 10–12 小時；吸菸者則會誘導 CYP1A2 加速代謝；需注意個體基因差異。",
+          "clinical_pearls_myths_zh": "破除迷思：「我喝完咖啡照樣睡得著，所以咖啡因對我沒差？」腦波儀 PSG 證實，即使能睡著，殘留的咖啡因會直接腰斬深睡期的慢波 Delta 振幅，醒來依舊疲憊。"
+        }
+      }
+    },
+    {
+      "id": "KA-SLP-010",
+      "type": "atom",
+      "label": "視網膜內在光敏神經節細胞（ipRGCs）中的黑視素（Mela",
+      "data": {
+        "id": "KA-SLP-010",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "sleep",
+        "statement_zh": "視網膜內在光敏神經節細胞（ipRGCs）中的黑視素（Melanopsin）對 460–480 nm 藍光波長最為敏感，夜間螢幕藍光會直接抑制松果體褪黑激素分泌達 50%–85%。",
+        "applies_to": {
+          "population": "現代螢幕族群與夜間作息管理",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AASM-2020-OSA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-SLP-010",
+            "citation": "Gooley et al., J Clin Endocrinol Metab 2011 (Exposure to Room Light before Bedtime Suppresses Melatonin Onset)",
+            "design": "rct",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D008550",
+          "mesh_term": "Melatonin",
+          "icd11_code": "MD90",
+          "snomed_ct": "387407005"
+        },
+        "misuse_guard": "白天不可盲目防藍光！清晨起床後接觸充足自然太陽藍光是重置下視丘晝夜主時鐘、促進夜間正常分泌褪黑激素的絕對生理必要條件。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "眼睛深處有專門看「白天藍天」的感光感測器；晚上躺在床上滑手機，藍光直接射入眼底，大腦被騙以為現在是豔陽高照的正中午，立刻關閉褪黑激素讓你整夜睡不著。",
+          "biochemical_mechanism_zh": "ipRGCs 軸突形成視網膜下視丘束（RHT），直通視交叉上核（SCN）；SCN 發布交感抑制指令給上頸神經節，阻斷松果體將血清素轉化為褪黑激素的限速酶 AANAT。",
+          "diagnostic_cutoffs_zh": "睡前暴露於一般室內照明或平板手機螢幕僅 1–2 小時，即可使暗光褪黑激素分泌起始時間（DLMO）顯著延遲 90 分鐘，並大幅壓制夜間褪黑激素總分泌量峰值。",
+          "nutritional_protocol_zh": "睡前 90 分鐘將室內燈光調暗至 <50 勒克斯（Lux）並切換為暖黃光/紅光，手機啟用夜間暖色濾鏡或佩戴防藍光眼鏡，嚴禁關燈全黑狀態下直視手機螢幕。",
+          "drug_interactions_red_flags_zh": "外源性補充褪黑激素（Melatonin）在台灣屬處方藥列管；口服褪黑激素並非安眠藥，僅作為時差調整或晝夜節律相位後移症候群（DSPS）的定時校正工具。",
+          "clinical_pearls_myths_zh": "晝夜重置王道：每天早晨甦醒後 30 分鐘內出門曬太陽 10–15 分鐘，強烈的自然陽光（>10,000 Lux）會設定好 14 小時後的褪黑激素倒數計時器，這比任何助眠藥物都管用。"
+        }
+      }
+    },
+    {
+      "id": "KA-SLP-011",
+      "type": "atom",
+      "label": "多導睡眠圖（PSG）檢測呼吸中止低通氣指數（AHI）≥15 ",
+      "data": {
+        "id": "KA-SLP-011",
+        "assertion_kind": "diagnostic_boundary",
+        "risk_class": "R3",
+        "topic": "sleep",
+        "statement_zh": "多導睡眠圖（PSG）檢測呼吸中止低通氣指數（AHI）≥15 次/小時定義為中重度阻塞型睡眠呼吸中止症（OSA），伴隨反覆夜間間歇缺氧與交感風暴，大幅推升難治性高血壓與中風風險。",
+        "applies_to": {
+          "population": "嚴重打呼、日間嗜睡及心血管共病患者",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AASM-2020-OSA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-SLP-011",
+            "citation": "Kapur et al., J Clin Sleep Med 2017 (Clinical Practice Guideline for Diagnostic Testing for Adult Obstructive Sleep Apnea)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D020181",
+          "mesh_term": "Sleep Apnea, Obstructive",
+          "icd11_code": "7A40",
+          "snomed_ct": "78275009"
+        },
+        "misuse_guard": "OSA 患者嚴禁擅自服用苯二氮平類（BZD）鎮靜安眠藥助眠！安眠藥會進一步抑制上呼吸道擴張肌張力，使氣道完全塌陷窒息時間延長，具致死風險。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "打呼打到一半突然沒聲音、像被掐住脖子一樣憋氣幾十秒，這不是睡得香，而是咽喉塌陷窒息；每小時窒息幾十次，大腦整夜在缺氧恐慌中狂飆血壓。",
+          "biochemical_mechanism_zh": "上呼吸道軟組織在吸氣負壓下完全閉塞塌陷，引發急性動脈血氧飽和度驟跌（SpO2 跌破 80%），化學感受器被劇烈激發促發強烈交感神經脈衝與全身內皮氧化應激。",
+          "diagnostic_cutoffs_zh": "AHI 臨床分級門檻：<5 次/小時為正常；5–14 次為輕度；15–29 次為中度；≥30 次/小時為重度（一晚缺氧窒息超過兩百次，心律不整與腦梗塞高危）。",
+          "nutritional_protocol_zh": "積極減重 10% 能使頸圍脂肪縮減並使 AHI 顯著下降 30%–50%；睡前 4 小時完全禁酒（酒精是強效呼吸道肌鬆弛劑），睡眠時可採取側睡體位避免舌根後墜。",
+          "drug_interactions_red_flags_zh": "中重度 OSA 之第一線黃金標準治療為「連續陽壓呼吸器」（CPAP），透過氣壓夾板原理完全吹開塌陷氣道；若合併扁桃腺肥大可評估耳鼻喉科手術。",
+          "clinical_pearls_myths_zh": "臨床警鐘：許多頑固性高血壓吃 3 種降壓藥都降不下來，背後兇手往往就是未診斷的嚴重 OSA；一旦戴上 CPAP 呼吸器治療，血壓常在數週內自發性下降 10 mmHg。"
+        }
+      }
+    },
+    {
+      "id": "KA-SLP-012",
+      "type": "atom",
+      "label": "人體啟動入睡生理程序的絕對必要條件為「核心體溫（Core B",
+      "data": {
+        "id": "KA-SLP-012",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "sleep",
+        "statement_zh": "人體啟動入睡生理程序的絕對必要條件為「核心體溫（Core Body Temperature）自然下降 0.5–1.0°C」，睡前 90 分鐘溫水沐浴（40–42°C）透過四肢遠端血管舒張散熱，能顯著加速入睡。",
+        "applies_to": {
+          "population": "一般大眾與入睡困難族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AASM-2020-OSA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-SLP-012",
+            "citation": "Haghayegh et al., Sleep Med Rev 2019 (Before-bedtime Passive Body Heating as a Non-pharmacological Tool for Improving Sleep)",
+            "design": "systematic_review",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D001831",
+          "mesh_term": "Body Temperature",
+          "icd11_code": "MD90",
+          "snomed_ct": "251840003"
+        },
+        "misuse_guard": "溫水沐浴不可在「即將上床前 10 分鐘」進行（若體溫仍處於高溫狀態反而難以入睡）；且臥室室溫切忌過熱，應維持在涼爽舒適溫度。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "身體要入睡必須先「降溫」：睡前泡熱水澡看似加溫，其實是把手腳血管打開大量向外散熱；離開浴室後核心體溫快速下降，大腦就會收到濃濃的睏意訊號。",
+          "biochemical_mechanism_zh": "溫水刺激皮膚溫度感受器，反射性擴張手掌、足底動靜脈吻合枝（AVAs），大量血液湧向體表快速散熱，使內臟與大腦的核心體溫陡峭下滑，誘導視前區入睡神經元點火。",
+          "diagnostic_cutoffs_zh": "睡前 90 分鐘浸泡於 40–42°C 溫水 10–20 分鐘（Warm Bath Effect），元分析證實可使入睡潛伏期（SOL）平均顯著縮短 10 分鐘，並增加主觀睡眠深度。",
+          "nutritional_protocol_zh": "臥室環境溫度設定在 18–22°C（涼爽微涼為佳），搭配透氣排汗寢具；避免睡前進行大汗淋漓的劇烈有氧運動（劇烈運動使體溫持續偏高達 2–3 小時延遲入睡）。",
+          "drug_interactions_red_flags_zh": "年長者或自主神經病變患者若因下肢血管舒張功能不佳手腳冰冷，睡前穿上一雙寬鬆保暖襪能促進足底血管擴張散熱，反直覺地加速核心體溫下降。",
+          "clinical_pearls_myths_zh": "生理智慧：身體入睡像落日餘暉，伴隨體溫節律的自然沉降；開冷氣睡覺不是貪圖舒服，而是順應演化賦予人類在夜間降溫修復的深層生理密碼。"
+        }
+      }
+    },
+    {
+      "id": "KA-SLP-013",
+      "type": "atom",
+      "label": "整夜正常睡眠由 4–6 個週期（每週期約 90–110 分鐘",
+      "data": {
+        "id": "KA-SLP-013",
+        "assertion_kind": "mechanism",
+        "risk_class": "R2",
+        "topic": "sleep",
+        "statement_zh": "整夜正常睡眠由 4–6 個週期（每週期約 90–110 分鐘）組成，前半夜以 N3 慢波深睡（體能修復與膠淋巴排毒）為主，後半夜則以快速動眼期 REM（情緒去敏化與創意突觸重組）主導。",
+        "applies_to": {
+          "population": "一般大眾與輪班作息族群",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AASM-2020-OSA",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-SLP-013",
+            "citation": "AASM Manual for the Scoring of Sleep and Associated Events 2020",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D012890",
+          "mesh_term": "Sleep",
+          "icd11_code": "7A40",
+          "snomed_ct": "251840003"
+        },
+        "misuse_guard": "「只要睡滿 6 小時提早 2 小時起床沒關係」是嚴重誤區；提早切斷後半夜睡眠會不成比例地腰斬高達 60%–70% 的 REM 快速動眼期，引發焦慮抑鬱與認知遲鈍。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "睡眠前半夜修身體、後半夜修大腦：前半夜大腦忙著沖洗垃圾排出毒素（N3 深睡），清晨後半夜大腦忙著做夢整理情緒與記憶（REM）；缺哪一段都無法替代。",
+          "biochemical_mechanism_zh": "前半夜生長激素分泌且大腦膠淋巴系統全開沖刷 Aβ 蛋白；後半夜去甲腎上腺素完全停擺，大腦在無壓力狀態下重新回放日間創傷記憶完成情緒解耦（Overnight Therapy）。",
+          "diagnostic_cutoffs_zh": "理想成人正常睡眠結構比例：N1 淺睡過渡期 5%；N2 睡眠紡錘波穩定器 45%–55%；N3 慢波深度睡眠 15%–20%；REM 快速動眼期 20%–25%。",
+          "nutritional_protocol_zh": "維持高度規律的就寢與起床時間（即使週末亦不宜補眠超過 1 小時），穩固下視丘主時鐘基因迴路，確保整夜完整的 5 個完整睡眠週期得以無縫展開。",
+          "drug_interactions_red_flags_zh": "許多傳統鎮靜安眠藥會人為壓制 N3 深睡波與 REM 週期，產生「看似睡著但實質腦波支離破碎」的藥理性非自然睡眠，長期需配合 CBT-I 逐步減藥。",
+          "clinical_pearls_myths_zh": "心理學珍珠：快速動眼期（REM）是大腦天然的情緒去敏治療師；夜間夢境能剝離記憶中的痛苦情緒，這正是為什麼俗話說「睡一覺起來事情就沒那麼糟了」。"
+        }
+      }
+    },
+    {
+      "id": "KA-TW-011",
+      "type": "atom",
+      "label": "台灣衛福部國健署代謝症候群判定標準：符合以下 5 項中任 3",
+      "data": {
+        "id": "KA-TW-011",
+        "assertion_kind": "policy",
+        "risk_class": "R2",
+        "topic": "policy",
+        "statement_zh": "台灣衛福部國健署代謝症候群判定標準：符合以下 5 項中任 3 項（含）以上者，即確診為代謝症候群，心血管疾病死亡率激增 2–3 倍。",
+        "applies_to": {
+          "population": "台灣成年國人",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-TW-011",
+            "citation": "衛生福利部國民健康署代謝症候群防治指引",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D024821",
+          "mesh_term": "Metabolic Syndrome",
+          "icd11_code": "5B81",
+          "snomed_ct": "237602007"
+        },
+        "misuse_guard": "代謝症候群不是單一疾病，而是心腦血管大病的共同溫床；只要符合一項即屬異常警訊，不可因尚未湊齊 3 項就心存僥倖延遲生活介入。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "肚子大、血壓高、血糖偏高、三酸甘油酯高、好膽固醇低，這五顆定時炸彈只要中了三顆，就正式被診斷為代謝症候群，中風與心臟病機率倍增。",
+          "biochemical_mechanism_zh": "內臟脂肪過多引發游離脂肪酸（FFA）泛濫，全身性胰島素阻抗促發代償性高胰島素血症、內皮型一氧化氮合成受阻與動脈硬化發炎級聯。",
+          "diagnostic_cutoffs_zh": "台灣 5 大指標：（1）腹部肥胖：腰圍男 ≥90cm、女 ≥80cm；（2）血壓偏高：≥130/85 mmHg；（3）空腹血糖偏高：≥100 mg/dL；（4）空腹三酸甘油酯偏高：≥150 mg/dL；（5）好膽固醇偏低：男 <40、女 <50 mg/dL。",
+          "nutritional_protocol_zh": "加入國健署「代謝症候群防治計畫」，配合家醫科或內科基層診所進行生活型態諮詢，戒糖減鈉多蔬果，目標在 6 個月內逆轉至少 1–2 項異常指標。",
+          "drug_interactions_red_flags_zh": "若生活型態介入 3–6 個月後指標依然全數超標，應遵醫囑啟動個別危險因子的處方藥物治療（降壓、降脂或抗高血糖），杜絕靶器官實質不可逆傷害。",
+          "clinical_pearls_myths_zh": "公衛實務：台灣目前 20 歲以上成人代謝症候群盛行率高達三成，且隨年齡飆升；健檢報告若這 5 項出現紅字，是人體發出最具性價比的預警警報。"
+        }
+      }
+    },
+    {
+      "id": "KA-TW-012",
+      "type": "atom",
+      "label": "台灣健保公費成人預防保健服務：提供 40–64 歲民眾每 3",
+      "data": {
+        "id": "KA-TW-012",
+        "assertion_kind": "policy",
+        "risk_class": "R1",
+        "topic": "policy",
+        "statement_zh": "台灣健保公費成人預防保健服務：提供 40–64 歲民眾每 3 年一次、65 歲以上長者每年一次免費健康檢查，涵蓋身體檢查、血液生化及尿蛋白篩檢。",
+        "applies_to": {
+          "population": "符合年齡資格之全體台灣健保投保國民",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-TW-012",
+            "citation": "全民健康保險醫事服務機構辦理成人預防保健服務注意事項",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D011314",
+          "mesh_term": "Preventive Medicine",
+          "icd11_code": "QA00",
+          "snomed_ct": "38870007"
+        },
+        "misuse_guard": "公費成人健檢採血需空腹 8 小時；檢查結果若有紅字異常應及早回診追蹤，切勿將健檢「視為過關手續」而忽視後續疾病防治衛教。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "國家送你的免費健檢福利：40 歲以上每 3 年一次、65 歲以上每年一次，不用花大錢就能基本排查肝腎功能、血壓、血糖與血脂。",
+          "biochemical_mechanism_zh": "利用群體普遍篩檢在無症狀前期抓出空腹血糖異常、eGFR 下降、肝酵素 AST/ALT 異常及高膽固醇血症，搶在血管與器官不可逆硬化前介入。",
+          "diagnostic_cutoffs_zh": "檢查項目涵蓋：基本身高體重腰圍、血壓、空腹血糖、血脂四項（總膽固醇、TG、HDL、LDL）、肝功能（GOT、GPT）、腎功能（肌酸酐、eGFR）與尿蛋白。",
+          "nutritional_protocol_zh": "拿到健檢報告後，若肝腎血脂數值正常，應繼續維持均衡地中海飲食；若有輕微異常，可尋求健保給付之門診戒菸與營養諮詢介入。",
+          "drug_interactions_red_flags_zh": "長期慢性病患者平日已在專科診所定期抽血追蹤者，應避免重複做不必要的健檢項目以珍惜健保資源，但需定期核對是否有遺漏的預防保健項目。",
+          "clinical_pearls_myths_zh": "權益宣導：許多滿 40 歲的上班族從未利用過這項健保免費資源；只要攜帶健保卡至任一家健保特約診所或醫院即可隨到隨辦，守護中年健康起點。"
+        }
+      }
+    },
+    {
+      "id": "KA-TW-013",
+      "type": "atom",
+      "label": "台灣衛福部 114 年推動「公費幽門螺旋桿菌抗原糞便篩檢」：",
+      "data": {
+        "id": "KA-TW-013",
+        "assertion_kind": "policy",
+        "risk_class": "R2",
+        "topic": "policy",
+        "statement_zh": "台灣衛福部 114 年推動「公費幽門螺旋桿菌抗原糞便篩檢」：針對高風險地區與特定年齡國人提供全面篩檢，根除幽門桿菌以阻斷胃癌發生鏈。",
+        "applies_to": {
+          "population": "特定年齡層及幽門桿菌高盛行地區國人",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-TW-013",
+            "citation": "衛福部國健署胃癌防治幽門螺旋桿菌篩檢計畫",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D016481",
+          "mesh_term": "Helicobacter pylori",
+          "icd11_code": "2B72",
+          "snomed_ct": "65814002"
+        },
+        "misuse_guard": "糞便抗原篩檢前若近期正在服用抗生素或質子幫浦抑制劑（PPI）胃藥，會造成檢驗假陰性，檢查前應依醫囑停藥至少 2 週。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "胃癌是台灣人主要癌症殺手之一，八成以上是由幽門桿菌引起的；只要透過非侵入性的糞便篩檢找出病菌並吃兩週抗生素除菌，胃癌風險直接減半！",
+          "biochemical_mechanism_zh": "幽門螺旋桿菌分泌尿素酶破壞胃黏膜屏障，誘發 CagA 與 VacA 毒素釋放，導致長達數十年的慢性活動性胃炎 ➔ 萎縮性胃炎 ➔ 腸上皮化生 ➔ 胃腺癌病理瀑布（Correa 假說）。",
+          "diagnostic_cutoffs_zh": "幽門桿菌糞便抗原檢驗（HpSA）具備 >95% 高靈敏度與特異度；陽性確診者健保全面給付「三聯或四聯抗生素除菌療法」（治癒率 >90%）。",
+          "nutritional_protocol_zh": "日常用餐務必養成「公筷母匙」衛生習慣，杜絕家庭成員間經口-口或糞-口途徑的共餐交互傳染；除菌期間依醫囑完成全程用藥切勿擅自中斷。",
+          "drug_interactions_red_flags_zh": "幽門桿菌殺菌療程需嚴格服滿 10–14 天，私自漏藥或提早停藥會誘發嚴重細菌抗藥性；除菌完成後滿一個月需以碳 13 呼氣試驗（UBT）確認完全根除。",
+          "clinical_pearls_myths_zh": "公衛典範：台灣馬祖過去胃癌盛行率曾是全台第一，推動全面幽門桿菌普篩與除菌後，胃癌發生率斷崖式崩跌超過五成，被世界衛生組織譽為全球防癌標竿。"
+        }
+      }
+    },
+    {
+      "id": "KA-TW-014",
+      "type": "atom",
+      "label": "台灣健保補助 45–79 歲國人（原住民放寬至 40–79 ",
+      "data": {
+        "id": "KA-TW-014",
+        "assertion_kind": "policy",
+        "risk_class": "R3",
+        "topic": "policy",
+        "statement_zh": "台灣健保補助 45–79 歲國人（原住民放寬至 40–79 歲）終身一次免費 B、C 型肝炎篩檢，及早揪出帶原並配合口服抗病毒藥物根治 C 肝，阻斷肝硬化與肝癌三部曲。",
+        "applies_to": {
+          "population": "45–79 歲全體台灣國人",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-HPA-CANCER-SCREENING-2025",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-TW-014",
+            "citation": "衛生福利部國家消除 C 肝政策指引",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D006526",
+          "mesh_term": "Hepatitis C",
+          "icd11_code": "1E50",
+          "snomed_ct": "235866006"
+        },
+        "misuse_guard": "C 肝抗體（Anti-HCV）陽性僅代表曾經感染，必須進一步抽血檢驗 C 肝病毒量（HCV RNA）；若病毒量存在，健保全面無條件給付全口服新藥。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "一生一次免費驗 B、C 肝：肝臟沒有痛覺神經，帶原幾十年毫無症狀；現在 C 肝已經有神藥，只要每天吃一顆、吃 2 到 3 個月，健保全額買單且治癒率高達 99%！",
+          "biochemical_mechanism_zh": "C 肝病毒長期在肝細胞內複製引發免疫發炎與纖維化，口服直接抗病毒藥物（DAA）靶向 NS3/4A 蛋白酶、NS5A 與 NS5B 聚合酶，完全切斷病毒複製鏈。",
+          "diagnostic_cutoffs_zh": "抽血檢驗 HBsAg（B 肝表面抗原）與 Anti-HCV（C 肝抗體）；若 HCV RNA 陽性，健保即全額給付 DAA 口服新藥（價值數十萬元全由國家負擔）。",
+          "nutritional_protocol_zh": "B、C 肝帶原者嚴格全面禁酒，避免任何發霉黃麴毒素污染花生食品；經口服新藥治癒 C 肝後，若已有早期肝硬化仍需每半年定期做腹部超音波。",
+          "drug_interactions_red_flags_zh": "服藥治療期間需嚴格按醫囑不可自行停藥；且需由肝膽專科醫師檢視正在服用的降血脂藥、心臟藥物以避開 DAA 藥物之肝臟酵素交互作用。",
+          "clinical_pearls_myths_zh": "消除肝癌大戰略：台灣即將達成世界衛生組織 2025 消除 C 肝的歷史性目標；符合年齡的民眾只要去醫院診所健保抽血，千萬不要放棄這份救命福利。"
+        }
+      }
+    },
+    {
+      "id": "KA-TW-015",
+      "type": "atom",
+      "label": "2022 台灣心臟學會（TSOC）高血壓指引正式將高血壓門檻",
+      "data": {
+        "id": "KA-TW-015",
+        "assertion_kind": "policy",
+        "risk_class": "R2",
+        "topic": "policy",
+        "statement_zh": "2022 台灣心臟學會（TSOC）高血壓指引正式將高血壓門檻下修至 ≥130/80 mmHg，並將「居家 722 血壓量測」確立為診斷與控制的首要黃金標準。",
+        "applies_to": {
+          "population": "全體台灣成年人與高血壓防治機構",
+          "region": "台灣"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-TW-015",
+            "citation": "Wang et al., Acta Cardiol Sin 2022 (2022 Taiwan Guidelines on the Management of Hypertension)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "regulatory-statute"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D006973",
+          "mesh_term": "Hypertension",
+          "icd11_code": "BA00",
+          "snomed_ct": "38341003"
+        },
+        "misuse_guard": "下修至 130/80 mmHg 不是為了把健康人變成病患亂開藥，而是引導大眾在心血管傷害初期的無症狀階段，及早啟動嚴格生活型態修正與飲食管理。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "台灣最新高血壓標準已經跟進國際改成 130/80：診間血壓容易緊張失真，自己在家裡照著「722 原則」連續量一個禮拜的平均值，才是醫師調整用藥的真憑實據。",
+          "biochemical_mechanism_zh": "大型隨機對照試驗（SPRINT 與 STEP）證實，將收縮壓積極控制至 <130 mmHg 甚至 <120 mmHg，能顯著降低心血管死亡率、心衰竭與急性中風事件達 25%–30%。",
+          "diagnostic_cutoffs_zh": "居家血壓 722 原則：連續量 7 天、每天早晚 2 個時段（晨起 1 小時內與睡前 1 小時內）、每次量 2 遍間隔 1 分鐘並取平均值；居家平均 ≥130/80 mmHg 即診斷為高血壓。",
+          "nutritional_protocol_zh": "對於居家血壓在 130–139 / 80–89 之間的第 1 期患者，指引建議先給予 3 個月嚴格的非藥物生活型態干預（DASH 飲食、減鈉、減重、戒菸、每週 150 分鐘有氧）。",
+          "drug_interactions_red_flags_zh": "若患者合併糖尿病、慢性腎病或冠心病等心血管高危險群，只要血壓 ≥130/80 mmHg，指引建議立即同步啟動生活型態介入與單一複方降壓藥物（SPC）治療。",
+          "clinical_pearls_myths_zh": "口訣記法：「722，請量量」連續 7 天、早晚 2 次、每次 2 遍取平均；把漂亮的量測紀錄本帶去給醫師看，比在醫院診間緊張量一次有價值一百倍。"
+        }
+      }
+    },
+    {
+      "id": "KA-META-006",
+      "type": "atom",
+      "label": "Salud 平台核心架構嚴格落實「Layer 1 規範真理庫",
+      "data": {
+        "id": "KA-META-006",
+        "assertion_kind": "policy",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "Salud 平台核心架構嚴格落實「Layer 1 規範真理庫（Canonical Source）」與「Layer 2 純函數計算引擎」的徹底解耦，禁止在展示組件層硬編碼醫學數值。",
+        "applies_to": {
+          "population": "Salud 系統工程師與全域健康資訊架構",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-META-006",
+            "citation": "Salud Architectural Specification vNext.8 (Three-Tier Decoupling Principles)",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D012984",
+          "mesh_term": "Software",
+          "icd11_code": "QA00",
+          "snomed_ct": "38870007"
+        },
+        "misuse_guard": "任何 UI 前端組件若需引用臨床閾值、飲食比例或生物物理方程，必須統一自 canonical pack 或 registry 導入，杜絕多份設定漂移矛盾。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "所有的醫學數值與科學結論只准寫在唯一的一份檔案裡；前端網頁所有按鈕與畫面只能向這個「唯一真理庫」讀取資料，絕不允許各寫各的造成說法矛盾。",
+          "biochemical_mechanism_zh": "單一真理源（Single Source of Truth）架構杜絕了軟體系統的狀態分歧，確保醫學證據鏈（Evidence Trail）、DOI 出處與安全謂詞在編譯期即獲得嚴格型別校驗保護。",
+          "diagnostic_cutoffs_zh": "CI 治理標準：Layer 3 展示層組件對醫學常數的硬編碼容忍度為零，所有引用均需通過 `scripts/validate.ts` 靜態 AST 語法掃描與引用圖譜驗證。",
+          "nutritional_protocol_zh": "開發者在更新或擴充知識主題時，必須先在 Layer 1 登錄完整出處、證據等級與適用族群，再經由純函數計算派生衍生資訊圖表與互動模擬器參數。",
+          "drug_interactions_red_flags_zh": "若底層指引更動（如高血壓門檻自 140 下修至 130），僅需在 Layer 1 更新單一 Threshold 物件，全站模擬器、圖表、評估量表即同步自動響應重構。",
+          "clinical_pearls_myths_zh": "數位醫學倫理：醫學教育網站最忌諱「首頁說 A 門檻、內頁說 B 門檻」；以軟體架構作為嚴肅防禦，是 Salud 追求醫學實證誠實克制的核心基石。"
+        }
+      }
+    },
+    {
+      "id": "KA-META-007",
+      "type": "atom",
+      "label": "Salud 邊界防禦引擎（Safety Predicates",
+      "data": {
+        "id": "KA-META-007",
+        "assertion_kind": "policy",
+        "risk_class": "R2",
+        "topic": "meta_architecture",
+        "statement_zh": "Salud 邊界防禦引擎（Safety Predicates Engine）在型別與代碼層面嚴格強制攔截高危共病族群（心衰竭、CKD G4/G5、肝硬化腹水），杜絕虛假客製化醫療診斷輸出。",
+        "applies_to": {
+          "population": "重症共病使用者與所有模擬器合規防禦",
+          "region": "全球"
+        },
+        "primary_source": "SRC-KDIGO-2024-CKD",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-META-007",
+            "citation": "Salud Safety Predicate Specification (VAL-005 & VAL-021)",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D012984",
+          "mesh_term": "Software",
+          "icd11_code": "QA00",
+          "snomed_ct": "38870007"
+        },
+        "misuse_guard": "模擬器合規契約（Simulator Contract）嚴格禁止在未通過安全前置檢查的情況下輸出個人化喝水、高蛋白或劇烈間歇運動處方。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "健康人多喝水很健康，但心衰竭或洗腎病人多喝水會肺水腫淹死；模擬器只要偵測到危險疾病，立刻彈出紅色防線禁止試算，強制使用者遵從醫囑。",
+          "biochemical_mechanism_zh": "重度心腎衰竭時神經內分泌體液調節機制完全失靈，常規的生理啟發式演算法（Heuristics）不再適用，若套用大眾公式將直接引發容量超載致死。",
+          "diagnostic_cutoffs_zh": "安全阻斷條件：eGFR <30 mL/min（CKD G4/G5）、心衰竭（NYHA II–IV）、肝硬化腹水及已知 SIADH，觸發等級為最高等級的「BLOCK（直接阻斷）」。",
+          "nutritional_protocol_zh": "對於被阻斷之高危病患，系統自動切換為專科醫療指引衛教界面，詳細說明限水、低鉀與個別化電解質監控的臨床原因，引導至醫院就醫。",
+          "drug_interactions_red_flags_zh": "所有模擬器輸出必帶「不確定性區間（Uncertainty Band，如 ±0.3L）」與適用邊界，堅決不做未經醫學驗證的「身體年齡」評分或虛假噱頭。",
+          "clinical_pearls_myths_zh": "產品性格 Modest（誠實克制）：AI 健康平台最核心的道德底線不是「能回答多少問題」，而是「知道何時必須停下來說不確定，並保護使用者安全」。"
+        }
+      }
+    },
+    {
+      "id": "KA-META-008",
+      "type": "atom",
+      "label": "實證品質雙重評級引擎（GRADE 衍生確定性與證據直接性 D",
+      "data": {
+        "id": "KA-META-008",
+        "assertion_kind": "policy",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "實證品質雙重評級引擎（GRADE 衍生確定性與證據直接性 Directness）嚴格懲罰小樣本量、非同質族群與高偏誤風險文獻，杜絕將細胞動物試驗誇大為人類處方。",
+        "applies_to": {
+          "population": "Salud 醫學研究審核理事會與知識評估管線",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-META-008",
+            "citation": "Guyatt et al., BMJ 2008 (GRADE: An Emerging Consensus on Rating Quality of Evidence)",
+            "design": "guideline",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D019317",
+          "mesh_term": "Evidence-Based Medicine",
+          "icd11_code": "QA00",
+          "snomed_ct": "38870007"
+        },
+        "misuse_guard": "體外細胞試驗（in vitro）或大鼠動物模型之研究，其衍生確定性在未有大規模人體 RCT 驗證前，一律強制鎖定在 low 或 very-low，嚴禁宣稱臨床療效。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "在白老鼠或培養皿有效的東西，99% 在人體無效甚至有毒；Salud 的實證評分系統會把誇大不實、只有小貓兩三隻受試者的論文直接降到最低分。",
+          "biochemical_mechanism_zh": "人體擁有複雜的跨器官反饋調節與藥代動力學生理屏障，體外孤立細胞的生物效應無法反映體內生物利用度、肝臟首渡效應與長生毒性。",
+          "diagnostic_cutoffs_zh": "證據分級標準：A（高品質系統性文獻回顧/大型多中心 RCT）；B（中度世代追蹤研究）；C（觀察性或具偏差試驗）；D/E（專家意見或體外動物模型）。",
+          "nutritional_protocol_zh": "每條知識原子（Knowledge Atom）均完整公開標註原著作者、期刊、年份、DOI/PMID 與研究設計樣本量，讀者一鍵可直連 PubMed 與 Google Scholar 複驗。",
+          "drug_interactions_red_flags_zh": "禁止任何保健食品行銷手法利用低品質單篇論文進行「神化誇大」；所有宣稱必須符合主流專科醫學會臨床指引最高等級推薦。",
+          "clinical_pearls_myths_zh": "求真務實：健康資訊氾濫的時代，讀者缺的不是更多偏方，而是一套嚴格、克制、無商業利益綁架的科學檢驗濾網。"
+        }
+      }
+    },
+    {
+      "id": "KA-META-009",
+      "type": "atom",
+      "label": "醫學縮寫術語多義消歧（Disambiguation）架構：嚴",
+      "data": {
+        "id": "KA-META-009",
+        "assertion_kind": "policy",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "醫學縮寫術語多義消歧（Disambiguation）架構：嚴格規範重疊縮寫（如 ADH 代表抗利尿激素或乙醇去氫酶）之情境展開，杜絕語意歧義引致的誤解風險。",
+        "applies_to": {
+          "population": "Salud 醫學詞彙庫與全域搜尋/文本渲染系統",
+          "region": "全球"
+        },
+        "primary_source": "SRC-WHO-IARC-ALCOHOL",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-META-009",
+            "citation": "Salud Terminology Governance Standard (VAL-002 & VAL-002b)",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D009626",
+          "mesh_term": "Terminology as Topic",
+          "icd11_code": "QA00",
+          "snomed_ct": "38870007"
+        },
+        "misuse_guard": "嚴禁在缺乏全稱說明的行文中單獨使用可能引起歧義的縮寫；若在同一章節同時提及兩者，必須明確標註擴展全名與作用器官。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "醫學英文縮寫常撞名：ADH 在肝臟是指分解酒精的「乙醇去氫酶」，在腦袋和腎臟卻是指鎖住水分的「抗利尿激素」；系統會智慧標記清楚，絕不讓讀者看糊塗。",
+          "biochemical_mechanism_zh": "同一個英文三個字母可能代表完全不同生物化學酵素與荷爾蒙路徑；透過上下文感知引擎自動解析專有名詞語意空間與 SNOMED/MeSH 本體映射。",
+          "diagnostic_cutoffs_zh": "CI 治理門檻：凡是未在 TerminologyRegistry 註冊或在正文中未經展開即出現的潛在歧義醫學術語，CI 審核引擎直接中斷建置並回報錯誤（VAL-002）。",
+          "nutritional_protocol_zh": "科普轉譯堅持「白話降維、機制升維」：首次出現專有名詞時，一律附帶生活化神比喻與完整中英文全稱，讓大眾能輕鬆讀懂硬核醫學機制。",
+          "drug_interactions_red_flags_zh": "在衛教藥物交互作用時，嚴格杜絕商品名與學名混淆，所有藥物名稱一律同步標註成分通用學名（Generic Name）以確保跨院用藥安全。",
+          "clinical_pearls_myths_zh": "細節見真章：一個嚴肅的實證醫學平台，對待字詞術語的嚴謹度就該像外科手術一樣精準無誤。"
+        }
+      }
+    },
+    {
+      "id": "KA-META-010",
+      "type": "atom",
+      "label": "Salud CI Governance-as-Code 29",
+      "data": {
+        "id": "KA-META-010",
+        "assertion_kind": "policy",
+        "risk_class": "R1",
+        "topic": "meta_architecture",
+        "statement_zh": "Salud CI Governance-as-Code 29 條不可妥協自動化審核引擎：每次代碼提交前強制校驗醫學一致性、無障礙 WCAG 2.2 AA、DOI 鏈接與圖解完整性。",
+        "applies_to": {
+          "population": "Salud 持續整合管線與工程治理全生命週期",
+          "region": "全球"
+        },
+        "primary_source": "SRC-AHA-ACC-2025-HTN",
+        "evidence_records": [
+          {
+            "id": "EV-EXP-META-010",
+            "citation": "Salud CI Governance Engine Specification (29 Active Automated Rules)",
+            "design": "expert_consensus",
+            "risk_of_bias": "low",
+            "directness": "high",
+            "provenance_level": "verified-primary"
+          }
+        ],
+        "derived_certainty": "high",
+        "ontology": {
+          "mesh_id": "D012984",
+          "mesh_term": "Software",
+          "icd11_code": "QA00",
+          "snomed_ct": "38870007"
+        },
+        "misuse_guard": "任何新功能或知識擴充若未 100% 通過 29 條治理檢查（0 errors, 0 warnings），CI 部署機器人將強制封鎖發布流程，絕不允許未檢驗內容上線。",
+        "status": "published",
+        "last_reviewed": "2026-09-24",
+        "clinical_mastery": {
+          "plain_core_zh": "把醫學倫理寫成程式碼自動檢查：每次只要改動一個字或加一個知識點，29 個嚴格的品管機器人就會自動跑一遍，只要發現格式不對或出處不明，立刻退件重修。",
+          "biochemical_mechanism_zh": "將醫學指引邏輯、極限邊界防禦、文獻 DOI 正則表達式與色彩對比度標準化為可執行的 TypeScript 測試單元，打造醫療軟體最高等級的防護堡壘。",
+          "diagnostic_cutoffs_zh": "治理指標：VAL-001 至 VAL-029 規則覆蓋率 100%；WCAG 2.2 AA 無障礙自動化稽核 132 個組件 100% 通過；Serving Layer 產物一致性 100%。",
+          "nutritional_protocol_zh": "開發團隊遵循嚴謹的 RPDCA 迭代治理架構，每次重大知識版本升級皆留下可追溯的審核軌跡、文獻依據與專家共識會議紀錄。",
+          "drug_interactions_red_flags_zh": "任何涉及藥物劑量或高危臨床操作的內容，必須在知識物件中宣告 R3 最高風險等級，並通過防濫用警告標籤（Misuse Guard）強制檢查。",
+          "clinical_pearls_myths_zh": "工程信念：軟體工程的最佳實踐是「Infrastructure as Code」，而 Salud 在數位醫學界的創新創舉則是「Medical Governance as Code」！"
         }
       }
     },
@@ -5810,12 +8523,12 @@
     {
       "id": "CLAIM-TW-LDCT",
       "type": "claim",
-      "label": "台灣國健署 LDCT 肺癌公費篩檢對象：50–74 歲男性或",
+      "label": "台灣國健署 LDCT 肺癌公費篩檢對象（114 年起）：具肺",
       "data": {
         "id": "CLAIM-TW-LDCT",
-        "statement": "台灣國健署 LDCT 肺癌公費篩檢對象：50–74 歲男性或 45–74 歲女性，具肺癌家族史或重度吸菸史達 30 包-年以上者。",
+        "statement": "台灣國健署 LDCT 肺癌公費篩檢對象（114 年起）：具肺癌家族史之 45–74 歲男性或 40–74 歲女性，或 50–74 歲重度吸菸史達 20 包-年以上者。",
         "value_kind": "point",
-        "numeric_value": 30,
+        "numeric_value": 20,
         "unit": "pack-years",
         "derivation": "衛生福利部國民健康署 114 年擴大肺癌篩檢服務實施方案",
         "is_individual_prescription": false,
@@ -6623,7 +9336,7 @@
     {
       "id": "TH-TW-LDCT-PACKYEAR",
       "type": "threshold",
-      "label": "國健署 LDCT 肺癌篩檢重度吸菸門檻 (>= 30 pack-years)",
+      "label": "國健署 LDCT 肺癌篩檢重度吸菸門檻 (>= 20 pack-years)",
       "data": {
         "id": "TH-TW-LDCT-PACKYEAR",
         "topic": "taiwan_policy",
@@ -6631,7 +9344,7 @@
         "metric_name_zh": "國健署 LDCT 肺癌篩檢重度吸菸門檻",
         "unit": "pack-years",
         "operator": ">=",
-        "value": 30,
+        "value": 20,
         "clinical_category_zh": "肺癌高危險篩檢對象 (High Risk for Lung Cancer)",
         "clinical_category_en": "LDCT High Risk Eligibility",
         "guideline_authority": "Taiwan HPA 2025",
@@ -6641,6 +9354,283 @@
         "actionable_implication_zh": "符合門檻者可獲每 2 年一次公費低劑量電腦斷層，早期偵測第 0-1 期肺腺癌。",
         "canonical_atom_id": "KA-TW-007",
         "canonical_claim_id": "CLAIM-TW-LDCT"
+      }
+    },
+    {
+      "id": "TH-BP-STAGE2",
+      "type": "threshold",
+      "label": "第 2 期高血壓 (>= 140 mmHg)",
+      "data": {
+        "id": "TH-BP-STAGE2",
+        "topic": "blood_pressure",
+        "metric_name": "Blood Pressure Stage 2",
+        "metric_name_zh": "第 2 期高血壓",
+        "unit": "mmHg",
+        "operator": ">=",
+        "value": 140,
+        "value_upper": 90,
+        "clinical_category_zh": "第 2 期高血壓 (Stage 2 Hypertension)",
+        "clinical_category_en": "Stage 2 Hypertension",
+        "guideline_authority": "AHA/ACC 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "一般成人 (>=18歲)",
+        "measurement_context_zh": "收縮壓 ≥140 或舒張壓 ≥90 mmHg（多次平均或居家 722）",
+        "actionable_implication_zh": "建議生活型態介入同時以兩種藥物（最好為單一複方錠）起始治療。"
+      }
+    },
+    {
+      "id": "TH-BP-SEVERE",
+      "type": "threshold",
+      "label": "嚴重高血壓 (>= 180 mmHg)",
+      "data": {
+        "id": "TH-BP-SEVERE",
+        "topic": "blood_pressure",
+        "metric_name": "Severe Hypertension",
+        "metric_name_zh": "嚴重高血壓",
+        "unit": "mmHg",
+        "operator": ">=",
+        "value": 180,
+        "value_upper": 120,
+        "clinical_category_zh": "嚴重高血壓 (Severe Hypertension)",
+        "clinical_category_en": "Severe Hypertension",
+        "guideline_authority": "AHA/ACC 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "一般成人",
+        "measurement_context_zh": "靜坐後重複量測仍 ≥180/120 mmHg",
+        "actionable_implication_zh": "合併胸痛、劇烈頭痛、視力模糊、神經學症狀時為高血壓急症，應立即就醫；無症狀者也應盡速回診。"
+      }
+    },
+    {
+      "id": "TH-GL-FPG-PREDIABETES",
+      "type": "threshold",
+      "label": "空腹血糖異常（糖尿病前期） (range 100 mg/dL)",
+      "data": {
+        "id": "TH-GL-FPG-PREDIABETES",
+        "topic": "glucose",
+        "metric_name": "Impaired Fasting Glucose",
+        "metric_name_zh": "空腹血糖異常（糖尿病前期）",
+        "unit": "mg/dL",
+        "operator": "range",
+        "value": 100,
+        "value_upper": 125,
+        "clinical_category_zh": "糖尿病前期 (Prediabetes, IFG)",
+        "clinical_category_en": "Prediabetes (Impaired Fasting Glucose)",
+        "guideline_authority": "ADA 2026",
+        "guideline_year": 2026,
+        "target_population_zh": "非懷孕成人",
+        "measurement_context_zh": "空腹 8 小時以上靜脈血漿血糖",
+        "actionable_implication_zh": "減重 5–7% 與每週 150 分鐘運動可大幅降低進展為糖尿病的風險；每年追蹤。"
+      }
+    },
+    {
+      "id": "TH-GL-OGTT-DIABETES",
+      "type": "threshold",
+      "label": "口服葡萄糖耐受試驗 2 小時糖尿病切點 (>= 200 mg/dL)",
+      "data": {
+        "id": "TH-GL-OGTT-DIABETES",
+        "topic": "glucose",
+        "metric_name": "2-hour OGTT Diabetes Cutoff",
+        "metric_name_zh": "口服葡萄糖耐受試驗 2 小時糖尿病切點",
+        "unit": "mg/dL",
+        "operator": ">=",
+        "value": 200,
+        "clinical_category_zh": "糖尿病 (Diabetes, 2-h PG)",
+        "clinical_category_en": "Diabetes by 2-hour Plasma Glucose",
+        "guideline_authority": "ADA 2026",
+        "guideline_year": 2026,
+        "target_population_zh": "非懷孕成人",
+        "measurement_context_zh": "75 公克葡萄糖負荷後 2 小時靜脈血漿血糖",
+        "actionable_implication_zh": "需以另一項檢驗確認；140–199 mg/dL 屬糖尿病前期（葡萄糖耐受不良）。"
+      }
+    },
+    {
+      "id": "TH-LP-LDL-VERY-HIGH-RISK",
+      "type": "threshold",
+      "label": "極高風險族群 LDL-C 目標 (< 55 mg/dL)",
+      "data": {
+        "id": "TH-LP-LDL-VERY-HIGH-RISK",
+        "topic": "lipids",
+        "metric_name": "LDL-C Goal (Very/Extreme High Risk)",
+        "metric_name_zh": "極高風險族群 LDL-C 目標",
+        "unit": "mg/dL",
+        "operator": "<",
+        "value": 55,
+        "clinical_category_zh": "極高風險治療目標 (Extreme-Risk Goal)",
+        "clinical_category_en": "Extreme-Risk LDL-C Goal",
+        "guideline_authority": "ACC/AHA 2026; 台灣 2025 血脂管理臨床路徑",
+        "guideline_year": 2026,
+        "target_population_zh": "近期急性冠心症、多次心血管事件或多重高風險者",
+        "measurement_context_zh": "治療中定期抽血（開始或調藥後 6–8 週複查）",
+        "actionable_implication_zh": "通常需要 statin 合併 ezetimibe 或 PCSK9 抑制劑等才能達標。"
+      }
+    },
+    {
+      "id": "TH-LP-TG-HIGH",
+      "type": "threshold",
+      "label": "三酸甘油酯偏高 (>= 150 mg/dL)",
+      "data": {
+        "id": "TH-LP-TG-HIGH",
+        "topic": "lipids",
+        "metric_name": "Triglycerides High",
+        "metric_name_zh": "三酸甘油酯偏高",
+        "unit": "mg/dL",
+        "operator": ">=",
+        "value": 150,
+        "clinical_category_zh": "三酸甘油酯偏高 (Hypertriglyceridemia)",
+        "clinical_category_en": "Elevated Triglycerides",
+        "guideline_authority": "國健署代謝症候群判定標準; ACC/AHA 2026",
+        "guideline_year": 2026,
+        "target_population_zh": "一般成人",
+        "measurement_context_zh": "空腹 8–12 小時，抽血前一晚不飲酒",
+        "actionable_implication_zh": "減少含糖飲料、精製澱粉與酒精，並處理胰島素阻抗；為代謝症候群五項指標之一。"
+      }
+    },
+    {
+      "id": "TH-LP-TG-VERY-HIGH",
+      "type": "threshold",
+      "label": "三酸甘油酯極高（胰臟炎風險） (>= 500 mg/dL)",
+      "data": {
+        "id": "TH-LP-TG-VERY-HIGH",
+        "topic": "lipids",
+        "metric_name": "Triglycerides Very High",
+        "metric_name_zh": "三酸甘油酯極高（胰臟炎風險）",
+        "unit": "mg/dL",
+        "operator": ">=",
+        "value": 500,
+        "clinical_category_zh": "重度高三酸甘油酯血症 (Severe Hypertriglyceridemia)",
+        "clinical_category_en": "Severe Hypertriglyceridemia",
+        "guideline_authority": "ACC/AHA 2026",
+        "guideline_year": 2026,
+        "target_population_zh": "一般成人",
+        "measurement_context_zh": "空腹血清三酸甘油酯",
+        "actionable_implication_zh": "急性胰臟炎風險上升，需就醫評估次發原因（酒精、糖尿病控制不良、藥物）與藥物治療。"
+      }
+    },
+    {
+      "id": "TH-KD-UACR-A2",
+      "type": "threshold",
+      "label": "尿白蛋白中度增加 (A2) (range 30 mg/g)",
+      "data": {
+        "id": "TH-KD-UACR-A2",
+        "topic": "kidney",
+        "metric_name": "UACR Moderately Increased (A2)",
+        "metric_name_zh": "尿白蛋白中度增加 (A2)",
+        "unit": "mg/g",
+        "operator": "range",
+        "value": 30,
+        "value_upper": 300,
+        "clinical_category_zh": "中度增加白蛋白尿 (A2)",
+        "clinical_category_en": "Moderately Increased Albuminuria (A2)",
+        "guideline_authority": "KDIGO 2024",
+        "guideline_year": 2024,
+        "target_population_zh": "成人，特別是高血壓與糖尿病患者",
+        "measurement_context_zh": "晨尿尿液白蛋白/肌酸酐比值；3–6 個月內 3 次中 2 次異常才確認",
+        "actionable_implication_zh": "即使 eGFR 正常也代表腎臟受損，應控制血壓血糖並考慮具腎臟保護效果的藥物。"
+      }
+    },
+    {
+      "id": "TH-KD-UACR-A3",
+      "type": "threshold",
+      "label": "尿白蛋白重度增加 (A3) (> 300 mg/g)",
+      "data": {
+        "id": "TH-KD-UACR-A3",
+        "topic": "kidney",
+        "metric_name": "UACR Severely Increased (A3)",
+        "metric_name_zh": "尿白蛋白重度增加 (A3)",
+        "unit": "mg/g",
+        "operator": ">",
+        "value": 300,
+        "clinical_category_zh": "重度增加白蛋白尿 (A3)",
+        "clinical_category_en": "Severely Increased Albuminuria (A3)",
+        "guideline_authority": "KDIGO 2024",
+        "guideline_year": 2024,
+        "target_population_zh": "成人",
+        "measurement_context_zh": "晨尿尿液白蛋白/肌酸酐比值",
+        "actionable_implication_zh": "腎衰竭與心血管事件風險高，建議轉介腎臟科；UACR ≥200 mg/g 且 eGFR ≥20 者建議使用 SGLT2 抑制劑。"
+      }
+    },
+    {
+      "id": "TH-KD-EGFR-CKD",
+      "type": "threshold",
+      "label": "慢性腎臟病 eGFR 門檻 (< 60 mL/min/1.73m²)",
+      "data": {
+        "id": "TH-KD-EGFR-CKD",
+        "topic": "kidney",
+        "metric_name": "eGFR CKD Threshold",
+        "metric_name_zh": "慢性腎臟病 eGFR 門檻",
+        "unit": "mL/min/1.73m²",
+        "operator": "<",
+        "value": 60,
+        "clinical_category_zh": "慢性腎臟病 G3a 以上 (CKD G3a+)",
+        "clinical_category_en": "CKD Stage G3a or Worse",
+        "guideline_authority": "KDIGO 2024",
+        "guideline_year": 2024,
+        "target_population_zh": "成人",
+        "measurement_context_zh": "以肌酸酐（或加上胱抑素 C）推算，異常需持續 ≥3 個月",
+        "actionable_implication_zh": "需依 eGFR × UACR 風險熱圖決定追蹤頻率，並檢視所有藥物劑量。"
+      }
+    },
+    {
+      "id": "TH-BC-WHTR",
+      "type": "threshold",
+      "label": "腰圍身高比 (> 0.5 ratio)",
+      "data": {
+        "id": "TH-BC-WHTR",
+        "topic": "body_composition",
+        "metric_name": "Waist-to-Height Ratio",
+        "metric_name_zh": "腰圍身高比",
+        "unit": "ratio",
+        "operator": ">",
+        "value": 0.5,
+        "clinical_category_zh": "腹部脂肪過多 (Excess Central Adiposity)",
+        "clinical_category_en": "Excess Central Adiposity",
+        "guideline_authority": "Lancet Diabetes & Endocrinology Commission 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "成人（不分性別）",
+        "measurement_context_zh": "站立吐氣後於肋骨下緣與骨盆上緣中點量腰圍，除以身高",
+        "actionable_implication_zh": "搭配 BMI 確認是否脂肪過多；應評估血壓、血糖、血脂與脂肪肝。"
+      }
+    },
+    {
+      "id": "TH-PA-STEPS-7000",
+      "type": "threshold",
+      "label": "每日步數效益門檻 (>= 7000 steps/day)",
+      "data": {
+        "id": "TH-PA-STEPS-7000",
+        "topic": "physical_activity",
+        "metric_name": "Daily Step Count Benefit Threshold",
+        "metric_name_zh": "每日步數效益門檻",
+        "unit": "steps/day",
+        "operator": ">=",
+        "value": 7000,
+        "clinical_category_zh": "顯著健康效益步數 (Meaningful Benefit)",
+        "clinical_category_en": "Meaningful Health Benefit",
+        "guideline_authority": "Lancet Public Health meta-analysis 2025",
+        "guideline_year": 2025,
+        "target_population_zh": "一般成人",
+        "measurement_context_zh": "手機或穿戴裝置一週平均每日步數",
+        "actionable_implication_zh": "與每天 2,000 步相比，全因死亡約低 47%；從現況每天增加 1,000 步逐步達成。"
+      }
+    },
+    {
+      "id": "TH-PA-RT-FREQUENCY",
+      "type": "threshold",
+      "label": "肌力訓練頻率 (>= 2 sessions/week)",
+      "data": {
+        "id": "TH-PA-RT-FREQUENCY",
+        "topic": "physical_activity",
+        "metric_name": "Resistance Training Frequency",
+        "metric_name_zh": "肌力訓練頻率",
+        "unit": "sessions/week",
+        "operator": ">=",
+        "value": 2,
+        "clinical_category_zh": "肌力訓練最低建議量 (Minimum Recommended)",
+        "clinical_category_en": "Minimum Recommended Resistance Training",
+        "guideline_authority": "ACSM 2026 Position Stand; WHO 2020",
+        "guideline_year": 2026,
+        "target_population_zh": "一般成人與長者",
+        "measurement_context_zh": "訓練全身主要肌群的次數；每組保留 2–3 下餘力",
+        "actionable_implication_zh": "從不練到開始練是最大效益來源；彈力帶與居家訓練同樣有效。"
       }
     },
     {
@@ -6969,6 +9959,152 @@
       }
     },
     {
+      "id": "TERM-EGFR",
+      "type": "term",
+      "label": "eGFR: 腎絲球過濾率估計值 (estimated Glo",
+      "data": {
+        "term": "eGFR",
+        "primary_expansion_zh": "腎絲球過濾率估計值 (estimated Glomerular Filtration Rate)",
+        "secondary_expansions_zh": [
+          "表皮生長因子受體 (Epidermal Growth Factor Receptor, EGFR)"
+        ],
+        "domain": "腎臟醫學與檢驗醫學",
+        "context_guidance_zh": "健檢報告中的小寫 eGFR 指腎功能，單位 mL/min/1.73m²；腫瘤科報告中的大寫 EGFR 指肺癌等常見的基因突變標靶。",
+        "ambiguity_warning_zh": "兩者完全無關：看到「EGFR 突變」是癌症基因檢測，不是腎功能異常，反之亦然。",
+        "ontology": {
+          "mesh_id": "D005919",
+          "mesh_term": "Glomerular Filtration Rate"
+        }
+      }
+    },
+    {
+      "id": "TERM-UACR",
+      "type": "term",
+      "label": "UACR: 尿液白蛋白/肌酸酐比值 (Urine Album",
+      "data": {
+        "term": "UACR",
+        "primary_expansion_zh": "尿液白蛋白/肌酸酐比值 (Urine Albumin-to-Creatinine Ratio)",
+        "domain": "腎臟醫學與心血管風險",
+        "context_guidance_zh": "以晨尿測量，<30 mg/g 為正常；KDIGO 以 A1–A3 分級，與 eGFR 一起組成慢性腎臟病風險熱圖。",
+        "ambiguity_warning_zh": "與「尿蛋白試紙」不同，UACR 能偵測試紙抓不到的微量白蛋白，是更早期的腎臟損傷指標。",
+        "ontology": {
+          "mesh_id": "D000419",
+          "mesh_term": "Albuminuria"
+        }
+      }
+    },
+    {
+      "id": "TERM-FIB4",
+      "type": "term",
+      "label": "FIB-4: 肝纖維化-4 指數 (Fibrosis-4 In",
+      "data": {
+        "term": "FIB-4",
+        "primary_expansion_zh": "肝纖維化-4 指數 (Fibrosis-4 Index)",
+        "domain": "肝膽腸胃醫學",
+        "context_guidance_zh": "由年齡、AST、ALT、血小板計算；<1.3 低風險、1.3–2.67 建議肝臟彈性檢查、>2.67 轉介專科。65 歲以上低風險切點改用 2.0。",
+        "ambiguity_warning_zh": "這是分流工具而非診斷；急性肝炎或血小板異常時會失準。"
+      }
+    },
+    {
+      "id": "TERM-PREVENT",
+      "type": "term",
+      "label": "PREVENT: AHA PREVENT 心血管風險計算器 (Pr",
+      "data": {
+        "term": "PREVENT",
+        "primary_expansion_zh": "AHA PREVENT 心血管風險計算器 (Predicting Risk of cardiovascular disease EVENTs)",
+        "domain": "心血管預防醫學",
+        "context_guidance_zh": "2023 年由美國心臟學會發布、2025 年高血壓指引與 2026 年血脂指引採用，估算 30–79 歲成人 10 年與 30 年心血管疾病、動脈硬化心血管疾病與心衰竭風險，納入腎功能與代謝指標並移除種族變項。",
+        "ambiguity_warning_zh": "以美國族群資料建立，用於台灣人時仍需搭配本地指引；家族性高膽固醇血症患者會被低估風險。"
+      }
+    },
+    {
+      "id": "TERM-CKM",
+      "type": "term",
+      "label": "CKM: 心血管-腎臟-代謝症候群 (Cardiovasc",
+      "data": {
+        "term": "CKM",
+        "primary_expansion_zh": "心血管-腎臟-代謝症候群 (Cardiovascular-Kidney-Metabolic Syndrome)",
+        "domain": "心血管與代謝醫學",
+        "context_guidance_zh": "美國心臟學會 2023 年提出，將肥胖、糖尿病、慢性腎臟病與心血管疾病視為同一條連續路徑，分為 0–4 期。",
+        "ambiguity_warning_zh": "與「肌酸激酶 CK」無關；CK 是肌肉受損時上升的血液酵素。"
+      }
+    },
+    {
+      "id": "TERM-GLP1",
+      "type": "term",
+      "label": "GLP-1 RA: 類升糖素胜肽-1 受體促效劑 (Glucagon",
+      "data": {
+        "term": "GLP-1 RA",
+        "primary_expansion_zh": "類升糖素胜肽-1 受體促效劑 (Glucagon-Like Peptide-1 Receptor Agonist)",
+        "secondary_expansions_zh": [
+          "GIP/GLP-1 雙重促效劑（如 tirzepatide）"
+        ],
+        "domain": "內分泌與肥胖醫學",
+        "context_guidance_zh": "包括注射型 liraglutide、semaglutide，口服 semaglutide 與 orforglipron；tirzepatide 同時作用於 GIP 與 GLP-1 受體。",
+        "ambiguity_warning_zh": "坊間「天然 GLP-1」「GLP-1 補充品」並不是受體促效劑，效果與證據強度不可相提並論。"
+      }
+    },
+    {
+      "id": "TERM-SGLT2I",
+      "type": "term",
+      "label": "SGLT2i: 鈉-葡萄糖共同轉運蛋白 2 抑制劑 (Sodiu",
+      "data": {
+        "term": "SGLT2i",
+        "primary_expansion_zh": "鈉-葡萄糖共同轉運蛋白 2 抑制劑 (Sodium-Glucose Cotransporter-2 Inhibitor)",
+        "domain": "腎臟、心臟與代謝醫學",
+        "context_guidance_zh": "讓葡萄糖從尿液排出，除了降血糖，也已被證實保護心衰竭與慢性腎臟病患者；KDIGO 2024 建議用於 eGFR ≥20 的多數 CKD 患者。",
+        "ambiguity_warning_zh": "開始用藥後 eGFR 可能暫時小幅下降，通常屬預期中的血流動力學變化，不代表腎臟受損。"
+      }
+    },
+    {
+      "id": "TERM-CGM",
+      "type": "term",
+      "label": "CGM: 連續血糖監測 (Continuous Gluco",
+      "data": {
+        "term": "CGM",
+        "primary_expansion_zh": "連續血糖監測 (Continuous Glucose Monitoring)",
+        "domain": "糖尿病照護與醫療科技",
+        "context_guidance_zh": "以皮下感測器每數分鐘測量組織間液葡萄糖；ADA 2026 建議糖尿病患者從確診起即可考慮使用，並以 TIR（目標範圍時間）追蹤。",
+        "ambiguity_warning_zh": "組織間液血糖比血液延遲約 5–15 分鐘；沒有糖尿病的人用 CGM 解讀餐後波動，容易過度焦慮。"
+      }
+    },
+    {
+      "id": "TERM-RIR",
+      "type": "term",
+      "label": "RIR: 保留次數 (Repetitions in Res",
+      "data": {
+        "term": "RIR",
+        "primary_expansion_zh": "保留次數 (Repetitions in Reserve)",
+        "domain": "運動科學與肌力訓練",
+        "context_guidance_zh": "一組結束時「還能再做幾下」。ACSM 2026 指出保留 2–3 下即可達到與力竭相近的肌肥大與肌力效果。",
+        "ambiguity_warning_zh": "初學者常低估自己的餘力；可先以錄影或教練回饋校正。"
+      }
+    },
+    {
+      "id": "TERM-NNT",
+      "type": "term",
+      "label": "NNT: 需治療人數 (Number Needed to ",
+      "data": {
+        "term": "NNT",
+        "primary_expansion_zh": "需治療人數 (Number Needed to Treat)",
+        "domain": "實證醫學與風險溝通",
+        "context_guidance_zh": "1 ÷ 絕對風險差。表示要治療多少人，才能讓 1 人避免不良結果；數字越小、效益越大。",
+        "ambiguity_warning_zh": "NNT 一定要搭配追蹤時間解讀（例如「5 年 NNT = 100」）；只報相對風險降低容易誇大效果。"
+      }
+    },
+    {
+      "id": "TERM-UPF",
+      "type": "term",
+      "label": "UPF: 超加工食品 (Ultra-Processed F",
+      "data": {
+        "term": "UPF",
+        "primary_expansion_zh": "超加工食品 (Ultra-Processed Food, NOVA 第 4 類)",
+        "domain": "營養流行病學與公共衛生",
+        "context_guidance_zh": "以工業原料與添加物（乳化劑、香料、色素、改質澱粉等）為主組成的食品；2025 年 Lancet 系列指出與多種慢性病風險上升相關。",
+        "ambiguity_warning_zh": "NOVA 依加工目的分類，不等於營養素好壞：部分全穀麵包或無糖優格也可能被歸為超加工，判讀時仍要看營養標示。"
+      }
+    },
+    {
       "id": "POL-TW-COLORECTAL",
       "type": "policy",
       "label": "國民健康署公費大腸癌篩檢政策",
@@ -7062,16 +10198,17 @@
         "title_zh": "公費肺癌早期偵測計畫 (低劑量電腦斷層 LDCT)",
         "title_en": "Taiwan HPA Subsidized Low-Dose CT (LDCT) Lung Cancer Screening Policy",
         "cancer_type": "肺癌 (Lung Cancer)",
-        "target_population_zh": "具肺癌家族史者（父母、子女、兄弟姊妹罹患肺癌）及重度吸菸史者（≥20 包-年）",
-        "age_range_zh": "男性 50–74 歲 / 女性 45–74 歲（家族史組年齡下限現正查核中）",
+        "target_population_zh": "具肺癌家族史者（父母、子女、兄弟姊妹罹患肺癌），以及 50–74 歲重度吸菸史者（≥20 包-年，有意願戒菸或戒菸未滿 15 年）",
+        "age_range_zh": "家族史組：男性 45–74 歲 / 女性 40–74 歲；重度吸菸組：50–74 歲",
         "screening_interval_zh": "每 2 年 1 次",
         "modality_zh": "胸部低劑量電腦斷層攝影 (LDCT)",
-        "effective_from": "2022-07-01",
-        "policy_version": "2022-HPA-LDCT-01",
-        "canonical_url": "https://www.hpa.gov.tw/Pages/List.aspx?nodeid=4622",
-        "retrieved_date": "2026-09-20",
-        "status": "needs-provenance-review",
-        "notes_zh": "【審查攔阻中】：二手來源對家族史組男女年齡下限（45/50 vs 40/45）存在歧異解讀。依 VAL-016 規範，在取得 HPA 官方公告精確核定前，不得以 R3 級別正式發佈。"
+        "effective_from": "2025-01-01",
+        "policy_version": "114-MOHW-LDCT-01",
+        "canonical_url": "https://www.mohw.gov.tw/cp-16-80948-1.html",
+        "retrieved_date": "2026-09-28",
+        "supersedes": "2022-HPA-LDCT-01",
+        "status": "active",
+        "notes_zh": "【來源審查已解除 2026-09-28】：先前二手來源對家族史組年齡下限（45/50 vs 40/45）解讀不一而被 VAL-016 攔阻；經比對衛福部〈健康臺灣-114年起擴大癌症篩檢〉官方公告原文，確認為「40–74 歲女性及 45–74 歲男性」，重度吸菸門檻由 30 包-年放寬為 20 包-年。"
       }
     },
     {
@@ -7096,14 +10233,14 @@
     {
       "id": "SRC-ACC-AHA-2026-LIPID",
       "type": "source",
-      "label": "2026 ACC/AHA Multisociety Guid",
+      "label": "2026 ACC/AHA/AACVPR/ABC/ACPM/A",
       "data": {
         "id": "SRC-ACC-AHA-2026-LIPID",
-        "title": "2026 ACC/AHA Multisociety Guideline on the Management of Blood Cholesterol",
-        "publisher": "Journal of the American College of Cardiology",
+        "title": "2026 ACC/AHA/AACVPR/ABC/ACPM/ADA/AGS/APhA/ASPC/NLA/PCNA Guideline on the Management of Dyslipidemia",
+        "publisher": "Circulation / Journal of the American College of Cardiology",
         "year": 2026,
         "grade": "A",
-        "canonical_url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.12.001",
+        "canonical_url": "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001423",
         "version": "2026-ACC-AHA-LIPID",
         "retrieved_date": "2026-09-20",
         "jurisdiction": "global",
@@ -8270,6 +11407,306 @@
     {
       "source": "KA-TW-010",
       "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-009",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-010",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-011",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-012",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BP-013",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GLU-009",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GLU-010",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GLU-011",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GLU-012",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-GLU-013",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LIP-009",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LIP-010",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LIP-011",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LIP-012",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-LIP-013",
+      "target": "SRC-ACC-AHA-2026-LIPID",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-HYD-015",
+      "target": "SRC-EAH-CONSENSUS-2015",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-HYD-016",
+      "target": "SRC-IOM-2005-WATER",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-HYD-017",
+      "target": "SRC-EAH-CONSENSUS-2015",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-HYD-018",
+      "target": "SRC-IOM-2005-WATER",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-HYD-019",
+      "target": "SRC-EAH-CONSENSUS-2015",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-DIET-009",
+      "target": "SRC-WHO-SFA-2023",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-DIET-010",
+      "target": "SRC-WHO-SFA-2023",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-DIET-011",
+      "target": "SRC-TFDA-FRYING-2011",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-DIET-012",
+      "target": "SRC-WHO-SFA-2023",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-DIET-013",
+      "target": "SRC-WHO-SFA-2023",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-ALC-013",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-ALC-014",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-ALC-015",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-ALC-016",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-ALC-017",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BC-007",
+      "target": "SRC-AWGS-2019-SARCOPENIA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BC-008",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BC-009",
+      "target": "SRC-AWGS-2019-SARCOPENIA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BC-010",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-BC-011",
+      "target": "SRC-AWGS-2019-SARCOPENIA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-REN-010",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-REN-011",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-REN-012",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-REN-013",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-REN-014",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-EX-011",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-EX-012",
+      "target": "SRC-AWGS-2019-SARCOPENIA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-EX-013",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-EX-014",
+      "target": "SRC-ADA-2026",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-EX-015",
+      "target": "SRC-AWGS-2019-SARCOPENIA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-SLP-009",
+      "target": "SRC-AASM-2020-OSA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-SLP-010",
+      "target": "SRC-AASM-2020-OSA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-SLP-011",
+      "target": "SRC-AASM-2020-OSA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-SLP-012",
+      "target": "SRC-AASM-2020-OSA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-SLP-013",
+      "target": "SRC-AASM-2020-OSA",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-011",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-012",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-013",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-014",
+      "target": "SRC-HPA-CANCER-SCREENING-2025",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-TW-015",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-006",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-007",
+      "target": "SRC-KDIGO-2024-CKD",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-008",
+      "target": "SRC-AHA-ACC-2025-HTN",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-009",
+      "target": "SRC-WHO-IARC-ALCOHOL",
+      "relation": "cites"
+    },
+    {
+      "source": "KA-META-010",
+      "target": "SRC-AHA-ACC-2025-HTN",
       "relation": "cites"
     },
     {

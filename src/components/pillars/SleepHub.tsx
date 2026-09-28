@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHashTab } from '../../hooks/useHashTab';
+import { SLEEP_TABS } from '../../config/routes';
 import {
   SLEEP_STAGES,
   SLEEP_TOPICS,
@@ -35,7 +37,7 @@ import {
 
 export const SleepHub: React.FC = () => {
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState<SleepSubTab>('OVERVIEW');
+  const [activeTab, setActiveTab] = useHashTab<SleepSubTab>('sleep', SLEEP_TABS, 'OVERVIEW');
   const [expandedTopic, setExpandedTopic] = useState<string | null>('SL-02');
 
   // ── Caffeine Pharmacokinetics Simulator State ──
