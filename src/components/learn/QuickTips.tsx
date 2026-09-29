@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
-import { Zap, Footprints, Salad, Moon, Brain, ClipboardCheck, ShieldAlert, Plus, Check, ChevronDown, Clock, ArrowRight, LucideIcon } from 'lucide-react';
+import {
+  Zap,
+  Footprints,
+  Salad,
+  Moon,
+  Brain,
+  ClipboardCheck,
+  ShieldAlert,
+  Plus,
+  Check,
+  ChevronDown,
+  Clock,
+  ArrowRight,
+  Sparkles,
+  LucideIcon,
+} from 'lucide-react';
 import { QUICK_TIPS_BY_KEY, TIP_KIND_META } from '../../data/learning/quickTips';
 import { TipKind } from '../../types/learning';
 import { useActionPlan } from '../../hooks/useActionPlan';
@@ -52,6 +67,7 @@ export const QuickTips: React.FC<{ sectionKey: string; className?: string }> = (
   const { add, remove, inPlan, plan } = useActionPlan();
   const { go } = useNavigation();
   const [collapsed, setCollapsed] = useState<boolean>(readCollapsed);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'move' | 'eat' | 'habit'>('all');
 
   if (!section) return null;
 
@@ -64,6 +80,18 @@ export const QuickTips: React.FC<{ sectionKey: string; className?: string }> = (
       /* per-viewer convenience only */
     }
   };
+
+  const moveTips = section.tips.filter((t) => t.kind === 'move');
+  const eatTips = section.tips.filter((t) => t.kind === 'eat');
+  const habitTips = section.tips.filter((t) => t.kind !== 'move' && t.kind !== 'eat');
+  const filteredTips =
+    activeFilter === 'move'
+      ? moveTips
+      : activeFilter === 'eat'
+      ? eatTips
+      : activeFilter === 'habit'
+      ? habitTips
+      : section.tips;
 
   const added = section.tips.filter((tip) => inPlan(tip.id)).length;
   const headingId = `tips-${sectionKey.replace(/[^a-zA-Z0-9]/g, '-')}`;
@@ -78,11 +106,11 @@ export const QuickTips: React.FC<{ sectionKey: string; className?: string }> = (
         aria-expanded={!collapsed}
         className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 text-left"
       >
-        <span className="w-9 h-9 shrink-0 rounded-xl bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 inline-flex items-center justify-center" aria-hidden="true">
+        <span className="w-9 h-9 shrink-0 rounded-xl bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 inline-flex items-center justify-center shadow-sm" aria-hidden="true">
           <Zap className="w-5 h-5" />
         </span>
         <span className="flex-1 min-w-0">
-          <span className="block text-xs font-semibold text-emerald-700 dark:text-emerald-400">立即上手</span>
+          <span className="block text-xs font-semibold text-emerald-700 dark:text-emerald-400">立即上手實用指南</span>
           <span id={headingId} className="block font-bold text-slate-900 dark:text-white truncate">
             {section.title_zh}
           </span>
@@ -95,14 +123,80 @@ export const QuickTips: React.FC<{ sectionKey: string; className?: string }> = (
 
       {!collapsed && (
         <div className="px-4 sm:px-5 pb-4 space-y-3">
+          {/* Quick category filter pills */}
+          <div className="flex flex-wrap items-center gap-1.5 pt-1 pb-1" role="tablist" aria-label="篩選技巧種類">
+            <button
+              type="button"
+              onClick={() => setActiveFilter('all')}
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                activeFilter === 'all'
+                  ? 'bg-emerald-700 text-white dark:bg-emerald-500 dark:text-emerald-950 shadow-sm'
+                  : 'bg-white/80 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+              }`}
+            >
+              全部 ({section.tips.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveFilter('move')}
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors inline-flex items-center gap-1.5 ${
+                activeFilter === 'move'
+                  ? 'bg-teal-700 text-white dark:bg-teal-500 dark:text-teal-950 shadow-sm'
+                  : 'bg-white/80 dark:bg-slate-800 text-teal-800 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60'
+              }`}
+            >
+              <Footprints className="w-3.5 h-3.5" aria-hidden="true" />
+              開始運動 ({moveTips.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveFilter('eat')}
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors inline-flex items-center gap-1.5 ${
+                activeFilter === 'eat'
+                  ? 'bg-amber-700 text-white dark:bg-amber-500 dark:text-amber-950 shadow-sm'
+                  : 'bg-white/80 dark:bg-slate-800 text-amber-900 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60'
+              }`}
+            >
+              <Salad className="w-3.5 h-3.5" aria-hidden="true" />
+              注意飲食 ({eatTips.length})
+            </button>
+            {habitTips.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setActiveFilter('habit')}
+                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors inline-flex items-center gap-1.5 ${
+                  activeFilter === 'habit'
+                    ? 'bg-sky-700 text-white dark:bg-sky-500 dark:text-sky-950 shadow-sm'
+                    : 'bg-white/80 dark:bg-slate-800 text-sky-800 dark:text-sky-300 hover:bg-sky-50 dark:hover:bg-sky-950/40 border border-slate-200 dark:border-slate-700'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+                習慣與安全 ({habitTips.length})
+              </button>
+            )}
+          </div>
+
           {/* Phones: one swipeable row so the page content stays near the top; md+: grid. */}
           <ul className="-mx-4 px-4 sm:-mx-5 sm:px-5 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-1 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:overflow-visible md:snap-none md:pb-0">
-            {section.tips.map((tip) => {
+            {filteredTips.map((tip, idx) => {
               const inside = inPlan(tip.id);
+              const isFirstRecommended = idx === 0 && activeFilter === 'all';
               return (
-                <li key={tip.id} className="snap-start shrink-0 w-[85%] sm:w-[60%] md:w-auto rounded-xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/70 p-3.5 flex flex-col gap-2">
+                <li
+                  key={tip.id}
+                  className={`snap-start shrink-0 w-[85%] sm:w-[60%] md:w-auto rounded-xl border bg-white/90 dark:bg-slate-900/70 p-3.5 flex flex-col gap-2 transition-all ${
+                    isFirstRecommended
+                      ? 'border-emerald-300 dark:border-emerald-700 shadow-sm ring-1 ring-emerald-500/20'
+                      : 'border-slate-200 dark:border-slate-800'
+                  }`}
+                >
                   <div className="flex items-center gap-2 flex-wrap">
                     <TipKindBadge kind={tip.kind} />
+                    {isFirstRecommended && (
+                      <span className="px-2 py-0.5 rounded-full font-mono text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                        🌟 今日第一步推薦
+                      </span>
+                    )}
                     {tip.minutes > 0 && (
                       <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
                         <Clock className="w-3 h-3" aria-hidden="true" />
@@ -132,7 +226,7 @@ export const QuickTips: React.FC<{ sectionKey: string; className?: string }> = (
               );
             })}
           </ul>
-          <p className="md:hidden text-xs text-slate-500 dark:text-slate-400">← 左右滑動看全部 {section.tips.length} 個做法 →</p>
+          <p className="md:hidden text-xs text-slate-500 dark:text-slate-400">← 左右滑動看全部 {filteredTips.length} 個做法 →</p>
           {plan.items.length > 0 && (
             <button onClick={() => go('home/plan')} className="inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline">
               查看我的行動計畫（{plan.items.length} 項）

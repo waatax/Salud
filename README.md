@@ -4,8 +4,17 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v4.0.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v4.1.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+---
+
+## ⚡ v4.1.0：全區段實用 TIP 深度整合 · 動吃雙核心起跑（2026-09）
+
+v4.1.0 依據「立刻上手改善健康、開始運動、注意飲食」核心理念，深度整合並強化了全平台 39 個區段的實用行動指南：
+- **39 個區段全面標配 5 則具體技巧（195 則實用 TIP）**：擴展至學習路徑（7 大主線）、4 週啟動計畫、健康小辭典、8 大人體系統、營養四大章節、9 大運動專項及全體健康支柱。
+- **動吃雙核心原則（Move & Eat Rule）**：每個區段均強制包含至少一項「🏃 開始運動」與「🥗 注意飲食」建議，給予明確劑量與花費時間（例如 10 分鐘快走、餐盤順序 2:1:1、換掉一杯糖飲、722 居家量血壓）。
+- **QuickTips 分類快篩與第一步推薦**：提供 `全部`、`🏃 開始運動`、`🥗 注意飲食`、`💡 習慣與安全` 一鍵切換，並以「🌟 今日第一步推薦」標示最低心理門檻行動。
 
 ---
 

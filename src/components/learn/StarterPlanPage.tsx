@@ -111,7 +111,7 @@ export const StarterPlanPage: React.FC = () => {
         })}
       </ol>
 
-      <QuickTips sectionKey="home" />
+      <QuickTips sectionKey="start" />
 
       <div className="flex flex-wrap gap-3">
         <button onClick={() => go('learn/move/L-MOVE-01')} className="rounded-xl bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-emerald-950 font-semibold px-4 py-2.5">

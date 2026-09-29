@@ -24,6 +24,7 @@ import { LEARNING_TRACKS, getTrack, TOTAL_LESSON_MINUTES, ALL_LESSONS } from '..
 import { getUpdate } from '../../data/learning/evidenceUpdates';
 import { LearningTrack, Lesson } from '../../types/learning';
 import { TONE, TrackIcon, ProgressBar, PageHeader, formatYM } from './learnUi';
+import { QuickTips } from './QuickTips';
 
 /** `#learn` → catalogue, `#learn/<track>` → track overview, `#learn/<track>/<lesson>` → lesson. */
 export const TrackView: React.FC = () => {
@@ -65,6 +66,8 @@ const Catalogue: React.FC = () => {
           )}
         </div>
       </PageHeader>
+
+      <QuickTips sectionKey="learn:basics" />
 
       <ol className="space-y-6">
         {LEARNING_TRACKS.map((t, i) => (
@@ -149,6 +152,7 @@ const TrackOverview: React.FC<{ track: LearningTrack }> = ({ track }) => {
       <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden">
         <LessonList track={track} />
       </div>
+      <QuickTips key={track.id} sectionKey={`learn:${track.id}`} />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { useNavigation } from '../../context/NavigationContext';
 import { GLOSSARY, GLOSSARY_CATEGORIES } from '../../data/learning/glossary';
 import { CANONICAL_TERMINOLOGY_REGISTRY } from '../../knowledge/terms/terminology';
 import { PageHeader } from './learnUi';
+import { QuickTips } from './QuickTips';
 
 type Cat = (typeof GLOSSARY_CATEGORIES)[number] | 'all' | 'acronym';
 
@@ -42,6 +43,8 @@ export const GlossaryPage: React.FC = () => {
         title="看不懂的名詞，一句話說清楚"
         lead="報告、藥袋、診間與新聞裡常見的醫學名詞，用不帶術語的白話解釋；另外整理了容易混淆的縮寫。"
       />
+
+      <QuickTips sectionKey="glossary" />
 
       <label className="relative block max-w-lg">
         <span className="sr-only">搜尋名詞</span>

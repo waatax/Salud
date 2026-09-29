@@ -180,6 +180,9 @@ test('tips: every section the UI can request exists', () => {
     'obesity',
     'longevity',
     'ultrahealth',
+    'start',
+    'glossary',
+    ...LEARNING_TRACKS.map((t) => `learn:${t.id}`),
     ...HUMAN_SYSTEMS.map((s) => `systems:${s.id}`),
     ...Object.keys(DISCIPLINE_HASH).map((d) => `exercise:${d}`),
   ];
