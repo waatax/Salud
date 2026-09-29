@@ -96,9 +96,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, isDark, 
         </nav>
 
         <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
-          <span className="hidden md:inline-flex">
-            <FontSizeToggle variant="compact" />
-          </span>
+          <FontSizeToggle variant="compact" />
           <span className="hidden sm:inline-flex">
             <LanguageToggle />
           </span>

@@ -10,35 +10,43 @@
     scroll-behavior: smooth;
   }
 
+  html[data-font-size="compact"] {
+    font-size: 14.5px;
+  }
+
   html[data-font-size="standard"] {
     font-size: 16px;
   }
 
   html[data-font-size="comfort"] {
-    font-size: 18px;
+    font-size: 17.5px;
   }
 
   html[data-font-size="large"] {
-    font-size: 20px;
+    font-size: 19.5px;
+  }
+
+  html[data-font-size="xlarge"] {
+    font-size: 21.5px;
   }
 
   :root {
-    /* Light Mode: Crisp White & Fresh Botanical Pastel Green */
-    --bg: #FFFFFF;
+    /* Light Mode: Soft Warm Ivory Paper & Fresh Botanical Sage/Emerald (No eye glare) */
+    --bg: #F8FAF8;
     --surface: #FFFFFF;
-    --card: #F6FAF7;
+    --card: #F2F7F4;
     --card-subtle: #ECFDF5;
-    --border: #E2EBE5;
+    --border: #DFE8E2;
     --border-hover: #A7F3D0;
     --text: #0F172A;
-    --muted: #475569;
+    --muted: #4B5563;
     --accent: #059669; /* Medical Emerald Green */
     --accent-glow: rgba(16, 185, 129, 0.20);
     --pastel-green: #D1FAE5;
     --pastel-green-bg: #ECFDF5;
     --pastel-green-border: #A7F3D0;
     --info: #0284C7;   /* Sky Blue */
-    --warning: #EA580C;
+    --warning: #D97706;
     --danger: #DC2626;
 
     /* Nature Palette Tokens in Light Mode */
@@ -54,9 +62,9 @@
 
     /* Spec §4.4.2 Figure Tokens */
     --fig-ink: #0F172A;
-    --fig-ink-weak: #475569;
+    --fig-ink-weak: #4B5563;
     --fig-surface: #FFFFFF;
-    --fig-border: #E2EBE5;
+    --fig-border: #DFE8E2;
     --fig-series-1: #10B981;
     --fig-series-2: #0284C7;
     --fig-series-3: #14B8A6;
@@ -67,15 +75,15 @@
   }
 
   .dark {
-    /* Dark Mode: Deep Obsidian Jade & Bioluminescent Mint Accents */
-    --bg: #090E0C;
-    --surface: #0F1714;
-    --card: #141F1A;
-    --card-subtle: #182620;
-    --border: #1C2E25;
-    --border-hover: #2B4538;
-    --text: #F1F5F3;
-    --muted: #8E9F97;
+    /* Dark Mode: Deep Forest Obsidian & Bioluminescent Mint (Soothes eye strain) */
+    --bg: #0A110E;
+    --surface: #101B15;
+    --card: #15231C;
+    --card-subtle: #1A2D23;
+    --border: #1E3429;
+    --border-hover: #2E5240;
+    --text: #F1F6F3;
+    --muted: #95A8A0;
     --accent: #34D399; /* Luminescent Mint Green */
     --accent-glow: rgba(52, 211, 153, 0.25);
     --pastel-green: #064E3B;
@@ -97,10 +105,10 @@
     --nature-amber-border: rgba(52, 211, 153, 0.3);
 
     /* Spec §4.4.2 Figure Tokens in Dark Mode */
-    --fig-ink: #F1F5F3;
-    --fig-ink-weak: #8E9F97;
-    --fig-surface: #141F1A;
-    --fig-border: #1C2E25;
+    --fig-ink: #F1F6F3;
+    --fig-ink-weak: #95A8A0;
+    --fig-surface: #15231C;
+    --fig-border: #1E3429;
     --fig-series-1: #34D399;
     --fig-series-2: #38BDF8;
     --fig-series-3: #2DD4BF;
@@ -122,6 +130,19 @@
   /* Numeric alignment for scientific tables and metrics */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
+  }
+
+  /* Optimal reading ergonomics and measure */
+  .reading-container {
+    max-width: 68ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  .text-reading {
+    line-height: 1.75;
+    letter-spacing: 0.012em;
   }
 }
 

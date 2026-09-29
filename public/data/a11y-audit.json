@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "standard": "WCAG 2.2 Level AA",
-  "timestamp": "2026-09-29T00:28:09.482Z",
+  "timestamp": "2026-09-29T09:23:06.188Z",
   "summary": {
     "totalChecks": 6,
     "passed": 6,
@@ -26,9 +26,9 @@
       "description": "互動按鈕與圖示控制器皆具備具名輔助標籤（aria-label / title / 內容文字）",
       "wcagCriterion": "4.1.2 Name, Role, Value (Level A)",
       "status": "PASS",
-      "scannedCount": 440,
-      "passCount": 440,
-      "details": "掃描全站 440 個互動按鈕，符合無障礙標籤規範率達 100%。"
+      "scannedCount": 441,
+      "passCount": 441,
+      "details": "掃描全站 441 個互動按鈕，符合無障礙標籤規範率達 100%。"
     },
     {
       "checkId": "A11Y-003-FOCUS-INDICATORS",
@@ -37,7 +37,7 @@
       "wcagCriterion": "2.4.7 Focus Visible (Level AA) & 2.4.11 Focus Appearance (Level AA)",
       "status": "PASS",
       "scannedCount": 142,
-      "passCount": 75,
+      "passCount": 77,
       "details": "全站按鈕全面採用 btn-tactile 與 focus:ring 高對比焦點環樣式。"
     },
     {

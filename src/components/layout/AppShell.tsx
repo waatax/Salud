@@ -191,7 +191,7 @@ export function AppShell() {
           id="main-content"
           ref={mainRef}
           tabIndex={-1}
-          className="flex-1 min-w-0 px-4 sm:px-8 py-6 focus:outline-none"
+          className="flex-1 min-w-0 px-3.5 sm:px-8 pt-4 pb-28 sm:py-6 lg:pb-12 focus:outline-none"
         >
           {!learnerPage && <Breadcrumb />}
           {tipKey && <QuickTips key={tipKey} sectionKey={tipKey} className="mb-6" />}

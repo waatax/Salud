@@ -12,12 +12,10 @@ interface Props {
 }
 
 /**
- * MobileNav — v4.0 bottom bar.
+ * MobileNav — v4.2 bottom bar.
  *
- * The v3 bar scrolled sideways through nine topics, so most were off-screen and the
- * labels were too small to hit reliably. Five fixed, thumb-sized targets now cover the
- * learner's loop — home, lessons, search, check-up, and the full topic drawer.
- * Emergency red flags stay one tap away on the home page and in the drawer.
+ * Thumb-sized targets covering the learner's loop — home, lessons, search, check-up,
+ * and the full topic drawer, with active indicators and tactile feedback.
  */
 export const MobileNav: React.FC<Props> = ({ activePillar, onSelectPillar, onOpenMenu }) => {
   const { language } = useLanguage();
@@ -34,7 +32,7 @@ export const MobileNav: React.FC<Props> = ({ activePillar, onSelectPillar, onOpe
 
   return (
     <nav
-      className="fixed bottom-0 inset-x-0 z-40 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl lg:hidden"
+      className="fixed bottom-0 inset-x-0 z-40 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl lg:hidden transition-colors"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       aria-label={zh ? '主要導覽' : 'Primary'}
     >
@@ -44,12 +42,23 @@ export const MobileNav: React.FC<Props> = ({ activePillar, onSelectPillar, onOpe
             <button
               onClick={it.onClick}
               aria-current={it.active ? 'page' : undefined}
-              className={`w-full min-h-[56px] flex flex-col items-center justify-center gap-1 text-[11px] transition-colors ${
-                it.active ? 'text-emerald-700 dark:text-emerald-400 font-semibold' : 'text-slate-500 dark:text-slate-400'
+              className={`btn-tactile relative w-full min-h-[56px] flex flex-col items-center justify-center gap-1 text-[11px] transition-all select-none ${
+                it.active
+                  ? 'text-emerald-700 dark:text-emerald-400 font-semibold'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
+              aria-label={it.label}
             >
-              <it.icon className="w-5 h-5" aria-hidden="true" />
-              <span>{it.label}</span>
+              <div className="relative flex items-center justify-center">
+                <it.icon className="w-5 h-5 shrink-0" aria-hidden="true" />
+                {it.active && (
+                  <span
+                    className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-fade-in"
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
+              <span className="leading-tight">{it.label}</span>
             </button>
           </li>
         ))}
