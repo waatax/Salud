@@ -673,7 +673,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                     </button>
 
                     <span className="hidden sm:inline-block text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
-                      ✓ AI 專家臨床機轉雙審認證
+                      ✓ 臨床機轉文獻實證核實
                     </span>
                   </div>
 
@@ -712,7 +712,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                       <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-[10px] font-bold">
                         {figId}
                       </span>
-                      <span>實證圖解正在專家委員會審查與矢量排版中</span>
+                      <span>實證圖解排版校驗中</span>
                     </span>
                     <span className="text-[10px] text-slate-400 font-sans">Spec v0.3</span>
                   </div>

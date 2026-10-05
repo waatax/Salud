@@ -333,7 +333,7 @@ export const ObesityHub: React.FC = () => {
           <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-slate-50 to-cyan-50/20 dark:from-slate-950 dark:to-cyan-950/20 p-6 sm:p-8 space-y-4">
             <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
               <Zap className="w-4 h-4 text-salud-cyan" />
-              <span>多學科專家會議 (MDT) 核心簽核共識</span>
+              <span>多專科代謝醫學 (MDT) 核心臨床指引共識</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
@@ -343,8 +343,8 @@ export const ObesityHub: React.FC = () => {
                   className="p-3.5 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 space-y-1.5"
                 >
                   <div className="flex items-center justify-between text-slate-500 text-[10px] font-mono">
-                    <span className="font-bold text-salud-cyan">{item.expert_id} · {item.expert_title}</span>
-                    <span>Consensus Statement</span>
+                    <span className="font-bold text-salud-cyan">{item.expert_title}</span>
+                    <span>Clinical Consensus</span>
                   </div>
                   <p className="leading-relaxed text-[11px]">"{item.consensus_zh}"</p>
                 </div>

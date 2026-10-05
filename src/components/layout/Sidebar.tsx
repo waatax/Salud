@@ -20,18 +20,47 @@ import {
   ChevronDown,
   ChevronRight,
   HeartPulse,
-  ClipboardCheck,
   AlertOctagon,
   PanelLeftClose,
   PanelLeft,
   Check,
+  Utensils,
+  Pill,
+  Droplets,
+  Flame,
+  Wine,
+  Activity,
+  Footprints,
+  Bike,
+  Mountain,
+  Dumbbell,
+  Maximize2,
+  Trophy,
+  Sparkles,
 } from 'lucide-react';
 
 const CHAPTER_IDS = [
-  { id: 'W', label_zh: '水分與水合', label_en: 'Water & hydration' },
-  { id: 'O', label_zh: '油脂與烹調', label_en: 'Fats & cooking' },
-  { id: 'A', label_zh: '酒精與代謝', label_en: 'Alcohol & metabolism' },
+  { id: 'W', label_zh: '水分與水合', label_en: 'Water & hydration', icon: Droplets, tone: 'text-sky-600 dark:text-sky-400' },
+  { id: 'O', label_zh: '油脂與烹調', label_en: 'Fats & cooking', icon: Flame, tone: 'text-amber-600 dark:text-amber-400' },
+  { id: 'A', label_zh: '酒精與代謝', label_en: 'Alcohol & metabolism', icon: Wine, tone: 'text-rose-600 dark:text-rose-400' },
 ];
+
+const DIET_SUB_ICONS: Record<string, any> = {
+  'diet/patterns': Utensils,
+  supplements: Pill,
+};
+
+const EXERCISE_SUB_ICONS: Record<string, any> = {
+  exercise: Activity,
+  'exercise/running': Footprints,
+  'exercise/cycling': Bike,
+  'exercise/mountaineering': Mountain,
+  'exercise/strength': Dumbbell,
+  'exercise/mobility': Maximize2,
+  'exercise/badminton': Trophy,
+  'exercise/table-tennis': Activity,
+  'exercise/pickleball': Sparkles,
+};
 
 /**
  * Sidebar — the full topic tree plus the reader-facing self-check tools.
@@ -141,44 +170,57 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
 
         {!collapsed && isExpanded && item.id === 'diet' && (
           <ul className="ml-5 pl-3 border-l border-slate-200 dark:border-slate-800 py-1 space-y-0.5">
-            {DIET_SUB_NAV.map((sub) => (
-              <li key={sub.hash}>
-                <button
-                  onClick={() => nav.go(sub.hash)}
-                  className={subLink(
-                    sub.hash === 'supplements' ? nav.activePillar === 'supplements' : nav.activePillar === 'diet' && nav.dietView === 'patterns'
-                  )}
-                >
-                  <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
-                </button>
-              </li>
-            ))}
-            {CHAPTER_IDS.map((ch) => (
-              <li key={ch.id}>
-                <button
-                  onClick={() => nav.selectChapter(ch.id)}
-                  className={subLink(nav.activePillar === 'diet' && nav.dietView === 'chapter' && nav.currentChapterId === ch.id)}
-                >
-                  <span className="font-semibold text-emerald-700 dark:text-emerald-400 w-3">{ch.id}</span>
-                  <span className="truncate">{zh ? ch.label_zh : ch.label_en}</span>
-                </button>
-              </li>
-            ))}
+            {DIET_SUB_NAV.map((sub) => {
+              const SubIcon = DIET_SUB_ICONS[sub.hash] || Utensils;
+              const isActive = sub.hash === 'supplements' ? nav.activePillar === 'supplements' : nav.activePillar === 'diet' && nav.dietView === 'patterns';
+              return (
+                <li key={sub.hash}>
+                  <button
+                    onClick={() => nav.go(sub.hash)}
+                    className={subLink(isActive)}
+                  >
+                    <SubIcon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400'}`} aria-hidden="true" />
+                    <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
+                  </button>
+                </li>
+              );
+            })}
+            {CHAPTER_IDS.map((ch) => {
+              const ChIcon = ch.icon;
+              const isActive = nav.activePillar === 'diet' && nav.dietView === 'chapter' && nav.currentChapterId === ch.id;
+              return (
+                <li key={ch.id}>
+                  <button
+                    onClick={() => nav.selectChapter(ch.id)}
+                    className={subLink(isActive)}
+                  >
+                    <ChIcon className={`w-3.5 h-3.5 shrink-0 ${ch.tone}`} aria-hidden="true" />
+                    <span className="font-semibold text-emerald-700 dark:text-emerald-400 w-3">{ch.id}</span>
+                    <span className="truncate">{zh ? ch.label_zh : ch.label_en}</span>
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         )}
 
         {!collapsed && isExpanded && item.id === 'exercise' && (
           <ul className="ml-5 pl-3 border-l border-slate-200 dark:border-slate-800 py-1 space-y-0.5">
-            {EXERCISE_SUB_NAV.map((sub) => (
-              <li key={sub.hash}>
-                <button
-                  onClick={() => nav.go(sub.hash)}
-                  className={subLink(nav.activePillar === 'exercise' && DISCIPLINE_HASH[nav.exerciseSubTab] === sub.hash)}
-                >
-                  <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
-                </button>
-              </li>
-            ))}
+            {EXERCISE_SUB_NAV.map((sub) => {
+              const SubIcon = EXERCISE_SUB_ICONS[sub.hash] || Activity;
+              const isActive = nav.activePillar === 'exercise' && DISCIPLINE_HASH[nav.exerciseSubTab] === sub.hash;
+              return (
+                <li key={sub.hash}>
+                  <button
+                    onClick={() => nav.go(sub.hash)}
+                    className={subLink(isActive)}
+                  >
+                    <SubIcon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400'}`} aria-hidden="true" />
+                    <span className="truncate">{zh ? sub.label_zh : sub.label_en}</span>
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         )}
       </li>
@@ -278,7 +320,7 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
               nav.setIsMobileSidebarOpen(false);
               modal.openModal('auditC');
             },
-            icon: ClipboardCheck,
+            icon: Wine,
             label: t('nav.audit_c'),
             cls: 'text-violet-800 dark:text-violet-300 bg-violet-50/80 dark:bg-violet-950/20 border-violet-200 dark:border-violet-900/60 hover:bg-violet-100 dark:hover:bg-violet-900/30',
           },

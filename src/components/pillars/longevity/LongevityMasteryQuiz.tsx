@@ -164,7 +164,7 @@ export const LongevityMasteryQuiz: React.FC<LongevityMasteryQuizProps> = ({ onNa
               <div className="flex items-center justify-between">
                 <span className="font-bold text-emerald-800 dark:text-amber-400 flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-emerald-600 dark:text-amber-400" />
-                  <span>專家臨床珠璣 (Clinical Pearl)</span>
+                  <span>臨床實證要點 (Clinical Pearl)</span>
                 </span>
                 <button
                   onClick={() => onNavigateToTab(currentQ.remedy_tab)}

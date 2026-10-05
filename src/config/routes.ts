@@ -105,7 +105,7 @@ export function parseHash(rawHash: string): Route | null {
   if (head === 'about' || head === 'governance' || head === 'council') return { kind: 'meta', view: 'about' };
   if (head === 'evidence' || head === 'sources') return { kind: 'meta', view: 'evidence' };
   if (head === 'synergy') return { kind: 'synergy' };
-  if (head === 'council-evidence') return { kind: 'council', expertId: rest[0] };
+  if (head === 'council-evidence' || head === 'council') return { kind: 'meta', view: 'evidence' };
 
   if (head === 'learn') return { kind: 'learn', trackId: rest[0], lessonId: rest[1] };
 

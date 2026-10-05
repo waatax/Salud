@@ -153,7 +153,7 @@ export const DailyProtocolMatrix: React.FC = () => {
           {/* Expert Advice Quote */}
           <div className="p-6 rounded-3xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 text-amber-900 dark:text-amber-200 space-y-3 shadow-sm">
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase">
-              <span>專家理事會叮嚀</span>
+              <span>生活醫學實證叮嚀</span>
             </div>
             <blockquote className="text-xs sm:text-sm font-medium leading-relaxed italic">
               {activeSlot.expert_advice_zh}

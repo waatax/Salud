@@ -209,11 +209,11 @@ export const CardiometabolicHub: React.FC = () => {
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
             <div className="flex items-center gap-2 text-base font-bold text-slate-900 dark:text-white font-display">
               <Stethoscope className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-              <span>心血管與代謝醫學專科治理宣言 (Clinical Governance Manifesto)</span>
+              <span>心血管與代謝醫學實證核心指引 (Cardiometabolic Evidence Paradigm)</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              心血管疾病（心肌梗塞、主動脈剝離、腦中風）並非突如其來的意外，而是歷經數十年無聲醞釀的「慢性能量與脂質中毒反應」。本專區由台灣心臟專科醫師（EC-02）、內分泌新陳代謝科醫師（EC-28）與臨床藥學專家（EC-12）三方聯合審定，遵循
-              Oxford CEBM Level 1a 頂級實證，協助每位追求極致健康者在症狀爆發前 10–20 年精確阻斷病理鏈。
+              心血管疾病（心肌梗塞、主動脈剝離、腦中風）並非突如其來的意外，而是歷經數十年無聲醞釀的「慢性能量與脂質中毒反應」。本專區整合中華民國心臟學會 (TSOC)、中華民國糖尿病學會、ACC/AHA 與 ESC 國際權威指引，遵循
+              Oxford CEBM Level 1a 頂級實證，協助每位追求健康者在症狀爆發前 10–20 年精確阻斷病理鏈。
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">

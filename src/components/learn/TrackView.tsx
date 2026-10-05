@@ -15,6 +15,13 @@ import {
   RotateCcw,
   Plus,
   Check,
+  Table,
+  Layers,
+  Sparkles,
+  Milestone,
+  Compass,
+  GraduationCap,
+  ShieldCheck,
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
@@ -25,6 +32,8 @@ import { getUpdate } from '../../data/learning/evidenceUpdates';
 import { LearningTrack, Lesson } from '../../types/learning';
 import { TONE, TrackIcon, ProgressBar, PageHeader, formatYM } from './learnUi';
 import { QuickTips } from './QuickTips';
+import { LessonVisualGraphic } from './LessonVisualGraphic';
+import { LessonReferenceTable } from './LessonReferenceTable';
 
 /** `#learn` → catalogue, `#learn/<track>` → track overview, `#learn/<track>/<lesson>` → lesson. */
 export const TrackView: React.FC = () => {
@@ -69,12 +78,18 @@ const Catalogue: React.FC = () => {
 
       <QuickTips sectionKey="learn:basics" />
 
+      {/* 7 大主線課程橫向架構地圖 */}
+      <CurriculumFrameworkMap />
+
+      {/* 學習路徑比較表格 */}
+      <TrackComparisonTable />
+
       <ol className="space-y-6">
         {LEARNING_TRACKS.map((t, i) => (
-          <li key={t.id} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden">
+          <li key={t.id} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden shadow-xs">
             <button
               onClick={() => go(`learn/${t.id}`)}
-              className={`w-full flex items-start gap-3 p-4 sm:p-5 text-left ${TONE[t.tone].soft} border-b border-slate-200 dark:border-slate-800`}
+              className={`w-full flex items-start gap-3 p-4 sm:p-5 text-left ${TONE[t.tone].soft} border-b border-slate-200 dark:border-slate-800 hover:brightness-95 transition-all`}
             >
               <TrackIcon icon={t.icon} tone={t.tone} size="lg" />
               <span className="flex-1 min-w-0">
@@ -92,6 +107,98 @@ const Catalogue: React.FC = () => {
   );
 };
 
+/** 7 大主線全景學習架構地圖 */
+const CurriculumFrameworkMap: React.FC = () => {
+  const steps = [
+    { num: '01', title: '素養入門', hint: '看懂體徵、辨識真假資訊', tone: 'bg-emerald-500 text-white' },
+    { num: '02', title: '認識身體', hint: '心臟/肝臟/腎臟運作機轉', tone: 'bg-teal-500 text-white' },
+    { num: '03', title: '吃得對', hint: '餐盤比例、油脂與減糖', tone: 'bg-sky-500 text-white' },
+    { num: '04', title: '動得好', hint: 'Zone 2 心率與核心肌力', tone: 'bg-indigo-500 text-white' },
+    { num: '05', title: '睡好減壓', hint: '晝夜節律與自律神經', tone: 'bg-purple-500 text-white' },
+    { num: '06', title: '看懂健檢', hint: '報告紅字與數值分區', tone: 'bg-rose-500 text-white' },
+    { num: '07', title: '預防老化', hint: '三高預防與阻斷肌少症', tone: 'bg-amber-600 text-white' },
+  ];
+
+  return (
+    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 space-y-4 shadow-xs" aria-label="7大健康學習主線架構流程">
+      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+        <div className="flex items-center gap-2">
+          <Layers className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
+            學習架構地圖：從基礎素養到長壽老化的七階遞進
+          </figcaption>
+        </div>
+        <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium">
+          循證漸進模型
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+        {steps.map((s, idx) => (
+          <div key={s.num} className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 space-y-1.5 flex flex-col justify-between">
+            <div>
+              <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-bold ${s.tone}`}>
+                階段 {s.num}
+              </span>
+              <div className="font-bold text-slate-900 dark:text-white text-sm mt-1">{s.title}</div>
+            </div>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug">{s.hint}</p>
+          </div>
+        ))}
+      </div>
+    </figure>
+  );
+};
+
+/** 學習路徑橫向對比總表 */
+const TrackComparisonTable: React.FC = () => {
+  const data = [
+    { name: '健康素養入門', lessons: '6 課 · 36 分鐘', difficulty: '入門 ★☆☆', outcome: '掌握生命徵象基線，辨識假醫學新聞，掌握急診分流與用藥安全', audience: '完全零醫學背景新手' },
+    { name: '認識你的身體', lessons: '8 課 · 47 分鐘', difficulty: '進階 ★★☆', outcome: '看懂心血管硬化、呼吸換氣、肝腎微血管、關節鏈與發炎機轉', audience: '想搞懂器官原理者' },
+    { name: '吃得對', lessons: '9 課 · 55 分鐘', difficulty: '核心 ★★☆', outcome: '掌握 2:1:1 餐盤、NOVA 超加工、蛋白質劑量、油脂與得舒飲食', audience: '想調整飲食與控制體態者' },
+    { name: '動得好', lessons: '7 課 · 46 分鐘', difficulty: '核心 ★★☆', outcome: '學會 Zone 2 心率、長壽步數曲線、抗阻動作模式與防傷急救', audience: '想建立運動規律者' },
+    { name: '睡好與心理', lessons: '7 課 · 46 分鐘', difficulty: '實用 ★★☆', outcome: '校準 24H 生物鐘、學會史丹佛生理嘆氣、突破失眠 CBT-I 與 OSA 篩檢', audience: '受失眠與壓力困擾者' },
+    { name: '看懂健檢報告', lessons: '8 課 · 47 分鐘', difficulty: '實用 ★★☆', outcome: '血壓血糖血脂紅字解讀、eGFR/UACR 腎病熱圖、FIB-4 與公費癌篩', audience: '剛拿到體檢紅字者' },
+    { name: '慢性病預防與老化', lessons: '9 課 · 58 分鐘', difficulty: '整合 ★★★', outcome: '阻斷動脈粥狀硬化、DPP 逆轉糖尿病前期、GLP-1、肌少症與疫苗', audience: '照顧全家長輩與想健康長壽者' },
+  ];
+
+  return (
+    <section aria-labelledby="track-table-h" className="space-y-3">
+      <div className="flex items-center gap-2">
+        <Table className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+        <h2 id="track-table-h" className="text-base font-bold text-slate-900 dark:text-white">
+          七大主線課程規劃與學習目標對照表
+        </h2>
+      </div>
+
+      <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs bg-white dark:bg-slate-900/60">
+        <table className="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300">
+              <th scope="col" className="py-3 px-3.5 font-bold">學習路徑</th>
+              <th scope="col" className="py-3 px-3.5 font-bold">課程時長</th>
+              <th scope="col" className="py-3 px-3.5 font-bold">難度位階</th>
+              <th scope="col" className="py-3 px-3.5 font-bold">核心掌握能力</th>
+              <th scope="col" className="py-3 px-3.5 font-bold">最推薦族群</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
+            {data.map((row, idx) => (
+              <tr key={idx} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
+                <td className="py-3 px-3.5 font-bold text-slate-900 dark:text-white">{row.name}</td>
+                <td className="py-3 px-3.5 text-slate-600 dark:text-slate-300 tabular-nums">{row.lessons}</td>
+                <td className="py-3 px-3.5 font-medium text-emerald-700 dark:text-emerald-400">{row.difficulty}</td>
+                <td className="py-3 px-3.5 text-slate-700 dark:text-slate-300 leading-relaxed">{row.outcome}</td>
+                <td className="py-3 px-3.5 text-slate-500 dark:text-slate-400">{row.audience}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+};
+
 const LessonList: React.FC<{ track: LearningTrack }> = ({ track }) => {
   const { go } = useNavigation();
   const { isDone } = useLearningProgress();
@@ -101,16 +208,19 @@ const LessonList: React.FC<{ track: LearningTrack }> = ({ track }) => {
         <li key={l.id}>
           <button
             onClick={() => go(`learn/${track.id}/${l.id}`)}
-            className="w-full flex items-center gap-3 px-4 sm:px-5 py-3 text-left hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
+            className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
           >
             {isDone(l.id) ? (
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" aria-label="已完成" />
             ) : (
               <Circle className="w-5 h-5 text-slate-300 dark:text-slate-600 shrink-0" aria-hidden="true" />
             )}
-            <span className="text-xs tabular-nums text-slate-400 w-5 shrink-0">{i + 1}</span>
-            <span className="flex-1 min-w-0 text-[15px] text-slate-800 dark:text-slate-200">{l.title_zh}</span>
-            <span className="text-xs text-slate-400 shrink-0">{l.minutes} 分</span>
+            <span className="text-xs tabular-nums text-slate-400 w-5 shrink-0 font-medium">{i + 1}</span>
+            <div className="flex-1 min-w-0">
+              <span className="block text-[15px] font-medium text-slate-800 dark:text-slate-200">{l.title_zh}</span>
+              <span className="block text-xs text-slate-500 dark:text-slate-400 truncate max-w-xl">{l.big_idea_zh}</span>
+            </div>
+            <span className="text-xs text-slate-400 shrink-0 tabular-nums">{l.minutes} 分</span>
           </button>
         </li>
       ))}
@@ -126,12 +236,13 @@ const TrackOverview: React.FC<{ track: LearningTrack }> = ({ track }) => {
   const minutes = track.lessons.reduce((s, l) => s + l.minutes, 0);
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-8 animate-fade-in">
       <button onClick={() => go('learn')} className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400">
         <ArrowLeft className="w-4 h-4" aria-hidden="true" />
         課程總表
       </button>
-      <div className={`rounded-3xl border border-slate-200 dark:border-slate-800 ${TONE[track.tone].soft} p-5 sm:p-8 space-y-4`}>
+
+      <div className={`rounded-3xl border border-slate-200 dark:border-slate-800 ${TONE[track.tone].soft} p-5 sm:p-8 space-y-4 shadow-xs`}>
         <TrackIcon icon={track.icon} tone={track.tone} size="lg" />
         <PageHeader eyebrow={`學習路徑 · ${track.lessons.length} 課 · 約 ${minutes} 分鐘`} title={track.title_zh} lead={track.subtitle_zh} />
         <p className="text-sm text-slate-600 dark:text-slate-400">適合：{track.audience_zh}</p>
@@ -143,17 +254,114 @@ const TrackOverview: React.FC<{ track: LearningTrack }> = ({ track }) => {
         </div>
         <button
           onClick={() => go(`learn/${track.id}/${next.id}`)}
-          className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-emerald-950 font-semibold px-5 py-2.5 transition-colors"
+          className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-emerald-950 font-semibold px-5 py-2.5 transition-colors shadow-xs"
         >
           {done === 0 ? '開始第一課' : done === track.lessons.length ? '從頭複習' : '繼續下一課'}
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </button>
       </div>
-      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden">
-        <LessonList track={track} />
+
+      {/* 路徑學習階段里程碑圖 */}
+      <TrackRoadmapSection track={track} />
+
+      {/* 課堂能力矩陣表 */}
+      <TrackCompetencyTable track={track} />
+
+      {/* 課程列表 */}
+      <div className="space-y-3">
+        <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-emerald-600" aria-hidden="true" />
+          全章節小課目錄
+        </h2>
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden shadow-xs">
+          <LessonList track={track} />
+        </div>
       </div>
+
       <QuickTips key={track.id} sectionKey={`learn:${track.id}`} />
     </div>
+  );
+};
+
+/** 路徑階段里程碑圖解 */
+const TrackRoadmapSection: React.FC<{ track: LearningTrack }> = ({ track }) => {
+  return (
+    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 space-y-3.5 shadow-xs" aria-label="本路徑學習進程里程碑">
+      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
+        <div className="flex items-center gap-2">
+          <Milestone className="w-5 h-5 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
+          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
+            本路徑學習進程與實踐里程碑
+          </figcaption>
+        </div>
+        <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-300 font-medium">
+          4 步進階
+        </span>
+      </div>
+
+      <div className="grid sm:grid-cols-4 gap-2.5 text-xs">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 space-y-1">
+          <span className="font-bold text-slate-900 dark:text-white block text-sm">第 1 階段：建立認知</span>
+          <p className="text-slate-600 dark:text-slate-400">掌握關鍵人體生理機轉與常見偽科學迷思。</p>
+        </div>
+        <div className="p-3 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-1">
+          <span className="font-bold text-emerald-900 dark:text-emerald-300 block text-sm">第 2 階段：核心數值</span>
+          <p className="text-slate-600 dark:text-slate-300">熟記個人化理想臨床範圍與黃金劑量標準。</p>
+        </div>
+        <div className="p-3 rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50/50 dark:bg-sky-950/20 space-y-1">
+          <span className="font-bold text-sky-900 dark:text-sky-300 block text-sm">第 3 階段：生活微步</span>
+          <p className="text-slate-600 dark:text-slate-300">執行「今天就能做」日常低門檻行動並加入計畫。</p>
+        </div>
+        <div className="p-3 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/20 space-y-1">
+          <span className="font-bold text-amber-900 dark:text-amber-300 block text-sm">第 4 階段：紅線安全</span>
+          <p className="text-slate-600 dark:text-slate-300">識別急性警訊與就醫時機，確保自我照護安全邊界。</p>
+        </div>
+      </div>
+    </figure>
+  );
+};
+
+/** 本路徑核心能力矩陣表 */
+const TrackCompetencyTable: React.FC<{ track: LearningTrack }> = ({ track }) => {
+  return (
+    <section aria-labelledby="comp-table-h" className="space-y-3">
+      <div className="flex items-center gap-2">
+        <Table className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+        <h2 id="comp-table-h" className="text-base font-bold text-slate-900 dark:text-white">
+          各堂課知識點與實踐行動對照表
+        </h2>
+      </div>
+
+      <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs bg-white dark:bg-slate-900/60">
+        <table className="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300">
+              <th scope="col" className="py-3 px-3.5 font-bold w-1/4">課堂主題</th>
+              <th scope="col" className="py-3 px-3.5 font-bold w-1/3">核心機轉重點</th>
+              <th scope="col" className="py-3 px-3.5 font-bold">今日生活實踐</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
+            {track.lessons.map((l, idx) => (
+              <tr key={l.id} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
+                <td className="py-3 px-3.5 align-top">
+                  <span className="font-bold text-slate-900 dark:text-white block">
+                    {idx + 1}. {l.title_zh}
+                  </span>
+                  <span className="text-xs text-slate-400 tabular-nums">{l.minutes} 分鐘</span>
+                </td>
+                <td className="py-3 px-3.5 align-top text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {l.big_idea_zh}
+                </td>
+                <td className="py-3 px-3.5 align-top text-emerald-800 dark:text-emerald-300 leading-relaxed font-medium">
+                  {l.do_today_zh[0]}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 };
 
@@ -230,6 +438,9 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         )}
       </div>
 
+      {/* Visual Mechanism & Clinical Diagram */}
+      <LessonVisualGraphic track={track} lesson={lesson} />
+
       {/* Key points */}
       <section aria-labelledby="kp-h" className="space-y-3">
         <h2 id="kp-h" className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -238,15 +449,18 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </h2>
         <ol className="space-y-3">
           {lesson.key_points_zh.map((kp, i) => (
-            <li key={i} className="flex gap-3">
-              <span className={`w-7 h-7 shrink-0 rounded-full inline-flex items-center justify-center text-sm font-bold ${TONE[track.tone].chip} border`}>
+            <li key={i} className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-100 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-xs hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
+              <span className={`w-7 h-7 shrink-0 rounded-full inline-flex items-center justify-center text-sm font-bold ${TONE[track.tone].chip} border mt-0.5`}>
                 {i + 1}
               </span>
-              <p className="flex-1 text-[16px] leading-8 text-slate-800 dark:text-slate-200">{kp}</p>
+              <p className="flex-1 text-[15.5px] leading-7 text-slate-800 dark:text-slate-200">{kp}</p>
             </li>
           ))}
         </ol>
       </section>
+
+      {/* Structured Teaching & Clinical Table */}
+      <LessonReferenceTable lessonId={lesson.id} trackTitle={track.title_zh} />
 
       {/* Do today */}
       <section aria-labelledby="do-h" className="rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/60 dark:bg-emerald-950/20 p-5 space-y-2">

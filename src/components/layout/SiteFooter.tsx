@@ -36,7 +36,7 @@ export const SiteFooter: React.FC = () => {
             {zh ? '實證來源與分級' : 'Evidence & grading'}
           </button>
           <button onClick={() => openMeta('about')} className={linkClass}>
-            {zh ? '關於 Salud 與專家審核' : 'About & expert review'}
+            {zh ? '關於 Salud 與實證原則' : 'About Salud & Evidence Principles'}
           </button>
           <button onClick={openSynergy} className={linkClass}>
             {zh ? '跨主題交互作用' : 'Cross-topic interactions'}

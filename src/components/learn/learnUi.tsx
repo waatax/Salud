@@ -9,6 +9,15 @@ import {
   ShieldCheck,
   HeartPulse,
   Brain,
+  Scale,
+  Hourglass,
+  Flame,
+  Activity,
+  Pill,
+  Droplets,
+  Wine,
+  Gauge,
+  Sparkles,
   LucideIcon,
 } from 'lucide-react';
 import { LearningIcon, LearningTone } from '../../types/learning';
@@ -23,6 +32,15 @@ export const LEARNING_ICONS: Record<LearningIcon, LucideIcon> = {
   shield: ShieldCheck,
   heart: HeartPulse,
   brain: Brain,
+  scale: Scale,
+  hourglass: Hourglass,
+  flame: Flame,
+  activity: Activity,
+  pill: Pill,
+  droplets: Droplets,
+  wine: Wine,
+  gauge: Gauge,
+  sparkles: Sparkles,
 };
 
 /**

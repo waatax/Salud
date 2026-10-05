@@ -34,9 +34,6 @@ const LongevityHub = lazy(() => import('../pillars/LongevityHub').then((m) => ({
 const CardiometabolicHub = lazy(() => import('../pillars/CardiometabolicHub').then((m) => ({ default: m.CardiometabolicHub })));
 
 // Lazy-loaded secondary pages and dialogs
-const ExpertBestPracticeView = lazy(() =>
-  import('../council/ExpertBestPracticeView').then((m) => ({ default: m.ExpertBestPracticeView }))
-);
 const EmergencyModal = lazy(() => import('../common/EmergencyModal').then((m) => ({ default: m.EmergencyModal })));
 const AuditCModal = lazy(() => import('../common/AuditCModal').then((m) => ({ default: m.AuditCModal })));
 const CardiometabolicHubModal = lazy(() =>
@@ -207,17 +204,7 @@ export function AppShell() {
               </Suspense>
             ) : isCouncilEvidenceView ? (
               <Suspense fallback={<Loading />}>
-                <ExpertBestPracticeView
-                  initialExpertId={selectedCouncilExpertId}
-                  onSelectPillar={(pillar) => {
-                    setIsCouncilEvidenceView(false);
-                    selectPillar(pillar);
-                  }}
-                  onBackToMain={() => {
-                    setIsCouncilEvidenceView(false);
-                    selectPillar('home');
-                  }}
-                />
+                <EvidenceLibraryPage />
               </Suspense>
             ) : (
               <Suspense fallback={<Loading />}>

@@ -144,9 +144,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     }
   };
 
-  const openCouncilEvidence = (expertId?: string) => {
-    if (expertId) setSelectedCouncilExpertId(expertId);
-    go(expertId ? `council-evidence/${expertId}` : 'council-evidence');
+  const openCouncilEvidence = () => {
+    go('evidence');
   };
 
   const openMeta = (view: Exclude<MetaView, null>) => go(view);

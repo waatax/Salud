@@ -5,7 +5,7 @@ import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useModal } from '../../context/ModalContext';
-import { Menu, Search } from 'lucide-react';
+import { Menu, Search, Rocket, GraduationCap, ClipboardList } from 'lucide-react';
 
 interface Props {
   /** Null while a secondary page is showing. */
@@ -16,10 +16,10 @@ interface Props {
   onToggleMobileSidebar: () => void;
 }
 
-const QUICK_LINKS: { id: HealthPillar; zh: string; en: string }[] = [
-  { id: 'start', zh: '4 週啟動', en: 'Start' },
-  { id: 'learn', zh: '學習路徑', en: 'Learn' },
-  { id: 'checkup', zh: '看懂健檢', en: 'Check-up' },
+const QUICK_LINKS: { id: HealthPillar; zh: string; en: string; icon: any }[] = [
+  { id: 'start', zh: '4 週啟動', en: 'Start', icon: Rocket },
+  { id: 'learn', zh: '學習路徑', en: 'Learn', icon: GraduationCap },
+  { id: 'checkup', zh: '看懂健檢', en: 'Check-up', icon: ClipboardList },
 ];
 
 const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
@@ -78,18 +78,20 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, isDark, 
         <nav className="hidden xl:flex items-center gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
           {QUICK_LINKS.map((l) => {
             const active = activePillar === l.id;
+            const Icon = l.icon;
             return (
               <button
                 key={l.id}
                 onClick={() => onSelectPillar(l.id)}
                 aria-current={active ? 'page' : undefined}
-                className={`px-3 py-2 rounded-xl text-sm transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors ${
                   active
                     ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
-                {zh ? l.zh : l.en}
+                <Icon className={`w-4 h-4 shrink-0 ${active ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400'}`} aria-hidden="true" />
+                <span>{zh ? l.zh : l.en}</span>
               </button>
             );
           })}

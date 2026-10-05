@@ -56,7 +56,7 @@ export const MentalHealthHub: React.FC = () => {
             </h1>
 
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              拒絕「你想太多」的空泛說教，回歸神經生理與生物化學本質。由臨床心理學家、胸腔神經生理權威與生理回饋教練專家聯席審定。整合史丹佛大學 2023 年{' '}
+              拒絕「你想太多」的空泛說教，回歸神經生理與生物化學本質。結合臨床心理學、胸腔神經生理與生物回饋最新實證。整合史丹佛大學 2023 年{' '}
               <span className="font-mono text-teal-800 dark:text-cyan-300 font-bold">Cell Reports Medicine</span> 循環生理嘆氣臨床試驗、0.1 Hz 自律神經共振與波耳效應，
               為你的自律神經系統提供秒級啟動的「迷走神經煞車」！
             </p>

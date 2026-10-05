@@ -217,7 +217,7 @@ export const ObesityMasteryQuiz: React.FC<Props> = ({ onNavigateToTab }) => {
                 </p>
 
                 <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-800 dark:text-amber-300">
-                  <strong>專家教學珍珠 (Pearl)：</strong> {currentQ.clinical_pearl_zh}
+                  <strong>臨床實證要點 (Clinical Pearl)：</strong> {currentQ.clinical_pearl_zh}
                 </div>
               </div>
 

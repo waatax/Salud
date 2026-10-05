@@ -21,7 +21,16 @@ export type LearningIcon =
   | 'report'
   | 'shield'
   | 'heart'
-  | 'brain';
+  | 'brain'
+  | 'scale'
+  | 'hourglass'
+  | 'flame'
+  | 'activity'
+  | 'pill'
+  | 'droplets'
+  | 'wine'
+  | 'gauge'
+  | 'sparkles';
 
 export interface LessonLink {
   label_zh: string;

@@ -64,7 +64,7 @@ export const SupplementsModal: React.FC<Props> = ({ isOpen, onClose }) => {
               市售常見「解酒／護肝」保健成分科學實證評級
             </h3>
             <span className="font-mono text-[11px] text-slate-400">
-              審核專家：EC-09 (藥師) ＋ EC-23 (成癮毒理)
+              實證標準：GRADE 臨床指引與藥理毒理資料庫
             </span>
           </div>
 
