@@ -37,6 +37,8 @@ import {
   Maximize2,
   Trophy,
   Sparkles,
+  Calculator,
+  Bookmark,
 } from 'lucide-react';
 
 const CHAPTER_IDS = [
@@ -304,6 +306,26 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
       <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-1.5">
         {!collapsed && <p className="px-2.5 mb-1 text-xs font-semibold text-slate-500 dark:text-slate-400">{zh ? '自我檢測工具' : 'Self-check tools'}</p>}
         {[
+          {
+            key: 'simulators',
+            onClick: () => {
+              nav.setIsMobileSidebarOpen(false);
+              modal.openModal('simulators');
+            },
+            icon: Calculator,
+            label: zh ? '試算工具箱 (18+ 模擬器)' : 'Health Calculators',
+            cls: 'text-emerald-800 dark:text-emerald-300 bg-emerald-50/80 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-900/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/30',
+          },
+          {
+            key: 'backpack',
+            onClick: () => {
+              nav.setIsMobileSidebarOpen(false);
+              modal.openModal('backpack');
+            },
+            icon: Bookmark,
+            label: zh ? '健康背包與收藏' : 'My Backpack & Saved',
+            cls: 'text-amber-800 dark:text-amber-300 bg-amber-50/80 dark:bg-amber-950/20 border-amber-200 dark:border-amber-900/60 hover:bg-amber-100 dark:hover:bg-amber-900/30',
+          },
           {
             key: 'emergency',
             onClick: () => {

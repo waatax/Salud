@@ -32,6 +32,7 @@ import {
   GraduationCap,
   Layers,
   Table as TableIcon,
+  Calculator,
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal } from '../../context/ModalContext';
@@ -41,6 +42,7 @@ import { ALL_STARTER_TASKS } from '../../data/learning/starterPlan';
 import { hashSegment } from '../../config/routes';
 import { ActionPlanPanel } from './ActionPlanPanel';
 import { QuickTips } from './QuickTips';
+import { DailyStreakCard } from '../common/DailyStreakCard';
 import { LEARNING_TRACKS, LEARNING_GOALS, ALL_LESSONS, findLesson, getTrack } from '../../data/learning/tracks';
 import { EVIDENCE_UPDATES, UPDATE_CATEGORY_META } from '../../data/learning/evidenceUpdates';
 import { LAB_METRICS } from '../../data/learning/checkup';
@@ -289,6 +291,64 @@ const CATEGORY_TABS: { id: TopicCategory; label_zh: string }[] = [
   { id: 'systems', label_zh: '🧬 人體系統' },
 ];
 
+interface PersonaGuideItem {
+  id: string;
+  emoji: string;
+  title: string;
+  tagline: string;
+  hash: string;
+  recommended: string;
+  tone: string;
+}
+
+const PERSONAS: PersonaGuideItem[] = [
+  {
+    id: 'desk-worker',
+    emoji: '👨‍💻',
+    title: '久坐外食上班族',
+    tagline: '外食高鈉、餐後昏睡、肩頸緊繃、動態不足',
+    hash: 'learn/eat',
+    recommended: '2:1:1 減脂餐盤 · Zone 2 微喘有氧',
+    tone: 'border-sky-200 dark:border-sky-900/60 bg-sky-50/50 dark:bg-sky-950/20 text-sky-900 dark:text-sky-200',
+  },
+  {
+    id: 'athlete',
+    emoji: '🏋️',
+    title: '運動訓練與體態族',
+    tagline: '增肌減脂、突破 1RM、避免運動受傷',
+    hash: 'obesity',
+    recommended: '1RM 最大肌力推算 · 肌肉保留處方',
+    tone: 'border-violet-200 dark:border-violet-900/60 bg-violet-50/50 dark:bg-violet-950/20 text-violet-900 dark:text-violet-200',
+  },
+  {
+    id: 'lab-alert',
+    emoji: '🩺',
+    title: '健檢報告紅字族',
+    tagline: '膽固醇 LDL-C 紅字、脂肪肝、血壓臨界偏高',
+    hash: 'checkup',
+    recommended: 'ApoB 心血管早篩 · 722 居家量血壓',
+    tone: 'border-rose-200 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/20 text-rose-900 dark:text-rose-200',
+  },
+  {
+    id: 'sleep-stress',
+    emoji: '🌙',
+    title: '失眠多夢高壓族',
+    tagline: '入睡困難、自律神經亢奮、夜間易醒',
+    hash: 'sleep',
+    recommended: '咖啡因半衰期試算 · 史丹佛生理嘆氣',
+    tone: 'border-teal-200 dark:border-teal-900/60 bg-teal-50/50 dark:bg-teal-950/20 text-teal-900 dark:text-teal-200',
+  },
+  {
+    id: 'elderly-care',
+    emoji: '👵',
+    title: '熟齡健康與家人守護',
+    tagline: '肌少症防跌、骨質疏鬆、公費癌症篩檢',
+    hash: 'learn/prevent',
+    recommended: '亞洲肌少症 AWGS · 台灣公費癌篩',
+    tone: 'border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200',
+  },
+];
+
 export const LearnHome: React.FC = () => {
   const { go } = useNavigation();
   const { openModal } = useModal();
@@ -415,6 +475,9 @@ export const LearnHome: React.FC = () => {
         </div>
       </section>
 
+      {/* ── 每日健康生活打卡與微習慣 ─────────────────────────────────── */}
+      <DailyStreakCard />
+
       {/* ── 接續上次學習 ─────────────────────────────────────────── */}
       {lastLesson && lastTrack && (
         <section aria-label="繼續學習">
@@ -436,6 +499,65 @@ export const LearnHome: React.FC = () => {
 
       {/* ── 今日行動計畫或新手立即上手技巧 ── */}
       {plan.items.length > 0 ? <ActionPlanPanel /> : <QuickTips sectionKey="home" />}
+
+      {/* ── 🎯 依身分與生活型態對焦 (Persona Guide) ── */}
+      <section aria-labelledby="persona-h" className="space-y-3">
+        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2.5">
+          <div>
+            <h2 id="persona-h" className="text-lg sm:text-xl font-display font-bold text-slate-900 dark:text-white">
+              依你的生活型態與健康困擾快速對焦
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              選擇最符合你當前狀態的生活情境，直達針對性的實踐方案與核心機制
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          {PERSONAS.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => go(p.hash)}
+              className={`btn-tactile group flex flex-col justify-between p-4 rounded-2xl border text-left transition-all hover:shadow-sm hover:-translate-y-0.5 space-y-3 ${p.tone}`}
+            >
+              <div className="space-y-1.5">
+                <span className="text-2xl block">{p.emoji}</span>
+                <h3 className="font-bold text-sm leading-snug">{p.title}</h3>
+                <p className="text-[11px] leading-relaxed opacity-80">{p.tagline}</p>
+              </div>
+
+              <div className="pt-2 border-t border-black/5 dark:border-white/5 space-y-1">
+                <span className="text-[10px] uppercase font-mono font-bold block opacity-60">推薦核心：</span>
+                <span className="text-[11px] font-semibold leading-tight block">{p.recommended}</span>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 🧮 互動試算神器大廳 Banner ── */}
+      <section className="rounded-3xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-700 text-white p-5 sm:p-7 flex flex-col md:flex-row md:items-center justify-between gap-5 shadow-sm">
+        <div className="space-y-2 max-w-xl">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-mono font-bold backdrop-blur-sm">
+            <Calculator className="w-3.5 h-3.5" />
+            <span>18+ 款臨床醫學試算工具</span>
+          </div>
+          <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white">
+            互動健康試算工具箱：精準掌握身體數據
+          </h3>
+          <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed">
+            日常補水公式、Zone 2 心率區間、咖啡因代謝半衰期、重訓 1RM、退酒時間估算與 722 居家連續血壓協定，隨開即算！
+          </p>
+        </div>
+        <button
+          onClick={() => openModal('simulators')}
+          className="btn-tactile shrink-0 px-5 py-3 rounded-2xl bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all self-start md:self-auto"
+        >
+          <Sparkles className="w-4 h-4 text-emerald-600" />
+          <span>開啟試算工具大廳</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </section>
 
       {/* ── 🔥 全新核心：全景主題探索大廳 (Featured Topics Explorer) ─────────────── */}
       <section id="topic-explorer" aria-labelledby="curated-topics-h" className="space-y-4">

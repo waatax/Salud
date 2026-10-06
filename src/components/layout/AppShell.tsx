@@ -50,6 +50,8 @@ const EvidenceUpdatesPage = lazy(() => import('../learn/EvidenceUpdatesPage').th
 const CheckupGuide = lazy(() => import('../learn/CheckupGuide').then((m) => ({ default: m.CheckupGuide })));
 const StarterPlanPage = lazy(() => import('../learn/StarterPlanPage').then((m) => ({ default: m.StarterPlanPage })));
 const GlossaryPage = lazy(() => import('../learn/GlossaryPage').then((m) => ({ default: m.GlossaryPage })));
+const SimulatorsModal = lazy(() => import('../common/SimulatorsModal').then((m) => ({ default: m.SimulatorsModal })));
+const LearningBackpackModal = lazy(() => import('../common/LearningBackpackModal').then((m) => ({ default: m.LearningBackpackModal })));
 
 const Loading: React.FC = () => (
   <div className="py-16 text-center text-sm text-slate-500" role="status">
@@ -256,6 +258,8 @@ export function AppShell() {
         {isOpen('emergency') && <EmergencyModal isOpen={true} onClose={() => closeModal('emergency')} />}
         {isOpen('auditC') && <AuditCModal isOpen={true} onClose={() => closeModal('auditC')} />}
         {isOpen('cardioHub') && <CardiometabolicHubModal isOpen={true} onClose={() => closeModal('cardioHub')} />}
+        {isOpen('simulators') && <SimulatorsModal isOpen={true} onClose={() => closeModal('simulators')} />}
+        {isOpen('backpack') && <LearningBackpackModal isOpen={true} onClose={() => closeModal('backpack')} />}
         {isOpen('graph') && currentChapter && (
           <Modal
             isOpen={true}

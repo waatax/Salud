@@ -18,10 +18,14 @@ import { KpInfoGraphRenderer } from '../figures/KpInfoGraphRenderer';
 import confetti from 'canvas-confetti';
 import { CHAPTERS } from '../../data/chapters';
 import { CHAPTER_W_PAGES } from '../../data/chapterW';
+import { CHAPTER_O_PAGES } from '../../data/chapterO';
+import { CHAPTER_A_PAGES } from '../../data/chapterA';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
 import { buildPaperUrls } from '../../utils/paperLinks';
 import { CanonicalBadge } from './CanonicalBadge';
+import { useBookmarks } from '../../hooks/useBookmarks';
+import { useActionPlan } from '../../hooks/useActionPlan';
 
 const KP_CANONICAL_MAPPING: Record<string, string> = {
   // Chapter W
@@ -69,6 +73,11 @@ import {
   BookmarkCheck,
   ExternalLink,
   GraduationCap,
+  Copy,
+  CheckCheck,
+  ListChecks,
+  Plus,
+  Share2,
 } from 'lucide-react';
 
 interface Props {
@@ -131,18 +140,15 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
   const leadExpert = EXPERT_COUNCIL.find((e) => e.id === page.lead_expert_id);
 
   // 研讀狀態與書籤
+  const { isBookmarked, toggleBookmark } = useBookmarks();
+  const { inPlan, add: addAction, remove: removeAction } = useActionPlan();
+  const [copiedToast, setCopiedToast] = useState(false);
+
+  const bookmarked = isBookmarked(page.id);
+
   const [isCompleted, setIsCompleted] = useState<boolean>(() => {
     try {
       const saved = localStorage.getItem('salud_completed_pages');
-      return saved ? JSON.parse(saved).includes(page.id) : false;
-    } catch {
-      return false;
-    }
-  });
-
-  const [isBookmarked, setIsBookmarked] = useState<boolean>(() => {
-    try {
-      const saved = localStorage.getItem('salud_bookmarked_pages');
       return saved ? JSON.parse(saved).includes(page.id) : false;
     } catch {
       return false;
@@ -171,15 +177,32 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
     }
   };
 
-  const togglePageBookmark = () => {
-    try {
-      const saved = localStorage.getItem('salud_bookmarked_pages');
-      const list: string[] = saved ? JSON.parse(saved) : [];
-      const updated = list.includes(page.id) ? list.filter((id) => id !== page.id) : [...list, page.id];
-      localStorage.setItem('salud_bookmarked_pages', JSON.stringify(updated));
-      setIsBookmarked(!isBookmarked);
-    } catch (err) {
-      console.error(err);
+  const handleCopySummary = () => {
+    const text = `【Salud 臨床醫學知識】${language === 'zh-TW' ? page.title_zh : page.title_en}\n\n💡 核心結論：${page.hook}\n\n🎯 今日行動處方：${page.do_this.tier1}\n\n🔗 閱讀全文：${window.location.origin}/#${page.chapter_id}/${page.id}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        setCopiedToast(true);
+        setTimeout(() => setCopiedToast(false), 2500);
+      });
+    }
+  };
+
+  const inPageSections = [
+    { id: 'sec-hook', label: '00 核心導讀' },
+    { id: 'sec-kps', label: `01 知識點 (${page.kps.length})` },
+    ...(page.figure_ids && page.figure_ids.length > 0 ? [{ id: 'sec-figs', label: '02 實證圖解' }] : []),
+    { id: 'sec-sim', label: '03 互動試算' },
+    { id: 'sec-tw', label: '05 台灣在地' },
+    ...(page.myths && page.myths.length > 0 ? [{ id: 'sec-myths', label: '06 闢謠迷思' }] : []),
+    { id: 'sec-dothis', label: '07 今日處方' },
+    { id: 'sec-quiz', label: '10 自檢測驗' },
+    { id: 'sec-gov', label: '11 實證校驗' },
+  ];
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -219,16 +242,16 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
             {/* 書籤按鈕 */}
             <button
-              onClick={togglePageBookmark}
+              onClick={() => toggleBookmark(page.id)}
               className={`btn-tactile px-2.5 py-1 rounded-xl border transition-all flex items-center gap-1 ${
-                isBookmarked
+                bookmarked
                   ? 'bg-amber-100 dark:bg-amber-950/70 border-amber-300 dark:border-amber-800 text-amber-800 dark:text-amber-300 font-bold'
                   : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-800'
               }`}
-              title={isBookmarked ? '取消學習書籤' : '加入學習書籤'}
+              title={bookmarked ? '取消學習書籤' : '加入學習書籤'}
             >
-              {isBookmarked ? <BookmarkCheck className="w-3.5 h-3.5 text-amber-600" /> : <Bookmark className="w-3.5 h-3.5" />}
-              <span>{isBookmarked ? '已收藏' : '收藏'}</span>
+              {bookmarked ? <BookmarkCheck className="w-3.5 h-3.5 text-amber-600" /> : <Bookmark className="w-3.5 h-3.5" />}
+              <span>{bookmarked ? '已收藏' : '收藏'}</span>
             </button>
 
             {/* 標記已精讀按鈕 */}
@@ -314,6 +337,28 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         )}
       </header>
 
+      {/* ── 📌 章節快速跳轉導航列 (Sticky In-Page TOC Quick Jump Bar) ── */}
+      <div className="sticky top-16 z-30 -mx-2 px-3 py-2.5 bg-white/95 dark:bg-salud-dark-bg/95 backdrop-blur-md border-y border-slate-200/80 dark:border-slate-800/80 overflow-x-auto scrollbar-none flex items-center gap-1.5 text-[11px] font-mono shadow-xs">
+        <span className="text-slate-400 font-sans text-[10px] uppercase font-bold shrink-0 mr-1 hidden sm:inline">章節導航:</span>
+        {inPageSections.map((sec) => (
+          <button
+            key={sec.id}
+            onClick={() => scrollToSection(sec.id)}
+            className="btn-tactile px-2.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-300 hover:text-emerald-800 dark:hover:text-emerald-300 border border-slate-200/80 dark:border-slate-700/80 shrink-0 whitespace-nowrap transition-colors"
+          >
+            {sec.label}
+          </button>
+        ))}
+        <button
+          onClick={handleCopySummary}
+          className="btn-tactile ml-auto px-2.5 py-1 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/80 shrink-0 whitespace-nowrap flex items-center gap-1 font-sans text-[11px] font-semibold"
+          title="複製本篇 30 秒重點摘要"
+        >
+          {copiedToast ? <CheckCheck className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5 text-amber-600" />}
+          <span>{copiedToast ? '已複製重點！' : '分享重點'}</span>
+        </button>
+      </div>
+
       {/* ── Lead Clinical Reviewer & Clinical Pearl Banner ── */}
       {(leadExpert || page.clinical_pearl) && (
         <div className="p-4 sm:p-5 rounded-3xl border border-amber-200/80 dark:border-amber-900/50 bg-gradient-to-br from-amber-50/60 via-white to-sky-50/40 dark:from-slate-900 dark:via-salud-dark-card dark:to-slate-950 shadow-sm space-y-2.5">
@@ -341,6 +386,35 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         </div>
       )}
 
+      {/* ── ⚡ 30 秒快速掌握核心重點 (30-Second Fast Takeaways Card) ── */}
+      <div className="p-4 sm:p-5 rounded-3xl border border-emerald-200 dark:border-emerald-800/60 bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white dark:from-emerald-950/30 dark:via-salud-dark-card dark:to-slate-900 shadow-xs space-y-3">
+        <div className="flex items-center justify-between gap-2 border-b border-emerald-100 dark:border-slate-800 pb-2">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 dark:text-emerald-300">
+            <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <span>⚡ 30 秒快速精華卡片 (30-Sec Takeaway)</span>
+          </span>
+          <span className="text-[10px] font-mono text-slate-500">
+            臨床精華 · 實踐導向
+          </span>
+        </div>
+        <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+          {page.hook}
+        </p>
+        <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-emerald-700 dark:text-emerald-400 text-xs shrink-0">🎯 核心處方：</span>
+            <span className="text-slate-700 dark:text-slate-300 line-clamp-1">{page.do_this.tier1}</span>
+          </div>
+          <button
+            onClick={handleCopySummary}
+            className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+          >
+            {copiedToast ? <CheckCheck className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{copiedToast ? '已複製重點！' : '複製精華卡片'}</span>
+          </button>
+        </div>
+      </div>
+
       {/* ── 深入淺出 · 生活視覺化解密卡 (Visual Plain-English Decoder) ── */}
       <VisualPlainEnglishDecoder page={page} />
 
@@ -358,7 +432,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       )}
 
       {/* ── 00 Hook ── */}
-      <section className="p-5 rounded-2xl border border-nature-amber-200/90 dark:border-nature-amber-500/30 bg-nature-amber-50/70 dark:bg-nature-amber-950/20 shadow-sm">
+      <section id="sec-hook" className="p-5 rounded-2xl border border-nature-amber-200/90 dark:border-nature-amber-500/30 bg-nature-amber-50/70 dark:bg-nature-amber-950/20 shadow-sm">
         <div className="font-mono text-[11px] text-nature-amber-800 dark:text-nature-amber-400 font-bold mb-1.5 uppercase tracking-wider">
           {t('page.sec_00_hook')}
         </div>
@@ -368,7 +442,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       </section>
 
       {/* ── 01 Atomic Knowledge Points ── */}
-      <section className="space-y-4">
+      <section id="sec-kps" className="space-y-4">
         <div className="flex flex-wrap items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 gap-2">
           <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-nature-sky-600 dark:text-nature-sky-400" />
@@ -691,7 +765,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── 02–04 Figures ── */}
       {page.figure_ids && page.figure_ids.length > 0 && (
-        <section className="space-y-4">
+        <section id="sec-figs" className="space-y-4">
           <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
             <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-nature-amber-600 dark:text-nature-amber-400" />
@@ -730,7 +804,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       )}
 
       {/* ── Interactive Simulators for Chapter W, O, and A ── */}
-      <section className="space-y-3">
+      <section id="sec-sim" className="space-y-3">
         <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
           <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-nature-sky-600 dark:text-nature-sky-400" />
@@ -760,7 +834,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       </section>
 
       {/* ── 05 Taiwan Context ── */}
-      <section className="p-5 rounded-2xl border border-nature-amber-200/90 dark:border-slate-800 bg-nature-amber-50/50 dark:bg-slate-900/60 space-y-3 shadow-sm">
+      <section id="sec-tw" className="p-5 rounded-2xl border border-nature-amber-200/90 dark:border-slate-800 bg-nature-amber-50/50 dark:bg-slate-900/60 space-y-3 shadow-sm">
         <div className="flex items-center gap-2 text-nature-amber-800 dark:text-nature-amber-400 font-display font-bold text-sm sm:text-base">
           <MapPin className="w-4 h-4" />
           {t('page.sec_05_tw')}：{page.taiwan_context.title}
@@ -780,7 +854,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── 06 Myths Arena ── */}
       {page.myths && page.myths.length > 0 && (
-        <section className="space-y-3">
+        <section id="sec-myths" className="space-y-3">
           <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
             <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-nature-amber-600 dark:text-nature-amber-400" />
@@ -796,7 +870,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       )}
 
       {/* ── 07 Do This (Action Tier 1 / Tier 2 / Tier 3) ── */}
-      <section className="space-y-3">
+      <section id="sec-dothis" className="space-y-3">
         <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
           <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <ArrowRight className="w-4 h-4 text-nature-green-600 dark:text-nature-green-400" />
@@ -804,39 +878,89 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div className="p-4 rounded-2xl border border-nature-green-200 dark:border-emerald-800/60 bg-nature-green-50/90 dark:bg-emerald-950/20 space-y-1.5 shadow-sm">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-nature-green-800 dark:text-nature-green-400 font-bold block">
-              {t('page.tier1_title')}
-            </span>
-            <p className="text-xs text-nature-green-950 dark:text-emerald-100 leading-relaxed font-medium">
-              {page.do_this.tier1}
-            </p>
-          </div>
+        {(() => {
+          const t1Id = `${page.id}#t1`;
+          const t2Id = `${page.id}#t2`;
+          const t3Id = `${page.id}#t3`;
+          const t1In = inPlan(t1Id);
+          const t2In = inPlan(t2Id);
+          const t3In = inPlan(t3Id);
 
-          <div className="p-4 rounded-2xl border border-nature-sky-200 dark:border-sky-800/60 bg-nature-sky-50/90 dark:bg-sky-950/20 space-y-1.5 shadow-sm">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-nature-sky-800 dark:text-nature-sky-400 font-bold block">
-              {t('page.tier2_title')}
-            </span>
-            <p className="text-xs text-nature-sky-950 dark:text-sky-100 leading-relaxed font-medium">
-              {page.do_this.tier2}
-            </p>
-          </div>
+          return (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="p-4 rounded-2xl border border-nature-green-200 dark:border-emerald-800/60 bg-nature-green-50/90 dark:bg-emerald-950/20 flex flex-col justify-between space-y-2 shadow-sm">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-nature-green-800 dark:text-nature-green-400 font-bold block">
+                    {t('page.tier1_title')}
+                  </span>
+                  <p className="text-xs text-nature-green-950 dark:text-emerald-100 leading-relaxed font-medium mt-1">
+                    {page.do_this.tier1}
+                  </p>
+                </div>
+                <button
+                  onClick={() => (t1In ? removeAction(t1Id) : addAction(t1Id))}
+                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[11px] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
+                    t1In
+                      ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                      : 'bg-white/90 dark:bg-slate-900/90 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 hover:bg-emerald-50'
+                  }`}
+                >
+                  {t1In ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                  <span>{t1In ? '已在今日計畫' : '加入今日計畫'}</span>
+                </button>
+              </div>
 
-          <div className="p-4 rounded-2xl border border-nature-amber-200 dark:border-amber-800/60 bg-nature-amber-50/90 dark:bg-amber-950/20 space-y-1.5 shadow-sm">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-nature-amber-800 dark:text-nature-amber-400 font-bold block">
-              {t('page.tier3_title')}
-            </span>
-            <p className="text-xs text-nature-amber-950 dark:text-amber-100 leading-relaxed font-medium">
-              {page.do_this.tier3}
-            </p>
-          </div>
-        </div>
+              <div className="p-4 rounded-2xl border border-nature-sky-200 dark:border-sky-800/60 bg-nature-sky-50/90 dark:bg-sky-950/20 flex flex-col justify-between space-y-2 shadow-sm">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-nature-sky-800 dark:text-nature-sky-400 font-bold block">
+                    {t('page.tier2_title')}
+                  </span>
+                  <p className="text-xs text-nature-sky-950 dark:text-sky-100 leading-relaxed font-medium mt-1">
+                    {page.do_this.tier2}
+                  </p>
+                </div>
+                <button
+                  onClick={() => (t2In ? removeAction(t2Id) : addAction(t2Id))}
+                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[11px] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
+                    t2In
+                      ? 'bg-sky-600 text-white border-sky-600 shadow-xs'
+                      : 'bg-white/90 dark:bg-slate-900/90 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800 hover:bg-sky-50'
+                  }`}
+                >
+                  {t2In ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                  <span>{t2In ? '已在今日計畫' : '加入今日計畫'}</span>
+                </button>
+              </div>
+
+              <div className="p-4 rounded-2xl border border-nature-amber-200 dark:border-amber-800/60 bg-nature-amber-50/90 dark:bg-amber-950/20 flex flex-col justify-between space-y-2 shadow-sm">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-nature-amber-800 dark:text-nature-amber-400 font-bold block">
+                    {t('page.tier3_title')}
+                  </span>
+                  <p className="text-xs text-nature-amber-950 dark:text-amber-100 leading-relaxed font-medium mt-1">
+                    {page.do_this.tier3}
+                  </p>
+                </div>
+                <button
+                  onClick={() => (t3In ? removeAction(t3Id) : addAction(t3Id))}
+                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[11px] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
+                    t3In
+                      ? 'bg-amber-600 text-white border-amber-600 shadow-xs'
+                      : 'bg-white/90 dark:bg-slate-900/90 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800 hover:bg-amber-50'
+                  }`}
+                >
+                  {t3In ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                  <span>{t3In ? '已在今日計畫' : '加入今日計畫'}</span>
+                </button>
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* ── 08 Not For You ── */}
       {page.not_for_you && page.not_for_you.length > 0 && (
-        <section className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 space-y-2">
+        <section id="sec-notyou" className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 space-y-2">
           <h4 className="font-bold text-xs font-mono text-slate-700 dark:text-slate-300 uppercase tracking-wider">
             {t('page.sec_08_notyou')}
           </h4>
@@ -855,20 +979,26 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── 09 Red Flags ── */}
       {page.red_flags && page.red_flags.length > 0 && (
-        <section className="space-y-2">
+        <section id="sec-redflags" className="space-y-2">
           <RedFlagAlert messages={page.red_flags} />
         </section>
       )}
 
       {/* ── 10 Self-check Interactive Quiz ── */}
-      <section>
+      <section id="sec-quiz">
         <SelfCheckQuiz items={page.quiz_items} pageTitle={language === 'zh-TW' ? page.title_zh : page.title_en} />
       </section>
 
       {/* ── Previous & Next Page Navigation Cards ── */}
       {(() => {
-        const prevPage = prevPageId ? CHAPTER_W_PAGES.find((p) => p.id === prevPageId) : null;
-        const nextPage = nextPageId ? CHAPTER_W_PAGES.find((p) => p.id === nextPageId) : null;
+        const chapterPages =
+          page.chapter_id === 'O'
+            ? CHAPTER_O_PAGES
+            : page.chapter_id === 'A'
+            ? CHAPTER_A_PAGES
+            : CHAPTER_W_PAGES;
+        const prevPage = prevPageId ? chapterPages.find((p) => p.id === prevPageId) : null;
+        const nextPage = nextPageId ? chapterPages.find((p) => p.id === nextPageId) : null;
 
         return (
           <nav aria-label="前後頁導航" className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
@@ -912,7 +1042,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       })()}
 
       {/* ── 11 Evidence Freshness & Governance Footer ── */}
-      <footer className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 space-y-3 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+      <footer id="sec-gov" className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 space-y-3 font-mono text-[11px] text-slate-600 dark:text-slate-400">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
           <span className="font-bold text-slate-800 dark:text-slate-300">{t('page.sec_11_gov')}</span>
           <span className="text-nature-green-700 dark:text-nature-green-400 font-semibold">

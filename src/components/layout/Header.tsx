@@ -5,7 +5,9 @@ import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useModal } from '../../context/ModalContext';
-import { Menu, Search, Rocket, GraduationCap, ClipboardList } from 'lucide-react';
+import { Menu, Search, Rocket, GraduationCap, ClipboardList, Calculator, Bookmark } from 'lucide-react';
+import { useBookmarks } from '../../hooks/useBookmarks';
+import { useActionPlan } from '../../hooks/useActionPlan';
 
 interface Props {
   /** Null while a secondary page is showing. */
@@ -35,7 +37,11 @@ const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigat
 export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, isDark, onToggleTheme, onToggleMobileSidebar }) => {
   const { t, language } = useLanguage();
   const { openModal } = useModal();
+  const { bookmarks } = useBookmarks();
+  const { plan } = useActionPlan();
   const zh = language === 'zh-TW';
+
+  const backpackCount = bookmarks.length + plan.items.length;
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-salud-dark-bg/90 backdrop-blur-md transition-colors">
@@ -97,7 +103,33 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, isDark, 
           })}
         </nav>
 
+        {/* Global Action Tools: Simulators & Learning Backpack */}
         <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+          <button
+            onClick={() => openModal('simulators')}
+            className="p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-400 bg-white dark:bg-slate-900 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            title={zh ? '互動健康試算工具箱 (18+ 模擬器)' : 'Health Calculators'}
+            aria-label={zh ? '健康試算工具箱' : 'Calculators'}
+          >
+            <Calculator className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <span className="hidden md:inline">{zh ? '試算工具' : 'Tools'}</span>
+          </button>
+
+          <button
+            onClick={() => openModal('backpack')}
+            className="relative p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 bg-white dark:bg-slate-900 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            title={zh ? '我的健康背包與收藏' : 'Backpack & Bookmarks'}
+            aria-label={zh ? '我的健康背包' : 'Backpack'}
+          >
+            <Bookmark className="w-4 h-4 text-amber-500" />
+            <span className="hidden md:inline">{zh ? '背包收藏' : 'Saved'}</span>
+            {backpackCount > 0 && (
+              <span className="w-4 h-4 rounded-full bg-amber-500 text-white font-mono text-[10px] flex items-center justify-center font-bold">
+                {backpackCount > 9 ? '9+' : backpackCount}
+              </span>
+            )}
+          </button>
+
           <FontSizeToggle variant="compact" />
           <span className="hidden sm:inline-flex">
             <LanguageToggle />

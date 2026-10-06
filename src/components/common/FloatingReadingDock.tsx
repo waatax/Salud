@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, Type } from 'lucide-react';
+import { ArrowUp, Type, Bookmark } from 'lucide-react';
 import { useFontSize } from '../../context/FontSizeContext';
+import { useModal } from '../../context/ModalContext';
+import { useBookmarks } from '../../hooks/useBookmarks';
 
 interface Props {
   isDark?: boolean;
@@ -15,6 +17,8 @@ interface Props {
 export const FloatingReadingDock: React.FC<Props> = () => {
   const [show, setShow] = useState(false);
   const { cycleFontSize, fontSizeLabel } = useFontSize();
+  const { openModal } = useModal();
+  const { bookmarks } = useBookmarks();
 
   useEffect(() => {
     const onScroll = () => setShow((window.scrollY || document.documentElement.scrollTop) > 450);
@@ -31,6 +35,20 @@ export const FloatingReadingDock: React.FC<Props> = () => {
       role="region"
       aria-label="快速閱讀工具"
     >
+      <button
+        onClick={() => openModal('backpack')}
+        className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md flex items-center justify-center hover:text-amber-600 dark:hover:text-amber-400 backdrop-blur-md btn-tactile"
+        title="我的健康背包與收藏"
+        aria-label="我的健康背包與收藏"
+      >
+        <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" aria-hidden="true" />
+        {bookmarks.length > 0 && (
+          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-500 text-white font-mono text-[9px] flex items-center justify-center font-bold">
+            {bookmarks.length > 9 ? '9+' : bookmarks.length}
+          </span>
+        )}
+      </button>
+
       <button
         onClick={cycleFontSize}
         className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md flex items-center justify-center hover:text-emerald-700 dark:hover:text-emerald-400 backdrop-blur-md btn-tactile"

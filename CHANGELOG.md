@@ -1,5 +1,32 @@
 # Changelog
 
+## v4.3.0 — 2026-10-06 · 黏著度生態系、全域 18+ 試算工具箱、個人健康背包與全頁面深度優化 (Habit-Forming Engagement, Simulators Hub & Knowledge Architecture Overhaul)
+
+### Added
+- **每日生活健康打卡與微習慣系統（Daily Health Streak & Micro-Habits Engine）**：
+  - 新增 `useHealthStreak` hook，精確計算使用者連續打卡天數（Streak）、歷史足跡與 4 階成長成就徽章（自律起步 3 天、週間大師 7 天、原子習慣 14 天、卓越健康 30 天）。
+  - 全新 `DailyStreakCard` 元件：整合即時慶祝彩帶動畫（confetti）、累計打卡統計與輪播式「每日健康微習慣（1-Minute Micro-Habit）」，涵蓋晨起溫水、飯後散步、午後截斷咖啡因、史丹佛生理嘆氣等具體生活醫學處方。
+- **全域 18+ 款互動健康試算工具箱（Interactive Simulators Hub Modal）**：
+  - 徹底解決模擬器分散於各專章、難以直接查找的痛點，全新建立 `SimulatorsModal`。
+  - 依「水分與飲食」、「運動體能」、「睡眠身心」、「心血代謝延壽」4 大分類完整收錄 18+ 款醫學試算工具（包含水分需求、食用油發煙點、BAC 酒精代謝、Zone 2 心率區間、跑步配速、重訓 1RM、關節活動度、咖啡因半衰期、史丹佛生理嘆氣、真實體重旅程、健康壽命預測、722 連續血壓等）。
+  - 支援關鍵字即時模糊搜尋與一鍵跨專章直達體驗。
+- **個人健康背包與收藏庫（Learning Backpack & Bookmarks Modal）**：
+  - 全新 `useBookmarks` 跨頁面同步 hook 與 `LearningBackpackModal` 介面。
+  - 三大專屬分頁：「知識書籤收藏（Bookmarked Pages）」、「今日行動計畫（Action Plan）」與「打卡成就徽章（Streaks & Badges）」。
+  - 頂部導覽列（`Header`）、側邊欄（`Sidebar`）與浮動閱讀工具列（`FloatingReadingDock`）均配備即時背包按鈕與動態未讀計數角標。
+- **身分與生活型態對焦快篩（Persona-Based Health Journey Navigator）**：
+  - 首頁全新增設「久坐外食上班族」、「運動訓練與體態族」、「健檢報告紅字族」、「失眠多夢高壓族」、「熟齡健康與家人守護」5 大典型身分情境導引卡，降低大眾認知門檻，一鍵直達最佳契合課程與實踐方針。
+
+### Optimized & Fixed
+- **醫學知識專頁（Knowledge Page）全面升級**：
+  - **修復前後頁跨章導航**：解決過往 `prevPage` 與 `nextPage` 僅綁定 Chapter W 導致 Chapter O（油脂）與 Chapter A（酒精）上下篇標題未正確呈現之歷史缺陷，全面升級為全章節動態自適應匹配。
+  - **置頂章節快速跳轉導航列（Sticky In-Page TOC Quick Jump Bar）**：在閱讀長篇醫學專頁時，提供平滑捲動膠囊按鈕，讀者可隨時一秒直達「00 核心導讀」、「01 原子知識點」、「02 實證圖解」、「03 互動試算」、「05 台灣在地」、「06 闢謠迷思」、「07 今日處方」、「10 自檢測驗」與「11 實證校驗」。
+  - **30 秒快速掌握核心重點卡（30-Second Fast Takeaway Card）**：頁首提煉核心結論與立即行動要點，滿足快節奏現代人「先看結論、再深究機轉」的高效習慣。
+  - **一鍵加入今日行動計畫（Action Plan Deep Integration）**：Section 07「今天就能做」的三層建議（Tier 1 核心基礎 / Tier 2 進階強化 / Tier 3 專家精準）全面配備「+ 加入今日計畫」按鈕，與首頁及背包行動清單無縫雙向連動。
+  - **一鍵複製與社群分享摘要（One-Tap Summary Share & Copy）**：支援一鍵複製精華卡片與專屬深度連結至剪貼簿，方便發送至 LINE 或社群分享給親友長輩。
+- **架構與導航一致性提升**：
+  - 全站 147 個組件 100% 通過 WCAG 2.2 AA 無障礙測試，29 條 Governance-as-Code 治理規則與 21 項測試零缺失通過。
+
 ## v4.2.0 — 2026-09-29 · UI/UX 閱讀色調、五段字級與行動響應最佳化 (Reading Comfort, 5-Scale Typography & Responsive Ergonomics)
 
 ### Added

@@ -2,6 +2,9 @@ import { TipKind } from '../../types/learning';
 import { ALL_QUICK_TIPS } from './quickTips';
 import { ALL_STARTER_TASKS } from './starterPlan';
 import { LEARNING_TRACKS } from './tracks';
+import { CHAPTER_W_PAGES } from '../chapterW';
+import { CHAPTER_O_PAGES } from '../chapterO';
+import { CHAPTER_A_PAGES } from '../chapterA';
 
 /**
  * One namespace for everything a reader can add to 「我的行動計畫」:
@@ -68,7 +71,30 @@ for (const track of LEARNING_TRACKS) {
   }
 }
 
-export const resolveTip = (id: string): ResolvedTip | undefined => INDEX.get(id);
+export const resolveTip = (id: string): ResolvedTip | undefined => {
+  const direct = INDEX.get(id);
+  if (direct) return direct;
+  if (id.includes('#t')) {
+    const [pageId, tierKey] = id.split('#');
+    const all = [...CHAPTER_W_PAGES, ...CHAPTER_O_PAGES, ...CHAPTER_A_PAGES];
+    const page = all.find((p) => p.id === pageId);
+    if (page) {
+      const isT1 = tierKey === 't1' || tierKey === 'tier1';
+      const isT2 = tierKey === 't2' || tierKey === 'tier2';
+      const tierTitle = isT1 ? '核心基礎' : isT2 ? '進階強化' : '專家精準';
+      const tierContent = isT1 ? page.do_this.tier1 : isT2 ? page.do_this.tier2 : page.do_this.tier3;
+      return {
+        id,
+        kind: 'check',
+        title_zh: `【${tierTitle}】${tierContent}`,
+        how_zh: `${page.title_zh} 實踐處方`,
+        source_zh: `${page.title_zh}`,
+        hash: `${page.chapter_id}/${page.id}`,
+      };
+    }
+  }
+  return undefined;
+};
 
 export const lessonActionId = (lessonId: string, index: number) => `${lessonId}#${index}`;
 
