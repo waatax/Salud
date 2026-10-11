@@ -14,7 +14,7 @@ export const ContextInspector: React.FC<Props> = ({ page, onSelectKP }) => {
   };
 
   return (
-    <aside className="w-72 shrink-0 border-l border-salud-light-border/80 dark:border-salud-dark-border/80 bg-salud-light-surface/60 dark:bg-salud-dark-surface/40 p-4 space-y-5 overflow-y-auto text-xs font-sans transition-colors">
+    <aside data-print-hide className="w-72 shrink-0 border-l border-salud-light-border/80 dark:border-salud-dark-border/80 bg-salud-light-surface/60 dark:bg-salud-dark-surface/40 p-4 space-y-5 overflow-y-auto text-xs font-sans transition-colors">
       {/* KP Quick Jump */}
       <div className="space-y-2.5">
         <div className="flex items-center justify-between text-slate-700 dark:text-slate-300 font-mono font-bold text-xs uppercase tracking-wider">

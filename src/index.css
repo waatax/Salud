@@ -72,6 +72,31 @@
     --fig-series-5: #059669;
     --fig-alert: #DC2626;
     --fig-highlight: rgba(16, 185, 129, 0.12);
+
+    /* v4.4 Medical illustration & chart roles (validated categorical steps, light surface) */
+    --viz-surface: #FFFFFF;
+    --viz-ink: #0F172A;
+    --viz-ink-2: #475569;
+    --viz-muted: #64748B;
+    --viz-grid: #E2E8F0;
+    --viz-baseline: #CBD5E1;
+    --viz-series-1: #2A78D6;
+    --viz-series-2: #EB6834;
+    --viz-series-3: #1BAF7A;
+    --viz-good: #0CA30C;
+    --viz-warn: #EDA100;
+    --viz-bad: #D03B3B;
+    /* Anatomy palette: bone, disc, nerve, cord, soft tissue */
+    --anat-bone: #EFE6D2;
+    --anat-bone-edge: #A8977A;
+    --anat-disc: #9CC7E8;
+    --anat-disc-core: #5E9FD3;
+    --anat-nerve: #F2B705;
+    --anat-cord: #F5D36B;
+    --anat-soft: #F6D5CB;
+    --anat-hit: #E34948;
+    --anat-skin: #F3E3D6;
+    --anat-figure: #334155;
   }
 
   .dark {
@@ -116,6 +141,29 @@
     --fig-series-5: #10B981;
     --fig-alert: #EF4444;
     --fig-highlight: rgba(52, 211, 153, 0.15);
+
+    --viz-surface: #15231C;
+    --viz-ink: #F1F6F3;
+    --viz-ink-2: #C3CFC9;
+    --viz-muted: #95A8A0;
+    --viz-grid: #22392D;
+    --viz-baseline: #33503F;
+    --viz-series-1: #3987E5;
+    --viz-series-2: #D95926;
+    --viz-series-3: #199E70;
+    --viz-good: #0CA30C;
+    --viz-warn: #C98500;
+    --viz-bad: #E66767;
+    --anat-bone: #CDBF9F;
+    --anat-bone-edge: #8C7B5E;
+    --anat-disc: #4F86B8;
+    --anat-disc-core: #7FB2DE;
+    --anat-nerve: #F5C518;
+    --anat-cord: #E9C552;
+    --anat-soft: #8A5A4E;
+    --anat-hit: #F87171;
+    --anat-skin: #5B4A40;
+    --anat-figure: #D6E2DC;
   }
 
   body {
@@ -199,15 +247,52 @@
   background: rgba(2, 132, 199, 0.5);
 }
 
-/* Accessibility & Print (Spec §10.3) */
+/* Accessibility & Print (Spec §10.3) — v4.4: any page prints as a clean handout. */
 @media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+  html {
+    font-size: 12.5px !important;
+  }
   body {
     background: white !important;
     color: black !important;
   }
-  .no-print {
+  .no-print,
+  body > #root header.sticky,
+  body > #root nav[aria-label='主要導覽'],
+  body > #root nav[aria-label='Primary'],
+  [data-print-hide] {
     display: none !important;
   }
+  main#main-content {
+    padding: 0 !important;
+  }
+  figure,
+  table,
+  .print-avoid-break {
+    break-inside: avoid;
+  }
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  .sticky {
+    position: static !important;
+  }
+  [data-print-show] {
+    display: block !important;
+  }
+}
+
+/* Horizontal scrollers (tab bars, chip rows) without a visible scrollbar. */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

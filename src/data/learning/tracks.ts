@@ -6,6 +6,7 @@ import { TRACK_MOVE } from './tracks/move';
 import { TRACK_REST } from './tracks/rest';
 import { TRACK_CHECKUP } from './tracks/checkup';
 import { TRACK_PREVENT } from './tracks/prevent';
+import { TRACK_SPINE } from './tracks/spine';
 
 /**
  * Ordered curriculum. The order is the recommended path for a complete beginner:
@@ -20,6 +21,7 @@ export const LEARNING_TRACKS: LearningTrack[] = [
   TRACK_REST,
   TRACK_CHECKUP,
   TRACK_PREVENT,
+  TRACK_SPINE,
 ];
 
 export const LEARNING_GOALS: LearningGoal[] = [
@@ -31,6 +33,7 @@ export const LEARNING_GOALS: LearningGoal[] = [
   { id: 'G-MOVE', label_zh: '我想開始運動', hint_zh: '每週 150 分鐘、每天 7,000 步', icon: 'move', track_id: 'move', lesson_id: 'L-MOVE-01' },
   { id: 'G-SLEEP', label_zh: '我睡不好', hint_zh: '規律、失眠、咖啡因、打呼', icon: 'moon', track_id: 'rest', lesson_id: 'L-REST-01' },
   { id: 'G-STRESS', label_zh: '我壓力很大、心情低落', hint_zh: '呼吸法、何時求助', icon: 'brain', track_id: 'rest', lesson_id: 'L-REST-05' },
+  { id: 'G-SPINE', label_zh: '我腰痠背痛、手腳發麻', hint_zh: '骨刺、椎間盤、姿勢、何時就醫', icon: 'spine', track_id: 'spine', lesson_id: 'L-SPN-03' },
   { id: 'G-AGEING', label_zh: '我想照顧爸媽／健康變老', hint_zh: '肌少症、失智、疫苗、防跌', icon: 'hourglass', track_id: 'prevent', lesson_id: 'L-PRE-06' },
 ];
 

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "standard": "WCAG 2.2 Level AA",
-  "timestamp": "2026-10-06T00:22:44.386Z",
+  "timestamp": "2026-10-11T16:59:12.470Z",
   "summary": {
     "totalChecks": 6,
     "passed": 6,
@@ -16,9 +16,9 @@
       "description": "頁面佈局與各章節使用語意化標籤（header, nav, main, section）",
       "wcagCriterion": "1.3.1 Info and Relationships (Level A)",
       "status": "PASS",
-      "scannedCount": 147,
-      "passCount": 37,
-      "details": "在 37 個核心組件中檢測到明確之語意化 Landmark 結構標籤。"
+      "scannedCount": 167,
+      "passCount": 45,
+      "details": "在 45 個核心組件中檢測到明確之語意化 Landmark 結構標籤。"
     },
     {
       "checkId": "A11Y-002-INTERACTIVE-LABELS",
@@ -26,9 +26,9 @@
       "description": "互動按鈕與圖示控制器皆具備具名輔助標籤（aria-label / title / 內容文字）",
       "wcagCriterion": "4.1.2 Name, Role, Value (Level A)",
       "status": "PASS",
-      "scannedCount": 477,
-      "passCount": 477,
-      "details": "掃描全站 477 個互動按鈕，符合無障礙標籤規範率達 100%。"
+      "scannedCount": 491,
+      "passCount": 491,
+      "details": "掃描全站 491 個互動按鈕，符合無障礙標籤規範率達 100%。"
     },
     {
       "checkId": "A11Y-003-FOCUS-INDICATORS",
@@ -36,8 +36,8 @@
       "description": "鍵盤導航可見焦點（Visible Focus Indicator）與觸覺互動反饋",
       "wcagCriterion": "2.4.7 Focus Visible (Level AA) & 2.4.11 Focus Appearance (Level AA)",
       "status": "PASS",
-      "scannedCount": 147,
-      "passCount": 81,
+      "scannedCount": 167,
+      "passCount": 85,
       "details": "全站按鈕全面採用 btn-tactile 與 focus:ring 高對比焦點環樣式。"
     },
     {
@@ -66,9 +66,9 @@
       "description": "螢幕報讀機相容性（ARIA 狀態、屬性、角色與輔助朗讀支援）",
       "wcagCriterion": "1.3.2 Meaningful Sequence & 4.1.2 (Level AA)",
       "status": "PASS",
-      "scannedCount": 147,
-      "passCount": 46,
-      "details": "在 46 個組件中配置了完整之 ARIA 狀態與螢幕朗讀屬性。"
+      "scannedCount": 167,
+      "passCount": 61,
+      "details": "在 61 個組件中配置了完整之 ARIA 狀態與螢幕朗讀屬性。"
     }
   ],
   "scannedComponents": [
@@ -82,6 +82,12 @@
     "src/components/common/LearningBackpackModal.tsx",
     "src/components/common/Modal.tsx",
     "src/components/common/PillarHubTemplate.tsx",
+    "src/components/common/pro/Blocks.tsx",
+    "src/components/common/pro/CourseShell.tsx",
+    "src/components/common/pro/DataTable.tsx",
+    "src/components/common/pro/HubHero.tsx",
+    "src/components/common/pro/HubTabBar.tsx",
+    "src/components/common/pro/RelatedNext.tsx",
     "src/components/common/ReadingProgressBar.tsx",
     "src/components/common/RedFlagAlert.tsx",
     "src/components/common/SimulatorsModal.tsx",
@@ -159,6 +165,10 @@
     "src/components/pillars/exercise/ExerciseHub.tsx",
     "src/components/pillars/exercise/shared/TopicAccordion.tsx",
     "src/components/pillars/ExerciseHub.tsx",
+    "src/components/pillars/hepb/HepbChapters.tsx",
+    "src/components/pillars/hepb/HepbFigures.tsx",
+    "src/components/pillars/hepb/HepbLessonVisual.tsx",
+    "src/components/pillars/HepBHub.tsx",
     "src/components/pillars/longevity/InfographEpigeneticClocks.tsx",
     "src/components/pillars/longevity/InfographHallmarksWheel.tsx",
     "src/components/pillars/longevity/InfographHormesisProtocol.tsx",
@@ -178,6 +188,16 @@
     "src/components/pillars/obesity/UrgeSurfingTimer.tsx",
     "src/components/pillars/ObesityHub.tsx",
     "src/components/pillars/SleepHub.tsx",
+    "src/components/pillars/spine/figures/AnatomyFigures.tsx",
+    "src/components/pillars/spine/figures/ChartFigures.tsx",
+    "src/components/pillars/spine/figures/ExerciseFigures.tsx",
+    "src/components/pillars/spine/figures/NerveFigures.tsx",
+    "src/components/pillars/spine/figures/PostureFigures.tsx",
+    "src/components/pillars/spine/figures/StickFigure.tsx",
+    "src/components/pillars/spine/SpineChapters.tsx",
+    "src/components/pillars/spine/SpineLessonVisual.tsx",
+    "src/components/pillars/spine/SpineTools.tsx",
+    "src/components/pillars/SpineHub.tsx",
     "src/components/pillars/SupplementsHub.tsx",
     "src/components/simulators/SbxALDH2.tsx",
     "src/components/simulators/SimBAC.tsx",

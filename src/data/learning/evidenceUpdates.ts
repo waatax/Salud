@@ -285,6 +285,25 @@ export const EVIDENCE_UPDATES: EvidenceUpdate[] = [
     related_hash: 'exercise',
   },
   {
+    id: 'UPD-2024-WALKBACK',
+    date: '2024-06',
+    category: 'exercise',
+    org: 'The Lancet：WalkBack 隨機試驗',
+    title_zh: '走路預防腰痛復發：漸進走路計畫讓無痛期幾乎多一倍',
+    what_changed_zh:
+      '澳洲 701 位剛從下背痛恢復的成人，隨機分配到「個別化、漸進式走路＋衛教」（6 個月內 6 次物理治療師指導）或不介入。走路組到下一次「影響日常活動」的復發前，無痛期中位數 208 天，對照組 112 天；影響活動的復發風險降低約 28%，需要就醫的復發降低約 43%，而且具成本效益。',
+    what_it_means_zh:
+      '腰痛好了之後最重要的是「不要再犯」。不需要器材或健身房：從每天 10 分鐘開始，每週加一點，目標每週約 150 分鐘，就是有實證的預防處方。',
+    numbers: [
+      { label_zh: '無痛期中位數', value: '208 vs 112 天' },
+      { label_zh: '影響活動的復發', value: '−28%' },
+      { label_zh: '需就醫的復發', value: '−43%' },
+    ],
+    caveat_zh: '受試者以 43–66 歲、教育程度較高的女性為主，且無法盲測；目前仍有警訊或急性神經症狀者應先就醫。',
+    url: 'https://doi.org/10.1016/S0140-6736(24)00755-4',
+    related_hash: 'spine/EXERCISE',
+  },
+  {
     id: 'UPD-2024-DEPRESSION-EX',
     date: '2024-02',
     category: 'mind',

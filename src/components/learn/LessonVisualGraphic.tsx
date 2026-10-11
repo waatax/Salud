@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import {
   Activity,
   Heart,
@@ -45,13 +45,31 @@ import {
 } from 'lucide-react';
 import { LearningTrack, Lesson } from '../../types/learning';
 
+// Track 8 (脊椎與神經) draws from the spine zone's figure set, loaded only when needed.
+const SpineLessonVisual = lazy(() => import('../pillars/spine/SpineLessonVisual'));
+const HepbLessonVisual = lazy(() => import('../pillars/hepb/HepbLessonVisual'));
+
 interface LessonVisualGraphicProps {
   track: LearningTrack;
   lesson: Lesson;
 }
 
 export const LessonVisualGraphic: React.FC<LessonVisualGraphicProps> = ({ track, lesson }) => {
-  // Select tailored infographic based on lesson ID (covering all 54 lessons)
+  if (lesson.id.startsWith('L-SPN-')) {
+    return (
+      <Suspense fallback={<div className="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900 animate-pulse" aria-hidden="true" />}>
+        <SpineLessonVisual lessonId={lesson.id} />
+      </Suspense>
+    );
+  }
+  if (lesson.id === 'L-PRE-10') {
+    return (
+      <Suspense fallback={<div className="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900 animate-pulse" aria-hidden="true" />}>
+        <HepbLessonVisual />
+      </Suspense>
+    );
+  }
+  // Select tailored infographic based on lesson ID (covering every lesson in tracks 1–7)
   switch (lesson.id) {
     // ── Track 1: Basics (6 課) ──────────────────────────────────────────
     case 'L-BAS-01':

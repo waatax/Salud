@@ -32,6 +32,8 @@ const UltraHealthHub = lazy(() => import('../ultrahealth/UltraHealthHub').then((
 const ObesityHub = lazy(() => import('../pillars/ObesityHub').then((m) => ({ default: m.ObesityHub })));
 const LongevityHub = lazy(() => import('../pillars/LongevityHub').then((m) => ({ default: m.LongevityHub })));
 const CardiometabolicHub = lazy(() => import('../pillars/CardiometabolicHub').then((m) => ({ default: m.CardiometabolicHub })));
+const SpineHub = lazy(() => import('../pillars/SpineHub').then((m) => ({ default: m.SpineHub })));
+const HepBHub = lazy(() => import('../pillars/HepBHub').then((m) => ({ default: m.HepBHub })));
 
 // Lazy-loaded secondary pages and dialogs
 const EmergencyModal = lazy(() => import('../common/EmergencyModal').then((m) => ({ default: m.EmergencyModal })));
@@ -91,8 +93,9 @@ export function AppShell() {
   const { openModal, closeModal, isOpen } = useModal();
   const mainRef = useRef<HTMLElement>(null);
 
-  // 「立即上手」tips for the section on screen. Body systems render their own card
-  // (it follows the selected system); learner pages place it inside their layout.
+  // 「立即上手」tips for the section on screen, rendered after the hub content. Body systems
+  // render their own card (it follows the selected system); learner pages place it inside
+  // their layout.
   const onHealthPage = !metaView && !isSynergyView && !isCouncilEvidenceView;
   const tipKey: string | null = !onHealthPage
     ? null
@@ -102,7 +105,7 @@ export function AppShell() {
       : 'diet'
     : activePillar === 'exercise'
     ? `exercise:${exerciseSubTab}`
-    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements'] as string[]).includes(activePillar)
+    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb'] as string[]).includes(activePillar)
     ? activePillar
     : null;
 
@@ -193,7 +196,6 @@ export function AppShell() {
           className="flex-1 min-w-0 px-3.5 sm:px-8 pt-4 pb-28 sm:py-6 lg:pb-12 focus:outline-none"
         >
           {!learnerPage && <Breadcrumb />}
-          {tipKey && <QuickTips key={tipKey} sectionKey={tipKey} className="mb-6" />}
 
           <div className={learnerPage ? 'max-w-5xl mx-auto' : undefined}>
             {metaView ? (
@@ -236,9 +238,18 @@ export function AppShell() {
                 {activePillar === 'sleep' && <SleepHub />}
                 {activePillar === 'supplements' && <SupplementsHub />}
                 {activePillar === 'mental' && <MentalHealthHub />}
+                {activePillar === 'spine' && <SpineHub />}
+                {activePillar === 'hepb' && <HepBHub />}
               </Suspense>
             )}
           </div>
+          {/* v4.4: learn first, then act — a hub opens with its own introduction and ends
+              with the「立即上手」actions, instead of greeting readers with tips before the title. */}
+          {tipKey && (
+            <div className="max-w-5xl mx-auto">
+              <QuickTips key={tipKey} sectionKey={tipKey} className="mt-10" />
+            </div>
+          )}
           <SiteFooter />
         </main>
 

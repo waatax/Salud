@@ -31,6 +31,7 @@ export const FloatingReadingDock: React.FC<Props> = () => {
 
   return (
     <div
+      data-print-hide
       className="fixed right-3.5 sm:right-6 bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] sm:bottom-24 lg:bottom-8 z-30 flex flex-col items-center gap-2 animate-fade-in"
       role="region"
       aria-label="快速閱讀工具"

@@ -275,7 +275,9 @@ export type HealthPillar =
   | 'exercise'
   | 'sleep'
   | 'supplements'
-  | 'mental';
+  | 'mental'
+  | 'spine'
+  | 'hepb';
 
 // ── Human Organ Systems Types (主頁人體系統總覽) ──
 export type HumanSystemId =

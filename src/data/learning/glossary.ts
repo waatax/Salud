@@ -57,8 +57,28 @@ export const GLOSSARY: GlossaryEntry[] = [
   { term: 'Zone 2', zh: '第二心率區間', plain_zh: '約最大心率 60–70%、還能完整說話的強度，用來累積有氧基礎。', category: '運動與生活', related_hash: 'learn/move/L-MOVE-05' },
   { term: 'RIR', zh: '保留次數', plain_zh: '一組做完時「還能再做幾下」。ACSM 2026 建議保留 2–3 下即可。', category: '運動與生活', related_hash: 'learn/move/L-MOVE-03' },
   { term: '運動零食', zh: 'Exercise snacks', plain_zh: '一天數次、每次 1–2 分鐘的費力活動，例如快速爬樓梯。', category: '運動與生活', related_hash: 'learn/move/L-MOVE-04' },
+  { term: 'HBsAg', zh: 'B 型肝炎表面抗原', plain_zh: '陽性代表體內有 B 肝病毒；持續超過 6 個月就是慢性帶原。', category: '檢驗與數值', related_hash: 'hepb/TESTS' },
+  { term: 'Anti-HBs', zh: 'B 型肝炎表面抗體', plain_zh: '對 B 肝的保護力，來自疫苗或感染後康復；≥10 mIU/mL 視為有保護力。', category: '檢驗與數值', related_hash: 'hepb/TESTS' },
+  { term: 'Anti-HBc', zh: 'B 型肝炎核心抗體', plain_zh: '陽性代表曾經感染過 B 肝；疫苗不會產生這個抗體。接受化療或免疫抑制治療前要告知醫師。', category: '檢驗與數值', related_hash: 'hepb/TESTS' },
+  { term: 'HBV DNA', zh: 'B 型肝炎病毒量', plain_zh: '血中 B 肝病毒的數量（IU/mL），是決定要不要治療、治療有沒有效的關鍵指標。', category: '檢驗與數值', related_hash: 'hepb/TREATMENT' },
+  { term: 'AFP', zh: '胎兒蛋白', plain_zh: '肝癌的腫瘤標記，通常搭配腹部超音波一起追蹤，單獨使用容易漏掉早期肝癌。', category: '檢驗與數值', related_hash: 'hepb/MONITOR' },
+  { term: '慢性 B 型肝炎', zh: 'Chronic hepatitis B', plain_zh: 'B 肝病毒在體內持續超過 6 個月；多數沒有症狀，是台灣肝硬化與肝癌最主要的原因。', category: '疾病與狀態', related_hash: 'hepb' },
+  { term: '功能性治癒', zh: 'Functional cure', plain_zh: 'B 肝表面抗原消失、病毒測不到，而且停藥後仍維持；是新一代 B 肝藥物追求的目標。', category: '治療與藥物', related_hash: 'hepb/TREATMENT' },
+  // 脊椎與神經（v4.4）
+  { term: '骨刺', zh: '骨贅 Osteophyte', plain_zh: '關節或椎體邊緣因長期受力增生的骨質，是退化的結果；很常見，多數沒有症狀，也不會被藥物或食物溶掉。', category: '脊椎與神經', related_hash: 'spine/SPURS' },
+  { term: '椎間盤突出', zh: 'Disc herniation', plain_zh: '椎間盤外圈的纖維環破裂、中心的髓核往外跑，可能壓到神經根；多數會隨時間縮小。', category: '脊椎與神經', related_hash: 'spine/TREATMENT' },
+  { term: '神經根病變', zh: 'Radiculopathy', plain_zh: '離開脊椎的神經根被壓迫或發炎，造成單側沿手臂或腿一條帶狀的麻、痛或無力。', category: '脊椎與神經', related_hash: 'spine/NUMBNESS' },
+  { term: '坐骨神經痛', zh: 'Sciatica', plain_zh: '從臀部往下延伸過膝蓋的腿痛或麻，最常由 L5 或 S1 神經根受壓引起。', category: '脊椎與神經', related_hash: 'spine/NUMBNESS' },
+  { term: '脊髓病變', zh: 'Myelopathy', plain_zh: '脊髓本身被壓迫，常見於頸椎退化；表現為雙手笨拙、走路不穩，需要盡快就醫。', category: '脊椎與神經', related_hash: 'spine/NUMBNESS' },
+  { term: '椎管狹窄', zh: 'Spinal stenosis', plain_zh: '骨刺、膨出的椎間盤與增厚的韌帶讓脊椎通道變窄；腰椎狹窄常在走路後雙腿痠麻、坐下就好。', category: '脊椎與神經', related_hash: 'spine/SPURS' },
+  { term: '馬尾症候群', zh: 'Cauda equina syndrome', plain_zh: '腰椎以下的馬尾神經被大量壓迫，出現會陰麻木、大小便異常與雙腿無力，是需要緊急手術的急症。', category: '脊椎與神經', related_hash: 'spine/TRIAGE' },
+  { term: '腕隧道症候群', zh: 'Carpal tunnel syndrome', plain_zh: '手腕的正中神經被壓迫，拇指到無名指半邊麻、夜裡麻醒、甩手會好。', category: '脊椎與神經', related_hash: 'spine/NUMBNESS' },
+  { term: '皮節', zh: 'Dermatome', plain_zh: '每一對脊神經負責感覺的一塊皮膚區域；麻的位置可以用來推測是哪一條神經受影響。', category: '脊椎與神經', related_hash: 'spine/NUMBNESS' },
+  { term: 'NCS／EMG', zh: '神經傳導檢查／肌電圖', plain_zh: '用小電流與細針測量神經和肌肉的電訊號，用來分辨問題在脊椎神經根還是手腕、手肘等周邊神經。', category: '脊椎與神經', related_hash: 'spine/TRIAGE' },
+  { term: '集中化現象', zh: 'Centralization', plain_zh: '做某個動作後，手腳的麻痛往脊椎方向收回來；通常代表這個方向的運動適合你。', category: '脊椎與神經', related_hash: 'spine/EXERCISE' },
+  { term: 'OPLL', zh: '後縱韌帶骨化症', plain_zh: '頸椎椎體後方的韌帶慢慢變成骨頭、從前方壓迫脊髓；在東亞族群較常見。', category: '脊椎與神經', related_hash: 'spine/SPURS' },
   { term: '超加工食品', zh: 'Ultra-processed food', plain_zh: '主要以工業原料與添加物組成的食品，如泡麵、香腸、洋芋片、含糖飲料。', category: '運動與生活', related_hash: 'learn/eat/L-EAT-06' },
   { term: '睡眠規律度', zh: 'Sleep regularity', plain_zh: '每天入睡與起床時間的一致程度；研究顯示比睡眠時數更能預測健康。', category: '運動與生活', related_hash: 'learn/rest/L-REST-01' },
 ];
 
-export const GLOSSARY_CATEGORIES = ['檢驗與數值', '疾病與狀態', '治療與藥物', '研究與證據', '運動與生活'] as const;
+export const GLOSSARY_CATEGORIES = ['檢驗與數值', '疾病與狀態', '脊椎與神經', '治療與藥物', '研究與證據', '運動與生活'] as const;

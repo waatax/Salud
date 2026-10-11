@@ -16,7 +16,7 @@ interface LessonTableConfig {
   tip?: string;
 }
 
-/** 54 堂白話小課臨床實證教學速查表資料庫 (完整覆蓋 7 大主線 54 課) */
+/** 白話小課臨床實證教學速查表資料庫（8 大主線，每課一張） */
 const LESSON_TABLES: Record<string, LessonTableConfig> = {
   // ── Track 1: Basics (6 課) ────────────────────────────────────────────────
   'L-BAS-01': {
@@ -1824,6 +1824,86 @@ const LESSON_TABLES: Record<string, LessonTableConfig> = {
       },
     ],
     tip: '戒菸任何時候都不嫌晚：只要抽完最後一口菸，身體的修復系統在「第 20 分鐘」就已經開始啟動！',
+  },
+
+  'L-PRE-10': {
+    title: 'B 型肝炎三項基本檢驗解讀對照表',
+    source: 'WHO 2024 · AASLD 2018 · 國健署',
+    columns: ['HBsAg／Anti-HBs／Anti-HBc', '代表', '說明', '下一步'],
+    rows: [
+      { item: '－／－／－', standard: '沒有感染也沒有保護力', mechanism: '從未感染、沒有疫苗抗體', note: '接種 3 劑疫苗（0、1、6 個月）' },
+      { item: '－／＋／－', standard: '疫苗保護', mechanism: '抗體來自疫苗', note: '不需處理' },
+      { item: '－／＋／＋', standard: '感染過已康復', mechanism: '免疫已清除病毒', note: '未來化療或免疫治療前告知醫師' },
+      { item: '＋／－／＋', standard: 'B 肝帶原', mechanism: '體內有病毒（>6 個月為慢性）', note: '驗病毒量、e 抗原、ALT、超音波；家人篩檢' },
+      { item: '－／－／＋', standard: '單獨核心抗體陽性', mechanism: '可能抗體下降或潛伏感染', note: '請醫師評估，必要時驗病毒量' },
+    ],
+    tip: '肝硬化或高風險帶原者每 6 個月做一次腹部超音波＋胎兒蛋白，是早期發現肝癌最有效的方法。',
+  },
+  // ── Track 8: Spine (5 課) ────────────────────────────────────────────────
+  'L-SPN-01': {
+    title: '脊椎各段構造、神經支配與常見問題對照表',
+    source: '標準解剖學 · ASIA ISNCSCI 2019',
+    columns: ['部位', '節數與彎曲', '負責的神經區域', '常見問題'],
+    rows: [
+      { item: '頸椎', standard: '7 節 · 前凸', mechanism: 'C5–T1 臂神經叢：肩、手臂、手', note: '頸椎退化、神經根病變（手麻）、脊髓病變' },
+      { item: '胸椎', standard: '12 節 · 後凸', mechanism: '肋間神經：胸腹壁', note: '骨鬆壓迫性骨折、駝背' },
+      { item: '腰椎', standard: '5 節 · 前凸', mechanism: 'L2–S1：大腿、小腿、腳', note: '椎間盤突出、坐骨神經痛、椎管狹窄' },
+      { item: '薦骨＋尾骨', standard: '各自癒合 · 後凸', mechanism: 'S2–S4：會陰、膀胱、直腸', note: '受壓時大小便異常（馬尾症候群）' },
+    ],
+    tip: '脊髓在第 1–2 腰椎附近就結束；腰椎以下的椎管裡是馬尾神經根。',
+  },
+  'L-SPN-02': {
+    title: '無症狀者影像發現盛行率（依年齡）',
+    source: 'Brinjikji W, et al. AJNR 2015;36:811-816',
+    columns: ['影像發現', '20 歲', '50 歲', '80 歲'],
+    rows: [
+      { item: '椎間盤退化', standard: '37%', mechanism: '80%', note: '96%' },
+      { item: '椎間盤膨出', standard: '30%', mechanism: '60%', note: '84%' },
+      { item: '小面關節退化', standard: '4%', mechanism: '32%', note: '83%' },
+      { item: '椎間盤突出', standard: '29%', mechanism: '36%', note: '43%' },
+      { item: '脊椎滑脫', standard: '3%', mechanism: '14%', note: '50%' },
+    ],
+    tip: '影像報告的「退化」「骨刺」「膨出」要和症狀、神經學檢查對得上，才代表它是疼痛的原因。',
+  },
+  'L-SPN-03': {
+    title: '手腳麻的分布型態與可能原因速查',
+    source: 'ASIA ISNCSCI · 臨床神經學 · ADA 2025',
+    columns: ['麻的位置', '最可能原因', '辨識線索', '急迫程度'],
+    rows: [
+      { item: '拇指、食指（含前臂外側）', standard: 'C6 神經根', mechanism: '頸痛往下延伸、仰頭加重', note: '門診' },
+      { item: '拇指到無名指半邊（掌側）', standard: '腕隧道症候群', mechanism: '夜間麻醒、甩手會好、小指不麻', note: '門診' },
+      { item: '小腿外側、腳背、大腳趾', standard: 'L5 神經根／腓神經', mechanism: '腳跟走路困難；蹺腳後出現要想到腓神經', note: '垂足需盡快' },
+      { item: '雙腳襪套狀、對稱', standard: '周邊神經病變', mechanism: '糖尿病、B12 不足、飲酒、甲狀腺', note: '門診抽血' },
+      { item: '雙手笨拙＋走路不穩', standard: '頸椎脊髓病變', mechanism: '扣釦子困難、像踩棉花', note: '數日內就醫' },
+      { item: '會陰麻＋大小便異常', standard: '馬尾症候群', mechanism: '尿解不出或失禁', note: '立即急診' },
+    ],
+    tip: '把麻的位置畫在紙上帶去看診，是幫助醫師判斷最快的方法。',
+  },
+  'L-SPN-04': {
+    title: '日常姿勢與腰椎椎間盤壓力（活體量測）',
+    source: 'Wilke HJ, et al. Spine 1999;24:755-762',
+    columns: ['姿勢', '壓力（MPa）', '相對站立', '建議'],
+    rows: [
+      { item: '仰躺', standard: '0.10', mechanism: '20%', note: '膝下墊枕更放鬆' },
+      { item: '靠椅背放鬆坐', standard: '0.30', mechanism: '60%', note: '椅背 100–110°、腰後加靠墊' },
+      { item: '自然站立', standard: '0.50', mechanism: '100%', note: '久站一腳踩小凳輪替' },
+      { item: '站著彎腰向前', standard: '1.10', mechanism: '220%', note: '工作檯高度約手肘下 10–15 cm' },
+      { item: '彎腰駝背提 20 kg', standard: '2.30', mechanism: '460%', note: '改屈膝、物品貼近身體（1.1–1.7）' },
+    ],
+    tip: '最好的姿勢是下一個姿勢：每 30–60 分鐘起身動 1–2 分鐘。',
+  },
+  'L-SPN-05': {
+    title: '頸腰痛常見治療的實證強度速查',
+    source: 'WHO 2023 · ACP 2017 · NICE NG59 · Cochrane',
+    columns: ['治療', '實證', '效果', '建議定位'],
+    rows: [
+      { item: '個別化運動治療', standard: 'A', mechanism: '改善疼痛與功能、預防復發', note: '所有人的核心治療' },
+      { item: '口服 NSAIDs', standard: 'B', mechanism: '小到中等止痛效果', note: '最低劑量、最短時間；注意腎胃心' },
+      { item: '熱敷', standard: 'B', mechanism: '急性期短期止痛', note: '居家可做，避免燙傷' },
+      { item: 'Pregabalin（坐骨神經痛）', standard: 'C', mechanism: '大型試驗不優於安慰劑', note: '不建議常規用於坐骨神經痛' },
+      { item: 'TENS／超音波／腰椎牽引', standard: 'D', mechanism: '證據不足', note: 'WHO 2023 不建議常規使用' },
+    ],
+    tip: '把藥物與被動治療當成「讓你能動起來」的輔助，而不是取代運動。',
   },
 };
 

@@ -6,7 +6,7 @@ import type { SearchDoc, SearchGroup } from '../../data/learning/searchIndex';
 
 type SearchModule = typeof import('../../data/learning/searchIndex');
 
-const SUGGESTIONS = ['高血壓', 'LDL', '糖化血色素', '失眠', '脂肪肝', '減重藥', '肌力訓練', '腎臟', '癌症篩檢', '咖啡因'];
+const SUGGESTIONS = ['手麻', '骨刺', '高血壓', 'LDL', '糖化血色素', '失眠', '脂肪肝', '減重藥', '肌力訓練', '坐骨神經痛', '癌症篩檢', '咖啡因'];
 
 /**
  * Site-wide search (Ctrl/⌘ K, or "/"). The index is built once on first open from the

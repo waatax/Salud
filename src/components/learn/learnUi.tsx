@@ -18,6 +18,7 @@ import {
   Wine,
   Gauge,
   Sparkles,
+  Bone,
   LucideIcon,
 } from 'lucide-react';
 import { LearningIcon, LearningTone } from '../../types/learning';
@@ -41,6 +42,7 @@ export const LEARNING_ICONS: Record<LearningIcon, LucideIcon> = {
   wine: Wine,
   gauge: Gauge,
   sparkles: Sparkles,
+  spine: Bone,
 };
 
 /**

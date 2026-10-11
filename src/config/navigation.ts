@@ -14,6 +14,8 @@ import {
   Rocket,
   BookA,
   PersonStanding,
+  Bone,
+  ShieldPlus,
   LucideIcon,
 } from 'lucide-react';
 import { HealthPillar } from '../types';
@@ -30,6 +32,9 @@ import { HealthPillar } from '../types';
  * Project governance — the expert council roster, the RPDCA iteration history, the
  * charter — lives at SECONDARY_LINKS and is reachable from the footer only.
  *
+ * v4.4: a "症狀與疾病專區" group sits between the body and the daily levers — a reader who
+ * arrives with a symptom (手麻、腰痛) gets a front door of its own.
+ *
  * v4.0: a first group, "開始學習", puts the learner layer (home, tracks, check-up guide,
  * what's new, glossary) ahead of the topic hubs, and the hubs are regrouped by the
  * question a reader brings: understand the body → daily levers → long-range goals.
@@ -45,7 +50,7 @@ export interface PillarNavItem {
   blurb_zh: string;
   blurb_en: string;
   /** Group heading used by the sidebar to chunk the list. */
-  group: 'start' | 'foundation' | 'daily' | 'goals';
+  group: 'start' | 'foundation' | 'care' | 'daily' | 'goals';
   /** Whether this pillar appears in the compact mobile bottom bar. */
   mobile: boolean;
   /** Abbreviated label for the mobile bar, where a long label wraps mid-word. */
@@ -59,11 +64,12 @@ export const PILLAR_GROUPS: Record<
 > = {
   start: { title_zh: '開始學習', title_en: 'Start learning' },
   foundation: { title_zh: '認識身體', title_en: 'Know the body' },
+  care: { title_zh: '症狀與疾病專區', title_en: 'Symptoms & conditions' },
   daily: { title_zh: '吃・動・睡・心', title_en: 'Daily levers' },
   goals: { title_zh: '預防與健康目標', title_en: 'Prevention & goals' },
 };
 
-export const GROUP_ORDER: PillarNavItem['group'][] = ['start', 'foundation', 'daily', 'goals'];
+export const GROUP_ORDER: PillarNavItem['group'][] = ['start', 'foundation', 'care', 'daily', 'goals'];
 
 export const PILLAR_NAV: PillarNavItem[] = [
   {
@@ -156,6 +162,32 @@ export const PILLAR_NAV: PillarNavItem[] = [
     mobile: true,
     short_zh: '系統',
     short_en: 'Body',
+  },
+  {
+    id: 'spine',
+    hash: 'spine',
+    icon: Bone,
+    label_zh: '脊椎與手腳麻',
+    label_en: 'Spine & Nerves',
+    blurb_zh: '骨刺·姿勢·用藥',
+    blurb_en: 'Spurs · posture',
+    group: 'care',
+    mobile: true,
+    short_zh: '脊椎',
+    short_en: 'Spine',
+  },
+  {
+    id: 'hepb',
+    hash: 'hepb',
+    icon: ShieldPlus,
+    label_zh: 'B 型肝炎',
+    label_en: 'Hepatitis B',
+    blurb_zh: '篩檢·治療·追蹤',
+    blurb_en: 'Screen · treat',
+    group: 'care',
+    mobile: true,
+    short_zh: 'B 肝',
+    short_en: 'Hep B',
   },
   {
     id: 'diet',

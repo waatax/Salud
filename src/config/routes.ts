@@ -21,7 +21,7 @@ import {
  *   learn[/<track>[/<lesson>]]         → learning tracks
  *   updates | checkup | glossary       → learner reference pages
  *   systems[/<system>[/<section>]]     → body systems
- *   <pillar>[/<TAB>]                   → pillar hub, optional tab
+ *   <pillar>[/<TAB>]                   → pillar hub, optional tab (incl. spine/<CHAPTER>)
  *   exercise/<discipline> (+ aliases)  → sport discipline
  *   diet | diet/patterns               → dietary patterns
  *   W | O | A [/<PAGE-ID>]             → nutrition chapters
@@ -84,6 +84,8 @@ const SIMPLE_PILLARS: HealthPillar[] = [
   'updates',
   'checkup',
   'glossary',
+  'spine',
+  'hepb',
 ];
 
 const PILLAR_ALIASES: Record<string, HealthPillar> = {
@@ -94,6 +96,13 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   news: 'updates',
   labs: 'checkup',
   terms: 'glossary',
+  back: 'spine',
+  neck: 'spine',
+  numbness: 'spine',
+  sciatica: 'spine',
+  hepatitis: 'hepb',
+  'hepatitis-b': 'hepb',
+  hbv: 'hepb',
 };
 
 export function parseHash(rawHash: string): Route | null {
@@ -140,6 +149,10 @@ export type MentalTab = 'SIMULATOR' | 'NEUROBIOLOGY' | 'PROTOCOLS' | 'VAGUS_HRV'
 export const MENTAL_TABS: readonly MentalTab[] = ['SIMULATOR', 'NEUROBIOLOGY', 'PROTOCOLS', 'VAGUS_HRV', 'CAPNOMETRY', 'TRIAGE'];
 export type CheckupTab = 'quick' | 'labs' | 'screening';
 export const CHECKUP_TABS: readonly CheckupTab[] = ['quick', 'labs', 'screening'];
+export type SpineTab = 'OVERVIEW' | 'SPURS' | 'NUMBNESS' | 'POSTURE' | 'EXERCISE' | 'TREATMENT' | 'MEDS' | 'REHAB' | 'TRIAGE';
+export const SPINE_TABS: readonly SpineTab[] = ['OVERVIEW', 'SPURS', 'NUMBNESS', 'POSTURE', 'EXERCISE', 'TREATMENT', 'MEDS', 'REHAB', 'TRIAGE'];
+export type HepbTab = 'OVERVIEW' | 'SPREAD' | 'TESTS' | 'PHASES' | 'TREATMENT' | 'MONITOR' | 'LIFE';
+export const HEPB_TABS: readonly HepbTab[] = ['OVERVIEW', 'SPREAD', 'TESTS', 'PHASES', 'TREATMENT', 'MONITOR', 'LIFE'];
 export type SystemSection = 'overview' | 'how' | 'charts' | 'conditions' | 'prevent' | 'flags';
 export const SYSTEM_SECTIONS: readonly SystemSection[] = ['overview', 'how', 'charts', 'conditions', 'prevent', 'flags'];
 
@@ -150,6 +163,8 @@ export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
   sleep: SLEEP_TABS,
   mental: MENTAL_TABS,
   checkup: CHECKUP_TABS,
+  spine: SPINE_TABS,
+  hepb: HEPB_TABS,
 };
 
 /** Second hash segment when the current hash starts with `prefix/`, e.g. the tab id. */

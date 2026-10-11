@@ -231,6 +231,7 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
 
   return (
     <aside
+      data-print-hide
       className={`shrink-0 ${
         inDrawer
           ? 'w-full'

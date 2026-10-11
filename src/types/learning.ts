@@ -30,7 +30,8 @@ export type LearningIcon =
   | 'droplets'
   | 'wine'
   | 'gauge'
-  | 'sparkles';
+  | 'sparkles'
+  | 'spine';
 
 export interface LessonLink {
   label_zh: string;

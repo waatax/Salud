@@ -313,10 +313,10 @@ export const LAB_METRICS: LabMetric[] = [
       { label_zh: 'B 肝帶原', range_zh: 'HBsAg 陽性：每 6–12 個月追蹤超音波與抽血', tone: 'warn' },
       { label_zh: 'C 肝抗體陽性', range_zh: '驗 HCV RNA；陽性者口服藥 8–12 週治癒率 >95%', tone: 'warn' },
     ],
-    tips_zh: ['國健署提供 45–79 歲（原住民 40–79 歲）終身一次公費 B、C 肝篩檢。'],
+    tips_zh: ['國健署提供民國 75 年（1986 年）以前出生、79 歲以下民眾終身一次公費 B、C 肝篩檢（2025 年 8 月起擴大；原住民 40 歲起），免空腹。'],
     pitfall_zh: '「B 肝帶原但肝指數正常」仍可能發生肝癌，定期追蹤不能停。',
     authority: '國健署、台灣肝臟學會',
-    related_hash: 'systems/digestive/conditions',
+    related_hash: 'hepb/TESTS',
   },
 
   // ── 身體組成 ──
@@ -434,7 +434,7 @@ export const TAIWAN_SCREENINGS: ScreeningItem[] = [
     who_zh: '30 歲以上',
     how_zh: '問卷、身體檢查（血壓、BMI、腰圍）、抽血（血糖、血脂、腎功能、肝功能）、尿蛋白與衛教',
     frequency_zh: '30–39 歲每 5 年 1 次；40–64 歲每 3 年 1 次；65 歲以上每年 1 次',
-    note_zh: '2025 年起下修至 30 歲；同時提供 45–79 歲（原住民 40–79 歲）終身一次 B、C 型肝炎篩檢。',
+    note_zh: '2025 年起下修至 30 歲；同時提供民國 75 年以前出生、79 歲以下（原住民 40 歲起）終身一次 B、C 型肝炎篩檢（2025 年 8 月起擴大）。',
     funded: true,
     authority: '國健署 2025',
   },
