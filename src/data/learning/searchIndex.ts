@@ -58,8 +58,58 @@ export function buildSearchIndex(): SearchDoc[] {
 
   // 脊椎與神經專區 (v4.4): chapters, causes of numbness, medicines, therapies, exercises, postures.
   for (const c of SPINE_CHAPTERS) {
-    docs.push({ id: `spine:${c.id}`, group: '脊椎與神經', title: c.title_zh, subtitle: `脊椎專區 · ${c.label_zh}`, target: `spine/${c.id}`, keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 脊椎 骨刺 腰痛 背痛 脖子痛 頸椎 腰椎 手麻 腳麻` });
+    docs.push({
+      id: `spine:${c.id}`,
+      group: '脊椎與神經',
+      title: c.title_zh,
+      subtitle: `脊椎專區 · ${c.label_zh}`,
+      target: `spine/${c.id}`,
+      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 脊椎 骨刺 骨骼疏鬆 骨質疏鬆 壓迫性骨折 微創手術 骨泥 椎體成形術 UBE PELD 復健 物理治療 脊柱健康 生理曲線 McGill 麥吉爾 腰痛 背痛 脖子痛 頸椎 腰椎 手麻 腳麻`,
+    });
   }
+  // Dedicated specialty keyword targets
+  docs.push(
+    {
+      id: 'topic:osteoporosis',
+      group: '疾病',
+      title: '骨質疏鬆症與骨骼疏鬆健康管理',
+      subtitle: 'DXA 骨密度 T值、FRAX 評估與抗骨折處方藥物（保骼麗、益穩挺、骨穩）',
+      target: 'spine/OSTEOPOROSIS',
+      keywords: '骨骼疏鬆 骨質疏鬆 骨質流失 DXA T值 FRAX 骨折 保骼麗 Denosumab 益穩挺 Romosozumab 骨穩 福善美 雙磷酸鹽 鈣質 維生素D',
+    },
+    {
+      id: 'topic:vcf-cement',
+      group: '疾病',
+      title: '脊椎壓迫性骨折與微創骨泥手術',
+      subtitle: 'Genant 楔形塌陷分級、MRI STIR 水腫判讀與氣球擴張椎體成形術 (PKP/PVP)',
+      target: 'spine/FRACTURE',
+      keywords: '壓迫性骨折 骨泥 骨泥手術 椎體成形術 氣球擴張 PKP PVP SpineJack 楔形塌陷 翻身痛 背架 TLSO 道格氏駝背',
+    },
+    {
+      id: 'topic:miss-surgery',
+      group: '主題',
+      title: '微創脊椎手術與雙通道內視鏡 (UBE)',
+      subtitle: '組織保留哲學、多裂肌保護、經皮內視鏡 (PELD) 與 MIS-TLIF 減壓融合',
+      target: 'spine/SURGERY',
+      keywords: '微創手術 微創脊椎手術 內視鏡 UBE 雙通道內視鏡 PELD MIS-TLIF 多裂肌 傷口小 出血少 脊椎開刀 減壓手術',
+    },
+    {
+      id: 'topic:spine-rehab',
+      group: '實用技巧',
+      title: '全方位脊椎復健與麥吉爾三大動作 (McGill Big 3)',
+      subtitle: '三階段復健進程、改良式捲腹、側棒式、鳥狗式與骨鬆患者終生禁忌動作',
+      target: 'spine/REHAB',
+      keywords: '復健 物理治療 核心訓練 McGill 麥吉爾 改良捲腹 側棒式 鳥狗式 滾木翻身 骨鬆禁忌 禁忌動作 髖鉸鏈 健走 WalkBack',
+    },
+    {
+      id: 'topic:spine-health',
+      group: '主題',
+      title: '整體脊柱健康與生理曲線生物力學',
+      subtitle: '頸前凸、胸後凸、腰前凸、薦骨彈簧避震與矢狀平衡 (Sagittal Balance)',
+      target: 'spine/OVERVIEW',
+      keywords: '脊柱健康 脊椎健康 生理曲線 彈簧避震 矢狀平衡 Sagittal Balance 頸前凸 胸後凸 腰前凸 平背 駝背 避震',
+    }
+  );
   for (const n of NUMB_CAUSES) {
     docs.push({ id: `numb:${n.id}`, group: '疾病', title: n.condition, subtitle: `手腳麻 · ${n.pattern}`, target: 'spine/NUMBNESS', keywords: `${n.clues} ${n.tests} ${n.dept} 麻 手麻 腳麻 麻木` });
   }

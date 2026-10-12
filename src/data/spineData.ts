@@ -162,6 +162,51 @@ export const SPINE_SOURCES: Record<string, SpineSource> = {
     label: 'Kreiner DS, et al. NASS 腰椎間盤突出合併神經根病變指引. Spine J 2014;14:180-191',
     url: 'https://doi.org/10.1016/j.spinee.2013.08.003',
   },
+  IOF2023: {
+    id: 'IOF2023',
+    label: '國際骨質疏鬆症基金會 (IOF) 骨鬆防治與脆性骨折臨床指引 2023',
+    url: 'https://www.osteoporosis.foundation/',
+  },
+  AACE2020: {
+    id: 'AACE2020',
+    label: 'Camacho PM, et al. AACE/ACE 停經後骨質疏鬆症臨床實務指引. Endocr Pract 2020;26:1-46',
+    url: 'https://doi.org/10.4158/GL-2020-0524',
+  },
+  GENANT1993: {
+    id: 'GENANT1993',
+    label: 'Genant HK, et al. 脊椎骨折半定量評估分類法 (Genant SQ). J Bone Miner Res 1993;8:1137-48',
+    url: 'https://doi.org/10.1002/jbmr.5650080915',
+  },
+  BUCHBINDER2018: {
+    id: 'BUCHBINDER2018',
+    label: 'Buchbinder R, et al. 經皮椎體成形術治療骨質疏鬆性脊椎骨折 Cochrane 系統性回顧 2018',
+    url: 'https://doi.org/10.1002/14651858.CD006349.pub3',
+  },
+  VAPOUR2016: {
+    id: 'VAPOUR2016',
+    label: 'Clark W, et al. 骨泥椎體成形術治療急性疼痛骨折隨機試驗 (VAPOUR). Lancet 2016;388:1408-16',
+    url: 'https://doi.org/10.1016/S0140-6736(16)31341-1',
+  },
+  FREE2009: {
+    id: 'FREE2009',
+    label: 'Wardlaw D, et al. 氣球擴張椎體成形術治療急性脊椎骨折隨機試驗 (FREE trial). Lancet 2009;373:1016-24',
+    url: 'https://doi.org/10.1016/S0140-6736(09)60010-6',
+  },
+  UBE2023: {
+    id: 'UBE2023',
+    label: 'Kim JE, Choi DJ. 雙通道脊椎內視鏡 (UBE) 減壓術臨床指引. Neurosurg Clin N Am 2023;34:495-508',
+    url: 'https://doi.org/10.1016/j.nec.2023.02.008',
+  },
+  LIFTMOR2018: {
+    id: 'LIFTMOR2018',
+    label: 'Watson SL, et al. 高強度阻力與衝擊訓練改善骨質疏鬆 (LIFTMOR 試驗). J Bone Miner Res 2018;33:211-220',
+    url: 'https://doi.org/10.1002/jbmr.3284',
+  },
+  MCGILL2010: {
+    id: 'MCGILL2010',
+    label: 'McGill SM. 核心訓練：改善表現與預防脊椎傷害的實證依據. Strength Cond J 2010;32:33-46',
+    url: 'https://doi.org/10.1519/SSC.0b013e3181df4521',
+  },
 };
 
 // ── Chapters ──────────────────────────────────────────────────────────────────
@@ -180,12 +225,13 @@ export const SPINE_CHAPTERS: SpineChapter[] = [
   {
     id: 'OVERVIEW',
     label_zh: '認識脊椎',
-    title_zh: '一根會彎的柱子：脊椎、椎間盤與神經的分工',
-    goal_zh: '先認識脊椎的零件，後面讀到「骨刺壓到神經」「椎間盤突出」時，你就能在腦中畫出到底是哪裡出問題。',
-    learn_zh: ['脊椎分成哪幾段、各有幾節', '椎間盤、小面關節、神經孔各做什麼', '為什麼脖子的問題會麻到手、腰的問題會麻到腳'],
+    title_zh: '一根會彎的彈簧柱：脊椎、生理曲線與神經分工',
+    goal_zh: '先認識脊椎的零件與整體生物力學，後面讀到「骨刺壓到神經」「椎間盤突出」時，你就能在腦中畫出到底是哪裡出問題。',
+    learn_zh: ['脊椎分成哪幾段、各有幾節', '四段生理曲線（頸前凸、胸後凸、腰前凸、薦椎）如何像彈簧般吸震', '為什麼脖子的問題會麻到手、腰的問題會麻到腳'],
     minutes: 6,
     takeaways_zh: [
-      '成人脊椎由 7 節頸椎、12 節胸椎、5 節腰椎與薦骨、尾骨組成，三段彎曲像彈簧一樣分散衝擊。',
+      '成人脊椎由 7 節頸椎、12 節胸椎、5 節腰椎與薦骨、尾骨組成，三段彎曲像彈簧一樣分散走路與運動衝擊。',
+      '脊柱矢狀位平衡（Sagittal Balance）：重力鉛垂線自 C7 穿過 S1 上後緣；生理曲線平坦化或過度駝背都會造成局部應力飆升。',
       '脊髓在第 1–2 腰椎附近就結束，以下是一束「馬尾」神經；所以頸椎問題可能影響手腳，腰椎問題主要影響下肢與大小便。',
       '每對神經根從「神經孔」出來，負責一塊固定的皮膚與肌肉，所以「麻在哪裡」能反推「哪一節出問題」。',
     ],
@@ -194,14 +240,56 @@ export const SPINE_CHAPTERS: SpineChapter[] = [
     id: 'SPURS',
     label_zh: '骨刺與退化',
     title_zh: '骨刺是什麼？為什麼「長骨刺」常常不是痛的原因',
-    goal_zh: '骨刺是脊椎隨年齡退化時，骨頭在承受壓力的邊緣「長出來加固」的骨質。它很常見，大多數人一輩子都不會因此痛或麻。',
-    learn_zh: ['骨刺怎麼形成（退化連鎖反應）', '無症狀的人 MRI 也常看到退化', '什麼情況骨刺才真的會壓到神經'],
+    goal_zh: '骨刺是脊椎隨年齡退化時，骨頭在承受壓力的邊緣「長出來加固」的骨贅。它非常常見，大多數人一輩子都不會因此痛或麻。',
+    learn_zh: ['骨刺怎麼形成（沃爾夫定律與退化連鎖反應）', '無症狀的人 MRI 也常看到退化與骨贅', '什麼情況骨刺才真的會壓到神經（孔狹窄 vs 椎管狹窄）'],
     minutes: 7,
     takeaways_zh: [
-      '骨刺（骨贅）是退化的「結果」而非「病」：椎間盤變薄、關節負擔變大，身體在邊緣加骨頭來穩定。',
-      '80 歲無症狀的人，96% MRI 有椎間盤退化、84% 有椎間盤膨出——影像報告要搭配症狀與神經學檢查一起看。',
-      '只有當骨刺、膨出的椎間盤與增厚的韌帶一起讓「神經孔」或「椎管」變窄，並出現對應的症狀時，才需要針對它治療。',
-      '沒有任何藥物或食物能「溶掉骨刺」；治療目標是改善症狀與功能，而不是讓影像變漂亮。',
+      '骨刺（骨贅）是退化的「結果」而非「病」：椎間盤脫水變薄、關節負擔變大，身體在受力邊緣增生骨頭以求穩定。',
+      '80 歲無症狀的人，96% MRI 有椎間盤退化、84% 有椎間盤膨出——影像報告必須嚴格對照神經學臨床檢查。',
+      '只有當骨刺、膨出的椎間盤與肥厚黃韌帶一同壓迫「神經根」或「椎管」，且產生對應皮節症狀時，才需針對其治療。',
+      '沒有任何藥物或食物能「溶掉骨刺」；治療目標是消除神經根水腫、恢復肌肉功能，而不是抹平 X 光影像。',
+    ],
+  },
+  {
+    id: 'OSTEOPOROSIS',
+    label_zh: '骨骼疏鬆',
+    title_zh: '骨質疏鬆症：無聲的骨質流失、DXA T值與抗骨折新療法',
+    goal_zh: '骨質疏鬆是「無聲的健康殺手」，平常完全不痛不癢，第一次有症狀往往就是突發性骨折。認識骨密度檢測、FRAX 風險評估與各類新一代促骨生成與抗骨吸收藥物。',
+    learn_zh: ['DXA 骨密度 T 值與 FRAX 骨折風險評估門檻', '停經後雌激素驟降與骨重塑失衡機轉（RANKL/OPG 軸）', '抗吸收劑（雙磷酸鹽、保骼麗）與促生成劑（骨穩、益穩挺）的階梯策略'],
+    minutes: 8,
+    takeaways_zh: [
+      '骨密度 T 值 ≤ -2.5 為骨質疏鬆；若已發生過站立高度脆性骨折，即定義為「嚴重骨質疏鬆症」，未來 1 年內再骨折風險暴增 5 倍。',
+      'FRAX 評估工具預估未來十年骨折機率：主要骨鬆骨折 ≥ 20% 或髖部骨折 ≥ 3% 者，即便 T 值尚未達 -2.5 也強烈建議開始藥物保護。',
+      '促進骨生成藥物（益穩挺 Romosozumab、骨穩 Teriparatide）能直接刺激造骨細胞造新骨；極高風險者應「先促生成、後抗吸收」。',
+      '保骼麗（Denosumab）每半年皮下注射一次，停藥會誘發「骨吸收反彈與脊椎多重骨折風險」，絕對不可擅自停藥，必須銜接雙磷酸鹽類。',
+    ],
+  },
+  {
+    id: 'FRACTURE',
+    label_zh: '壓迫性骨折與骨泥',
+    title_zh: '脊椎壓迫性骨折與骨泥手術：急性背痛、楔形塌陷與微創灌漿',
+    goal_zh: '長者彎腰提重物或輕微摔跌後突發嚴重背痛、翻身困難，極可能是脊椎壓迫性骨折。了解 Genant 塌陷分級、MRI 骨髓水腫判讀、保守治療與椎體成形術（骨泥）的適應症與風險。',
+    learn_zh: ['壓迫性骨折的臨床表現與胸腰椎交界處（T11–L2）受力弱點', 'Genant 楔形塌陷分級與 MRI STIR 高訊號辨別新舊急性骨折', '經皮椎體成形術（PVP）與氣球擴張椎體成形術（PKP 骨泥）的差異與外漏預防'],
+    minutes: 8,
+    takeaways_zh: [
+      '壓迫性骨折最常發生於胸腰椎交界處（T12–L1），典型表現為翻身劇痛、身高變矮超過 3 公分或駝背；約三分之二無劇烈外傷史。',
+      'MRI STIR 呈高訊號（發白）代表「急性進行性水腫」的新鮮骨折，是評估骨泥灌注的黃金標準；舊骨折若無水腫則不應灌骨泥。',
+      '氣球擴張椎體成形術（PKP）先用氣球撐開塌陷椎體創造空腔，再低壓灌注高黏度骨泥，能恢復部分高度且骨泥外漏率遠低於傳統 PVP。',
+      '骨泥能立刻穩住骨骼微裂隙、快速止痛，但「只治標不治本」：術後一年內鄰近節段再骨折率達 15–20%，術後必須立即積極治療全身骨鬆！',
+    ],
+  },
+  {
+    id: 'SURGERY',
+    label_zh: '微創手術',
+    title_zh: '微創脊椎手術（MISS）：內視鏡、顯微減壓與組織保留',
+    goal_zh: '傳統脊椎手術需要大幅剝離背肌，造成術後頑固性腰痛；微創手術（MISS）與雙通道內視鏡（UBE）透過 1 公分以下微小切口穿透肌肉間隙，兼具高解析度放大與組織保留。',
+    learn_zh: ['傳統大開刀 vs 微創手術的核心哲學與組織創傷差異', '單孔 (PELD) 與雙通道內視鏡 (UBE) 脊椎手術的操作原理', '微創手術的適應症（椎間盤切除、椎管狹窄減壓、MIS-TLIF 融合）與極限'],
+    minutes: 7,
+    takeaways_zh: [
+      '微創手術的核心是保留重要的多裂肌（Multifidus）、後方張力帶韌帶與小面關節，避免「融合病」與術後背肌不可逆纖維化萎縮。',
+      '雙通道內視鏡（UBE）一孔放 30 倍高畫質鏡頭、一孔放手術器械，在連續水流灌注下操作，視野清晰且出血量極少（通常 < 50 ml）。',
+      '微創內視鏡減壓術術後當天或隔天即可下床出院，數週內可恢復日常工作，大幅降低長者長期臥床併發症。',
+      '手術適應症與傳統開刀相同：馬尾症候群、進展性肌力下降，或嚴格保守治療 6–12 週無效者；重度脊椎變形或粉碎骨折仍需開放重建。',
     ],
   },
   {
@@ -209,7 +297,7 @@ export const SPINE_CHAPTERS: SpineChapter[] = [
     label_zh: '手麻腳麻',
     title_zh: '手麻腳麻：從「麻在哪裡」找出是哪條神經',
     goal_zh: '手腳麻不一定是脊椎問題。腕隧道症候群、糖尿病或維生素 B12 不足造成的神經病變，甚至中風，都會麻。學會看「麻的分布」，就能更快找到對的科別。',
-    learn_zh: ['頸椎、腰椎每條神經根管哪一塊', '腕隧道、周邊神經病變和脊椎問題怎麼分', '哪些麻是急症，要立刻就醫'],
+    learn_zh: ['頸椎、腰椎每條神經根管哪一塊（皮節分布地圖）', '腕隧道、周邊神經病變和脊椎問題怎麼分', '哪些麻是急症，要立刻就醫'],
     minutes: 8,
     takeaways_zh: [
       '單側、沿著手臂或腿「一條帶狀」往下麻，加上脖子或腰痛，較像神經根被壓迫（頸椎最常見 C7、C6；腰椎最常見 L5、S1）。',
@@ -220,20 +308,21 @@ export const SPINE_CHAPTERS: SpineChapter[] = [
   {
     id: 'POSTURE',
     label_zh: '躺坐站走',
-    title_zh: '躺・坐・站・走：保護脊椎的日常姿勢與動作',
-    goal_zh: '沒有一個「完美姿勢」可以維持一整天。真正傷脊椎的是「同一個姿勢太久」與「彎腰＋扭轉＋負重」同時發生。這一章用實際測量的椎間盤壓力，告訴你哪些動作值得調整。',
-    learn_zh: ['不同姿勢下椎間盤壓力差多少', '睡覺、辦公、做家事的具體擺位', '搬重物、起床、上下車的安全動作'],
+    title_zh: '躺・坐・站・走：日常脊柱健康與人體工學姿勢',
+    goal_zh: '沒有一個「完美姿勢」可以維持一整天。真正傷脊椎的是「同一個姿勢太久」與「彎腰＋扭轉＋負重」同時發生。這一章用活體量測的椎間盤壓力，告訴你哪些動作值得調整。',
+    learn_zh: ['不同姿勢下椎間盤壓力差多少（Wilke 活體量測數據 0.1–2.3 MPa）', '低頭滑手機的頸椎等效負荷（Hansraj 模型高達 27 公斤）', '搬重物、起床、睡眠擺位與工作站人體工學指引'],
     minutes: 8,
     takeaways_zh: [
-      '躺著時椎間盤壓力最低；放鬆坐著和站著差不多；彎腰向前與「彎腰駝背提重物」最高——圓背提 20 公斤約是站立的 4.6 倍。',
-      '最好的姿勢是「下一個姿勢」：每 30–60 分鐘起身動 1–2 分鐘，比坐得筆直更重要。',
-      '仰睡在膝下墊枕、側睡在兩膝間夾枕、起床先側身再用手撐起；提重物讓東西貼近身體、用腳轉身不扭腰。',
+      '仰躺時椎間盤壓力最低（0.1 MPa）；靠椅背放鬆坐（0.3 MPa）比刻意挺直坐（0.55 MPa）壓力低；彎腰駝背提 20 公斤飆升至 2.3 MPa。',
+      '低頭 60 度看手機時，頸椎等效負荷高達 27 公斤（如同掛著一個小學生的重量）；務必將手機舉至水平視線。',
+      '最好的姿勢是「下一個姿勢」：每 30–45 分鐘起身動 1–2 分鐘，比坐得筆直更重要。',
+      '仰睡在膝下墊枕、側睡在兩膝間夾枕、起床先側身再用手撐起；提重物讓物品貼近身體、用腳轉身不扭腰。',
     ],
   },
   {
     id: 'EXERCISE',
     label_zh: '居家運動',
-    title_zh: '居家運動處方：每天 10–15 分鐘照顧脖子與腰',
+    title_zh: '居家核心運動處方：每天 10–15 分鐘照顧脖子與腰',
     goal_zh: '運動是所有國際指引中，預防與治療頸腰痛證據最強的方法。這一章挑選物理治療常用、居家可做的動作，附上次數與「什麼情況要停」。',
     learn_zh: ['頸部、腰部、神經滑動各要做哪些', '運動時的「紅綠燈」疼痛原則', '症狀「集中化」與「周邊化」代表什麼'],
     minutes: 7,
@@ -244,11 +333,25 @@ export const SPINE_CHAPTERS: SpineChapter[] = [
     ],
   },
   {
+    id: 'REHAB',
+    label_zh: '復健與物理治療',
+    title_zh: '全方位復健處方：主動訓練、階段處方與禁忌動作',
+    goal_zh: '熱敷、電療屬於「被動治療」，能短暫舒緩；真正改變長期結果的是「主動運動治療」——McGill 護脊黃金三大動作、髖鉸鏈動作再教育與骨質疏鬆防骨折運動指引。',
+    learn_zh: ['三階段復健進程（急性保護、亞急性動作控制、功能性肌力重塑）', '麥吉爾護脊黃金三大動作（McGill Big 3：改良捲腹、側棒式、鳥狗式）的生物力學', '骨質疏鬆與壓迫性骨折者的嚴格禁忌動作（彎腰屈曲、捲腹）與安全運動'],
+    minutes: 8,
+    takeaways_zh: [
+      '骨質疏鬆與壓迫性骨折患者「終生嚴禁負重向前彎腰與仰臥起坐」，向前屈曲會對前柱施加巨大剪力，誘發新的楔形塌陷！',
+      'McGill Big 3 在維持脊柱中立位的「零剪切力」下最大化活化腹橫肌、腰方肌與多裂肌，是脊椎穩定運動黃金標準。',
+      '急性期嚴格限制臥床 < 48 小時，起床必須採滾木翻身技巧（Log-Rolling）；亞急性期依循 Lancet WalkBack 每日健走 30 分鐘降低 45% 復發率。',
+      '熱敷短暫止痛有效；TENS、超音波、干擾波與牽引在 WHO 2023 指引中不建議作為常規治療，應以運動治療為主體。',
+    ],
+  },
+  {
     id: 'TREATMENT',
     label_zh: '預防與治療',
     title_zh: '預防與治療階梯：多數人不需要開刀',
     goal_zh: '頸腰痛與神經根痛多數會在數週到數月內明顯改善，椎間盤突出甚至可能自己被身體吸收。治療像爬樓梯：先做低風險、有效的事，沒改善再往上一階。',
-    learn_zh: ['哪些預防方法有證據、哪些沒有', '從自我照護到手術的五階治療', '什麼情況才需要考慮手術'],
+    learn_zh: ['哪些預防方法有證據、哪些沒有', '從自我照護到手術的五階治療階梯', '什麼情況才需要考慮手術介入'],
     minutes: 7,
     takeaways_zh: [
       '運動＋衛教能讓下背痛發作風險下降約 45%；護腰帶與鞋墊沒有預防效果。',
@@ -267,19 +370,6 @@ export const SPINE_CHAPTERS: SpineChapter[] = [
       '「痠痛發炎」與「神經燒灼電擊痛」是不同的痛，用藥方向也不同；神經痛藥物對糖尿病神經痛有效，但對坐骨神經痛的大型試驗並不比安慰劑好。',
       '消炎止痛藥（NSAIDs）用最低有效劑量、最短時間；有腎病、胃潰瘍、心血管病或吃抗凝血劑者要先問醫師。',
       '維生素 B12 對「缺乏的人」有效；B6 長期過量反而會造成手腳麻。來路不明的「骨刺藥」可能摻有類固醇。',
-    ],
-  },
-  {
-    id: 'REHAB',
-    label_zh: '物理治療',
-    title_zh: '復健科在做什麼？熱敷、電療、牽引與運動治療的實證',
-    goal_zh: '台灣復健科常見的熱敷、電療、牽引屬於「被動治療」，可以短暫舒緩；真正改變長期結果的是「主動治療」——運動、動作再教育與疼痛衛教。',
-    learn_zh: ['各種儀器治療在做什麼、證據多強', '徒手治療、神經鬆動、McKenzie 是什麼', '去復健時該問治療師的 5 個問題'],
-    minutes: 7,
-    takeaways_zh: [
-      '熱敷對急性下背痛有短期幫助；TENS、超音波、干擾波、腰椎牽引在 WHO 2023 與 NICE 指引中都不建議作為常規治療。',
-      '個別化運動治療、徒手治療搭配運動、認知功能治療（CFT）是證據最好的物理治療方式。',
-      '把被動治療當成「讓你能做運動的暖身」，並請治療師給你一份可以帶回家的運動處方。',
     ],
   },
   {
@@ -1707,21 +1797,379 @@ export const VISIT_PREP = [
   '過去的影像或檢查報告',
 ];
 
+// ── Clinical Datasets: Osteoporosis, VCF, Bone Cement, MISS, Rehab & Biomechanics ──
+
+export interface DxaThreshold {
+  t_score: string;
+  category: string;
+  definition: string;
+  fracture_risk: string;
+  action_zh: string;
+  tone: 'good' | 'warn' | 'bad' | 'bad';
+}
+
+export const OSTEO_DXA_LEVELS: DxaThreshold[] = [
+  { t_score: '≥ -1.0', category: '正常骨質', definition: '骨密度在健康年輕成年人的 1 個標準差之內', fracture_risk: '基準風險', action_zh: '維持均衡飲食（鈣 1000mg/日、維生素 D3 800IU）、負重與阻力運動、健康作息。', tone: 'good' },
+  { t_score: '-1.0 至 -2.5', category: '骨質缺乏 (Osteopenia)', definition: '骨密度低於正常值，骨小梁微結構已開始變薄', fracture_risk: '骨折風險為正常的 1.5–2 倍', action_zh: '計算 FRAX 風險；若 10 年主要骨鬆骨折 ≥ 20% 或髖部骨折 ≥ 3%，或有類固醇史，需考慮藥物治療。', tone: 'warn' },
+  { t_score: '≤ -2.5', category: '骨質疏鬆症 (Osteoporosis)', definition: '骨量顯著流失，骨小梁穿孔斷裂，微結構嚴重脆化', fracture_risk: '高骨折風險（每下降 1 個標準差，骨折風險翻倍）', action_zh: '強烈建議啟動處方藥物（抗吸收劑或促生成劑）治療，並全面進行居家防跌改裝。', tone: 'bad' },
+  { t_score: '≤ -2.5 合併脆性骨折', category: '嚴重骨質疏鬆症', definition: '輕微外力或日常動作（彎腰、咳嗽、摔跌）即發生脊椎、髖部或腕部骨折', fracture_risk: '極高骨折風險（1 年內再骨折風險增加 5 倍）', action_zh: '建議優先使用「促進骨生成藥物」（如 Romosozumab 或 Teriparatide），再銜接抗吸收劑。', tone: 'bad' },
+];
+
+export interface OsteoMed {
+  category: '抗骨吸收劑' | '促骨生成劑' | '雙重作用劑';
+  generic_name: string;
+  brand_examples: string;
+  method: string;
+  mechanism_zh: string;
+  vertebral_risk_reduction: string;
+  key_precautions: string;
+}
+
+export const OSTEO_MEDS_TABLE: OsteoMed[] = [
+  {
+    category: '抗骨吸收劑',
+    generic_name: '雙磷酸鹽類 (Bisphosphonates)',
+    brand_examples: 'Alendronate (福善美 weekly 口服), Zoledronic acid (骨力強 annual 靜脈注射)',
+    method: '每週口服一次（需空腹 200ml 水、坐立 30 分鐘）或每年靜脈滴注一次',
+    mechanism_zh: '附著於骨礦物質表面，當蝕骨細胞吞噬骨質時誘導其凋亡，強效壓制骨吸收。',
+    vertebral_risk_reduction: '脊椎骨折風險降低約 40–70%，髖部骨折降低約 40%',
+    key_precautions: '用藥前須檢查腎功能（eGFR > 30–35 ml/min）與完成牙科處置；口服藥須預防食道炎；長期使用 (> 3–5 年) 需評估非典型股骨骨折 (AFF) 與顎骨壞死 (ONJ) 風險，評估藥物假期 (Drug Holiday)。',
+  },
+  {
+    category: '抗骨吸收劑',
+    generic_name: 'Denosumab (RANKL 單株抗體)',
+    brand_examples: 'Prolia (保骼麗)',
+    method: '每 6 個月皮下注射一次',
+    mechanism_zh: '精準結合並中和 RANKL，完全切斷蝕骨細胞的成熟與活化訊號。',
+    vertebral_risk_reduction: '脊椎骨折風險降低約 68%，髖部骨折降低約 40%',
+    key_precautions: '【重大警訊】停藥後骨吸收會產生劇烈反彈（Rebound phenomenon），骨密度於 1 年內迅速暴跌並顯著增加多發性脊椎壓迫骨折風險！絕對不可自行停藥；若需停用必須立即在第 6 個月銜接雙磷酸鹽類藥物。腎功能不全者可用，但注射前必須確保血鈣正常。',
+  },
+  {
+    category: '促骨生成劑',
+    generic_name: 'Teriparatide (重組副甲狀腺素 PTH 1-34)',
+    brand_examples: 'Forteo (骨穩)',
+    method: '每日一次皮下注射（療程上限通常為 24 個月）',
+    mechanism_zh: '間歇性活化副甲狀腺素第一型受體，直接刺激造骨細胞增殖與骨膠原基質沉積，真正長出新骨。',
+    vertebral_risk_reduction: '脊椎骨折風險降低約 65–80%',
+    key_precautions: '高鈣血症、Paget 氏骨病、曾接受骨骼放射線治療者禁用。療程結束後必須立刻銜接抗吸收劑（雙磷酸鹽或 Denosumab）鎖住新生骨質，否則骨量會快速消退。',
+  },
+  {
+    category: '雙重作用劑',
+    generic_name: 'Romosozumab (骨硬化蛋白 Sclerostin 單株抗體)',
+    brand_examples: 'Evenity (益穩挺)',
+    method: '每月一次皮下注射（兩劑合打，療程固定 12 個月）',
+    mechanism_zh: '阻斷 Wnt 訊息傳遞路徑的抑制因子 Sclerostin，達成「同時大幅促進骨合成＋微幅抑制骨吸收」的強效雙重作用。',
+    vertebral_risk_reduction: '脊椎骨折風險降低約 73%，臨床骨折降低約 50%',
+    key_precautions: '目前極高骨折風險長者的第一線首選之一。過去 1 年內曾發生心肌梗塞或中風者禁用。12 個月療程結束後，同樣必須銜接抗吸收劑維持骨密度成果。',
+  },
+  {
+    category: '抗骨吸收劑',
+    generic_name: '選擇性雌激素受體調節劑 (SERM: Raloxifene)',
+    brand_examples: 'Evista (鈣穩)',
+    method: '每日口服一次',
+    mechanism_zh: '在骨骼表現雌激素激動劑效應（抑制蝕骨），在乳房與子宮表現拮抗劑效應（不增加子宮內膜癌或乳癌風險）。',
+    vertebral_risk_reduction: '脊椎骨折風險降低約 30–50%（對非脊椎或髖部骨折無顯著證據）',
+    key_precautions: '適合停經後初期且脊椎骨折風險為主的女性。可能增加靜脈血栓栓塞 (VTE) 風險及潮熱不適。',
+  },
+];
+
+export interface VcfGrade {
+  grade: string;
+  name: string;
+  collapse_pct: string;
+  features_zh: string;
+  treatment_approach: string;
+}
+
+export const VCF_GENANT_GRADES: VcfGrade[] = [
+  { grade: 'Grade 0', name: '正常脊椎體', collapse_pct: '< 20%', features_zh: '椎體前緣、中段與後緣高度對稱完整，無微結構壓迫。', treatment_approach: '常規骨質疏鬆防跌與骨本管理。' },
+  { grade: 'Grade 1', name: '輕度壓迫性骨折', collapse_pct: '20% – 25%', features_zh: '楔形（前緣塌陷）、雙凹形（中段凹陷）或擠壓形，通常無神經症狀。', treatment_approach: '嚴格限制臥床 < 48 小時，穿戴背架（TLSO）、降鈣素止痛、密切追蹤 X 光與骨鬆藥物。' },
+  { grade: 'Grade 2', name: '中度壓迫性骨折', collapse_pct: '25% – 40%', features_zh: '椎體前壁塌陷明顯，脊柱後凸（駝背）角度增大，軀幹前傾，疼痛劇烈。', treatment_approach: '評估保守治療 2–3 週；若疼痛頑固無法下床翻身或塌陷持續加劇，考慮氣球擴張椎體成形術 (PKP)。' },
+  { grade: 'Grade 3', name: '重度壓迫性骨折', collapse_pct: '> 40%', features_zh: '椎體嚴重扁平粉碎，可能併發骨壞死（Kümmell 氏病）或後壁凸入椎管壓迫神經。', treatment_approach: '需精細評估後壁完整度；若無神經壓迫可評估椎體成形術或支架，若有神經壓迫則需微創或減壓固定手術。' },
+];
+
+export interface BoneCementProcedure {
+  method_name: string;
+  principle_zh: string;
+  height_restoration: string;
+  leakage_risk: string;
+  suitable_patients: string;
+  evidence_summary: string;
+}
+
+export const BONE_CEMENT_TABLE: BoneCementProcedure[] = [
+  {
+    method_name: '經皮椎體成形術 (PVP, Vertebroplasty)',
+    principle_zh: '在局部麻醉與 X 光透視引導下，經皮穿刺骨穿刺針穿透椎弓根進入椎體，直接以較高壓力推注半流體骨泥填充微裂隙。',
+    height_restoration: '高度復原能力較有限（主要著重於骨小梁微動微裂之快速力學黏合）。',
+    leakage_risk: '較高（骨泥在液態加壓注入未被封閉的鬆質骨孔隙中，外漏率約 30–60%，多數為無症狀小漏，但少數恐壓迫神經或進入靜脈引起肺栓塞）。',
+    suitable_patients: '椎體塌陷較平整、後壁完整、病程較短、經濟考量者。',
+    evidence_summary: 'VAPOUR 2016 隨機試驗顯示對急性疼痛骨折（< 6 週）止痛效果顯著優於假手術對照組。',
+  },
+  {
+    method_name: '經皮氣球擴張椎體成形術 (PKP, Kyphoplasty)',
+    principle_zh: '經皮穿刺建立工作管道後，先置入可擴張氣球（Balloon Tamp），打入造影劑充氣撐開塌陷椎體、復原椎體高度並擠壓四周海綿骨形成封閉人工空腔；取出氣球後，在極低壓力下推注高黏度（牙膏狀）骨泥。',
+    height_restoration: '高度復原與後凸角度矯正顯著優於 PVP，能有效改善矢狀位平衡與駝背。',
+    leakage_risk: '極低（預先創造了低壓空腔，骨泥黏稠度高且注入阻力小，外漏率約 5–15%，安全性極佳）。',
+    suitable_patients: '椎體前緣顯著楔形塌陷、急性劇痛、長者駝背加重、希望最大限度降低神經與靜脈外漏風險者。',
+    evidence_summary: 'FREE 2009 Lancet 多中心隨機對照試驗證實：PKP 在 1 個月與 1 年的生活品質、止痛與行動力改善皆顯著優於保守治療。',
+  },
+  {
+    method_name: '椎體內金屬支架成形術 (SpineJack / Stentoplasty)',
+    principle_zh: '在椎體內植入具備力學千斤頂原理之鈦合金可擴展機械支架，直向撐開並精準鎖定維持椎體解剖高度，支架永久留置體內，隨後在低壓下注入骨泥包裹加固。',
+    height_restoration: '高度維持能力最強且無氣球洩氣時的高度的次發性回縮。',
+    leakage_risk: '極低，安全性媲美 PKP。',
+    suitable_patients: '年輕活動量較大患者、外傷型或骨質尚可之急性塌陷、需要精確力學高度重建者。',
+    evidence_summary: '近年多項前瞻性臨床試驗顯示其高度復原與長期後凸矯正效果略優於單純 PKP。',
+  },
+];
+
+export interface CementMaterial {
+  material: string;
+  composition: string;
+  curing_temp: string;
+  mechanical_strength: string;
+  biodegradability: string;
+  clinical_tradeoffs: string;
+}
+
+export const CEMENT_MATERIALS_TABLE: CementMaterial[] = [
+  {
+    material: '聚甲基丙烯酸甲酯 (PMMA, 壓克力骨泥)',
+    composition: '粉劑（PMMA 聚合物聚苯乙烯顆粒、硫酸鋇顯影劑）＋ 液劑（MMA 單體、促進劑）',
+    curing_temp: '聚合反應釋放高熱，固化時核心溫度可達 60°C – 80°C。',
+    mechanical_strength: '抗壓強度極高（約 80–100 MPa），遠高於人體正常胸腰椎骨鬆骨質（約 5–10 MPa）。',
+    biodegradability: '完全不可吸收、不降解，終生留置。',
+    clinical_tradeoffs: '【優點】數分鐘內凝固、力學支撐立竿見影；產熱反應可熱消融骨折周圍的感覺痛覺神經末梢，術後止痛極為迅速。缺點為彈性模數過硬，注入椎體後會造成應力集中，若未妥善治療骨質疏鬆，相鄰未灌注節段在 1 年內發生應力性骨折的風險達 15–20%。',
+  },
+  {
+    material: '磷酸鈣骨泥 (CPC, 生物活性骨泥)',
+    composition: '磷酸三鈣、羥基磷灰石結晶粉末與水性磷酸鹽液調配而成。',
+    curing_temp: '等溫固化，無顯著產熱反應（與體溫相近，< 40°C）。',
+    mechanical_strength: '初期抗壓強度中等（約 20–40 MPa），抗剪切與抗彎折能力較弱。',
+    biodegradability: '具骨傳導性，隨時間由蝕骨/造骨細胞逐步被自體新骨爬行取代吸收。',
+    clinical_tradeoffs: '【優點】生物相容性極佳、無組織熱損傷、能被自體骨置換。缺點為凝固時間較長、早期抗壓強度低於 PMMA，且缺乏熱凝止痛效果，在急性重度骨鬆壓迫性骨折的應用受限，多用於非重度承重區或良性骨缺損填充。',
+  },
+];
+
+export interface MissTechnique {
+  name_zh: string;
+  name_en: string;
+  incision_size: string;
+  mechanism_zh: string;
+  advantages: string;
+  indications: string;
+}
+
+export const MISS_TECHNIQUES_TABLE: MissTechnique[] = [
+  {
+    name_zh: '單孔雙通道內視鏡脊椎手術',
+    name_en: 'UBE (Unilateral Biportal Endoscopy)',
+    incision_size: '約 0.5–0.7 cm 兩個微創小孔',
+    mechanism_zh: '利用兩個獨立微孔：一孔放入 30 倍高畫質 0 度或 30 度關節內視鏡（視野通道），另一孔自由放入常規微創脊椎器械、高速磨鑽與電波止血刀（操作通道），在無菌生理食鹽水持續高流量水壓灌注下進行神經減壓。',
+    advantages: '器械操作角度不受管徑拘束、視野極其開闊清晰；水流持續沖刷維持清澈視野並壓迫小靜脈止血；完全不剝離多裂肌、不破壞後方骨韌帶複合體。術後傷口極少疼痛，通常術後當天即可下床。',
+    indications: '腰椎椎管狹窄症、黃韌帶肥厚壓迫、高度脫出型椎間盤突出、頸椎後方神經孔狹窄減壓。',
+  },
+  {
+    name_zh: '經皮全脊椎內視鏡手術',
+    name_en: 'PELD / Full-Endoscopic Spine Surgery',
+    incision_size: '約 0.7–0.8 cm 單一極微切口',
+    mechanism_zh: '將光學鏡頭與工作管道整合於同一支同軸內視鏡管鞘內，經由椎間孔途徑（Transforaminal）或椎板間隙途徑（Interlaminar）直達病灶。',
+    advantages: '局部麻醉下可進行（病患術中可回饋神經感覺避免誤傷）、經椎間孔途徑完全不需切除椎板骨質即可切除椎間盤、對背脊組織破壞度最低。',
+    indications: '極外側型椎間盤突出（Far-lateral disc herniation）、單純腰椎間盤突出症。',
+  },
+  {
+    name_zh: '微創管狀牽引器顯微減壓術',
+    name_en: 'Tubular Microscopic Decompression',
+    incision_size: '約 1.5–2.0 cm 微創切口',
+    mechanism_zh: '透過逐級擴張管（Serial Dilators）穿過背肌纖維間隙，撐開多裂肌而「完全不切斷肌肉附著點」，架設固定管狀牽引器（Tubular Retractor），在手術顯微鏡 3D 立體放大照明下進行椎板切除與黃韌帶切除。',
+    advantages: '保留背肌血供與神經支配，避免傳統開放手術的大面積肌肉缺血壞死與長期萎縮；適用於需要骨性結構重塑之病例。',
+    indications: '多節段椎管狹窄、合併微小滑脫之神經根壓迫。',
+  },
+  {
+    name_zh: '微創經椎間孔腰椎椎體間融合術',
+    name_en: 'MIS-TLIF (Minimally Invasive TLIF)',
+    incision_size: '數個 1.5–2.0 cm 穿刺孔',
+    mechanism_zh: '在管狀牽引器下完成單側小面關節切除與椎間盤掏空植骨融合，並在 X 光透視或導航下經皮置入椎弓根骨釘與連接桿（Percutaneous Pedicle Screws）。',
+    advantages: '失血量大幅減少（< 100 ml vs 開放手術 500–1000 ml），免除廣泛背肌剝離，大幅縮短住院天數與術後止痛劑需求。',
+    indications: '退化性脊椎滑脫症、伴隨脊柱不穩定之椎管狹窄、椎間盤源性頑固性下背痛。',
+  },
+];
+
+export interface MissMetric {
+  item: string;
+  traditional_open: string;
+  miss_endoscopic: string;
+  clinical_benefit: string;
+}
+
+export const MISS_METRICS_COMPARISON: MissMetric[] = [
+  { item: '手術傷口長度', traditional_open: '約 8–15 公分（若多節段融合可達 20 公分以上）', miss_endoscopic: '約 0.7–1.5 公分（UBE 為兩個 0.5–0.7 cm 微孔）', clinical_benefit: '外觀微創、皮下感染率顯著降低（< 0.5% vs 2–4%）' },
+  { item: '背部肌肉傷害', traditional_open: '自骨膜大範圍電刀剝離多裂肌、持續牽引壓迫導致肌肉缺血纖維化', miss_endoscopic: '經自然肌纖維間隙穿透分離，幾乎零剝離，完整保留多裂肌與運動神經分支', clinical_benefit: '徹底擺脫傳統開刀後「慢性肌筋膜緊繃疼痛與肌肉萎縮」' },
+  { item: '術中失血量', traditional_open: '約 300–800 ml，多節段甚至需要術中或術後輸血', miss_endoscopic: '約 10–50 ml（極少，水壓灌注能自然壓迫微血管止血）', clinical_benefit: '極少需輸血，心血管疾病與高齡長者耐受度極佳' },
+  { item: '下床與住院天數', traditional_open: '需平躺 2–3 天待引流管拔除，平均住院 5–7 天', miss_endoscopic: '術後當日或隔日即可佩戴軟護腰下床走動，多數 1–2 天內出院', clinical_benefit: '避免長期臥床併發症（深部靜脈血栓、肺炎、肌少衰弱）' },
+  { item: '返回輕度工作', traditional_open: '約 6–12 週', miss_endoscopic: '約 1–3 週', clinical_benefit: '大幅降低生產力損失與照護者負擔' },
+];
+
+export interface RehabPhase {
+  phase: string;
+  timeframe: string;
+  core_goals_zh: string;
+  allowed_exercises_zh: string[];
+  strict_contraindications_zh: string[];
+  milestones_zh: string;
+}
+
+export const REHAB_PHASES_TABLE: RehabPhase[] = [
+  {
+    phase: '第一階段：急性保護與疼痛調節',
+    timeframe: '0 至 2 週',
+    core_goals_zh: '減輕急性發炎與神經水腫、維持脊柱中立位、避免臥床過久引起肌肉萎縮與骨質加速流失。',
+    allowed_exercises_zh: [
+      '床邊滾木翻身技巧（Log-Rolling）：肩與骨盆同步旋轉，絕不扭轉腰椎',
+      '腹橫肌等長收縮（ADIM 肚臍微向內收，維持均勻腹式呼吸）',
+      '仰臥屈膝骨盆後傾微動（Pelvic Tilts 在無痛範圍內進行）',
+      '定時下床慢走 5–10 分鐘（若為壓迫性骨折下床時必須穿戴 TLSO 硬背架）',
+    ],
+    strict_contraindications_zh: [
+      '嚴禁長時間臥床 > 48 小時',
+      '嚴禁任何彎腰前屈動作（如彎腰摸腳趾、仰臥起坐、直膝拾物）',
+      '嚴禁脊椎負重旋轉（扭身拿後座物品、高爾夫揮桿動作）',
+    ],
+    milestones_zh: '能在翻身與坐起時疼痛控制在 VAS ≤ 3 分，能獨立完成安全下床與如廁。',
+  },
+  {
+    phase: '第二階段：亞急性動作控制與神經活動度',
+    timeframe: '2 至 6 週',
+    core_goals_zh: '重建「髖鉸鏈（Hip Hinge）」動作模式、改善胸椎活動度、漸進性步行耐力與神經滑動。',
+    allowed_exercises_zh: [
+      'Lancet WalkBack 走路處方：每日累積 30–45 分鐘中度速度行走',
+      '髖鉸鏈（Hip Hinge）訓練：雙手持棍貼合後腦、胸椎與薦骨，屈髖練習',
+      '坐姿仰頭伸展與胸椎伸展（雙手抱頭靠椅背輕柔後仰）',
+      '神經滑動技術（坐姿輕柔伸膝＋腳踝背屈，改善坐骨神經滑動性）',
+    ],
+    strict_contraindications_zh: [
+      '避免坐過軟或過低的沙發（沙發會迫使腰椎進入駝背後凸弧度）',
+      '避免單手提重物超過 5 公斤',
+      '避免突然跳躍或劇烈震動運動',
+    ],
+    milestones_zh: '能維持 30 分鐘連續行走無神經牽拉痛，日常起坐時能主動維持脊椎中立位。',
+  },
+  {
+    phase: '第三階段：功能性肌力與骨質負重重塑',
+    timeframe: '6 週以上',
+    core_goals_zh: '打造「肌肉鋼筋支架」保護脊柱；透過漸進阻力與衝擊負荷刺激骨質生成，防範未來的骨折與退化。',
+    allowed_exercises_zh: [
+      '麥吉爾護脊黃金三大動作（McGill Big 3：改良捲腹、側棒式、鳥狗式）',
+      '阻力訓練深蹲與臀橋（加強臀大肌與大腿前側，以髖關節發力取代腰椎發力）',
+      '農夫走路（Farmer\'s Walk 雙手各持適度啞鈴中立位負重行走，鍛鍊全身抗旋轉核心）',
+      '單腳站立平衡與太極拳（強化本體感覺，研究證實可降低 40% 跌倒風險）',
+    ],
+    strict_contraindications_zh: [
+      '骨質疏鬆或曾壓迫性骨折者，終生避免負重大重量早安式屈體（Good Mornings）與負重體操下壓',
+      '避免任何在疲勞失控狀態下的動作訓練',
+    ],
+    milestones_zh: '能完成 McGill Big 3 各動作標準維持 10 秒 × 5 組，平衡能力達閉眼單腳站立 > 15 秒。',
+  },
+];
+
+export interface McgillExercise {
+  name_zh: string;
+  name_en: string;
+  target_muscles: string;
+  spinal_load_biomechanics: string;
+  key_cue_zh: string;
+  reps_and_sets: string;
+}
+
+export const MCGILL_BIG_THREE: McgillExercise[] = [
+  {
+    name_zh: '改良式捲腹',
+    name_en: 'Modified Curl-Up',
+    target_muscles: '腹直肌、腹橫肌、腹內外斜肌',
+    spinal_load_biomechanics: '雙手墊在腰椎下方維持生理前凸，一膝彎曲一膝打直以鎖定骨盆；捲起時僅微幅抬起頭與胸椎（約 2–3 公分），腰椎完全「零彎曲、零剪切力」，椎間盤壓力極低。',
+    key_cue_zh: '想像後腦杓直接朝天花板抬升 2 公分，下巴收緊像夾一顆橘子，不要用脖子出力，不要把整個背部彎起。',
+    reps_and_sets: '維持頂峰收縮 7–8 秒，每側屈膝做 4–5 次，採金字塔遞減組數（如 5-3-1 組）。',
+  },
+  {
+    name_zh: '側棒式',
+    name_en: 'Side Bridge / Side Plank',
+    target_muscles: '腰方肌（Quadratus Lumborum）、腹斜肌、臀中肌',
+    spinal_load_biomechanics: '腰方肌是腰椎最重要的「側向穩定纜繩」。側棒式能在最低的脊柱軸向壓縮負荷下，最大化啟動腰方肌與斜肌，強化脊椎側向抗側屈穩定度。',
+    key_cue_zh: '肩膀、骨盆、膝蓋呈一直線；初學者可採屈膝側棒式，手肘置於肩膀正下方，臀部向上推起時收緊臀部與腹部。',
+    reps_and_sets: '每側維持 8–10 秒，兩側輪流進行 3–4 組。',
+  },
+  {
+    name_zh: '四足跪姿鳥狗式',
+    name_en: 'Bird-Dog',
+    target_muscles: '多裂肌（Multifidus）、豎脊肌、臀大肌、肩背闊肌',
+    spinal_load_biomechanics: '以四足跪姿對角線伸展一臂與對側腿。能深度活化脊椎深層最重要的抗旋轉肌肉「多裂肌」，且脊椎壓縮力遠低於俯臥超人式（Superman 伸展會造成高達 6000 N 的危險腰椎關節擠壓）。',
+    key_cue_zh: '手腕在肩下、膝在髖下；手腳向遠處「延伸」而非「向上挑」，保持背部平坦如一張桌面，放一杯水也不會灑出。',
+    reps_and_sets: '對角維持 8 秒，每側 5 次，換邊重複 3 組。',
+  },
+];
+
+export interface SpineBiomechanicCurve {
+  segment: string;
+  normal_angle: string;
+  mechanical_function: string;
+  common_distortion: string;
+  correction_focus: string;
+}
+
+export const SPINE_HEALTH_CURVES: SpineBiomechanicCurve[] = [
+  {
+    segment: '頸椎前凸 (Cervical Lordosis)',
+    normal_angle: '約 20° – 40°',
+    mechanical_function: '支撐 4–5 公斤的頭顱重量，藉由前凸弧度分散行走、奔跑時的地心引力向上反作用力。',
+    common_distortion: '頸椎變直、甚至反向後凸（烏龜頸、低頭族 Text Neck）。',
+    correction_focus: '下巴後收（Chin Tuck）、電腦螢幕墊高至視線水平、避免低頭滑手機。',
+  },
+  {
+    segment: '胸椎後凸 (Thoracic Kyphosis)',
+    normal_angle: '約 20° – 40°',
+    mechanical_function: '與肋骨架構成胸廓保護心肺器官；後凸弧度提供背部肌肉強大的力臂附著空間。',
+    common_distortion: '過度後凸（駝背、長者骨鬆楔形塌陷導致的道格氏駝背）。',
+    correction_focus: '胸椎伸展滾筒放鬆、強化背部伸肌與肩胛菱形肌、防範骨質疏鬆壓迫性骨折。',
+  },
+  {
+    segment: '腰椎前凸 (Lumbar Lordosis)',
+    normal_angle: '約 30° – 50°',
+    mechanical_function: '人體主要承重彈簧樞紐；與骨盆薦骨傾斜角（Sacral Slope）協同達成直立行走的矢狀位平衡（Sagittal Balance）。',
+    common_distortion: '腰椎前凸過度（骨盆前傾）或腰椎弧度消失變平（Flat Back，大幅增加椎間盤突出壓力）。',
+    correction_focus: '髖關節屈肌放鬆、強化臀肌與核心腹橫肌、坐姿加裝腰靠支撐弧度。',
+  },
+  {
+    segment: '薦椎後凸 (Sacral Kyphosis)',
+    normal_angle: '固定融合',
+    mechanical_function: '骨盆環的基石，將脊柱上半身的重力均勻傳導至雙側髖關節與雙下肢。',
+    common_distortion: '薦髂關節微錯位、骨盆左右扭轉。',
+    correction_focus: '避免長時間蹺二郎腿、單腳站立三七步，維持骨盆水平。',
+  },
+];
+
 // ── Myths & quiz ──────────────────────────────────────────────────────────────
 
 export const SPINE_MYTHS: { chapter: SpineTab; myth: string; fact: string }[] = [
   { chapter: 'SPURS', myth: '長骨刺一定要開刀拿掉。', fact: '多數骨刺沒有症狀，手術只用在神經被壓迫且出現對應症狀、保守治療無效或有警訊的人，而且手術目的是「減壓」而不是把骨刺清乾淨。' },
   { chapter: 'SPURS', myth: '有些食物或藥可以把骨刺消掉。', fact: '骨刺是骨頭，沒有任何食物、保健品或藥物能溶掉它。治療目標是改善症狀與功能。' },
   { chapter: 'SPURS', myth: 'MRI 報告寫「椎間盤突出」，痛一定是它造成的。', fact: '40 歲無症狀的人約三分之一有椎間盤突出，醫師需要把影像、症狀與神經學檢查三者對起來才能判斷。' },
+  { chapter: 'OSTEOPOROSIS', myth: '只要多喝牛奶、吃鈣片，就能治好骨質疏鬆。', fact: '鈣質與維生素 D 只是骨骼健康的「建材與基底」；對於已確診骨質疏鬆或發生骨折者，單靠補鈣無法逆轉骨量流失，必須接受處方藥物（抗吸收劑或促生成劑）治療。' },
+  { chapter: 'OSTEOPOROSIS', myth: '骨質疏鬆平常沒感覺，代表骨頭還很勇。', fact: '骨質疏鬆被稱為「無聲殺手」，它在骨折前完全沒有疼痛症狀；第一次發作往往就是彎腰搬花盆或輕微跌倒就骨折。定期 DXA 檢測是唯一能及早發現的手段。' },
+  { chapter: 'FRACTURE', myth: '脊椎壓迫性骨折一定要灌骨泥，灌完就一勞永逸。', fact: '多數輕微壓迫性骨折經由短期止痛、硬背架保護與防跌，能在數週內癒合；骨泥主要用於急性劇痛無法下床或進展性塌陷者。更重要的是：骨泥只黏住了碎骨，若沒積極治療全身骨鬆，一年內鄰近節段再骨折率達 15–20%！' },
+  { chapter: 'FRACTURE', myth: '脊椎骨折就應該絕對臥床躺一個月不動。', fact: '長者臥床 7 天就足以流失相當於老化 10 年的肌肉量與大量骨鈣；除了前 24–48 小時相對休息外，應盡早佩戴硬背架下床活動，並嚴禁彎腰前屈。' },
+  { chapter: 'SURGERY', myth: '微創手術傷口很小，所以完全沒有風險、術後可以馬上搬重物。', fact: '微創手術雖大幅減少肌肉與周邊組織損傷，但神經減壓的本質與傳統手術一樣精細；術後神經孔仍需數週修復消腫，切除椎間盤的纖維環破口仍有 5–10% 的復發機率，術後數週仍需遵循動作保護原則。' },
+  { chapter: 'SURGERY', myth: '脊椎只要開過刀，以後一定會「廢掉」或癱瘓。', fact: '現代顯微與內視鏡手術在 30 倍高解析放大、水流灌注及術中神經監測下，癱瘓風險低於 0.1%；對於馬尾症候群或進展性無力者，及時減壓才是挽救神經功能的關鍵。' },
   { chapter: 'NUMBNESS', myth: '手麻就是頸椎壓到神經。', fact: '腕隧道症候群、肘隧道症候群、糖尿病或 B12 不足造成的神經病變都很常見；麻的分布與伴隨症狀能幫忙區分。' },
   { chapter: 'POSTURE', myth: '坐著一定要挺得筆直才不傷腰。', fact: '研究量到刻意挺直坐的椎間盤壓力反而比放鬆坐高；靠著椅背、常常換姿勢才是重點。' },
   { chapter: 'POSTURE', myth: '腰痛就應該躺在床上休息。', fact: '維持可忍受的日常活動比臥床恢復更快；長時間臥床反而讓肌肉無力、更容易轉為慢性。' },
+  { chapter: 'EXERCISE', myth: '多做仰臥起坐可以鍛鍊核心保護腰椎。', fact: '傳統仰臥起坐會對腰椎產生超過 3300 牛頓的巨大壓縮力與彎曲剪力，加速椎間盤磨損與纖維環破裂；應改做改良式捲腹（Curl-up）等 McGill 護脊運動。' },
+  { chapter: 'REHAB', myth: '每天去復健科做電療、拉腰就會好。', fact: '電療與牽引屬於被動治療，證據有限；真正改善長期結果的是運動與動作再教育。' },
+  { chapter: 'REHAB', myth: '骨質疏鬆的人只要多散步就好，不能碰重量訓練。', fact: '散步對骨密度的刺激非常有限；LIFTMOR 等大型臨床試驗證實，在專業監督下進行漸進式阻力訓練與衝擊負重，才能真正刺激骨質生成並強化防跌肌力。' },
   { chapter: 'TREATMENT', myth: '椎間盤突出不會自己好，一定要手術。', fact: '多數會隨時間改善，越大塊的脫出或游離型反而越容易被身體吸收縮小。' },
   { chapter: 'TREATMENT', myth: '戴護腰可以預防閃到腰。', fact: '統合分析顯示護腰帶沒有預防效果；規律運動才有。' },
   { chapter: 'MEDS', myth: '維生素 B 群吃越多，神經修復越快。', fact: 'B12 只對缺乏的人有明確效果；B6 長期過量反而會造成周邊神經病變。' },
   { chapter: 'MEDS', myth: '神經痛藥物對所有「神經痛」都有效。', fact: 'pregabalin 對糖尿病神經痛有效，但大型試驗顯示對坐骨神經痛的效果並不比安慰劑好，副作用卻比較多。' },
-  { chapter: 'REHAB', myth: '每天去復健科做電療、拉腰就會好。', fact: '電療與牽引屬於被動治療，證據有限；真正改善長期結果的是運動與動作再教育。' },
-  { chapter: 'REHAB', myth: '拉腰、拉脖子可以把突出的椎間盤「拉回去」。', fact: '牽引無法把椎間盤推回原位；腰椎牽引在 Cochrane 回顧中沒有證據顯示有效。' },
   { chapter: 'TRIAGE', myth: '腰痛越早照 MRI 越好。', fact: '沒有警訊時，前 4–6 週做影像不會讓你好得更快，反而可能因為看到常見的退化而增加焦慮與不必要的治療。' },
 ];
 
@@ -1737,6 +2185,24 @@ export const SPINE_QUIZ: Record<SpineTab, { question: string; options: string[];
     options: ['完全正常', '大約九成有椎間盤退化', '一定有椎間盤游離', '腫瘤'],
     answer: 1,
     explain: '統合研究顯示 60 歲無症狀者約 88% 有椎間盤退化、69% 有椎間盤膨出。影像所見要和症狀一起解讀。',
+  },
+  OSTEOPOROSIS: {
+    question: '使用保骼麗（Denosumab）治療骨質疏鬆症，最重大的用藥警訊是什麼？',
+    options: ['容易引起低血壓', '絕對不可擅自停藥，停藥會引起骨質反彈流失與多發脊椎骨折', '只能吃素的人使用', '必須每天早起空腹注射'],
+    answer: 1,
+    explain: 'Denosumab 停藥後 RANKL 抑制解除，蝕骨細胞會爆發性活化造成反彈性骨流失；若要停藥，必須在第 6 個月銜接雙磷酸鹽類藥物以保護骨骼。',
+  },
+  FRACTURE: {
+    question: '骨質疏鬆性脊椎壓迫性骨折，在急性期（前 2 週）的最核心原則是什麼？',
+    options: ['一定要絕對臥床休養一個月不動', '嚴格限制臥床不超過 48 小時，下床穿戴適當背架（如 TLSO），避免向前彎腰', '立刻做大重量硬舉訓練', '大力推拿整脊把塌陷的骨頭推回去'],
+    answer: 1,
+    explain: '長者臥床 7 天就足以流失相當於老化 10 年的肌力與大量骨質；除了最初劇痛的 24–48 小時內相對休息外，應盡早在背架保護下下床活動，並嚴禁整脊與彎腰。',
+  },
+  SURGERY: {
+    question: '雙通道內視鏡脊椎手術（UBE）相較於傳統大開刀，最大的優勢是什麼？',
+    options: ['費用完全免費', '不用打麻醉', '完整保留背部多裂肌與張力帶韌帶，失血極少且傷口疼痛輕微', '術後當天就可以參加馬拉松'],
+    answer: 2,
+    explain: 'UBE 透過兩個小於 1 公分的微孔，經由自然肌肉間隙進入病灶，不需剝離多裂肌與破壞穩定韌帶，術中在連續水流灌注下操作，失血量少且恢復極快。',
   },
   NUMBNESS: {
     question: '晚上常麻醒、甩甩手就好，麻在拇指到無名指半邊、小指不麻，最可能是？',
@@ -1756,6 +2222,12 @@ export const SPINE_QUIZ: Record<SpineTab, { question: string; options: string[];
     answer: 1,
     explain: '症狀從肢體末端往脊椎中心收回來稱為「集中化」，通常代表這個方向的動作適合你、預後較好。',
   },
+  REHAB: {
+    question: '依據 McGill 脊椎生物力學研究與國際指引，骨質疏鬆與壓迫性骨折患者應「嚴格避免」哪類動作？',
+    options: ['漸進式健走', '負重向前彎腰屈體與仰臥起坐', '散步與太極拳', '深呼吸訓練'],
+    answer: 1,
+    explain: '負重向前彎腰與仰臥起坐會對脊椎前柱造成極大的壓縮與剪切負荷，是誘發與加劇楔形壓迫骨折的頭號禁忌！',
+  },
   TREATMENT: {
     question: '哪一種腰椎間盤突出最容易自行吸收縮小？',
     options: ['膨出', '突出', '脫出', '游離'],
@@ -1767,12 +2239,6 @@ export const SPINE_QUIZ: Record<SpineTab, { question: string; options: string[];
     options: ['乙醯胺酚', '口服 NSAIDs', '熱敷', '維生素 B12'],
     answer: 1,
     explain: 'NSAIDs 會影響血小板與胃黏膜，與抗凝血劑併用會明顯增加出血風險，使用前一定要問醫師或藥師。',
-  },
-  REHAB: {
-    question: '依據 WHO 2023 指引，以下哪一項「被建議」用於慢性下背痛？',
-    options: ['腰椎牽引', '治療性超音波', '結構化運動計畫', '長期護腰'],
-    answer: 2,
-    explain: 'WHO 2023 建議結構化運動、徒手治療、心理介入等；牽引、超音波、TENS 與護腰則不建議常規使用。',
   },
   TRIAGE: {
     question: '下背痛合併哪一個症狀，應該立即到急診？',

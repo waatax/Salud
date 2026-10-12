@@ -86,13 +86,13 @@ export const TRACK_SPINE: LearningTrack = {
         explain_zh: '正中神經負責拇指到無名指半邊的掌側；夜間麻醒、甩手緩解是腕隧道症候群的典型特徵。',
       },
       deep_links: [
-        { label_zh: '專區第 3 章：手麻腳麻（含互動判斷工具）', hash: 'spine/NUMBNESS' },
+        { label_zh: '專區第 6 章：手麻腳麻（含互動判斷工具）', hash: 'spine/NUMBNESS' },
         { label_zh: '神經系統深度解析', hash: 'systems/nervous' },
       ],
     },
     {
       id: 'L-SPN-04',
-      title_zh: '躺坐站走：保護脊椎的日常姿勢',
+      title_zh: '躺坐站走：日常脊柱健康與保護姿勢',
       minutes: 7,
       big_idea_zh: '沒有能維持一整天的完美姿勢；最好的姿勢是「下一個姿勢」，再加上彎腰提重時讓東西貼近身體、不扭轉。',
       key_points_zh: [
@@ -110,7 +110,7 @@ export const TRACK_SPINE: LearningTrack = {
         answer: 2,
         explain_zh: '物品越靠近身體，力臂越短；研究量到貼近身體拿著約 1.1 MPa，彎腰駝背提則約 2.3 MPa。',
       },
-      deep_links: [{ label_zh: '專區第 4 章：躺坐站走（含姿勢圖解）', hash: 'spine/POSTURE' }],
+      deep_links: [{ label_zh: '專區第 7 章：躺坐站走（日常姿勢與人體工學）', hash: 'spine/POSTURE' }],
     },
     {
       id: 'L-SPN-05',
@@ -134,11 +134,42 @@ export const TRACK_SPINE: LearningTrack = {
         explain_zh: '游離的碎片會被免疫細胞當成外來物清除，系統性回顧估計約 96% 會縮小。',
       },
       deep_links: [
-        { label_zh: '專區第 6 章：預防與治療', hash: 'spine/TREATMENT' },
-        { label_zh: '專區第 7 章：常見藥物', hash: 'spine/MEDS' },
-        { label_zh: '專區第 8 章：物理治療', hash: 'spine/REHAB' },
+        { label_zh: '專區第 10 章：預防與治療', hash: 'spine/TREATMENT' },
+        { label_zh: '專區第 11 章：常見藥物', hash: 'spine/MEDS' },
+        { label_zh: '專區第 9 章：物理治療與復健', hash: 'spine/REHAB' },
       ],
       update_ids: ['UPD-2024-WALKBACK'],
+    },
+    {
+      id: 'L-SPN-06',
+      title_zh: '骨質疏鬆、壓迫性骨折與微創骨泥手術',
+      minutes: 8,
+      big_idea_zh: '骨質疏鬆是無聲的骨量流失；壓迫性骨折常是長者突發劇烈背痛的原因。急性期切忌長期臥床，微創氣球骨泥（PKP）能快速止痛，但術後必須積極治療全身骨鬆。',
+      analogy_zh: '把骨骼想成大樓：骨鬆是水泥剝落，壓迫骨折是樓板微裂凹陷；灌骨泥是把碎磚迅速灌漿黏固，但仍需抗骨鬆處方全面強化整棟大樓的鋼筋水泥。',
+      key_points_zh: [
+        '骨質疏鬆平常完全不痛不癢；DXA 骨密度 T 值 ≤ -2.5 或曾發生站立高度摔跌骨折即確診。',
+        '脊椎壓迫骨折好發於胸腰椎交界處（T12–L1），典型症狀是翻身與坐起劇痛、身高變矮或駝背；MRI STIR 高訊號（水腫）是確認新骨折的黃金標準。',
+        '急性期除前 24–48 小時相對休息外，應盡早佩戴硬背架（TLSO）下床，嚴禁長期臥床與向前彎腰。',
+        '保守治療 2–3 週仍劇痛者可評估氣球擴張椎體成形術（PKP 骨泥），預造低壓空腔能矯正高度且骨泥外漏率遠低於傳統 PVP。',
+        '灌骨泥「只治標不治本」：術後一年內相鄰節段再骨折率達 15–20%，術後必須立即啟動抗骨鬆處方藥物（如益穩挺、保骼麗、雙磷酸鹽）。',
+      ],
+      do_today_zh: [
+        '長者若突發背痛翻身困難，勿自行去推拿整脊，應至骨科或神經外科照 X 光與安排 MRI。',
+        '65 歲以上女性或 70 歲以上男性，預約一次 DXA 骨密度檢查。',
+      ],
+      myth_zh: { myth: '脊椎壓迫骨折灌完骨泥就痊癒了。', truth: '骨泥只黏住了受傷節段，未治療骨鬆者一年內相鄰節段再骨折率高達 15–20%，術後必須持續接受骨鬆藥物治療。' },
+      see_doctor_zh: ['彎腰或跌倒後突發背痛、翻身困難', '一年內身高縮水超過 3 公分或駝背日益嚴重'],
+      quiz: {
+        question_zh: '長者發生脊椎壓迫性骨折，灌骨泥（PKP）後最重要的一件事是？',
+        options_zh: ['完全臥床三個月不出門', '立刻啟動全身骨質疏鬆處方藥物治療，防範相鄰節段再骨折', '多做仰臥起坐訓練腹肌', '不用再看醫生'],
+        answer: 1,
+        explain_zh: '骨泥僅穩固了局部骨折微結構，若全身骨質疏鬆未受控制，在應力集中下相鄰節段極易再度骨折，必須立即啟動骨鬆藥物。',
+      },
+      deep_links: [
+        { label_zh: '專區第 3 章：骨骼疏鬆', hash: 'spine/OSTEOPOROSIS' },
+        { label_zh: '專區第 4 章：壓迫性骨折與骨泥', hash: 'spine/FRACTURE' },
+        { label_zh: '專區第 5 章：微創手術', hash: 'spine/SURGERY' },
+      ],
     },
   ],
 };

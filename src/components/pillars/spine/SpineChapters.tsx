@@ -29,12 +29,30 @@ import {
   VISIT_PREP,
   URGENCY_META,
   NerveRoot,
+  OSTEO_DXA_LEVELS,
+  OSTEO_MEDS_TABLE,
+  VCF_GENANT_GRADES,
+  BONE_CEMENT_TABLE,
+  CEMENT_MATERIALS_TABLE,
+  MISS_TECHNIQUES_TABLE,
+  MISS_METRICS_COMPARISON,
+  REHAB_PHASES_TABLE,
+  MCGILL_BIG_THREE,
+  SPINE_HEALTH_CURVES,
 } from '../../../data/spineData';
 import { DataTable } from '../../common/pro/DataTable';
 import { FigureFrame, Callout, GradePill } from '../../common/pro/Blocks';
 import { SpineColumnFigure, MotionSegmentFigure, AxialSegmentFigure, AnatomyLegend } from './figures/AnatomyFigures';
 import { HandMapsFigure, LegFootMapFigure, NumbPatternFigure } from './figures/NerveFigures';
 import { ImagingSmallMultiples, DiscPressureChart, NeckLoadChart, RegressionChart, DegenCascadeFigure, TreatmentLadderFigure, NaturalCourseFigure } from './figures/ChartFigures';
+import {
+  OsteoporosisMicrostructureFigure,
+  VertebralWedgeFractureFigure,
+  BoneCementProcedureFigure,
+  MissVsOpenFigure,
+  McgillBigThreeFigure,
+  SpineSpringBiomechanicsFigure,
+} from './figures/SpineSpecialtyFigures';
 import { POSTURE_FIGURES } from './figures/PostureFigures';
 import { EXERCISE_FIGURES } from './figures/ExerciseFigures';
 import { NumbLocator, RedFlagChecker, DailySpineChecklist, UrgencyBadge } from './SpineTools';
@@ -107,6 +125,34 @@ export const OverviewChapter: React.FC = () => (
       rows={SPINE_PARTS}
       rowKey={(r) => r.part}
     />
+
+    <H3 id="spinal-health">整體脊柱健康：生理曲線、彈簧避震與矢狀平衡</H3>
+    <P>
+      脊柱健康的核心是維持<strong>四段天然生理曲線的彈性平衡</strong>。頸前凸、胸後凸、腰前凸與薦骨形成一個巨大的機械避震彈簧。當因為長期低頭、駝背或久坐導致曲線變直（平背）或過度後凸時，重力鉛垂線偏離骨盆中央，椎間盤與小面關節的局部壓縮負荷將激增數倍。
+    </P>
+
+    <FigureFrame
+      number="圖 1-3"
+      title="脊柱彈簧避震力學與矢狀平衡 (Sagittal Balance)"
+      source="臨床生物力學；AO Spine 脊椎對齊標準"
+      caption="左為健康的 S 型彈簧曲線，重力鉛垂線穿過 S1 上後緣，衝擊被多段均勻吸收；右為平背與前傾駝背，避震彈簧失效，衝擊直衝椎間盤與小面關節。"
+    >
+      <SpineSpringBiomechanicsFigure />
+    </FigureFrame>
+
+    <DataTable
+      title="表 1-3　脊柱四段生理曲線健康指標與失衡矯治"
+      source="脊椎外科學與人體工學標準"
+      columns={[
+        { key: 'segment', header: '脊柱節段', className: 'min-w-[130px]' },
+        { key: 'normal_angle', header: '正常生理角度', className: 'min-w-[120px]' },
+        { key: 'mechanical_function', header: '力學功能', className: 'min-w-[180px]' },
+        { key: 'common_distortion', header: '常見失衡形態', className: 'min-w-[160px]' },
+        { key: 'correction_focus', header: '保健與日常調校重點', className: 'min-w-[200px]' },
+      ]}
+      rows={SPINE_HEALTH_CURVES}
+      rowKey={(r) => r.segment}
+    />
   </div>
 );
 
@@ -165,7 +211,249 @@ export const SpursChapter: React.FC = () => (
   </div>
 );
 
-// ── 3. Numbness ─────────────────────────────────────────────────────────
+// ── 3. Osteoporosis ─────────────────────────────────────────────────────
+
+export const OsteoporosisChapter: React.FC = () => (
+  <div className="space-y-6">
+    <P>
+      骨質疏鬆症常被稱為「無聲的健康殺手」，因為骨骼微結構在流失破壞的過程中<strong>完全沒有任何疼痛感</strong>。多數人直到跌倒骨折、或幾年內身高縮水超過 3–4 公分、駝背日益嚴重時，才震驚發現骨密度已經嚴重低落。
+    </P>
+
+    <FigureFrame
+      number="圖 3-1"
+      title="骨小梁微結構比較與 DXA 骨密度 T 值光譜"
+      source="國際骨質疏鬆症基金會 (IOF) 2023；WHO DXA 診斷標準"
+      caption="左為健康緻密的蜂巢狀骨小梁，垂直與水平樑交織完整；右為骨質疏鬆的骨小梁，水平樑穿孔斷裂、主樑變細孤立，輕微受力即引發塌陷。下方色塊標示 DXA T 值的臨床介入門檻。"
+    >
+      <OsteoporosisMicrostructureFigure />
+    </FigureFrame>
+
+    <div className="grid gap-4 lg:grid-cols-2 items-start">
+      <Callout kind="tip" title="誰應該做 DXA 骨密度檢查？">
+        <ul className="list-disc pl-5 space-y-1 text-[13px]">
+          <li><strong>65 歲以上女性</strong>或 <strong>70 歲以上男性</strong>（無條件建議篩檢）。</li>
+          <li><strong>50 歲以上曾發生脆性骨折</strong>（站立高度跌倒或彎腰即骨折）。</li>
+          <li><strong>停經後女性未滿 65 歲</strong>但具有高風險因子（BMI &lt; 18.5、抽菸、過量飲酒、家族髖部骨折史）。</li>
+          <li><strong>長期服用全身性類固醇</strong>（連續使用 prednisolone ≥ 5mg 超過 3 個月）或類風濕關節炎患者。</li>
+        </ul>
+      </Callout>
+
+      <Callout kind="evidence" title="FRAX 骨折風險評估工具（台灣本土模型）">
+        <p className="text-[13px]">
+          FRAX 由世界衛生組織發展，整合年齡、性別、BMI、父母骨折史、抽菸、類固醇、次發性疾病等。若計算出<strong>未來 10 年主要骨鬆骨折機率 ≥ 20%</strong> 或 <strong>髖部骨折機率 ≥ 3%</strong>，即使 T 值仍在 -1.0 至 -2.5 之間，亦強烈建議啟動藥物治療以防範骨折。
+        </p>
+      </Callout>
+    </div>
+
+    <DataTable
+      title="表 3-1　DXA 骨密度 T 值分級與臨床行動指引"
+      source="世界衛生組織 (WHO) DXA 診斷標準；中華民國骨質疏鬆症學會"
+      columns={[
+        { key: 't_score', header: 'T 值門檻', className: 'min-w-[110px]' },
+        { key: 'category', header: '診斷分類', className: 'min-w-[130px]' },
+        { key: 'definition', header: '微結構狀態', className: 'min-w-[180px]' },
+        { key: 'fracture_risk', header: '骨折風險', className: 'min-w-[140px]' },
+        { key: 'action_zh', header: '臨床處置建議', className: 'min-w-[220px]' },
+      ]}
+      rows={OSTEO_DXA_LEVELS}
+      rowKey={(r) => r.t_score}
+      rowTone={(r) => r.tone}
+    />
+
+    <H3 id="osteo-meds">現代骨質疏鬆處方藥物：抗吸收 vs 促骨生成</H3>
+    <P>
+      單靠補鈣與維生素 D <strong>無法逆轉</strong>已確診的骨質疏鬆，它們是藥物治療的「建材磚瓦」而非處方主體。現代骨鬆治療分為兩大陣營：<strong>抗骨吸收劑</strong>（阻止蝕骨細胞拆骨）與<strong>促進骨生成劑</strong>（直接喚醒造骨細胞長新骨）。對於極高風險長者，國際指引建議「先促生成、後抗吸收」以迅速拉高骨本。
+    </P>
+
+    <DataTable
+      title="表 3-2　常見骨質疏鬆處方藥物機轉、骨折降低率與關鍵警訊"
+      source="AACE/ACE 2020 臨床指引；IOF 2023"
+      columns={[
+        { key: 'category', header: '分類', className: 'min-w-[90px]' },
+        { key: 'generic_name', header: '成分名稱', className: 'min-w-[140px]' },
+        { key: 'brand_examples', header: '常見藥品與用法', className: 'min-w-[150px]' },
+        { key: 'vertebral_risk_reduction', header: '脊椎骨折降低率', className: 'min-w-[140px]' },
+        { key: 'key_precautions', header: '重大警訊與用藥叮嚀', className: 'min-w-[240px]' },
+      ]}
+      rows={OSTEO_MEDS_TABLE}
+      rowKey={(r) => r.generic_name}
+    />
+
+    <Callout kind="redflag" title="保骼麗（Denosumab）絕對不可擅自停藥！">
+      <p>
+        Denosumab 是半年皮下注射一次的 RANKL 單株抗體，降骨折效果極佳。但若超過 6–7 個月未續打且未銜接其他藥物，體內被壓抑的蝕骨細胞會產生<strong>爆發性反彈（Rebound phenomenon）</strong>，骨密度在短短 12 個月內迅速回跌，並可能引發<strong>多發性脊椎壓迫骨折</strong>！若因任何原因需停藥，必須在醫師監控下於第 6 個月立刻改用雙磷酸鹽類鎖住骨量。
+      </p>
+    </Callout>
+  </div>
+);
+
+// ── 4. Compression Fractures & Bone Cement ──────────────────────────────
+
+export const FractureChapter: React.FC = () => (
+  <div className="space-y-6">
+    <P>
+      脊椎壓迫性骨折（Vertebral Compression Fracture, VCF）是骨質疏鬆症最常見的嚴重併發症。長者常常只是<strong>彎腰抱孫、提重物、劇烈咳嗽或在浴室滑倒坐地</strong>，胸腰椎前側就因無法承受縱向應力而發生「楔形塌陷（Wedge Collapse）」，造成痛到無法翻身坐起的劇烈背痛。
+    </P>
+
+    <FigureFrame
+      number="圖 4-1"
+      title="脊椎壓迫性骨折塌陷形態與連鎖駝背效應"
+      source="Genant HK 1993 半定量分類；脊椎外科學"
+      caption="正常椎體為矩形；壓迫骨折多以前壁塌陷（楔形）最常見。前壁塌陷改變了重力力臂，將額外壓力轉嫁至相鄰椎體，若未積極治療，容易引發連鎖骨牌式再骨折。"
+    >
+      <VertebralWedgeFractureFigure />
+    </FigureFrame>
+
+    <div className="grid gap-4 lg:grid-cols-2 items-start">
+      <div className="space-y-4">
+        <H3>如何判斷新骨折 vs 舊骨折？磁振造影（MRI）是關鍵</H3>
+        <P>
+          長者常因退化而有以往癒合的舊骨折。當突發劇烈背痛時，X 光只能看出「骨頭扁了」，無法分辨是這次新發生的還是十年前的舊傷。<strong>MRI 的 STIR 序列（水腫顯影）</strong>能偵測骨骼微血管破裂產生的骨髓水腫（急性期呈亮白高訊號）。<strong>只有確認為新鮮水腫的急性骨折，才適合評估微創骨泥手術</strong>！
+        </P>
+        <Callout kind="tip" title="壓迫性骨折的黃金照護守則">
+          <ul className="list-disc pl-5 space-y-1 text-[13px]">
+            <li><strong>嚴格限制臥床 &lt; 48 小時</strong>：除前兩天劇痛相對休息，應盡早下床防範肌少失能。</li>
+            <li><strong>起床務必穿戴硬式背架（TLSO / Jewett 背架）</strong>：提供三點支撐，限制向前彎腰，減輕前柱壓力。</li>
+            <li><strong>短暫使用降鈣素（Calcitonin）止痛</strong>：具備獨特中樞骨痛止痛效果，減輕對強效止痛藥依賴。</li>
+            <li><strong>下床翻身採用「滾木翻身法」</strong>：肩膀與骨盆同步旋轉，嚴禁扭轉腰部。</li>
+          </ul>
+        </Callout>
+      </div>
+
+      <DataTable
+        title="表 4-1　Genant 脊椎壓迫性骨折半定量分級"
+        source="Genant HK, et al. J Bone Miner Res 1993"
+        columns={[
+          { key: 'grade', header: '分級', className: 'min-w-[80px]' },
+          { key: 'name', header: '形態名稱', className: 'min-w-[120px]' },
+          { key: 'collapse_pct', header: '前壁塌陷比例' },
+          { key: 'treatment_approach', header: '臨床處置方向', className: 'min-w-[200px]' },
+        ]}
+        rows={VCF_GENANT_GRADES}
+        rowKey={(r) => r.grade}
+      />
+    </div>
+
+    <H3 id="bone-cement">微創骨泥手術：椎體成形術 (PVP) vs 氣球擴張椎體成形術 (PKP)</H3>
+    <P>
+      當保守治療（硬背架、藥物）經過 2–3 週仍劇烈疼痛無法翻身下床、或椎體高度持續進行性塌陷時，<strong>微創骨泥灌注手術</strong>能在局部麻醉下顯著緩解疼痛、穩固骨折。
+    </P>
+
+    <FigureFrame
+      number="圖 4-2"
+      title="微創氣球擴張椎體成形術（PKP 骨泥）步驟與力學比較"
+      source="FREE Trial (Lancet 2009)；VAPOUR Trial (Lancet 2016)"
+      caption="經皮穿刺置入氣球充氣，將塌陷椎體撐起復位並擠出封閉空腔；抽出氣球後在極低壓力下推注高黏度骨泥，能大幅降低骨泥外漏風險。"
+    >
+      <BoneCementProcedureFigure />
+    </FigureFrame>
+
+    <DataTable
+      title="表 4-2　常見骨泥灌注手術方式比較（PVP vs PKP vs SpineJack）"
+      source="Lancet FREE 試驗；Cochrane 系統性回顧"
+      columns={[
+        { key: 'method_name', header: '手術術式', className: 'min-w-[160px]' },
+        { key: 'height_restoration', header: '高度復原能力', className: 'min-w-[140px]' },
+        { key: 'leakage_risk', header: '骨泥滲漏風險', className: 'min-w-[180px]' },
+        { key: 'suitable_patients', header: '適合對象', className: 'min-w-[180px]' },
+      ]}
+      rows={BONE_CEMENT_TABLE}
+      rowKey={(r) => r.method_name}
+    />
+
+    <DataTable
+      title="表 4-3　骨泥填充材料特性：壓克力 (PMMA) vs 磷酸鈣 (CPC)"
+      source="生物力學與材料學教材"
+      columns={[
+        { key: 'material', header: '材料名稱', className: 'min-w-[150px]' },
+        { key: 'curing_temp', header: '固化溫度與反應', className: 'min-w-[150px]' },
+        { key: 'mechanical_strength', header: '抗壓強度', className: 'min-w-[140px]' },
+        { key: 'clinical_tradeoffs', header: '臨床優缺點分析', className: 'min-w-[240px]' },
+      ]}
+      rows={CEMENT_MATERIALS_TABLE}
+      rowKey={(r) => r.material}
+    />
+
+    <Callout kind="redflag" title="骨泥手術後的關鍵真相：只治標不治本！">
+      <p>
+        灌骨泥能立竿見影地把「碎掉的這塊積木」黏住固定、快速止痛，但它<strong>絲毫沒有解決病人全身骨質疏鬆的根本問題</strong>！由於 PMMA 骨泥硬度遠高於疏鬆骨質，術後注入節段會形成堅硬的應力集中點；臨床統計顯示，<strong>灌完骨泥若未接受抗骨鬆藥物治療，術後一年內相鄰節段再骨折率高達 15–20%</strong>！因此，術後務必立即啟動促骨生成或抗吸收處方藥物。
+      </p>
+    </Callout>
+  </div>
+);
+
+// ── 5. Minimally Invasive Spine Surgery (MISS) ──────────────────────────
+
+export const SurgeryChapter: React.FC = () => (
+  <div className="space-y-6">
+    <P>
+      當脊椎神經受壓迫引起嚴重麻痛、間歇性跛行，或保守治療無效時，手術減壓是重要的選項。近年脊椎外科最重要的革命就是<strong>微創脊椎手術（Minimally Invasive Spine Surgery, MISS）</strong>與<strong>全脊椎內視鏡（UBE / PELD）</strong>的普及。
+    </P>
+
+    <FigureFrame
+      number="圖 5-1"
+      title="傳統開放手術 vs 雙通道內視鏡微創手術 (UBE) 組織創傷比較"
+      source="Kim JE 2023 Neurosurg Clin N Am；AO Spine 脊椎微創手術指引"
+      caption="傳統開刀必須自骨骼大範圍剝離多裂肌並強烈牽引拉扯；微創內視鏡透過肌纖維天然間隙穿透，在 30 倍高畫質視野與生理食鹽水連續灌注下精準減壓，肌肉損傷趨近於零。"
+    >
+      <MissVsOpenFigure />
+    </FigureFrame>
+
+    <div className="grid gap-4 lg:grid-cols-2 items-start">
+      <div className="space-y-3">
+        <H3>微創手術的核心哲學：最大化保留天然穩定構造</H3>
+        <P>
+          傳統脊椎手術傷口大、背部多裂肌（Multifidus）被迫廣泛剝離與電燒，術後肌肉常產生永久性缺血、神經去支配與纖維化萎縮，這就是許多人開完刀後一輩子感到「背部緊繃痠痛、站不久」的「開刀後綜合症（Failed Back Surgery Syndrome）」。
+        </P>
+        <P>
+          微創手術透過<strong>逐級擴張管（Serial Dilators）</strong>撐開肌肉纖維，或透過雙微孔置入內視鏡，在完全不切斷肌肉附著點的前提下直達骨窗，<strong>保留脊椎後方張力帶、棘上韌帶與對側小面關節</strong>，維持脊椎天然活動穩定度。
+        </P>
+      </div>
+
+      <DataTable
+        title="表 5-1　傳統開放式手術 vs 微創內視鏡手術臨床數據比對"
+        source="多中心臨床試驗綜合數據"
+        columns={[
+          { key: 'item', header: '評估指標', className: 'min-w-[110px]' },
+          { key: 'traditional_open', header: '傳統開放式大開刀', className: 'min-w-[150px]' },
+          { key: 'miss_endoscopic', header: '微創／雙通道內視鏡 (UBE)', className: 'min-w-[160px]' },
+          { key: 'clinical_benefit', header: '臨床優勢分析', className: 'min-w-[180px]' },
+        ]}
+        rows={MISS_METRICS_COMPARISON}
+        rowKey={(r) => r.item}
+      />
+    </div>
+
+    <H3 id="miss-techniques">主流微創脊椎手術術式解析</H3>
+    <P>
+      從單純椎間盤切除、椎管擴大減壓，到需要打骨釘固定與墊片的融合手術，現代醫學皆有對應的微創解決方案：
+    </P>
+
+    <DataTable
+      title="表 5-2　常見微創脊椎手術術式、傷口尺寸與適應症"
+      source="台灣神經脊椎外科醫學會；AO Spine 臨床指引"
+      columns={[
+        { key: 'name_zh', header: '術式名稱', className: 'min-w-[140px]' },
+        { key: 'incision_size', header: '切口大小' },
+        { key: 'mechanism_zh', header: '手術原理與操作路徑', className: 'min-w-[200px]' },
+        { key: 'advantages', header: '核心優勢', className: 'min-w-[180px]' },
+        { key: 'indications', header: '主要適應症', className: 'min-w-[160px]' },
+      ]}
+      rows={MISS_TECHNIQUES_TABLE}
+      rowKey={(r) => r.name_zh}
+    />
+
+    <Callout kind="tip" title="客觀看待微創手術：它不是萬靈丹，也有適應症極限">
+      <ul className="list-disc pl-5 space-y-1 text-[13px]">
+        <li><strong>神經減壓的本質相同</strong>：微創手術改變的是「路徑」，神經孔減壓與椎間盤移除的標準與傳統手術完全一致；術後神經仍需數週消腫。</li>
+        <li><strong>高度變形與翻修限制</strong>：嚴重脊椎側彎角度過大、骨折重度粉碎合併後壁爆裂、或曾多次手術產生嚴重粘連的病例，傳統開放手術在骨結構重組與視野掌握上仍有其不可替代的地位。</li>
+        <li><strong>醫師技術學習曲線</strong>：內視鏡與管狀顯微手術對術者的三維空間感與手眼協調要求極高，選擇有豐富微創經驗的專責脊椎外科醫師是手術成功的關鍵。</li>
+      </ul>
+    </Callout>
+  </div>
+);
+
+// ── 6. Numbness ─────────────────────────────────────────────────────────
 
 const rootColumns = [
   { key: 'root', header: '神經根', className: 'w-16' },
@@ -582,6 +870,82 @@ export const RehabChapter: React.FC = () => {
           rowTone={(r) => (r.grade === 'A' ? 'good' : r.grade === 'D' ? 'bad' : undefined)}
         />
       ))}
+
+      <H3 id="mcgill-rehab">脊椎穩定黃金標準：麥吉爾護脊三大動作 (McGill Big 3)</H3>
+      <P>
+        加拿大滑鐵盧大學脊椎生物力學權威 Stuart McGill 教授經數十年實驗室量測證實：<strong>傳統仰臥起坐與俯臥超人式會對腰椎產生超過 3300 至 6000 牛頓的極度危險剪切力</strong>。McGill Big 3 能夠在「零腰椎彎曲、零剪切力」下最大化活化腹橫肌、腰方肌與多裂肌，是全球運動醫學與脊椎復健公認的黃金動作。
+      </P>
+
+      <FigureFrame
+        number="圖 8-1"
+        title="麥吉爾護脊黃金三大動作（McGill Big 3）生物力學"
+        source="McGill SM 2010 Strength Cond J；臨床脊椎運動生物力學"
+        caption="改良式捲腹保護腰椎前凸弧度；側棒式強化腰方肌側向防護纜繩；鳥狗式深度喚醒多裂肌抗旋轉耐力。動作重點為脊椎完全維持中立平坦。"
+      >
+        <McgillBigThreeFigure />
+      </FigureFrame>
+
+      <DataTable
+        title="表 8-1　McGill Big 3 動作規格、肌群啟動與操作指南"
+        source="McGill 脊椎生物力學實驗室"
+        columns={[
+          { key: 'name_zh', header: '動作名稱', className: 'min-w-[110px]' },
+          { key: 'target_muscles', header: '目標核心肌群', className: 'min-w-[140px]' },
+          { key: 'spinal_load_biomechanics', header: '脊椎力學優勢', className: 'min-w-[200px]' },
+          { key: 'key_cue_zh', header: '關鍵操作口訣', className: 'min-w-[200px]' },
+          { key: 'reps_and_sets', header: '建議處方組數', className: 'min-w-[150px]' },
+        ]}
+        rows={MCGILL_BIG_THREE}
+        rowKey={(r) => r.name_zh}
+      />
+
+      <H3 id="rehab-phases">脊椎損傷與骨折三階段全方位復健進程</H3>
+      <P>
+        無論是急性閃腰、椎間盤突出，還是骨質疏鬆壓迫性骨折或微創術後，復健都必須遵循循序漸進的組織癒合時間表：
+      </P>
+
+      <DataTable
+        title="表 8-2　脊椎與骨折三階段復健進程：目標、許可動作與嚴格禁忌"
+        source="脊椎外科學；物理治療指引；Lancet WalkBack 2024"
+        columns={[
+          { key: 'phase', header: '復健階段', className: 'min-w-[130px]' },
+          { key: 'timeframe', header: '時程', className: 'min-w-[80px]' },
+          { key: 'core_goals_zh', header: '核心復健目標', className: 'min-w-[180px]' },
+          {
+            key: 'allowed_exercises_zh',
+            header: '許可與推薦訓練',
+            className: 'min-w-[220px]',
+            render: (r) => (
+              <ul className="list-disc pl-4 space-y-0.5 text-[12px]">
+                {r.allowed_exercises_zh.map((ex: string) => (
+                  <li key={ex}>{ex}</li>
+                ))}
+              </ul>
+            ),
+          },
+          {
+            key: 'strict_contraindications_zh',
+            header: '嚴格禁忌動作',
+            className: 'min-w-[200px]',
+            render: (r) => (
+              <ul className="list-disc pl-4 space-y-0.5 text-[12px] text-rose-700 dark:text-rose-400 font-semibold">
+                {r.strict_contraindications_zh.map((ci: string) => (
+                  <li key={ci}>{ci}</li>
+                ))}
+              </ul>
+            ),
+          },
+        ]}
+        rows={REHAB_PHASES_TABLE}
+        rowKey={(r) => r.phase}
+      />
+
+      <Callout kind="redflag" title="骨質疏鬆與壓迫性骨折患者的「終生禁忌動作」">
+        <p>
+          對於已知骨質疏鬆（T ≤ -2.5）或曾發生脊椎壓迫骨折的長者，<strong>終生嚴禁任何「負重向前彎腰」動作（如站立彎腰摸腳趾、仰臥起坐、直腿彎腰抱重物）與爆發性強烈扭轉（如高爾夫揮桿）</strong>！這些動作會將數倍的剪力與壓縮應力集中在脆弱的胸腰椎前壁，是引發新發楔形骨折的頭號兇手。日常拾物應採用「髖鉸鏈（Hip Hinge）」屈膝下蹲！
+        </p>
+      </Callout>
+
       <Callout kind="tip" title="去復健時，問治療師這 5 個問題">
         <ol className="list-decimal pl-5 space-y-0.5">
           {PT_QUESTIONS.map((q) => (
@@ -638,13 +1002,16 @@ export const TriageChapter: React.FC = () => (
 );
 
 export const CHAPTER_SOURCES: Record<string, string[]> = {
-  OVERVIEW: ['ISNCSCI', 'GBD2023'],
+  OVERVIEW: ['ISNCSCI', 'GBD2023', 'WILKE1999'],
   SPURS: ['BRINJIKJI2015', 'AOSPINE2017'],
+  OSTEOPOROSIS: ['IOF2023', 'AACE2020', 'LIFTMOR2018'],
+  FRACTURE: ['GENANT1993', 'BUCHBINDER2018', 'VAPOUR2016', 'FREE2009'],
+  SURGERY: ['UBE2023', 'PEUL2007', 'NASS2014'],
   NUMBNESS: ['ISNCSCI', 'AOSPINE2017', 'ADA2025', 'NASS2014'],
   POSTURE: ['WILKE1999', 'HANSRAJ2014', 'KOVACS2003', 'WALKBACK2024'],
   EXERCISE: ['WHO2023', 'BASSON2017', 'WALKBACK2024', 'LANCET2018'],
+  REHAB: ['MCGILL2010', 'WHO2023', 'NICE59', 'ACP2017', 'WALKBACK2024', 'LIFTMOR2018'],
   TREATMENT: ['STEFFENS2016', 'WALKBACK2024', 'CHIU2015', 'PEUL2007', 'NASS2014', 'AOSPINE2017', 'NICE59'],
   MEDS: ['ACP2017', 'WHO2023', 'PACE2014', 'PRECISE2017', 'CASHIN2021', 'GOLDBERG2015', 'EFSA2023B6', 'ADA2025'],
-  REHAB: ['WHO2023', 'NICE59', 'ACP2017', 'TRACTION2013', 'HEAT2006', 'BASSON2017', 'RESTORE2023', 'KUIJPER2009'],
   TRIAGE: ['NICE59', 'ACP2017', 'AOSPINE2017', 'LANCET2018'],
 };

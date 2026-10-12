@@ -100,6 +100,11 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   neck: 'spine',
   numbness: 'spine',
   sciatica: 'spine',
+  osteoporosis: 'spine',
+  fracture: 'spine',
+  kyphoplasty: 'spine',
+  'bone-cement': 'spine',
+  miss: 'spine',
   hepatitis: 'hepb',
   'hepatitis-b': 'hepb',
   hbv: 'hepb',
@@ -149,8 +154,33 @@ export type MentalTab = 'SIMULATOR' | 'NEUROBIOLOGY' | 'PROTOCOLS' | 'VAGUS_HRV'
 export const MENTAL_TABS: readonly MentalTab[] = ['SIMULATOR', 'NEUROBIOLOGY', 'PROTOCOLS', 'VAGUS_HRV', 'CAPNOMETRY', 'TRIAGE'];
 export type CheckupTab = 'quick' | 'labs' | 'screening';
 export const CHECKUP_TABS: readonly CheckupTab[] = ['quick', 'labs', 'screening'];
-export type SpineTab = 'OVERVIEW' | 'SPURS' | 'NUMBNESS' | 'POSTURE' | 'EXERCISE' | 'TREATMENT' | 'MEDS' | 'REHAB' | 'TRIAGE';
-export const SPINE_TABS: readonly SpineTab[] = ['OVERVIEW', 'SPURS', 'NUMBNESS', 'POSTURE', 'EXERCISE', 'TREATMENT', 'MEDS', 'REHAB', 'TRIAGE'];
+export type SpineTab =
+  | 'OVERVIEW'
+  | 'SPURS'
+  | 'OSTEOPOROSIS'
+  | 'FRACTURE'
+  | 'SURGERY'
+  | 'NUMBNESS'
+  | 'POSTURE'
+  | 'EXERCISE'
+  | 'REHAB'
+  | 'TREATMENT'
+  | 'MEDS'
+  | 'TRIAGE';
+export const SPINE_TABS: readonly SpineTab[] = [
+  'OVERVIEW',
+  'SPURS',
+  'OSTEOPOROSIS',
+  'FRACTURE',
+  'SURGERY',
+  'NUMBNESS',
+  'POSTURE',
+  'EXERCISE',
+  'REHAB',
+  'TREATMENT',
+  'MEDS',
+  'TRIAGE',
+];
 export type HepbTab = 'OVERVIEW' | 'SPREAD' | 'TESTS' | 'PHASES' | 'TREATMENT' | 'MONITOR' | 'LIFE';
 export const HEPB_TABS: readonly HepbTab[] = ['OVERVIEW', 'SPREAD', 'TESTS', 'PHASES', 'TREATMENT', 'MONITOR', 'LIFE'];
 export type SystemSection = 'overview' | 'how' | 'charts' | 'conditions' | 'prevent' | 'flags';

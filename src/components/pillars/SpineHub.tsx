@@ -7,19 +7,22 @@ import { HeroButton } from '../common/pro/HubHero';
 import {
   OverviewChapter,
   SpursChapter,
+  OsteoporosisChapter,
+  FractureChapter,
+  SurgeryChapter,
   NumbnessChapter,
   PostureChapter,
   ExerciseChapter,
+  RehabChapter,
   TreatmentChapter,
   MedsChapter,
-  RehabChapter,
   TriageChapter,
   CHAPTER_SOURCES,
 } from './spine/SpineChapters';
 
 /**
- * SpineHub — 脊椎・骨刺・手腳麻專區 (v4.4), taught as a nine-chapter course on the shared
- * CourseShell template.
+ * SpineHub — 脊椎・骨刺・骨鬆骨折・微創手術・復健全方位專區 (v4.5), taught as a 12-chapter
+ * course on the shared CourseShell template.
  */
 
 const SOURCES = Object.fromEntries(
@@ -34,12 +37,15 @@ export const SpineHub: React.FC = () => (
     views={{
       OVERVIEW: OverviewChapter,
       SPURS: SpursChapter,
+      OSTEOPOROSIS: OsteoporosisChapter,
+      FRACTURE: FractureChapter,
+      SURGERY: SurgeryChapter,
       NUMBNESS: NumbnessChapter,
       POSTURE: PostureChapter,
       EXERCISE: ExerciseChapter,
+      REHAB: RehabChapter,
       TREATMENT: TreatmentChapter,
       MEDS: MedsChapter,
-      REHAB: RehabChapter,
       TRIAGE: TriageChapter,
     }}
     myths={SPINE_MYTHS}
@@ -50,27 +56,37 @@ export const SpineHub: React.FC = () => (
     hero={{
       icon: Bone,
       tone: 'sky',
-      eyebrow: '症狀與疾病專區 · 脊椎與神經',
-      title: '脊椎、骨刺與手腳麻：從了解到照顧',
+      eyebrow: '症狀與疾病專區 · 脊柱健康與骨骼關節',
+      title: '脊柱健康、骨刺、骨鬆骨折與微創骨泥：全方位醫療與復健指引',
       lead: (
         <>
-          脖子痠、腰痛、手麻腳麻，是門診最常見的困擾之一。這個專區用 9 個短章節、20 多張圖表，帶你看懂脊椎構造、骨刺與椎間盤突出、手腳麻的來源，以及
-          <strong>躺坐站走的日常注意事項、居家運動、常見藥物、物理治療與何時該就醫</strong>。
+          脖子痠、腰背劇痛、骨質流失或手腳發麻，是現代人與長者最普遍的健康挑戰。本專區提供 12 個深度章節與 25+ 張專業解剖與臨床圖表，完整解析
+          <strong>脊柱健康生物力學、骨刺退化機轉、骨質疏鬆防骨折新藥、壓迫性骨折與微創骨泥手術（PKP/PVP）、雙通道內視鏡微創手術（UBE）、McGill 核心復健處方與用藥安全</strong>。
         </>
       ),
-      helps: ['從「麻在哪裡」判斷可能是哪條神經', '學會保護脊椎的睡姿、坐姿與搬重物方式', '看懂醫師常開的藥與復健項目的實際效果', '知道哪些警訊要立刻就醫'],
+      helps: [
+        '看懂骨刺與骨質疏鬆的形成機轉與臨床影像判讀（DXA T值與 MRI 水腫）',
+        '了解壓迫性骨折的微創骨泥（PKP/PVP）手術原理、適應症與外漏防範',
+        '掌握雙通道內視鏡（UBE）與微創手術（MISS）如何保留多裂肌與加速康復',
+        '學會 McGill 護脊三大動作與骨鬆長者的安全復健及防跌運動處方',
+        '從「麻在哪裡」精準定位受壓神經根，並掌握紅旗警訊就醫時機',
+      ],
       stats: [
-        { value: '80%', label: '的人一生中會經歷下背痛' },
-        { value: '96%', label: '游離型椎間盤突出會自行縮小' },
-        { value: '−45%', label: '運動＋衛教降低發作風險' },
+        { value: '80%', label: '成人一生中曾歷經下背痛' },
+        { value: 'T ≤ -2.5', label: '骨質疏鬆診斷標準門檻' },
+        { value: '< 1 cm', label: '雙通道內視鏡微創切口' },
+        { value: '−45%', label: '運動＋衛教降低腰痛復發' },
       ],
       actions: (goTo) => (
         <>
+          <HeroButton icon={Bone} onClick={() => goTo('OSTEOPOROSIS')}>
+            骨質疏鬆與骨折照護
+          </HeroButton>
           <HeroButton icon={MapPin} onClick={() => goTo('NUMBNESS')}>
-            我手腳麻，先看這裡
+            手腳發麻位置自我判讀
           </HeroButton>
           <HeroButton icon={Siren} onClick={() => goTo('TRIAGE')}>
-            何時要就醫
+            危險警訊與急症鑑別
           </HeroButton>
         </>
       ),
