@@ -39,6 +39,7 @@ import {
   REHAB_PHASES_TABLE,
   MCGILL_BIG_THREE,
   SPINE_HEALTH_CURVES,
+  TMGRGH_SPINE_CENTER_SERVICES,
 } from '../../../data/spineData';
 import { DataTable } from '../../common/pro/DataTable';
 import { FigureFrame, Callout, GradePill } from '../../common/pro/Blocks';
@@ -52,10 +53,12 @@ import {
   MissVsOpenFigure,
   McgillBigThreeFigure,
   SpineSpringBiomechanicsFigure,
+  PostOpLogRollAndBraceFigure,
+  NavigationOlifAndEndoscopyFigure,
 } from './figures/SpineSpecialtyFigures';
 import { POSTURE_FIGURES } from './figures/PostureFigures';
 import { EXERCISE_FIGURES } from './figures/ExerciseFigures';
-import { NumbLocator, RedFlagChecker, DailySpineChecklist, UrgencyBadge } from './SpineTools';
+import { NumbLocator, RedFlagChecker, DailySpineChecklist, UrgencyBadge, ShareableSpineCareGuide } from './SpineTools';
 
 const H3: React.FC<{ children: React.ReactNode; id?: string }> = ({ children, id }) => (
   <h3 id={id} className="text-lg font-display font-bold text-slate-900 dark:text-white pt-2">
@@ -379,6 +382,22 @@ export const FractureChapter: React.FC = () => (
         灌骨泥能立竿見影地把「碎掉的這塊積木」黏住固定、快速止痛，但它<strong>絲毫沒有解決病人全身骨質疏鬆的根本問題</strong>！由於 PMMA 骨泥硬度遠高於疏鬆骨質，術後注入節段會形成堅硬的應力集中點；臨床統計顯示，<strong>灌完骨泥若未接受抗骨鬆藥物治療，術後一年內相鄰節段再骨折率高達 15–20%</strong>！因此，術後務必立即啟動促骨生成或抗吸收處方藥物。
       </p>
     </Callout>
+
+    <H3 id="fracture-postop-care">脊椎骨折與微創骨泥術後：標準上下床與背架照護</H3>
+    <P>
+      無論採取保守背架治療或接受微創氣球骨泥灌注（PKP/PVP），出院返家後的<strong>「圓滾木翻身法」</strong>與<strong>「背架正確穿脫順序（先穿再坐、先躺再脫）」</strong>是保護脆弱椎體、預防骨泥鬆動或鄰近節段再骨折的核心關鍵：
+    </P>
+
+    <FigureFrame
+      number="圖 4-3"
+      title="脊椎骨折與微創術後：「先穿再坐、先躺再脫」＋圓滾木上下床四部曲"
+      source="台灣各大醫學中心（中國醫大體系、臺大、北榮、長庚）脊椎骨折護理指導共識"
+      caption="起床時必須在平躺狀態下先穿妥背架，再以圓滾木翻身法（肩與臀同一直線）轉為側躺，雙腿垂出床沿同時用雙手推床面將軀幹直立撐起；嚴禁直接仰臥起坐或扭腰翻身。"
+    >
+      <PostOpLogRollAndBraceFigure />
+    </FigureFrame>
+
+    <ShareableSpineCareGuide defaultScenario="fracture" />
   </div>
 );
 
@@ -387,7 +406,7 @@ export const FractureChapter: React.FC = () => (
 export const SurgeryChapter: React.FC = () => (
   <div className="space-y-6">
     <P>
-      當脊椎神經受壓迫引起嚴重麻痛、間歇性跛行，或保守治療無效時，手術減壓是重要的選項。近年脊椎外科最重要的革命就是<strong>微創脊椎手術（Minimally Invasive Spine Surgery, MISS）</strong>與<strong>全脊椎內視鏡（UBE / PELD）</strong>的普及。
+      當脊椎神經受壓迫引起嚴重麻痛、間歇性跛行，或保守治療無效時，手術減壓是重要的選項。近年脊椎外科最重要的革命就是<strong>微創脊椎手術（Minimally Invasive Spine Surgery, MISS）</strong>、<strong>全脊椎內視鏡（UBE / PELD）</strong>與<strong>3D 電腦導航（O-arm GPS）</strong>的結合，徹底改寫了過去「脊椎開刀傷口大、恢復慢、容易傷神經」的傳統印象。
     </P>
 
     <FigureFrame
@@ -412,7 +431,7 @@ export const SurgeryChapter: React.FC = () => (
 
       <DataTable
         title="表 5-1　傳統開放式手術 vs 微創內視鏡手術臨床數據比對"
-        source="多中心臨床試驗綜合數據"
+        source="多中心臨床試驗綜合數據；微創脊椎中心 ERAS 快速康復指標"
         columns={[
           { key: 'item', header: '評估指標', className: 'min-w-[110px]' },
           { key: 'traditional_open', header: '傳統開放式大開刀', className: 'min-w-[150px]' },
@@ -424,14 +443,23 @@ export const SurgeryChapter: React.FC = () => (
       />
     </div>
 
-    <H3 id="miss-techniques">主流微創脊椎手術術式解析</H3>
+    <H3 id="miss-techniques">主流微創脊椎手術術式與 3D 電腦導航體系</H3>
     <P>
-      從單純椎間盤切除、椎管擴大減壓，到需要打骨釘固定與墊片的融合手術，現代醫學皆有對應的微創解決方案：
+      從單純椎間盤切除、椎管擴大減壓，到需要打骨釘固定與墊片的融合手術、甚至高難度的脊椎側彎駝背矯形與二次翻修手術，現代<strong>微創脊椎中心（如臺中市立老人復健綜合醫院／中國醫大經營 骨科部張建鈞副院長團隊，榮獲 2023、2024 年 SNQ 國家品質標章）</strong>已建立完整的 3D 電腦導航與內視鏡微創醫療網：
     </P>
+
+    <FigureFrame
+      number="圖 5-2"
+      title="微創脊椎中心三大精準核心：3D 電腦導航 (O-arm) × OLIF 側開融合 × UBE 內視鏡"
+      source="臺中市立老人復健綜合醫院骨科部／微創脊椎中心（張建鈞、林琮凱、毛睿廷醫師團隊）臨床技術指引"
+      caption="O-arm 3D 電腦導航提供術中即時 3D 立體影像定位，避免牽拉神經並大幅降低輻射；OLIF 經側腹部天然間隙置入大面積融合支架達成間接減壓；脊椎內視鏡以 < 1 cm 微孔精準除骨刺。"
+    >
+      <NavigationOlifAndEndoscopyFigure />
+    </FigureFrame>
 
     <DataTable
       title="表 5-2　常見微創脊椎手術術式、傷口尺寸與適應症"
-      source="台灣神經脊椎外科醫學會；AO Spine 臨床指引"
+      source="台灣神經脊椎外科醫學會；AO Spine 臨床指引；微創脊椎中心臨床規範"
       columns={[
         { key: 'name_zh', header: '術式名稱', className: 'min-w-[140px]' },
         { key: 'incision_size', header: '切口大小' },
@@ -443,13 +471,42 @@ export const SurgeryChapter: React.FC = () => (
       rowKey={(r) => r.name_zh}
     />
 
-    <Callout kind="tip" title="客觀看待微創手術：它不是萬靈丹，也有適應症極限">
+    <DataTable
+      title="表 5-3　特色醫療標竿：微創脊椎中心七大進階臨床技術與照護效益"
+      source="臺中市立老人復健綜合醫院（委託中國醫藥大學興建經營）骨科部／微創脊椎中心（張建鈞副院長團隊）"
+      columns={[
+        { key: 'code', header: '編號', className: 'w-14' },
+        { key: 'title_zh', header: '核心技術項目', className: 'min-w-[160px]' },
+        { key: 'clinical_focus_zh', header: '微創精準醫療重點', className: 'min-w-[220px]' },
+        { key: 'patient_benefit_zh', header: '對病患與術後恢復之效益', className: 'min-w-[200px]' },
+      ]}
+      rows={TMGRGH_SPINE_CENTER_SERVICES}
+      rowKey={(r) => r.code}
+    />
+
+    <Callout kind="tip" title="客觀看待微創手術：它不是萬靈丹，術後保養決定長期成敗">
       <ul className="list-disc pl-5 space-y-1 text-[13px]">
-        <li><strong>神經減壓的本質相同</strong>：微創手術改變的是「路徑」，神經孔減壓與椎間盤移除的標準與傳統手術完全一致；術後神經仍需數週消腫。</li>
-        <li><strong>高度變形與翻修限制</strong>：嚴重脊椎側彎角度過大、骨折重度粉碎合併後壁爆裂、或曾多次手術產生嚴重粘連的病例，傳統開放手術在骨結構重組與視野掌握上仍有其不可替代的地位。</li>
-        <li><strong>醫師技術學習曲線</strong>：內視鏡與管狀顯微手術對術者的三維空間感與手眼協調要求極高，選擇有豐富微創經驗的專責脊椎外科醫師是手術成功的關鍵。</li>
+        <li><strong>神經減壓的本質相同</strong>：微創手術改變的是「進入路徑」，神經孔減壓與椎間盤移除的徹底程度與傳統手術一致；若壓迫時間較久，術後神經髓鞘仍需數週至數月逐步消腫修復。</li>
+        <li><strong>微創傷口小 ≠ 裡面已經完全長好</strong>：雖然皮膚傷口僅 0.5–1.5 公分、術後當天即可下床，但深層椎間盤纖維環破口或植骨融合區仍需 <strong>6–12 週以上</strong>才能牢固癒合；術後過早彎腰搬重物仍有 5–10% 復發風險！</li>
+        <li><strong>專責微創與導航團隊經驗</strong>：內視鏡與 3D 電腦導航手術對術者的三維空間感、手眼協調與團隊配合要求極高，選擇具備豐富微創與導航經驗的專科團隊是安全與療效的關鍵。</li>
       </ul>
     </Callout>
+
+    <H3 id="surgery-postop-care">脊椎手術後恢復、傷口照護、背架穿戴與日常禁忌全攻略</H3>
+    <P>
+      手術成功只是康復的一半，另一半取決於<strong>術後黃金 3 個月的正確居家照護</strong>。以下整合台灣各大醫學中心與微創脊椎中心之正式出院衛教單張，提供可一鍵複製分享給家人與照護者的完整指南：
+    </P>
+
+    <FigureFrame
+      number="圖 5-3"
+      title="術後安全上下床標準流程：「先穿再坐、先躺再脫」與圓滾木翻身"
+      source="台灣各大醫學中心脊椎外科術後護理指導單張"
+      caption="無論是內視鏡減壓、OLIF 側開或導航骨釘融合，上下床皆須維持脊椎一直線，利用手肘與手掌推床坐起，避免腰部屈曲與扭轉。"
+    >
+      <PostOpLogRollAndBraceFigure />
+    </FigureFrame>
+
+    <ShareableSpineCareGuide defaultScenario="miss" />
   </div>
 );
 
@@ -956,6 +1013,8 @@ export const RehabChapter: React.FC = () => {
       <Callout kind="evidence" title="研究怎麼說：認知功能治療（RESTORE, Lancet 2023）">
         <p>澳洲 492 位慢性下背痛患者的試驗中，接受物理治療師帶領的認知功能治療（找出讓疼痛持續的動作與想法，逐步重新建立信心與動作），一年後的失能程度改善明顯優於一般照護，而且效益在追蹤期間持續存在。</p>
       </Callout>
+
+      <ShareableSpineCareGuide defaultScenario="all" />
     </div>
   );
 };
@@ -1005,13 +1064,14 @@ export const CHAPTER_SOURCES: Record<string, string[]> = {
   OVERVIEW: ['ISNCSCI', 'GBD2023', 'WILKE1999'],
   SPURS: ['BRINJIKJI2015', 'AOSPINE2017'],
   OSTEOPOROSIS: ['IOF2023', 'AACE2020', 'LIFTMOR2018'],
-  FRACTURE: ['GENANT1993', 'BUCHBINDER2018', 'VAPOUR2016', 'FREE2009'],
-  SURGERY: ['UBE2023', 'PEUL2007', 'NASS2014'],
+  FRACTURE: ['GENANT1993', 'BUCHBINDER2018', 'VAPOUR2016', 'FREE2009', 'TMGRGH261', 'TW_SPINE_CARE'],
+  SURGERY: ['UBE2023', 'PEUL2007', 'NASS2014', 'TMGRGH261', 'TMGRGH_FEATURE', 'TW_SPINE_CARE'],
   NUMBNESS: ['ISNCSCI', 'AOSPINE2017', 'ADA2025', 'NASS2014'],
-  POSTURE: ['WILKE1999', 'HANSRAJ2014', 'KOVACS2003', 'WALKBACK2024'],
+  POSTURE: ['WILKE1999', 'HANSRAJ2014', 'KOVACS2003', 'WALKBACK2024', 'TW_SPINE_CARE'],
   EXERCISE: ['WHO2023', 'BASSON2017', 'WALKBACK2024', 'LANCET2018'],
-  REHAB: ['MCGILL2010', 'WHO2023', 'NICE59', 'ACP2017', 'WALKBACK2024', 'LIFTMOR2018'],
+  REHAB: ['MCGILL2010', 'WHO2023', 'NICE59', 'ACP2017', 'WALKBACK2024', 'LIFTMOR2018', 'TMGRGH261', 'TW_SPINE_CARE'],
   TREATMENT: ['STEFFENS2016', 'WALKBACK2024', 'CHIU2015', 'PEUL2007', 'NASS2014', 'AOSPINE2017', 'NICE59'],
   MEDS: ['ACP2017', 'WHO2023', 'PACE2014', 'PRECISE2017', 'CASHIN2021', 'GOLDBERG2015', 'EFSA2023B6', 'ADA2025'],
-  TRIAGE: ['NICE59', 'ACP2017', 'AOSPINE2017', 'LANCET2018'],
+  TRIAGE: ['NICE59', 'ACP2017', 'AOSPINE2017', 'LANCET2018', 'TMGRGH261'],
 };
+

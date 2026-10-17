@@ -6,6 +6,13 @@ import type { SearchDoc, SearchGroup } from '../../data/learning/searchIndex';
 
 type SearchModule = typeof import('../../data/learning/searchIndex');
 
+const FOUR_PILLAR_CHIPS = [
+  { label: '🥗 飲食營養', query: '飲食', tone: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' },
+  { label: '🏃 運動體能', query: '運動', tone: 'bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800' },
+  { label: '🛡️ 預防篩檢', query: '預防', tone: 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800' },
+  { label: '🩺 臨床治療', query: '治療', tone: 'bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-300 border-rose-300 dark:border-rose-800' },
+];
+
 const SUGGESTIONS = ['手麻', '骨刺', '高血壓', 'LDL', '糖化血色素', '失眠', '脂肪肝', '減重藥', '肌力訓練', '坐骨神經痛', '癌症篩檢', '咖啡因'];
 
 /**
@@ -141,18 +148,35 @@ export const SearchPalette: React.FC = () => {
 
         <div ref={listRef} id="search-results" role="listbox" className="max-h-[60vh] overflow-y-auto overscroll-contain p-2">
           {!query.trim() ? (
-            <div className="p-3 space-y-3">
-              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">大家常搜尋</p>
-              <div className="flex flex-wrap gap-2">
-                {SUGGESTIONS.map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => setQuery(s)}
-                    className="rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-800 dark:hover:text-emerald-300"
-                  >
-                    {s}
-                  </button>
-                ))}
+            <div className="p-3 space-y-4">
+              <div className="space-y-1.5">
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">四大健康核心維度</p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {FOUR_PILLAR_CHIPS.map((c) => (
+                    <button
+                      key={c.query}
+                      onClick={() => setQuery(c.query)}
+                      className={`rounded-xl border px-3 py-2 text-xs font-bold text-center transition-all hover:scale-[1.02] shadow-2xs ${c.tone}`}
+                    >
+                      {c.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-1.5 pt-1">
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">大家常搜尋的症狀與數值</p>
+                <div className="flex flex-wrap gap-2">
+                  {SUGGESTIONS.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => setQuery(s)}
+                      className="rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-800 dark:hover:text-emerald-300"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           ) : !ready ? (

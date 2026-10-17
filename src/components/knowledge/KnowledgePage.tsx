@@ -5,7 +5,7 @@ import { EvidenceBadge } from '../common/EvidenceBadge';
 import { RedFlagAlert } from '../common/RedFlagAlert';
 import { FigureContainer } from '../figures/FigureContainer';
 import { T10MythCard } from '../figures/T10MythCard';
-import { FIGURES_CATALOG } from '../../data/figuresMeta';
+import { FIGURES_CATALOG, resolveFigureMeta } from '../../data/figuresMeta';
 import { getFigureComponent, getFigureProps } from '../figures/FigureRegistry';
 import { SimHydration } from '../simulators/SimHydration';
 import { SimOilSwap } from '../simulators/SimOilSwap';
@@ -14,6 +14,7 @@ import { SimBAC } from '../simulators/SimBAC';
 import { SbxALDH2 } from '../simulators/SbxALDH2';
 import { SelfCheckQuiz } from './SelfCheckQuiz';
 import { VisualPlainEnglishDecoder } from './VisualPlainEnglishDecoder';
+import { FourPillarsClinicalMatrix } from './FourPillarsClinicalMatrix';
 import { KpInfoGraphRenderer } from '../figures/KpInfoGraphRenderer';
 import confetti from 'canvas-confetti';
 import { CHAPTERS } from '../../data/chapters';
@@ -53,6 +54,16 @@ const KP_CANONICAL_MAPPING: Record<string, string> = {
   'KP-A-005': 'KA-A-005',
   'KP-A-006': 'KA-A-006',
   'KP-A-007': 'KA-A-007',
+};
+
+const KP_TYPE_META: Record<string, { label: string; icon: string; tone: string }> = {
+  mechanism: { label: '機制', icon: '🔬', tone: 'text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 border-indigo-200 dark:border-indigo-800' },
+  number: { label: '數據', icon: '📊', tone: 'text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/60 border-sky-200 dark:border-sky-800' },
+  comparison: { label: '對照', icon: '⚖️', tone: 'text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border-amber-200 dark:border-amber-800' },
+  action: { label: '行動', icon: '🎯', tone: 'text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800' },
+  myth: { label: '迷思', icon: '💡', tone: 'text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border-purple-200 dark:border-purple-800' },
+  risk: { label: '風險', icon: '⚠️', tone: 'text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/60 border-rose-200 dark:border-rose-800' },
+  context: { label: '情境', icon: '🌐', tone: 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700' },
 };
 import {
   ChevronDown,
@@ -112,8 +123,8 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
   // Render proper SVG figure by ID and FigureType using FigureRegistry (WP6)
   const renderFigureComponent = (figId: string, meta: (typeof FIGURES_CATALOG)[string]) => {
-    const Component = getFigureComponent(meta.type);
-    const props = getFigureProps(figId, meta.type);
+    const Component = getFigureComponent(meta.type, figId);
+    const props = getFigureProps(figId, meta.type, { meta, page });
     return (
       <Suspense
         fallback={
@@ -189,6 +200,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
   const inPageSections = [
     { id: 'sec-hook', label: '00 核心導讀' },
+    { id: 'sec-four-pillars', label: '✨ 四大維度處方 (飲食·運動·預防·治療)' },
     { id: 'sec-kps', label: `01 知識點 (${page.kps.length})` },
     ...(page.figure_ids && page.figure_ids.length > 0 ? [{ id: 'sec-figs', label: '02 實證圖解' }] : []),
     { id: 'sec-sim', label: '03 互動試算' },
@@ -441,6 +453,9 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         </p>
       </section>
 
+      {/* ── 🌟 全人醫療與生活實證 · 四大健康處方導圖 (Four Pillars Clinical Matrix: 飲食·運動·預防·治療) ── */}
+      <FourPillarsClinicalMatrix pageIdOrTopic={page.id} pageTitle={language === 'zh-TW' ? page.title_zh : page.title_en} />
+
       {/* ── 01 Atomic Knowledge Points ── */}
       <section id="sec-kps" className="space-y-4">
         <div className="flex flex-wrap items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 gap-2">
@@ -479,9 +494,15 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                       <span className="font-mono text-xs font-bold text-nature-amber-700 dark:text-nature-amber-400">
                         {kp.id}
                       </span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 uppercase font-semibold border border-slate-200 dark:border-slate-700">
-                        {kp.kp_type}
-                      </span>
+                      {(() => {
+                        const meta = KP_TYPE_META[kp.kp_type] || { label: kp.kp_type, icon: '📌', tone: 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700' };
+                        return (
+                          <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md font-semibold border flex items-center gap-1 ${meta.tone}`}>
+                            <span>{meta.icon}</span>
+                            <span>{meta.label}</span>
+                          </span>
+                        );
+                      })()}
                       <EvidenceBadge grade={kp.evidence_grade} />
                       {(() => {
                         const canonicalId = kp.canonical_atom_id || KP_CANONICAL_MAPPING[kp.id];
@@ -775,24 +796,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
           <div className="space-y-6">
             {page.figure_ids.map((figId) => {
-              const meta = FIGURES_CATALOG[figId];
-              if (!meta) {
-                return (
-                  <div
-                    key={figId}
-                    className="p-4 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30 flex items-center justify-between text-xs font-mono text-slate-500"
-                  >
-                    <span className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-[10px] font-bold">
-                        {figId}
-                      </span>
-                      <span>實證圖解排版校驗中</span>
-                    </span>
-                    <span className="text-[10px] text-slate-400 font-sans">Spec v0.3</span>
-                  </div>
-                );
-              }
-
+              const meta = resolveFigureMeta(figId, page);
               return (
                 <FigureContainer key={figId} meta={meta}>
                   {renderFigureComponent(figId, meta)}

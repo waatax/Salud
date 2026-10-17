@@ -137,7 +137,88 @@ export const KpInfoGraphRenderer: React.FC<Props> = ({ kp }) => {
         </div>
       )}
 
-      {/* SVG / Vector Flow Ribbon */}
+      {/* Interactive Vector SVG Mechanism Schematic */}
+      <svg
+        viewBox="0 0 800 135"
+        className="w-full h-auto rounded-xl shadow-sm"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label={`${graph.title_zh} 向量流程圖解`}
+      >
+        <rect width="800" height="135" rx="12" fill="#090D16" stroke="#1E293B" strokeWidth="1.5" />
+        {graph.steps.map((step, idx) => {
+          const boxW = 174;
+          const gap = 16;
+          const x = 26 + idx * (boxW + gap);
+          const y = 18;
+          const isSelected = activeStepIndex === idx;
+          const strokeColor =
+            step.type === 'trigger'
+              ? '#F59E0B'
+              : step.type === 'warning'
+              ? '#F43F5E'
+              : step.type === 'biomarker'
+              ? '#38BDF8'
+              : step.type === 'outcome'
+              ? '#10B981'
+              : '#A855F7';
+
+          return (
+            <g
+              key={idx}
+              transform={`translate(${x}, ${y})`}
+              onClick={() => setActiveStepIndex(idx)}
+              style={{ cursor: 'pointer' }}
+            >
+              {idx < graph.steps.length - 1 && (
+                <g>
+                  <line
+                    x1={boxW}
+                    y1="50"
+                    x2={boxW + gap}
+                    y2="50"
+                    stroke="#38BDF8"
+                    strokeWidth="2"
+                    strokeDasharray="3 2"
+                  />
+                  <polygon
+                    points={`${boxW + gap - 5},46 ${boxW + gap},50 ${boxW + gap - 5},54`}
+                    fill="#38BDF8"
+                  />
+                </g>
+              )}
+              <rect
+                width={boxW}
+                height="98"
+                rx="10"
+                fill={isSelected ? '#1E293B' : '#0F172A'}
+                stroke={isSelected ? '#06B6D4' : strokeColor}
+                strokeWidth={isSelected ? '2.5' : '1.5'}
+              />
+              <circle cx="20" cy="22" r="10" fill={strokeColor} />
+              <text x="20" y="26" fill="#090D16" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                {idx + 1}
+              </text>
+              {step.value_badge && (
+                <text x={boxW - 10} y="25" fill={strokeColor} fontSize="9.5" fontWeight="bold" textAnchor="end" fontFamily="monospace">
+                  {step.value_badge.slice(0, 10)}
+                </text>
+              )}
+              <text x="12" y="50" fill="#F8FAFC" fontSize="11.5" fontWeight="bold">
+                {step.label.length > 12 ? `${step.label.slice(0, 12)}…` : step.label}
+              </text>
+              <text x="12" y="70" fill="#94A3B8" fontSize="9.5">
+                {step.detail.length > 16 ? `${step.detail.slice(0, 16)}…` : step.detail}
+              </text>
+              <text x="12" y="86" fill="#64748B" fontSize="9">
+                {step.detail.length > 16 ? `${step.detail.slice(16, 32)}${step.detail.length > 32 ? '…' : ''}` : ''}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+
+      {/* SVG / Vector Flow Ribbon Cards */}
       <div className="relative py-1">
         {/* Connection pipeline */}
         <div className="hidden sm:block absolute top-1/2 left-6 right-6 h-0.5 bg-gradient-to-r from-amber-400 via-salud-cyan to-emerald-400 -translate-y-4 z-0 opacity-30" />
@@ -184,9 +265,9 @@ export const KpInfoGraphRenderer: React.FC<Props> = ({ kp }) => {
         <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs space-y-1 animate-fade-in">
           <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 font-mono text-[10px]">
             <span className="font-bold text-salud-cyan dark:text-salud-cyan">
-              節點聚焦深查 · 第 {activeStepIndex !== null ? activeStepIndex + 1 : 1} 步
+              節點聚焦深查 · 第 {activeStepIndex !== null ? activeStepIndex + 1 : 1} 步 ({kp.id} · Grade {kp.evidence_grade})
             </span>
-            <span>點擊上方節點自由切換</span>
+            <span>點擊上方 SVG 圖解或卡片切換</span>
           </div>
           <div className="font-semibold text-slate-900 dark:text-slate-100 text-xs sm:text-sm">
             {activeStep.label}：{activeStep.detail}

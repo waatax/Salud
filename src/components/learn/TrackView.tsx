@@ -34,6 +34,17 @@ import { TONE, TrackIcon, ProgressBar, PageHeader, formatYM } from './learnUi';
 import { QuickTips } from './QuickTips';
 import { LessonVisualGraphic } from './LessonVisualGraphic';
 import { LessonReferenceTable } from './LessonReferenceTable';
+import { FourPillarsClinicalMatrix } from '../knowledge/FourPillarsClinicalMatrix';
+
+const TRACK_PILLAR_TOPIC: Record<string, string> = {
+  basics: 'cardiometabolic',
+  body: 'systems',
+  eat: 'O',
+  move: 'exercise',
+  rest: 'sleep',
+  checkup: 'ultrahealth',
+  prevent: 'longevity',
+};
 
 /** `#learn` → catalogue, `#learn/<track>` → track overview, `#learn/<track>/<lesson>` → lesson. */
 export const TrackView: React.FC = () => {
@@ -528,6 +539,11 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
           </ul>
         </section>
       )}
+
+      {/* Four Pillars Clinical Matrix (飲食 · 運動 · 預防 · 治療) */}
+      <FourPillarsClinicalMatrix
+        pageIdOrTopic={TRACK_PILLAR_TOPIC[track.id] || 'cardiometabolic'}
+      />
 
       {/* Quiz */}
       {lesson.quiz && <LessonQuizCard lessonId={lesson.id} quiz={lesson.quiz} onAnswer={recordQuiz} />}

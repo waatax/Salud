@@ -17,6 +17,7 @@ import { TrackView } from '../learn/TrackView';
 import { SearchPalette } from '../learn/SearchPalette';
 import { SiteFooter } from './SiteFooter';
 import { CHAPTERS } from '../../data/chapters';
+import { FourPillarsClinicalMatrix } from '../knowledge/FourPillarsClinicalMatrix';
 
 // v4.0: every topic hub is lazy-loaded. The learning home is the entry point, so a
 // first visit should not download all nine specialist hubs and their data up front.
@@ -244,7 +245,21 @@ export function AppShell() {
             )}
           </div>
           {/* v4.4: learn first, then act — a hub opens with its own introduction and ends
-              with the「立即上手」actions, instead of greeting readers with tips before the title. */}
+              with the「四大維度臨床處方矩陣」and「立即上手」actions. */}
+          {onHealthPage && !(activePillar === 'diet' && dietView === 'chapter' && viewMode === 'page') && (
+            <div className="max-w-5xl mx-auto mt-10">
+              {activePillar === 'diet' ? (
+                <FourPillarsClinicalMatrix
+                  key={`fp-${currentChapterId || 'O'}`}
+                  pageIdOrTopic={dietView === 'chapter' && currentChapterId ? currentChapterId : 'O'}
+                />
+              ) : (
+                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'systems'].includes(
+                  activePillar
+                ) && <FourPillarsClinicalMatrix key={`fp-${activePillar}`} pageIdOrTopic={activePillar} />
+              )}
+            </div>
+          )}
           {tipKey && (
             <div className="max-w-5xl mx-auto">
               <QuickTips key={tipKey} sectionKey={tipKey} className="mt-10" />

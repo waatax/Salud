@@ -62,14 +62,14 @@ export const PILLAR_GROUPS: Record<
   PillarNavItem['group'],
   { title_zh: string; title_en: string }
 > = {
-  start: { title_zh: '開始學習', title_en: 'Start learning' },
-  foundation: { title_zh: '認識身體', title_en: 'Know the body' },
-  care: { title_zh: '症狀與疾病專區', title_en: 'Symptoms & conditions' },
-  daily: { title_zh: '吃・動・睡・心', title_en: 'Daily levers' },
-  goals: { title_zh: '預防與健康目標', title_en: 'Prevention & goals' },
+  start: { title_zh: '🚀 開始學習 · 導航', title_en: 'Start learning' },
+  foundation: { title_zh: '🧬 認識身體 · 系統', title_en: 'Know the body' },
+  daily: { title_zh: '🥗🏃 飲食與運動 (吃·動·睡·心)', title_en: 'Diet & Exercise (Daily)' },
+  goals: { title_zh: '🛡️ 預防醫學與健康目標', title_en: 'Prevention & Goals' },
+  care: { title_zh: '🩺 臨床治療與疾病專區', title_en: 'Treatment & Clinical Care' },
 };
 
-export const GROUP_ORDER: PillarNavItem['group'][] = ['start', 'foundation', 'care', 'daily', 'goals'];
+export const GROUP_ORDER: PillarNavItem['group'][] = ['start', 'foundation', 'daily', 'goals', 'care'];
 
 export const PILLAR_NAV: PillarNavItem[] = [
   {

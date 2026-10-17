@@ -1,7 +1,194 @@
 import React, { useState } from 'react';
 
-export const T3Molecular: React.FC = () => {
+interface Props {
+  figureId?: string;
+}
+
+export const T3Molecular: React.FC<Props> = ({ figureId }) => {
+  const isAldh2Tetramer = figureId === 'FIG-A-03-01' || figureId?.startsWith('FIG-A');
   const [selectedType, setSelectedType] = useState<'sfa' | 'mufa' | 'pufa' | 'trans'>('mufa');
+  const [genotype, setGenotype] = useState<'wt' | 'het' | 'hom'>('het');
+
+  if (isAldh2Tetramer) {
+    return (
+      <div className="w-full max-w-2xl space-y-3">
+        {/* Interactive Genotype Switcher */}
+        <div className="flex flex-wrap items-center justify-between p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs gap-2">
+          <span className="font-mono text-slate-300">
+            ALDH2 rs671 (Glu504Lys) 四聚體基因型切換：
+          </span>
+          <div className="flex flex-wrap gap-1.5">
+            <button
+              onClick={() => setGenotype('wt')}
+              className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                genotype === 'wt'
+                  ? 'bg-emerald-500 text-black font-bold shadow-md'
+                  : 'bg-slate-800 text-slate-400 hover:text-white'
+              }`}
+            >
+              *1/*1 野生正常型 (100% 活性)
+            </button>
+            <button
+              onClick={() => setGenotype('het')}
+              className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                genotype === 'het'
+                  ? 'bg-amber-500 text-black font-bold shadow-md'
+                  : 'bg-slate-800 text-slate-400 hover:text-white'
+              }`}
+            >
+              *1/*2 雜合突變型 (10–38% 活性)
+            </button>
+            <button
+              onClick={() => setGenotype('hom')}
+              className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                genotype === 'hom'
+                  ? 'bg-rose-600 text-white font-bold shadow-md'
+                  : 'bg-slate-800 text-slate-400 hover:text-white'
+              }`}
+            >
+              *2/*2 純合缺失型 (&lt;2% 活性)
+            </button>
+          </div>
+        </div>
+
+        <svg
+          viewBox="0 0 800 420"
+          className="w-full h-auto rounded-xl"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="ALDH2 酵素四聚體立體構型與 rs671 突變優勢負向效應示意圖"
+        >
+          <rect width="800" height="420" rx="16" fill="#090D16" stroke="#1E293B" strokeWidth="1.5" />
+
+          {/* Header */}
+          <g transform="translate(36, 36)">
+            <text x="0" y="20" fill="#F8FAFC" fontSize="17" fontWeight="bold">
+              {genotype === 'wt' && 'ALDH2 *1/*1 野生型同源四聚體（4 個正常次單元）'}
+              {genotype === 'het' && 'ALDH2 *1/*2 雜合型四聚體（優勢負向效應 Dominant-Negative）'}
+              {genotype === 'hom' && 'ALDH2 *2/*2 純合突變型四聚體（催化口袋全面崩解）'}
+            </text>
+            <text x="0" y="44" fill="#94A3B8" fontSize="12" fontFamily="monospace">
+              {genotype === 'wt' && 'Glu504 維持 α-螺旋與 NAD⁺ 輔酶結合槽穩定 · 乙醛迅速氧化為無毒乙酸'}
+              {genotype === 'het' && 'Lys504 破壞二聚體介面氫鍵 · 只要摻入 1–2 個 *2 突變次單元即拖垮整個四聚體活性'}
+              {genotype === 'hom' && '四個次單元均為 Lys504 · NAD⁺ 結合親和力下降逾 150 倍 · 乙醛於血液中劇烈累積'}
+            </text>
+          </g>
+
+          {/* Left: Tetramer 4-Subunit Structure */}
+          <g transform="translate(65, 115)">
+            <rect width="290" height="250" rx="14" fill="#0F172A" stroke="#334155" strokeWidth="1.5" />
+            <text x="145" y="28" fill="#E2E8F0" fontSize="13" fontWeight="bold" textAnchor="middle">
+              粒線體 ALDH2 四聚體構型 (4 Subunits)
+            </text>
+
+            {/* 4 Subunits arranged in 2x2 tetramer */}
+            {[
+              { x: 95, y: 95, label: 'Subunit A', isMut: genotype === 'hom' || genotype === 'het' },
+              { x: 195, y: 95, label: 'Subunit B', isMut: genotype === 'hom' },
+              { x: 95, y: 185, label: 'Subunit C', isMut: genotype === 'hom' },
+              { x: 195, y: 185, label: 'Subunit D', isMut: genotype === 'hom' || genotype === 'het' },
+            ].map((sub, i) => (
+              <g key={i} transform={`translate(${sub.x}, ${sub.y})`}>
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="38"
+                  fill={sub.isMut ? '#450A0A' : '#064E3B'}
+                  stroke={sub.isMut ? '#EF4444' : '#10B981'}
+                  strokeWidth="2.5"
+                />
+                <text x="0" y="-4" fill="#FFFFFF" fontSize="12" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                  {sub.isMut ? 'ALDH2*2' : 'ALDH2*1'}
+                </text>
+                <text x="0" y="14" fill={sub.isMut ? '#FCA5A5' : '#A7F3D0'} fontSize="10" textAnchor="middle">
+                  {sub.isMut ? 'Lys504 突變' : 'Glu504 正常'}
+                </text>
+              </g>
+            ))}
+
+            {/* Central Catalytic Tunnel / NAD+ Binding Pocket */}
+            <circle
+              cx="145"
+              cy="140"
+              r="22"
+              fill={genotype === 'wt' ? '#0891B2' : genotype === 'het' ? '#78350F' : '#7F1D1D'}
+              stroke={genotype === 'wt' ? '#22D3EE' : genotype === 'het' ? '#F59E0B' : '#F87171'}
+              strokeWidth="2"
+            />
+            <text x="145" y="144" fill="#FFFFFF" fontSize="10" fontWeight="bold" textAnchor="middle">
+              NAD⁺槽
+            </text>
+          </g>
+
+          {/* Right: Enzymatic Activity & Acetaldehyde Burden Bars */}
+          <g transform="translate(385, 115)">
+            <rect width="365" height="250" rx="14" fill="#0F172A" stroke="#334155" strokeWidth="1.5" />
+            <text x="24" y="32" fill="#F8FAFC" fontSize="14" fontWeight="bold">
+              催化效率與一級致癌物（乙醛）暴露指標
+            </text>
+
+            {/* Metric 1: Residual Enzyme Activity */}
+            <text x="24" y="68" fill="#CBD5E1" fontSize="12">
+              1. 殘存酵素清除活性 (Residual Activity)：
+            </text>
+            <rect x="24" y="78" width="315" height="22" rx="6" fill="#1E293B" />
+            <rect
+              x="24"
+              y="78"
+              width={genotype === 'wt' ? 315 : genotype === 'het' ? 75 : 8}
+              height="22"
+              rx="6"
+              fill={genotype === 'wt' ? '#10B981' : genotype === 'het' ? '#F59E0B' : '#EF4444'}
+            />
+            <text x="30" y="93" fill="#FFFFFF" fontSize="11" fontWeight="bold" fontFamily="monospace">
+              {genotype === 'wt' ? '100% (完全正常基準)' : genotype === 'het' ? '約 10% – 38% (顯著受損)' : '< 2% (幾乎完全喪失)'}
+            </text>
+
+            {/* Metric 2: Blood Acetaldehyde Peak */}
+            <text x="24" y="130" fill="#CBD5E1" fontSize="12">
+              2. 飲酒後血中乙醛累積峰值倍數：
+            </text>
+            <rect x="24" y="140" width="315" height="22" rx="6" fill="#1E293B" />
+            <rect
+              x="24"
+              y="140"
+              width={genotype === 'wt' ? 45 : genotype === 'het' ? 210 : 315}
+              height="22"
+              rx="6"
+              fill={genotype === 'wt' ? '#38BDF8' : genotype === 'het' ? '#F97316' : '#DC2626'}
+            />
+            <text x="30" y="155" fill="#FFFFFF" fontSize="11" fontWeight="bold" fontFamily="monospace">
+              {genotype === 'wt' ? '1.0x 基線水平' : genotype === 'het' ? '約 5x – 6x 劇烈蓄積 (臉紅心悸)' : '> 15x – 20x 極度毒理反應'}
+            </text>
+
+            {/* Clinical Risk Summary Box */}
+            <rect
+              x="24"
+              y="180"
+              width="315"
+              height="52"
+              rx="8"
+              fill={genotype === 'wt' ? '#064E3B' : '#450A0A'}
+              stroke={genotype === 'wt' ? '#10B981' : '#EF4444'}
+              strokeWidth="1"
+            />
+            <text x="36" y="200" fill="#F8FAFC" fontSize="11" fontWeight="bold">
+              {genotype === 'wt'
+                ? '✓ 雖無臉紅反應，但乙醇與乙醛仍具致癌性，不代表可豪飲'
+                : genotype === 'het'
+                ? '⚠ 台灣約 47% 人口帶此突變！每日 2 杯使食道癌風險暴增 40–50 倍'
+                : '🚨 嚴禁飲酒！極少量乙醇即引發嚴重乙醛中毒、劇烈嘔吐與低血壓'}
+            </text>
+            <text x="36" y="218" fill="#CBD5E1" fontSize="10" fontFamily="monospace">
+              {genotype === 'wt'
+                ? '建議：遵循零酒精或最低減害原則'
+                : '建議：絕對避免拼酒，曾常飲酒者 45 歲起定期做 NBI 食道內視鏡'}
+            </text>
+          </g>
+        </svg>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-2xl space-y-3">
@@ -207,3 +394,4 @@ export const T3Molecular: React.FC = () => {
     </div>
   );
 };
+

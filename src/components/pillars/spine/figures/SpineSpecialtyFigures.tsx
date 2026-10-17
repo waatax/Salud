@@ -543,3 +543,211 @@ export const SpineSpringBiomechanicsFigure: React.FC = () => {
     </div>
   );
 };
+
+// ── 7. Post-Op & Fracture Care: Log-Rolling & Brace 4-Step Protocol Figure ───
+export const PostOpLogRollAndBraceFigure: React.FC = () => {
+  return (
+    <div className="space-y-4">
+      <div className="rounded-2xl border border-emerald-200 dark:border-emerald-800/70 bg-white dark:bg-slate-900/70 p-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <h4 className="text-[14px] font-bold text-slate-900 dark:text-white">
+            脊椎骨折與微創術後：「先穿再坐、先躺再脫」＋圓滾木上下床四部曲
+          </h4>
+          <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 font-bold">
+            台灣醫學中心標準臨床護理規範
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {/* Step 1: Lie flat and put on brace */}
+          <div className="rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/30 dark:bg-emerald-950/20 p-3 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-emerald-600 text-white rounded">步驟 1 · 平躺穿背架</span>
+                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400">先穿再坐</span>
+              </div>
+              <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="平躺於床上先穿妥背架">
+                {/* Bed */}
+                <rect x="10" y="65" width="130" height="8" rx="3" fill="#cbd5e1" />
+                {/* Pillow */}
+                <rect x="15" y="57" width="22" height="8" rx="3" fill="#94a3b8" />
+                {/* Supine body straight */}
+                <circle cx="28" cy="48" r="7" fill="#059669" />
+                <line x1="36" y1="52" x2="90" y2="54" stroke="#059669" strokeWidth="6" strokeLinecap="round" />
+                {/* Brace wrapped on torso */}
+                <rect x="52" y="45" width="26" height="16" rx="3" fill="#10b981" stroke="#047857" strokeWidth="1.5" />
+                <text x="65" y="56" fontSize="8" fontWeight="800" fill="#ffffff" textAnchor="middle">背架</text>
+                {/* Knees slightly bent */}
+                <path d="M90 54 L112 42 L130 62" stroke="#059669" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+              </svg>
+              <p className="text-[11.5px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                起床前<strong>在平躺狀態下先穿好背架</strong>（內穿棉質衫、內褲穿在背架外），鬆緊度留 1–2 指幅。
+              </p>
+            </div>
+          </div>
+
+          {/* Step 2: Log-roll to side */}
+          <div className="rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50/30 dark:bg-sky-950/20 p-3 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-sky-600 text-white rounded">步驟 2 · 圓滾木側翻</span>
+                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400">肩臀一直線</span>
+              </div>
+              <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="圓滾木翻身法：肩與骨盆同步側轉">
+                <rect x="10" y="65" width="130" height="8" rx="3" fill="#cbd5e1" />
+                {/* Alignment axis dashed line */}
+                <line x1="20" y1="48" x2="125" y2="48" stroke="#0284c7" strokeWidth="1.5" strokeDasharray="3 3" />
+                <circle cx="30" cy="48" r="7" fill="#0284c7" />
+                <rect x="40" y="41" width="46" height="14" rx="4" fill="#0ea5e9" />
+                <text x="63" y="51" fontSize="8" fontWeight="700" fill="#ffffff" textAnchor="middle">肩・胸・臀同步</text>
+                {/* Curved rotation arrows */}
+                <path d="M50 30 Q63 22 76 30" stroke="#0369a1" strokeWidth="2" fill="none" />
+                <polygon points="76,30 71,26 72,32" fill="#0369a1" />
+                <path d="M86 48 L112 52 L124 62" stroke="#0284c7" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+              </svg>
+              <p className="text-[11.5px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                雙膝微彎收小腹，<strong>頭、肩、胸、臀像滾木頭一樣同步轉向床緣側臥</strong>，絕對不可扭轉腰部。
+              </p>
+            </div>
+          </div>
+
+          {/* Step 3: Legs drop + Hands push up */}
+          <div className="rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/30 dark:bg-indigo-950/20 p-3 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-indigo-600 text-white rounded">步驟 3 · 垂腿手推床</span>
+                <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-400">免用腰力</span>
+              </div>
+              <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="雙腿垂出床外，雙手推床面將軀幹直立撐起">
+                <rect x="15" y="55" width="120" height="8" rx="3" fill="#cbd5e1" />
+                {/* Diagonal straight spine being pushed up */}
+                <circle cx="52" cy="22" r="7" fill="#4f46e5" />
+                <line x1="55" y1="29" x2="78" y2="54" stroke="#4f46e5" strokeWidth="6" strokeLinecap="round" />
+                {/* Supporting arm pushing bed */}
+                <line x1="62" y1="36" x2="45" y2="55" stroke="#6366f1" strokeWidth="3.5" strokeLinecap="round" />
+                {/* Legs dropping off edge */}
+                <path d="M78 54 L98 56 L102 82" stroke="#4f46e5" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+                <text x="32" y="48" fontSize="8" fontWeight="700" fill="#4338ca">手推床</text>
+                <text x="118" y="75" fontSize="8" fontWeight="700" fill="#4338ca">腿下垂</text>
+              </svg>
+              <p className="text-[11.5px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                雙小腿垂出床沿作為槓桿，同時<strong>以手肘與手掌推壓床面撐起上半身</strong>，腰背維持平直不彎曲。
+              </p>
+            </div>
+          </div>
+
+          {/* Step 4: Sit at edge 3-5 min then walker */}
+          <div className="rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/30 dark:bg-amber-950/20 p-3 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-amber-600 text-white rounded">步驟 4 · 靜坐防頭暈</span>
+                <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400">扶穩再站</span>
+              </div>
+              <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="於床緣直立靜坐3至5分鐘確認無頭暈再扶助行器站起">
+                <rect x="15" y="55" width="90" height="8" rx="3" fill="#cbd5e1" />
+                {/* Upright seated torso */}
+                <circle cx="65" cy="18" r="7" fill="#d97706" />
+                <line x1="65" y1="25" x2="65" y2="54" stroke="#d97706" strokeWidth="6" strokeLinecap="round" />
+                <rect x="58" y="32" width="14" height="16" rx="2" fill="#10b981" />
+                {/* Seated legs */}
+                <path d="M65 54 L88 55 L88 82" stroke="#d97706" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+                {/* Walker in front */}
+                <path d="M112 82 L112 42 L130 42 L130 82" stroke="#64748b" strokeWidth="2.5" fill="none" />
+                <text x="35" y="38" fontSize="8" fontWeight="700" fill="#b45309">靜坐 3-5 分</text>
+              </svg>
+              <p className="text-[11.5px] text-slate-700 dark:text-slate-300 leading-relaxed">
+                於床緣<strong>靜坐 3–5 分鐘確認無頭暈</strong>後，雙手扶助行器大腿用力站起。躺回時<strong>先躺平再脫背架</strong>！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ── 8. 3D O-arm Navigation, OLIF & Endoscopy Triad Figure ─────────────────────
+export const NavigationOlifAndEndoscopyFigure: React.FC = () => {
+  return (
+    <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-4 space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h4 className="text-[14px] font-bold text-slate-900 dark:text-white">
+          微創脊椎中心三大精準核心：3D 電腦導航 (O-arm) × OLIF 側開融合 × UBE 內視鏡
+        </h4>
+        <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-200 font-bold">
+          SNQ 國家品質標章微創技術體系
+        </span>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {/* Card 1: 3D O-arm Navigation */}
+        <div className="rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50/30 dark:bg-sky-950/20 p-3">
+          <p className="text-[12.5px] font-bold text-sky-950 dark:text-sky-200 mb-1">
+            1. O-arm 3D 電腦導航（手術 GPS）
+          </p>
+          <svg viewBox="0 0 180 100" className="w-full h-auto my-1.5" role="img" aria-label="3D電腦導航即時立體定位椎弓根骨釘">
+            {/* O-arm ring arc */}
+            <path d="M25 85 A65 65 0 0 1 155 85" stroke="#0284c7" strokeWidth="4" strokeDasharray="6 3" fill="none" />
+            <text x="90" y="20" fontSize="9" fontWeight="700" fill="#0284c7" textAnchor="middle">3D 立體影像導航雷達</text>
+            {/* Vertebral body & pedicles */}
+            <ellipse cx="90" cy="70" rx="28" ry="18" fill="#cbd5e1" stroke="#475569" strokeWidth="1.5" />
+            <circle cx="90" cy="46" r="8" fill="#fef08a" stroke="#ca8a04" strokeWidth="1.5" />
+            <text x="90" y="49" fontSize="7" fontWeight="700" fill="#854d0e" textAnchor="middle">神經</text>
+            {/* Guided trajectory lines */}
+            <line x1="45" y1="30" x2="76" y2="68" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />
+            <line x1="135" y1="30" x2="104" y2="68" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />
+            <text x="90" y="74" fontSize="8" fontWeight="700" fill="#1e293b" textAnchor="middle">精準度 &gt; 99%</text>
+          </svg>
+          <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+            術中即時 3D 影像定位，不須剝離大範圍肌肉或牽拉神經，安全完成微創置釘、翻修與側彎駝背矯形。
+          </p>
+        </div>
+
+        {/* Card 2: 3D Navigation OLIF */}
+        <div className="rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/30 dark:bg-emerald-950/20 p-3">
+          <p className="text-[12.5px] font-bold text-emerald-950 dark:text-emerald-200 mb-1">
+            2. OLIF 側開式微創腰椎融合
+          </p>
+          <svg viewBox="0 0 180 100" className="w-full h-auto my-1.5" role="img" aria-label="OLIF由側腹部天然肌間隙置入大面積融合支架達成間接減壓">
+            {/* Collapsed vs Restored disc space */}
+            <rect x="55" y="18" width="70" height="22" rx="4" fill="#cbd5e1" stroke="#64748b" strokeWidth="1.5" />
+            {/* Large OLIF Cage */}
+            <rect x="58" y="42" width="64" height="16" rx="3" fill="#10b981" stroke="#047857" strokeWidth="2" />
+            <text x="90" y="53" fontSize="8" fontWeight="800" fill="#ffffff" textAnchor="middle">超大融合支架撐開</text>
+            <rect x="55" y="60" width="70" height="22" rx="4" fill="#cbd5e1" stroke="#64748b" strokeWidth="1.5" />
+            {/* Anterolateral corridor arrow */}
+            <path d="M12 50 L52 50" stroke="#059669" strokeWidth="3" strokeLinecap="round" />
+            <polygon points="54,50 47,46 47,54" fill="#059669" />
+            <text x="32" y="42" fontSize="8" fontWeight="700" fill="#047857" textAnchor="middle">側前天然間隙</text>
+            <text x="150" y="53" fontSize="8" fontWeight="700" fill="#059669" textAnchor="middle">背肌零破壞</text>
+          </svg>
+          <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+            經腹部側前方天然間隙置入大支架，直接撐高椎間盤與神經孔（間接減壓），<strong>完全不傷背後肌肉與神經</strong>。
+          </p>
+        </div>
+
+        {/* Card 3: UBE / PELD Endoscopy */}
+        <div className="rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/30 dark:bg-indigo-950/20 p-3">
+          <p className="text-[12.5px] font-bold text-indigo-950 dark:text-indigo-200 mb-1">
+            3. 全脊椎內視鏡減壓 (UBE / PELD)
+          </p>
+          <svg viewBox="0 0 180 100" className="w-full h-auto my-1.5" role="img" aria-label="雙通道脊椎內視鏡30倍放大水壓灌注微創減壓">
+            {/* Dual micro portals */}
+            <line x1="55" y1="15" x2="82" y2="62" stroke="#4f46e5" strokeWidth="3.5" strokeLinecap="round" />
+            <line x1="125" y1="15" x2="98" y2="62" stroke="#f59e0b" strokeWidth="3.5" strokeLinecap="round" />
+            {/* Magnified field circle */}
+            <circle cx="90" cy="65" r="20" fill="#e0e7ff" stroke="#4f46e5" strokeWidth="2" />
+            <text x="90" y="63" fontSize="8" fontWeight="800" fill="#312e81" textAnchor="middle">30x 水流視野</text>
+            <text x="90" y="74" fontSize="7.5" fontWeight="700" fill="#047857" textAnchor="middle">精準除骨刺</text>
+            <text x="45" y="13" fontSize="8" fontWeight="700" fill="#4f46e5">0.5cm 鏡頭</text>
+            <text x="132" y="13" fontSize="8" fontWeight="700" fill="#d97706">0.7cm 器械</text>
+          </svg>
+          <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+            小於 1 公分微孔穿透肌間隙，水壓止血、視野放大 30 倍清除突出椎間盤與肥厚黃韌帶，當天下床、隔天出院。
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+

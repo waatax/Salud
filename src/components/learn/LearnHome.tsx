@@ -48,6 +48,7 @@ import { EVIDENCE_UPDATES, UPDATE_CATEGORY_META } from '../../data/learning/evid
 import { LAB_METRICS } from '../../data/learning/checkup';
 import { GLOSSARY } from '../../data/learning/glossary';
 import { TONE, TrackIcon, ProgressBar, SectionTitle, LEARNING_ICONS, formatYM } from './learnUi';
+import { FourPillarsMasterCompass } from './FourPillarsMasterCompass';
 
 const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
 
@@ -477,6 +478,9 @@ export const LearnHome: React.FC = () => {
 
       {/* ── 每日健康生活打卡與微習慣 ─────────────────────────────────── */}
       <DailyStreakCard />
+
+      {/* ── 🌟 健康四大維度羅盤：飲食 · 運動 · 預防 · 治療 ───────────────── */}
+      <FourPillarsMasterCompass />
 
       {/* ── 接續上次學習 ─────────────────────────────────────────── */}
       {lastLesson && lastTrack && (
