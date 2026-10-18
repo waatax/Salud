@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Play, Pause, RotateCcw, Bell, BellOff, ShieldAlert, ClipboardCheck, Trash2, Wand2 } from 'lucide-react';
 import { SCHEDULE_ANCHORS, KAPALA_CONTRA } from '../../../data/mindbodyData';
+import { Wide } from './MindBodyFigures';
+import { DiaryRow, diaryNight, summarise, titrate, toMin, fmtClock as fmt } from '../../../utils/sleepDiary';
 
 /**
  * Interactive tools for the 睡眠・呼吸・正念 zone. Nothing leaves the reader's browser;
@@ -14,15 +16,6 @@ const MIND = 'var(--fig-series-4)';
 const INK = 'var(--viz-ink)';
 const INK2 = 'var(--viz-ink-2)';
 const GRID = 'var(--viz-grid)';
-
-const toMin = (hhmm: string) => {
-  const [h, m] = hhmm.split(':').map(Number);
-  return ((h || 0) * 60 + (m || 0)) % 1440;
-};
-const fmt = (min: number) => {
-  const m = ((Math.round(min) % 1440) + 1440) % 1440;
-  return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
-};
 
 const usePrefersReducedMotion = () => {
   const [reduced, setReduced] = useState(false);
@@ -76,15 +69,29 @@ export const SchedulePlanner: React.FC = () => {
         const sinceWake = (((at - wakeMin) % 1440) + 1440) % 1440;
         return { ...a, at: ((at % 1440) + 1440) % 1440, sinceWake };
       }).sort((p, q) => p.sinceWake - q.sinceWake),
-    [wakeMin, bedMin]
+    [wakeMin, bedMin],
   );
 
-  // timeline geometry: one awake day, wake → bed
+  // timeline geometry: one awake day, wake → bed. Markers are numbered (matching the list
+  // below) and stacked into lanes so evening items never overprint each other.
   const W = 560;
-  const L = 14;
-  const R = 14;
+  const L = 16;
+  const R = 16;
+  const barY = 92;
   const awake = 1440 - Math.round(need * 60);
   const tx = (sinceWake: number) => L + ((W - L - R) * Math.min(sinceWake, awake)) / awake;
+  const lanesEnd: number[] = [];
+  const placed = items.map((it, i) => {
+    const x = tx(it.sinceWake);
+    let lane = lanesEnd.findIndex((end) => x - end >= 22);
+    if (lane === -1) {
+      lane = lanesEnd.length;
+      lanesEnd.push(x);
+    } else lanesEnd[lane] = x;
+    return { ...it, n: i + 1, x, lane };
+  });
+  const laneY = (lane: number) => barY - 24 - lane * 22;
+  const hourTicks = Array.from({ length: Math.floor(awake / 180) + 1 }, (_, i) => i * 180).filter((m) => awake - m >= 100);
 
   return (
     <div className="rounded-2xl border border-sky-200 dark:border-sky-900 bg-white dark:bg-slate-900/60 p-4 sm:p-5 space-y-4">
@@ -103,27 +110,35 @@ export const SchedulePlanner: React.FC = () => {
         </div>
       </div>
 
-      <svg viewBox={`0 0 ${W} 120`} className="w-full h-auto" role="img" aria-label={`從 ${wake} 起床到 ${fmt(bedMin)} 上床的作息時間軸`}>
-        <rect x={L} y={52} width={W - L - R} height={12} rx={6} fill={GRID} />
-        <rect x={L} y={52} width={(W - L - R) * 0.35} height={12} rx={6} fill="var(--viz-warn)" opacity={0.35} />
-        <rect x={tx(awake - 180)} y={52} width={tx(awake) - tx(awake - 180)} height={12} rx={6} fill={CALM} opacity={0.35} />
-        {items.map((it, i) => {
-          const x = tx(it.sinceWake);
-          const up = i % 2 === 0;
-          return (
-            <g key={it.id}>
-              <line x1={x} x2={x} y1={up ? 40 : 66} y2={up ? 52 : 80} stroke={KIND_COLOR[it.kind]} strokeWidth={2} />
-              <circle cx={x} cy={58} r={5} fill={KIND_COLOR[it.kind]} stroke="var(--viz-surface)" strokeWidth={1.5} />
-              <text x={Math.min(Math.max(x, 26), W - 26)} y={up ? 22 : 96} textAnchor="middle" fontSize={10} fontWeight={800} fill={INK}>
-                {fmt(it.at)}
-              </text>
-              <text x={Math.min(Math.max(x, 30), W - 30)} y={up ? 34 : 108} textAnchor="middle" fontSize={8.5} fill={INK2}>
-                {it.label.length > 7 ? it.label.slice(0, 7) + '…' : it.label}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
+      <Wide>
+        <svg viewBox={`0 0 ${W} 124`} className="w-full min-w-[500px] h-auto" role="img" aria-label={`從 ${wake} 起床到 ${fmt(bedMin)} 上床的作息時間軸，共 ${items.length} 個時間點，詳見下方清單`}>
+          <rect x={L} y={barY} width={W - L - R} height={10} rx={5} fill={GRID} />
+          <rect x={L} y={barY} width={tx(240) - L} height={10} rx={5} fill="var(--viz-warn)" opacity={0.45} />
+          <rect x={tx(awake - 180)} y={barY} width={tx(awake) - tx(awake - 180)} height={10} rx={5} fill={CALM} opacity={0.45} />
+          {hourTicks.map((m) => (
+            <text key={m} x={tx(m)} y={barY + 26} textAnchor="middle" fontSize={10} fill={INK2}>
+              {fmt(wakeMin + m)}
+            </text>
+          ))}
+          <text x={tx(awake)} y={barY + 26} textAnchor="end" fontSize={10} fontWeight={800} fill={MIND}>
+            {fmt(bedMin)} 上床
+          </text>
+          {placed.map((it) => {
+            const y = laneY(it.lane);
+            return (
+              <g key={it.id}>
+                <title>{`${it.n}. ${fmt(it.at)} ${it.label}`}</title>
+                <line x1={it.x} x2={it.x} y1={y + 9} y2={barY + 5} stroke={KIND_COLOR[it.kind]} strokeWidth={1.5} />
+                <circle cx={it.x} cy={barY + 5} r={3.5} fill={KIND_COLOR[it.kind]} />
+                <circle cx={it.x} cy={y} r={9} fill={KIND_COLOR[it.kind]} stroke="var(--viz-surface)" strokeWidth={1.5} />
+                <text x={it.x} y={y + 3.5} textAnchor="middle" fontSize={10} fontWeight={800} fill="#fff">
+                  {it.n}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </Wide>
       <div className="flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-slate-600 dark:text-slate-300">
         {Object.entries(KIND_LABEL).map(([k, v]) => (
           <span key={k}>
@@ -131,16 +146,22 @@ export const SchedulePlanner: React.FC = () => {
             {v}
           </span>
         ))}
-        <span>　黃底：上午多曬光　藍底：睡前 3 小時調暗</span>
+        <span>　黃底：起床後 4 小時多曬光　藍底：睡前 3 小時調暗</span>
       </div>
 
       <ol className="divide-y divide-slate-100 dark:divide-slate-800 rounded-xl border border-slate-200 dark:border-slate-800">
-        {items.map((it) => (
+        {items.map((it, i) => (
           <li key={it.id} className="flex gap-3 px-3 py-2.5">
-            <span className="w-14 shrink-0 font-display font-bold tabular-nums text-slate-900 dark:text-white">{fmt(it.at)}</span>
+            <span
+              className="w-6 h-6 mt-0.5 shrink-0 rounded-full text-white text-[12px] font-bold inline-flex items-center justify-center"
+              style={{ background: KIND_COLOR[it.kind] }}
+              aria-hidden="true"
+            >
+              {i + 1}
+            </span>
+            <span className="w-12 shrink-0 font-display font-bold tabular-nums text-slate-900 dark:text-white">{fmt(it.at)}</span>
             <span className="flex-1 min-w-0">
               <span className="block text-[14px] font-semibold text-slate-900 dark:text-white">
-                <span className="inline-block w-2 h-2 rounded-full align-middle mr-1.5" style={{ background: KIND_COLOR[it.kind] }} aria-hidden="true" />
                 {it.label}
                 <span className="ml-1.5 text-[11px] font-medium text-slate-500 dark:text-slate-400">［{KIND_LABEL[it.kind]}］</span>
               </span>
@@ -174,12 +195,68 @@ interface PacerMode {
 }
 
 const MODES: PacerMode[] = [
-  { id: 'resonance', label: '共振呼吸 4-6', hint: '吸 4 秒、吐 6 秒，每分鐘 6 次：最通用的放鬆與睡前練習。', phases: [{ name: '吸氣', secs: 4, to: 1 }, { name: '吐氣', secs: 6, to: 0 }], calm: true },
-  { id: 'sigh', label: '生理嘆息', hint: '鼻子吸到八分 → 再補吸一小口 → 嘴巴慢慢長長吐掉。壓力當下 1–5 分鐘。', phases: [{ name: '鼻吸', secs: 2.5, to: 0.8 }, { name: '再補吸一口', secs: 1, to: 1 }, { name: '嘴巴長吐', secs: 6.5, to: 0 }], calm: true },
-  { id: 'tuna', label: '吐納（細勻深長）', hint: '吸 5 秒腹部鼓起、吐 10 秒腹部內收，可默念「噓」字。每分鐘 4 次，不舒服就改回 4-6。', phases: [{ name: '細細吸（腹部鼓起）', secs: 5, to: 1 }, { name: '長長吐（默念「噓」）', secs: 10, to: 0 }], calm: true },
-  { id: '478', label: '4-7-8', hint: '吸 4、停 7、吐 8。閉氣不舒服可把「停」縮短到 2–3 秒。', phases: [{ name: '吸氣', secs: 4, to: 1 }, { name: '停住', secs: 7, to: 1 }, { name: '吐氣', secs: 8, to: 0 }], calm: true },
-  { id: 'box', label: '箱式 4-4-4-4', hint: '吸 4、停 4、吐 4、停 4。上台、考試前穩定專注。', phases: [{ name: '吸氣', secs: 4, to: 1 }, { name: '停住', secs: 4, to: 1 }, { name: '吐氣', secs: 4, to: 0 }, { name: '停住', secs: 4, to: 0 }], calm: true },
-  { id: 'kapala', label: '卡帕拉巴提（入門）', hint: '每秒 1 下快速腹部內收「哼」出氣，吸氣自然回彈；20 下一輪、休息 45 秒、共 3 輪。僅限早上／白天。', phases: [], kapala: { strokes: 20, rate: 1, rest: 45, rounds: 3 }, calm: false },
+  {
+    id: 'resonance',
+    label: '共振呼吸 4-6',
+    hint: '吸 4 秒、吐 6 秒，每分鐘 6 次：最通用的放鬆與睡前練習。',
+    phases: [
+      { name: '吸氣', secs: 4, to: 1 },
+      { name: '吐氣', secs: 6, to: 0 },
+    ],
+    calm: true,
+  },
+  {
+    id: 'sigh',
+    label: '生理嘆息',
+    hint: '鼻子吸到八分 → 再補吸一小口 → 嘴巴慢慢長長吐掉。壓力當下 1–5 分鐘。',
+    phases: [
+      { name: '鼻吸', secs: 2.5, to: 0.8 },
+      { name: '再補吸一口', secs: 1, to: 1 },
+      { name: '嘴巴長吐', secs: 6.5, to: 0 },
+    ],
+    calm: true,
+  },
+  {
+    id: 'tuna',
+    label: '吐納（細勻深長）',
+    hint: '吸 5 秒腹部鼓起、吐 10 秒腹部內收，可默念「噓」字。每分鐘 4 次，不舒服就改回 4-6。',
+    phases: [
+      { name: '細細吸（腹部鼓起）', secs: 5, to: 1 },
+      { name: '長長吐（默念「噓」）', secs: 10, to: 0 },
+    ],
+    calm: true,
+  },
+  {
+    id: '478',
+    label: '4-7-8',
+    hint: '吸 4、停 7、吐 8。閉氣不舒服可把「停」縮短到 2–3 秒。',
+    phases: [
+      { name: '吸氣', secs: 4, to: 1 },
+      { name: '停住', secs: 7, to: 1 },
+      { name: '吐氣', secs: 8, to: 0 },
+    ],
+    calm: true,
+  },
+  {
+    id: 'box',
+    label: '箱式 4-4-4-4',
+    hint: '吸 4、停 4、吐 4、停 4。上台、考試前穩定專注。',
+    phases: [
+      { name: '吸氣', secs: 4, to: 1 },
+      { name: '停住', secs: 4, to: 1 },
+      { name: '吐氣', secs: 4, to: 0 },
+      { name: '停住', secs: 4, to: 0 },
+    ],
+    calm: true,
+  },
+  {
+    id: 'kapala',
+    label: '卡帕拉巴提（入門）',
+    hint: '每秒 1 下快速腹部內收「哼」出氣，吸氣自然回彈；20 下一輪、休息 45 秒、共 3 輪。僅限早上／白天。',
+    phases: [],
+    kapala: { strokes: 20, rate: 1, rest: 45, rounds: 3 },
+    calm: false,
+  },
 ];
 
 export const BreathPacer: React.FC<{ initial?: string }> = ({ initial = 'resonance' }) => {
@@ -347,24 +424,19 @@ export const BreathPacer: React.FC<{ initial?: string }> = ({ initial = 'resonan
         <div className="relative mx-auto w-[200px] h-[200px]" aria-hidden="true">
           <svg viewBox="0 0 200 200" className="w-full h-full">
             <circle cx={100} cy={100} r={92} fill="none" stroke={GRID} strokeWidth={6} />
-            <circle
-              cx={100}
-              cy={100}
-              r={92}
-              fill="none"
-              stroke={color}
-              strokeWidth={6}
-              strokeLinecap="round"
-              strokeDasharray={`${(pct / 100) * 578} 578`}
-              transform="rotate(-90 100 100)"
-            />
+            <circle cx={100} cy={100} r={92} fill="none" stroke={color} strokeWidth={6} strokeLinecap="round" strokeDasharray={`${(pct / 100) * 578} 578`} transform="rotate(-90 100 100)" />
             <circle cx={100} cy={100} r={reduced ? 50 : 18 + 66 * scale} fill={color} opacity={0.22} />
             <circle cx={100} cy={100} r={reduced ? 40 : 12 + 56 * scale} fill={color} opacity={0.5} />
           </svg>
         </div>
         <div className="space-y-2 text-center sm:text-left">
-          <p className="text-2xl font-display font-bold text-slate-900 dark:text-white" aria-live="polite">
+          <p className="text-2xl font-display font-bold text-slate-900 dark:text-white" aria-hidden={running && !!kap}>
             {phaseName}
+          </p>
+          {/* Screen readers: calm modes announce each phase (every 4–10 s); kapalabhati strokes come twice a
+              second, so only the round / rest transitions are announced. */}
+          <p className="sr-only" aria-live="polite">
+            {kap ? (running ? (phaseName.startsWith('自然呼吸') ? `休息。${detail}` : detail.replace(/・第 \d+\/\d+ 下/, '')) : phaseName) : phaseName}
           </p>
           {running && (
             <p className="text-[15px] tabular-nums text-slate-600 dark:text-slate-300">
@@ -372,11 +444,15 @@ export const BreathPacer: React.FC<{ initial?: string }> = ({ initial = 'resonan
             </p>
           )}
           <p className="text-[13px] tabular-nums text-slate-500 dark:text-slate-400">
-            {fmt(0).slice(0, 0)}
             {Math.floor(elapsed / 60)}:{String(Math.floor(elapsed % 60)).padStart(2, '0')} / {Math.floor(total / 60)}:{String(Math.round(total % 60)).padStart(2, '0')}
           </p>
           <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-            <button type="button" onClick={toggle} disabled={locked} className={`${btnCls} ${mode.calm ? 'bg-sky-600 border-sky-600 text-white hover:bg-sky-700' : 'bg-orange-600 border-orange-600 text-white hover:bg-orange-700'}`}>
+            <button
+              type="button"
+              onClick={toggle}
+              disabled={locked}
+              className={`${btnCls} ${mode.calm ? 'bg-sky-600 border-sky-600 text-white hover:bg-sky-700' : 'bg-orange-600 border-orange-600 text-white hover:bg-orange-700'}`}
+            >
               {running ? <Pause className="w-4 h-4" aria-hidden="true" /> : <Play className="w-4 h-4" aria-hidden="true" />}
               {running ? '暫停' : elapsed > 0 && elapsed < total ? '繼續' : '開始'}
             </button>
@@ -392,7 +468,14 @@ export const BreathPacer: React.FC<{ initial?: string }> = ({ initial = 'resonan
           {!kap && (
             <label className="flex items-center gap-2 justify-center sm:justify-start text-[13px] text-slate-600 dark:text-slate-300">
               時間
-              <select value={minutes} onChange={(e) => { setMinutes(Number(e.target.value)); reset(); }} className={inputCls}>
+              <select
+                value={minutes}
+                onChange={(e) => {
+                  setMinutes(Number(e.target.value));
+                  reset();
+                }}
+                className={inputCls}
+              >
                 {[1, 3, 5, 10, 20].map((m) => (
                   <option key={m} value={m}>
                     {m} 分鐘
@@ -412,13 +495,26 @@ export const BreathPacer: React.FC<{ initial?: string }> = ({ initial = 'resonan
 
 const BODY_SCAN = ['雙腳腳趾、腳底', '腳踝、小腿', '膝蓋、大腿', '臀部、骨盆', '下腹、腰背', '胸口、上背、呼吸起伏', '雙手、手臂', '肩膀、脖子', '下巴、臉頰、眼周', '頭頂，再擴展到全身'];
 const GUIDES: Record<string, { label: string; cue: (k: number) => string }> = {
-  breath: { label: '呼吸覺察', cue: (k) => (k < 0.1 ? '找一個舒服的姿勢，輕輕閉眼或垂下視線。' : k > 0.92 ? '慢慢把注意力擴展到整個房間，準備睜眼。' : '注意鼻孔或腹部的呼吸感覺。走神了？標記「想法」，回到呼吸。') },
+  breath: {
+    label: '呼吸覺察',
+    cue: (k) => (k < 0.1 ? '找一個舒服的姿勢，輕輕閉眼或垂下視線。' : k > 0.92 ? '慢慢把注意力擴展到整個房間，準備睜眼。' : '注意鼻孔或腹部的呼吸感覺。走神了？標記「想法」，回到呼吸。'),
+  },
   scan: { label: '身體掃描', cue: (k) => `把注意力放在：${BODY_SCAN[Math.min(BODY_SCAN.length - 1, Math.floor(k * BODY_SCAN.length))]}。只觀察，不需要改變。` },
   space: {
     label: '三分鐘呼吸空間',
     cue: (k) => (k < 1 / 3 ? '① 覺察：此刻有什麼想法、情緒、身體感覺？' : k < 2 / 3 ? '② 聚焦：只注意呼吸，一吸一吐。' : '③ 擴展：把覺察擴展到整個身體、姿勢與臉部表情。'),
   },
-  kind: { label: '慈心', cue: (k) => (k < 0.25 ? '默念：願我平安、願我健康、願我自在。' : k < 0.5 ? '想一位你在乎的人：願你平安、願你健康、願你自在。' : k < 0.75 ? '想一位不熟的人：願你平安、願你健康、願你自在。' : '擴展到所有人：願大家平安、健康、自在。') },
+  kind: {
+    label: '慈心',
+    cue: (k) =>
+      k < 0.25
+        ? '默念：願我平安、願我健康、願我自在。'
+        : k < 0.5
+          ? '想一位你在乎的人：願你平安、願你健康、願你自在。'
+          : k < 0.75
+            ? '想一位不熟的人：願你平安、願你健康、願你自在。'
+            : '擴展到所有人：願大家平安、健康、自在。',
+  },
 };
 
 export const MeditationTimer: React.FC = () => {
@@ -494,7 +590,14 @@ export const MeditationTimer: React.FC = () => {
           {running ? <Pause className="w-4 h-4" aria-hidden="true" /> : <Play className="w-4 h-4" aria-hidden="true" />}
           {running ? '暫停' : elapsed > 0 && !done ? '繼續' : '開始'}
         </button>
-        <button type="button" onClick={() => { setRunning(false); setElapsed(0); }} className={`${btnCls} border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200`}>
+        <button
+          type="button"
+          onClick={() => {
+            setRunning(false);
+            setElapsed(0);
+          }}
+          className={`${btnCls} border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200`}
+        >
           <RotateCcw className="w-4 h-4" aria-hidden="true" />
           重來
         </button>
@@ -505,7 +608,15 @@ export const MeditationTimer: React.FC = () => {
         {guide !== 'space' && (
           <label className="flex items-center gap-2 text-[13px] text-slate-600 dark:text-slate-300">
             時間
-            <select value={minutes} onChange={(e) => { setMinutes(Number(e.target.value)); setRunning(false); setElapsed(0); }} className={inputCls}>
+            <select
+              value={minutes}
+              onChange={(e) => {
+                setMinutes(Number(e.target.value));
+                setRunning(false);
+                setElapsed(0);
+              }}
+              className={inputCls}
+            >
               {[3, 5, 10, 15, 20].map((m) => (
                 <option key={m} value={m}>
                   {m} 分鐘
@@ -515,7 +626,14 @@ export const MeditationTimer: React.FC = () => {
           </label>
         )}
       </div>
-      <div className="h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(k * 100)} aria-label="練習進度">
+      <div
+        className="h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(k * 100)}
+        aria-label="練習進度"
+      >
         <div className="h-full transition-all" style={{ width: `${k * 100}%`, background: MIND }} />
       </div>
     </div>
@@ -523,13 +641,6 @@ export const MeditationTimer: React.FC = () => {
 };
 
 // ── 4. CAP-D 睡眠日記 ───────────────────────────────────────────────────────
-
-export interface DiaryRow {
-  bed: string;
-  out: string;
-  latency: number;
-  waso: number;
-}
 
 const STORE_KEY = 'salud.mindbody.diary.v1';
 const EMPTY: DiaryRow = { bed: '', out: '', latency: 0, waso: 0 };
@@ -554,23 +665,6 @@ const readDiary = (): DiaryRow[] => {
   }
 };
 
-/** Pure: time in bed, total sleep and efficiency for one diary night. Exported for tests. */
-export function diaryNight(r: DiaryRow): { tib: number; tst: number; se: number } | null {
-  if (!r.bed || !r.out) return null;
-  const tib = ((toMin(r.out) - toMin(r.bed)) % 1440 + 1440) % 1440;
-  if (tib < 120) return null;
-  const tst = Math.max(0, tib - (r.latency || 0) - (r.waso || 0));
-  return { tib, tst, se: tst / tib };
-}
-
-/** Pure CBT-I titration rule (AASM 2021 / European guideline 2023). Exported for tests. */
-export function titrate(avgTst: number, avgSe: number, currentTib: number): { nextTib: number; verdict: string; tone: 'good' | 'warn' | 'bad' } {
-  if (avgSe >= 0.9) return { nextTib: currentTib + 15, verdict: '睡眠效率 ≥ 90%：下週可提早 15 分鐘上床', tone: 'good' };
-  if (avgSe >= 0.85) return { nextTib: currentTib, verdict: '睡眠效率 85–90%：維持目前的睡眠窗口一週', tone: 'warn' };
-  const target = Math.max(300, Math.round((avgTst + 15) / 15) * 15);
-  return { nextTib: Math.min(currentTib - 15, target) < 300 ? 300 : Math.min(currentTib - 15, target), verdict: '睡眠效率 < 85%：縮短躺床時間（延後上床），讓睡意集中', tone: 'bad' };
-}
-
 export const CapdSleepDiary: React.FC = () => {
   const [rows, setRows] = useState<DiaryRow[]>(() => (typeof window === 'undefined' ? Array.from({ length: 7 }, () => ({ ...EMPTY })) : readDiary()));
   const [wakeGoal, setWakeGoal] = useState('07:00');
@@ -585,15 +679,9 @@ export const CapdSleepDiary: React.FC = () => {
 
   const set = (i: number, patch: Partial<DiaryRow>) => setRows((rs) => rs.map((r, j) => (j === i ? { ...r, ...patch } : r)));
   const nights = rows.map(diaryNight);
-  const valid = nights.filter((n): n is { tib: number; tst: number; se: number } => !!n);
-  const avg = valid.length
-    ? {
-        tib: valid.reduce((s, n) => s + n.tib, 0) / valid.length,
-        tst: valid.reduce((s, n) => s + n.tst, 0) / valid.length,
-        se: valid.reduce((s, n) => s + n.tst, 0) / valid.reduce((s, n) => s + n.tib, 0),
-      }
-    : null;
-  const plan = avg && valid.length >= 5 ? titrate(avg.tst, avg.se, Math.round(avg.tib / 15) * 15) : null;
+  const avg = summarise(nights);
+  const valid = nights.filter(Boolean);
+  const plan = avg && avg.n >= 5 ? titrate(avg.tst, avg.se, avg.tib) : null;
   const nextBed = plan ? fmt(toMin(wakeGoal) - plan.nextTib) : null;
   const hm = (m: number) => `${Math.floor(m / 60)} 小時 ${Math.round(m % 60)} 分`;
   const W = 520;
@@ -607,11 +695,19 @@ export const CapdSleepDiary: React.FC = () => {
           Check：過去 7 晚睡眠日記（每天早上 1 分鐘）
         </p>
         <div className="flex gap-2">
-          <button type="button" onClick={() => setRows(EXAMPLE.map((r) => ({ ...r })))} className={`${btnCls} min-h-[36px] py-1 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200`}>
+          <button
+            type="button"
+            onClick={() => setRows(EXAMPLE.map((r) => ({ ...r })))}
+            className={`${btnCls} min-h-[36px] py-1 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200`}
+          >
             <Wand2 className="w-4 h-4" aria-hidden="true" />
             填入範例
           </button>
-          <button type="button" onClick={() => setRows(Array.from({ length: 7 }, () => ({ ...EMPTY })))} className={`${btnCls} min-h-[36px] py-1 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200`}>
+          <button
+            type="button"
+            onClick={() => setRows(Array.from({ length: 7 }, () => ({ ...EMPTY })))}
+            className={`${btnCls} min-h-[36px] py-1 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200`}
+          >
             <Trash2 className="w-4 h-4" aria-hidden="true" />
             清空
           </button>
@@ -623,12 +719,24 @@ export const CapdSleepDiary: React.FC = () => {
           <caption className="sr-only">7 晚睡眠日記，每列一晚</caption>
           <thead>
             <tr className="text-left text-slate-600 dark:text-slate-400">
-              <th scope="col" className="py-1.5 pr-2 font-semibold">晚</th>
-              <th scope="col" className="py-1.5 pr-2 font-semibold">上床</th>
-              <th scope="col" className="py-1.5 pr-2 font-semibold">起床離床</th>
-              <th scope="col" className="py-1.5 pr-2 font-semibold">多久才睡著（分）</th>
-              <th scope="col" className="py-1.5 pr-2 font-semibold">半夜醒著共（分）</th>
-              <th scope="col" className="py-1.5 font-semibold text-right">效率</th>
+              <th scope="col" className="py-1.5 pr-2 font-semibold">
+                晚
+              </th>
+              <th scope="col" className="py-1.5 pr-2 font-semibold">
+                上床
+              </th>
+              <th scope="col" className="py-1.5 pr-2 font-semibold">
+                起床離床
+              </th>
+              <th scope="col" className="py-1.5 pr-2 font-semibold">
+                多久才睡著（分）
+              </th>
+              <th scope="col" className="py-1.5 pr-2 font-semibold">
+                半夜醒著共（分）
+              </th>
+              <th scope="col" className="py-1.5 font-semibold text-right">
+                效率
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -646,12 +754,34 @@ export const CapdSleepDiary: React.FC = () => {
                     <input type="time" aria-label={`第 ${i + 1} 晚起床離床時間`} value={r.out} onChange={(e) => set(i, { out: e.target.value })} className={inputCls} />
                   </td>
                   <td className="py-1.5 pr-2">
-                    <input type="number" min={0} max={300} step={5} inputMode="numeric" aria-label={`第 ${i + 1} 晚入睡所需分鐘`} value={r.latency || ''} onChange={(e) => set(i, { latency: Math.max(0, Number(e.target.value) || 0) })} className={`${inputCls} w-20`} />
+                    <input
+                      type="number"
+                      min={0}
+                      max={300}
+                      step={5}
+                      inputMode="numeric"
+                      aria-label={`第 ${i + 1} 晚入睡所需分鐘`}
+                      value={r.latency || ''}
+                      onChange={(e) => set(i, { latency: Math.max(0, Number(e.target.value) || 0) })}
+                      className={`${inputCls} w-20`}
+                    />
                   </td>
                   <td className="py-1.5 pr-2">
-                    <input type="number" min={0} max={400} step={5} inputMode="numeric" aria-label={`第 ${i + 1} 晚半夜清醒分鐘`} value={r.waso || ''} onChange={(e) => set(i, { waso: Math.max(0, Number(e.target.value) || 0) })} className={`${inputCls} w-20`} />
+                    <input
+                      type="number"
+                      min={0}
+                      max={400}
+                      step={5}
+                      inputMode="numeric"
+                      aria-label={`第 ${i + 1} 晚半夜清醒分鐘`}
+                      value={r.waso || ''}
+                      onChange={(e) => set(i, { waso: Math.max(0, Number(e.target.value) || 0) })}
+                      className={`${inputCls} w-20`}
+                    />
                   </td>
-                  <td className={`py-1.5 text-right font-bold tabular-nums ${n ? (n.se >= 0.85 ? 'text-emerald-700 dark:text-emerald-400' : 'text-rose-700 dark:text-rose-400') : 'text-slate-400'}`}>{n ? `${Math.round(n.se * 100)}%` : '—'}</td>
+                  <td className={`py-1.5 text-right font-bold tabular-nums ${n ? (n.se >= 0.85 ? 'text-emerald-700 dark:text-emerald-400' : 'text-rose-700 dark:text-rose-400') : 'text-slate-400'}`}>
+                    {n ? `${Math.round(n.se * 100)}%` : '—'}
+                  </td>
                 </tr>
               );
             })}
@@ -660,34 +790,36 @@ export const CapdSleepDiary: React.FC = () => {
       </div>
 
       {valid.length > 0 && (
-        <svg viewBox={`0 0 ${W} 150`} className="w-full h-auto" role="img" aria-label={`7 晚睡眠效率長條圖，平均 ${avg ? Math.round(avg.se * 100) : 0}%`}>
-          {[0.85, 0.9].map((g) => (
-            <g key={g}>
-              <line x1={40} x2={W - 10} y1={120 - g * 100} y2={120 - g * 100} stroke={g === 0.85 ? 'var(--viz-bad)' : GOOD} strokeDasharray="4 3" />
-              <text x={W - 10} y={120 - g * 100 - 3} textAnchor="end" fontSize={9.5} fill={INK2}>
-                {g * 100}%
-              </text>
-            </g>
-          ))}
-          <line x1={40} x2={W - 10} y1={120} y2={120} stroke="var(--viz-baseline)" />
-          {nights.map((n, i) => {
-            const x = 50 + i * ((W - 70) / 7);
-            const h = n ? n.se * 100 : 0;
-            return (
-              <g key={i}>
-                {n && <rect x={x} y={120 - h} width={barW * 0.7} height={h} rx={4} fill={n.se >= 0.9 ? GOOD : n.se >= 0.85 ? 'var(--viz-warn)' : ALERT} />}
-                {n && (
-                  <text x={x + barW * 0.35} y={114 - h} textAnchor="middle" fontSize={10} fontWeight={700} fill={INK}>
-                    {Math.round(n.se * 100)}
-                  </text>
-                )}
-                <text x={x + barW * 0.35} y={136} textAnchor="middle" fontSize={10} fill={INK2}>
-                  第{i + 1}晚
+        <Wide>
+          <svg viewBox={`0 0 ${W} 150`} className="w-full min-w-[500px] h-auto" role="img" aria-label={`7 晚睡眠效率長條圖，平均 ${avg ? Math.round(avg.se * 100) : 0}%`}>
+            {[0.85, 0.9].map((g) => (
+              <g key={g}>
+                <line x1={40} x2={W - 10} y1={120 - g * 100} y2={120 - g * 100} stroke={g === 0.85 ? 'var(--viz-bad)' : GOOD} strokeDasharray="4 3" />
+                <text x={W - 10} y={120 - g * 100 - 3} textAnchor="end" fontSize={9.5} fill={INK2}>
+                  {g * 100}%
                 </text>
               </g>
-            );
-          })}
-        </svg>
+            ))}
+            <line x1={40} x2={W - 10} y1={120} y2={120} stroke="var(--viz-baseline)" />
+            {nights.map((n, i) => {
+              const x = 50 + i * ((W - 70) / 7);
+              const h = n ? n.se * 100 : 0;
+              return (
+                <g key={i}>
+                  {n && <rect x={x} y={120 - h} width={barW * 0.7} height={h} rx={4} fill={n.se >= 0.9 ? GOOD : n.se >= 0.85 ? 'var(--viz-warn)' : ALERT} />}
+                  {n && (
+                    <text x={x + barW * 0.35} y={114 - h} textAnchor="middle" fontSize={10} fontWeight={700} fill={INK}>
+                      {Math.round(n.se * 100)}
+                    </text>
+                  )}
+                  <text x={x + barW * 0.35} y={136} textAnchor="middle" fontSize={10} fill={INK2}>
+                    第{i + 1}晚
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        </Wide>
       )}
 
       {avg && (
@@ -706,7 +838,9 @@ export const CapdSleepDiary: React.FC = () => {
       )}
 
       {plan ? (
-        <div className={`rounded-xl border p-3.5 space-y-1.5 ${plan.tone === 'good' ? 'border-emerald-300 bg-emerald-50 dark:bg-emerald-950/25 dark:border-emerald-800' : plan.tone === 'warn' ? 'border-amber-300 bg-amber-50 dark:bg-amber-950/25 dark:border-amber-800' : 'border-rose-300 bg-rose-50 dark:bg-rose-950/25 dark:border-rose-800'}`}>
+        <div
+          className={`rounded-xl border p-3.5 space-y-1.5 ${plan.tone === 'good' ? 'border-emerald-300 bg-emerald-50 dark:bg-emerald-950/25 dark:border-emerald-800' : plan.tone === 'warn' ? 'border-amber-300 bg-amber-50 dark:bg-amber-950/25 dark:border-amber-800' : 'border-rose-300 bg-rose-50 dark:bg-rose-950/25 dark:border-rose-800'}`}
+        >
           <p className="text-[14px] font-bold text-slate-900 dark:text-white">Act：{plan.verdict}</p>
           <div className="flex flex-wrap items-center gap-2 text-[14px] text-slate-800 dark:text-slate-200">
             <span>Plan：下週固定</span>
@@ -732,10 +866,25 @@ export const KapalaScreen: React.FC = () => {
   const bad = KAPALA_CONTRA.filter((c) => c.level === 'bad' && checked.includes(c.who));
   const warn = KAPALA_CONTRA.filter((c) => c.level === 'warn' && checked.includes(c.who));
   const verdict = bad.length
-    ? { t: '不建議練卡帕拉巴提', d: '請改練共振呼吸、吐納或六字訣——一樣有放鬆與提神效果，且安全得多。', cls: 'border-rose-300 bg-rose-50 text-rose-950 dark:bg-rose-950/30 dark:border-rose-800 dark:text-rose-100', icon: '✕' }
+    ? {
+        t: '不建議練卡帕拉巴提',
+        d: '請改練共振呼吸、吐納或六字訣——一樣有放鬆與提神效果，且安全得多。',
+        cls: 'border-rose-300 bg-rose-50 text-rose-950 dark:bg-rose-950/30 dark:border-rose-800 dark:text-rose-100',
+        icon: '✕',
+      }
     : warn.length
-    ? { t: '暫時調整後再練', d: '避開睡前與飯後；恐慌症者先從慢呼吸練起，或在合格老師陪同下嘗試。', cls: 'border-amber-300 bg-amber-50 text-amber-950 dark:bg-amber-950/30 dark:border-amber-800 dark:text-amber-100', icon: '!' }
-    : { t: '可以從入門劑量開始', d: '每秒 1 下 × 20 下 × 3 輪，早上空腹練；任何頭暈手麻胸悶都立刻停。', cls: 'border-emerald-300 bg-emerald-50 text-emerald-950 dark:bg-emerald-950/30 dark:border-emerald-800 dark:text-emerald-100', icon: '✓' };
+      ? {
+          t: '暫時調整後再練',
+          d: '避開睡前與飯後；恐慌症者先從慢呼吸練起，或在合格老師陪同下嘗試。',
+          cls: 'border-amber-300 bg-amber-50 text-amber-950 dark:bg-amber-950/30 dark:border-amber-800 dark:text-amber-100',
+          icon: '!',
+        }
+      : {
+          t: '可以從入門劑量開始',
+          d: '每秒 1 下 × 20 下 × 3 輪，早上空腹練；任何頭暈手麻胸悶都立刻停。',
+          cls: 'border-emerald-300 bg-emerald-50 text-emerald-950 dark:bg-emerald-950/30 dark:border-emerald-800 dark:text-emerald-100',
+          icon: '✓',
+        };
   return (
     <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 sm:p-5 space-y-3">
       <p className="text-[14px] font-bold text-slate-900 dark:text-white">勾選符合你的狀況（沒有就不用勾）：</p>
@@ -754,7 +903,9 @@ export const KapalaScreen: React.FC = () => {
       </ul>
       <div className={`rounded-xl border p-3 ${verdict.cls}`} aria-live="polite">
         <p className="text-[15px] font-bold">
-          <span aria-hidden="true" className="mr-1.5">{verdict.icon}</span>
+          <span aria-hidden="true" className="mr-1.5">
+            {verdict.icon}
+          </span>
           {verdict.t}
         </p>
         <p className="text-[13px] mt-0.5">{verdict.d}</p>
@@ -762,5 +913,3 @@ export const KapalaScreen: React.FC = () => {
     </div>
   );
 };
-
-export const _colors = { CALM, ALERT, GOOD, MIND, INK };

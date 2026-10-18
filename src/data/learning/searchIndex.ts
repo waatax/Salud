@@ -12,8 +12,9 @@ import { ALL_QUICK_TIPS } from './quickTips';
 import { STARTER_WEEKS } from './starterPlan';
 import { SPINE_CHAPTERS, NUMB_CAUSES, SPINE_MEDS, PT_MODALITIES, SPINE_EXERCISES, POSTURE_GUIDE, SPUR_CONDITIONS } from '../spineData';
 import { HEPB_CHAPTERS, HBV_MARKERS, HBV_DRUGS } from '../hepbData';
+import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
 
-export type SearchGroup = '實用技巧' | '課程' | '主題' | '脊椎與神經' | 'B 型肝炎' | '人體系統' | '疾病' | '檢驗與篩檢' | '最新實證' | '名詞' | '飲食章節' | '運動專項' | '工具';
+export type SearchGroup = '實用技巧' | '課程' | '主題' | '脊椎與神經' | 'B 型肝炎' | '睡眠呼吸正念' | '人體系統' | '疾病' | '檢驗與篩檢' | '最新實證' | '名詞' | '飲食章節' | '運動專項' | '工具';
 
 export interface SearchDoc {
   id: string;
@@ -26,7 +27,7 @@ export interface SearchDoc {
   keywords: string;
 }
 
-export const GROUP_ORDER: SearchGroup[] = ['課程', '實用技巧', '檢驗與篩檢', '疾病', '主題', '脊椎與神經', 'B 型肝炎', '人體系統', '最新實證', '名詞', '飲食章節', '運動專項', '工具'];
+export const GROUP_ORDER: SearchGroup[] = ['課程', '實用技巧', '檢驗與篩檢', '疾病', '主題', '脊椎與神經', 'B 型肝炎', '睡眠呼吸正念', '人體系統', '最新實證', '名詞', '飲食章節', '運動專項', '工具'];
 
 /**
  * Build the in-memory search corpus. Every entry points to an existing route so the
@@ -140,6 +141,77 @@ export function buildSearchIndex(): SearchDoc[] {
   }
   for (const d of HBV_DRUGS) {
     docs.push({ id: `hbvdrug:${d.name}`, group: 'B 型肝炎', title: d.name, subtitle: `B 肝用藥 · ${d.brand}`, target: 'hepb/TREATMENT', keywords: `${d.how} ${d.pros} ${d.watch} 抗病毒 藥物` });
+  }
+
+  // 睡眠・呼吸・正念專區 (v4.7): chapters, breathing methods, mindfulness practices, 六字訣.
+  for (const c of MINDBODY_CHAPTERS) {
+    docs.push({
+      id: `mindbody:${c.id}`,
+      group: '睡眠呼吸正念',
+      title: c.title_zh,
+      subtitle: `身心修復專區 · ${c.label_zh}`,
+      target: `mindbody/${c.id}`,
+      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 睡眠 失眠 睡不著 呼吸法 冥想 正念 放鬆 自律神經`,
+    });
+  }
+  docs.push(
+    {
+      id: 'topic:kapalabhati',
+      group: '睡眠呼吸正念',
+      title: '卡帕拉巴提呼吸法（頭顱清明調息・火呼吸）',
+      subtitle: '主動吐氣、被動吸氣的提神呼吸：步驟、四週漸進、禁忌快篩',
+      target: 'mindbody/KAPALABHATI',
+      keywords: '卡帕拉巴提 卡巴拉提 卡帕拉帕提 卡酪梨 Kapalabhati 聖光調息 頭顱清明 火呼吸 breath of fire 風箱式呼吸 瑜伽呼吸 調息 pranayama',
+    },
+    {
+      id: 'topic:tuna',
+      group: '睡眠呼吸正念',
+      title: '吐納與健身氣功六字訣',
+      subtitle: '細勻深長的腹式慢呼吸；噓呵呼呬吹嘻六種吐氣',
+      target: 'mindbody/TUNA',
+      keywords: '吐納 吐故納新 六字訣 氣功 健身氣功 腹式呼吸 丹田 導引 噓 呵 呼 呬 吹 嘻 太極 養生',
+    },
+    {
+      id: 'topic:mindfulness',
+      group: '睡眠呼吸正念',
+      title: '正念冥想：呼吸覺察、身體掃描與 MBSR',
+      subtitle: '注意力循環、臨床證據、正念計時器與副作用',
+      target: 'mindbody/MINDFULNESS',
+      keywords: '正念 冥想 靜坐 打坐 身體掃描 MBSR MBCT 正念減壓 慈心 呼吸空間 mindfulness meditation',
+    },
+    {
+      id: 'topic:capd-diary',
+      group: '工具',
+      title: 'CAP-D 睡眠日記與睡眠效率計算',
+      subtitle: '記錄 7 晚，自動建議下週上床時間（CBT-I 睡眠窗口）',
+      target: 'mindbody/CAPD_PLAN',
+      keywords: '睡眠日記 睡眠效率 睡眠限制 CBT-I 失眠認知行為治療 上床時間 PDCA CAPD',
+    },
+    {
+      id: 'topic:sleep-planner',
+      group: '工具',
+      title: '24 小時睡眠作息規劃器',
+      subtitle: '依起床時間排出晨光、咖啡因截止、晚餐、洗澡與睡前流程',
+      target: 'mindbody/SLEEP_PLAN',
+      keywords: '作息 幾點睡 咖啡因 咖啡 截止 晨光 曬太陽 洗澡 泡澡 睡前 藍光 手機',
+    },
+    {
+      id: 'topic:night-wake',
+      group: '實用技巧',
+      title: '半夜醒來睡不著怎麼辦？',
+      subtitle: '不看時間、延長吐氣、20 分鐘仍清醒就離床',
+      target: 'mindbody/BEDTIME',
+      keywords: '半夜醒來 早醒 睡不回去 凌晨 失眠 刺激控制 認知洗牌',
+    }
+  );
+  for (const b of BREATH_METHODS) {
+    docs.push({ id: `breath:${b.method}`, group: '睡眠呼吸正念', title: b.method, subtitle: `呼吸法 · ${b.pattern}`, target: 'mindbody/BREATH_SCIENCE', keywords: `${b.effect} ${b.best} 呼吸法` });
+  }
+  for (const m of MINDFUL_PRACTICES) {
+    docs.push({ id: `mindful:${m.name}`, group: '睡眠呼吸正念', title: m.name, subtitle: `正念練習 · ${m.dose}`, target: 'mindbody/MINDFULNESS', keywords: `${m.how} ${m.for_} 正念 冥想` });
+  }
+  for (const z of LIU_ZI_JUE) {
+    docs.push({ id: `lzj:${z.sound}`, group: '睡眠呼吸正念', title: `六字訣「${z.sound}」字（${z.pinyin}）`, subtitle: z.mouth, target: 'mindbody/TUNA', keywords: `六字訣 吐納 ${z.organ} ${z.modern}` });
   }
 
   for (const sys of HUMAN_SYSTEMS) {

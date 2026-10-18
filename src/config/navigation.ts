@@ -246,7 +246,7 @@ export const PILLAR_NAV: PillarNavItem[] = [
     id: 'mindbody',
     hash: 'mindbody',
     icon: Flower2,
-    label_zh: '睡眠・呼吸・正念',
+    label_zh: '睡眠呼吸正念',
     label_en: 'Sleep, Breath & Mindfulness',
     blurb_zh: '失眠·吐納·冥想',
     blurb_en: 'Insomnia · qigong',

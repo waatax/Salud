@@ -389,6 +389,65 @@ export const FOUR_PILLARS_DATA_REGISTRY: Record<string, FourPillarsProfile> = {
     }
   },
 
+  // ── 睡眠・呼吸・正念 (Sleep, Breath & Mindfulness) ──
+  'mindbody': {
+    page_id_or_topic: 'mindbody',
+    title_zh: '睡眠、呼吸法（卡帕拉巴提・吐納）與正念冥想的身心修復處方',
+    topic_badge: '睡眠醫學與身心醫學',
+    diet: {
+      title: '咖啡因截止、晚餐時機與不以酒助眠',
+      one_liner: '一杯咖啡至少在睡前 8.8 小時喝完；晚餐在睡前 3 小時吃完；酒精讓後半夜睡眠破碎，不能當助眠劑。',
+      points: [
+        '咖啡因截止：Gardiner 2023 統合分析指出一杯咖啡（約 107 mg）需在睡前 8.8 小時以上、運動補給品（約 218 mg）需 13 小時以上，否則平均少睡約 45 分鐘、深睡減少。',
+        '晚餐與宵夜：睡前 3 小時吃完正餐，避免飽食平躺造成胃食道逆流與夜醒；餓了可喝一小杯溫牛奶或無糖豆漿。',
+        '酒精不是助眠劑：雖然入睡變快，但壓抑 REM、讓後半夜頻繁醒來，並加重打鼾與睡眠呼吸中止。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'Gardiner et al., Sleep Med Rev 2023 / 歐洲失眠指引 2023',
+      key_metric: { label: '咖啡因截止', target: '睡前 ≥ 9 小時' },
+      action_item: '預計 23:00 上床者，咖啡、濃茶與能量飲料在 14:00 前喝完。'
+    },
+    exercise: {
+      title: '白天運動、晨光與「早上油門、晚上煞車」的呼吸節律',
+      one_liner: '規律有氧與太極改善睡眠；卡帕拉巴提等快速呼吸只在早上做，睡前改做慢呼吸、吐納與伸展。',
+      points: [
+        '白天動起來：每週 150 分鐘中等強度運動改善入睡與睡眠品質；傍晚運動不傷睡眠，高強度在睡前 1 小時內結束可能延後入睡（Stutz 2019）。',
+        '太極與氣功：長者慢性失眠 12 週太極改善幅度與一般運動相當，且維持 24 個月（Siu, JAMA Netw Open 2021）。',
+        '呼吸法分時段：卡帕拉巴提（每秒 1 下 × 20 下 × 3 輪）屬激發型，放早上；睡前做吸 4 吐 6 共振呼吸或六字訣 5–10 分鐘。'
+      ],
+      evidence_grade: 'B',
+      evidence_source: 'Stutz et al., Sports Med 2019 / Siu et al., JAMA Netw Open 2021 / Raghuraj 1998',
+      key_metric: { label: '睡前慢呼吸', target: '6 次／分 × 5–20 分鐘' },
+      action_item: '起床 1 小時內出門快走 10 分鐘曬晨光；睡前 20 分鐘做吸 4 吐 6。'
+    },
+    prevention: {
+      title: '固定起床、睡眠日記與 CAP-D 每週迭代',
+      one_liner: '睡眠規律度比時數更能預測死亡風險；以睡眠日記計算效率，≥ 90% 提早 15 分鐘上床、< 85% 延後 15 分鐘。',
+      points: [
+        '固定起床時間：週末差距 ≤ 1 小時；UK Biobank 6 萬人研究顯示睡眠規律度比睡眠時數更能預測全因死亡（Windred 2024）。',
+        '光線管理：白天戶外光 ≥ 1,000 lux、室內 ≥ 250 lux；睡前 3 小時室內光 ≤ 10 lux（Brown 2022 國際共識）。',
+        'CAP-D 睡眠日記：Check 7 晚數據 → Act 依睡眠效率調整 → Plan 下週窗口 → Do 執行，每週只改一件事。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'Windred et al., Sleep 2024 / Brown et al., PLoS Biol 2022 / AASM 2021',
+      key_metric: { label: '睡眠效率', target: '≥ 85%' },
+      action_item: '從明天起連續 7 天、每天早上花 1 分鐘記錄上床、起床、入睡所需與半夜清醒時間。'
+    },
+    treatment: {
+      title: 'CBT-I 第一線、正念課程與安眠藥的正確定位',
+      one_liner: '慢性失眠首選 CBT-I；MBSR 治療焦慮不劣於 escitalopram，MBCT 降低憂鬱復發 31%；安眠藥僅短期使用。',
+      points: [
+        'CBT-I 為慢性失眠第一線治療（AASM 2021、ACP 2016、歐洲 2023），核心是刺激控制與睡眠限制，效果在療程結束後仍持續。',
+        '正念課程：8 週 MBSR 對焦慮症效果不劣於 escitalopram（Hoge 2023）；MBCT 使憂鬱復發風險降低 31%（Kuyken 2016）。',
+        '安眠藥與褪黑激素：Z 藥與苯二氮平類僅建議短期使用；長者跌倒與認知風險高；褪黑激素主要用於晝夜節律問題。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'Edinger et al., JCSM 2021 / Qaseem et al., Ann Intern Med 2016 / Hoge et al., JAMA Psychiatry 2023',
+      caution: '🚨 大聲打鼾合併呼吸暫停、白天嚴重嗜睡請做睡眠檢查；卡帕拉巴提禁用於懷孕、未控制高血壓、心臟病、癲癇、疝氣、曾氣胸者；有自傷念頭請撥 1925（24 小時）。',
+      action_item: '每週 ≥ 3 晚失眠且持續 ≥ 3 個月，請至身心科或睡眠中心詢問 CBT-I 療程。'
+    }
+  },
+
   // ── B 型肝炎 (Hepatitis B) ──
   'hepb': {
     page_id_or_topic: 'hepb',

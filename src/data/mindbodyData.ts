@@ -215,7 +215,12 @@ export const MINDBODY_CHAPTERS: MindbodyChapter[] = [
     label_zh: '卡帕拉巴提',
     title_zh: '卡帕拉巴提呼吸法（Kapalabhati，頭顱清明調息／火呼吸）：步驟、科學與禁忌',
     goal_zh: '學會安全的入門版卡帕拉巴提：主動短促吐氣、被動吸氣；知道它是「提神油門」、適合早上，以及誰絕對不能做。',
-    learn_zh: ['動作原理：腹肌快速內收把氣「推」出鼻子，吸氣自然回彈', '入門劑量：每秒 1 下 × 20–30 下，休息 30 秒，共 3 輪', '研究發現：交感神經上升、警覺與反應速度提高', '禁忌清單與「頭暈就停」原則'],
+    learn_zh: [
+      '動作原理：腹肌快速內收把氣「推」出鼻子，吸氣自然回彈',
+      '入門劑量：每秒 1 下 × 20–30 下，休息 30 秒，共 3 輪',
+      '研究發現：交感神經上升、警覺與反應速度提高',
+      '禁忌清單與「頭暈就停」原則',
+    ],
     minutes: 9,
     takeaways_zh: [
       '卡帕拉巴提是「主動吐、被動吸」的快速腹式呼吸，每分鐘 60–120 下，屬於激發型（交感神經上升，Raghuraj 1998）。',
@@ -249,7 +254,7 @@ export const MINDBODY_CHAPTERS: MindbodyChapter[] = [
     minutes: 10,
     takeaways_zh: [
       '人醒著約 47% 的時間在走神（Killingsworth 2010）；正念練的不是不走神，而是「發現走神 → 帶回來」的次數。',
-      '冥想課程對焦慮、憂鬱、疼痛有中等效果（ES 0.3–0.38，Goyal 2014）；8 週 MBSR 治療焦慮症不劣於 escitalopram（Hoge 2023）。',
+      '冥想課程改善焦慮、憂鬱、疼痛的證據強度為中等、效果量屬小（ES 0.30–0.38，Goyal 2014），與一般族群用抗憂鬱藥的效果量相近；8 週 MBSR 治療焦慮症不劣於 escitalopram（Hoge 2023）。',
       'MBCT 讓憂鬱症復發風險降低約 31%（HR 0.69，Kuyken 2016）。',
       '6 週正念課程改善長者睡眠品質優於睡眠衛生衛教（Black 2015）。',
       '少數人在冥想中出現焦慮、創傷畫面重現或解離；睜眼、縮短時間、改動態練習，持續不適請找專業人員。',
@@ -318,9 +323,23 @@ export interface ThreeKey {
 }
 
 export const THREE_KEYS: ThreeKey[] = [
-  { key: '睡眠（CBT-I 與作息）', lever: '重設生理時鐘、累積睡意壓力', speed: '2–6 週見效', best_time: '全天（起床時間最關鍵）', evidence: 'A', first_step: '明天起固定起床時間，起床 1 小時內曬光 10 分鐘' },
+  {
+    key: '睡眠（CBT-I 與作息）',
+    lever: '重設生理時鐘、累積睡意壓力',
+    speed: '2–6 週見效',
+    best_time: '全天（起床時間最關鍵）',
+    evidence: 'A',
+    first_step: '明天起固定起床時間，起床 1 小時內曬光 10 分鐘',
+  },
   { key: '慢呼吸／吐納', lever: '延長吐氣 → 迷走神經煞車', speed: '1–5 分鐘', best_time: '睡前、緊張時、半夜醒來', evidence: 'B', first_step: '吸 4 秒、吐 6 秒，做 5 分鐘' },
-  { key: '卡帕拉巴提（快呼吸）', lever: '快速腹肌吐氣 → 交感上升、提神', speed: '1–3 分鐘', best_time: '早上、午後低潮（不要睡前）', evidence: 'C', first_step: '確認無禁忌後，每秒 1 下 × 20 下 × 3 輪' },
+  {
+    key: '卡帕拉巴提（快呼吸）',
+    lever: '快速腹肌吐氣 → 交感上升、提神',
+    speed: '1–3 分鐘',
+    best_time: '早上、午後低潮（不要睡前）',
+    evidence: 'C',
+    first_step: '確認無禁忌後，每秒 1 下 × 20 下 × 3 輪',
+  },
   { key: '正念冥想', lever: '訓練注意力與情緒調節，減少反芻', speed: '數週累積', best_time: '固定時段，每天 10 分鐘', evidence: 'A', first_step: '今天做一次 3 分鐘呼吸空間練習' },
 ];
 
@@ -329,7 +348,7 @@ export const THREE_KEYS: ThreeKey[] = [
 export const SLEEP_STAGES_MB = [
   { stage: 'N1 入睡期', pct: '約 5%', brain: '從清醒的 α 波轉為 θ 波', job: '清醒與睡眠的過渡；最容易被吵醒', tone: 'neutral' as const },
   { stage: 'N2 淺睡期', pct: '約 45–55%', brain: '睡眠紡錘波、K 複合波', job: '鞏固動作技能與記憶；阻擋外界聲音', tone: 'neutral' as const },
-  { stage: 'N3 深睡期', pct: '約 15–25%', brain: '高振幅慢 δ 波', job: '生長激素分泌、組織修復、大腦清除代謝廢物', tone: 'good' as const },
+  { stage: 'N3 深睡期', pct: '約 15–25%', brain: '高振幅慢 δ 波', job: '生長激素分泌、組織修復；動物研究顯示大腦清除代謝廢物最有效', tone: 'good' as const },
   { stage: 'REM 快速動眼期', pct: '約 20–25%', brain: '類似清醒的快波，肌肉放鬆癱軟', job: '情緒處理、創意聯想；酒精會明顯壓抑', tone: 'good' as const },
 ];
 
@@ -337,7 +356,7 @@ export const SLEEP_NEED_BY_AGE = [
   { age: '學齡兒童 6–12 歲', hours: '9–12 小時', note: 'AASM 2016 兒科共識' },
   { age: '青少年 13–18 歲', hours: '8–10 小時', note: '生理時鐘自然往後移，早上課易睡眠不足' },
   { age: '成人 18–64 歲', hours: '7 小時以上（多數 7–9）', note: 'AASM/SRS 2015；少於 6 小時與多種疾病風險上升相關' },
-  { age: '長者 65 歲以上', hours: '7–8 小時', note: '深睡比例下降、較早睡早起是正常變化' },
+  { age: '長者 65 歲以上', hours: '7–8 小時', note: '美國國家睡眠基金會 2015；深睡比例下降、較早睡早起是正常變化' },
 ];
 
 // ── Ch3 24-hour plan ───────────────────────────────────────────────────────

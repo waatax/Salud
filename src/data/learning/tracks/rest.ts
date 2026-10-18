@@ -30,6 +30,7 @@ export const TRACK_REST: LearningTrack = {
       },
       deep_links: [
         { label_zh: '睡眠修復總覽', hash: 'sleep' },
+        { label_zh: '睡眠的科學（兩歷程模型）', hash: 'mindbody/SLEEP_SCIENCE' },
         { label_zh: '晝夜節律', hash: 'sleep/CIRCADIAN' },
       ],
       update_ids: ['UPD-2024-SLEEP-REG'],
@@ -55,6 +56,7 @@ export const TRACK_REST: LearningTrack = {
       },
       deep_links: [
         { label_zh: 'CBT-I 睡眠效率試算', hash: 'sleep/CBTI_CALC' },
+        { label_zh: 'CAP-D 睡眠日記', hash: 'mindbody/CAPD_PLAN' },
         { label_zh: '睡眠修復', hash: 'sleep' },
       ],
     },
@@ -129,6 +131,7 @@ export const TRACK_REST: LearningTrack = {
       deep_links: [
         { label_zh: '心理呼吸總覽與模擬器', hash: 'mental' },
         { label_zh: '呼吸協議', hash: 'mental/PROTOCOLS' },
+        { label_zh: '卡帕拉巴提與吐納', hash: 'mindbody/BREATH_SCIENCE' },
       ],
     },
     {

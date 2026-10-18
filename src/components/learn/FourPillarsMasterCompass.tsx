@@ -126,6 +126,7 @@ const FOUR_PILLARS_CATALOG: Record<PillarDimension, PillarCategoryData> = {
       { title: '722 居家血壓智慧分析', desc: '輸入早晚連續數值，依照 TSOC 台灣指引自動判讀分期', hash: 'cardiometabolic/BP_722', icon: Gauge },
       { title: '血脂矛盾與心血管風險分析', desc: '比對 LDL-C、ApoB、非-HDL 與三酸甘油酯之隱形風險', hash: 'cardiometabolic', icon: HeartPulse },
       { title: '咖啡因代謝與睡眠窗推算', desc: '以 5 小時半衰期模型計算入睡前血液殘留咖啡因濃度', hash: 'sleep', icon: Moon },
+      { title: 'CAP-D 睡眠日記與呼吸引導器', desc: '7 晚睡眠效率自動算出下週上床時間；吐納、卡帕拉巴提與共振呼吸節拍器', hash: 'mindbody/CAPD_PLAN', icon: Wind },
     ],
     redFlagsSummary: '⚠️ 家族有早發性心臟病（男<55歲女<65歲）或一等親癌症史者，應提前 10 年啟動專科預防性篩檢。',
   },

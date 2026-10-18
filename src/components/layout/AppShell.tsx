@@ -34,6 +34,7 @@ const ObesityHub = lazy(() => import('../pillars/ObesityHub').then((m) => ({ def
 const LongevityHub = lazy(() => import('../pillars/LongevityHub').then((m) => ({ default: m.LongevityHub })));
 const CardiometabolicHub = lazy(() => import('../pillars/CardiometabolicHub').then((m) => ({ default: m.CardiometabolicHub })));
 const SpineHub = lazy(() => import('../pillars/SpineHub').then((m) => ({ default: m.SpineHub })));
+const MindBodyHub = lazy(() => import('../pillars/MindBodyHub').then((m) => ({ default: m.MindBodyHub })));
 const HepBHub = lazy(() => import('../pillars/HepBHub').then((m) => ({ default: m.HepBHub })));
 
 // Lazy-loaded secondary pages and dialogs
@@ -106,7 +107,7 @@ export function AppShell() {
       : 'diet'
     : activePillar === 'exercise'
     ? `exercise:${exerciseSubTab}`
-    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb'] as string[]).includes(activePillar)
+    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody'] as string[]).includes(activePillar)
     ? activePillar
     : null;
 
@@ -241,6 +242,7 @@ export function AppShell() {
                 {activePillar === 'mental' && <MentalHealthHub />}
                 {activePillar === 'spine' && <SpineHub />}
                 {activePillar === 'hepb' && <HepBHub />}
+                {activePillar === 'mindbody' && <MindBodyHub />}
               </Suspense>
             )}
           </div>
@@ -254,7 +256,7 @@ export function AppShell() {
                   pageIdOrTopic={dietView === 'chapter' && currentChapterId ? currentChapterId : 'O'}
                 />
               ) : (
-                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'systems'].includes(
+                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody', 'systems'].includes(
                   activePillar
                 ) && <FourPillarsClinicalMatrix key={`fp-${activePillar}`} pageIdOrTopic={activePillar} />
               )}

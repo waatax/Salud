@@ -19,6 +19,16 @@ const INK2 = 'var(--viz-ink-2)';
 const GRID = 'var(--viz-grid)';
 const BASE = 'var(--viz-baseline)';
 
+/** Wide charts keep a legible drawing width on phones and scroll sideways instead of shrinking text. */
+export const Wide: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div>
+    <div className="overflow-x-auto overscroll-x-contain -mx-1 px-1 print:overflow-visible">{children}</div>
+    <p className="sm:hidden mt-1 text-center text-[11px] text-slate-400 dark:text-slate-500" aria-hidden="true">
+      ← 左右滑動看完整圖 →
+    </p>
+  </div>
+);
+
 const Hint: React.FC<{ text: string | null; fallback?: string }> = ({ text, fallback = '　' }) => (
   <p className="min-h-[1.25rem] text-[12px] text-slate-600 dark:text-slate-300 tabular-nums" aria-live="polite">
     {text ?? fallback}
@@ -69,7 +79,12 @@ export const AutonomicLoopFigure: React.FC = () => {
           </button>
         ))}
       </div>
-      <svg viewBox="0 0 360 300" className="w-full max-w-lg mx-auto h-auto" role="img" aria-label={v ? '惡性循環：睡不好導致焦慮反芻，焦慮使呼吸淺快，呼吸淺快又讓人更睡不好' : '良性循環：慢長呼吸讓心平靜，心平靜幫助深睡，深睡又讓白天呼吸與情緒更穩'}>
+      <svg
+        viewBox="-20 0 400 300"
+        className="w-full max-w-lg mx-auto h-auto"
+        role="img"
+        aria-label={v ? '惡性循環：睡不好導致焦慮反芻，焦慮使呼吸淺快，呼吸淺快又讓人更睡不好' : '良性循環：慢長呼吸讓心平靜，心平靜幫助深睡，深睡又讓白天呼吸與情緒更穩'}
+      >
         <defs>
           <Arrow id="mb-loop-arrow" color={c} />
         </defs>
@@ -78,12 +93,15 @@ export const AutonomicLoopFigure: React.FC = () => {
         <text x={180} y={160} textAnchor="middle" fontSize={12} fontWeight={700} fill={INK}>
           自律神經
         </text>
-        <line x1={148} x2={212} y1={v ? 182 : 176} y2={v ? 170 : 176} stroke={INK2} strokeWidth={3} strokeLinecap="round" />
-        <polygon points="180,178 174,190 186,190" fill={INK2} />
-        <text x={142} y={v ? 200 : 196} textAnchor="middle" fontSize={9} fill={CALM} fontWeight={700}>
+        {/* seesaw: the dominant side sinks — 油門 (right) when stuck, 煞車 (left) when calm */}
+        <line x1={146} x2={214} y1={v ? 168 : 184} y2={v ? 184 : 168} stroke={INK2} strokeWidth={3} strokeLinecap="round" />
+        <polygon points="180,177 173,190 187,190" fill={INK2} />
+        <circle cx={150} cy={v ? 162 : 176} r={7} fill={CALM} opacity={v ? 0.5 : 1} />
+        <circle cx={210} cy={v ? 176 : 162} r={7} fill={ALERT} opacity={v ? 1 : 0.5} />
+        <text x={146} y={204} textAnchor="middle" fontSize={9.5} fill={CALM} fontWeight={700}>
           煞車
         </text>
-        <text x={218} y={v ? 190 : 196} textAnchor="middle" fontSize={9} fill={ALERT} fontWeight={700}>
+        <text x={214} y={204} textAnchor="middle" fontSize={9.5} fill={ALERT} fontWeight={700}>
           油門
         </text>
         {/* arrows between nodes (clockwise) */}
@@ -102,95 +120,162 @@ export const AutonomicLoopFigure: React.FC = () => {
           </g>
         ))}
       </svg>
-      <p className="text-[13px] text-slate-600 dark:text-slate-300 text-center">
-        {v ? '任何一環卡住，另外兩環都會被拖下水。' : '從最容易的「呼吸」切入，幾分鐘內就能把另外兩環一起拉回來。'}
-      </p>
+      <p className="text-[13px] text-slate-600 dark:text-slate-300 text-center">{v ? '任何一環卡住，另外兩環都會被拖下水。' : '從最容易的「呼吸」切入，幾分鐘內就能把另外兩環一起拉回來。'}</p>
     </div>
   );
 };
 
 // ── 2. 兩歷程模型 ─────────────────────────────────────────────────────────
 
+/** Circadian alerting signal: lowest ~04:00, climbs through the day, peaks ~21:00, falls fast after. */
+const C_KNOTS: [number, number][] = [
+  [4, 0.1],
+  [7, 0.24],
+  [9, 0.38],
+  [12, 0.52],
+  [15, 0.62],
+  [18, 0.71],
+  [21, 0.78],
+  [23, 0.62],
+  [25, 0.35],
+  [28, 0.1],
+];
+function circadian(clock: number): number {
+  const c = clock < 4 ? clock + 24 : clock;
+  const n = C_KNOTS.length - 1; // last knot repeats the first, one day later
+  const at = (i: number) => C_KNOTS[((i % n) + n) % n][1];
+  for (let i = 0; i < n; i++) {
+    const [h0] = C_KNOTS[i];
+    const [h1] = C_KNOTS[i + 1];
+    if (c >= h0 && c <= h1) {
+      // centripetal-free Catmull-Rom through neighbouring knots: smooth, no flat spots
+      const t = (c - h0) / (h1 - h0);
+      const p0 = at(i - 1);
+      const p1 = at(i);
+      const p2 = at(i + 1);
+      const p3 = at(i + 2);
+      return 0.5 * (2 * p1 + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (-p0 + 3 * p1 - 3 * p2 + p3) * t * t * t);
+    }
+  }
+  return 0.1;
+}
+
 export const TwoProcessFigure: React.FC = () => {
   const [late, setLate] = useState(false);
-  // x axis: 07:00 day 1 → 07:00 day 2 + 16h (40 h)
+  // x axis: 07:00 day 1 → 23:00 day 2 (40 h). S = homeostatic sleep pressure; C = circadian
+  // alerting signal (peaks ~21:00, the "wake-maintenance zone"; lowest ~05:00). Sleep comes
+  // easily where S rises above C — that gap is shaded.
   const W = 520;
-  const H = 230;
+  const H = 236;
   const L = 36;
   const R = 12;
-  const T = 18;
+  const T = 22;
   const B = 190;
   const hours = 40;
+  const step = 0.25;
   const x = (h: number) => L + ((W - L - R) * h) / hours;
   const y = (v: number) => B - (B - T) * v;
-  const sleepStart = late ? 20 : 16; // hours after 07:00 → 23:00 or 03:00
-  const sleepEnd = 24; // 07:00 next day (alarm)
-  // Process S: saturating rise when awake, exponential decay when asleep
-  const pts: string[] = [];
-  let s = 0.25;
-  for (let h = 0; h <= hours; h += 0.25) {
+  const sleepStart = late ? 20 : 16; // 23:00 or 03:00
+  const sleepEnd = 24; // 07:00 alarm
+  const S: number[] = [];
+  const C: number[] = [];
+  let s = 0.15;
+  for (let i = 0; i <= hours / step; i++) {
+    const h = i * step;
+    S.push(s);
+    C.push(circadian((7 + h) % 24));
     const asleep = h >= sleepStart && h < sleepEnd;
-    if (asleep) s = s * Math.exp(-0.25 / 4.2);
-    else s = 1 - (1 - s) * Math.exp(-0.25 / 18);
-    pts.push(`${x(h).toFixed(1)},${y(Math.min(s, 1)).toFixed(1)}`);
+    s = asleep ? s * Math.exp(-step / 4.2) : 1 - (1 - s) * Math.exp(-step / 14);
   }
-  // Process C: circadian wake drive (peaks ~21:00, trough ~04:00). Sleep "gate" = when S − C is high.
-  const cPts: string[] = [];
-  for (let h = 0; h <= hours; h += 0.5) {
-    const clock = (7 + h) % 24;
-    const c = 0.48 + 0.2 * Math.cos(((clock - 19) / 24) * 2 * Math.PI);
-    cPts.push(`${x(h).toFixed(1)},${y(c).toFixed(1)}`);
-  }
+  const line = (arr: number[]) => arr.map((v, i) => `${x(i * step).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  // contiguous runs where S > C → filled polygons between the two curves
+  const areas: string[] = [];
+  let run: number[] = [];
+  const flush = () => {
+    if (run.length > 1) {
+      const top = run.map((i) => `${x(i * step).toFixed(1)},${y(S[i]).toFixed(1)}`);
+      const bot = [...run].reverse().map((i) => `${x(i * step).toFixed(1)},${y(C[i]).toFixed(1)}`);
+      areas.push([...top, ...bot].join(' '));
+    }
+    run = [];
+  };
+  S.forEach((v, i) => (v > C[i] ? run.push(i) : flush()));
+  flush();
+  const alarmIdx = Math.round(sleepEnd / step);
+  const groggy = S[alarmIdx] > C[alarmIdx];
   const ticks = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40];
   return (
     <div className="space-y-2">
       <div className="flex flex-wrap gap-2" role="group" aria-label="情境切換">
-        <button type="button" aria-pressed={!late} onClick={() => setLate(false)} className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${!late ? 'border-sky-500 bg-sky-50 text-sky-900 dark:bg-sky-950/40 dark:text-sky-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}>
+        <button
+          type="button"
+          aria-pressed={!late}
+          onClick={() => setLate(false)}
+          className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${!late ? 'border-sky-500 bg-sky-50 text-sky-900 dark:bg-sky-950/40 dark:text-sky-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}
+        >
           23:00 睡、07:00 起
         </button>
-        <button type="button" aria-pressed={late} onClick={() => setLate(true)} className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${late ? 'border-orange-500 bg-orange-50 text-orange-900 dark:bg-orange-950/40 dark:text-orange-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}>
+        <button
+          type="button"
+          aria-pressed={late}
+          onClick={() => setLate(true)}
+          className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${late ? 'border-orange-500 bg-orange-50 text-orange-900 dark:bg-orange-950/40 dark:text-orange-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}
+        >
           熬夜到 03:00、07:00 鬧鐘
         </button>
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={late ? '熬夜情境：睡意壓力 S 只降了一半就被鬧鐘叫醒，隔天從很高的睡意開始' : '正常情境：睡意壓力 S 在白天累積、夜間睡眠中清除，生理時鐘 C 在夜間打開睡眠閘門'}>
-        <rect x={x(sleepStart)} y={T - 6} width={x(sleepEnd) - x(sleepStart)} height={B - T + 6} fill={CALM} opacity={0.1} />
-        <text x={(x(sleepStart) + x(sleepEnd)) / 2} y={T + 6} textAnchor="middle" fontSize={11} fontWeight={700} fill={CALM}>
-          睡眠
-        </text>
-        {[0, 0.5, 1].map((g) => (
-          <line key={g} x1={L} x2={W - R} y1={y(g)} y2={y(g)} stroke={GRID} />
-        ))}
-        <line x1={L} x2={W - R} y1={B} y2={B} stroke={BASE} />
-        <polyline points={cPts.join(' ')} fill="none" stroke={MIND} strokeWidth={2.5} strokeDasharray="6 4" />
-        <polyline points={pts.join(' ')} fill="none" stroke={ALERT} strokeWidth={3} />
-        {ticks.map((h) => (
-          <text key={h} x={x(h)} y={B + 16} fontSize={10} textAnchor="middle" fill={INK2}>
-            {String((7 + h) % 24).padStart(2, '0')}:00
+      <Wide>
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="w-full min-w-[500px] h-auto"
+          role="img"
+          aria-label={
+            late
+              ? '熬夜情境：凌晨 3 點才睡，睡意壓力 S 只清掉一部分就被鬧鐘叫醒，起床時 S 仍高於清醒訊號 C，整天昏沉'
+              : '正常情境：白天 S 累積，晚上 9 點左右 C 最強所以還不想睡；11 點後 S 超過 C，睡眠閘門打開；睡眠中 S 被清除，早上 7 點 S 低於 C，自然醒來'
+          }
+        >
+          <rect x={x(sleepStart)} y={T - 8} width={x(sleepEnd) - x(sleepStart)} height={B - T + 8} fill={CALM} opacity={0.1} />
+          <text x={(x(sleepStart) + x(sleepEnd)) / 2} y={B - 6} textAnchor="middle" fontSize={11} fontWeight={700} fill={CALM}>
+            睡眠中
           </text>
-        ))}
-        <text x={x(11)} y={y(0.93)} fontSize={11} fontWeight={700} fill={ALERT}>
-          歷程 S：睡意壓力（腺苷）
-        </text>
-        <text x={x(1)} y={y(0.74)} fontSize={11} fontWeight={700} fill={MIND}>
-          歷程 C：生理時鐘清醒訊號
-        </text>
-        {late && (
-          <g>
-            <circle cx={x(24)} cy={y(0.62)} r={5} fill={ALERT} />
-            <text x={x(24) + 8} y={y(0.62) + 4} fontSize={11} fontWeight={700} fill={INK}>
-              鬧鐘響時睡意還很高 → 整天昏沉
+          {[0, 0.5, 1].map((g) => (
+            <line key={g} x1={L} x2={W - R} y1={y(g)} y2={y(g)} stroke={GRID} />
+          ))}
+          <line x1={L} x2={W - R} y1={B} y2={B} stroke={BASE} />
+          {areas.map((pts, i) => (
+            <polygon key={i} points={pts} fill={GOOD} opacity={0.3} />
+          ))}
+          <polyline points={line(C)} fill="none" stroke={MIND} strokeWidth={2.5} strokeDasharray="6 4" />
+          <polyline points={line(S)} fill="none" stroke={ALERT} strokeWidth={3} />
+          {ticks.map((h) => (
+            <text key={h} x={x(h)} y={B + 16} fontSize={10} textAnchor="middle" fill={INK2}>
+              {String((7 + h) % 24).padStart(2, '0')}:00
             </text>
-          </g>
-        )}
-        <text x={L - 4} y={y(1) + 4} fontSize={10} textAnchor="end" fill={INK2}>
-          高
-        </text>
-        <text x={L - 4} y={y(0) + 4} fontSize={10} textAnchor="end" fill={INK2}>
-          低
-        </text>
-      </svg>
+          ))}
+          <text x={x(5)} y={y(0.27)} fontSize={11} fontWeight={700} fill={ALERT}>
+            S 睡意壓力（腺苷）
+          </text>
+          <text x={x(3)} y={y(0.86)} fontSize={11} fontWeight={700} fill={MIND}>
+            C 生理時鐘清醒訊號（約 21:00 最強）
+          </text>
+          <text x={x(late ? 22 : 18.5)} y={T + 2} fontSize={10.5} fontWeight={700} fill={GOOD} textAnchor="middle">
+            ▼ 綠區：S 高於 C，容易睡著
+          </text>
+          <circle cx={x(sleepEnd)} cy={y(S[alarmIdx])} r={5} fill={groggy ? ALERT : GOOD} stroke="var(--viz-surface)" strokeWidth={1.5} />
+          <text x={x(sleepEnd) + 8} y={y(S[alarmIdx]) + (groggy ? -8 : 18)} fontSize={11} fontWeight={700} fill={INK}>
+            {groggy ? '鬧鐘響：睡意仍高 → 昏沉' : '07:00 S 低於 C → 自然醒'}
+          </text>
+          <text x={L - 4} y={y(1) + 4} fontSize={10} textAnchor="end" fill={INK2}>
+            高
+          </text>
+          <text x={L - 4} y={y(0) + 4} fontSize={10} textAnchor="end" fill={INK2}>
+            低
+          </text>
+        </svg>
+      </Wide>
       <p className="text-[13px] text-slate-600 dark:text-slate-300">
-        兩條線的距離越大，越容易睡著。熬夜時 S 很高卻撞上 C 的「第二波清醒訊號」（約晚上 9–11 點最強），所以常出現「累過頭反而睡不著」。
+        綠色區域＝睡意壓力高過生理時鐘的清醒訊號，最容易睡著。晚上 9 點左右 C 最強（「清醒維持區」），所以太早上床反而睡不著；熬夜時則是 S 還沒清完就被鬧鐘打斷。
       </p>
     </div>
   );
@@ -200,15 +285,34 @@ export const TwoProcessFigure: React.FC = () => {
 
 const HYPNO: [number, number][] = [
   // [minutes from lights-out, level] level: 0 wake, 1 REM, 2 N1, 3 N2, 4 N3
-  [0, 0], [10, 2], [18, 3], [35, 4], [75, 3], [85, 1], [95, 3],
-  [115, 4], [160, 3], [175, 1], [195, 3], [230, 4], [250, 3], [270, 1],
-  [300, 3], [330, 2], [340, 3], [370, 1], [410, 3], [430, 1], [470, 0], [480, 0],
+  [0, 0],
+  [10, 2],
+  [18, 3],
+  [35, 4],
+  [75, 3],
+  [85, 1],
+  [95, 3],
+  [115, 4],
+  [160, 3],
+  [175, 1],
+  [195, 3],
+  [230, 4],
+  [250, 3],
+  [270, 1],
+  [300, 3],
+  [330, 2],
+  [340, 3],
+  [370, 1],
+  [410, 3],
+  [430, 1],
+  [470, 0],
+  [480, 0],
 ];
 
 export const HypnogramFigure: React.FC = () => {
   const [hover, setHover] = useState<string | null>(null);
   const W = 520;
-  const H = 200;
+  const H = 212;
   const L = 64;
   const R = 10;
   const T = 14;
@@ -220,56 +324,54 @@ export const HypnogramFigure: React.FC = () => {
   const segs = HYPNO.slice(0, -1).map(([m, lv], i) => ({ m, lv, end: HYPNO[i + 1][0] }));
   return (
     <div className="space-y-2">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="一夜睡眠圖：約 5 個 90 分鐘週期，深睡集中在前半夜，REM 越到清晨越長">
-        {levels.map((lb, i) => (
-          <g key={lb}>
-            <line x1={L} x2={W - R} y1={y(i)} y2={y(i)} stroke={GRID} />
-            <text x={L - 6} y={y(i) + 4} textAnchor="end" fontSize={10.5} fill={colorFor(i)} fontWeight={i === 4 || i === 1 ? 700 : 500}>
-              {lb}
-            </text>
-          </g>
-        ))}
-        {segs.map((sg, i) => {
-          const label = `${Math.floor(sg.m / 60)}:${String(sg.m % 60).padStart(2, '0')}–${Math.floor(sg.end / 60)}:${String(sg.end % 60).padStart(2, '0')}（熄燈後）：${levels[sg.lv]}`;
-          return (
-            <g key={i}>
-              <rect x={x(sg.m)} y={y(sg.lv) - 5} width={Math.max(2, x(sg.end) - x(sg.m))} height={10} rx={3} fill={colorFor(sg.lv)} opacity={hover && hover !== label ? 0.45 : 1} />
-              {i < segs.length - 1 && <line x1={x(sg.end)} x2={x(sg.end)} y1={y(sg.lv)} y2={y(segs[i + 1].lv)} stroke={BASE} strokeWidth={1.5} />}
-              <rect
-                x={x(sg.m)}
-                y={T - 8}
-                width={Math.max(4, x(sg.end) - x(sg.m))}
-                height={B - T + 16}
-                fill="transparent"
-                tabIndex={0}
-                onMouseEnter={() => setHover(label)}
-                onFocus={() => setHover(label)}
-                onMouseLeave={() => setHover(null)}
-                onBlur={() => setHover(null)}
-              >
-                <title>{label}</title>
-              </rect>
+      <Wide>
+        <svg viewBox={`0 0 ${W} ${H}`} className="w-full min-w-[500px] h-auto" role="img" aria-label="一夜睡眠圖：約 5 個 90 分鐘週期，深睡集中在前半夜，REM 越到清晨越長">
+          {levels.map((lb, i) => (
+            <g key={lb}>
+              <line x1={L} x2={W - R} y1={y(i)} y2={y(i)} stroke={GRID} />
+              <text x={L - 6} y={y(i) + 4} textAnchor="end" fontSize={10.5} fill={colorFor(i)} fontWeight={i === 4 || i === 1 ? 700 : 500}>
+                {lb}
+              </text>
             </g>
-          );
-        })}
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((h) => (
-          <text key={h} x={x(h * 60)} y={B + 18} fontSize={10} textAnchor="middle" fill={INK2}>
-            {h}h
+          ))}
+          {segs.map((sg, i) => {
+            const label = `${Math.floor(sg.m / 60)}:${String(sg.m % 60).padStart(2, '0')}–${Math.floor(sg.end / 60)}:${String(sg.end % 60).padStart(2, '0')}（熄燈後）：${levels[sg.lv]}`;
+            return (
+              <g key={i}>
+                <rect x={x(sg.m)} y={y(sg.lv) - 5} width={Math.max(2, x(sg.end) - x(sg.m))} height={10} rx={3} fill={colorFor(sg.lv)} opacity={hover && hover !== label ? 0.45 : 1} />
+                {i < segs.length - 1 && <line x1={x(sg.end)} x2={x(sg.end)} y1={y(sg.lv)} y2={y(segs[i + 1].lv)} stroke={BASE} strokeWidth={1.5} />}
+                <rect
+                  x={x(sg.m)}
+                  y={T - 8}
+                  width={Math.max(4, x(sg.end) - x(sg.m))}
+                  height={B - T + 16}
+                  fill="transparent"
+                  tabIndex={0}
+                  onMouseEnter={() => setHover(label)}
+                  onFocus={() => setHover(label)}
+                  onMouseLeave={() => setHover(null)}
+                  onBlur={() => setHover(null)}
+                >
+                  <title>{label}</title>
+                </rect>
+              </g>
+            );
+          })}
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((h) => (
+            <text key={h} x={x(h * 60)} y={B + 18} fontSize={10} textAnchor="middle" fill={INK2}>
+              {h}h
+            </text>
+          ))}
+          <rect x={x(0)} y={B + 28} width={x(236) - x(0)} height={5} rx={2.5} fill={GOOD} opacity={0.75} />
+          <rect x={x(244)} y={B + 28} width={x(480) - x(244)} height={5} rx={2.5} fill={MIND} opacity={0.75} />
+          <text x={x(120)} y={B + 46} textAnchor="middle" fontSize={10} fontWeight={700} fill={GOOD}>
+            前半夜：深睡多（修復）
           </text>
-        ))}
-        <rect x={x(0)} y={B + 26} width={x(240) - x(0)} height={6} rx={3} fill={GOOD} opacity={0.5} />
-        <text x={x(120)} y={B + 40} textAnchor="middle" fontSize={0} />
-      </svg>
-      <div className="flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-slate-600 dark:text-slate-300">
-        <span>
-          <span className="inline-block w-3 h-3 rounded-sm align-middle mr-1" style={{ background: GOOD }} aria-hidden="true" />
-          前半夜：深睡（身體修復、大腦清廢物）
-        </span>
-        <span>
-          <span className="inline-block w-3 h-3 rounded-sm align-middle mr-1" style={{ background: MIND }} aria-hidden="true" />
-          後半夜：REM（情緒與記憶整合）
-        </span>
-      </div>
+          <text x={x(360)} y={B + 46} textAnchor="middle" fontSize={10} fontWeight={700} fill={MIND}>
+            後半夜：REM 變長（情緒記憶）
+          </text>
+        </svg>
+      </Wide>
       <Hint text={hover} fallback="把滑鼠移到（或 Tab 到）任一段，看時間與睡眠階段。" />
     </div>
   );
@@ -294,30 +396,37 @@ export const LightLuxFigure: React.FC = () => {
   const H = LUX.length * rowH + 30;
   const lx = (v: number) => L + ((W - L - R) * (Math.log10(v) + 1)) / 6; // 0.1 → 100,000
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="光照強度對數比較：陰天戶外約 5,000 勒克斯、晴天約 8 萬，是室內的 10 到 200 倍；睡前 3 小時建議 10 勒克斯以下">
-      {[0.1, 1, 10, 100, 1000, 10000, 100000].map((g) => (
-        <g key={g}>
-          <line x1={lx(g)} x2={lx(g)} y1={6} y2={H - 22} stroke={GRID} />
-          <text x={lx(g)} y={H - 8} textAnchor="middle" fontSize={9.5} fill={INK2}>
-            {g >= 1000 ? `${g / 1000}k` : g}
-          </text>
-        </g>
-      ))}
-      {LUX.map((d, i) => {
-        const yy = 10 + i * rowH;
-        return (
-          <g key={d.label}>
-            <text x={L - 8} y={yy + 14} textAnchor="end" fontSize={11.5} fill={INK} fontWeight={600}>
-              {d.label}
-            </text>
-            <rect x={L} y={yy + 3} width={Math.max(3, lx(d.lux) - L)} height={16} rx={4} fill={d.tone} opacity={0.85} />
-            <text x={lx(d.lux) + 6} y={yy + 15} fontSize={11} fontWeight={700} fill={INK}>
-              {d.lux.toLocaleString()} lux
+    <Wide>
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full min-w-[500px] h-auto"
+        role="img"
+        aria-label="光照強度對數比較：陰天戶外約 5,000 勒克斯、晴天約 8 萬，是室內的 10 到 200 倍；睡前 3 小時建議 10 勒克斯以下"
+      >
+        {[0.1, 1, 10, 100, 1000, 10000, 100000].map((g) => (
+          <g key={g}>
+            <line x1={lx(g)} x2={lx(g)} y1={6} y2={H - 22} stroke={GRID} />
+            <text x={lx(g)} y={H - 8} textAnchor="middle" fontSize={9.5} fill={INK2}>
+              {g >= 1000 ? `${g / 1000}k` : g}
             </text>
           </g>
-        );
-      })}
-    </svg>
+        ))}
+        {LUX.map((d, i) => {
+          const yy = 10 + i * rowH;
+          return (
+            <g key={d.label}>
+              <text x={L - 8} y={yy + 14} textAnchor="end" fontSize={11.5} fill={INK} fontWeight={600}>
+                {d.label}
+              </text>
+              <rect x={L} y={yy + 3} width={Math.max(3, lx(d.lux) - L)} height={16} rx={4} fill={d.tone} opacity={0.85} />
+              <text x={lx(d.lux) + 6} y={yy + 15} fontSize={11} fontWeight={700} fill={INK}>
+                {d.lux.toLocaleString()} lux
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </Wide>
   );
 };
 
@@ -328,7 +437,7 @@ export const RsaFigure: React.FC = () => {
   const W = 520;
   const H = 210;
   const L = 50;
-  const R = 10;
+  const R = 92;
   const secs = 30;
   const period = slow ? 10 : 4; // seconds per breath
   const x = (t: number) => L + ((W - L - R) * t) / secs;
@@ -346,39 +455,67 @@ export const RsaFigure: React.FC = () => {
   return (
     <div className="space-y-2">
       <div className="flex flex-wrap gap-2" role="group" aria-label="呼吸速度">
-        <button type="button" aria-pressed={!slow} onClick={() => setSlow(false)} className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${!slow ? 'border-orange-500 bg-orange-50 text-orange-900 dark:bg-orange-950/40 dark:text-orange-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}>
+        <button
+          type="button"
+          aria-pressed={!slow}
+          onClick={() => setSlow(false)}
+          className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${!slow ? 'border-orange-500 bg-orange-50 text-orange-900 dark:bg-orange-950/40 dark:text-orange-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}
+        >
           平常：15 次／分
         </button>
-        <button type="button" aria-pressed={slow} onClick={() => setSlow(true)} className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${slow ? 'border-sky-500 bg-sky-50 text-sky-900 dark:bg-sky-950/40 dark:text-sky-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}>
+        <button
+          type="button"
+          aria-pressed={slow}
+          onClick={() => setSlow(true)}
+          className={`rounded-full border px-3 py-1.5 text-[13px] font-semibold ${slow ? 'border-sky-500 bg-sky-50 text-sky-900 dark:bg-sky-950/40 dark:text-sky-200' : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'}`}
+        >
           共振慢呼吸：6 次／分
         </button>
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={`呼吸與心跳同步：吸氣時心跳加快、吐氣時變慢。${slow ? '每分鐘 6 次時心跳起伏約 ±9 下，變異度最大' : '每分鐘 15 次時心跳起伏只有約 ±3 下'}`}>
-        <text x={L - 6} y={30} textAnchor="end" fontSize={10.5} fontWeight={700} fill={CALM}>
-          肺容量
-        </text>
-        <text x={L - 6} y={130} textAnchor="end" fontSize={10.5} fontWeight={700} fill={ALERT}>
-          心跳
-        </text>
-        <line x1={L} x2={W - R} y1={80} y2={80} stroke={GRID} />
-        <line x1={L} x2={W - R} y1={186} y2={186} stroke={BASE} />
-        {Array.from({ length: Math.floor(secs / period) + 1 }).map((_, i) => (
-          <rect key={i} x={x(i * period + period * 0.4)} y={16} width={x(period * 0.6) - x(0)} height={172} fill={CALM} opacity={0.07} />
-        ))}
-        <polyline points={lung.join(' ')} fill="none" stroke={CALM} strokeWidth={3} />
-        <polyline points={hr.join(' ')} fill="none" stroke={ALERT} strokeWidth={2.5} />
-        <text x={x(period * 0.18)} y={14} fontSize={10} fill={INK2} textAnchor="middle">
-          吸
-        </text>
-        <text x={x(period * 0.7)} y={14} fontSize={10} fill={CALM} fontWeight={700} textAnchor="middle">
-          吐（藍底）
-        </text>
-        {[0, 10, 20, 30].map((t) => (
-          <text key={t} x={x(t)} y={202} fontSize={10} textAnchor="middle" fill={INK2}>
-            {t}s
+      <Wide>
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="w-full min-w-[500px] h-auto"
+          role="img"
+          aria-label={`呼吸與心跳同步：吸氣時心跳加快、吐氣時變慢。${slow ? '每分鐘 6 次時心跳起伏約 ±9 下，變異度最大' : '每分鐘 15 次時心跳起伏只有約 ±3 下'}`}
+        >
+          <text x={L - 6} y={30} textAnchor="end" fontSize={10.5} fontWeight={700} fill={CALM}>
+            肺容量
           </text>
-        ))}
-      </svg>
+          <text x={L - 6} y={130} textAnchor="end" fontSize={10.5} fontWeight={700} fill={ALERT}>
+            心跳
+          </text>
+          <line x1={L} x2={W - R} y1={80} y2={80} stroke={GRID} />
+          <line x1={L} x2={W - R} y1={186} y2={186} stroke={BASE} />
+          {Array.from({ length: Math.floor(secs / period) + 1 }).map((_, i) => (
+            <rect key={i} x={x(i * period + period * 0.4)} y={16} width={x(period * 0.6) - x(0)} height={172} fill={CALM} opacity={0.07} />
+          ))}
+          <polyline points={lung.join(' ')} fill="none" stroke={CALM} strokeWidth={3} />
+          <polyline points={hr.join(' ')} fill="none" stroke={ALERT} strokeWidth={2.5} />
+          <g>
+            <line x1={W - R + 10} x2={W - R + 10} y1={186 - (66 + amp - 50) * 2.2} y2={186 - (66 - amp - 50) * 2.2} stroke={INK} strokeWidth={1.5} />
+            <line x1={W - R + 5} x2={W - R + 15} y1={186 - (66 + amp - 50) * 2.2} y2={186 - (66 + amp - 50) * 2.2} stroke={INK} strokeWidth={1.5} />
+            <line x1={W - R + 5} x2={W - R + 15} y1={186 - (66 - amp - 50) * 2.2} y2={186 - (66 - amp - 50) * 2.2} stroke={INK} strokeWidth={1.5} />
+            <text x={W - R + 20} y={186 - (66 - 50) * 2.2 - 4} fontSize={11} fontWeight={800} fill={INK}>
+              心跳起伏
+            </text>
+            <text x={W - R + 20} y={186 - (66 - 50) * 2.2 + 12} fontSize={11} fontWeight={800} fill={ALERT}>
+              約 {slow ? '18' : '7'} 下／分
+            </text>
+          </g>
+          <text x={x(period * 0.18)} y={14} fontSize={10} fill={INK2} textAnchor="middle">
+            吸
+          </text>
+          <text x={x(period * 0.7)} y={14} fontSize={10} fill={CALM} fontWeight={700} textAnchor="middle">
+            吐（藍底）
+          </text>
+          {[0, 10, 20, 30].map((t) => (
+            <text key={t} x={x(t)} y={202} fontSize={10} textAnchor="middle" fill={INK2}>
+              {t}s
+            </text>
+          ))}
+        </svg>
+      </Wide>
       <p className="text-[13px] text-slate-600 dark:text-slate-300">
         吸氣時迷走神經「放手」心跳變快，吐氣時「踩煞車」心跳變慢。呼吸放慢到每分鐘約 6 次，這個起伏和血壓反射共振，變得最大——心率變異度高代表神經系統彈性好。
       </p>
@@ -391,52 +528,78 @@ export const RsaFigure: React.FC = () => {
 export const BreathSpectrumFigure: React.FC = () => {
   const [hover, setHover] = useState<string | null>(null);
   const W = 520;
-  const H = 170;
-  const L = 16;
-  const R = 16;
-  const axisY = 70;
-  const lx = (r: number) => L + ((W - L - R) * Math.log(r / 2)) / Math.log(140 / 2);
+  const H = 196;
+  const L = 18;
+  const R = 18;
+  const axisY = 112;
+  const lx = (r: number) => L + ((W - L - R) * Math.log(r / 2.5)) / Math.log(140 / 2.5);
+  // Sorted by rate and dealt into three label rows so neighbours never collide.
+  const items = [...BREATH_SPECTRUM].sort((a, b) => a.rate - b.rate);
+  const rowY = [22, 48, 74];
   return (
     <div className="space-y-2">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="呼吸頻率光譜：每分鐘 3 到 6 次為平靜型（吐納、共振呼吸、4-7-8），12 到 20 次為平常，60 到 120 次為激發型（卡帕拉巴提）">
-        <defs>
-          <linearGradient id="mb-spectrum" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor={CALM} />
-            <stop offset="50%" stopColor={BASE} />
-            <stop offset="100%" stopColor={ALERT} />
-          </linearGradient>
-        </defs>
-        <rect x={L} y={axisY - 7} width={W - L - R} height={14} rx={7} fill="url(#mb-spectrum)" />
-        <text x={L} y={axisY + 30} fontSize={11.5} fontWeight={800} fill={CALM}>
-          ◀ 煞車：平靜、助眠
-        </text>
-        <text x={W - R} y={axisY + 30} fontSize={11.5} fontWeight={800} fill={ALERT} textAnchor="end">
-          油門：提神、激發 ▶
-        </text>
-        {[3, 6, 12, 20, 60, 120].map((r) => (
-          <text key={r} x={lx(r)} y={axisY + 48} fontSize={10} textAnchor="middle" fill={INK2}>
-            {r}/分
-          </text>
-        ))}
-        {BREATH_SPECTRUM.map((b, i) => {
-          const cx = lx(b.rate);
-          const up = i % 2 === 0;
-          const ty = up ? 22 : 128;
-          const label = `${b.name}：約 ${b.rate} 次／分（${b.note}）`;
-          const col = b.effect === 'calm' ? CALM : b.effect === 'alert' ? ALERT : INK2;
-          return (
-            <g key={b.name} tabIndex={0} onMouseEnter={() => setHover(label)} onFocus={() => setHover(label)} onMouseLeave={() => setHover(null)} onBlur={() => setHover(null)} style={{ outline: 'none' }}>
-              <line x1={cx} x2={cx} y1={up ? ty + 6 : axisY + 8} y2={up ? axisY - 8 : ty - 12} stroke={col} strokeWidth={1.5} />
-              <circle cx={cx} cy={axisY} r={hover === label ? 7 : 5} fill="var(--viz-surface)" stroke={col} strokeWidth={2.5} />
-              <text x={Math.min(Math.max(cx, 60), W - 60)} y={ty} fontSize={10.5} fontWeight={700} textAnchor="middle" fill={INK}>
-                {b.name}
+      <Wide>
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="w-full min-w-[500px] h-auto"
+          role="img"
+          aria-label="呼吸頻率光譜：每分鐘 3 到 6 次為平靜型（4-7-8、吐納、共振呼吸），12 到 20 次為平常，24 次以上的過度換氣與每分鐘 60 到 120 次的卡帕拉巴提為激發型"
+        >
+          <defs>
+            <linearGradient id="mb-spectrum" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stopColor={CALM} />
+              <stop offset="45%" stopColor={BASE} />
+              <stop offset="100%" stopColor={ALERT} />
+            </linearGradient>
+          </defs>
+          <rect x={L} y={axisY - 7} width={W - L - R} height={14} rx={7} fill="url(#mb-spectrum)" />
+          {[3, 6, 12, 20, 60, 120].map((r) => (
+            <g key={r}>
+              <line x1={lx(r)} x2={lx(r)} y1={axisY + 8} y2={axisY + 13} stroke={INK2} />
+              <text x={lx(r)} y={axisY + 25} fontSize={10} textAnchor="middle" fill={INK2}>
+                {r}
               </text>
-              <title>{label}</title>
             </g>
-          );
-        })}
-      </svg>
-      <Hint text={hover} fallback="移到任一點看說明。橫軸是對數刻度。" />
+          ))}
+          <text x={W / 2} y={axisY + 40} fontSize={10} textAnchor="middle" fill={INK2}>
+            每分鐘呼吸次數（對數刻度）
+          </text>
+          <text x={L} y={axisY + 62} fontSize={11.5} fontWeight={800} fill={CALM}>
+            ◀ 煞車：平靜、助眠
+          </text>
+          <text x={W - R} y={axisY + 62} fontSize={11.5} fontWeight={800} fill={ALERT} textAnchor="end">
+            油門：提神、激發 ▶
+          </text>
+          {items.map((b, i) => {
+            const cx = lx(b.rate);
+            const ty = rowY[i % 3];
+            const anchor = cx < 90 ? 'start' : cx > W - 110 ? 'end' : 'middle';
+            const tx = anchor === 'start' ? cx - 6 : anchor === 'end' ? cx + 6 : cx;
+            const label = `${b.name}：約 ${b.rate} 次／分（${b.note}）`;
+            const col = b.effect === 'calm' ? CALM : b.effect === 'alert' ? ALERT : INK2;
+            const on = hover === label;
+            return (
+              <g
+                key={b.name}
+                tabIndex={0}
+                onMouseEnter={() => setHover(label)}
+                onFocus={() => setHover(label)}
+                onMouseLeave={() => setHover(null)}
+                onBlur={() => setHover(null)}
+                style={{ outline: 'none' }}
+              >
+                <line x1={cx} x2={cx} y1={ty + 5} y2={axisY - 8} stroke={col} strokeWidth={on ? 2.5 : 1.5} strokeDasharray={on ? undefined : '2 2'} />
+                <circle cx={cx} cy={axisY} r={on ? 7 : 5} fill="var(--viz-surface)" stroke={col} strokeWidth={2.5} />
+                <text x={tx} y={ty} fontSize={10.5} fontWeight={700} textAnchor={anchor} fill={on ? col : INK}>
+                  {b.name}
+                </text>
+                <title>{label}</title>
+              </g>
+            );
+          })}
+        </svg>
+      </Wide>
+      <Hint text={hover} fallback="移到（或 Tab 到）任一點看說明。" />
     </div>
   );
 };
@@ -462,96 +625,160 @@ export const KapalaWaveFigure: React.FC = () => {
     kap.push(`${x(t).toFixed(1)},${(200 - (0.35 + k * 0.4) * 50).toFixed(1)}`);
   }
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="一般呼吸是平滑緩慢的波，每 4 秒一次；卡帕拉巴提是每秒一次的鋸齒波：主動快速吐氣、被動回彈吸氣，換氣量小但頻率高">
-      <text x={L - 8} y={66} textAnchor="end" fontSize={11} fontWeight={700} fill={CALM}>
-        一般呼吸
-      </text>
-      <text x={L - 8} y={80} textAnchor="end" fontSize={9.5} fill={INK2}>
-        15 次／分
-      </text>
-      <text x={L - 8} y={176} textAnchor="end" fontSize={11} fontWeight={700} fill={ALERT}>
-        卡帕拉巴提
-      </text>
-      <text x={L - 8} y={190} textAnchor="end" fontSize={9.5} fill={INK2}>
-        60 次／分
-      </text>
-      <line x1={L} x2={W - R} y1={92} y2={92} stroke={GRID} />
-      <line x1={L} x2={W - R} y1={202} y2={202} stroke={GRID} />
-      <polyline points={normal.join(' ')} fill="none" stroke={CALM} strokeWidth={3} />
-      <polyline points={kap.join(' ')} fill="none" stroke={ALERT} strokeWidth={2.5} />
-      {/* annotations on first kapalabhati cycle */}
-      <line x1={x(1)} x2={x(1.3)} y1={130} y2={130} stroke={INK} strokeWidth={1} />
-      <text x={x(1.15)} y={124} fontSize={10} textAnchor="middle" fill={INK} fontWeight={700}>
-        主動吐 0.3s
-      </text>
-      <line x1={x(2.3)} x2={x(3)} y1={130} y2={130} stroke={INK2} strokeWidth={1} strokeDasharray="3 2" />
-      <text x={x(2.65)} y={124} fontSize={10} textAnchor="middle" fill={INK2}>
-        被動吸回彈
-      </text>
-      {[0, 2, 4, 6, 8].map((t) => (
-        <text key={t} x={x(t)} y={222} fontSize={10} textAnchor="middle" fill={INK2}>
-          {t}s
+    <Wide>
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full min-w-[500px] h-auto"
+        role="img"
+        aria-label="一般呼吸是平滑緩慢的波，每 4 秒一次；卡帕拉巴提是每秒一次的鋸齒波：主動快速吐氣、被動回彈吸氣，換氣量小但頻率高"
+      >
+        <text x={L - 8} y={66} textAnchor="end" fontSize={11} fontWeight={700} fill={CALM}>
+          一般呼吸
         </text>
-      ))}
-    </svg>
+        <text x={L - 8} y={80} textAnchor="end" fontSize={9.5} fill={INK2}>
+          15 次／分
+        </text>
+        <text x={L - 8} y={176} textAnchor="end" fontSize={11} fontWeight={700} fill={ALERT}>
+          卡帕拉巴提
+        </text>
+        <text x={L - 8} y={190} textAnchor="end" fontSize={9.5} fill={INK2}>
+          60 次／分
+        </text>
+        <line x1={L} x2={W - R} y1={92} y2={92} stroke={GRID} />
+        <line x1={L} x2={W - R} y1={202} y2={202} stroke={GRID} />
+        <polyline points={normal.join(' ')} fill="none" stroke={CALM} strokeWidth={3} />
+        <polyline points={kap.join(' ')} fill="none" stroke={ALERT} strokeWidth={2.5} />
+        {/* annotations on first kapalabhati cycle */}
+        <line x1={x(1)} x2={x(1.3)} y1={156} y2={156} stroke={INK} strokeWidth={1.5} />
+        <text x={x(1.15)} y={150} fontSize={10} textAnchor="middle" fill={INK} fontWeight={700}>
+          主動吐 0.3s
+        </text>
+        <line x1={x(2.3)} x2={x(3)} y1={156} y2={156} stroke={INK2} strokeWidth={1.5} strokeDasharray="3 2" />
+        <text x={x(2.65)} y={150} fontSize={10} textAnchor="middle" fill={INK2}>
+          被動吸回彈
+        </text>
+        {[0, 2, 4, 6, 8].map((t) => (
+          <text key={t} x={x(t)} y={222} fontSize={10} textAnchor="middle" fill={INK2}>
+            {t}s
+          </text>
+        ))}
+      </svg>
+    </Wide>
   );
 };
 
-/** Side-view torso: abdominal pump of one Kapalabhati stroke. */
+/** Side-view seated figure: the abdominal pump of one Kapalabhati stroke (exhale vs passive inhale). */
 export const AbdominalPumpFigure: React.FC = () => (
-  <svg viewBox="0 0 420 200" className="w-full max-w-md mx-auto h-auto" role="img" aria-label="腹部幫浦：吐氣時下腹快速內收、橫膈被推高，氣從鼻子噴出；吸氣時腹肌放鬆、橫膈自然下降，空氣被動流入">
-    <defs>
-      <Arrow id="mb-pump-a" color={ALERT} />
-      <Arrow id="mb-pump-c" color={CALM} />
-    </defs>
-    {[0, 1].map((i) => {
-      const ox = i * 210;
-      const exhale = i === 0;
-      const belly = exhale ? 18 : 32;
-      return (
-        <g key={i} transform={`translate(${ox},0)`}>
-          <text x={105} y={18} textAnchor="middle" fontSize={13} fontWeight={800} fill={exhale ? ALERT : CALM}>
-            {exhale ? '① 主動吐氣（0.3 秒）' : '② 被動吸氣（放鬆）'}
-          </text>
-          {/* head */}
-          <circle cx={80} cy={48} r={16} fill="var(--anat-skin)" stroke="var(--anat-figure)" strokeWidth={1.5} />
-          {/* torso outline: back straight, belly front varies */}
-          <path d={`M70 64 L64 178 L${100 + belly} 178 Q${108 + belly} 130 ${100} 100 Q104 76 92 64 Z`} fill="var(--anat-skin)" stroke="var(--anat-figure)" strokeWidth={1.5} />
-          {/* lungs */}
-          <ellipse cx={82} cy={98} rx={14} ry={exhale ? 16 : 22} fill={CALM} opacity={0.35} />
-          {/* diaphragm dome */}
-          <path d={`M66 ${exhale ? 116 : 128} Q84 ${exhale ? 100 : 118} ${104} ${exhale ? 116 : 128}`} fill="none" stroke="var(--anat-hit)" strokeWidth={3} />
-          <text x={140} y={exhale ? 108 : 124} fontSize={10} fill={INK}>
-            橫膈 {exhale ? '↑ 被推高' : '↓ 回落'}
-          </text>
-          {/* belly arrow */}
-          {exhale ? (
-            <line x1={150} y1={150} x2={112 + belly} y2={150} stroke={ALERT} strokeWidth={3} markerEnd="url(#mb-pump-a)" />
-          ) : (
-            <line x1={104 + belly} y1={150} x2={150} y2={150} stroke={CALM} strokeWidth={2} strokeDasharray="4 3" markerEnd="url(#mb-pump-c)" />
-          )}
-          <text x={152} y={146} fontSize={10} fill={INK}>
-            {exhale ? '下腹內收' : '腹部放鬆'}
-          </text>
-          {/* nose airflow */}
-          {exhale ? (
-            <line x1={96} y1={48} x2={130} y2={40} stroke={ALERT} strokeWidth={3} markerEnd="url(#mb-pump-a)" />
-          ) : (
-            <line x1={130} y1={40} x2={98} y2={48} stroke={CALM} strokeWidth={2} strokeDasharray="4 3" markerEnd="url(#mb-pump-c)" />
-          )}
-          <text x={134} y={38} fontSize={10} fill={INK}>
-            {exhale ? '鼻子「哼」出' : '空氣自然流入'}
-          </text>
-        </g>
-      );
-    })}
-  </svg>
+  <Wide>
+    <svg
+      viewBox="0 0 520 250"
+      className="w-full min-w-[500px] h-auto"
+      role="img"
+      aria-label="腹部幫浦：左圖主動吐氣時，下腹快速內收、橫膈被推高、肺縮小，氣從鼻子噴出；右圖被動吸氣時，腹肌放鬆、腹部回彈、橫膈下降、空氣自然流入。兩圖胸口與肩膀都保持不動"
+    >
+      <defs>
+        <Arrow id="mb-pump-a" color={ALERT} />
+        <Arrow id="mb-pump-c" color={CALM} />
+      </defs>
+      {[0, 1].map((i) => {
+        const exhale = i === 0;
+        const col = exhale ? ALERT : CALM;
+        const belly = exhale ? 0 : 16; // how far the lower belly sits forward
+        const dia = exhale ? 118 : 136; // diaphragm dome apex
+        return (
+          <g key={i} transform={`translate(${i * 262},0)`}>
+            <rect x={4} y={4} width={250} height={240} rx={14} fill={col} opacity={0.06} />
+            <text x={129} y={26} textAnchor="middle" fontSize={13.5} fontWeight={800} fill={col}>
+              {exhale ? '① 主動吐氣（約 0.3 秒）' : '② 被動吸氣（放鬆回彈）'}
+            </text>
+            {/* seat */}
+            <rect x={52} y={204} width={96} height={8} rx={3} fill="var(--viz-baseline)" />
+            {/* thigh */}
+            <path d="M70 196 L150 196 L150 208 L70 208 Z" fill="var(--anat-skin)" stroke="var(--anat-figure)" strokeWidth={1.2} />
+            {/* torso: straight back, chest, then belly that moves */}
+            <path
+              d={`M70 74 L66 200 L${112 + belly} 200 Q${124 + belly} 178 ${116 + belly * 0.7} 150 Q108 126 112 104 Q114 84 98 74 Z`}
+              fill="var(--anat-skin)"
+              stroke="var(--anat-figure)"
+              strokeWidth={1.5}
+            />
+            {/* neck + head facing right, with nose */}
+            <rect x={80} y={62} width={14} height={16} fill="var(--anat-skin)" />
+            <circle cx={88} cy={46} r={19} fill="var(--anat-skin)" stroke="var(--anat-figure)" strokeWidth={1.5} />
+            <path d="M106 44 L113 50 L106 52" fill="var(--anat-skin)" stroke="var(--anat-figure)" strokeWidth={1.2} />
+            {/* lung */}
+            <ellipse cx={89} cy={exhale ? 100 : 104} rx={exhale ? 13 : 16} ry={exhale ? 17 : 23} fill={CALM} opacity={0.4} />
+            {/* diaphragm */}
+            <path d={`M70 ${dia + 12} Q90 ${dia - 8} 110 ${dia + 12}`} fill="none" stroke="var(--anat-hit)" strokeWidth={3} strokeLinecap="round" />
+            <line x1={90} y1={exhale ? dia + 20 : dia - 12} x2={90} y2={exhale ? dia + 4 : dia + 4} stroke="var(--anat-hit)" strokeWidth={2} markerEnd="url(#mb-pump-a)" />
+            {/* chest is still */}
+            <text x={150} y={92} fontSize={10.5} fill={INK2}>
+              胸口、肩膀不動
+            </text>
+            <line x1={146} y1={89} x2={114} y2={92} stroke={INK2} strokeWidth={1} strokeDasharray="2 2" />
+            {/* diaphragm label */}
+            <text x={150} y={dia + 4} fontSize={10.5} fontWeight={700} fill={INK}>
+              橫膈 {exhale ? '↑ 被推高' : '↓ 回落'}
+            </text>
+            <line x1={146} y1={dia + 1} x2={110} y2={dia + 8} stroke={INK2} strokeWidth={1} strokeDasharray="2 2" />
+            {/* belly arrow */}
+            {exhale ? (
+              <line x1={176} y1={172} x2={130} y2={172} stroke={ALERT} strokeWidth={3.5} markerEnd="url(#mb-pump-a)" />
+            ) : (
+              <line x1={134} y1={172} x2={178} y2={172} stroke={CALM} strokeWidth={2.5} strokeDasharray="5 3" markerEnd="url(#mb-pump-c)" />
+            )}
+            <text x={182} y={176} fontSize={11} fontWeight={800} fill={col}>
+              {exhale ? '下腹內收' : '腹部回彈'}
+            </text>
+            {/* nose airflow */}
+            {exhale ? (
+              <line x1={116} y1={50} x2={160} y2={42} stroke={ALERT} strokeWidth={3.5} markerEnd="url(#mb-pump-a)" />
+            ) : (
+              <line x1={162} y1={42} x2={118} y2={50} stroke={CALM} strokeWidth={2.5} strokeDasharray="5 3" markerEnd="url(#mb-pump-c)" />
+            )}
+            <text x={166} y={46} fontSize={11} fontWeight={700} fill={INK}>
+              {exhale ? '鼻子「哼」出' : '空氣自然流入'}
+            </text>
+            <text x={129} y={234} textAnchor="middle" fontSize={10.5} fill={INK2}>
+              {exhale ? '用力：只有下腹快速一收' : '不用力：放鬆就好，不刻意吸'}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  </Wide>
 );
 
 // ── 8. 六字訣輪盤 ─────────────────────────────────────────────────────────
 
+/** Simplified front-view mouth shape for each 六字訣 sound (口型示意). */
+const MOUTH: Record<string, { rx: number; ry: number; teeth: boolean; smile: number; round?: boolean }> = {
+  噓: { rx: 26, ry: 5, teeth: true, smile: 2 },
+  呵: { rx: 20, ry: 13, teeth: false, smile: 0 },
+  呼: { rx: 11, ry: 11, teeth: false, smile: 0, round: true },
+  呬: { rx: 22, ry: 4, teeth: true, smile: 0 },
+  吹: { rx: 24, ry: 6, teeth: false, smile: 1 },
+  嘻: { rx: 28, ry: 5, teeth: true, smile: 6 },
+};
+
+const MouthGlyph: React.FC<{ sound: string }> = ({ sound }) => {
+  const m = MOUTH[sound] ?? MOUTH['噓'];
+  const cx = 40;
+  const cy = 34;
+  const lip = `M${cx - m.rx - 6} ${cy - m.smile} Q${cx} ${cy - m.ry - 9} ${cx + m.rx + 6} ${cy - m.smile} Q${cx} ${cy + m.ry + 11 + m.smile} ${cx - m.rx - 6} ${cy - m.smile} Z`;
+  return (
+    <svg viewBox="0 0 80 64" className="w-20 h-16 shrink-0" role="img" aria-label={`「${sound}」字口型示意`}>
+      <path d={lip} fill="var(--anat-hit)" opacity={0.75} />
+      {m.round ? <circle cx={cx} cy={cy} r={m.rx - 3} fill="#3F1212" /> : <ellipse cx={cx} cy={cy} rx={m.rx} ry={m.ry} fill="#3F1212" />}
+      {m.teeth && <rect x={cx - m.rx + 4} y={cy - m.ry} width={(m.rx - 4) * 2} height={Math.max(2.5, m.ry * 0.7)} rx={1} fill="#fff" />}
+      <path d={`M${cx + m.rx + 10} ${cy} l10 -4 m-10 4 l10 0 m-10 0 l10 4`} stroke={CALM} strokeWidth={1.8} fill="none" strokeLinecap="round" />
+    </svg>
+  );
+};
+
 export const LiuZiJueWheel: React.FC = () => {
   const [sel, setSel] = useState(0);
+  const [focus, setFocus] = useState<number | null>(null);
   const cur = LIU_ZI_JUE[sel];
   const cx = 130;
   const cy = 130;
@@ -580,6 +807,8 @@ export const LiuZiJueWheel: React.FC = () => {
               aria-pressed={on}
               aria-label={`${z.sound}（${z.pinyin}），傳統對應${z.organ}`}
               onClick={() => setSel(i)}
+              onFocus={() => setFocus(i)}
+              onBlur={() => setFocus(null)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
@@ -589,6 +818,7 @@ export const LiuZiJueWheel: React.FC = () => {
               style={{ cursor: 'pointer', outline: 'none' }}
             >
               <line x1={cx + 44 * Math.cos(a)} y1={cy + 44 * Math.sin(a)} x2={x - 26 * Math.cos(a)} y2={y - 26 * Math.sin(a)} stroke={on ? CALM : GRID} strokeWidth={on ? 3 : 1.5} />
+              {focus === i && <circle cx={x} cy={y} r={31} fill="none" stroke={INK} strokeWidth={2} strokeDasharray="4 3" />}
               <circle cx={x} cy={y} r={26} fill={on ? CALM : 'var(--viz-surface)'} stroke={CALM} strokeWidth={2} />
               <text x={x} y={y + 2} textAnchor="middle" fontSize={20} fontWeight={800} fill={on ? '#fff' : INK}>
                 {z.sound}
@@ -601,9 +831,12 @@ export const LiuZiJueWheel: React.FC = () => {
         })}
       </svg>
       <div className="rounded-2xl border border-sky-200 dark:border-sky-900 bg-sky-50/60 dark:bg-sky-950/20 p-4 space-y-2" aria-live="polite">
-        <p className="text-2xl font-display font-bold text-slate-900 dark:text-white">
-          「{cur.sound}」<span className="text-base font-semibold text-slate-500 dark:text-slate-400 ml-1">{cur.pinyin}</span>
-        </p>
+        <div className="flex items-center gap-3">
+          <MouthGlyph sound={cur.sound} />
+          <p className="text-2xl font-display font-bold text-slate-900 dark:text-white">
+            「{cur.sound}」<span className="text-base font-semibold text-slate-500 dark:text-slate-400 ml-1">{cur.pinyin}</span>
+          </p>
+        </div>
         <p className="text-[14px] text-slate-700 dark:text-slate-200">
           <strong>口型：</strong>
           {cur.mouth}
@@ -639,38 +872,40 @@ export const TunaLadderFigure: React.FC = () => {
   const H = LADDER.length * rowH + 34;
   const sx = (s: number) => ((W - L - R) * s) / 15;
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="吐納四週進度：吸 4 吐 4（每分鐘 7.5 次）→ 吸 4 吐 6（6 次）→ 吸 4 吐 8（5 次）→ 吸 5 吐 10（4 次）">
-      {[0, 5, 10, 15].map((g) => (
-        <g key={g}>
-          <line x1={L + sx(g)} x2={L + sx(g)} y1={8} y2={H - 24} stroke={GRID} />
-          <text x={L + sx(g)} y={H - 8} textAnchor="middle" fontSize={10} fill={INK2}>
-            {g}s
-          </text>
-        </g>
-      ))}
-      {LADDER.map((d, i) => {
-        const yy = 12 + i * rowH;
-        const bpm = (60 / (d.inh + d.exh)).toFixed(1).replace(/\.0$/, '');
-        return (
-          <g key={d.stage}>
-            <text x={L - 8} y={yy + 16} textAnchor="end" fontSize={11.5} fontWeight={700} fill={INK}>
-              {d.stage}
-            </text>
-            <rect x={L} y={yy + 3} width={sx(d.inh)} height={20} rx={4} fill={GOOD} />
-            <text x={L + sx(d.inh) / 2} y={yy + 17} textAnchor="middle" fontSize={10.5} fontWeight={700} fill="#fff">
-              吸 {d.inh}
-            </text>
-            <rect x={L + sx(d.inh) + 2} y={yy + 3} width={sx(d.exh)} height={20} rx={4} fill={CALM} />
-            <text x={L + sx(d.inh) + 2 + sx(d.exh) / 2} y={yy + 17} textAnchor="middle" fontSize={10.5} fontWeight={700} fill="#fff">
-              吐 {d.exh}
-            </text>
-            <text x={L + sx(d.inh + d.exh) + 10} y={yy + 17} fontSize={11.5} fontWeight={800} fill={INK}>
-              {bpm} 次／分
+    <Wide>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full min-w-[500px] h-auto" role="img" aria-label="吐納四週進度：吸 4 吐 4（每分鐘 7.5 次）→ 吸 4 吐 6（6 次）→ 吸 4 吐 8（5 次）→ 吸 5 吐 10（4 次）">
+        {[0, 5, 10, 15].map((g) => (
+          <g key={g}>
+            <line x1={L + sx(g)} x2={L + sx(g)} y1={8} y2={H - 24} stroke={GRID} />
+            <text x={L + sx(g)} y={H - 8} textAnchor="middle" fontSize={10} fill={INK2}>
+              {g}s
             </text>
           </g>
-        );
-      })}
-    </svg>
+        ))}
+        {LADDER.map((d, i) => {
+          const yy = 12 + i * rowH;
+          const bpm = (60 / (d.inh + d.exh)).toFixed(1).replace(/\.0$/, '');
+          return (
+            <g key={d.stage}>
+              <text x={L - 8} y={yy + 16} textAnchor="end" fontSize={11.5} fontWeight={700} fill={INK}>
+                {d.stage}
+              </text>
+              <rect x={L} y={yy + 3} width={sx(d.inh)} height={20} rx={4} fill={GOOD} />
+              <text x={L + sx(d.inh) / 2} y={yy + 17} textAnchor="middle" fontSize={10.5} fontWeight={700} fill="#fff">
+                吸 {d.inh}
+              </text>
+              <rect x={L + sx(d.inh) + 2} y={yy + 3} width={sx(d.exh)} height={20} rx={4} fill={CALM} />
+              <text x={L + sx(d.inh) + 2 + sx(d.exh) / 2} y={yy + 17} textAnchor="middle" fontSize={10.5} fontWeight={700} fill="#fff">
+                吐 {d.exh}
+              </text>
+              <text x={L + sx(d.inh + d.exh) + 10} y={yy + 17} fontSize={11.5} fontWeight={800} fill={INK}>
+                {bpm} 次／分
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </Wide>
   );
 };
 
@@ -738,41 +973,56 @@ export const MindfulEvidenceChart: React.FC = () => {
   const sx = (v: number) => L + ((W - L - R) * v) / 0.8;
   return (
     <div className="space-y-2">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="效果量與 95% 信賴區間：焦慮 0.38、憂鬱 0.30、疼痛 0.33（Goyal 2014 冥想課程），呼吸法降低壓力 0.35（Fincham 2023）。0.2 為小、0.5 為中等效果">
-        <rect x={sx(0.2)} y={6} width={sx(0.5) - sx(0.2)} height={H - 36} fill={GOOD} opacity={0.07} />
-        <text x={sx(0.35)} y={H - 32} textAnchor="middle" fontSize={9.5} fill={INK2}>
-          小 → 中等效果
-        </text>
-        {[0, 0.2, 0.4, 0.6, 0.8].map((g) => (
-          <g key={g}>
-            <line x1={sx(g)} x2={sx(g)} y1={6} y2={H - 40} stroke={g === 0 ? BASE : GRID} />
-            <text x={sx(g)} y={H - 16} textAnchor="middle" fontSize={10} fill={INK2}>
-              {g.toFixed(1)}
-            </text>
-          </g>
-        ))}
-        {MINDFUL_EVIDENCE.map((e, i) => {
-          const y = 22 + i * rowH;
-          const label = `${e.outcome}：效果量 ${e.es.toFixed(2)}（95% CI ${e.lo.toFixed(2)}–${e.hi.toFixed(2)}），${e.study}`;
-          const col = e.study.startsWith('Fincham') ? CALM : MIND;
-          return (
-            <g key={e.outcome} tabIndex={0} onMouseEnter={() => setHover(label)} onFocus={() => setHover(label)} onMouseLeave={() => setHover(null)} onBlur={() => setHover(null)} style={{ outline: 'none' }}>
-              <text x={L - 10} y={y + 4} textAnchor="end" fontSize={11.5} fontWeight={700} fill={INK}>
-                {e.outcome}
+      <Wide>
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="w-full min-w-[500px] h-auto"
+          role="img"
+          aria-label="效果量與 95% 信賴區間：焦慮 0.38、憂鬱 0.30、疼痛 0.33（Goyal 2014 冥想課程），呼吸法降低壓力 0.35（Fincham 2023）。0.2 為小、0.5 為中等效果"
+        >
+          <rect x={sx(0.2)} y={6} width={sx(0.5) - sx(0.2)} height={H - 36} fill={GOOD} opacity={0.07} />
+          <text x={sx(0.35)} y={H - 32} textAnchor="middle" fontSize={9.5} fill={INK2}>
+            小 → 中等效果
+          </text>
+          {[0, 0.2, 0.4, 0.6, 0.8].map((g) => (
+            <g key={g}>
+              <line x1={sx(g)} x2={sx(g)} y1={6} y2={H - 40} stroke={g === 0 ? BASE : GRID} />
+              <text x={sx(g)} y={H - 16} textAnchor="middle" fontSize={10} fill={INK2}>
+                {g.toFixed(1)}
               </text>
-              <line x1={sx(e.lo)} x2={sx(e.hi)} y1={y} y2={y} stroke={col} strokeWidth={2.5} strokeLinecap="round" />
-              <circle cx={sx(e.es)} cy={y} r={hover === label ? 7 : 5.5} fill={col} />
-              <text x={sx(e.hi) + 6} y={y + 4} fontSize={10.5} fontWeight={700} fill={INK}>
-                {e.es.toFixed(2)}
-              </text>
-              <title>{label}</title>
             </g>
-          );
-        })}
-        <text x={L + (W - L - R) / 2} y={H - 2} textAnchor="middle" fontSize={10} fill={INK2}>
-          標準化效果量（越大越好；與對照組相比）
-        </text>
-      </svg>
+          ))}
+          {MINDFUL_EVIDENCE.map((e, i) => {
+            const y = 22 + i * rowH;
+            const label = `${e.outcome}：效果量 ${e.es.toFixed(2)}（95% CI ${e.lo.toFixed(2)}–${e.hi.toFixed(2)}），${e.study}`;
+            const col = e.study.startsWith('Fincham') ? CALM : MIND;
+            return (
+              <g
+                key={e.outcome}
+                tabIndex={0}
+                onMouseEnter={() => setHover(label)}
+                onFocus={() => setHover(label)}
+                onMouseLeave={() => setHover(null)}
+                onBlur={() => setHover(null)}
+                style={{ outline: 'none' }}
+              >
+                <text x={L - 10} y={y + 4} textAnchor="end" fontSize={11.5} fontWeight={700} fill={INK}>
+                  {e.outcome}
+                </text>
+                <line x1={sx(e.lo)} x2={sx(e.hi)} y1={y} y2={y} stroke={col} strokeWidth={2.5} strokeLinecap="round" />
+                <circle cx={sx(e.es)} cy={y} r={hover === label ? 7 : 5.5} fill={col} />
+                <text x={sx(e.hi) + 6} y={y + 4} fontSize={10.5} fontWeight={700} fill={INK}>
+                  {e.es.toFixed(2)}
+                </text>
+                <title>{label}</title>
+              </g>
+            );
+          })}
+          <text x={L + (W - L - R) / 2} y={H - 2} textAnchor="middle" fontSize={10} fill={INK2}>
+            標準化效果量（越大越好；與對照組相比）
+          </text>
+        </svg>
+      </Wide>
       <Hint text={hover} fallback="紫色：冥想課程（Goyal 2014，47 個 RCT）；藍色：呼吸法（Fincham 2023，12 個 RCT）。" />
     </div>
   );
@@ -795,33 +1045,40 @@ export const NightWakeFlowFigure: React.FC = () => {
     </g>
   );
   return (
-    <svg viewBox="0 0 520 330" className="w-full h-auto" role="img" aria-label="半夜醒來決策圖：先不看時間；做 10 次延長吐氣；有尿意就去，回來繼續；約 20 分鐘仍清醒就離床到昏暗處做無聊的事，想睡再回床；不要滑手機、吃東西或喝酒">
-      <defs>
-        <Arrow id="mb-flow-arrow" color={INK2} />
-      </defs>
-      {box(170, 8, 180, 44, '😶 半夜醒來', '不看時間、不拿手機', ALERT, 'a')}
-      <line x1={260} y1={52} x2={260} y2={76} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
-      {box(150, 78, 220, 48, '🌬️ 10 次延長吐氣', '吸 4 吐 6，或默念「噓」字', CALM, 'b')}
-      <line x1={260} y1={126} x2={260} y2={150} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
-      {box(150, 152, 220, 48, '🧘 身體掃描', '從腳趾慢慢往上', CALM, 'c')}
-      <line x1={260} y1={200} x2={260} y2={222} stroke={INK2} strokeWidth={2} />
-      <text x={268} y={216} fontSize={10.5} fill={INK2}>
-        約 20 分鐘後？
-      </text>
-      <line x1={260} y1={222} x2={110} y2={222} stroke={INK2} strokeWidth={2} />
-      <line x1={110} y1={222} x2={110} y2={244} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
-      <line x1={260} y1={222} x2={410} y2={222} stroke={INK2} strokeWidth={2} />
-      <line x1={410} y1={222} x2={410} y2={244} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
-      {box(20, 246, 180, 52, '😴 睡著了', '很好，什麼都不用做', GOOD, 'd')}
-      {box(310, 246, 200, 52, '🛋️ 仍清醒 → 離床', '昏暗處看無聊的書、聽音樂', MIND, 'e')}
-      <path d="M510 272 Q516 140 372 100" fill="none" stroke={MIND} strokeWidth={1.5} strokeDasharray="4 3" markerEnd="url(#mb-flow-arrow)" />
-      <text x={420} y={150} fontSize={10} fill={MIND} fontWeight={700}>
-        想睡再回床
-      </text>
-      <text x={260} y={322} textAnchor="middle" fontSize={10.5} fill="var(--viz-bad)" fontWeight={700}>
-        ✕ 不要：看時鐘計算、滑手機、吃宵夜、喝酒、在床上硬撐
-      </text>
-    </svg>
+    <Wide>
+      <svg
+        viewBox="0 0 520 330"
+        className="w-full min-w-[500px] h-auto"
+        role="img"
+        aria-label="半夜醒來決策圖：先不看時間；做 10 次延長吐氣；有尿意就去，回來繼續；約 20 分鐘仍清醒就離床到昏暗處做無聊的事，想睡再回床；不要滑手機、吃東西或喝酒"
+      >
+        <defs>
+          <Arrow id="mb-flow-arrow" color={INK2} />
+        </defs>
+        {box(170, 8, 180, 44, '😶 半夜醒來', '不看時間、不拿手機', ALERT, 'a')}
+        <line x1={260} y1={52} x2={260} y2={76} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
+        {box(150, 78, 220, 48, '🌬️ 10 次延長吐氣', '吸 4 吐 6，或默念「噓」字', CALM, 'b')}
+        <line x1={260} y1={126} x2={260} y2={150} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
+        {box(150, 152, 220, 48, '🧘 身體掃描', '從腳趾慢慢往上', CALM, 'c')}
+        <line x1={260} y1={200} x2={260} y2={222} stroke={INK2} strokeWidth={2} />
+        <text x={268} y={216} fontSize={10.5} fill={INK2}>
+          約 20 分鐘後？
+        </text>
+        <line x1={260} y1={222} x2={110} y2={222} stroke={INK2} strokeWidth={2} />
+        <line x1={110} y1={222} x2={110} y2={244} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
+        <line x1={260} y1={222} x2={410} y2={222} stroke={INK2} strokeWidth={2} />
+        <line x1={410} y1={222} x2={410} y2={244} stroke={INK2} strokeWidth={2} markerEnd="url(#mb-flow-arrow)" />
+        {box(20, 246, 180, 52, '😴 睡著了', '很好，什麼都不用做', GOOD, 'd')}
+        {box(310, 246, 200, 52, '🛋️ 仍清醒 → 離床', '昏暗處看無聊的書、聽音樂', MIND, 'e')}
+        <path d="M510 272 Q516 140 372 100" fill="none" stroke={MIND} strokeWidth={1.5} strokeDasharray="4 3" markerEnd="url(#mb-flow-arrow)" />
+        <text x={420} y={150} fontSize={10} fill={MIND} fontWeight={700}>
+          想睡再回床
+        </text>
+        <text x={260} y={322} textAnchor="middle" fontSize={10.5} fill="var(--viz-bad)" fontWeight={700}>
+          ✕ 不要：看時鐘計算、滑手機、吃宵夜、喝酒、在床上硬撐
+        </text>
+      </svg>
+    </Wide>
   );
 };
 

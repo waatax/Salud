@@ -1,3 +1,4 @@
+import { MindBodyBridge } from './mindbody/MindBodyBridge';
 import React, { useState } from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { SLEEP_TABS } from '../../config/routes';
@@ -81,6 +82,7 @@ export const SleepHub: React.FC = () => {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
+      <MindBodyBridge from="sleep" />
       {/* ── Grand Hero Header ── */}
       <div className="relative overflow-hidden rounded-3xl border border-purple-300/80 dark:border-purple-800/60 bg-gradient-to-br from-purple-50 via-white to-nature-sky-50/50 dark:from-purple-950/80 dark:via-slate-900/95 dark:to-slate-950 p-6 sm:p-10 shadow-sm dark:shadow-2xl backdrop-blur-md">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
