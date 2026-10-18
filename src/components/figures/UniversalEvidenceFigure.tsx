@@ -11,11 +11,22 @@ interface Props {
 export const UniversalEvidenceFigure: React.FC<Props> = ({ figureId, meta, page }) => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
 
-  const chapterTheme = figureId.startsWith('FIG-W')
-    ? { accent: '#06B6D4', badge: '體液與水合生理圖譜', bg: '#083344', border: '#22D3EE' }
-    : figureId.startsWith('FIG-O')
-    ? { accent: '#F59E0B', badge: '脂質生化與烹調科學圖譜', bg: '#451A03', border: '#FBBF24' }
-    : { accent: '#F43F5E', badge: '酒精毒理與防癌臨床圖譜', bg: '#4C0519', border: '#FB7185' };
+  const getFigureChapterTheme = (id: string) => {
+    if (id.startsWith('FIG-W')) return { accent: '#06B6D4', badge: '體液與水合生理圖譜', bg: '#083344', border: '#22D3EE' };
+    if (id.startsWith('FIG-O')) return { accent: '#F59E0B', badge: '脂質生化與烹調科學圖譜', bg: '#451A03', border: '#FBBF24' };
+    if (id.startsWith('FIG-A')) return { accent: '#F43F5E', badge: '酒精毒理與防癌臨床圖譜', bg: '#4C0519', border: '#FB7185' };
+    if (id.startsWith('FIG-E')) return { accent: '#F97316', badge: '能量平衡與熱量代謝圖譜', bg: '#431407', border: '#FB923C' };
+    if (id.startsWith('FIG-P')) return { accent: '#3B82F6', badge: '蛋白質與肌力恆定圖譜', bg: '#172554', border: '#60A5FA' };
+    if (id.startsWith('FIG-C')) return { accent: '#14B8A6', badge: '醣類結構與腸道發酵圖譜', bg: '#042F2E', border: '#2DD4BF' };
+    if (id.startsWith('FIG-S')) return { accent: '#EC4899', badge: '游離糖與果糖病理圖譜', bg: '#500724', border: '#F472B6' };
+    if (id.startsWith('FIG-N')) return { accent: '#EF4444', badge: '鈉鉀離子與血壓調節圖譜', bg: '#450A0A', border: '#F87171' };
+    if (id.startsWith('FIG-M')) return { accent: '#8B5CF6', badge: '微量營養素生物利用率圖譜', bg: '#2E1065', border: '#A78BFA' };
+    if (id.startsWith('FIG-D')) return { accent: '#10B981', badge: '流行病學飲食模式圖譜', bg: '#064E3B', border: '#34D399' };
+    if (id.startsWith('FIG-F')) return { accent: '#0EA5E9', badge: '外食減害與食品標示解密圖譜', bg: '#0C4A6E', border: '#38BDF8' };
+    return { accent: '#06B6D4', badge: '臨床實證醫學圖譜', bg: '#083344', border: '#22D3EE' };
+  };
+
+  const chapterTheme = getFigureChapterTheme(figureId);
 
   const profile = getFourPillarsProfile(page?.id || (figureId.startsWith('FIG-W') ? 'W' : figureId.startsWith('FIG-O') ? 'O' : 'A'));
 

@@ -30,13 +30,15 @@ import {
 
 export type MetaRoute = 'about' | 'evidence' | 'explore';
 
+export type ChapterId = 'W' | 'O' | 'A' | 'E' | 'P' | 'C' | 'S' | 'N' | 'M' | 'D' | 'F';
+
 export type Route =
   | { kind: 'meta'; view: MetaRoute }
   | { kind: 'synergy' }
   | { kind: 'council'; expertId?: string }
   | { kind: 'pillar'; pillar: HealthPillar; sub?: string[] }
   | { kind: 'exercise'; discipline: SportsDiscipline }
-  | { kind: 'chapter'; chapterId: 'W' | 'O' | 'A'; pageId?: string }
+  | { kind: 'chapter'; chapterId: ChapterId; pageId?: string }
   | { kind: 'learn'; trackId?: string; lessonId?: string };
 
 const EXERCISE_ALIASES: Record<string, SportsDiscipline> = {
@@ -86,6 +88,7 @@ const SIMPLE_PILLARS: HealthPillar[] = [
   'glossary',
   'spine',
   'hepb',
+  'mindbody',
 ];
 
 const PILLAR_ALIASES: Record<string, HealthPillar> = {
@@ -108,6 +111,14 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   hepatitis: 'hepb',
   'hepatitis-b': 'hepb',
   hbv: 'hepb',
+  'mind-body': 'mindbody',
+  restore: 'mindbody',
+  kapalabhati: 'mindbody',
+  tuna: 'mindbody',
+  qigong: 'mindbody',
+  mindfulness: 'mindbody',
+  meditation: 'mindbody',
+  insomnia: 'mindbody',
 };
 
 export function parseHash(rawHash: string): Route | null {
@@ -133,8 +144,8 @@ export function parseHash(rawHash: string): Route | null {
     return { kind: 'exercise', discipline: EXERCISE_ALIASES[head] };
   }
 
-  if (head === 'W' || head === 'O' || head === 'A') {
-    return { kind: 'chapter', chapterId: head, pageId: rest[0] };
+  if (['W', 'O', 'A', 'E', 'P', 'C', 'S', 'N', 'M', 'D', 'F'].includes(head)) {
+    return { kind: 'chapter', chapterId: head as ChapterId, pageId: rest[0] };
   }
 
   const pillar = (SIMPLE_PILLARS as string[]).includes(head)
@@ -183,6 +194,29 @@ export const SPINE_TABS: readonly SpineTab[] = [
 ];
 export type HepbTab = 'OVERVIEW' | 'SPREAD' | 'TESTS' | 'PHASES' | 'TREATMENT' | 'MONITOR' | 'LIFE';
 export const HEPB_TABS: readonly HepbTab[] = ['OVERVIEW', 'SPREAD', 'TESTS', 'PHASES', 'TREATMENT', 'MONITOR', 'LIFE'];
+export type MindbodyTab =
+  | 'OVERVIEW'
+  | 'SLEEP_SCIENCE'
+  | 'SLEEP_PLAN'
+  | 'BREATH_SCIENCE'
+  | 'KAPALABHATI'
+  | 'TUNA'
+  | 'MINDFULNESS'
+  | 'BEDTIME'
+  | 'CAPD_PLAN'
+  | 'SAFETY';
+export const MINDBODY_TABS: readonly MindbodyTab[] = [
+  'OVERVIEW',
+  'SLEEP_SCIENCE',
+  'SLEEP_PLAN',
+  'BREATH_SCIENCE',
+  'KAPALABHATI',
+  'TUNA',
+  'MINDFULNESS',
+  'BEDTIME',
+  'CAPD_PLAN',
+  'SAFETY',
+];
 export type SystemSection = 'overview' | 'how' | 'charts' | 'conditions' | 'prevent' | 'flags';
 export const SYSTEM_SECTIONS: readonly SystemSection[] = ['overview', 'how', 'charts', 'conditions', 'prevent', 'flags'];
 
@@ -195,6 +229,7 @@ export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
   checkup: CHECKUP_TABS,
   spine: SPINE_TABS,
   hepb: HEPB_TABS,
+  mindbody: MINDBODY_TABS,
 };
 
 /** Second hash segment when the current hash starts with `prefix/`, e.g. the tab id. */

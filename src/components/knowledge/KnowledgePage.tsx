@@ -17,10 +17,7 @@ import { VisualPlainEnglishDecoder } from './VisualPlainEnglishDecoder';
 import { FourPillarsClinicalMatrix } from './FourPillarsClinicalMatrix';
 import { KpInfoGraphRenderer } from '../figures/KpInfoGraphRenderer';
 import confetti from 'canvas-confetti';
-import { CHAPTERS } from '../../data/chapters';
-import { CHAPTER_W_PAGES } from '../../data/chapterW';
-import { CHAPTER_O_PAGES } from '../../data/chapterO';
-import { CHAPTER_A_PAGES } from '../../data/chapterA';
+import { CHAPTERS, getChapterPages } from '../../data/chapters';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
 import { buildPaperUrls } from '../../utils/paperLinks';
@@ -995,12 +992,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── Previous & Next Page Navigation Cards ── */}
       {(() => {
-        const chapterPages =
-          page.chapter_id === 'O'
-            ? CHAPTER_O_PAGES
-            : page.chapter_id === 'A'
-            ? CHAPTER_A_PAGES
-            : CHAPTER_W_PAGES;
+        const chapterPages = getChapterPages(page.chapter_id);
         const prevPage = prevPageId ? chapterPages.find((p) => p.id === prevPageId) : null;
         const nextPage = nextPageId ? chapterPages.find((p) => p.id === nextPageId) : null;
 

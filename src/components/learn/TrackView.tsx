@@ -44,6 +44,7 @@ const TRACK_PILLAR_TOPIC: Record<string, string> = {
   rest: 'sleep',
   checkup: 'ultrahealth',
   prevent: 'longevity',
+  spine: 'musculoskeletal',
 };
 
 /** `#learn` → catalogue, `#learn/<track>` → track overview, `#learn/<track>/<lesson>` → lesson. */
@@ -118,7 +119,7 @@ const Catalogue: React.FC = () => {
   );
 };
 
-/** 7 大主線全景學習架構地圖 */
+/** 8 大主線全景學習架構地圖 */
 const CurriculumFrameworkMap: React.FC = () => {
   const steps = [
     { num: '01', title: '素養入門', hint: '看懂體徵、辨識真假資訊', tone: 'bg-emerald-500 text-white' },
@@ -128,15 +129,16 @@ const CurriculumFrameworkMap: React.FC = () => {
     { num: '05', title: '睡好減壓', hint: '晝夜節律與自律神經', tone: 'bg-purple-500 text-white' },
     { num: '06', title: '看懂健檢', hint: '報告紅字與數值分區', tone: 'bg-rose-500 text-white' },
     { num: '07', title: '預防老化', hint: '三高預防與阻斷肌少症', tone: 'bg-amber-600 text-white' },
+    { num: '08', title: '脊椎神經', hint: '椎間盤/骨刺/坐骨神經痛與核心穩定', tone: 'bg-rose-600 text-white' },
   ];
 
   return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 space-y-4 shadow-xs" aria-label="7大健康學習主線架構流程">
+    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 space-y-4 shadow-xs" aria-label="8大健康學習主線架構流程">
       <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
         <div className="flex items-center gap-2">
           <Layers className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
           <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            學習架構地圖：從基礎素養到長壽老化的七階遞進
+            學習架構地圖：從基礎素養到長壽老化的八階遞進
           </figcaption>
         </div>
         <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium">
@@ -144,7 +146,7 @@ const CurriculumFrameworkMap: React.FC = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
         {steps.map((s, idx) => (
           <div key={s.num} className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 space-y-1.5 flex flex-col justify-between">
             <div>
@@ -170,7 +172,8 @@ const TrackComparisonTable: React.FC = () => {
     { name: '動得好', lessons: '7 課 · 46 分鐘', difficulty: '核心 ★★☆', outcome: '學會 Zone 2 心率、長壽步數曲線、抗阻動作模式與防傷急救', audience: '想建立運動規律者' },
     { name: '睡好與心理', lessons: '7 課 · 46 分鐘', difficulty: '實用 ★★☆', outcome: '校準 24H 生物鐘、學會史丹佛生理嘆氣、突破失眠 CBT-I 與 OSA 篩檢', audience: '受失眠與壓力困擾者' },
     { name: '看懂健檢報告', lessons: '8 課 · 47 分鐘', difficulty: '實用 ★★☆', outcome: '血壓血糖血脂紅字解讀、eGFR/UACR 腎病熱圖、FIB-4 與公費癌篩', audience: '剛拿到體檢紅字者' },
-    { name: '慢性病預防與老化', lessons: '9 課 · 58 分鐘', difficulty: '整合 ★★★', outcome: '阻斷動脈粥狀硬化、DPP 逆轉糖尿病前期、GLP-1、肌少症與疫苗', audience: '照顧全家長輩與想健康長壽者' },
+    { name: '慢性病預防與老化', lessons: '10 課 · 65 分鐘', difficulty: '整合 ★★★', outcome: '阻斷動脈粥狀硬化、DPP 逆轉糖尿病前期、GLP-1、肌少症、次世代疫苗與衰弱防跌', audience: '照顧全家長輩與想健康長壽者' },
+    { name: '脊椎與神經保養', lessons: '6 課 · 38 分鐘', difficulty: '專科 ★★☆', outcome: '破解骨刺與椎間盤迷思、麥吉爾核心大三防護、坐骨神經滑動與紅旗急診', audience: '久坐上班族、腰痛背痛與手腳發麻者' },
   ];
 
   return (
@@ -178,7 +181,7 @@ const TrackComparisonTable: React.FC = () => {
       <div className="flex items-center gap-2">
         <Table className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
         <h2 id="track-table-h" className="text-base font-bold text-slate-900 dark:text-white">
-          七大主線課程規劃與學習目標對照表
+          八大主線課程規劃與學習目標對照表
         </h2>
       </div>
 

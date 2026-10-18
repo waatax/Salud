@@ -30,6 +30,7 @@ import {
   SlidersHorizontal,
   RotateCcw
 } from 'lucide-react';
+import { getChapterKnowledgeConfig } from '../../data/chapterKnowledgeConfig';
 
 interface Props {
   pages: KnowledgePage[];
@@ -37,147 +38,16 @@ interface Props {
   onSelectPage: (pageId: string) => void;
 }
 
-// 4 大臨床專科分類定義
-const CATEGORIES = [
-  {
-    id: 'all',
-    name_zh: '全部醫學文庫',
-    name_en: 'All Knowledge Pages',
-    desc: '體液恆定、水合監測、急性脫水與臨床安全完整課綱',
-    icon: Layers,
-    color: 'sky',
-    badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700',
-    borderActive: 'border-nature-sky-500 text-nature-sky-700 dark:text-nature-sky-300 bg-nature-sky-50/70 dark:bg-nature-sky-950/40'
-  },
-  {
-    id: 'fluid-homeostasis',
-    name_zh: '體液生理與水份分佈',
-    name_en: 'Fluid Homeostasis & Compartments',
-    desc: '總體水 TBW、細胞內外液滲透平衡、ADH 與 24h 收支',
-    icon: Droplets,
-    color: 'cyan',
-    badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800',
-    borderActive: 'border-sky-500 text-sky-700 dark:text-sky-300 bg-sky-50/80 dark:bg-sky-950/50'
-  },
-  {
-    id: 'hydration-guidelines',
-    name_zh: '水合準則與臨床監測',
-    name_en: 'Hydration Guidelines & Biomarkers',
-    desc: '8杯水迷思、尿液顏色卡 WUT 自評、咖啡茶酒淨水合',
-    icon: Activity,
-    color: 'emerald',
-    badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
-    borderActive: 'border-emerald-500 text-emerald-700 dark:text-emerald-300 bg-emerald-50/80 dark:bg-emerald-950/50'
-  },
-  {
-    id: 'dehydration-pathology',
-    name_zh: '脫水病理與急性風險',
-    name_en: 'Dehydration Pathology & Acute Risks',
-    desc: '脫水階梯至熱中暑急症、運動低血鈉 EAH 水中毒、電解質',
-    icon: AlertTriangle,
-    color: 'amber',
-    badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800',
-    borderActive: 'border-amber-500 text-amber-700 dark:text-amber-300 bg-amber-50/80 dark:bg-amber-950/50'
-  },
-  {
-    id: 'special-populations',
-    name_zh: '特殊族群安全與在地實踐',
-    name_en: 'Safety Gates & Real-World Practice',
-    desc: '心衰竭與洗腎限水安全閘、台灣高溫濕熱冷氣房對策',
-    icon: ShieldCheck,
-    color: 'rose',
-    badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800',
-    borderActive: 'border-rose-500 text-rose-700 dark:text-rose-300 bg-rose-50/80 dark:bg-rose-950/50'
-  }
-];
-
-// 5 大關鍵臨床生理常數速查
-const CLINICAL_CONSTANTS = [
-  {
-    id: 'tbw',
-    label: '總體水 (TBW)',
-    value: '50–60%',
-    unit: '體重比',
-    sub: '肌肉 73% vs 脂肪 10%',
-    targetPage: 'PAGE-W-01',
-    color: 'text-sky-600 dark:text-salud-cyan'
-  },
-  {
-    id: 'plasma',
-    label: '血漿容量',
-    value: '~8%',
-    unit: '總體水',
-    sub: '約 3L 血管動態循環庫',
-    targetPage: 'PAGE-W-01',
-    color: 'text-emerald-600 dark:text-nature-green-400'
-  },
-  {
-    id: 'osmolality',
-    label: '滲透壓閾值',
-    value: '280–295',
-    unit: 'mOsm/kg',
-    sub: '上升 1% 即觸發 ADH 分泌',
-    targetPage: 'PAGE-W-03',
-    color: 'text-purple-600 dark:text-purple-400'
-  },
-  {
-    id: 'hyponatremia',
-    label: '低血鈉警戒',
-    value: '< 135',
-    unit: 'mmol/L',
-    sub: '< 125 致命腦水腫紅旗',
-    targetPage: 'PAGE-W-08',
-    color: 'text-rose-600 dark:text-rose-400'
-  },
-  {
-    id: 'insensible',
-    label: '不感蒸發流失',
-    value: '700–1000',
-    unit: 'mL / 日',
-    sub: '靜坐仍持續呼吸皮膚蒸散',
-    targetPage: 'PAGE-W-04',
-    color: 'text-amber-600 dark:text-salud-amber'
-  }
-];
-
-// 4 階循序學習階梯
-const LEARNING_PATHWAY = [
-  {
-    step: 1,
-    title: '基礎生理入門',
-    targetPages: ['PAGE-W-01', 'PAGE-W-02', 'PAGE-W-05'],
-    objective: '建立人體水分分佈、細胞內外液空間及一日八杯水迷思之科學實證。',
-    badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300'
-  },
-  {
-    step: 2,
-    title: '生化機轉深究',
-    targetPages: ['PAGE-W-03', 'PAGE-W-04', 'PAGE-W-09'],
-    objective: '剖析下視丘滲透壓受器、ADH 抗利尿激素迴路與鈉鉀幫浦電解質吸收。',
-    badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300'
-  },
-  {
-    step: 3,
-    title: '臨床判別監測',
-    targetPages: ['PAGE-W-06', 'PAGE-W-07', 'PAGE-W-10', 'PAGE-W-12'],
-    objective: '掌握 WUT 脫水三指標、尿色卡校正、中暑脫水階梯與台灣濕熱微氣候對策。',
-    badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300'
-  },
-  {
-    step: 4,
-    title: '致命急症與安全閘',
-    targetPages: ['PAGE-W-08', 'PAGE-W-11'],
-    objective: '嚴格把關運動低血鈉 (EAH) 水中毒預防，以及心衰竭與末期腎病洗腎患者限水閘。',
-    badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold'
-  }
-];
-
 export const MedicalKnowledgeBase: React.FC<Props> = ({
   pages,
   chapterId,
   onSelectPage,
 }) => {
   const { language } = useLanguage();
+  const chapterConfig = useMemo(() => getChapterKnowledgeConfig(chapterId), [chapterId]);
+  const categories = chapterConfig.categories;
+  const clinicalConstants = chapterConfig.clinicalConstants;
+  const learningPathway = chapterConfig.learningPathway;
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [selectedPathwayStep, setSelectedPathwayStep] = useState<number | null>(null);
@@ -250,7 +120,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
     let result = pages.filter((p) => {
       // 學習階梯過濾
       if (selectedPathwayStep !== null) {
-        const stepDef = LEARNING_PATHWAY.find((s) => s.step === selectedPathwayStep);
+        const stepDef = learningPathway.find((s) => s.step === selectedPathwayStep);
         if (stepDef && !stepDef.targetPages.includes(p.id)) return false;
       }
 
@@ -356,13 +226,13 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
         <div className="flex items-center justify-between px-1 text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
           <span className="flex items-center gap-1.5">
             <TrendingUp className="w-3.5 h-3.5 text-nature-sky-600 dark:text-salud-cyan" />
-            <span>水與體液平衡 · 臨床黃金常數速查 (Clinical Constants At A Glance)</span>
+            <span>{chapterConfig.constantsHeader}</span>
           </span>
           <span className="text-[11px] font-sans text-slate-400">點選指標直達專章</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
-          {CLINICAL_CONSTANTS.map((c) => (
+          {clinicalConstants.map((c) => (
             <div
               key={c.id}
               onClick={() => onSelectPage(c.targetPage)}
@@ -383,7 +253,9 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
       </div>
 
       {/* ── 2.5 遊戲化健康學習中樞 (Gamified Learning Hub: XP, Streak, Daily Quiz, Hydration Calculator, Medals) ── */}
-      <GamifiedLearningHub completedPages={completedPages} onSelectPage={onSelectPage} />
+      {chapterId === 'W' && (
+        <GamifiedLearningHub completedPages={completedPages} onSelectPage={onSelectPage} />
+      )}
 
       {/* ── 3. 醫學知識庫控制中樞 (分類 Tabs + TAG 雲 + 搜尋 + 視圖切換) ── */}
       <div className="space-y-4">
@@ -395,7 +267,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
               <span>醫學知識庫 (Medical Knowledge Base)</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-              Chapter {chapterId} · 水與體液恆定實證文庫 · 12 篇專科知識頁與生化機轉
+              Chapter {chapterId} · {chapterConfig.titleZh} · {pages.length} 篇專科知識頁與生化機轉
             </p>
           </div>
 
@@ -447,9 +319,9 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* 4 大臨床專科分類 Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
-          {CATEGORIES.map((cat) => {
+        {/* 臨床專科分類 Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-2.5">
+          {categories.map((cat) => {
             const Icon = cat.icon;
             const isSelected = selectedCategory === cat.id;
             const count = categoryCounts[cat.id] || 0;
@@ -607,7 +479,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-            {LEARNING_PATHWAY.map((step) => {
+            {learningPathway.map((step) => {
               const isStepSelected = selectedPathwayStep === step.step;
               return (
                 <div

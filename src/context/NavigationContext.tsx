@@ -1,10 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { HealthPillar, SportsDiscipline } from '../types';
-import { CHAPTERS } from '../data/chapters';
-import { CHAPTER_W_PAGES } from '../data/chapterW';
-import { CHAPTER_O_PAGES } from '../data/chapterO';
-import { CHAPTER_A_PAGES } from '../data/chapterA';
-import { parseHash, Route } from '../config/routes';
+import { CHAPTERS, getChapterPages } from '../data/chapters';
+import { parseHash, Route, ChapterId } from '../config/routes';
 
 export type MetaView = 'about' | 'evidence' | 'explore' | null;
 
@@ -159,14 +156,16 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const selectChapter = (chId: string) => {
-    if (chId === 'W' || chId === 'O' || chId === 'A') {
-      applyRoute({ kind: 'chapter', chapterId: chId });
+    const pages = getChapterPages(chId);
+    if (pages.length > 0 || CHAPTERS.some((c) => c.id === chId)) {
+      applyRoute({ kind: 'chapter', chapterId: chId as ChapterId });
       go(chId);
     }
   };
 
   const selectPage = (pageId: string) => {
-    const chId = (pageId.match(/^PAGE-([WOA])-/)?.[1] ?? currentChapterId) as 'W' | 'O' | 'A';
+    const chMatch = pageId.match(/^PAGE-([A-Z])-/)?.[1];
+    const chId = (chMatch ?? currentChapterId) as ChapterId;
     applyRoute({ kind: 'chapter', chapterId: chId, pageId });
     go(`${chId}/${pageId}`);
   };
@@ -181,14 +180,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     metaView || isSynergyView || isCouncilEvidenceView ? null : activePillar;
 
   const currentChapter = CHAPTERS.find((c) => c.id === currentChapterId) || CHAPTERS[0];
-  const pagesForCurrent =
-    currentChapterId === 'W'
-      ? CHAPTER_W_PAGES
-      : currentChapterId === 'O'
-      ? CHAPTER_O_PAGES
-      : currentChapterId === 'A'
-      ? CHAPTER_A_PAGES
-      : [];
+  const pagesForCurrent = getChapterPages(currentChapterId);
   const currentPage = pagesForCurrent.find((p) => p.id === activePageId) || pagesForCurrent[0];
 
   const value: NavigationContextProps = {

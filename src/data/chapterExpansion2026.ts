@@ -164,7 +164,7 @@ export const PAGE_W_13: KnowledgePage = {
       safety_flag: 'none',
     }),
   ],
-  figure_ids: [],
+  figure_ids: ['FIG-W-13-01', 'FIG-W-13-02'],
   taiwan_context: {
     title: '台灣的高溫、減重藥與結石帶',
     description:
@@ -378,7 +378,7 @@ export const PAGE_O_13: KnowledgePage = {
       safety_flag: 'none',
     }),
   ],
-  figure_ids: [],
+  figure_ids: ['FIG-O-13-01', 'FIG-O-13-02'],
   taiwan_context: {
     title: '台灣外食與包裝食品的油',
     description:
@@ -585,7 +585,7 @@ export const PAGE_A_14: KnowledgePage = {
       safety_flag: 'none',
     }),
   ],
-  figure_ids: [],
+  figure_ids: ['FIG-A-14-01', 'FIG-A-14-02'],
   taiwan_context: {
     title: '台灣的敬酒文化與紅臉基因',
     description:

@@ -16,6 +16,7 @@ import {
   PersonStanding,
   Bone,
   ShieldPlus,
+  Flower2,
   LucideIcon,
 } from 'lucide-react';
 import { HealthPillar } from '../types';
@@ -240,6 +241,19 @@ export const PILLAR_NAV: PillarNavItem[] = [
     mobile: true,
     short_zh: '呼吸',
     short_en: 'Breath',
+  },
+  {
+    id: 'mindbody',
+    hash: 'mindbody',
+    icon: Flower2,
+    label_zh: '睡眠・呼吸・正念',
+    label_en: 'Sleep, Breath & Mindfulness',
+    blurb_zh: '失眠·吐納·冥想',
+    blurb_en: 'Insomnia · qigong',
+    group: 'daily',
+    mobile: true,
+    short_zh: '身心',
+    short_en: 'Mind-body',
   },
   {
     id: 'cardiometabolic',
