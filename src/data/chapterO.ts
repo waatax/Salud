@@ -5,6 +5,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-01',
     chapter_id: 'O',
+    category: 'oil-chemistry',
+    category_zh: '脂肪酸化學結構',
     title_zh: '脂肪到底是什麼',
     title_en: 'What Are Fats? Triglycerides & Energy Density',
     order_index: 1,
@@ -129,6 +131,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-02',
     chapter_id: 'O',
+    category: 'oil-chemistry',
+    category_zh: '脂肪酸化學結構',
     title_zh: '飽和、單元、多元：一根碳鏈的差別',
     title_en: 'SFA, MUFA & PUFA: The Molecular Architecture',
     order_index: 2,
@@ -273,6 +277,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-03',
     chapter_id: 'O',
+    category: 'oil-chemistry',
+    category_zh: '脂肪酸化學結構',
     title_zh: '必需脂肪酸與 Omega-3 / Omega-6',
     title_en: 'Essential Fatty Acids: Omega-3 & Omega-6 Pathways',
     order_index: 3,
@@ -430,6 +436,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-04',
     chapter_id: 'O',
+    category: 'omega-balance',
+    category_zh: 'Omega-3/6 發炎恆定',
     title_zh: '脂肪在身體做什麼',
     title_en: 'Physiological Functions: Vitamins, Membranes & Signaling',
     order_index: 4,
@@ -587,6 +595,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-05',
     chapter_id: 'O',
+    category: 'omega-balance',
+    category_zh: 'Omega-3/6 發炎恆定',
     title_zh: '飽和脂肪與血脂：關鍵是「換成什麼」',
     title_en: 'Saturated Fat & Lipids: Isocaloric Substitution',
     order_index: 5,
@@ -751,6 +761,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-06',
     chapter_id: 'O',
+    category: 'smoke-point',
+    category_zh: '發煙點與熱裂解',
     title_zh: '反式脂肪：唯一沒有安全攝取量的脂肪',
     title_en: 'Trans Fats: Zero Safe Intake & Taiwan Ban',
     order_index: 6,
@@ -895,6 +907,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-07',
     chapter_id: 'O',
+    category: 'smoke-point',
+    category_zh: '發煙點與熱裂解',
     title_zh: '常見食用油怎麼選',
     title_en: 'Selecting Edible Oils: The 16 Oils Guide',
     order_index: 7,
@@ -1072,6 +1086,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-08',
     chapter_id: 'O',
+    category: 'oil-chemistry',
+    category_zh: '脂肪酸化學結構',
     title_zh: '發煙點與烹調：被誤解最深的數字',
     title_en: 'Smoke Point & Cooking Temperature Realities',
     order_index: 8,
@@ -1229,6 +1245,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-09',
     chapter_id: 'O',
+    category: 'smoke-point',
+    category_zh: '發煙點與熱裂解',
     title_zh: '油會壞掉：氧化、回鍋與保存',
     title_en: 'Oil Degradation: Oxidation, Reheating & Storage',
     order_index: 9,
@@ -1373,6 +1391,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-10',
     chapter_id: 'O',
+    category: 'smoke-point',
+    category_zh: '發煙點與熱裂解',
     title_zh: '看不見的油：加工食品與台灣外食',
     title_en: 'Invisible Fats in Processed Food & Street Eats',
     order_index: 10,
@@ -1497,6 +1517,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-11',
     chapter_id: 'O',
+    category: 'oil-chemistry',
+    category_zh: '脂肪酸化學結構',
     title_zh: '一天該吃多少油',
     title_en: 'Daily Oil Portions: Teaspoons & Nuts Balance',
     order_index: 11,
@@ -1621,6 +1643,8 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-O-12',
     chapter_id: 'O',
+    category: 'smoke-point',
+    category_zh: '發煙點與熱裂解',
     title_zh: '油的迷思擂台',
     title_en: 'Fat Myth Arena: Debunking Pseudoscience',
     order_index: 12,
@@ -1724,7 +1748,7 @@ const CHAPTER_O_BASE: KnowledgePage[] = [
         common_misconception: '橄欖油只要下鍋熱炒就會全部變成有毒自由基。',
         evidence_grade: 'C',
         claim_ids: ['CLM-O-0591'],
-        figure_ids: ['FIG-O-08-03'],
+        figure_ids: ['FIG-O-12-02'],
         prerequisites: ['KP-O-040'],
         applies_population: '一般大眾',
         applies_region: '全球',

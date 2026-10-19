@@ -1,4 +1,5 @@
 import { FigureMeta, FigureType, KnowledgePage } from '../types';
+import { CURRICULUM_FIGURES, curriculumFigureMeta } from './curriculumFigures';
 
 export const FIGURES_CATALOG: Record<string, FigureMeta> = {
   'FIG-W-01-01': {
@@ -316,6 +317,10 @@ export const FIGURES_CATALOG: Record<string, FigureMeta> = {
 export function resolveFigureMeta(figId: string, page?: KnowledgePage): FigureMeta {
   if (FIGURES_CATALOG[figId]) {
     return FIGURES_CATALOG[figId];
+  }
+  if (CURRICULUM_FIGURES[figId]) {
+    const kpIds = (page?.kps || []).filter((k) => k.figure_ids.includes(figId)).map((k) => k.id);
+    return curriculumFigureMeta(figId, CURRICULUM_FIGURES[figId], kpIds);
   }
 
   const figIndex = page?.figure_ids ? Math.max(0, page.figure_ids.indexOf(figId)) : 0;

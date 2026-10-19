@@ -1622,7 +1622,7 @@ const CHAPTER_W_BASE: KnowledgePage[] = [
         why_it_matters: '破除「為了發奶每天一定要灌 5 公升黑豆水或魚湯」的產後焦慮。',
         evidence_grade: 'B',
         claim_ids: ['CLM-W-0511'],
-        figure_ids: [],
+        figure_ids: ['FIG-W-11-02'],
         prerequisites: ['KP-W-018'],
         applies_population: '產後哺乳女性',
         applies_region: '全球',
@@ -1632,7 +1632,7 @@ const CHAPTER_W_BASE: KnowledgePage[] = [
         reviewed_by: ['EC-05'],
       }
     ],
-    figure_ids: ['FIG-W-11-01'],
+    figure_ids: ['FIG-W-11-01', 'FIG-W-11-02'],
     taiwan_context: {
       title: '台灣透析（洗腎）盛行率與體重秤管理',
       description: '台灣洗腎人口盛行率高居世界前列，各大醫院腎臟科門診最重要的衛教核心就是「限水與每日量體重」。洗腎病友若週末不慎喝太多冬瓜湯或茶水，兩次透析間體重暴增超過 2–3 公斤，就極易在半夜引發急性肺水腫而掛急診插管抽水。',
@@ -1718,7 +1718,7 @@ const CHAPTER_W_BASE: KnowledgePage[] = [
         why_it_matters: '冷氣房工作者需建立主動定時倒水杯的小習慣，別被皮膚乾爽的假象欺騙。',
         evidence_grade: 'C',
         claim_ids: ['CLM-W-0531'],
-        figure_ids: ['FIG-W-04-02'],
+        figure_ids: ['FIG-W-12-01'],
         prerequisites: ['KP-W-016'],
         applies_population: '室內辦公族',
         applies_region: '台灣都會區',

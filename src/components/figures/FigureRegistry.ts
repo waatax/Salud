@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FigureType } from '../../types';
 import { FIGURES_CATALOG } from '../../data/figuresMeta';
+import { CURRICULUM_FIGURES } from '../../data/curriculumFigures';
 
 /**
  * FigureRegistry — WP6: Centralized figure component lookup.
@@ -9,6 +10,10 @@ import { FIGURES_CATALOG } from '../../data/figuresMeta';
  * type-based registry. All figure components are lazily loaded so
  * they are only fetched when actually rendered.
  */
+
+const CurriculumChartLazy = React.lazy(() =>
+  import('./CurriculumChart').then((m) => ({ default: m.CurriculumChart }))
+);
 
 const UniversalFigureLazy = React.lazy(() =>
   import('./UniversalEvidenceFigure').then((m) => ({ default: m.UniversalEvidenceFigure }))
@@ -40,6 +45,9 @@ export function getFigureComponent(
   figureType: FigureType,
   figureId?: string
 ): React.LazyExoticComponent<React.ComponentType<any>> {
+  if (figureId && CURRICULUM_FIGURES[figureId] && !FIGURES_CATALOG[figureId]) {
+    return CurriculumChartLazy;
+  }
   if (figureId && !FIGURES_CATALOG[figureId]) {
     return UniversalFigureLazy;
   }

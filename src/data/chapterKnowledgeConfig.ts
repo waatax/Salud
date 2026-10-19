@@ -126,7 +126,7 @@ export const CHAPTER_KNOWLEDGE_CONFIGS: Record<ChapterId, ChapterKnowledgeConfig
       { step: 1, title: '基礎生理入門', targetPages: ['PAGE-W-01', 'PAGE-W-02', 'PAGE-W-05'], objective: '建立人體水分分佈、細胞內外液空間及一日八杯水迷思之科學實證。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
       { step: 2, title: '生化機轉深究', targetPages: ['PAGE-W-03', 'PAGE-W-04', 'PAGE-W-09'], objective: '剖析下視丘滲透壓受器、ADH 抗利尿激素迴路與鈉鉀幫浦電解質吸收。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
       { step: 3, title: '臨床判別監測', targetPages: ['PAGE-W-06', 'PAGE-W-07', 'PAGE-W-10', 'PAGE-W-12'], objective: '掌握 WUT 脫水三指標、尿色卡校正、中暑脫水階梯與台灣濕熱微氣候對策。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
-      { step: 4, title: '致命急症與安全閘', targetPages: ['PAGE-W-08', 'PAGE-W-11'], objective: '嚴格把關運動低血鈉 (EAH) 水中毒預防，以及心衰竭與末期腎病洗腎患者限水閘。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
+      { step: 4, title: '致命急症與安全閘', targetPages: ['PAGE-W-08', 'PAGE-W-11', 'PAGE-W-13'], objective: '嚴格把關運動低血鈉 (EAH) 水中毒預防，以及心衰竭與末期腎病洗腎患者限水閘與 2026 實證。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
     ]
   },
   O: {
@@ -138,7 +138,8 @@ export const CHAPTER_KNOWLEDGE_CONFIGS: Record<ChapterId, ChapterKnowledgeConfig
       { id: 'all', name_zh: '全部油脂專題', name_en: 'All Oil Topics', desc: '脂肪酸化學結構、Omega 比例、高溫烹調發煙點全解析', icon: Layers, color: 'amber', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300', borderActive: 'border-amber-500 text-amber-700 dark:text-amber-300 bg-amber-50/70' },
       { id: 'oil-chemistry', name_zh: '脂肪酸化學結構', name_en: 'Fatty Acid Chemistry', desc: '飽和、單元不飽和 MUFA、多元不飽和 PUFA 碳鏈雙鍵化學', icon: Flame, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
       { id: 'omega-balance', name_zh: 'Omega-3/6 發炎恆定', name_en: 'Omega Balance & Eicosanoids', desc: '花生四烯酸發炎級聯反應 vs EPA/DHA 抗發炎消退素', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
-      { id: 'smoke-point', name_zh: '發煙點與熱裂解', name_en: 'Smoke Point & Oxidation', desc: '初榨橄欖油、油品高溫熱裂解自由基與安全煎炒極限', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' }
+      { id: 'smoke-point', name_zh: '發煙點與熱裂解', name_en: 'Smoke Point & Oxidation', desc: '初榨橄欖油、油品高溫熱裂解自由基與安全煎炒極限', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' },
+      { id: 'evidence-update', name_zh: '最新實證更新', name_en: 'Evidence Update', desc: '超加工食品、種子油爭議與 2025–2026 最新臨床實證', icon: ShieldCheck, color: 'blue', badgeClass: 'bg-blue-50 dark:bg-blue-950/50 text-blue-700', borderActive: 'border-blue-500 text-blue-700 bg-blue-50/80' }
     ],
     clinicalConstants: [
       { id: 'omega_ratio', label: 'Omega 6:3 比', value: '< 4:1', unit: '黃金攝取比', sub: '現代外食常失衡達 20:1 促發炎', targetPage: 'PAGE-O-02', color: 'text-amber-600 dark:text-amber-400' },
@@ -148,9 +149,11 @@ export const CHAPTER_KNOWLEDGE_CONFIGS: Record<ChapterId, ChapterKnowledgeConfig
       { id: 'pufa_oxidation', label: '過氧化物指數', value: '< 10', unit: 'meq O2/kg', sub: '回鍋油自由基破壞細胞膜脂質', targetPage: 'PAGE-O-03', color: 'text-red-600 dark:text-red-400' }
     ],
     learningPathway: [
-      { step: 1, title: '脂肪酸化學結構', targetPages: ['PAGE-O-01'], objective: '掌握碳鏈飽和度、反式脂肪雙鍵立體異構物與血脂 LDL 機轉。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 2, title: 'Omega 比例與發炎級聯', targetPages: ['PAGE-O-02'], objective: '剖析 COX 酵素競爭、花生四烯酸微環境促發炎 vs 魚油消退素抗發炎。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
-      { step: 3, title: '發煙點與高溫熱裂解安全', targetPages: ['PAGE-O-03'], objective: '打破橄欖油不能熱炒迷思，建立游離脂肪酸臨界與回鍋油毒性防禦。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' }
+      { step: 1, title: '脂肪酸化學結構', targetPages: ['PAGE-O-01', 'PAGE-O-02', 'PAGE-O-03'], objective: '掌握碳鏈飽和度、反式脂肪雙鍵立體異構物與血脂 LDL 機轉。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 2, title: 'Omega 比例與發炎級聯', targetPages: ['PAGE-O-04', 'PAGE-O-05'], objective: '剖析 COX 酵素競爭、花生四烯酸微環境促發炎 vs 魚油消退素抗發炎。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
+      { step: 3, title: '發煙點與高溫熱裂解安全', targetPages: ['PAGE-O-06', 'PAGE-O-07', 'PAGE-O-08', 'PAGE-O-09', 'PAGE-O-10'], objective: '打破橄欖油不能熱炒迷思，建立游離脂肪酸臨界、油品輪替與外食油炸防禦。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 4, title: '份量管理與血脂迷思', targetPages: ['PAGE-O-11', 'PAGE-O-12'], objective: '掌握每日油脂份量、茶匙計算法，破解膽固醇與豬油迷思。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300' },
+      { step: 5, title: '超加工與最新實證', targetPages: ['PAGE-O-13'], objective: '依據 2025–2026 最新指引辨析超加工食品與種子油爭議。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
     ]
   },
   A: {
@@ -162,7 +165,8 @@ export const CHAPTER_KNOWLEDGE_CONFIGS: Record<ChapterId, ChapterKnowledgeConfig
       { id: 'all', name_zh: '全部酒精專題', name_en: 'All Alcohol Topics', desc: '酒精代謝路徑、ALDH2 乙醛突變、睡眠利尿破壞完整課綱', icon: Layers, color: 'purple', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-purple-500 text-purple-700 dark:text-purple-300 bg-purple-50/70' },
       { id: 'alcohol-metabolism', name_zh: '肝臟代謝途徑', name_en: 'Hepatic Oxidation', desc: 'ADH / ALDH 雙步驟氧化、NADH/NAD+ 比值升高與脂肪肝', icon: Wine, color: 'purple', badgeClass: 'bg-purple-50 dark:bg-purple-950/50 text-purple-700', borderActive: 'border-purple-500 text-purple-700 bg-purple-50/80' },
       { id: 'aldh2-deficiency', name_zh: 'ALDH2 突變致癌', name_en: 'ALDH2 Polymorphism', desc: '台灣 47% 盛行率、乙醛一級致癌物累積與臉紅心悸紅旗', icon: AlertTriangle, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' },
-      { id: 'sleep-hydration', name_zh: '睡眠與水分恆定', name_en: 'Sleep & Osmotic Balance', desc: '下視丘 ADH 抑制利尿、深層 REM 睡眠片段化與宿醉病理', icon: Activity, color: 'sky', badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700', borderActive: 'border-sky-500 text-sky-700 bg-sky-50/80' }
+      { id: 'sleep-hydration', name_zh: '睡眠與水分恆定', name_en: 'Sleep & Osmotic Balance', desc: '下視丘 ADH 抑制利尿、深層 REM 睡眠片段化與宿醉病理', icon: Activity, color: 'sky', badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700', borderActive: 'border-sky-500 text-sky-700 bg-sky-50/80' },
+      { id: 'evidence-update', name_zh: '最新實證更新', name_en: 'Evidence Update', desc: '美國衛生總署 2025 警示、零安全飲酒量與最新公衛指引', icon: ShieldCheck, color: 'blue', badgeClass: 'bg-blue-50 dark:bg-blue-950/50 text-blue-700', borderActive: 'border-blue-500 text-blue-700 bg-blue-50/80' }
     ],
     clinicalConstants: [
       { id: 'aldh2_tw', label: '台灣人 ALDH2 突變', value: '47%', unit: '人口盛行率', sub: '全球第一高！乙醛無法代謝蓄積', targetPage: 'PAGE-A-02', color: 'text-rose-600 dark:text-rose-400' },
@@ -172,201 +176,234 @@ export const CHAPTER_KNOWLEDGE_CONFIGS: Record<ChapterId, ChapterKnowledgeConfig
       { id: 'diuretic_factor', label: '下視丘抑制 ADH', value: '+50%', unit: '額外利尿排水', sub: '每喝 250mL 啤酒排出 ~350mL 尿液', targetPage: 'PAGE-A-03', color: 'text-sky-600 dark:text-salud-cyan' }
     ],
     learningPathway: [
-      { step: 1, title: '肝臟雙步氧化機轉', targetPages: ['PAGE-A-01'], objective: '拆解 ADH/ALDH 代謝級聯與 NADH 累積阻斷脂肪酸氧化病理。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300' },
-      { step: 2, title: 'ALDH2 缺損一級致癌', targetPages: ['PAGE-A-02'], objective: '正視臉紅並非代謝好，辨識一級致癌物乙醛與台灣族群食道癌風險。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' },
-      { step: 3, title: '睡眠微結構與水合急救', targetPages: ['PAGE-A-03'], objective: '掌握酒精抑止 ADH 脫水循環，建立次日電解質水合與肝臟保護指引。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' }
+      { step: 1, title: '吸收與代謝生化', targetPages: ['PAGE-A-01', 'PAGE-A-02'], objective: '掌握胃腸吸收動力學、ADH/ALDH 雙氧化與 NADH/NAD+ 脂肪肝機轉。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300' },
+      { step: 2, title: '基因毒性與致癌因果', targetPages: ['PAGE-A-03', 'PAGE-A-04', 'PAGE-A-05'], objective: '剖析台灣 ALDH2 缺失、IARC 一級致癌物乙醛與破解 J 曲線迷思。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300' },
+      { step: 3, title: '器官毒理與酒種解碼', targetPages: ['PAGE-A-06', 'PAGE-A-07', 'PAGE-A-08', 'PAGE-A-09'], objective: '掌握睡眠碎片化、肝硬化胰臟炎進程，比較啤酒尿酸與烈酒黏膜灼傷。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 4, title: '宿醉、藥物交互與成癮防線', targetPages: ['PAGE-A-10', 'PAGE-A-11', 'PAGE-A-12', 'PAGE-A-13'], objective: '落實科學宿醉急救、避開止痛藥安眠藥致命交互作用，以 AUDIT-C 篩檢酒精依賴。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
+      { step: 5, title: '2025–2026 全球新共識', targetPages: ['PAGE-A-14'], objective: '理解美國衛生總署癌症警示與全球低風險指引走向「零安全量」。', badgeClass: 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 font-bold' }
     ]
   },
   E: {
     titleZh: '能量與熱量平衡文庫',
     titleEn: 'Energy Balance & Metabolic Rate Base',
-    summary: '熱力學第一定律、基礎代謝 BMR、NEAT 變異與代謝適應下調',
+    summary: 'TDEE 四齒輪、BMR 估算、代謝適應、食慾荷爾蒙、安全赤字與 RED-S 安全閘',
     constantsHeader: '能量與代謝恆定 · 臨床關鍵常數速查 (Metabolic Constants)',
     categories: [
-      { id: 'all', name_zh: '全部能量專題', name_en: 'All Energy Topics', desc: '能量守恆定律、TDEE 四大組分、減重代謝適應深度文庫', icon: Layers, color: 'amber', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-amber-500 text-amber-700 dark:text-amber-300 bg-amber-50/70' },
-      { id: 'energy-balance', name_zh: '熱量平衡與赤字', name_en: 'Energy Balance & Deficit', desc: '熱力學第一定律 CICO 模型、荷爾蒙調控假說與安全熱量赤字範圍', icon: Zap, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
-      { id: 'metabolic-rate', name_zh: '基礎代謝與 TDEE', name_en: 'Basal Metabolism & TDEE', desc: 'BMR、NEAT 非運動性活動產熱、TEF 攝食產熱效應與 EAT 運動消耗', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
-      { id: 'metabolic-adaptation', name_zh: '代謝適應與體重調控', name_en: 'Metabolic Adaptation', desc: '減重後甲狀腺素與瘦素調降、適應性熱量消耗減少與溜溜球效應預防', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' }
+      { id: 'all', name_zh: '全部能量專題', name_en: 'All Energy Topics', desc: 'TDEE 組成、BMR 估算、熱量赤字、代謝適應、食慾調控與能量安全閘完整課綱', icon: Layers, color: 'amber', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-amber-500 text-amber-700 dark:text-amber-300 bg-amber-50/70' },
+      { id: 'metabolic-rate', name_zh: '基礎代謝與 TDEE', name_en: 'Basal Metabolism & TDEE', desc: 'BMR、NEAT、TEF、EAT 與 Mifflin-St Jeor 估算', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
+      { id: 'energy-balance', name_zh: '熱量平衡與赤字', name_en: 'Energy Balance & Deficit', desc: '能量平衡 vs 碳水胰島素模型、安全減重速度與保肌三角', icon: Zap, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
+      { id: 'metabolic-adaptation', name_zh: '代謝適應與體重維持', name_en: 'Adaptation & Maintenance', desc: 'Hall 動態模型、瘦體素反撲、溜溜球效應與自我監測', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' },
+      { id: 'appetite-satiety', name_zh: '食慾與飽足調控', name_en: 'Appetite & Satiety', desc: '能量密度、飽足荷爾蒙、享樂性飢餓與超加工食品', icon: Salad, color: 'teal', badgeClass: 'bg-teal-50 dark:bg-teal-950/50 text-teal-700', borderActive: 'border-teal-500 text-teal-700 bg-teal-50/80' },
+      { id: 'energy-safety', name_zh: '能量安全閘', name_en: 'Energy Safety Gate', desc: 'RED-S、飲食失調警訊與 GLP-1 類藥物營養', icon: AlertTriangle, color: 'red', badgeClass: 'bg-red-50 dark:bg-red-950/50 text-red-700', borderActive: 'border-red-500 text-red-700 bg-red-50/80' }
     ],
     clinicalConstants: [
-      { id: 'cico_factor', label: '熱量能量常數', value: '4.184', unit: 'kJ / kcal', sub: '熱力學能量守恆：1大卡精確物理換算', targetPage: 'PAGE-E-01', color: 'text-amber-600 dark:text-amber-400' },
-      { id: 'bmr_share', label: 'BMR 佔 TDEE 比', value: '60–70%', unit: '每日總能耗', sub: '肝腦心腎等內臟維持生存核心消耗', targetPage: 'PAGE-E-02', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'neat_variance', label: 'NEAT 每日個體差', value: '300–800', unit: 'kcal / 日', sub: '站立走路坐姿晃動是日常燃脂最大變異', targetPage: 'PAGE-E-02', color: 'text-sky-600 dark:text-salud-cyan' },
-      { id: 'tef_ratio', label: '蛋白質產熱效應', value: '20–30%', unit: '食物熱效應 TEF', sub: '遠高於碳水化合物 (5-10%) 與油脂 (0-3%)', targetPage: 'PAGE-E-02', color: 'text-purple-600 dark:text-purple-400' },
-      { id: 'adaptation_drop', label: '代謝適應下調', value: '-10~15%', unit: '非預期能耗降低', sub: '過激節食致瘦素崩跌引發暴食反彈', targetPage: 'PAGE-E-03', color: 'text-rose-600 dark:text-rose-400' }
+      { id: 'bmr_share', label: 'BMR 佔 TDEE 比', value: '60–70%', unit: '每日總能耗', sub: '心腦肝腎維持生命的最大帳單', targetPage: 'PAGE-E-01', color: 'text-emerald-600 dark:text-emerald-400' },
+      { id: 'tef_ratio', label: '蛋白質產熱效應', value: '20–30%', unit: 'TEF', sub: '遠高於碳水 (5–10%) 與脂肪 (0–3%)', targetPage: 'PAGE-E-01', color: 'text-purple-600 dark:text-purple-400' },
+      { id: 'hall_rule', label: '動態減重法則', value: '≈22', unit: 'kcal/日/kg', sub: '每永久少吃 22 kcal 最終約減 1 kg', targetPage: 'PAGE-E-02', color: 'text-sky-600 dark:text-salud-cyan' },
+      { id: 'loss_rate', label: '安全減重速度', value: '0.5–1%', unit: '體重 / 週', sub: '搭配蛋白質 1.2–1.6 g/kg 與肌力訓練', targetPage: 'PAGE-E-07', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'upf_excess', label: '超加工飲食多吃', value: '+508', unit: 'kcal / 日', sub: 'Hall 2019 代謝病房交叉試驗', targetPage: 'PAGE-E-09', color: 'text-rose-600 dark:text-rose-400' },
+      { id: 'ea_floor', label: '能量可用性下限', value: '30', unit: 'kcal/kg FFM/日', sub: '長期低於此值有 RED-S 風險', targetPage: 'PAGE-E-10', color: 'text-red-600 dark:text-red-400' }
     ],
     learningPathway: [
-      { step: 1, title: '熱力學定律與 CICO 實證', targetPages: ['PAGE-E-01'], objective: '打破荷爾蒙假說與熱量赤字對立，建立能量守恆科學基礎。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
-      { step: 2, title: 'TDEE 四大組分剖析', targetPages: ['PAGE-E-02'], objective: '精準量化 BMR、NEAT、TEF 與 EAT，掌握日常 NEAT 產熱槓桿。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 3, title: '代謝適應與突破停滯期', targetPages: ['PAGE-E-03'], objective: '辨識飢餓荷爾蒙調控機轉，制定 Diet Break 避免溜溜球效應。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
+      { step: 1, title: '看懂熱量帳單', targetPages: ['PAGE-E-01', 'PAGE-E-04'], objective: '拆解 TDEE 四齒輪，學會估算並用體重趨勢校正自己的維持熱量。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 2, title: '熱量與荷爾蒙之爭', targetPages: ['PAGE-E-05', 'PAGE-E-02'], objective: '理解能量平衡與碳水胰島素模型的實證，以及體重下降為何會趨緩。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
+      { step: 3, title: '食慾與飲食環境', targetPages: ['PAGE-E-03', 'PAGE-E-06', 'PAGE-E-09'], objective: '善用能量密度、飽足荷爾蒙與環境設計，不挨餓地吃少一點。', badgeClass: 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300' },
+      { step: 4, title: '減重與維持實戰', targetPages: ['PAGE-E-07', 'PAGE-E-08'], objective: '以安全速度保肌減脂，並建立長期維持的自我監測系統。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 5, title: '能量安全閘', targetPages: ['PAGE-E-10'], objective: '辨識 RED-S、飲食失調與減重藥物使用中的營養風險。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
     ]
   },
   P: {
     titleZh: '蛋白質與肌肉合成文庫',
     titleEn: 'Protein & Muscle Protein Synthesis Base',
-    summary: '肌蛋白合成 MPS、白胺酸觸發閾值、每日分配與腎病安全閘',
+    summary: '每日需求、白胺酸門檻、合成窗、肌少症、腎臟安全閘、台灣餐桌份量與補充品選購',
     constantsHeader: '蛋白質與肌肉恆定 · 臨床黃金常數速查 (Protein Biomarkers)',
     categories: [
-      { id: 'all', name_zh: '全部蛋白質專題', name_en: 'All Protein Topics', desc: 'MPS 合成機制、白胺酸門檻、每餐攝取分配與腎功能安全完整課綱', icon: Layers, color: 'blue', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-blue-500 text-blue-700 dark:text-blue-300 bg-blue-50/70' },
-      { id: 'protein-synthesis', name_zh: '肌蛋白合成與白胺酸', name_en: 'MPS & Leucine Trigger', desc: 'mTORC1 訊息路徑、肌蛋白合成 (MPS) 與白胺酸飽和閾值', icon: Dumbbell, color: 'blue', badgeClass: 'bg-blue-50 dark:bg-blue-950/50 text-blue-700', borderActive: 'border-blue-500 text-blue-700 bg-blue-50/80' },
-      { id: 'protein-distribution', name_zh: '每日總量與分餐策略', name_en: 'Intake & Timing', desc: 'ISSN 肌肥大黃金攝取量 1.6-2.2 g/kg/d 與每餐均勻分配優勢', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
-      { id: 'protein-safety', name_zh: '蛋白質品質與腎臟安全閘', name_en: 'Protein Quality & Renal Safety', desc: 'DIAAS 消化率評分、健康腎臟耐受上限與 CKD 限蛋白嚴格守則', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' }
+      { id: 'all', name_zh: '全部蛋白質專題', name_en: 'All Protein Topics', desc: '需求量、合成機轉、品質、肌少症、腎臟安全與補充品完整課綱', icon: Layers, color: 'blue', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-blue-500 text-blue-700 dark:text-blue-300 bg-blue-50/70' },
+      { id: 'protein-requirements', name_zh: '每日總量與份量計算', name_en: 'Requirements & Portions', desc: '0.8 → 1.2–1.6 g/kg、豆魚蛋肉一份 7 g 與台灣餐桌示範', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
+      { id: 'protein-synthesis', name_zh: '肌蛋白合成與訓練', name_en: 'MPS & Training', desc: '白胺酸門檻、三餐分配、合成窗與增肌平台', icon: Dumbbell, color: 'blue', badgeClass: 'bg-blue-50 dark:bg-blue-950/50 text-blue-700', borderActive: 'border-blue-500 text-blue-700 bg-blue-50/80' },
+      { id: 'protein-quality', name_zh: '蛋白質品質與來源', name_en: 'Protein Quality & Sources', desc: 'DIAAS、植物 vs 動物、胺基酸互補與蛋白粉選購', icon: Salad, color: 'teal', badgeClass: 'bg-teal-50 dark:bg-teal-950/50 text-teal-700', borderActive: 'border-teal-500 text-teal-700 bg-teal-50/80' },
+      { id: 'sarcopenia-aging', name_zh: '肌少症與高齡營養', name_en: 'Sarcopenia & Ageing', desc: 'AWGS 2019 篩檢、同化阻抗與長者蛋白質目標', icon: HeartPulse, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
+      { id: 'protein-safety', name_zh: '腎臟安全閘', name_en: 'Renal Safety Gate', desc: 'eGFR 分期、KDOQI 2020 蛋白質建議與透析需求', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' }
     ],
     clinicalConstants: [
-      { id: 'leucine_trigger', label: '白胺酸觸發閾值', value: '2.7–3.0', unit: 'g / 餐', sub: '啟動肌肉細胞 mTORC1 蛋白質合成關鍵', targetPage: 'PAGE-P-01', color: 'text-blue-600 dark:text-blue-400' },
-      { id: 'rda_baseline', label: '衛福部 RDA 基準', value: '0.8–1.0', unit: 'g / kg / 日', sub: '僅為防止氮負平衡最低生存需求', targetPage: 'PAGE-P-02', color: 'text-slate-600 dark:text-slate-400' },
-      { id: 'hypertrophy_target', label: '肌肥大最佳攝取區間', value: '1.6–2.2', unit: 'g / kg / 日', sub: 'ISSN 統合分析證實超過 2.2g 無額外增肌優勢', targetPage: 'PAGE-P-02', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'mps_ceiling', label: '單餐 MPS 飽和劑量', value: '0.40', unit: 'g / kg / 餐', sub: '約 20-40g 優質蛋白質即可達到最大合成峰值', targetPage: 'PAGE-P-02', color: 'text-purple-600 dark:text-purple-400' },
-      { id: 'ckd_gate', label: '腎病限蛋白安全閘', value: '0.6–0.8', unit: 'g / kg / 日', sub: 'eGFR < 45 (CKD G3b+) 須受腎專科醫師監督', targetPage: 'PAGE-P-03', color: 'text-rose-600 dark:text-rose-400' }
+      { id: 'rda_baseline', label: '防缺乏底線', value: '0.8–1.0', unit: 'g / kg / 日', sub: '僅為防止氮負平衡的最低需求', targetPage: 'PAGE-P-01', color: 'text-slate-600 dark:text-slate-400' },
+      { id: 'leucine_trigger', label: '白胺酸觸發閾值', value: '2.5–3.0', unit: 'g / 餐', sub: '約 25–30 g 優質蛋白質', targetPage: 'PAGE-P-02', color: 'text-blue-600 dark:text-blue-400' },
+      { id: 'portion', label: '豆魚蛋肉一份', value: '7', unit: 'g 蛋白質', sub: '1 顆蛋＝190 mL 無糖豆漿＝80 g 豆腐', targetPage: 'PAGE-P-07', color: 'text-emerald-600 dark:text-emerald-400' },
+      { id: 'grip', label: '肌少症握力門檻', value: '28 / 18', unit: 'kg（男 / 女）', sub: 'AWGS 2019 肌力低下標準', targetPage: 'PAGE-P-04', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'hypertrophy_target', label: '增肌效益平台', value: '≈1.6', unit: 'g / kg / 日', sub: '信賴區間上限約 2.2 g/kg', targetPage: 'PAGE-P-05', color: 'text-purple-600 dark:text-purple-400' },
+      { id: 'ckd_gate', label: 'CKD 3–5 期（未透析）', value: '0.55–0.6', unit: 'g / kg / 日', sub: 'KDOQI 2020；透析者 1.0–1.2', targetPage: 'PAGE-P-06', color: 'text-rose-600 dark:text-rose-400' }
     ],
     learningPathway: [
-      { step: 1, title: '肌蛋白合成與白胺酸門檻', targetPages: ['PAGE-P-01'], objective: '掌握 mTOR 訊息通路與白胺酸 3g 門檻對年長者阻抗的重要性。', badgeClass: 'bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300' },
-      { step: 2, title: '全日總量與每餐分配學', targetPages: ['PAGE-P-02'], objective: '破解高蛋白傷骨傷肝迷思，掌握 1.6-2.2 g/kg 均勻 3-4 餐策略。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 3, title: 'DIAAS 品質與腎病安全閘', targetPages: ['PAGE-P-03'], objective: '運用迴腸消化率評級植物蛋白，嚴格把關慢性腎病限蛋白紅線。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
+      { step: 1, title: '吃多少才夠', targetPages: ['PAGE-P-01', 'PAGE-P-07'], objective: '依年齡與目標設定 g/kg，學會用「份」計算台灣餐桌的蛋白質。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 2, title: '合成機轉與訓練', targetPages: ['PAGE-P-02', 'PAGE-P-05'], objective: '掌握白胺酸門檻、三餐分配與阻力訓練的協同效應。', badgeClass: 'bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300' },
+      { step: 3, title: '品質與來源', targetPages: ['PAGE-P-03', 'PAGE-P-08'], objective: '比較植物與動物蛋白、胺基酸互補，並聰明選購補充品。', badgeClass: 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300' },
+      { step: 4, title: '肌少症防線', targetPages: ['PAGE-P-04'], objective: '以 AWGS 2019 自我篩檢，建立長者的蛋白質與訓練策略。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 5, title: '腎臟安全閘', targetPages: ['PAGE-P-06'], objective: '依 eGFR 與蛋白尿決定蛋白質上限，辨識腎病警訊。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
     ]
   },
   C: {
     titleZh: '碳水化合物與膳食纖維文庫',
     titleEn: 'Carbohydrates & Dietary Fiber Base',
-    summary: '單糖寡糖多醣、升糖指數 GI/GL、腸道微生物短鏈脂肪酸發酵',
+    summary: '醣類結構、GI/GL、全穀、血糖調控、肝醣與運動、腸道菌、FODMAP 與增纖實作',
     constantsHeader: '碳水化合物與纖維 · 臨床關鍵常數速查 (Carb Biomarkers)',
     categories: [
-      { id: 'all', name_zh: '全部碳水專題', name_en: 'All Carb Topics', desc: '醣類結構分類、GI/GL、膳食纖維發酵與肝醣超補完整文庫', icon: Layers, color: 'teal', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-teal-500 text-teal-700 dark:text-teal-300 bg-teal-50/70' },
-      { id: 'carb-classification', name_zh: '結構分類與升糖指數', name_en: 'Carb Types & GI/GL', desc: '直鏈/支鏈澱粉消化速度、GI 升糖指數與 GL 升糖負荷臨床實證', icon: Wheat, color: 'teal', badgeClass: 'bg-teal-50 dark:bg-teal-950/50 text-teal-700', borderActive: 'border-teal-500 text-teal-700 bg-teal-50/80' },
-      { id: 'dietary-fiber', name_zh: '膳食纖維與腸道微菌叢', name_en: 'Fiber & Gut Microbiota', desc: '水溶性與非水溶性纖維、短鏈脂肪酸 (SCFA) 乙酸丙酸丁酸健康效益', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
-      { id: 'glycogen-storage', name_zh: '肝醣儲存與運動耐力', name_en: 'Glycogen & Performance', desc: '肝醣容量極限、醣原超補策略與中高強度運動補醣時間窗', icon: Zap, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' }
+      { id: 'all', name_zh: '全部碳水專題', name_en: 'All Carb Topics', desc: '醣類結構、GI/GL、全穀、血糖、肝醣、纖維與腸道菌完整課綱', icon: Layers, color: 'teal', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-teal-500 text-teal-700 dark:text-teal-300 bg-teal-50/70' },
+      { id: 'carb-classification', name_zh: '結構分類與全穀', name_en: 'Carb Types & Whole Grains', desc: '單醣到多醣、直鏈支鏈澱粉、GI/GL 與全穀實證', icon: Wheat, color: 'teal', badgeClass: 'bg-teal-50 dark:bg-teal-950/50 text-teal-700', borderActive: 'border-teal-500 text-teal-700 bg-teal-50/80' },
+      { id: 'glycemic-control', name_zh: '血糖調控與碳水份量', name_en: 'Glycemic Control', desc: '進食順序、飯後散步、一份 15 g 醣與糖尿病飲食', icon: Activity, color: 'sky', badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700', borderActive: 'border-sky-500 text-sky-700 bg-sky-50/80' },
+      { id: 'dietary-fiber', name_zh: '膳食纖維', name_en: 'Dietary Fiber', desc: '水溶性 vs 非水溶性、每日 25–30 g 與四週增纖計畫', icon: Salad, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
+      { id: 'gut-microbiome', name_zh: '腸道菌與 FODMAP', name_en: 'Gut Microbiome & FODMAP', desc: '短鏈脂肪酸、益生菌與益生質、腸躁症低 FODMAP', icon: ShieldCheck, color: 'purple', badgeClass: 'bg-purple-50 dark:bg-purple-950/50 text-purple-700', borderActive: 'border-purple-500 text-purple-700 bg-purple-50/80' },
+      { id: 'glycogen-storage', name_zh: '肝醣與運動耐力', name_en: 'Glycogen & Performance', desc: '肝醣容量、每日碳水需求、比賽補給與肝醣超補', icon: Zap, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' }
     ],
     clinicalConstants: [
-      { id: 'fiber_target', label: '膳食纖維每日目標', value: '25–35', unit: 'g / 日', sub: '台灣成人九成未達標！平均僅約 14-16g', targetPage: 'PAGE-C-02', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'low_gi_cutoff', label: '低 GI 升糖指數門檻', value: '≤ 55', unit: 'GI 指標值', sub: '血糖上升平緩；高 GI ≥ 70 引發胰島素激增', targetPage: 'PAGE-C-01', color: 'text-teal-600 dark:text-teal-400' },
-      { id: 'glycogen_cap', label: '人體肝醣總儲量', value: '400–500', unit: 'g (~1600 kcal)', sub: '肌肉約 400g (自用) + 肝臟約 100g (調血醣)', targetPage: 'PAGE-C-03', color: 'text-amber-600 dark:text-amber-400' },
-      { id: 'scfa_ratio', label: 'SCFA 短鏈脂肪酸比', value: '60:20:20', unit: '乙酸:丙酸:丁酸', sub: '丁酸維持腸黏膜屏障與抗大腸癌核心', targetPage: 'PAGE-C-02', color: 'text-purple-600 dark:text-purple-400' },
-      { id: 'low_gl_cutoff', label: '低 GL 升糖負荷門檻', value: '≤ 10', unit: 'GL 指標值', sub: '考量實際食用碳水份量，比單看 GI 更臨床實用', targetPage: 'PAGE-C-01', color: 'text-sky-600 dark:text-salud-cyan' }
+      { id: 'gl_cut', label: '升糖負荷分界', value: '≤10 / ≥20', unit: 'GL 低 / 高', sub: 'GL＝GI × 碳水克數 ÷ 100', targetPage: 'PAGE-C-01', color: 'text-teal-600 dark:text-teal-400' },
+      { id: 'fiber_target', label: '膳食纖維每日目標', value: '25–35', unit: 'g / 日', sub: '國人平均僅約 14–16 g', targetPage: 'PAGE-C-02', color: 'text-emerald-600 dark:text-emerald-400' },
+      { id: 'whole_grain', label: '全穀劑量效益', value: '90', unit: 'g / 日', sub: '全因死亡 −17%（Aune 2016）', targetPage: 'PAGE-C-05', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'carb_exchange', label: '一份醣類', value: '15', unit: 'g 醣', sub: '一碗飯＝4 份＝60 g', targetPage: 'PAGE-C-09', color: 'text-sky-600 dark:text-salud-cyan' },
+      { id: 'glycogen', label: '肌肉肝醣儲量', value: '300–500', unit: 'g', sub: '肝臟另有 80–100 g', targetPage: 'PAGE-C-07', color: 'text-purple-600 dark:text-purple-400' },
+      { id: 'race_fuel', label: '長賽事補給上限', value: '90', unit: 'g / 時', sub: '> 2.5 小時，葡萄糖＋果糖混合', targetPage: 'PAGE-C-07', color: 'text-rose-600 dark:text-rose-400' }
     ],
     learningPathway: [
-      { step: 1, title: '碳水結構分類與升糖指標', targetPages: ['PAGE-C-01'], objective: '學會區分直鏈澱粉抗性與單醣吸收率，掌握低 GI/GL 控糖法。', badgeClass: 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300' },
-      { step: 2, title: '膳食纖維與腸道微菌發酵', targetPages: ['PAGE-C-02'], objective: '解析雙歧桿菌產丁酸途徑，打造堅固腸道屏障與免疫恆定。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 3, title: '肝醣動態調節與運動補醣', targetPages: ['PAGE-C-03'], objective: '掌握 400-500g 肝醣庫耗竭臨界與運動耐力補醣黃金時機。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold' }
+      { step: 1, title: '認識醣類與全穀', targetPages: ['PAGE-C-04', 'PAGE-C-01', 'PAGE-C-05'], objective: '從分子結構理解 GI/GL，並以全穀取代精製穀。', badgeClass: 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300' },
+      { step: 2, title: '血糖調控實戰', targetPages: ['PAGE-C-06', 'PAGE-C-09'], objective: '運用進食順序、飯後活動與醣類份數穩定血糖。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
+      { step: 3, title: '纖維與腸道菌', targetPages: ['PAGE-C-02', 'PAGE-C-03', 'PAGE-C-10'], objective: '吃足 25 g 纖維、餵養產丁酸菌，並以四週計畫實踐。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 4, title: '運動與特殊腸道', targetPages: ['PAGE-C-07', 'PAGE-C-08'], objective: '依訓練量管理肝醣，並辨識腸躁症的 FODMAP 地雷與警訊。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold' }
     ]
   },
   S: {
     titleZh: '糖與游離糖解碼文庫',
-    titleEn: 'Sugars, Fructose & Sweeteners Base',
-    summary: 'WHO 游離糖限制、果糖特異性肝臟代謝、NAFLD 脂肪肝與代糖爭議',
-    constantsHeader: '游離糖與果糖病理 · 臨床關鍵常數速查 (Sugar Clinical Constants)',
+    titleEn: 'Sugars & Free Sugar Decoding Base',
+    summary: '游離糖定義與上限、隱藏糖、果糖肝臟代謝、手搖飲、代糖、蛀牙、甜味偏好與兒少政策',
+    constantsHeader: '糖與代謝 · 臨床關鍵常數速查 (Sugar Benchmarks)',
     categories: [
-      { id: 'all', name_zh: '全部糖類專題', name_en: 'All Sugar Topics', desc: '游離糖定義、果糖脂生成路徑、非酒精性脂肪肝與人工甜味劑', icon: Layers, color: 'rose', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-rose-500 text-rose-700 dark:text-rose-300 bg-rose-50/70' },
-      { id: 'free-sugars', name_zh: '游離糖與指引上限', name_en: 'Free Sugars & WHO Guidelines', desc: '游離糖嚴謹定義、含糖飲料空熱量與 WHO 每日熱量 10% 警戒線', icon: Candy, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' },
-      { id: 'fructose-pathology', name_zh: '果糖代謝與脂肪肝', name_en: 'Fructose & Hepatic Lipogenesis', desc: '果糖激酶繞過 PFK 負回饋、從頭脂肪生成 (DNL) 與尿酸高血壓', icon: AlertTriangle, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
-      { id: 'sugar-substitutes', name_zh: '代糖甜味劑實證', name_en: 'Non-Sugar Sweeteners', desc: '阿斯巴甜、三氯蔗糖、赤藻糖醇對胰島素抗性與腸道菌群實證爭議', icon: ShieldCheck, color: 'purple', badgeClass: 'bg-purple-50 dark:bg-purple-950/50 text-purple-700', borderActive: 'border-purple-500 text-purple-700 bg-purple-50/80' }
+      { id: 'all', name_zh: '全部糖專題', name_en: 'All Sugar Topics', desc: '游離糖、果糖病理、含糖飲料、代糖、口腔與行為完整課綱', icon: Layers, color: 'pink', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-pink-500 text-pink-700 dark:text-pink-300 bg-pink-50/70' },
+      { id: 'free-sugars', name_zh: '游離糖與隱藏糖', name_en: 'Free & Hidden Sugars', desc: 'WHO 10% / 5% 上限、糖的別名與營養宣稱', icon: Candy, color: 'pink', badgeClass: 'bg-pink-50 dark:bg-pink-950/50 text-pink-700', borderActive: 'border-pink-500 text-pink-700 bg-pink-50/80' },
+      { id: 'fructose-pathology', name_zh: '果糖與肝臟代謝', name_en: 'Fructose Pathology', desc: '新生脂肪合成、脂肪肝、尿酸與痛風', icon: AlertTriangle, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' },
+      { id: 'sugary-drinks', name_zh: '含糖飲料與政策', name_en: 'Sugary Drinks & Policy', desc: '手搖飲甜度配料、兒少建議與國際糖稅', icon: Activity, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
+      { id: 'sugar-substitutes', name_zh: '代糖與糖化終產物', name_en: 'Sweeteners & AGEs', desc: 'WHO 2023 NSS 指引、ADI 與 AGEs 烹調差異', icon: ShieldCheck, color: 'purple', badgeClass: 'bg-purple-50 dark:bg-purple-950/50 text-purple-700', borderActive: 'border-purple-500 text-purple-700 bg-purple-50/80' },
+      { id: 'sugar-oral-behavior', name_zh: '口腔健康與甜食行為', name_en: 'Teeth & Sweet Behaviour', desc: 'Stephan 曲線、含氟防護、甜味偏好重設', icon: Salad, color: 'teal', badgeClass: 'bg-teal-50 dark:bg-teal-950/50 text-teal-700', borderActive: 'border-teal-500 text-teal-700 bg-teal-50/80' }
     ],
     clinicalConstants: [
-      { id: 'who_free_sugar', label: 'WHO 游離糖建議上限', value: '< 10%', unit: '總熱量比例', sub: '強力建議 < 5% (約 25g，等於半杯手搖飲)', targetPage: 'PAGE-S-01', color: 'text-rose-600 dark:text-rose-400' },
-      { id: 'fructose_dnl', label: '果糖脂肪生成臨界', value: '> 50', unit: 'g / 日', sub: '繞過糖解負回饋，直接於肝臟轉化三酸甘油酯', targetPage: 'PAGE-S-02', color: 'text-amber-600 dark:text-amber-400' },
-      { id: 'ages_rate', label: '果糖糖化交聯速率', value: '7–10x', unit: '比葡萄糖快', sub: '極易誘發晚期糖化終產物 AGEs 血管硬化', targetPage: 'PAGE-S-02', color: 'text-red-600 dark:text-red-400' },
-      { id: 'sweetener_potency', label: '常見高倍代糖甜度', value: '200–600x', unit: '蔗糖相對倍數', sub: '極微量即有強烈甜味，無法提供大腦飽足訊號', targetPage: 'PAGE-S-03', color: 'text-purple-600 dark:text-purple-400' },
-      { id: 'pediatric_zero', label: '2歲以下嬰幼兒', value: '0 g', unit: '添加糖安全上限', sub: 'AAP/AHA 嚴格警告：避免影響神經味覺發育', targetPage: 'PAGE-S-01', color: 'text-rose-600 dark:text-rose-400' }
+      { id: 'who_free_sugar', label: '游離糖理想上限', value: '< 25', unit: 'g / 日', sub: '< 5% 熱量；強烈建議 < 10%（50 g）', targetPage: 'PAGE-S-04', color: 'text-pink-600 dark:text-pink-400' },
+      { id: 'sugar_cube', label: '一顆方糖', value: '5', unit: 'g ＝ 20 kcal', sub: '大杯全糖手搖飲約 10–12 顆', targetPage: 'PAGE-S-02', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'low_sugar_claim', label: '「低糖」宣稱（液體）', value: '≤ 2.5', unit: 'g / 100 mL', sub: '「無糖」≤ 0.5 g', targetPage: 'PAGE-S-05', color: 'text-sky-600 dark:text-salud-cyan' },
+      { id: 'enamel_ph', label: '琺瑯質脫礦臨界', value: 'pH 5.5', unit: '牙菌斑', sub: '吃糖後 20–60 分鐘才回升', targetPage: 'PAGE-S-06', color: 'text-teal-600 dark:text-teal-400' },
+      { id: 'child_sugar', label: '兒少添加糖上限', value: '< 25', unit: 'g / 日', sub: '2 歲以下避免添加糖（AHA）', targetPage: 'PAGE-S-08', color: 'text-rose-600 dark:text-rose-400' }
     ],
     learningPathway: [
-      { step: 1, title: '游離糖定義與 WHO 指引', targetPages: ['PAGE-S-01'], objective: '學會辨識果汁蜂蜜等隱形游離糖，建立每日 <25g 控糖警戒線。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300' },
-      { step: 2, title: '果糖特異性肝臟代謝病理', targetPages: ['PAGE-S-02'], objective: '拆解高果糖糖漿引發非酒精性脂肪肝與高尿酸痛風之生化機轉。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold' },
-      { step: 3, title: '非營養性甜味劑客觀審定', targetPages: ['PAGE-S-03'], objective: '客觀評估赤藻糖醇與阿斯巴甜心血管與腸道微菌實證。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300' }
+      { step: 1, title: '認識游離糖', targetPages: ['PAGE-S-04', 'PAGE-S-05'], objective: '分辨游離糖與內源糖，找出隱藏糖並估算每日額度。', badgeClass: 'bg-pink-100 dark:bg-pink-950/60 text-pink-800 dark:text-pink-300' },
+      { step: 2, title: '果糖的代謝代價', targetPages: ['PAGE-S-01'], objective: '理解果糖如何導致脂肪肝、高三酸甘油酯與痛風。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300' },
+      { step: 3, title: '飲料與代糖', targetPages: ['PAGE-S-02', 'PAGE-S-03'], objective: '解碼手搖飲甜度配料，正確看待代糖與 AGEs。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 4, title: '牙齒與行為', targetPages: ['PAGE-S-06', 'PAGE-S-07'], objective: '以頻率觀點防蛀，並用味覺重設與環境設計減糖。', badgeClass: 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300' },
+      { step: 5, title: '兒少與公共政策', targetPages: ['PAGE-S-08'], objective: '掌握兒少添加糖上限，了解糖稅與校園政策的實證。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 font-bold' }
     ]
   },
   N: {
     titleZh: '鈉、鉀與血壓生理文庫',
     titleEn: 'Sodium, Potassium & Blood Pressure Base',
-    summary: '細胞膜鈉鉀幫浦、RAAS 腎素血管加壓素醛固酮系統、低鈉高鉀血管保護',
-    constantsHeader: '鈉鉀離子與血壓 · 臨床關鍵常數速查 (Electrolyte Constants)',
+    summary: '鈉鉀生理、每日鈉上限、鹽敏感性、DASH、含鉀鹽與高血鉀安全閘、722 居家血壓與減鹽實戰',
+    constantsHeader: '電解質與血壓 · 臨床關鍵常數速查 (Electrolyte & BP)',
     categories: [
-      { id: 'all', name_zh: '全部鈉鉀專題', name_en: 'All Electrolyte Topics', desc: '鈉離子恆定、鉀離子心血管保護、飲食鈉鉀比與減鈉實踐完整課綱', icon: Layers, color: 'red', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-red-500 text-red-700 dark:text-red-300 bg-red-50/70' },
-      { id: 'sodium-blood-pressure', name_zh: '鈉離子與血壓調控', name_en: 'Sodium & RAAS Axis', desc: '細胞外液容量擴張、RAAS 腎素-血管張力素-醛固酮系統與血管平滑肌收縮', icon: HeartPulse, color: 'red', badgeClass: 'bg-red-50 dark:bg-red-950/50 text-red-700', borderActive: 'border-red-500 text-red-700 bg-red-50/80' },
-      { id: 'potassium-cardiovascular', name_zh: '鉀離子生理與心血管保護', name_en: 'Potassium & Vasodilation', desc: '鉀離子促尿鈉排泄、血管內皮細胞超極化一氧化氮 NO 釋放與降壓機轉', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
-      { id: 'sodium-potassium-ratio', name_zh: '鈉鉀比例與臨床減鈉實踐', name_en: 'Sodium-Potassium Ratio', desc: '外食高鈉低鉀危機、黃金鉀鈉比 ≥ 1:1 與低鈉富鉀替代鹽安全把關', icon: ShieldCheck, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' }
+      { id: 'all', name_zh: '全部鈉鉀專題', name_en: 'All Electrolyte Topics', desc: '鈉鉀生理、攝取上限、鹽敏感、DASH、含鉀鹽與居家血壓完整課綱', icon: Layers, color: 'red', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-red-500 text-red-700 dark:text-red-300 bg-red-50/70' },
+      { id: 'sodium-physiology', name_zh: '鈉鉀生理與鹽敏感', name_en: 'Physiology & Salt Sensitivity', desc: '內皮一氧化氮、腎臟排鈉與鹽敏感族群', icon: HeartPulse, color: 'red', badgeClass: 'bg-red-50 dark:bg-red-950/50 text-red-700', borderActive: 'border-red-500 text-red-700 bg-red-50/80' },
+      { id: 'sodium-intake', name_zh: '鈉攝取與減鹽實戰', name_en: 'Sodium Intake & Reduction', desc: '2,000 / 2,400 mg 上限、鹽鈉換算、外食與味覺重設', icon: Activity, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
+      { id: 'bp-diet', name_zh: '得舒降壓飲食', name_en: 'DASH Diet', desc: 'DASH 份數、鉀鎂鈣三位一體與降壓幅度', icon: Salad, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
+      { id: 'potassium-salt', name_zh: '鉀與含鉀鹽安全閘', name_en: 'Potassium & Salt Substitutes', desc: 'SSaSS 試驗、高鉀食物與高血鉀風險族群', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' },
+      { id: 'bp-monitoring', name_zh: '血壓量測與判讀', name_en: 'BP Monitoring', desc: '722 原則、正確姿勢與 2022 台灣指引', icon: Zap, color: 'sky', badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700', borderActive: 'border-sky-500 text-sky-700 bg-sky-50/80' }
     ],
     clinicalConstants: [
-      { id: 'who_sodium_cap', label: 'WHO 每日鈉上限', value: '< 2000', unit: 'mg / 日', sub: '相當於 5 公克食鹽 (NaCl)', targetPage: 'PAGE-N-01', color: 'text-red-600 dark:text-red-400' },
-      { id: 'tw_sodium_cap', label: '台灣衛福部建議鈉上限', value: '< 2400', unit: 'mg / 日', sub: '相當於 6 公克食鹽；國人平均攝取超標 1.5-2 倍', targetPage: 'PAGE-N-01', color: 'text-rose-600 dark:text-rose-400' },
-      { id: 'potassium_target', label: '鉀離子每日目標', value: '3510–4700', unit: 'mg / 日', sub: '促尿鈉排泄、放鬆血管阻力天然利尿劑', targetPage: 'PAGE-N-02', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'k_na_ratio', label: '黃金鉀鈉莫耳比', value: '≥ 1:1', unit: 'K : Na 比例', sub: '高血壓與中風死亡率最低之天然飲食模式', targetPage: 'PAGE-N-03', color: 'text-purple-600 dark:text-purple-400' },
-      { id: 'sbp_reduction', label: '減鈉 1g 降壓效益', value: '-3.5~5.0', unit: 'mmHg 收縮壓', sub: '高血壓患者降壓幅度更顯著', targetPage: 'PAGE-N-01', color: 'text-sky-600 dark:text-salud-cyan' }
+      { id: 'sodium_limit', label: '每日鈉上限', value: '2,400', unit: 'mg（鹽 6 g）', sub: '衛福部；WHO 建議 < 2,000 mg', targetPage: 'PAGE-N-04', color: 'text-red-600 dark:text-red-400' },
+      { id: 'salt_factor', label: '鹽鈉換算係數', value: '× 2.54', unit: '鈉 → 鹽', sub: '鈉 1,000 mg ≈ 鹽 2.5 g', targetPage: 'PAGE-N-04', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'dash_effect', label: 'DASH＋減鈉降壓', value: '8–11', unit: 'mmHg', sub: '高血壓患者收縮壓下降幅度', targetPage: 'PAGE-N-02', color: 'text-emerald-600 dark:text-emerald-400' },
+      { id: 'potassium_target', label: 'WHO 鉀建議量', value: '≥ 3,510', unit: 'mg / 日', sub: '腎病與保鉀藥物使用者例外', targetPage: 'PAGE-N-05', color: 'text-rose-600 dark:text-rose-400' },
+      { id: 'bp_target', label: '高血壓診斷與目標', value: '130/80', unit: 'mmHg', sub: '2022 台灣指引（居家 722 平均）', targetPage: 'PAGE-N-06', color: 'text-sky-600 dark:text-salud-cyan' }
     ],
     learningPathway: [
-      { step: 1, title: '鈉離子與 RAAS 調節血壓', targetPages: ['PAGE-N-01'], objective: '掌握細胞外液容量擴張、交感神經活性與腎素調節血管阻力機轉。', badgeClass: 'bg-red-100 dark:bg-red-950/60 text-red-800 dark:text-red-300' },
-      { step: 2, title: '鉀離子血管內皮舒張保護', targetPages: ['PAGE-N-02'], objective: '剖析內皮細胞超極化與一氧化氮 NO 生成，促進心血管彈性。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 3, title: '飲食鉀鈉比與富鉀鹽安全閘', targetPages: ['PAGE-N-03'], objective: '掌握外食隱形鈉拆解，並針對慢性腎病高血鉀嚴格把關低鈉鹽安全。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold' }
+      { step: 1, title: '鈉鉀生理基礎', targetPages: ['PAGE-N-01', 'PAGE-N-07'], objective: '理解高鈉低鉀傷害血管的機轉與鹽敏感族群。', badgeClass: 'bg-red-100 dark:bg-red-950/60 text-red-800 dark:text-red-300' },
+      { step: 2, title: '算出你的鈉', targetPages: ['PAGE-N-04', 'PAGE-N-08'], objective: '掌握每日上限與鹽鈉換算，執行外食與家庭減鹽。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 3, title: '降壓飲食', targetPages: ['PAGE-N-02', 'PAGE-N-03'], objective: '以 DASH 與含鉀低鈉鹽降低血壓與心血管事件。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 4, title: '量測與安全閘', targetPages: ['PAGE-N-06', 'PAGE-N-05'], objective: '用 722 居家血壓判讀，並辨識高血鉀高風險族群。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
     ]
   },
   M: {
     titleZh: '微量營養素與生物利用率文庫',
     titleEn: 'Micronutrients & Bioavailability Base',
-    summary: '鐵鋅生物利用率、維生素 D-鈣吸收軸、維生素 B 群單碳代謝',
-    constantsHeader: '微量營養素恆定 · 臨床關鍵常數速查 (Micronutrient Constants)',
+    summary: '脂溶性與水溶性維生素、鐵鈣碘鋅硒鎂、維生素 D 與 B12、抗氧化劑反轉、藥物交互作用與族群補充地圖',
+    constantsHeader: '微量營養素 · 臨床關鍵常數速查 (Micronutrient Benchmarks)',
     categories: [
-      { id: 'all', name_zh: '全部微量元素專題', name_en: 'All Micronutrient Topics', desc: '血鐵恆定、維生素 D 鈣平衡、維生素 B 群與葉酸甲基化完整文庫', icon: Layers, color: 'violet', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-violet-500 text-violet-700 dark:text-violet-300 bg-violet-50/70' },
-      { id: 'iron-bioavailability', name_zh: '血鐵恆定與植酸干擾', name_en: 'Iron Forms & Inhibitors', desc: '血基質鐵 (15-35%) vs 非血基質鐵 (2-10%)、植酸單寧多酚螯合抑制', icon: Pill, color: 'violet', badgeClass: 'bg-violet-50 dark:bg-violet-950/50 text-violet-700', borderActive: 'border-violet-500 text-violet-700 bg-violet-50/80' },
-      { id: 'vitamin-d-calcium', name_zh: '維生素 D 與鈣吸收軸', name_en: 'Vitamin D & Calcium Axis', desc: '皮膚 7-脫氫膽固醇光化反應、活性 1,25(OH)2D3 與腸鈣結合蛋白結合', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
-      { id: 'b-complex-metabolism', name_zh: 'B群代謝與同半胱胺酸', name_en: 'B-Complex & One-Carbon', desc: 'B12、葉酸、B6 作為單碳代謝輔酶、同半胱胺酸清除與心血管保護', icon: ShieldCheck, color: 'sky', badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700', borderActive: 'border-sky-500 text-sky-700 bg-sky-50/80' }
+      { id: 'all', name_zh: '全部微量營養素', name_en: 'All Micronutrient Topics', desc: '維生素、礦物質、骨骼礦化軸與補充品安全完整課綱', icon: Layers, color: 'purple', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-purple-500 text-purple-700 dark:text-purple-300 bg-purple-50/70' },
+      { id: 'vitamin-physiology', name_zh: '維生素生理', name_en: 'Vitamin Physiology', desc: '脂溶性 vs 水溶性、B12 與葉酸、抗氧化補充劑試驗', icon: Pill, color: 'purple', badgeClass: 'bg-purple-50 dark:bg-purple-950/50 text-purple-700', borderActive: 'border-purple-500 text-purple-700 bg-purple-50/80' },
+      { id: 'mineral-bioavailability', name_zh: '礦物質與生物利用率', name_en: 'Minerals & Bioavailability', desc: '鐵、碘、鋅、硒、鎂的來源、吸收與上限', icon: Activity, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
+      { id: 'bone-mineral-axis', name_zh: '骨骼礦物質軸', name_en: 'Bone–Mineral Axis', desc: '維生素 D、鈣、鎂、K2 與 25(OH)D 判讀', icon: ShieldCheck, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
+      { id: 'supplement-safety', name_zh: '補充品安全閘', name_en: 'Supplement Safety Gate', desc: '藥物交互作用、檢驗干擾與族群補充地圖', icon: AlertTriangle, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' }
     ],
     clinicalConstants: [
-      { id: 'ferritin_deficiency', label: '鐵蛋白缺乏警戒線', value: '< 30', unit: 'ng / mL', sub: '臨床隱性缺鐵期，早在血紅素下降前即有疲勞症狀', targetPage: 'PAGE-M-01', color: 'text-violet-600 dark:text-violet-400' },
-      { id: 'vit_d_optimal', label: '血清 25(OH)D 理想值', value: '30–50', unit: 'ng / mL', sub: '台灣成人高達六成缺乏！< 20 屬於顯著不足', targetPage: 'PAGE-M-02', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'calcium_daily', label: '成人鈣元素每日需求', value: '1000', unit: 'mg / 日', sub: '分次補充 (單次 ≤ 500mg) 吸收率最高', targetPage: 'PAGE-M-02', color: 'text-sky-600 dark:text-salud-cyan' },
-      { id: 'homocysteine_safe', label: '同半胱胺酸安全帶', value: '< 10', unit: 'μmol / L', sub: '> 15 屬於高同半胱胺酸血症，加速動脈粥狀硬化', targetPage: 'PAGE-M-03', color: 'text-rose-600 dark:text-rose-400' },
-      { id: 'b12_if_capacity', label: '單餐內在因子吸收力', value: '~1.5-2.0', unit: 'μg / 餐', sub: '高劑量 B12 僅能靠 1% 被動擴散吸收', targetPage: 'PAGE-M-03', color: 'text-amber-600 dark:text-amber-400' }
+      { id: 'vit_a_ul', label: '維生素 A 上限', value: '3,000', unit: 'µg RAE / 日', sub: '孕期過量預先形成 A 有致畸風險', targetPage: 'PAGE-M-01', color: 'text-purple-600 dark:text-purple-400' },
+      { id: 'heme_iron', label: '血基質鐵吸收率', value: '15–35%', unit: '吸收', sub: '非血基質鐵僅 2–10%', targetPage: 'PAGE-M-02', color: 'text-rose-600 dark:text-rose-400' },
+      { id: 'vit_d_level', label: '25(OH)D 足夠', value: '≥ 20', unit: 'ng/mL', sub: '< 12 為缺乏（IOM）', targetPage: 'PAGE-M-04', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'calcium_rda', label: '成人鈣建議量', value: '1,000', unit: 'mg / 日', sub: '國人平均僅約一半；UL 2,500 mg', targetPage: 'PAGE-M-05', color: 'text-sky-600 dark:text-salud-cyan' },
+      { id: 'folate', label: '備孕葉酸', value: '400', unit: 'µg / 日', sub: '受孕前至少 1 個月開始', targetPage: 'PAGE-M-06', color: 'text-emerald-600 dark:text-emerald-400' },
+      { id: 'iodine', label: '孕期碘建議量', value: '225', unit: 'µg / 日', sub: '成人 150 µg、哺乳 250 µg', targetPage: 'PAGE-M-07', color: 'text-teal-600 dark:text-teal-400' }
     ],
     learningPathway: [
-      { step: 1, title: '血基質鐵與植酸干擾抑制', targetPages: ['PAGE-M-01'], objective: '學會維生素 C 促進非血基質鐵還原，避開茶與咖啡單寧阻隔。', badgeClass: 'bg-violet-100 dark:bg-violet-950/60 text-violet-800 dark:text-violet-300' },
-      { step: 2, title: '維生素 D 內分泌與骨鈣沉積', targetPages: ['PAGE-M-02'], objective: '掌握 25(OH)D 最佳濃度，建立維生素 D3 + K2 與鈣質協同沉積。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 3, title: 'B 群單碳代謝與同半胱胺酸', targetPages: ['PAGE-M-03'], objective: '掌握葉酸與 B12 甲基化循環，保護血管內皮與預防巨球性貧血。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 font-bold' }
+      { step: 1, title: '維生素基礎', targetPages: ['PAGE-M-01', 'PAGE-M-06'], objective: '分辨脂溶性與水溶性維生素，掌握 B12 與葉酸的關鍵族群。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300' },
+      { step: 2, title: '礦物質吸收', targetPages: ['PAGE-M-02', 'PAGE-M-07', 'PAGE-M-08', 'PAGE-M-09'], objective: '學會鐵、碘、鋅、硒、鎂的食物來源、吸收與安全上限。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 3, title: '骨骼礦化軸', targetPages: ['PAGE-M-03', 'PAGE-M-04', 'PAGE-M-05'], objective: '整合維生素 D、鈣、鎂與 K2，正確解讀 25(OH)D 與補鈣。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 4, title: '補充品的實證與安全', targetPages: ['PAGE-M-10', 'PAGE-M-11', 'PAGE-M-12'], objective: '從大型試驗看補充劑風險，避開藥物交互作用並對號入座。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
     ]
   },
   D: {
     titleZh: '飲食模式與流行病學證據文庫',
-    titleEn: 'Dietary Patterns & Epidemiological Evidence',
-    summary: '地中海飲食 PREDIMED、得舒飲食 DASH 降壓、麥得飲食 MIND 大腦認知保護',
-    constantsHeader: '飲食模式實證 · 臨床關鍵常數速查 (Epidemiology Constants)',
+    titleEn: 'Dietary Patterns & Epidemiology Base',
+    summary: '地中海與 MIND、生酮與斷食、低碳低脂比較、植物性飲食品質、超加工食品、時間營養學、我的餐盤與證據判讀',
+    constantsHeader: '飲食模式 · 臨床實證常數速查 (Pattern Evidence)',
     categories: [
-      { id: 'all', name_zh: '全部飲食模式專題', name_en: 'All Dietary Patterns', desc: '地中海飲食、得舒 DASH、麥得 MIND 與植物性飲食完整實證課綱', icon: Layers, color: 'emerald', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-emerald-500 text-emerald-700 dark:text-emerald-300 bg-emerald-50/70' },
-      { id: 'mediterranean-diet', name_zh: '地中海飲食與心血管', name_en: 'Mediterranean Diet & CVD', desc: 'PREDIMED 隨機對照試驗、初榨橄欖油堅果抗氧化與心血管一級預防', icon: Salad, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
-      { id: 'dash-diet', name_zh: '得舒飲食降血壓機轉', name_en: 'DASH Diet & SBP', desc: '高鉀高鎂高鈣、膳食纖維、低飽和脂肪協同舒張血管壁降壓實證', icon: HeartPulse, color: 'teal', badgeClass: 'bg-teal-50 dark:bg-teal-950/50 text-teal-700', borderActive: 'border-teal-500 text-teal-700 bg-teal-50/80' },
-      { id: 'mind-plant-based', name_zh: '麥得飲食與植物性模式', name_en: 'MIND & Plant-Based', desc: '深色莓果與綠葉蔬菜類黃酮、大腦認知退化延緩與全植物飲食死亡率', icon: ShieldCheck, color: 'purple', badgeClass: 'bg-purple-50 dark:bg-purple-950/50 text-purple-700', borderActive: 'border-purple-500 text-purple-700 bg-purple-50/80' }
+      { id: 'all', name_zh: '全部飲食模式專題', name_en: 'All Dietary Patterns', desc: '地中海、DASH、MIND、植物性、低碳、斷食與證據判讀完整課綱', icon: Layers, color: 'emerald', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-emerald-500 text-emerald-700 dark:text-emerald-300 bg-emerald-50/70' },
+      { id: 'mediterranean-mind', name_zh: '地中海與 MIND', name_en: 'Mediterranean & MIND', desc: 'PREDIMED、MIND 清單與台版地中海', icon: Salad, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
+      { id: 'fasting-lowcarb', name_zh: '低碳、斷食與時間營養', name_en: 'Low-Carb, Fasting & Timing', desc: '生酮、168、DIRECT 比較與晚餐時間', icon: Zap, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
+      { id: 'plant-based', name_zh: '植物性與長壽飲食', name_en: 'Plant-Based & Longevity', desc: '藍色寶地、植物優先餐盤、hPDI vs uPDI', icon: Wheat, color: 'teal', badgeClass: 'bg-teal-50 dark:bg-teal-950/50 text-teal-700', borderActive: 'border-teal-500 text-teal-700 bg-teal-50/80' },
+      { id: 'evidence-methods', name_zh: '研究方法與證據判讀', name_en: 'Evidence & Methods', desc: '證據金字塔、相對 vs 絕對風險、超加工食品證據', icon: ShieldCheck, color: 'sky', badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700', borderActive: 'border-sky-500 text-sky-700 bg-sky-50/80' },
+      { id: 'pattern-choice', name_zh: '飲食模式選擇', name_en: 'Choosing a Pattern', desc: '我的餐盤六口訣、目標導向選擇與 PDCA 個人化', icon: Activity, color: 'purple', badgeClass: 'bg-purple-50 dark:bg-purple-950/50 text-purple-700', borderActive: 'border-purple-500 text-purple-700 bg-purple-50/80' }
     ],
     clinicalConstants: [
-      { id: 'predimed_hr', label: 'PREDIMED 心血管風險', value: 'HR 0.70', unit: '主要心血管事件 (MACE)', sub: '地中海飲食組心肌梗塞/中風顯著降低 30%', targetPage: 'PAGE-D-01', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'dash_sbp_drop', label: 'DASH 飲食收縮壓降幅', value: '-8~11', unit: 'mmHg 降壓效益', sub: '降壓效果相當於第一線單一降血壓藥物', targetPage: 'PAGE-D-02', color: 'text-teal-600 dark:text-teal-400' },
-      { id: 'mind_ad_risk', label: 'MIND 阿茲海默症風險', value: '-53%', unit: '高遵循度組降幅', sub: '即使中度遵循亦可降低約 35% 認知衰退', targetPage: 'PAGE-D-03', color: 'text-purple-600 dark:text-purple-400' },
-      { id: 'upf_ceiling', label: '超加工食品 UPF 警戒', value: '< 20%', unit: '每日總熱量佔比', sub: '統合分析：每增加 10% UPF 總死亡率上升 14%', targetPage: 'PAGE-D-01', color: 'text-rose-600 dark:text-rose-400' },
-      { id: 'plant_animal_ratio', label: '植物蛋白相對比', value: '≥ 2:1', unit: '優質蛋白質配置', sub: '大幅降低慢性腎病微白蛋白尿發生率', targetPage: 'PAGE-D-03', color: 'text-sky-600 dark:text-salud-cyan' }
+      { id: 'predimed', label: 'PREDIMED 心血管事件', value: '−30%', unit: 'HR ≈ 0.69–0.72', sub: '地中海＋初榨橄欖油或堅果', targetPage: 'PAGE-D-01', color: 'text-emerald-600 dark:text-emerald-400' },
+      { id: 'tre', label: '限時進食 vs 熱量限制', value: '−8.0 / −6.3', unit: 'kg（12 個月）', sub: 'Liu 2022 NEJM，差異不顯著', targetPage: 'PAGE-D-02', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'processed_meat', label: '加工肉每日 50 g', value: '+18%', unit: '大腸癌相對風險', sub: '絕對風險約每 100 人多 1 人', targetPage: 'PAGE-D-04', color: 'text-rose-600 dark:text-rose-400' },
+      { id: 'hpdi', label: '健康植物性飲食', value: '−25%', unit: '冠心病', sub: '不健康版本反而 +32%', targetPage: 'PAGE-D-07', color: 'text-teal-600 dark:text-teal-400' },
+      { id: 'upf', label: '超加工食品高攝取', value: '+50%', unit: '心血管死亡', sub: 'BMJ 2024 傘狀回顧', targetPage: 'PAGE-D-08', color: 'text-sky-600 dark:text-salud-cyan' }
     ],
     learningPathway: [
-      { step: 1, title: '地中海飲食與心血管保護', targetPages: ['PAGE-D-01'], objective: '剖析 PREDIMED 實證，掌握特級初榨橄欖油與堅果多酚多重效益。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 2, title: '得舒飲食降壓礦物質矩陣', targetPages: ['PAGE-D-02'], objective: '掌握鉀、鎂、鈣協同促排鈉與舒張血管平滑肌生理機制。', badgeClass: 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300' },
-      { step: 3, title: '麥得飲食與大腦神經保護', targetPages: ['PAGE-D-03'], objective: '結合地中海與得舒優勢，精準攝取莓果花青素預防認知退化。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 font-bold' }
+      { step: 1, title: '證據判讀基本功', targetPages: ['PAGE-D-04', 'PAGE-D-05'], objective: '學會讀懂營養研究，並掌握台灣每日飲食指南與我的餐盤。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
+      { step: 2, title: '實證最強的飲食模式', targetPages: ['PAGE-D-01', 'PAGE-D-03', 'PAGE-D-07'], objective: '理解地中海、MIND 與健康植物性飲食的實證與在地化。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 3, title: '熱門飲食法的真相', targetPages: ['PAGE-D-02', 'PAGE-D-06', 'PAGE-D-09'], objective: '比較生酮、斷食、低碳與低脂，了解時間營養學。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 4, title: '整合與個人化', targetPages: ['PAGE-D-08', 'PAGE-D-10'], objective: '減少超加工食品，以 PDCA 找出最適合自己的飲食模式。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 font-bold' }
     ]
   },
   F: {
     titleZh: '食品標示與台灣外食解密文庫',
-    titleEn: 'Food Labels & Taiwan Real-World Eating Out',
-    summary: '八大營養標示計算、反式脂肪法規、隱形鈉重組油陷阱與便當麵攤減害',
-    constantsHeader: '外食拆解與食品標示 · 臨床關鍵常數速查 (Food Label Constants)',
+    titleEn: 'Nutrition Labels & Taiwan Dining Base',
+    summary: '營養標示與成分表、過敏原、添加物、健康食品宣稱、早餐店／夜市／自助餐攻略、食品安全與預算備餐',
+    constantsHeader: '標示與外食 · 實用常數速查 (Label & Dining Benchmarks)',
     categories: [
-      { id: 'all', name_zh: '全部標示外食專題', name_en: 'All Label & Food Topics', desc: '八大標示法規、外食隱形油脂鈉含量、台灣外食四大場景實戰攻略', icon: Layers, color: 'cyan', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-cyan-500 text-cyan-700 dark:text-cyan-300 bg-cyan-50/70' },
-      { id: 'food-nutrition-label', name_zh: '營養標示與法規盲點', name_en: 'Nutrition Facts & Regulations', desc: '八大強制標示項目、每份與每百克換算陷阱、反式脂肪零標示標準', icon: FileText, color: 'cyan', badgeClass: 'bg-cyan-50 dark:bg-cyan-950/50 text-cyan-700', borderActive: 'border-cyan-500 text-cyan-700 bg-cyan-50/80' },
-      { id: 'hidden-sodium-oil', name_zh: '隱形鈉與重組油陷阱', name_en: 'Hidden Sodium & Processed Oils', desc: '高湯醬料加工肉品隱形鈉鹽、重組肉黏著劑與低成本氫化調合油', icon: AlertTriangle, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' },
-      { id: 'eating-out-tactics', name_zh: '台灣外食減害四步法', name_en: 'Taiwan Dining-Out Tactics', desc: '便利商店、自助餐便當店、傳統麵攤、火鍋店實戰減害挑選 SOP', icon: ShieldCheck, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' }
+      { id: 'all', name_zh: '全部標示外食專題', name_en: 'All Label & Dining Topics', desc: '標示判讀、外食攻略、食品安全與居家備餐完整課綱', icon: Layers, color: 'sky', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-sky-500 text-sky-700 dark:text-sky-300 bg-sky-50/70' },
+      { id: 'nutrition-labels', name_zh: '食品標示判讀', name_en: 'Reading Labels', desc: '營養標示、成分表、過敏原、添加物與健康食品', icon: FileText, color: 'sky', badgeClass: 'bg-sky-50 dark:bg-sky-950/50 text-sky-700', borderActive: 'border-sky-500 text-sky-700 bg-sky-50/80' },
+      { id: 'eating-out', name_zh: '外食與小吃攻略', name_en: 'Eating Out', desc: '便當、火鍋、早餐店、夜市與自助餐', icon: Salad, color: 'emerald', badgeClass: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700', borderActive: 'border-emerald-500 text-emerald-700 bg-emerald-50/80' },
+      { id: 'food-safety', name_zh: '食品安全', name_en: 'Food Safety', desc: '危險溫度帶、生熟分開、加工肉與醃漬物', icon: ShieldCheck, color: 'rose', badgeClass: 'bg-rose-50 dark:bg-rose-950/50 text-rose-700', borderActive: 'border-rose-500 text-rose-700 bg-rose-50/80' },
+      { id: 'home-cooking-budget', name_zh: '居家備餐與預算', name_en: 'Home Cooking & Budget', desc: '外送防沉迷、急救五寶與平價健康採買', icon: Activity, color: 'amber', badgeClass: 'bg-amber-50 dark:bg-amber-950/50 text-amber-700', borderActive: 'border-amber-500 text-amber-700 bg-amber-50/80' }
     ],
     clinicalConstants: [
-      { id: 'trans_zero_threshold', label: '反式脂肪標示零門檻', value: '< 0.3', unit: 'g / 100g 規定', sub: '低於 0.3g 可標示為 0！累積多份仍可能超標', targetPage: 'PAGE-F-01', color: 'text-rose-600 dark:text-rose-400' },
-      { id: 'low_sodium_std', label: '法定低鈉標準上限', value: '≤ 120', unit: 'mg / 100g', sub: '超過 600mg 即屬於高鈉警訊食品', targetPage: 'PAGE-F-01', color: 'text-amber-600 dark:text-amber-400' },
-      { id: 'sugar_free_std', label: '法定無糖標準上限', value: '≤ 0.5', unit: 'g / 100g', sub: '低糖標準則為 ≤ 5g / 100g', targetPage: 'PAGE-F-01', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'tw_bento_sodium', label: '台灣排骨便當平均鈉', value: '1300–1600', unit: 'mg / 盒', sub: '光吃一個便當即達全日鈉上限 60-70%', targetPage: 'PAGE-F-02', color: 'text-red-600 dark:text-red-400' },
-      { id: 'fop_warning', label: '警示標章國際趨勢', value: '3黑標', unit: '高糖 / 高鈉 / 高飽和脂', sub: 'Nutri-Score 與智利黑色八角形警示', targetPage: 'PAGE-F-01', color: 'text-cyan-600 dark:text-salud-cyan' }
+      { id: 'trans_zero', label: '反式脂肪標「0」門檻', value: '≤ 0.3', unit: 'g / 100 g', sub: '整包吃完仍會累積', targetPage: 'PAGE-F-01', color: 'text-sky-600 dark:text-salud-cyan' },
+      { id: 'sugar_red', label: '高糖紅燈（固體）', value: '> 22.5', unit: 'g 糖 / 100 g', sub: '鈉 > 600 mg 為高鈉', targetPage: 'PAGE-F-01', color: 'text-rose-600 dark:text-rose-400' },
+      { id: 'allergens', label: '強制標示過敏原', value: '11', unit: '類', sub: '含芒果、芝麻、亞硫酸鹽', targetPage: 'PAGE-F-04', color: 'text-amber-600 dark:text-amber-400' },
+      { id: 'adi_factor', label: 'ADI 安全係數', value: '100', unit: '倍', sub: '物種差異 10 × 個體差異 10', targetPage: 'PAGE-F-05', color: 'text-purple-600 dark:text-purple-400' },
+      { id: 'danger_zone', label: '危險溫度帶', value: '7–60', unit: '°C', sub: '熟食室溫 ≤ 2 小時', targetPage: 'PAGE-F-10', color: 'text-red-600 dark:text-red-400' },
+      { id: 'red_meat', label: '紅肉每週上限', value: '350–500', unit: 'g 熟重', sub: '加工肉越少越好', targetPage: 'PAGE-F-11', color: 'text-emerald-600 dark:text-emerald-400' }
     ],
     learningPathway: [
-      { step: 1, title: '八大營養標示換算與拆解', targetPages: ['PAGE-F-01'], objective: '學會破解每份包裝伎倆，識破反式脂肪小於 0.3g 標示零之真相。', badgeClass: 'bg-cyan-100 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-300' },
-      { step: 2, title: '隱形鈉與加工用油陷阱', targetPages: ['PAGE-F-02'], objective: '拆解貢丸羹湯酸菜與重組肉添加物，掌握外食潛藏危機。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
-      { step: 3, title: '台灣四大外食情境實戰減害', targetPages: ['PAGE-F-03'], objective: '建立超商、便當店、麵攤、火鍋店「去皮、不喝湯、加青菜」SOP。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold' }
+      { step: 1, title: '看懂包裝', targetPages: ['PAGE-F-01', 'PAGE-F-04'], objective: '讀懂營養標示紅綠燈、成分排序與過敏原標示。', badgeClass: 'bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300' },
+      { step: 2, title: '添加物與宣稱', targetPages: ['PAGE-F-05', 'PAGE-F-06'], objective: '理解 ADI 的安全邏輯，辨識健康食品與違規廣告。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300' },
+      { step: 3, title: '台灣外食實戰', targetPages: ['PAGE-F-02', 'PAGE-F-07', 'PAGE-F-08', 'PAGE-F-09'], objective: '在便當店、早餐店、夜市與自助餐做出聰明選擇。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
+      { step: 4, title: '食品安全', targetPages: ['PAGE-F-10', 'PAGE-F-11'], objective: '掌握溫度與交叉污染防護，正確看待加工肉與隔夜菜。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300' },
+      { step: 5, title: '居家備餐與預算', targetPages: ['PAGE-F-03', 'PAGE-F-12'], objective: '減少外送依賴，用平價食材吃得健康。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold' }
     ]
   }
 };

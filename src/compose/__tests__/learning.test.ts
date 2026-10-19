@@ -10,12 +10,10 @@ import { LAB_METRICS, TAIWAN_SCREENINGS } from '../../data/learning/checkup';
 import { GLOSSARY } from '../../data/learning/glossary';
 import { buildSearchIndex, searchDocs } from '../../data/learning/searchIndex';
 import { HUMAN_SYSTEMS } from '../../data/humanSystemsData';
-import { CHAPTER_W_PAGES } from '../../data/chapterW';
-import { CHAPTER_O_PAGES } from '../../data/chapterO';
-import { CHAPTER_A_PAGES } from '../../data/chapterA';
+import { ALL_CHAPTER_PAGES } from '../../data/chapters';
 import { classifyBP, classifyBMI, classifyWHtR, classifyEGFR, classifyA1c, classifyFPG, countMetSyn } from '../../utils/labBands';
 
-const PAGE_IDS = new Set([...CHAPTER_W_PAGES, ...CHAPTER_O_PAGES, ...CHAPTER_A_PAGES].map((p) => p.id));
+const PAGE_IDS = new Set(ALL_CHAPTER_PAGES.map((p) => p.id));
 const SYSTEM_IDS = new Set(HUMAN_SYSTEMS.map((s) => s.id as string));
 
 /** Resolve a hash all the way to a concrete destination, or explain why it is dead. */

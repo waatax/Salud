@@ -3,17 +3,36 @@ import { CHAPTER_W_PAGES } from './chapterW';
 import { CHAPTER_O_PAGES } from './chapterO';
 import { CHAPTER_A_PAGES } from './chapterA';
 import {
-  CHAPTER_E_PAGES,
-  CHAPTER_P_PAGES,
-  CHAPTER_C_PAGES,
-  CHAPTER_S_PAGES,
+  CHAPTER_E_PAGES as E_CORE,
+  CHAPTER_P_PAGES as P_CORE,
+  CHAPTER_C_PAGES as C_CORE,
+  CHAPTER_S_PAGES as S_CORE,
 } from './chaptersEPCS';
 import {
-  CHAPTER_N_PAGES,
-  CHAPTER_M_PAGES,
-  CHAPTER_D_PAGES,
-  CHAPTER_F_PAGES,
+  CHAPTER_N_PAGES as N_CORE,
+  CHAPTER_M_PAGES as M_CORE,
+  CHAPTER_D_PAGES as D_CORE,
+  CHAPTER_F_PAGES as F_CORE,
 } from './chaptersNMDF';
+import { PAGES_E_EXT } from './curriculum/chapterE';
+import { PAGES_P_EXT } from './curriculum/chapterP';
+import { PAGES_C_EXT } from './curriculum/chapterC';
+import { PAGES_S_EXT } from './curriculum/chapterS';
+import { PAGES_N_EXT } from './curriculum/chapterN';
+import { PAGES_M_EXT } from './curriculum/chapterM';
+import { PAGES_D_EXT } from './curriculum/chapterD';
+import { PAGES_F_EXT } from './curriculum/chapterF';
+
+// 2026 curriculum completion: core pages 01–03 plus the pages that bring each chapter
+// up to the SALUD spec §5.1 page targets (E 10 · P 8 · C 10 · S 8 · N 8 · M 12 · D 10 · F 12).
+const CHAPTER_E_PAGES = [...E_CORE, ...PAGES_E_EXT];
+const CHAPTER_P_PAGES = [...P_CORE, ...PAGES_P_EXT];
+const CHAPTER_C_PAGES = [...C_CORE, ...PAGES_C_EXT];
+const CHAPTER_S_PAGES = [...S_CORE, ...PAGES_S_EXT];
+const CHAPTER_N_PAGES = [...N_CORE, ...PAGES_N_EXT];
+const CHAPTER_M_PAGES = [...M_CORE, ...PAGES_M_EXT];
+const CHAPTER_D_PAGES = [...D_CORE, ...PAGES_D_EXT];
+const CHAPTER_F_PAGES = [...F_CORE, ...PAGES_F_EXT];
 
 export {
   CHAPTER_W_PAGES,

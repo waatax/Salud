@@ -1,8 +1,6 @@
 import { HUMAN_SYSTEMS } from '../humanSystemsData';
 import { SYSTEM_DEEP_DIVES } from '../systems';
-import { CHAPTER_W_PAGES } from '../chapterW';
-import { CHAPTER_O_PAGES } from '../chapterO';
-import { CHAPTER_A_PAGES } from '../chapterA';
+import { CHAPTERS, getChapterPages } from '../chapters';
 import { PILLAR_NAV, EXERCISE_SUB_NAV, DIET_SUB_NAV } from '../../config/navigation';
 import { LEARNING_TRACKS } from './tracks';
 import { EVIDENCE_UPDATES } from './evidenceUpdates';
@@ -236,13 +234,17 @@ export function buildSearchIndex(): SearchDoc[] {
     }
   }
 
-  for (const [chId, pages] of [
-    ['W', CHAPTER_W_PAGES],
-    ['O', CHAPTER_O_PAGES],
-    ['A', CHAPTER_A_PAGES],
-  ] as const) {
-    for (const p of pages) {
-      docs.push({ id: `page:${p.id}`, group: '飲食章節', title: p.title_zh, subtitle: `第 ${chId} 章 · ${p.hook.slice(0, 40)}`, target: `${chId}/${p.id}`, keywords: `${p.title_en} ${p.kps.map((k) => k.title).join(' ')}` });
+  // All 11 nutrition curriculum chapters (W, O, A, E, P, C, S, N, M, D, F).
+  for (const ch of CHAPTERS) {
+    for (const p of getChapterPages(ch.id)) {
+      docs.push({
+        id: `page:${p.id}`,
+        group: '飲食章節',
+        title: p.title_zh,
+        subtitle: `第 ${ch.id} 章 ${ch.title_zh} · ${p.hook.slice(0, 40)}`,
+        target: `${ch.id}/${p.id}`,
+        keywords: `${p.title_en} ${p.category_zh ?? ''} ${(p.tags ?? []).join(' ')} ${p.kps.map((k) => `${k.title} ${k.one_liner}`).join(' ')}`,
+      });
     }
   }
 

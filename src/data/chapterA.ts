@@ -5,6 +5,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-01',
     chapter_id: 'A',
+    category: 'alcohol-metabolism',
+    category_zh: '肝臟代謝途徑',
     title_zh: '一杯酒進到身體之後',
     title_en: 'When a Drink Enters the Body',
     order_index: 1,
@@ -183,6 +185,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-02',
     chapter_id: 'A',
+    category: 'alcohol-metabolism',
+    category_zh: '肝臟代謝途徑',
     title_zh: '兩階段代謝：ADH 與 ALDH2',
     title_en: 'Two-Stage Metabolism: ADH & ALDH2',
     order_index: 2,
@@ -360,6 +364,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-03',
     chapter_id: 'A',
+    category: 'aldh2-deficiency',
+    category_zh: 'ALDH2 突變致癌',
     title_zh: 'ALDH2 缺失與亞洲紅臉',
     title_en: 'ALDH2 Deficiency & Asian Flush',
     order_index: 3,
@@ -537,6 +543,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-04',
     chapter_id: 'A',
+    category: 'sleep-hydration',
+    category_zh: '睡眠與水分恆定',
     title_zh: '酒精與癌症機制',
     title_en: 'Alcohol & Carcinogenesis',
     order_index: 4,
@@ -714,6 +722,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-05',
     chapter_id: 'A',
+    category: 'sleep-hydration',
+    category_zh: '睡眠與水分恆定',
     title_zh: 'J 型曲線是怎麼崩解的',
     title_en: 'How the J-Shaped Curve Collapsed',
     order_index: 5,
@@ -891,6 +901,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-06',
     chapter_id: 'A',
+    category: 'alcohol-metabolism',
+    category_zh: '肝臟代謝途徑',
     title_zh: '為什麼喝了酒睡不好',
     title_en: 'Why Alcohol Disrupts Sleep',
     order_index: 6,
@@ -1068,6 +1080,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-07',
     chapter_id: 'A',
+    category: 'alcohol-metabolism',
+    category_zh: '肝臟代謝途徑',
     title_zh: '肝臟、腸道與胰臟病理',
     title_en: 'Liver, Gut & Pancreas Pathology',
     order_index: 7,
@@ -1245,6 +1259,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-08',
     chapter_id: 'A',
+    category: 'aldh2-deficiency',
+    category_zh: 'ALDH2 突變致癌',
     title_zh: '酒種差異（一）：先看總量，再看啤酒與紅酒',
     title_en: 'Beverage Breakdown I: Pure Ethanol First, Beer & Wine',
     order_index: 8,
@@ -1334,7 +1350,7 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
       },
       {
         id: 'KP-A-047',
-        page_id: 'PAGE-A-048',
+        page_id: 'PAGE-A-08',
         title: '紅酒誘發頭痛的嫌疑犯：生物胺與亞硫酸鹽',
         one_liner: '紅酒發酵過程富含組織胺與酪胺，缺乏 DAO 酵素者易誘發偏頭痛。',
         kp_type: 'mechanism',
@@ -1402,6 +1418,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-09',
     chapter_id: 'A',
+    category: 'aldh2-deficiency',
+    category_zh: 'ALDH2 突變致癌',
     title_zh: '酒種差異（二）：燒酒、清酒與烈酒',
     title_en: 'Beverage Breakdown II: Soju, Sake & Spirits',
     order_index: 9,
@@ -1539,6 +1557,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-10',
     chapter_id: 'A',
+    category: 'alcohol-metabolism',
+    category_zh: '肝臟代謝途徑',
     title_zh: '宿醉與隔日恢復',
     title_en: 'Hangover Physiology & Next-Day Recovery',
     order_index: 10,
@@ -1696,6 +1716,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-11',
     chapter_id: 'A',
+    category: 'sleep-hydration',
+    category_zh: '睡眠與水分恆定',
     title_zh: '藥物交互作用：絕對紅線',
     title_en: 'Drug Interactions: The Absolute Red Lines',
     order_index: 11,
@@ -1856,6 +1878,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-12',
     chapter_id: 'A',
+    category: 'aldh2-deficiency',
+    category_zh: 'ALDH2 突變致癌',
     title_zh: '如果你會喝：減害協議',
     title_en: 'Harm Reduction Protocol: If You Drink',
     order_index: 12,
@@ -2054,6 +2078,8 @@ const CHAPTER_A_BASE: KnowledgePage[] = [
   {
     id: 'PAGE-A-13',
     chapter_id: 'A',
+    category: 'sleep-hydration',
+    category_zh: '睡眠與水分恆定',
     title_zh: '依賴、戒斷與求助',
     title_en: 'Dependence, Withdrawal & Triage Support',
     order_index: 13,
