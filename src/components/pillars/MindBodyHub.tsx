@@ -44,6 +44,12 @@ export const MindBodyHub: React.FC = () => (
       CAPD_PLAN: CapdChapter,
       SAFETY: SafetyChapter,
     }}
+    units={[
+      { title: '總覽與睡眠', blurb: '自律神經迴路、睡眠科學與 24 小時作息', chapters: ['OVERVIEW', 'SLEEP_SCIENCE', 'SLEEP_PLAN'] },
+      { title: '呼吸與吐納', blurb: '呼吸生理、卡帕拉巴提、吐納與六字訣', chapters: ['BREATH_SCIENCE', 'KAPALABHATI', 'TUNA'] },
+      { title: '正念與整合', blurb: '正念冥想、睡前處方與四週 CAP-D 計畫', chapters: ['MINDFULNESS', 'BEDTIME', 'CAPD_PLAN'] },
+      { title: '安全網', blurb: '練習禁忌與何時就醫', chapters: ['SAFETY'] },
+    ]}
     myths={MINDBODY_MYTHS}
     quiz={MINDBODY_QUIZ}
     sources={SOURCES}

@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import { AlertOctagon, Lightbulb, HelpCircle, BookOpenCheck, Info, CheckCircle2, XCircle, ChevronLeft, ChevronRight, Target } from 'lucide-react';
 
 /**
  * Blocks — v4.4 small, shared reading blocks used by the course-style hubs.
  * They carry meaning with an icon and a label as well as colour (WCAG 1.4.1).
  */
+
+// ── Chapter numbering ─────────────────────────────────────────────────────────
+
+/**
+ * The 1-based number of the chapter being shown. CourseShell provides it so figure and
+ * table labels written as 「圖 3-1」/「表 3-1」 always carry the chapter's real position,
+ * even after chapters are added or reordered.
+ */
+export const ChapterNumberContext = createContext<number | null>(null);
+
+const LABEL_RE = /^([圖表])\s*\d+-(\d+)/;
+
+/** Rewrite a leading 「圖 x-y」/「表 x-y」 so x is the current chapter number. */
+export function useChapterLabel(label?: string): string | undefined {
+  const chapter = useContext(ChapterNumberContext);
+  if (!label || chapter == null) return label;
+  return label.replace(LABEL_RE, (_m, kind: string, n: string) => `${kind} ${chapter}-${n}`);
+}
 
 // ── Figure frame ───────────────────────────────────────────────────────────
 
@@ -18,7 +36,9 @@ export const FigureFrame: React.FC<{
   note?: string | false;
   children: React.ReactNode;
   className?: string;
-}> = ({ number, title, caption, source, note, children, className = '' }) => (
+}> = ({ number: rawNumber, title, caption, source, note, children, className = '' }) => {
+  const number = useChapterLabel(rawNumber);
+  return (
   <figure
     className={`rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-4 sm:p-5 space-y-3 print-avoid-break ${className}`}
   >
@@ -41,7 +61,8 @@ export const FigureFrame: React.FC<{
       </figcaption>
     )}
   </figure>
-);
+  );
+};
 
 // ── Callouts ────────────────────────────────────────────────────────────────
 

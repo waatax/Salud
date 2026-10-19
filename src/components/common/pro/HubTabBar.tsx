@@ -53,6 +53,8 @@ interface Props<T extends string> {
   idPrefix?: string;
   sticky?: boolean;
   className?: string;
+  /** Tab ids that open a new unit; a thin divider is drawn before each. */
+  groupStarts?: readonly string[];
 }
 
 export function HubTabBar<T extends string>({
@@ -66,6 +68,7 @@ export function HubTabBar<T extends string>({
   idPrefix = 'hub',
   sticky = true,
   className = '',
+  groupStarts = [],
 }: Props<T>) {
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -112,8 +115,9 @@ export function HubTabBar<T extends string>({
           const finished = done.includes(t.id);
           const Icon = t.icon;
           return (
+            <React.Fragment key={t.id}>
+            {groupStarts.includes(t.id) && <span className="shrink-0 self-stretch w-px my-1 mx-0.5 bg-slate-300 dark:bg-slate-700" aria-hidden="true" />}
             <button
-              key={t.id}
               type="button"
               role="tab"
               id={`${idPrefix}-tab-${t.id}`}
@@ -142,6 +146,7 @@ export function HubTabBar<T extends string>({
               <span>{t.label}</span>
               {finished && <span className="sr-only">（已讀）</span>}
             </button>
+            </React.Fragment>
           );
         })}
       </div>

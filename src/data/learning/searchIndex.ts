@@ -8,7 +8,8 @@ import { LAB_METRICS, TAIWAN_SCREENINGS } from './checkup';
 import { GLOSSARY } from './glossary';
 import { ALL_QUICK_TIPS } from './quickTips';
 import { STARTER_WEEKS } from './starterPlan';
-import { SPINE_CHAPTERS, NUMB_CAUSES, SPINE_MEDS, PT_MODALITIES, SPINE_EXERCISES, POSTURE_GUIDE, SPUR_CONDITIONS } from '../spineData';
+import { NUMB_CAUSES, SPINE_MEDS, PT_MODALITIES, SPINE_EXERCISES, POSTURE_GUIDE, SPUR_CONDITIONS } from '../spineData';
+import { SPINE_COURSE_CHAPTERS } from '../spineCareData';
 import { HEPB_CHAPTERS, HBV_MARKERS, HBV_DRUGS } from '../hepbData';
 import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
 
@@ -31,6 +32,13 @@ export const GROUP_ORDER: SearchGroup[] = ['課程', '實用技巧', '檢驗與�
  * Build the in-memory search corpus. Every entry points to an existing route so the
  * test suite can assert that no result is a dead link.
  */
+const CARE_KEYWORDS: Record<string, string> = {
+  ACUTE: '閃到腰 落枕 急性腰痛 急性頸痛 熱敷 冰敷 睡姿 枕頭 72小時 發作',
+  CHRONIC: '慢性疼痛 慢性腰痛 中樞敏感化 節律活動 pacing 認知行為治療 CBT 復工 重返工作 失眠',
+  CAREGIVER: '照顧者 家屬 照護 臥床 翻身 移位 輪椅 壓瘡 褥瘡 壓力性損傷 防跌 跌倒 輔具 助行器 長照 1966 喘息服務',
+  SPECIAL: '脊椎側彎 側彎 Cobb 背架 僵直性脊椎炎 HLA-B27 發炎性背痛 孕婦腰痛 產後腰痛 骨盆帶疼痛 書包 青少年',
+};
+
 export function buildSearchIndex(): SearchDoc[] {
   const docs: SearchDoc[] = [];
 
@@ -56,14 +64,14 @@ export function buildSearchIndex(): SearchDoc[] {
   }
 
   // 脊椎與神經專區 (v4.4): chapters, causes of numbness, medicines, therapies, exercises, postures.
-  for (const c of SPINE_CHAPTERS) {
+  for (const c of SPINE_COURSE_CHAPTERS) {
     docs.push({
       id: `spine:${c.id}`,
       group: '脊椎與神經',
       title: c.title_zh,
       subtitle: `脊椎專區 · ${c.label_zh}`,
       target: `spine/${c.id}`,
-      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 脊椎 骨刺 骨骼疏鬆 骨質疏鬆 壓迫性骨折 微創手術 骨泥 椎體成形術 UBE PELD 復健 物理治療 脊柱健康 生理曲線 McGill 麥吉爾 腰痛 背痛 脖子痛 頸椎 腰椎 手麻 腳麻`,
+      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 脊椎 骨刺 骨骼疏鬆 骨質疏鬆 壓迫性骨折 微創手術 骨泥 椎體成形術 UBE PELD 復健 物理治療 脊柱健康 生理曲線 McGill 麥吉爾 腰痛 背痛 脖子痛 頸椎 腰椎 手麻 腳麻 脊椎照護 ${CARE_KEYWORDS[c.id] ?? ''}`,
     });
   }
   // Dedicated specialty keyword targets

@@ -173,7 +173,7 @@ const TrackComparisonTable: React.FC = () => {
     { name: '睡好與心理', lessons: '7 課 · 46 分鐘', difficulty: '實用 ★★☆', outcome: '校準 24H 生物鐘、學會史丹佛生理嘆氣、突破失眠 CBT-I 與 OSA 篩檢', audience: '受失眠與壓力困擾者' },
     { name: '看懂健檢報告', lessons: '8 課 · 47 分鐘', difficulty: '實用 ★★☆', outcome: '血壓血糖血脂紅字解讀、eGFR/UACR 腎病熱圖、FIB-4 與公費癌篩', audience: '剛拿到體檢紅字者' },
     { name: '慢性病預防與老化', lessons: '10 課 · 65 分鐘', difficulty: '整合 ★★★', outcome: '阻斷動脈粥狀硬化、DPP 逆轉糖尿病前期、GLP-1、肌少症、次世代疫苗與衰弱防跌', audience: '照顧全家長輩與想健康長壽者' },
-    { name: '脊椎與神經保養', lessons: '6 課 · 38 分鐘', difficulty: '專科 ★★☆', outcome: '破解骨刺與椎間盤迷思、麥吉爾核心大三防護、坐骨神經滑動與紅旗急診', audience: '久坐上班族、腰痛背痛與手腳發麻者' },
+    { name: '脊椎與神經保養', lessons: '8 課 · 57 分鐘', difficulty: '專科 ★★☆', outcome: '破解骨刺與椎間盤迷思、急性發作 72 小時照護、麥吉爾核心大三、家屬翻身移位防壓瘡與紅旗急診', audience: '久坐上班族、腰痛背痛、手腳發麻者與照顧家人的家屬' },
   ];
 
   return (

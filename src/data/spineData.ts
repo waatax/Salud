@@ -2418,7 +2418,7 @@ export const SPINE_MYTHS: { chapter: SpineTab; myth: string; fact: string }[] = 
   { chapter: 'TRIAGE', myth: '腰痛越早照 MRI 越好。', fact: '沒有警訊時，前 4–6 週做影像不會讓你好得更快，反而可能因為看到常見的退化而增加焦慮與不必要的治療。' },
 ];
 
-export const SPINE_QUIZ: Record<SpineTab, { question: string; options: string[]; answer: number; explain: string }> = {
+export const SPINE_QUIZ: Partial<Record<SpineTab, { question: string; options: string[]; answer: number; explain: string }>> = {
   OVERVIEW: {
     question: '成人的脊髓大約在哪裡結束？',
     options: ['第 7 頸椎', '第 12 胸椎上方', '第 1–2 腰椎附近', '尾骨'],

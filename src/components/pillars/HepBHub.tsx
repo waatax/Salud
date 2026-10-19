@@ -26,6 +26,11 @@ export const HepBHub: React.FC = () => (
       MONITOR: HepbMonitor,
       LIFE: HepbLife,
     }}
+    units={[
+      { title: '認識與預防', blurb: 'B 肝病毒、傳染途徑與疫苗', chapters: ['OVERVIEW', 'SPREAD'] },
+      { title: '檢查與病程', blurb: '看懂報告與慢性 B 肝的自然病程', chapters: ['TESTS', 'PHASES'] },
+      { title: '治療與長期照護', blurb: '抗病毒治療、追蹤肝癌篩檢與生活', chapters: ['TREATMENT', 'MONITOR', 'LIFE'] },
+    ]}
     myths={HEPB_MYTHS}
     quiz={HEPB_QUIZ}
     sources={SOURCES}

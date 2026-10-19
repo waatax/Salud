@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table as TableIcon } from 'lucide-react';
+import { useChapterLabel } from './Blocks';
 
 /**
  * DataTable — v4.4 reference table that stays readable on a phone.
@@ -57,7 +58,8 @@ function cell<R>(col: Column<R>, row: R): React.ReactNode {
   return v == null ? '' : (v as React.ReactNode);
 }
 
-export function DataTable<R>({ title, caption, source, columns, rows, rowKey, rowTone, footnote, id, compact = false }: Props<R>) {
+export function DataTable<R>({ title: rawTitle, caption, source, columns, rows, rowKey, rowTone, footnote, id, compact = false }: Props<R>) {
+  const title = useChapterLabel(rawTitle);
   const [first, ...rest] = columns;
   return (
     <section className="space-y-2.5 print-avoid-break" aria-labelledby={title && id ? id : undefined}>

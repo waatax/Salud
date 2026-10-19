@@ -108,6 +108,9 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   kyphoplasty: 'spine',
   'bone-cement': 'spine',
   miss: 'spine',
+  scoliosis: 'spine',
+  caregiver: 'spine',
+  'spine-care': 'spine',
   hepatitis: 'hepb',
   'hepatitis-b': 'hepb',
   hbv: 'hepb',
@@ -177,19 +180,28 @@ export type SpineTab =
   | 'REHAB'
   | 'TREATMENT'
   | 'MEDS'
-  | 'TRIAGE';
+  | 'TRIAGE'
+  | 'ACUTE'
+  | 'CHRONIC'
+  | 'CAREGIVER'
+  | 'SPECIAL';
+/** Course order follows the six units in spineCareData.SPINE_UNITS. */
 export const SPINE_TABS: readonly SpineTab[] = [
   'OVERVIEW',
   'SPURS',
+  'NUMBNESS',
+  'ACUTE',
+  'TREATMENT',
+  'MEDS',
+  'CHRONIC',
   'OSTEOPOROSIS',
   'FRACTURE',
   'SURGERY',
-  'NUMBNESS',
+  'REHAB',
+  'CAREGIVER',
   'POSTURE',
   'EXERCISE',
-  'REHAB',
-  'TREATMENT',
-  'MEDS',
+  'SPECIAL',
   'TRIAGE',
 ];
 export type HepbTab = 'OVERVIEW' | 'SPREAD' | 'TESTS' | 'PHASES' | 'TREATMENT' | 'MONITOR' | 'LIFE';
