@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { copyText } from '../../utils/copyText';
 import { EXPERT_MONOGRAPHS, ExpertMonographData, MonographReference } from '../../data/expertMonographs';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { EXPERT_BEST_PRACTICES } from '../../data/expertBestPractices';
@@ -53,7 +54,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
 
   const handleCopyCitation = (ref: MonographReference) => {
     const text = `[${ref.id}] ${ref.citation} (${ref.pmidOrDoi || ''}) - ${ref.keyFinding}`;
-    navigator.clipboard.writeText(text);
+    void copyText(text);
     setCopiedRefId(ref.id);
     setTimeout(() => setCopiedRefId(null), 2000);
   };
@@ -63,7 +64,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
     const body = monograph.references
       .map((r) => `[${r.id}] ${r.citation}\n    類型: ${r.studyType} | 識別: ${r.pmidOrDoi || 'N/A'}\n    關鍵實證: ${r.keyFinding}\n`)
       .join('\n');
-    navigator.clipboard.writeText(header + body);
+    void copyText(header + body);
     setCopiedAll(true);
     setTimeout(() => setCopiedAll(false), 2500);
   };

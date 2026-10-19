@@ -3,6 +3,7 @@ import { ClipboardCheck, Copy, Check, Gauge, Home, Stethoscope, Phone } from 'lu
 import { FigureFrame, Callout } from '../../common/pro/Blocks';
 import { ChartBody } from '../../figures/CurriculumChart';
 import type { SpineTab } from '../../../config/routes';
+import { copyText } from '../../../utils/copyText';
 import {
   ACUTE_72H_PLAN,
   ACUTE_RECOVERY_CURVE,
@@ -79,13 +80,10 @@ const CopyButton: React.FC<{ text: string; label?: string }> = ({ text, label = 
     <button
       type="button"
       onClick={() => {
-        navigator.clipboard?.writeText(text).then(
-          () => {
-            setCopied(true);
-            window.setTimeout(() => setCopied(false), 2000);
-          },
-          () => setCopied(false)
-        );
+        void copyText(text).then((ok) => {
+          setCopied(ok);
+          if (ok) window.setTimeout(() => setCopied(false), 2000);
+        });
       }}
       className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-[13px] font-semibold text-slate-700 dark:text-slate-200 hover:border-sky-500"
     >

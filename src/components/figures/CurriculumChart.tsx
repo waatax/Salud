@@ -70,7 +70,7 @@ const Bars: React.FC<{ spec: Extract<ChartSpec, { kind: 'bars' }> }> = ({ spec }
             </div>
             <div>
               <div className="relative h-6 rounded-md bg-slate-200/70 dark:bg-slate-800/80 overflow-hidden">
-                <div className={`h-full rounded-md ${t.bar}`} style={{ width: `${Math.max(2, Math.min(100, (i.value / max) * 100))}%` }} />
+                <div className={`h-full rounded-md ${t.bar}`} style={{ width: `${i.value <= 0 ? 0 : Math.max(2, Math.min(100, (i.value / max) * 100))}%` }} />
                 {spec.ref && (
                   <div
                     className="absolute inset-y-0 border-l-2 border-dashed border-slate-900/70 dark:border-white/80"
