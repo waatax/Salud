@@ -40,6 +40,13 @@ import {
   CAREGIVER_HELP,
   LEGAL_TOOLS,
   INSURANCE_NOTES,
+  BARTHEL_SCORING_STANDARDS,
+  FOREIGN_CAREGIVER_3_TRACKS,
+  FOREIGN_CAREGIVER_COST_DETAILED,
+  MULTILINGUAL_CAREGIVER_PHRASES,
+  FACILITY_5_TYPES_DEEP,
+  BEDSORE_STAGING_GUIDE,
+  HOME_THREE_TUBES_SOP,
 } from '../../../data/ltcData';
 import { DataTable } from '../../common/pro/DataTable';
 import { FigureFrame, Callout, GradePill } from '../../common/pro/Blocks';
@@ -277,6 +284,38 @@ export const LtcAssess: React.FC<GoTo> = ({ goTo }) => (
         <li>• 準備照顧日誌：一週內跌倒、失禁、夜間起床、混亂的次數。</li>
         <li>• 對結果有疑問，可詢問評估依據或在狀況改變時申請複評。</li>
       </ul>
+    </Callout>
+
+    <H3>巴氏量表 10 大項目臨床評分細則與計分眉角</H3>
+    <div className="grid gap-3 md:grid-cols-2">
+      {BARTHEL_SCORING_STANDARDS.map((b) => (
+        <article key={b.item} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-3.5 space-y-2">
+          <div className="flex items-center justify-between">
+            <h4 className="text-[14.5px] font-bold text-slate-900 dark:text-white">{b.item}</h4>
+            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300">
+              滿分 {b.maxScore} 分
+            </span>
+          </div>
+          <div className="space-y-1.5 text-[12.5px]">
+            {b.levels.map((l) => (
+              <div key={l.score} className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                <div className="flex items-center justify-between font-bold text-slate-900 dark:text-white mb-0.5">
+                  <span className="text-teal-700 dark:text-teal-400">{l.score} 分</span>
+                </div>
+                <p className="text-slate-700 dark:text-slate-300 leading-snug">{l.desc}</p>
+                <p className="text-[11px] text-amber-800 dark:text-amber-400 mt-1">💡 臨床評分關鍵：{l.clinicalTip}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <Callout kind="evidence" title="失智症雙軌制：CDR 與巴氏量表如何分流？">
+      <p>
+        臨床常見困境：失智長輩四肢健全、巴氏量表高達 80–90 分，但因定向感喪失、反覆開瓦斯、遊走走失，需要 24 小時寸步不離照顧。
+        <strong>解決方案</strong>：勞動部與衛福部明訂，凡<strong>臨床失智評估量表（CDR）達到 1 分（輕度失智）以上</strong>，即可直接憑醫師失智診斷與 CDR 報告申請外籍看護，<strong>完全不受巴氏量表分數限制</strong>！
+      </p>
     </Callout>
   </div>
 );
@@ -552,6 +591,49 @@ export const LtcForeign: React.FC<GoTo> = ({ goTo }) => (
         </Callout>
       ))}
     </div>
+    <DataTable
+      title="表 9-3　外籍家庭看護工 2025/2026 多元免評三軌申請資格全解析"
+      source="就業服務法第 46 條；勞動部 2025-08 新制公告"
+      columns={[
+        { key: 'trackName', header: '申請軌道', className: 'min-w-[130px]' },
+        { key: 'targetGroup', header: '適用對象', className: 'min-w-[180px]' },
+        { key: 'exemptionRule', header: '免評規定', className: 'min-w-[170px]' },
+        { key: 'requiredProof', header: '應備文件', className: 'min-w-[180px]' },
+        { key: 'processingSpeed', header: '審查與求才時效', className: 'min-w-[160px]' },
+        { key: 'keyNotice', header: '重要注意事項', className: 'min-w-[180px]' },
+      ]}
+      rows={FOREIGN_CAREGIVER_3_TRACKS}
+      rowKey={(r) => r.trackName}
+    />
+
+    <DataTable
+      title="表 9-4　聘僱外看完整月度與一次性支出精算（含政府減免）"
+      source="勞動部勞動力發展署；健保法；所得稅法"
+      columns={[
+        { key: 'category', header: '費用類別', className: 'min-w-[120px]' },
+        { key: 'item', header: '費用項目', className: 'min-w-[180px]' },
+        { key: 'monthlyAmount', header: '費用金額', className: 'min-w-[140px]' },
+        { key: 'payee', header: '收款對象', className: 'min-w-[150px]' },
+        { key: 'legalBasis', header: '法規依據與減免說明', className: 'min-w-[200px]' },
+      ]}
+      rows={FOREIGN_CAREGIVER_COST_DETAILED}
+      rowKey={(r) => r.item}
+    />
+
+    <DataTable
+      title="表 9-5　外看日常與急症照護三語溝通快速手冊（印尼語、越南語、菲律賓語）"
+      source="勞動部跨國勞動力權益維護指南；長照臨床溝通實務"
+      columns={[
+        { key: 'chinese', header: '中文指令', className: 'min-w-[130px]' },
+        { key: 'pinyinOrUsage', header: '照護情境說明', className: 'min-w-[130px]' },
+        { key: 'indonesian', header: '印尼語 (Bahasa Indonesia)', className: 'min-w-[190px]' },
+        { key: 'vietnamese', header: '越南語 (Tiếng Việt)', className: 'min-w-[190px]' },
+        { key: 'tagalog', header: '菲律賓語 (Tagalog)', className: 'min-w-[190px]' },
+      ]}
+      rows={MULTILINGUAL_CAREGIVER_PHRASES}
+      rowKey={(r) => r.chinese}
+    />
+
     <Callout kind="myth" title="外看不是「全包」">
       <p>
         外籍看護同樣需要休息、訓練與支持。把照顧步驟寫成圖卡、請治療師到府示範、讓外看參加補充訓練，並安排規律喘息，照顧品質與留任率都會更好。家屬自己的負荷也請檢視 <LinkBtn onClick={() => goTo('CAREGIVER')}>第 13 章</LinkBtn>。
@@ -584,6 +666,23 @@ export const LtcFacility: React.FC<GoTo> = ({ goTo }) => (
       <p>行政院 2026-09-10 通過調增：長照需要等級 4 級以上或領有中度以上身心障礙證明、入住合法住宿式機構的住民，每月補助由 1 萬提高為 1.5 萬，全年最高 18 萬，追溯自 2026-01-01；不排富。</p>
       <p>認列方式改為「按月」：當月實際入住達日曆天數一半以上即算一個月，地方政府上下半年分兩次撥付。2025 年已領 12 萬者，2026 年 1–8 月住滿 180 天仍給 12 萬；9 月起適用新制。申請時程依各縣市公告。</p>
     </Callout>
+
+    <DataTable
+      title="表 10-2　五大機構類型全景橫向深度矩陣表（護病比、三管收治、月費與補助）"
+      source="衛福部護理及健康照護司；社會及家庭署老人福利機構設置標準"
+      columns={[
+        { key: 'type', header: '機構類型', className: 'min-w-[150px]' },
+        { key: 'authority', header: '主管機關與法源', className: 'min-w-[140px]' },
+        { key: 'nurseRatio', header: '護理人力配置', className: 'min-w-[160px]' },
+        { key: 'caregiverRatio', header: '照服員配置', className: 'min-w-[150px]' },
+        { key: 'threeTubesEligible', header: '三管收案能力', className: 'min-w-[170px]' },
+        { key: 'suitableResidents', header: '收住對象', className: 'min-w-[180px]' },
+        { key: 'averageMonthlyCost', header: '每月平均收費', className: 'min-w-[160px]' },
+        { key: 'subsidyEligible', header: '住宿補助 18 萬適用性', className: 'min-w-[180px]' },
+      ]}
+      rows={FACILITY_5_TYPES_DEEP}
+      rowKey={(r) => r.type}
+    />
     <FacilityChecklist />
     <div className="grid gap-4 lg:grid-cols-2 items-start">
       <Callout kind="note" title="月費以外，常被忽略的費用">
@@ -638,8 +737,55 @@ export const LtcSkills: React.FC<GoTo> = () => (
       rows={IDDSI_LEVELS}
       rowKey={(r) => r.level}
     />
+
     <DataTable
-      title="表 11-2　居家照護分級警訊：什麼時候要就醫？"
+      title="表 11-2　壓瘡（壓力性損傷）1–4 期臨床分期表徵、處置與敷料選用指南"
+      source="EPUAP / NPIAP 2019 國際壓瘡臨床實務指引"
+      columns={[
+        { key: 'stage', header: '分期', className: 'min-w-[150px]' },
+        { key: 'clinicalFeatures', header: '臨床傷口特徵', className: 'min-w-[220px]' },
+        { key: 'anatomicalDepth', header: '侵蝕深度', className: 'min-w-[150px]' },
+        { key: 'nursingActions', header: '處置關鍵動作', className: 'min-w-[200px]' },
+        { key: 'recommendedDressings', header: '推薦敷料', className: 'min-w-[170px]' },
+        { key: 'contraindications', header: '重大禁忌', className: 'min-w-[180px]' },
+      ]}
+      rows={BEDSORE_STAGING_GUIDE}
+      rowKey={(r) => r.stage}
+    />
+
+    <H3>居家「三管」（鼻胃管、導尿管、氣切管）照護黃金 SOP 與急症處置</H3>
+    <div className="space-y-4">
+      {HOME_THREE_TUBES_SOP.map((tube) => (
+        <article key={tube.tubeName} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-2">
+            <h4 className="text-[16px] font-bold text-slate-900 dark:text-white">{tube.tubeName}</h4>
+            <span className="text-[12px] font-semibold px-2.5 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300">
+              更換週期：{tube.replacementCycle}
+            </span>
+          </div>
+          <p className="text-[13.5px] text-slate-600 dark:text-slate-300">{tube.purpose}</p>
+          <div className="space-y-1.5">
+            <p className="text-[13px] font-bold text-slate-900 dark:text-white">日常照護重點與 SOP：</p>
+            <ul className="space-y-1 text-[13px] text-slate-700 dark:text-slate-300 pl-4 list-disc">
+              {tube.dailyCareProtocol.map((proto, pidx) => (
+                <li key={pidx}>{proto}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/60 p-3 space-y-1">
+            <p className="text-[12.5px] font-bold text-rose-900 dark:text-rose-300">🚨 急症紅燈與緊急聯絡警訊：</p>
+            <ul className="space-y-0.5 text-[12px] text-rose-950 dark:text-rose-200 pl-4 list-disc">
+              {tube.emergencyAlerts.map((alert, aidx) => (
+                <li key={aidx}>{alert}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <DataTable
+      title="表 11-3　居家照護分級警訊：什麼時候要就醫？"
       columns={[
         { key: 'sign', header: '狀況', className: 'min-w-[180px]' },
         { key: 'why', header: '可能原因', className: 'min-w-[180px]' },

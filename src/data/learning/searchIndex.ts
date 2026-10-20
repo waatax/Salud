@@ -160,18 +160,18 @@ export function buildSearchIndex(): SearchDoc[] {
 
   // 失能照護與長照專區 (v5.0): chapters, scales, facility types, care skills, subsidies.
   const LTC_KW: Partial<Record<string, string>> = {
-    ASSESS: '巴氏量表 Barthel ADL 失能等級 CMS 長照等級 評估',
-    APPLY: '1966 申請長照 照專 照管中心 個管 出院準備',
-    BENEFITS: '四包錢 補助 喘息 交通接送 輔具 無障礙 自付額 扣除額 長照3.0',
-    FOREIGN: '外籍看護 外勞 移工 看護工 申請 80歲免評 巴氏量表 仲介 就業安定費',
-    FACILITY: '機構 護理之家 養護中心 安養 長照機構 住宿 補助 18萬',
-    COMMUNITY: '日照 日間照顧 家托 小規機 巷弄長照站 據點',
-    HOME: '居家服務 照服員 居家護理 居家醫療 復能 到宅沐浴',
-    SKILLS: '移位 翻身 壓傷 壓瘡 鼻胃管 尿管 吞嚥 失禁 防跌',
-    DEMENTIA: '失智 失智症 阿茲海默 BPSD 走失 譫妄',
-    CAREGIVER: '照顧者 喘息 家庭照顧者 照顧壓力 1925',
-    LEGAL: '監護宣告 輔助宣告 意定監護 信託 預立醫療 安寧 DNR 長照險',
-    PREVENT: '衰弱 預防失能 ICOPE 肌少症',
+    ASSESS: '巴氏量表 巴士量表 Barthel ADL 失能等級 CMS 長照等級 評估 10項評分 CDR 臨床失智評估 嚴重依賴 完全依賴',
+    APPLY: '1966 申請長照 照專 照管中心 個管 出院準備 急性後期照護 PAC',
+    BENEFITS: '四包錢 補助 喘息 交通接送 輔具 無障礙 自付額 扣除額 長照3.0 智慧輔具',
+    FOREIGN: '外籍看護 外籍看戶 外勞 移工 看護工 申請 80歲免評 巴氏量表 仲介 就業安定費 薪資 印尼語 越南語 菲律賓語 三軌免評',
+    FACILITY: '機構 護理之家 養護中心 安養 長照機構 住宿 補助 18萬 機構長照 護病比 評鑑 團體家屋 10大指標',
+    COMMUNITY: '日照 日間照顧 家托 小規機 巷弄長照站 據點 外看日照',
+    HOME: '居家服務 照服員 居家護理 居家醫療 復能 到宅沐浴 三管換管',
+    SKILLS: '移位 翻身 壓傷 壓瘡 鼻胃管 尿管 吞嚥 失禁 防跌 三管照護 氣切 導尿管 抽痰 圓木翻身 Braden 敷料 水膠體 泡棉',
+    DEMENTIA: '失智 失智症 阿茲海默 BPSD 走失 譫妄 CDR 愛心手鍊',
+    CAREGIVER: '照顧者 喘息 家庭照顧者 照顧壓力 1925 家總 0800-507272 負荷量表',
+    LEGAL: '監護宣告 輔助宣告 意定監護 信託 預立醫療 安寧 DNR 長照險 病人自主權利法',
+    PREVENT: '衰弱 預防失能 ICOPE 肌少症 Fried 握力 走路慢',
   };
   for (const c of LTC_CHAPTERS) {
     docs.push({ id: `ltc:${c.id}`, group: '失能與長照', title: c.title_zh, subtitle: `長照專區 · ${c.label_zh}`, target: `ltc/${c.id}`, keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 長照 失能 照護 ${LTC_KW[c.id] ?? ''}` });

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, Type, Bookmark } from 'lucide-react';
+import { ArrowUp, Type, Bookmark, Palette } from 'lucide-react';
 import { useFontSize } from '../../context/FontSizeContext';
 import { useModal } from '../../context/ModalContext';
 import { useBookmarks } from '../../hooks/useBookmarks';
+import { useTheme, THEME_OPTIONS, ThemeId } from '../../context/ThemeContext';
 
 interface Props {
   isDark?: boolean;
@@ -12,13 +13,22 @@ interface Props {
 /**
  * FloatingReadingDock — ergonomic reading assistant for mobile and desktop.
  * Floats unobtrusively at bottom-right after scrolling, offering 1-tap font size
- * cycling and smooth scroll back to top.
+ * cycling, theme palette switching (暗色/藍青/棕色/粉色/森林綠), and smooth scroll back to top.
  */
 export const FloatingReadingDock: React.FC<Props> = () => {
   const [show, setShow] = useState(false);
   const { cycleFontSize, fontSizeLabel } = useFontSize();
   const { openModal } = useModal();
   const { bookmarks } = useBookmarks();
+  const { theme, setTheme } = useTheme();
+
+  const currentTheme = THEME_OPTIONS.find((t) => t.id === theme) ?? THEME_OPTIONS[0];
+
+  const cycleTheme = () => {
+    const order: ThemeId[] = ['light', 'dark', 'ocean', 'earth', 'blossom'];
+    const next = order[(order.indexOf(theme) + 1) % order.length];
+    setTheme(next);
+  };
 
   useEffect(() => {
     const onScroll = () => setShow((window.scrollY || document.documentElement.scrollTop) > 450);
@@ -57,6 +67,15 @@ export const FloatingReadingDock: React.FC<Props> = () => {
         aria-label={`調整字級大小，當前：${fontSizeLabel}`}
       >
         <Type className="w-4 h-4 sm:w-5 sm:h-5 text-nature-sky-600 dark:text-nature-sky-400" aria-hidden="true" />
+      </button>
+
+      <button
+        onClick={cycleTheme}
+        className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md flex items-center justify-center hover:text-emerald-700 dark:hover:text-emerald-400 backdrop-blur-md btn-tactile"
+        title={`切換配色主題（當前：${currentTheme.label}，點擊切換：暗色／藍青／棕色／粉色／森林綠）`}
+        aria-label={`切換配色主題，當前：${currentTheme.label}`}
+      >
+        <Palette className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
       </button>
 
       <button

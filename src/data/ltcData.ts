@@ -809,6 +809,372 @@ export const INSURANCE_NOTES = [
   { kind: '類長照（特定傷病）', trigger: '罹患條款列出的特定疾病（如中風、失智）', note: '不一定以失能程度判定，保障範圍較窄' },
 ];
 
+// ── Barthel Index In-Depth Scoring Standards ─────────────────────────────────
+
+export interface BarthelScoringDetail {
+  item: string;
+  maxScore: number;
+  levels: { score: number; desc: string; clinicalTip: string }[];
+}
+
+export const BARTHEL_SCORING_STANDARDS: BarthelScoringDetail[] = [
+  {
+    item: '1. 進食 (Feeding)',
+    maxScore: 10,
+    levels: [
+      { score: 10, desc: '完全獨立：可在合理時間內（約10秒一口）自行用筷匙進食，食物放在面前可自行取用。', clinicalTip: '若能自行穿脫進食副木或輔具，仍算 10 分。' },
+      { score: 5, desc: '需要協助：需他人幫忙切碎肉排、塗抹果醬、盛飯或穿脫進食輔具，但能自己送入口中。', clinicalTip: '只要食物處理好後可自行進食，即算 5 分。' },
+      { score: 0, desc: '完全依賴：無法自己用手取食送口，或依賴鼻胃管／胃造口灌食。', clinicalTip: '長期鼻胃管灌食者此項直接評為 0 分。' },
+    ],
+  },
+  {
+    item: '2. 移位 (Transfer 床↔輪椅)',
+    maxScore: 15,
+    levels: [
+      { score: 15, desc: '完全獨立：可自行從床上坐起、移至輪椅或椅子，包括輪椅煞車與移開腳踏板，安全無虞。', clinicalTip: '若使用移位滑板或拐杖但無需他人徒手協助，算 15 分。' },
+      { score: 10, desc: '稍微協助：移位過程需一人在旁給予輕扶、姿勢平衡提示或口頭安全指導。', clinicalTip: '輕微扶持防跌倒即為 10 分。' },
+      { score: 5, desc: '需要大量協助：長輩可自行坐起，但轉位到椅子需一人全力抱扶或支撐主要體重。', clinicalTip: '長輩尚有部分軀幹坐姿肌力者。' },
+      { score: 0, desc: '完全依賴：無法自行坐起，移位需兩人全力搬運或使用機械懸吊移位機。', clinicalTip: '癱瘓或極度虛弱臥床者為 0 分。' },
+    ],
+  },
+  {
+    item: '3. 個人衛生 (Grooming)',
+    maxScore: 5,
+    levels: [
+      { score: 5, desc: '完全獨立：可自行洗臉、洗手、刷牙漱口、梳頭、刮鬍子或化妝。', clinicalTip: '所有個人盥洗動作皆不需他人動手。' },
+      { score: 0, desc: '需要協助：上述任何一個步驟需要別人代勞或全程照護。', clinicalTip: '只要洗臉或刷牙需要別人幫忙，即為 0 分。' },
+    ],
+  },
+  {
+    item: '4. 如廁 (Toileting)',
+    maxScore: 10,
+    levels: [
+      { score: 10, desc: '完全獨立：可自行進出廁所、使用馬桶、穿脫褲子、便後擦拭與沖水，衣物整潔。', clinicalTip: '若抓握扶手進出自如算 10 分。' },
+      { score: 5, desc: '需要協助：需人扶持保持坐姿平衡、整理衣褲或協助擦拭。', clinicalTip: '能自行排便但無法自行擦屁股或提褲子者算 5 分。' },
+      { score: 0, desc: '完全依賴：需完全依賴他人使用便盆、尿壺，或全程由他人清理。', clinicalTip: '長期臥床使用便盆或包尿布者為 0 分。' },
+    ],
+  },
+  {
+    item: '5. 洗澡 (Bathing)',
+    maxScore: 5,
+    levels: [
+      { score: 5, desc: '完全獨立：能自行進出浴缸或淋浴間、抹肥皂洗遍全身、沖水擦乾，無需旁人陪伴。', clinicalTip: '若使用洗澡椅但全程不需他人動手，算 5 分。' },
+      { score: 0, desc: '需要協助：洗澡時需要他人動手搓洗任何身體部位、或需人扶持進出浴缸。', clinicalTip: '多數長者因防跌考量需要家人協助，此項常為 0 分。' },
+    ],
+  },
+  {
+    item: '6. 平地走動 (Walking)',
+    maxScore: 15,
+    levels: [
+      { score: 15, desc: '完全獨立：使用或不使用拐杖、助行器，皆可獨立在室內外平地行走 50 公尺以上。', clinicalTip: '使用四腳拐可走 50 公尺算 15 分。' },
+      { score: 10, desc: '需要稍微扶持：需一人在旁輕扶手臂或口頭指導，方可行走 50 公尺以上。', clinicalTip: '平衡差需人扶持行走者。' },
+      { score: 5, desc: '輪椅獨立：雖無法站立行走，但能獨立操作輪椅（煞車、轉彎、推行）達 50 公尺以上。', clinicalTip: '坐輪椅但雙手有力可自己推輪椅者算 5 分。' },
+      { score: 0, desc: '完全依賴：無法行走，推輪椅亦需別人全程推動，或完全臥床。', clinicalTip: '輪椅需他人推行或臥床者為 0 分。' },
+    ],
+  },
+  {
+    item: '7. 上下樓梯 (Stairs)',
+    maxScore: 10,
+    levels: [
+      { score: 10, desc: '完全獨立：可自行安全上下樓梯一層以上（抓樓梯扶手或使用單拐皆可）。', clinicalTip: '可自己握扶手一步一階上下樓者。' },
+      { score: 5, desc: '需要協助：上下樓梯時需要他人實體攙扶或在旁警戒口頭指示。', clinicalTip: '不敢獨自爬樓梯、需人扶手者算 5 分。' },
+      { score: 0, desc: '無法上下樓：完全無法爬樓梯，需使用爬梯機或他人背負搬運。', clinicalTip: '無法負重跨階者為 0 分。' },
+    ],
+  },
+  {
+    item: '8. 穿脫衣褲鞋襪 (Dressing)',
+    maxScore: 10,
+    levels: [
+      { score: 10, desc: '完全獨立：可自行穿脫衣服、褲子、繫皮帶、拉拉鍊、穿脫鞋襪與扣釦子。', clinicalTip: '穿著特殊輔助衣物可自理者算 10 分。' },
+      { score: 5, desc: '部分協助：在他人幫忙拿衣服或扣扣子下，可自行完成一半以上穿衣動作。', clinicalTip: '能自己套頭穿衣，但需人幫忙拉平或穿褲管者算 5 分。' },
+      { score: 0, desc: '完全依賴：無法參與穿衣服動作，全程由照顧者代勞穿脫。', clinicalTip: '癱瘓或嚴重失智無法理解指令者為 0 分。' },
+    ],
+  },
+  {
+    item: '9. 大便控制 (Bowels)',
+    maxScore: 10,
+    levels: [
+      { score: 10, desc: '完全自制：日夜皆不會大便失禁；若需使用通便塞劑能自行塞入操作。', clinicalTip: '腸道神經功能正常無失禁者。' },
+      { score: 5, desc: '偶爾失禁：每週失禁不超過一次，或使用甘油塞劑時需要他人幫忙操作。', clinicalTip: '輕微偶發失禁或需他人塞劑者算 5 分。' },
+      { score: 0, desc: '完全失禁：每週失禁超過一次，或需常規依賴灌腸與包尿布。', clinicalTip: '長期失智失禁或脊髓損傷神經源性腸道為 0 分。' },
+    ],
+  },
+  {
+    item: '10. 小便控制 (Bladder)',
+    maxScore: 10,
+    levels: [
+      { score: 10, desc: '完全自制：日夜皆不會尿失禁；若使用尿套或集尿袋能自行倒尿清理。', clinicalTip: '排尿自制正常無漏尿者。' },
+      { score: 5, desc: '偶爾失禁：每週漏尿失禁不超過一次，或夜間偶爾尿床，使用尿袋需人幫忙。', clinicalTip: '輕度壓力性或急迫性失禁者。' },
+      { score: 0, desc: '完全失禁：幾乎每天尿失禁、全程包紙尿褲，或長期留置導尿管。', clinicalTip: '留置 Foley 導尿管或完全依賴尿布者評為 0 分。' },
+    ],
+  },
+];
+
+// ── Foreign Caregiver 3-Track Multi-Exemption System ─────────────────────────
+
+export interface ForeignTrackRule {
+  trackName: string;
+  targetGroup: string;
+  exemptionRule: string;
+  requiredProof: string;
+  processingSpeed: string;
+  keyNotice: string;
+}
+
+export const FOREIGN_CAREGIVER_3_TRACKS: ForeignTrackRule[] = [
+  {
+    trackName: '年齡軌道（高齡免評）',
+    targetGroup: '80 歲以上全體國民（就業服務法第 46 條 2025-08-01 修正上路）',
+    exemptionRule: '完全免除至醫院接受巴氏量表醫療評估！',
+    requiredProof: '被看護者國民身分證或戶籍謄本正影本。',
+    processingSpeed: '持身分證明者需先於「台灣就業通」刊登求才公告 7 天，之後由照管中心核發求才證明。',
+    keyNotice: '免評僅免醫療鑑定，依然必須完成國內本國長照照服員推介求才程序！',
+  },
+  {
+    trackName: '病症軌道（特定疾病免評／醫療評估）',
+    targetGroup: '1. 70–79 歲癌症二期以上；2. 不限年齡癌症第四期；3. 未滿 80 歲中重度失能者',
+    exemptionRule: '癌症二期以上免巴氏量表；未滿 80 歲者巴氏量表 $\\le 35$ 分（全日照護）或醫師開立病症暨失能診斷書。',
+    requiredProof: '區域級以上醫院主治醫師開具之癌症診斷書或一年內巴氏量表與病症診斷書。',
+    processingSpeed: '重症優先通道：長照管理中心推介本國照服員流程縮短至 1 天（一般需 7 天）。',
+    keyNotice: '癌症二期以上長輩（70-79歲）可省去數週排隊做巴氏量表的時間，憑癌症診斷直接送件！',
+  },
+  {
+    trackName: '長照與身障軌道（功能評估免評）',
+    targetGroup: '1. 失智症臨床失智評估 CDR $\\ge 1$（輕度以上）；2. 領有特定身心障礙重度證明；3. 使用長照服務滿 6 個月',
+    exemptionRule: '以失智診斷書（附 CDR 表）、重度身障證明（肢障、智障、重要器官、罕病等）直接認定免巴氏量表！',
+    requiredProof: '身心障礙證明正反面影本、神經科/精神科 CDR 報告書、或長照特約單位服務記錄單。',
+    processingSpeed: '直接送件勞動部申請招募許可，享重症優先審查待遇。',
+    keyNotice: '失智長輩若巴氏量表分數偏高（身體行動自如但認知退化會走失），只要 CDR $\\ge 1$ 即可免評申請外看！',
+  },
+];
+
+// ── Foreign Caregiver Detailed Cost Breakdown ────────────────────────────────
+
+export interface ForeignCostItem {
+  category: '每月固定支出' | '每月變動／法定補貼' | '初次引進一次性支出' | '政府補助或減免政策';
+  item: string;
+  monthlyAmount: string;
+  payee: string;
+  legalBasis: string;
+}
+
+export const FOREIGN_CAREGIVER_COST_DETAILED: ForeignCostItem[] = [
+  { category: '每月固定支出', item: '基本薪資（印/越/菲/泰家庭看護）', monthlyAmount: '20,000 元／月', payee: '直接全額匯入移工個人帳戶', legalBasis: '勞動契約規定，不得扣留存摺印鑑' },
+  { category: '每月固定支出', item: '就業安定費（一般雇主）', monthlyAmount: '2,000 元／月', payee: '勞動部勞動力發展署', legalBasis: '就服法第55條；低收入戶 0 元、中低收入戶 600 元／月' },
+  { category: '每月固定支出', item: '全民健保費（雇主負擔部分）', monthlyAmount: '約 1,400 元／月', payee: '衛生福利部中央健康保險署', legalBasis: '健保法投保金額第一級級距' },
+  { category: '每月固定支出', item: '伙食及膳宿提供', monthlyAmount: '由雇主免費提供（實物提供）', payee: '移工日常生活所需', legalBasis: '不得由薪資中扣除膳宿費' },
+  { category: '每月變動／法定補貼', item: '休假日加班費（協議週休工作）', monthlyAmount: '約 2,668 元／月（4天例假，667元/日）', payee: '移工本人', legalBasis: '每 7 日應有 1 日例假；若經移工同意加班發給 1 日工資（月薪÷30）' },
+  { category: '每月變動／法定補貼', item: '意外險與職災保險', monthlyAmount: '約 200–300 元／月', payee: '勞工保險局／產險公司', legalBasis: '災保法強制投保；意外險保額法定至少 200 萬元' },
+  { category: '初次引進一次性支出', item: '國內外仲介登記費與介紹費', monthlyAmount: '約 15,000–25,000 元（初次）', payee: '合法私立就業服務機構', legalBasis: '不得超過移工第一個月薪資（法定上限）' },
+  { category: '初次引進一次性支出', item: '來台簽證、機票與居留證 (ARC) 規費', monthlyAmount: '約 8,000–12,000 元（一次性）', payee: '外交部／移民署／航空公司', legalBasis: '依入出國及移民法規' },
+  { category: '初次引進一次性支出', item: '入境及定期健康檢查費', monthlyAmount: '約 1,500–2,000 元／次', payee: '指定健檢醫院', legalBasis: '入境3日內、第6、18、30個月定期檢查' },
+  { category: '政府補助或減免政策', item: '所得稅「長期照顧特別扣除額」', monthlyAmount: '每年定額扣除 180,000 元／人', payee: '國稅局報稅折抵所得稅', legalBasis: '所得稅法第17條（114年度起提高為18萬，有排富條款）' },
+  { category: '政府補助或減免政策', item: '經濟弱勢雇主就業安定費減免', monthlyAmount: '低收免繳（省2000/月）、中低收省1400/月', payee: '勞動部就業安定基金', legalBasis: '申報低收/中低收證明即自動套用減免' },
+];
+
+// ── Multilingual Caregiving Essential Phrases ────────────────────────────────
+
+export interface MultilingualPhrase {
+  chinese: string;
+  pinyinOrUsage: string;
+  indonesian: string;
+  vietnamese: string;
+  tagalog: string;
+}
+
+export const MULTILINGUAL_CAREGIVER_PHRASES: MultilingualPhrase[] = [
+  { chinese: '請幫阿公（阿嬤）翻身', pinyinOrUsage: '每 2 小時一次預防壓瘡', indonesian: 'Tolong bantu Kakek (Nenek) miringkan badan', vietnamese: 'Làm ơn giúp Ông (Bà) lật người', tagalog: 'Pakiusap tulungan si Lolo (Lola) na tumagilid' },
+  { chinese: '要喝水嗎？（小心慢喝）', pinyinOrUsage: '防嗆咳與脫水', indonesian: 'Mau minum air? (Minum pelan-pelan ya)', vietnamese: 'Có muốn uống nước không? (Uống từ từ nhé)', tagalog: 'Gusto mo bang uminom ng tubig? (Dahan-dahan)' },
+  { chinese: '該吃藥了（配溫水）', pinyinOrUsage: '定時服藥', indonesian: 'Waktunya minum obat (dengan air hangat)', vietnamese: 'Đến giờ uống thuốc rồi (với nước ấm)', tagalog: 'Oras na para uminom ng gamot' },
+  { chinese: '量血壓和體溫', pinyinOrUsage: '日常生理徵象記錄', indonesian: 'Tolong ukur tensi darah dan suhu badan', vietnamese: 'Đo huyết áp và nhiệt độ cơ thể', tagalog: 'Sukatin ang presyon ng dugo at temperatura' },
+  { chinese: '要上廁所嗎？換尿布', pinyinOrUsage: '防失禁皮膚發炎', indonesian: 'Mau ke toilet? Ganti pampers', vietnamese: 'Có muốn đi vệ sinh không? Thay tã', tagalog: 'Gusto mo bang magbanyo? Magpalit ng diaper' },
+  { chinese: '拍背拍痰（弓杯手）', pinyinOrUsage: '排痰防肺炎', indonesian: 'Tolong tepuk punggung untuk buang dahak', vietnamese: 'Vỗ lưng đẩy đờm (tay khum lại)', tagalog: 'Tapikin ang likod para mailabas ang plema' },
+  { chinese: '哪裡痛？不舒服要跟我說', pinyinOrUsage: '疼痛與症狀警訊', indonesian: 'Mana yang sakit? Kalau tidak enak badan, bilang ya', vietnamese: 'Đau ở đâu? Không khỏe phải nói cho tôi biết', tagalog: 'Saan ang masakit? Sabihin sa akin kapag masama ang pakiramdam' },
+  { chinese: '小心慢慢坐起來，不要急', pinyinOrUsage: '防姿態性低血壓跌倒', indonesian: 'Hati-hati duduk pelan-pelan, jangan terburu-buru', vietnamese: 'Cẩn thận ngồi dậy từ từ, đừng vội', tagalog: 'Dahan-dahan sa pag-upo, huwag magmadali' },
+];
+
+// ── 5 Major Residential Care Facility Matrix ─────────────────────────────────
+
+export interface FacilityDeepCompare {
+  type: string;
+  authority: string;
+  nurseRatio: string;
+  caregiverRatio: string;
+  threeTubesEligible: string;
+  suitableResidents: string;
+  averageMonthlyCost: string;
+  subsidyEligible: string;
+}
+
+export const FACILITY_5_TYPES_DEEP: FacilityDeepCompare[] = [
+  {
+    type: '一般護理之家 (Nursing Home)',
+    authority: '衛生福利部（依《護理人員法》設立）',
+    nurseRatio: '24 小時值班；每 15 床至少 1 名護理人員',
+    caregiverRatio: '每 5 床至少 1 名照顧服務員（日夜排班）',
+    threeTubesEligible: '【完全支援】收治氣切、鼻胃管、導尿管（三管）及重度壓瘡傷口照護',
+    suitableResidents: '急性出院後具醫療管路照護需求、全癱臥床、呼吸道需抽痰、重度醫療依賴長者',
+    averageMonthlyCost: '約 40,000–60,000 元／月（管路耗材與尿布另計約 5,000–10,000 元）',
+    subsidyEligible: '可申請衛福部「住宿式服務機構使用者補助」最高 18 萬元／年（長照4級以上）',
+  },
+  {
+    type: '住宿式長照機構 (Long-Term Care Facility)',
+    authority: '地方衛生局（依 2017 年《長期照顧服務法》新設）',
+    nurseRatio: '日班常設護理人員；夜班依設置標準輪值護士',
+    caregiverRatio: '每 4–5 床配置 1 名照顧服務員',
+    threeTubesEligible: '支援鼻胃管與導尿管（氣切管需視機構許可床位而定）',
+    suitableResidents: '中度至重度失能（長照 4–8 級）、生活需 24 小時他人協助、復能訓練期長輩',
+    averageMonthlyCost: '約 35,000–50,000 元／月',
+    subsidyEligible: '完全符合衛福部最高 18 萬元／年住宿補助資格',
+  },
+  {
+    type: '老人福利機構：養護型 (Assisted Living)',
+    authority: '地方社會局（依《老人福利法》設立）',
+    nurseRatio: '每 20 床至少 1 名護士；夜間得採值班或排班制',
+    caregiverRatio: '日間每 8 床 1 名照服員；夜間每 25 床 1 名照服員',
+    threeTubesEligible: '多收治「無管路」或「單管（僅鼻胃管或僅尿管）」生活自理困難長者',
+    suitableResidents: '生活需他人料理、可坐輪椅活動、無嚴重感染性傷口、無氣切之慢性失能長者',
+    averageMonthlyCost: '約 28,000–40,000 元／月',
+    subsidyEligible: '長照需要等級 4 級以上或中度身障者可申請 18 萬元／年補助',
+  },
+  {
+    type: '老人福利機構：長期照護型 (Skilled Nursing)',
+    authority: '地方社會局（依《老人福利法》設立）',
+    nurseRatio: '每 15 床至少 1 名護理人員；24 小時護理輪值',
+    caregiverRatio: '日間每 5 床 1 名照服員；夜間每 15 床 1 名照服員',
+    threeTubesEligible: '收治罹患長期慢性疾病且有醫療照護需求者（支援雙管或臥床病患）',
+    suitableResidents: '長期臥床、慢性重病需要護理監控、但無需入住醫院呼吸照護病房之長輩',
+    averageMonthlyCost: '約 35,000–48,000 元／月',
+    subsidyEligible: '完全符合衛福部最高 18 萬元／年住宿補助資格',
+  },
+  {
+    type: '失智症團體家屋 (Group Home)',
+    authority: '衛生局／社會局（依長照法或老人福利法）',
+    nurseRatio: '專責護理師巡迴指導；工作人員全數受過失智症專業訓練',
+    caregiverRatio: '小單元照顧（每單元 9 人以下，工作人員與失智長者比達 1:3）',
+    threeTubesEligible: '原則上不收治管路病患（強調家庭化自主生活機能）',
+    suitableResidents: '中度以上失智症（CDR 1–2 分）、具備一定行動能力、無攻擊性之長者',
+    averageMonthlyCost: '約 40,000–55,000 元／月（提供個別化家庭廚房與作息營造）',
+    subsidyEligible: '符合長照 4 級以上或失智重度者可申請 18 萬元／年補助',
+  },
+];
+
+// ── Pressure Ulcer (Injury) Staging and Clinical Wound Care ───────────────────
+
+export interface BedsoreStagingGuide {
+  stage: string;
+  clinicalFeatures: string;
+  anatomicalDepth: string;
+  nursingActions: string;
+  recommendedDressings: string;
+  contraindications: string;
+}
+
+export const BEDSORE_STAGING_GUIDE: BedsoreStagingGuide[] = [
+  {
+    stage: '第 1 期 (Stage 1)：指壓不變白紅斑',
+    clinicalFeatures: '骨突處局部皮膚完整、出現持續性發紅，手指按壓後紅斑「不會變白」（Non-blanchable erythema）；常伴隨皮溫升高或疼痛。',
+    anatomicalDepth: '表皮微血管受壓鬱血缺氧，真皮層尚未破皮。',
+    nursingActions: '立刻解除受壓！嚴格每 2 小時翻身一次；骨突處懸空；使用高規格交替減壓氣墊床。',
+    recommendedDressings: '透明薄膜敷料（Tegaderm）、水膠體敷料（Duoderm 增加保護）、保濕矽膠保護霜。',
+    contraindications: '【絕對禁忌】不可大力按摩發紅骨突處（會使微血管破裂缺血壞死加劇）！',
+  },
+  {
+    stage: '第 2 期 (Stage 2)：表皮破損與水泡',
+    clinicalFeatures: '真皮層部分受損，傷口呈現紅色或粉紅色淺層開放性潰瘍，基底潮濕無腐肉；或呈現完整／已破裂的充血水泡。',
+    anatomicalDepth: '表皮剝落，累及部分真皮層。',
+    nursingActions: '生理食鹽水溫和沖洗擦乾；保持濕潤癒合環境；檢查大小便失禁保護防潮。',
+    recommendedDressings: '水膠體敷料（Hydrocolloid 吸附滲液）、親水性泡棉敷料（Foam 吸收緩衝）、抗摩擦油性紗布。',
+    contraindications: '不可使用優碘或雙氧水長時間浸潤（會毒害新生肉芽母細胞延遲癒合）。',
+  },
+  {
+    stage: '第 3 期 (Stage 3)：全皮層壞死深及脂肪',
+    clinicalFeatures: '全皮層厚度損失，皮下脂肪組織完全外露；常伴隨黃色腐肉（Slough）或深色壞死結痂；可能出現潛行或竇道（Undermining）。',
+    anatomicalDepth: '侵蝕表皮、真皮，深及皮下脂肪筋膜層（但骨骼肌腱尚未露出）。',
+    nursingActions: '通報居家護理所或整型外科醫師清創壞死組織；深坑傷口需填塞敷料避免死腔。',
+    recommendedDressings: '藻酸鹽敷料（Alginate 高吸滲）、含銀抗菌敷料（預防感染）、水凝膠（Hydrogel 軟化腐肉）。',
+    contraindications: '傷口深部死腔未填塞（會導致表面假性閉合、內部蓄膿形成深部膿瘍）。',
+  },
+  {
+    stage: '第 4 期 (Stage 4)：骨骼肌肉深層外露',
+    clinicalFeatures: '全層組織毀損，肌肉、肌腱、韌帶、關節囊甚至骨骼清晰外露可見；伴隨廣泛性潛行隧道、腐肉與惡臭滲液，常併發骨髓炎。',
+    anatomicalDepth: '穿透深層肌膜，骨骼與肌腱受壓壞死。',
+    nursingActions: '外科清創手術、傷口負壓抽吸治療（NPWT / VAC）、全身性抗生素評估、外科皮瓣重建手術。',
+    recommendedDressings: '外科負壓傷口海綿引流、銀離子藻酸鹽敷料、無菌生理食鹽水濕敷換藥（每日 1–2 次）。',
+    contraindications: '嚴禁延誤就醫！若有發燒、傷口惡臭發黑、蜂窩性組織炎紅腫熱痛，必須急診就醫。',
+  },
+  {
+    stage: '深部組織損傷 (DTI) 與無法分期',
+    clinicalFeatures: '皮膚完整但呈現局部深紫色、暗紫紅色或血性水泡；或傷口表面完全被黑色厚硬乾痂（Eschar）覆蓋，無法窺見傷口基底深淺。',
+    anatomicalDepth: '骨突交界處深層肌肉微血管已被壓扁壞死，病灶由內向外爆開。',
+    nursingActions: '足跟穩定乾燥無紅腫之硬黑痂「不可清創」（充當天然保護層）；其餘部位由醫師評估軟化清創。',
+    recommendedDressings: '厚泡棉敷料減壓、矽膠減壓墊、足跟減壓浮動支架。',
+    contraindications: '嚴禁使用圓形充氣「甜甜圈」氣圈（會把周圍血管絞扼阻斷，導致中心組織大面積壞死）！',
+  },
+];
+
+// ── In-Home Three-Tubes (NG, Foley, Tracheostomy) Standard Nursing SOP ────────
+
+export interface ThreeTubesSop {
+  tubeName: string;
+  purpose: string;
+  dailyCareProtocol: string[];
+  replacementCycle: string;
+  emergencyAlerts: string[];
+}
+
+export const HOME_THREE_TUBES_SOP: ThreeTubesSop[] = [
+  {
+    tubeName: '鼻胃管 (Nasogastric Tube, NG Tube)',
+    purpose: '重度吞嚥障礙、昏迷、中風無意識長輩提供營養、水分與口服藥物灌注。',
+    dailyCareProtocol: [
+      '【灌食前確認刻度】檢查鼻翼處固定膠帶刻度（若外滑 > 2 公分不可灌食，防誤入氣管）。',
+      '【胃殘餘量反抽評估】以灌食空針輕輕回抽：若反抽胃液 > 100ml，代表胃排空延遲，需暫停灌食 1 小時再評估；若抽吸出咖啡色或血性液體，立刻通報。',
+      '【體位與溫度】床頭搖高 30–45 度（半坐臥）；灌食溫度接近體溫（38–40°C，滴在手背不燙）；高度距鼻孔約 30–45 公分，重力緩慢流入（灌注時間約 15–20 分鐘）。',
+      '【灌食後沖管與坐立】灌食完畢以 30–50ml 溫水沖淨管壁殘留；灌後維持坐姿 30–60 分鐘，嚴禁立刻平躺防吸入性肺炎。',
+      '【鼻腔照護】每日更換透氣紙膠帶（宜工字型黏貼），旋轉管身 1/4 圈防黏膜壓傷，以棉棒沾水清潔鼻孔分泌物。',
+    ],
+    replacementCycle: '矽膠管每 30 天更換一次（由健保居家護理師到府更換）；PVC 管每 7–14 天更換。',
+    emergencyAlerts: [
+      '灌食中長輩劇烈嗆咳、呼吸喘、發紺臉色發青（立刻停止灌食並吸痰側臥，必要時叫 119）！',
+      '鼻胃管不慎滑脫：【絕對不可自行插回】！先將胃管收妥，通報居家護理所派員重置。',
+      '反抽物呈現鮮紅色或深咖啡渣狀（疑似急性胃黏膜出血或潰瘍）。',
+    ],
+  },
+  {
+    tubeName: '留置導尿管 (Foley Catheter)',
+    purpose: '神經源性膀胱、重度尿液滯留、重度壓瘡防尿液浸潤、脊髓損傷長輩引流尿液。',
+    dailyCareProtocol: [
+      '【蓄尿袋低位原則】集尿袋高度必須「永遠低於膀胱（骨盆）水平」，且絕對不可拖放在地上，防止尿液逆流引發腎盂腎炎。',
+      '【尿道口清潔 (CDI)】每日至少 1–2 次以中性肥皂或清水沖洗尿道口及導尿管近端 10 公分（由內往外單向擦拭，不可來回）。',
+      '【充足飲水量】若無心臟衰竭或腎病限水醫囑，長輩每日飲水建議 1,500–2,000ml，維持尿液清澈淡黃，稀釋沈澱結晶防塞管。',
+      '【管路固定順暢】男性導尿管宜固定於下腹部（防陰莖陰囊交界壓瘡），女性固定於大腿內側；確保管路無扭折或被身體壓迫。',
+    ],
+    replacementCycle: '矽膠導尿管每 30 天更換一次（健保居家護理師到府執行）。',
+    emergencyAlerts: [
+      '長輩突發寒顫高燒（> 38.5°C）、尿液混濁如米湯、散發強烈惡臭或血尿（急性泌尿道感染/敗血症警訊）。',
+      '超過 3–4 小時集尿袋無任何新尿液滴入，長輩下腹脹滿劇痛（可能導尿管被血塊沉澱物阻塞，需緊急通報居家護理師沖洗或換管）。',
+      '導尿管外滑露出水球，或尿道口嚴重撕裂滲血。',
+    ],
+  },
+  {
+    tubeName: '氣切造口管 (Tracheostomy Tube)',
+    purpose: '長期呼吸衰竭脫離呼吸機困難、上呼吸道阻塞、神經癱瘓無法自主咳痰之長者氣道維護。',
+    dailyCareProtocol: [
+      '【無菌抽痰技術】抽痰管進入氣切管深度約 10–12 公分，進入時不抽吸；旋轉向上抽吸時間嚴格限制 $\\le 15$ 秒，壓力控制於 100–120 mmHg。',
+      '【造口處皮膚消毒】每日以無菌生理食鹽水與優碘消毒氣切造口周圍，擦乾後置放氣切專用無菌 Y 型紗布，保持乾燥防浸潤。',
+      '【固定帶鬆緊度】氣切固定帶宜以頸部可容納一根食指鬆緊為度，過緊壓迫頸動脈，過鬆易咳出滑脫。',
+      '【氣道濕化防結痂】室內使用超音波噴霧加濕機，或定時依護理指導滴入 0.5–1ml 生理食鹽水，稀釋黏稠濃痰。',
+    ],
+    replacementCycle: '氣切管金屬內管每日清洗消毒 1–2 次；外管每 30 天由居家醫療醫師或護理師到府更換。',
+    emergencyAlerts: [
+      '【急診紅燈】氣切管劇烈咳嗽整根滑脫出氣管（立即以氣切擴開器維持造口通道，呼叫 119）！',
+      '抽痰抽出大量鮮血、長輩嘴唇指甲發紫、血氧飽和度 $\\text{SpO}_2 < 90\\%$ 且抽痰無效。',
+      '氣管造口嚴重皮下氣腫（摸起來像捏氣泡紙）或氣道化膿大量惡臭分泌物。',
+    ],
+  },
+];
+
 // ── Myths & quiz ─────────────────────────────────────────────────────────────
 
 export const LTC_MYTHS: { chapter: LtcTab; myth: string; fact: string }[] = [
