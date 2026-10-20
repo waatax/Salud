@@ -153,6 +153,317 @@ export const OsteoporosisMicrostructureFigure: React.FC = () => {
   );
 };
 
+// ── 1B. Osteoporosis Super-Nutrition & Synergistic Mineralization Figure ─────
+export const OsteoporosisSuperNutrientFigure: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'symphony' | 'paradox' | 'chrono'>('symphony');
+  const [selectedStep, setSelectedStep] = useState<number>(0);
+
+  const steps = [
+    {
+      num: '01',
+      name: '維生素 D3 ＋ TRPV6 通道',
+      title: '腸道主動吸收門神',
+      tag: '吸收率 15% ➔ 40%',
+      color: 'amber',
+      mechanism: '1,25(OH)2D3 結合腸細胞核 VDR 受體，促 TRPV6 鈣通道、Calbindin-D9k 鈣結合蛋白與 PMCA1b 鈣泵轉錄，將被動吸收躍升為主動吸收，抑制 PTH 溶骨破骨。',
+      target: '維持血清 25(OH)D 於 30–50 ng/mL（每日 1000–2000 IU 隨油脂餐）。',
+      analogy: '進港大門：把食物中的水泥磚塊成倍運進體內血液循環。',
+    },
+    {
+      num: '02',
+      name: '生醫高吸收鎂 (Mg²⁺)',
+      title: '酵素啟動開關與晶體調和',
+      tag: 'CYP 羥化輔酶',
+      color: 'emerald',
+      mechanism: '人體 60% 的鎂在骨骼。鎂是活化肝臟 25-羥化酶與腎臟 1α-羥化酶的不可或缺輔因子；同時調控羥磷灰石微晶尺寸，防止晶體過大硬脆，賦予骨彈性。',
+      target: '每日 200–350 mg 甘胺酸鎂或檸檬酸鎂，維持鈣鎂比 2:1。',
+      analogy: '攪拌電機：若沒有鎂，維生素 D 根本無法活化，水泥粗糙易碎。',
+    },
+    {
+      num: '03',
+      name: '維生素 K2 (MK-7) ＋ GGCX',
+      title: '骨骼 GPS 導航員',
+      tag: '終結鈣悖論',
+      color: 'sky',
+      mechanism: 'γ-麩胺醯羧化酶必需輔因子。雙重活化：1. 骨鈣素（cOC）：牢牢抓住鈣鑲嵌進羥磷灰石；2. 基質 Gla 蛋白（cMGP）：強烈封印游離鈣，阻斷冠狀動脈與主動脈鈣化。',
+      target: '每日 90–180 µg 天然 MK-7 型（半衰期 72 小時長效全身導航）。',
+      analogy: '精準導航：把游離鈣抓進骨頭庫存，嚴厲驅離動脈血管壁。',
+    },
+    {
+      num: '04',
+      name: '特異性骨膠原蛋白肽 ＋ Vit C',
+      title: '骨基質鋼筋彈性網架',
+      tag: '35% 骨有機質',
+      color: 'rose',
+      mechanism: '骨基質乾重 35% 為有機質，其中 90% 為 Type I 膠原纖維。特異性膠原肽刺激成骨細胞轉錄前膠原蛋白；Vit C 催化脯胺醯 4-羥化酶，維持三股螺旋穩定耐剪切。',
+      target: '每日 5g 特異性骨膠原蛋白肽（如 Fortibone）＋ 100–200mg Vit C。',
+      analogy: '鋼筋骨架：水泥硬而脆，必須有抗震鋼筋網才能抵禦跌倒衝擊。',
+    },
+    {
+      num: '05',
+      name: '微量礦物質交聯網絡 (硼/鋅/錳/矽)',
+      title: '微結構固化鎖扣',
+      tag: 'LOX 吡啶交聯',
+      color: 'purple',
+      mechanism: '硼（Boron 3mg）延長雌激素與 D3 半衰期，抑制尿鈣流失 44%；鋅活化 ALP 成骨酵素；錳與銅活化賴胺醯氧化酶（LOX）形成吡啶諾林共價交聯；正矽酸促進初期鈣鹽成核。',
+      target: '每日 硼 3mg、鋅 15mg、錳 2mg、銅 1mg、矽 5–10mg。',
+      analogy: '鋼架螺栓：栓緊每一根膠原蛋白分子，牢牢鎖住鈣鹽沉積。',
+    },
+  ];
+
+  return (
+    <div className="space-y-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/60 p-4">
+      {/* Tab Switcher */}
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-salud-cyan animate-pulse" />
+          <span className="text-[13px] font-bold text-slate-800 dark:text-slate-200">骨質疏鬆精準超補機轉圖解</span>
+        </div>
+        <div className="inline-flex rounded-lg bg-slate-200 dark:bg-slate-800 p-0.5 text-[12px] font-semibold">
+          <button
+            type="button"
+            onClick={() => setActiveTab('symphony')}
+            className={`px-3 py-1 rounded-md transition-all ${
+              activeTab === 'symphony'
+                ? 'bg-white dark:bg-slate-950 text-salud-primary dark:text-salud-cyan shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+            }`}
+          >
+            超補五重奏協同
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('paradox')}
+            className={`px-3 py-1 rounded-md transition-all ${
+              activeTab === 'paradox'
+                ? 'bg-white dark:bg-slate-950 text-salud-primary dark:text-salud-cyan shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+            }`}
+          >
+            鈣悖論對照 (血管 vs 骨骼)
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('chrono')}
+            className={`px-3 py-1 rounded-md transition-all ${
+              activeTab === 'chrono'
+                ? 'bg-white dark:bg-slate-950 text-salud-primary dark:text-salud-cyan shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+            }`}
+          >
+            24h 黃金時序排程
+          </button>
+        </div>
+      </div>
+
+      {/* Tab 1: The 5-Player Symphony */}
+      {activeTab === 'symphony' && (
+        <div className="space-y-4">
+          <p className="text-[12px] text-slate-600 dark:text-slate-300">
+            骨骼不是靜止的石頭，而是「鋼筋（膠原蛋白有機網架）＋水泥（羥磷灰石無機鈣磷）」的動態活體組織。點選下方五大生化環節，查看超補協同機轉：
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            {steps.map((st, idx) => (
+              <button
+                key={st.num}
+                type="button"
+                onClick={() => setSelectedStep(idx)}
+                className={`text-left p-2.5 rounded-lg border transition-all ${
+                  selectedStep === idx
+                    ? 'border-salud-primary dark:border-salud-cyan bg-white dark:bg-slate-950 shadow-sm ring-1 ring-salud-primary/30'
+                    : 'border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/40 hover:border-slate-300'
+                }`}
+              >
+                <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                  <span>STEP {st.num}</span>
+                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">{st.tag}</span>
+                </div>
+                <div className="text-[12px] font-bold text-slate-900 dark:text-slate-100 mt-1 line-clamp-1">{st.title}</div>
+                <div className="text-[11px] text-slate-600 dark:text-slate-300 truncate">{st.name}</div>
+              </button>
+            ))}
+          </div>
+
+          {/* Detailed Card for Selected Step */}
+          <div className="rounded-xl border border-sky-200 dark:border-sky-800/60 bg-white dark:bg-slate-950 p-4 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <div className="flex items-center gap-2">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-salud-primary text-white text-[12px] font-bold">
+                  {steps[selectedStep].num}
+                </span>
+                <span className="text-[14px] font-bold text-slate-900 dark:text-slate-100">
+                  {steps[selectedStep].title} — {steps[selectedStep].name}
+                </span>
+              </div>
+              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300">
+                {steps[selectedStep].tag}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-[12px] mt-3">
+              <div className="md:col-span-2 space-y-2">
+                <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                  <span className="font-bold text-salud-primary dark:text-salud-cyan block mb-1">生化分子靶向機轉：</span>
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{steps[selectedStep].mechanism}</p>
+                </div>
+                <div className="p-2.5 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40">
+                  <span className="font-bold text-emerald-800 dark:text-emerald-300 block mb-1">生活神譬喻：</span>
+                  <p className="text-emerald-900 dark:text-emerald-200">{steps[selectedStep].analogy}</p>
+                </div>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 flex flex-col justify-between">
+                <div>
+                  <span className="font-bold text-amber-900 dark:text-amber-300 text-[11px] uppercase tracking-wider block mb-1.5">
+                    臨床超補靶向劑量
+                  </span>
+                  <p className="text-[12px] text-amber-950 dark:text-amber-200 font-medium leading-relaxed">
+                    {steps[selectedStep].target}
+                  </p>
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 pt-2 border-t border-amber-200 dark:border-amber-800/50">
+                  協同效應：缺少任一環節，鈣吸收與礦化效率即大幅衰退。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Tab 2: The Calcium Paradox Contrast */}
+      {activeTab === 'paradox' && (
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* The Bad: Blind Monotherapy Calcium */}
+            <div className="rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50/40 dark:bg-rose-950/20 p-3.5 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] font-bold text-rose-900 dark:text-rose-300">傳統盲目高劑量補鈣（無導航）</span>
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-300 font-semibold">
+                  鈣悖論 (Calcium Paradox)
+                </span>
+              </div>
+              <svg viewBox="0 0 260 130" className="w-full h-auto" role="img" aria-label="盲目高劑量補鈣示意圖：游離鈣沉積血管與軟組織，骨骼依舊疏鬆">
+                <rect x="5" y="5" width="250" height="120" rx="8" fill="currentColor" className="text-rose-100/30 dark:text-rose-900/20" />
+                
+                {/* Vessel with Calcification */}
+                <path d="M 20 40 Q 70 35 120 40 T 240 40" stroke="#f43f5e" strokeWidth="14" fill="none" opacity="0.25" strokeLinecap="round" />
+                <path d="M 20 40 Q 70 35 120 40 T 240 40" stroke="#e11d48" strokeWidth="6" fill="none" strokeDasharray="6 4" />
+                {/* Calcium stones in vessel */}
+                <circle cx="65" cy="40" r="4.5" fill="#e11d48" />
+                <circle cx="110" cy="38" r="5" fill="#e11d48" />
+                <circle cx="170" cy="41" r="5.5" fill="#e11d48" />
+                <text x="75" y="24" fontSize="9" fill="#be123c" fontWeight="bold">動脈血管壁硬化鈣化 (CAC 升高)</text>
+
+                {/* Hollow Bone */}
+                <rect x="35" y="65" width="190" height="50" rx="6" fill="white" className="dark:fill-slate-900" stroke="#fda4af" strokeWidth="1.5" />
+                {/* Broken trabeculae */}
+                <line x1="50" y1="75" x2="50" y2="95" stroke="#f43f5e" strokeWidth="1.5" strokeDasharray="3 3" />
+                <line x1="100" y1="75" x2="100" y2="88" stroke="#f43f5e" strokeWidth="1.5" strokeDasharray="3 3" />
+                <line x1="160" y1="90" x2="160" y2="105" stroke="#f43f5e" strokeWidth="1.5" strokeDasharray="3 3" />
+                <circle cx="130" cy="90" r="8" fill="none" stroke="#f43f5e" strokeWidth="1" strokeDasharray="2 2" />
+                <text x="70" y="100" fontSize="9" fill="#e11d48" fontWeight="bold">骨小梁依然穿孔空洞（骨折未降）</text>
+              </svg>
+              <ul className="text-[11px] text-slate-700 dark:text-slate-300 space-y-1 pl-4 list-disc">
+                <li><strong>腸道吸收率低</strong>：無 D3 活化 TRPV6，高劑量碳酸鈣在小腸飽和沉積，造成腹脹硬便。</li>
+                <li><strong>游離鈣迷航</strong>：未羧化骨鈣素（ucOC）無法抓鈣，血鈣游離漂流。</li>
+                <li><strong>血管硬化風險</strong>：未羧化 MGP（ucMGP）失去抑鈣功能，游離鈣在冠狀動脈沉澱形成斑塊。</li>
+              </ul>
+            </div>
+
+            {/* The Good: Precision Super-Nutrient Synergy */}
+            <div className="rounded-xl border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/40 dark:bg-emerald-950/20 p-3.5 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] font-bold text-emerald-900 dark:text-emerald-300">醫學精準超補協同（D3+K2+Mg+膠原）</span>
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold">
+                  骨質沉積 ＋ 血管光滑
+                </span>
+              </div>
+              <svg viewBox="0 0 260 130" className="w-full h-auto" role="img" aria-label="精準超補示意圖：K2 活化 cMGP 保護血管光滑，cOC 導引鈣鎖入緻密骨小梁">
+                <rect x="5" y="5" width="250" height="120" rx="8" fill="currentColor" className="text-emerald-100/30 dark:text-emerald-900/20" />
+                
+                {/* Clear Clean Vessel */}
+                <path d="M 20 40 Q 70 35 120 40 T 240 40" stroke="#10b981" strokeWidth="12" fill="none" opacity="0.3" strokeLinecap="round" />
+                <path d="M 20 40 Q 70 35 120 40 T 240 40" stroke="#059669" strokeWidth="3" fill="none" />
+                <text x="65" y="24" fontSize="9" fill="#047857" fontWeight="bold">cMGP 封印鈣化：動脈內皮光滑富彈性</text>
+
+                {/* Dense Strong Bone with Collagen Grid */}
+                <rect x="35" y="65" width="190" height="50" rx="6" fill="white" className="dark:fill-slate-900" stroke="#34d399" strokeWidth="1.5" />
+                {/* Interlinked struts */}
+                <g stroke="#059669" strokeWidth="3" strokeLinecap="round">
+                  <line x1="55" y1="72" x2="55" y2="108" />
+                  <line x1="95" y1="72" x2="95" y2="108" />
+                  <line x1="135" y1="72" x2="135" y2="108" />
+                  <line x1="175" y1="72" x2="175" y2="108" />
+                  <line x1="205" y1="72" x2="205" y2="108" />
+                  <line x1="55" y1="85" x2="205" y2="85" strokeWidth="2" />
+                  <line x1="55" y1="98" x2="205" y2="98" strokeWidth="2" />
+                </g>
+                <text x="60" y="112" fontSize="8.5" fill="#065f46" fontWeight="bold">cOC 抓鈣入骨 ＋ 膠原鋼筋網：抗壓抗震</text>
+              </svg>
+              <ul className="text-[11px] text-slate-700 dark:text-slate-300 space-y-1 pl-4 list-disc">
+                <li><strong>D3 開門主動吸收</strong>：TRPV6 與 Calbindin 提高小腸鈣吸收達 30–40%。</li>
+                <li><strong>K2 (MK-7) 雙重導航</strong>：活化 cOC 將鈣晶體固定在骨膠原網架；活化 cMGP 清除血管斑塊。</li>
+                <li><strong>鎂與膠原蛋白肽雙重賦彈</strong>：甘胺酸鎂防止晶體過大硬脆，Type I 膠原纖維吸收衝擊剪力。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Tab 3: 24h Chrono-Nutrition Clock */}
+      {activeTab === 'chrono' && (
+        <div className="space-y-3">
+          <p className="text-[12px] text-slate-600 dark:text-slate-300">
+            <strong>時差用藥法則</strong>：抗骨鬆處方藥（如雙磷酸鹽）與高濃度礦物質（鈣、鎂、鐵）在胃內會立刻發生螯合沉澱而失效；而夜間血鈣最低、破骨最強。請依循以下黃金時間軸服藥：
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            <div className="p-3 rounded-lg border border-amber-200 dark:border-amber-800/60 bg-amber-50/50 dark:bg-amber-950/20 space-y-1.5">
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300">
+                07:00 晨起空腹
+              </span>
+              <div className="text-[12px] font-bold text-slate-900 dark:text-slate-100">處方藥專屬空窗</div>
+              <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">
+                口服雙磷酸鹽（福善美）搭配 200–300ml 溫水吞服，坐立 30 分鐘防食道逆流；<strong>嚴禁同時服用鈣片與早餐</strong>（至少間隔 2–4 小時）。
+              </p>
+            </div>
+
+            <div className="p-3 rounded-lg border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-1.5">
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300">
+                08:00 晨間早餐
+              </span>
+              <div className="text-[12px] font-bold text-slate-900 dark:text-slate-100">脂溶門神 D3 ＋ K2</div>
+              <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">
+                搭配水煮蛋、酪梨或橄欖油早餐吞服 D3（1000–2000 IU）與 K2 MK-7（90–180 µg）；沖泡 5g 骨膠原蛋白肽，開啟整天鈣吸收引擎。
+              </p>
+            </div>
+
+            <div className="p-3 rounded-lg border border-sky-200 dark:border-sky-800/60 bg-sky-50/50 dark:bg-sky-950/20 space-y-1.5">
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300">
+                12:30 午間正餐
+              </span>
+              <div className="text-[12px] font-bold text-slate-900 dark:text-slate-100">原型高鈣 ＋ 阻斷反營養</div>
+              <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">
+                攝取傳統板豆腐、小魚乾或芥藍；<strong>阻斷反營養陷阱</strong>：禁喝高磷可樂碳酸汽水（激發 PTH 溶骨）、少鹽防尿鈣漏失、菠菜先川燙去草酸。
+              </p>
+            </div>
+
+            <div className="p-3 rounded-lg border border-purple-200 dark:border-purple-800/60 bg-purple-50/50 dark:bg-purple-950/20 space-y-1.5">
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300">
+                21:00 晚餐後/睡前
+              </span>
+              <div className="text-[12px] font-bold text-slate-900 dark:text-slate-100">精準超補鈣鎂入骨</div>
+              <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">
+                服用檸檬酸鈣或螯合鈣（300–500mg）＋ 甘胺酸鎂（200–300mg）。<strong>削平清晨 2–6 點 PTH 溶骨夜間高峰</strong>，同時放鬆神經助眠。
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 // ── 2. Vertebral Compression Fracture & Kyphosis Figure ──────────────────────
 export const VertebralWedgeFractureFigure: React.FC = () => {
   return (

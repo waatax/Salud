@@ -86,6 +86,14 @@ export function buildSearchIndex(): SearchDoc[] {
       keywords: '骨骼疏鬆 骨質疏鬆 骨質流失 DXA T值 FRAX 骨折 保骼麗 Denosumab 益穩挺 Romosozumab 骨穩 福善美 雙磷酸鹽 鈣質 維生素D',
     },
     {
+      id: 'topic:osteo-super-nutrition',
+      group: '主題',
+      title: '骨骼疏鬆精準「超補」營養學理論與協同礦化全圖解',
+      subtitle: '生醫高吸收鈣、維生素 D3/K2 MK-7 雙重導航、生醫鎂、特異性膠原蛋白肽與微量礦物質交聯網',
+      target: 'spine/OSTEOPOROSIS',
+      keywords: '骨骼疏鬆超補 骨鬆超補 骨骼疏鬆營養 骨質疏鬆補充 鈣片 檸檬酸鈣 胺基酸螯合鈣 海藻鈣 碳酸鈣 維生素D3 維生素K2 MK-7 骨鈣素 基質Gla蛋白 鈣悖論 鎂 膠原蛋白肽 Fortibone 硼 鋅 錳 矽 雙磷酸鹽服藥時間 骨小梁 微結構',
+    },
+    {
       id: 'topic:vcf-cement',
       group: '疾病',
       title: '脊椎壓迫性骨折與微創骨泥手術',
