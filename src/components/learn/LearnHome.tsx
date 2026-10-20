@@ -33,6 +33,8 @@ import {
   Layers,
   Table as TableIcon,
   Calculator,
+  HeartHandshake,
+  UserCheck,
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal } from '../../context/ModalContext';
@@ -63,6 +65,8 @@ const POPULAR_CHIPS = [
   { label: '722 居家量血壓', hash: 'cardiometabolic/BP_722', icon: Gauge, tone: 'text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-900/60 bg-sky-50/70 dark:bg-sky-950/30' },
   { label: '保健品 GRADE 評級', hash: 'supplements', icon: Pill, tone: 'text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900/60 bg-teal-50/70 dark:bg-teal-950/30' },
   { label: '12 大細胞衰老標誌', hash: 'longevity', icon: Hourglass, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
+  { label: '長照申請與巴氏量表', hash: 'ltc', icon: HeartHandshake, tone: 'text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900/60 bg-teal-50/70 dark:bg-teal-950/30' },
+  { label: '外籍看護申請新制', hash: 'ltc/FOREIGN', icon: UserCheck, tone: 'text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-900/60 bg-sky-50/70 dark:bg-sky-950/30' },
   { label: '史丹佛生理嘆氣', hash: 'mental', icon: Wind, tone: 'text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900/60 bg-teal-50/70 dark:bg-teal-950/30' },
 ];
 
@@ -769,7 +773,7 @@ export const LearnHome: React.FC = () => {
             { icon: ClipboardList, label: '看懂健檢報告', hint: '24 項檢驗值白話對照', onClick: () => go('checkup'), tone: 'text-rose-700 dark:text-rose-300' },
             { icon: AlertOctagon, label: '危險警訊', hint: '何時要立刻撥打119就醫', onClick: () => openModal('emergency'), tone: 'text-red-700 dark:text-red-300' },
             { icon: Gauge, label: '722 居家血壓', hint: '連續 7 天早晚量測標準協定', onClick: () => go('cardiometabolic/BP_722'), tone: 'text-sky-700 dark:text-sky-300' },
-            { icon: BookA, label: '健康小辭典', hint: '43 個艱澀醫學名詞白話', onClick: () => go('glossary'), tone: 'text-violet-700 dark:text-violet-300' },
+            { icon: BookA, label: '健康小辭典', hint: '68 個醫學與長照名詞白話', onClick: () => go('glossary'), tone: 'text-violet-700 dark:text-violet-300' },
             { icon: Wine, label: '飲酒風險自評', hint: 'AUDIT-C 三題標準量表', onClick: () => openModal('auditC'), tone: 'text-amber-700 dark:text-amber-300' },
           ].map((tool) => (
             <button

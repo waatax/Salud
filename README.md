@@ -4,10 +4,15 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v4.1.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v5.0.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
+
+## 🤝 v5.0.0：失能照護與長照專區 · 五色主題（2026-10）
+
+- **失能照護與長照（`#ltc`）**：14 章、5 單元，涵蓋失能與衰弱預防、巴氏量表與長照需要等級、1966 申請與「四包錢」、長照 3.0 與 2026 補助新制、居家／社區／外籍看護／住宿機構比較與申請、家庭照護技巧、失智照護、照顧者支持、監護信託與預立醫療決定；附巴氏量表計分器、四包錢試算、外看資格判斷、照顧者負荷自評與機構參訪檢核表。
+- **五色主題**：森林綠、暗色、藍青、棕色、粉色（另可跟隨系統），全站以 CSS 變數即時換色並符合 WCAG AA 對比。
 
 ## ⚡ v4.1.0：全區段實用 TIP 深度整合 · 動吃雙核心起跑（2026-09）
 

@@ -166,6 +166,119 @@
     --anat-figure: #D6E2DC;
   }
 
+  /* v5.0 colour themes — Tailwind slate / emerald / teal and the salud.light surface tokens
+     resolve to these channels, so one data-theme attribute re-skins every page. */
+
+  :root {
+    --slate-50: 248 250 252; --slate-100: 241 245 249; --slate-200: 226 232 240; --slate-300: 203 213 225; --slate-400: 148 163 184; --slate-500: 100 116 139; --slate-600: 71 85 105; --slate-700: 51 65 85; --slate-800: 30 41 59; --slate-900: 15 23 42; --slate-950: 2 6 23;
+    --emerald-50: 236 253 245; --emerald-100: 209 250 229; --emerald-200: 167 243 208; --emerald-300: 110 231 183; --emerald-400: 52 211 153; --emerald-500: 16 185 129; --emerald-600: 5 150 105; --emerald-700: 4 120 87; --emerald-800: 6 95 70; --emerald-900: 6 78 59; --emerald-950: 2 44 34;
+    --teal-50: 240 253 250; --teal-100: 204 251 241; --teal-200: 153 246 228; --teal-300: 94 234 212; --teal-400: 45 212 191; --teal-500: 20 184 166; --teal-600: 13 148 136; --teal-700: 15 118 110; --teal-800: 17 94 89; --teal-900: 19 78 74; --teal-950: 4 47 46;
+    --sl-bg: 248 250 248;
+    --sl-surface: 255 255 255;
+    --sl-card: 242 247 244;
+    --sl-cardSubtle: 236 253 245;
+    --sl-border: 223 232 226;
+    --sl-borderHover: 167 243 208;
+    --sl-muted: 75 85 99;
+    --sl-text: 15 23 42;
+  }
+
+  :root[data-theme="ocean"] {
+    --slate-50: 243 248 251; --slate-100: 232 241 246; --slate-200: 214 227 236; --slate-300: 194 211 223; --slate-400: 143 165 182; --slate-500: 95 116 135; --slate-600: 69 90 107; --slate-700: 50 70 86; --slate-800: 29 45 59; --slate-900: 15 29 42; --slate-950: 4 16 26;
+    --emerald-50: 236 251 253; --emerald-100: 208 243 248; --emerald-200: 165 230 240; --emerald-300: 109 210 228; --emerald-400: 47 181 207; --emerald-500: 20 151 180; --emerald-600: 13 125 153; --emerald-700: 14 101 125; --emerald-800: 18 82 103; --emerald-900: 20 68 87; --emerald-950: 8 43 57;
+    --teal-50: 240 249 255; --teal-100: 224 242 254; --teal-200: 186 230 253; --teal-300: 125 211 252; --teal-400: 56 189 248; --teal-500: 14 165 233; --teal-600: 2 132 199; --teal-700: 3 105 161; --teal-800: 7 89 133; --teal-900: 12 74 110; --teal-950: 8 47 73;
+    --sl-bg: 238 246 249;
+    --sl-surface: 255 255 255;
+    --sl-card: 230 241 246;
+    --sl-cardSubtle: 227 245 249;
+    --sl-border: 211 227 236;
+    --sl-borderHover: 143 212 228;
+    --sl-muted: 74 93 108;
+    --sl-text: 15 29 42;
+    --bg: #eef6f9;
+    --surface: #ffffff;
+    --card: #e6f1f6;
+    --card-subtle: #e3f5f9;
+    --border: #d3e3ec;
+    --border-hover: #8fd4e4;
+    --text: #0f1d2a;
+    --muted: #4a5d6c;
+    --accent: #0d7d99;
+    --pastel-green: #d0f3f8;
+    --pastel-green-bg: #ecfbfd;
+    --pastel-green-border: #a5e6f0;
+    --fig-ink: #0f1d2a;
+    --fig-border: #d3e3ec;
+    --fig-series-1: #1497b4;
+    --fig-series-5: #0d7d99;
+    --viz-ink: #0f1d2a;
+    --viz-grid: #d3e3ec;
+  }
+
+  :root[data-theme="earth"] {
+    --slate-50: 250 247 242; --slate-100: 243 238 230; --slate-200: 230 221 208; --slate-300: 211 198 180; --slate-400: 168 154 134; --slate-500: 123 110 94; --slate-600: 92 81 69; --slate-700: 70 61 52; --slate-800: 46 40 34; --slate-900: 31 26 22; --slate-950: 15 12 10;
+    --emerald-50: 251 246 240; --emerald-100: 244 232 216; --emerald-200: 232 207 176; --emerald-300: 216 174 130; --emerald-400: 196 139 88; --emerald-500: 168 109 59; --emerald-600: 139 85 44; --emerald-700: 113 68 36; --emerald-800: 91 55 32; --emerald-900: 72 44 27; --emerald-950: 40 23 13;
+    --teal-50: 246 247 238; --teal-100: 234 237 214; --teal-200: 213 219 176; --teal-300: 185 194 131; --teal-400: 154 165 92; --teal-500: 125 138 66; --teal-600: 99 110 51; --teal-700: 77 86 42; --teal-800: 62 69 37; --teal-900: 52 58 34; --teal-950: 27 31 15;
+    --sl-bg: 246 240 230;
+    --sl-surface: 255 253 249;
+    --sl-card: 240 231 218;
+    --sl-cardSubtle: 244 232 216;
+    --sl-border: 227 214 195;
+    --sl-borderHover: 216 174 130;
+    --sl-muted: 92 81 69;
+    --sl-text: 31 26 22;
+    --bg: #f6f0e6;
+    --surface: #fffdf9;
+    --card: #f0e7da;
+    --card-subtle: #f4e8d8;
+    --border: #e3d6c3;
+    --border-hover: #d8ae82;
+    --text: #1f1a16;
+    --muted: #5c5145;
+    --accent: #8b552c;
+    --pastel-green: #f4e8d8;
+    --pastel-green-bg: #fbf6f0;
+    --pastel-green-border: #e8cfb0;
+    --fig-ink: #1f1a16;
+    --fig-border: #e3d6c3;
+    --fig-series-1: #a86d3b;
+    --fig-series-5: #8b552c;
+    --viz-ink: #1f1a16;
+    --viz-grid: #e3d6c3;
+  }
+
+  :root[data-theme="blossom"] {
+    --slate-50: 251 248 250; --slate-100: 245 238 242; --slate-200: 233 221 228; --slate-300: 212 194 204; --slate-400: 168 145 158; --slate-500: 126 103 117; --slate-600: 97 80 91; --slate-700: 76 62 72; --slate-800: 53 43 51; --slate-900: 36 28 34; --slate-950: 21 15 20;
+    --emerald-50: 253 242 247; --emerald-100: 252 229 239; --emerald-200: 249 204 224; --emerald-300: 244 166 198; --emerald-400: 236 119 166; --emerald-500: 224 80 142; --emerald-600: 196 47 114; --emerald-700: 163 34 92; --emerald-800: 132 28 75; --emerald-900: 107 25 63; --emerald-950: 66 10 36;
+    --teal-50: 250 245 251; --teal-100: 243 232 246; --teal-200: 231 208 236; --teal-300: 212 174 221; --teal-400: 185 130 198; --teal-500: 156 94 171; --teal-600: 130 70 143; --teal-700: 107 56 118; --teal-800: 88 47 97; --teal-900: 73 41 79; --teal-950: 44 18 49;
+    --sl-bg: 253 245 248;
+    --sl-surface: 255 255 255;
+    --sl-card: 251 234 241;
+    --sl-cardSubtle: 252 229 239;
+    --sl-border: 241 219 229;
+    --sl-borderHover: 244 166 198;
+    --sl-muted: 97 80 91;
+    --sl-text: 36 28 34;
+    --bg: #fdf5f8;
+    --surface: #ffffff;
+    --card: #fbeaf1;
+    --card-subtle: #fce5ef;
+    --border: #f1dbe5;
+    --border-hover: #f4a6c6;
+    --text: #241c22;
+    --muted: #61505b;
+    --accent: #c42f72;
+    --pastel-green: #fce5ef;
+    --pastel-green-bg: #fdf2f7;
+    --pastel-green-border: #f9cce0;
+    --fig-ink: #241c22;
+    --fig-border: #f1dbe5;
+    --fig-series-1: #e0508e;
+    --fig-series-5: #c42f72;
+    --viz-ink: #241c22;
+    --viz-grid: #f1dbe5;
+  }
+
   body {
     background-color: var(--bg);
     color: var(--text);

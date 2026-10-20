@@ -17,6 +17,7 @@ import {
   Bone,
   ShieldPlus,
   Flower2,
+  HeartHandshake,
   LucideIcon,
 } from 'lucide-react';
 import { HealthPillar } from '../types';
@@ -67,7 +68,7 @@ export const PILLAR_GROUPS: Record<
   foundation: { title_zh: '🧬 認識身體 · 系統', title_en: 'Know the body' },
   daily: { title_zh: '🥗🏃 飲食與運動 (吃·動·睡·心)', title_en: 'Diet & Exercise (Daily)' },
   goals: { title_zh: '🛡️ 預防醫學與健康目標', title_en: 'Prevention & Goals' },
-  care: { title_zh: '🩺 臨床治療與疾病專區', title_en: 'Treatment & Clinical Care' },
+  care: { title_zh: '🩺 疾病照護與長照專區', title_en: 'Clinical care & long-term care' },
 };
 
 export const GROUP_ORDER: PillarNavItem['group'][] = ['start', 'foundation', 'daily', 'goals', 'care'];
@@ -189,6 +190,19 @@ export const PILLAR_NAV: PillarNavItem[] = [
     mobile: true,
     short_zh: 'B 肝',
     short_en: 'Hep B',
+  },
+  {
+    id: 'ltc',
+    hash: 'ltc',
+    icon: HeartHandshake,
+    label_zh: '失能照護與長照',
+    label_en: 'Disability & long-term care',
+    blurb_zh: '巴氏·外看·機構·長照3.0',
+    blurb_en: 'Barthel · caregivers · facilities',
+    group: 'care',
+    mobile: true,
+    short_zh: '長照',
+    short_en: 'LTC',
   },
   {
     id: 'diet',

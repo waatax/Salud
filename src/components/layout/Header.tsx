@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeToggle } from '../common/ThemeToggle';
+import { ThemePicker } from '../common/ThemePicker';
 import { LanguageToggle } from '../common/LanguageToggle';
 import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
@@ -13,8 +13,6 @@ interface Props {
   /** Null while a secondary page is showing. */
   activePillar: HealthPillar | null;
   onSelectPillar: (pillar: HealthPillar) => void;
-  isDark: boolean;
-  onToggleTheme: () => void;
   onToggleMobileSidebar: () => void;
 }
 
@@ -34,7 +32,7 @@ const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigat
  * (desktop) and the drawer (mobile); the header carries the three things a reader
  * reaches for from anywhere: search, the learning entry points, and reading controls.
  */
-export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, isDark, onToggleTheme, onToggleMobileSidebar }) => {
+export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggleMobileSidebar }) => {
   const { t, language } = useLanguage();
   const { openModal } = useModal();
   const { bookmarks } = useBookmarks();
@@ -134,7 +132,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, isDark, 
           <span className="hidden sm:inline-flex">
             <LanguageToggle />
           </span>
-          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
+          <ThemePicker />
         </div>
       </div>
     </header>

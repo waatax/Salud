@@ -8,18 +8,23 @@
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#090E0C" media="(prefers-color-scheme: dark)" />
     <title>Salud｜給每個人的健康學習平台</title>
-    <meta name="description" content="Salud 用 7 條學習路徑、54 堂白話小課，帶一般人看懂身體、吃對食物、讀懂健檢報告。內容依據 2024–2026 年最新醫學指引，每一句都標示證據等級。" />
+    <meta name="description" content="Salud 用學習路徑與白話專區，帶一般人看懂身體、吃對食物、讀懂健檢報告，並完整整理失能照護與長照（巴氏量表、外籍看護、機構、長照 3.0）。內容依據 2024–2026 年最新醫學指引，每一句都標示證據等級。" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script>
       // Resolve the theme before first paint: an explicit choice wins, otherwise follow the OS.
+      // v5.0 themes: light (森林綠) · dark · ocean (藍青) · earth (棕色) · blossom (粉色).
       (function () {
         var saved = null;
         try { saved = localStorage.getItem('salud-theme-choice'); } catch (e) {}
+        var themes = ['light', 'dark', 'ocean', 'earth', 'blossom'];
+        if (themes.indexOf(saved) < 0) saved = null;
         var dark = saved ? saved === 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.add(dark ? 'dark' : 'light');
+        var root = document.documentElement;
+        root.classList.add(dark ? 'dark' : 'light');
+        if (saved && saved !== 'light' && saved !== 'dark') root.setAttribute('data-theme', saved);
       })();
     </script>
   </head>

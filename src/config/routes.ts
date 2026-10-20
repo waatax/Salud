@@ -89,6 +89,7 @@ const SIMPLE_PILLARS: HealthPillar[] = [
   'spine',
   'hepb',
   'mindbody',
+  'ltc',
 ];
 
 const PILLAR_ALIASES: Record<string, HealthPillar> = {
@@ -122,6 +123,14 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   mindfulness: 'mindbody',
   meditation: 'mindbody',
   insomnia: 'mindbody',
+  'long-term-care': 'ltc',
+  longtermcare: 'ltc',
+  disability: 'ltc',
+  barthel: 'ltc',
+  'foreign-caregiver': 'ltc',
+  'nursing-home': 'ltc',
+  dementia: 'ltc',
+  '1966': 'ltc',
 };
 
 export function parseHash(rawHash: string): Route | null {
@@ -229,7 +238,39 @@ export const MINDBODY_TABS: readonly MindbodyTab[] = [
   'CAPD_PLAN',
   'SAFETY',
 ];
-export type SystemSection = 'overview' | 'how' | 'charts' | 'conditions' | 'prevent' | 'flags';
+export type LtcTab =
+  | 'OVERVIEW'
+  | 'PREVENT'
+  | 'ASSESS'
+  | 'APPLY'
+  | 'BENEFITS'
+  | 'CHOOSE'
+  | 'HOME'
+  | 'COMMUNITY'
+  | 'FOREIGN'
+  | 'FACILITY'
+  | 'SKILLS'
+  | 'DEMENTIA'
+  | 'CAREGIVER'
+  | 'LEGAL';
+/** Course order follows the five units in ltcData.LTC_UNITS. */
+export const LTC_TABS: readonly LtcTab[] = [
+  'OVERVIEW',
+  'PREVENT',
+  'ASSESS',
+  'APPLY',
+  'BENEFITS',
+  'CHOOSE',
+  'HOME',
+  'COMMUNITY',
+  'FOREIGN',
+  'FACILITY',
+  'SKILLS',
+  'DEMENTIA',
+  'CAREGIVER',
+  'LEGAL',
+];
+export type SystemSection ='overview' | 'how' | 'charts' | 'conditions' | 'prevent' | 'flags';
 export const SYSTEM_SECTIONS: readonly SystemSection[] = ['overview', 'how', 'charts', 'conditions', 'prevent', 'flags'];
 
 export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
@@ -242,6 +283,7 @@ export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
   spine: SPINE_TABS,
   hepb: HEPB_TABS,
   mindbody: MINDBODY_TABS,
+  ltc: LTC_TABS,
 };
 
 /** Second hash segment when the current hash starts with `prefix/`, e.g. the tab id. */

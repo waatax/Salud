@@ -507,6 +507,65 @@ export const FOUR_PILLARS_DATA_REGISTRY: Record<string, FourPillarsProfile> = {
     }
   },
 
+  // ── 失能照護與長照 (Disability & Long-term Care) ──
+  'ltc': {
+    page_id_or_topic: 'ltc',
+    title_zh: '失能預防、長期照顧與家庭照顧者支持',
+    topic_badge: '老年醫學與長期照顧',
+    diet: {
+      title: '高蛋白、吞嚥安全與防脫水的長者營養',
+      one_liner: '長者每公斤體重 1.0–1.2 克蛋白質（衰弱或壓傷時更高），依吞嚥分級調整質地，定時定量補水。',
+      points: [
+        '蛋白質分散三餐：每餐一個掌心大小的豆魚蛋肉，咀嚼困難改蒸蛋、豆花、魚泥或營養品，配合運動維持肌肉。',
+        '吞嚥安全：依 IDDSI 分級調整食物質地與液體稠度，坐直進食、飯後維持坐姿 30 分鐘，降低吸入性肺炎。',
+        '防脫水：長者口渴感變鈍，臥床與失智者需定時餵水；觀察尿色與尿量，腎臟或心臟病人依醫囑限水。'
+      ],
+      evidence_grade: 'B',
+      evidence_source: 'ESPEN Guideline on Clinical Nutrition and Hydration in Geriatrics 2022 / IDDSI Framework',
+      key_metric: { label: '蛋白質目標', target: '1.0–1.2', unit: 'g/kg/日' },
+      action_item: '今天起每餐加一份蛋白質，並請語言治療師或營養師評估吞嚥（長照 CB01／CB02）。'
+    },
+    exercise: {
+      title: '肌力平衡訓練與居家復能',
+      one_liner: '每週 ≥ 3 天多元運動（肌力＋平衡），臥床者每日關節活動與定時翻身，以「自己做得到」為復能目標。',
+      points: [
+        '預防失能：椅子起站、踮腳、彈力帶與太極，LIFE 試驗顯示結構化運動降低重大行動失能約 18%。',
+        '居家復能：治療師到府設定 ADL 目標（自己上廁所、自己吃飯），密集 6–12 次訓練並教家屬。',
+        '臥床照護：每 2 小時翻身、每日被動關節活動，預防壓傷、攣縮、肺炎與深部靜脈血栓。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'Pahor M, et al. JAMA 2014 (LIFE) / WHO 2020 Physical Activity Guidelines / EPUAP 2019',
+      key_metric: { label: '運動頻率', target: '每週 ≥ 3 天', unit: '肌力＋平衡' },
+      action_item: '和長輩每天做 2 回椅子起站 5 下＋扶椅踮腳 10 下；申請長照居家復能（CA07／CA08）。'
+    },
+    prevention: {
+      title: '長者功能評估、防跌與照顧者支持',
+      one_liner: '65 歲以上每年做 ICOPE 長者功能評估；居家防跌改造；照顧者規律喘息，避免高負荷崩潰。',
+      points: [
+        'ICOPE 六大面向：認知、行動、營養、視力、聽力、憂鬱，任一異常即轉介社區據點或門診。',
+        '居家防跌：夜燈、扶手、防滑、移除絆腳物；長照輔具及無障礙每 3 年 4 萬元額度可補助。',
+        '照顧者支持：喘息服務每年 32,340–48,510 元，家庭照顧者支持據點與 0800-507272 專線。'
+      ],
+      evidence_grade: 'B',
+      evidence_source: 'WHO ICOPE 2024 / 國健署長者功能評估 / 衛福部長照 2.0–3.0',
+      key_metric: { label: '功能評估', target: '每年 1 次', unit: '65 歲以上' },
+      action_item: '撥 1966 申請長照評估；照顧者本週排一次喘息。'
+    },
+    treatment: {
+      title: '長照服務組合、外籍看護與機構選擇',
+      one_liner: '依失能等級組合居家、社區、外看與機構服務；2026 年住宿機構補助每年最高 18 萬，80 歲以上外看免評估。',
+      points: [
+        '長照四包錢：照顧及專業服務每月 10,020–36,180 元、交通、輔具、喘息；一般戶自付 16%。',
+        '外籍看護：2025-08-01 起 80 歲以上免評估，其他依巴氏量表；重症優先處理。',
+        '住宿機構：長照 4 級以上每月補助 1.5 萬（2026），慎選評鑑、人力與約束政策。'
+      ],
+      evidence_grade: 'B',
+      evidence_source: '衛福部長期照顧服務申請及給付辦法 / 勞動部就業服務法第 46 條新制 / 行政院 2026-09-10',
+      caution: '🚨 突然單側無力、意識改變、呼吸喘、跌倒撞頭或發燒合併不吃不喝，請立即撥 119；照顧者有傷害自己或他人的念頭請撥 1925。',
+      action_item: '用專區的四包錢試算器與照顧安排比較表，召開一次家庭會議。'
+    }
+  },
+
   // ── 睡眠與生理時鐘 (Sleep & Circadian Rhythm) ──
   'sleep': {
     page_id_or_topic: 'sleep',

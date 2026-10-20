@@ -36,6 +36,7 @@ const CardiometabolicHub = lazy(() => import('../pillars/CardiometabolicHub').th
 const SpineHub = lazy(() => import('../pillars/SpineHub').then((m) => ({ default: m.SpineHub })));
 const MindBodyHub = lazy(() => import('../pillars/MindBodyHub').then((m) => ({ default: m.MindBodyHub })));
 const HepBHub = lazy(() => import('../pillars/HepBHub').then((m) => ({ default: m.HepBHub })));
+const LtcHub = lazy(() => import('../pillars/LtcHub').then((m) => ({ default: m.LtcHub })));
 
 // Lazy-loaded secondary pages and dialogs
 const EmergencyModal = lazy(() => import('../common/EmergencyModal').then((m) => ({ default: m.EmergencyModal })));
@@ -107,7 +108,7 @@ export function AppShell() {
       : 'diet'
     : activePillar === 'exercise'
     ? `exercise:${exerciseSubTab}`
-    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody'] as string[]).includes(activePillar)
+    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody', 'ltc'] as string[]).includes(activePillar)
     ? activePillar
     : null;
 
@@ -149,8 +150,6 @@ export function AppShell() {
       <Header
         activePillar={highlightedPillar}
         onSelectPillar={selectPillar}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
         onToggleMobileSidebar={toggleMobileSidebar}
       />
 
@@ -243,6 +242,7 @@ export function AppShell() {
                 {activePillar === 'spine' && <SpineHub />}
                 {activePillar === 'hepb' && <HepBHub />}
                 {activePillar === 'mindbody' && <MindBodyHub />}
+                {activePillar === 'ltc' && <LtcHub />}
               </Suspense>
             )}
           </div>
@@ -256,7 +256,7 @@ export function AppShell() {
                   pageIdOrTopic={dietView === 'chapter' && currentChapterId ? currentChapterId : 'O'}
                 />
               ) : (
-                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody', 'systems'].includes(
+                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody', 'ltc', 'systems'].includes(
                   activePillar
                 ) && <FourPillarsClinicalMatrix key={`fp-${activePillar}`} pageIdOrTopic={activePillar} />
               )}

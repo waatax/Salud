@@ -24,7 +24,8 @@ import {
   ChevronRight,
   Gauge,
   ClipboardList,
-  ExternalLink
+  ExternalLink,
+  HeartHandshake
 } from 'lucide-react';
 
 type PillarDimension = 'diet' | 'exercise' | 'prevention' | 'treatment';
@@ -149,6 +150,7 @@ const FOUR_PILLARS_CATALOG: Record<PillarDimension, PillarCategoryData> = {
       { title: '人體 8 大系統生理機制', desc: '各器官系統從解剖運作、常見病理到診斷與標準醫療處置階梯', hash: 'systems', icon: BookOpen },
       { title: '脊椎病變與手腳發麻', desc: '骨刺、椎間盤突出保守治療、神經增生注射與馬尾症候群紅旗', hash: 'spine', icon: Bone },
       { title: 'B 型肝炎篩檢與抗病毒治療', desc: '健保給付抗病毒口服藥標準、肝硬化阻斷與定期超音波根治肝癌', hash: 'hepb', icon: ShieldCheck },
+      { title: '失能照護與長照 3.0', desc: '巴氏量表、1966 申請與四包錢、外籍看護、住宿機構補助與照顧者支持', hash: 'ltc', icon: HeartHandshake },
       { title: '抗老延壽與醫學新知', desc: '12 大細胞衰老標誌、生物年齡檢測與臨床介入性醫學研究', hash: 'longevity', icon: Hourglass },
     ],
     calculators: [

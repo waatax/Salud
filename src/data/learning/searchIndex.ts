@@ -11,9 +11,10 @@ import { STARTER_WEEKS } from './starterPlan';
 import { NUMB_CAUSES, SPINE_MEDS, PT_MODALITIES, SPINE_EXERCISES, POSTURE_GUIDE, SPUR_CONDITIONS } from '../spineData';
 import { SPINE_COURSE_CHAPTERS } from '../spineCareData';
 import { HEPB_CHAPTERS, HBV_MARKERS, HBV_DRUGS } from '../hepbData';
+import { LTC_CHAPTERS, OTHER_SCALES, FACILITY_TYPES, SKILL_CARDS, OTHER_SUBSIDIES } from '../ltcData';
 import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
 
-export type SearchGroup = '實用技巧' | '課程' | '主題' | '脊椎與神經' | 'B 型肝炎' | '睡眠呼吸正念' | '人體系統' | '疾病' | '檢驗與篩檢' | '最新實證' | '名詞' | '飲食章節' | '運動專項' | '工具';
+export type SearchGroup = '實用技巧' | '課程' | '主題' | '脊椎與神經' | 'B 型肝炎' | '失能與長照' | '睡眠呼吸正念' | '人體系統' | '疾病' | '檢驗與篩檢' | '最新實證' | '名詞' | '飲食章節' | '運動專項' | '工具';
 
 export interface SearchDoc {
   id: string;
@@ -26,7 +27,7 @@ export interface SearchDoc {
   keywords: string;
 }
 
-export const GROUP_ORDER: SearchGroup[] = ['課程', '實用技巧', '檢驗與篩檢', '疾病', '主題', '脊椎與神經', 'B 型肝炎', '睡眠呼吸正念', '人體系統', '最新實證', '名詞', '飲食章節', '運動專項', '工具'];
+export const GROUP_ORDER: SearchGroup[] = ['課程', '實用技巧', '檢驗與篩檢', '疾病', '主題', '脊椎與神經', 'B 型肝炎', '失能與長照', '睡眠呼吸正念', '人體系統', '最新實證', '名詞', '飲食章節', '運動專項', '工具'];
 
 /**
  * Build the in-memory search corpus. Every entry points to an existing route so the
@@ -148,6 +149,40 @@ export function buildSearchIndex(): SearchDoc[] {
   for (const d of HBV_DRUGS) {
     docs.push({ id: `hbvdrug:${d.name}`, group: 'B 型肝炎', title: d.name, subtitle: `B 肝用藥 · ${d.brand}`, target: 'hepb/TREATMENT', keywords: `${d.how} ${d.pros} ${d.watch} 抗病毒 藥物` });
   }
+
+  // 失能照護與長照專區 (v5.0): chapters, scales, facility types, care skills, subsidies.
+  const LTC_KW: Partial<Record<string, string>> = {
+    ASSESS: '巴氏量表 Barthel ADL 失能等級 CMS 長照等級 評估',
+    APPLY: '1966 申請長照 照專 照管中心 個管 出院準備',
+    BENEFITS: '四包錢 補助 喘息 交通接送 輔具 無障礙 自付額 扣除額 長照3.0',
+    FOREIGN: '外籍看護 外勞 移工 看護工 申請 80歲免評 巴氏量表 仲介 就業安定費',
+    FACILITY: '機構 護理之家 養護中心 安養 長照機構 住宿 補助 18萬',
+    COMMUNITY: '日照 日間照顧 家托 小規機 巷弄長照站 據點',
+    HOME: '居家服務 照服員 居家護理 居家醫療 復能 到宅沐浴',
+    SKILLS: '移位 翻身 壓傷 壓瘡 鼻胃管 尿管 吞嚥 失禁 防跌',
+    DEMENTIA: '失智 失智症 阿茲海默 BPSD 走失 譫妄',
+    CAREGIVER: '照顧者 喘息 家庭照顧者 照顧壓力 1925',
+    LEGAL: '監護宣告 輔助宣告 意定監護 信託 預立醫療 安寧 DNR 長照險',
+    PREVENT: '衰弱 預防失能 ICOPE 肌少症',
+  };
+  for (const c of LTC_CHAPTERS) {
+    docs.push({ id: `ltc:${c.id}`, group: '失能與長照', title: c.title_zh, subtitle: `長照專區 · ${c.label_zh}`, target: `ltc/${c.id}`, keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 長照 失能 照護 ${LTC_KW[c.id] ?? ''}` });
+  }
+  for (const s of OTHER_SCALES) {
+    docs.push({ id: `ltcscale:${s.name}`, group: '檢驗與篩檢', title: s.name, subtitle: `${s.area} · ${s.cut}`, target: 'ltc/ASSESS', keywords: `${s.use} 量表 評估 失能 長照` });
+  }
+  for (const f of FACILITY_TYPES) {
+    docs.push({ id: `ltcfac:${f.type}`, group: '失能與長照', title: f.type, subtitle: `住宿機構 · ${f.cost}`, target: 'ltc/FACILITY', keywords: `${f.for} ${f.law} 機構 安養 養護 護理之家` });
+  }
+  for (const k of SKILL_CARDS) {
+    docs.push({ id: `ltcskill:${k.id}`, group: '實用技巧', title: k.title, subtitle: `居家照護 · ${k.steps[0].slice(0, 36)}`, target: 'ltc/SKILLS', keywords: `${k.steps.join(' ')} ${k.caution} 照護 照顧` });
+  }
+  for (const o of OTHER_SUBSIDIES) {
+    docs.push({ id: `ltcsub:${o.name}`, group: '失能與長照', title: o.name, subtitle: `補助 · ${o.amount}`, target: 'ltc/BENEFITS', keywords: `${o.rule} 補助 津貼 長照` });
+  }
+  docs.push({ id: 'tool:barthel', group: '工具', title: '巴氏量表計分器', subtitle: '10 項 ADL 自評，附外看申請門檻', target: 'ltc/ASSESS', keywords: '巴氏量表 Barthel 失能 外籍看護 外勞 評估 分數' });
+  docs.push({ id: 'tool:ltcbudget', group: '工具', title: '長照四包錢試算器', subtitle: '依等級與身分算出額度與自付額', target: 'ltc/BENEFITS', keywords: '長照 補助 試算 四包錢 自付額 喘息 輔具 交通' });
+  docs.push({ id: 'tool:foreign', group: '工具', title: '外籍看護資格判斷', subtitle: '80 歲免評、癌症、巴氏量表門檻', target: 'ltc/FOREIGN', keywords: '外籍看護 外勞 移工 申請 資格 免評 巴氏量表' });
 
   // 睡眠・呼吸・正念專區 (v4.7): chapters, breathing methods, mindfulness practices, 六字訣.
   for (const c of MINDBODY_CHAPTERS) {

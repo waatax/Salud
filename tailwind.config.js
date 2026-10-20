@@ -1,3 +1,10 @@
+// v5.0: slate, emerald and teal resolve to CSS channels defined per colour theme in
+// src/index.css (:root and :root[data-theme=…]), so switching theme re-skins every
+// utility — including opacity modifiers like bg-emerald-500/20 — without touching markup.
+const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+const themed = (name) => Object.fromEntries(STEPS.map((k) => [k, `rgb(var(--${name}-${k}) / <alpha-value>)`]));
+const sl = (k) => `rgb(var(--sl-${k}) / <alpha-value>)`;
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,6 +15,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        slate: themed('slate'),
+        emerald: themed('emerald'),
+        teal: themed('teal'),
         nature: {
           sky: {
             DEFAULT: '#0284C7',
@@ -71,27 +81,27 @@ export default {
             text: '#F1F6F3',
           },
           light: {
-            bg: '#F8FAF8',
-            surface: '#FFFFFF',
-            card: '#F2F7F4',
-            cardSubtle: '#ECFDF5',
-            border: '#DFE8E2',
-            borderHover: '#A7F3D0',
-            muted: '#4B5563',
-            text: '#0F172A',
+            bg: sl('bg'),
+            surface: sl('surface'),
+            card: sl('card'),
+            cardSubtle: sl('cardSubtle'),
+            border: sl('border'),
+            borderHover: sl('borderHover'),
+            muted: sl('muted'),
+            text: sl('text'),
           },
           green: {
-            DEFAULT: '#10B981',
-            50: '#F0FDF4',
-            100: '#D1FAE5',
-            200: '#A7F3D0',
-            300: '#6EE7B7',
-            400: '#34D399',
-            500: '#10B981',
-            600: '#059669',
-            700: '#047857',
-            800: '#065F46',
-            900: '#064E3B',
+            DEFAULT: 'rgb(var(--emerald-500) / <alpha-value>)',
+            50: 'rgb(var(--emerald-50) / <alpha-value>)',
+            100: 'rgb(var(--emerald-100) / <alpha-value>)',
+            200: 'rgb(var(--emerald-200) / <alpha-value>)',
+            300: 'rgb(var(--emerald-300) / <alpha-value>)',
+            400: 'rgb(var(--emerald-400) / <alpha-value>)',
+            500: 'rgb(var(--emerald-500) / <alpha-value>)',
+            600: 'rgb(var(--emerald-600) / <alpha-value>)',
+            700: 'rgb(var(--emerald-700) / <alpha-value>)',
+            800: 'rgb(var(--emerald-800) / <alpha-value>)',
+            900: 'rgb(var(--emerald-900) / <alpha-value>)',
             glow: 'rgba(16, 185, 129, 0.22)',
           },
           pastel: {
@@ -130,15 +140,15 @@ export default {
             glow: 'rgba(2, 132, 199, 0.22)',
           },
           emerald: {
-            DEFAULT: '#10B981',
-            50: '#ECFDF5',
-            100: '#D1FAE5',
-            200: '#A7F3D0',
-            300: '#6EE7B7',
-            400: '#34D399',
-            500: '#10B981',
-            600: '#059669',
-            700: '#047857',
+            DEFAULT: 'rgb(var(--emerald-500) / <alpha-value>)',
+            50: 'rgb(var(--emerald-50) / <alpha-value>)',
+            100: 'rgb(var(--emerald-100) / <alpha-value>)',
+            200: 'rgb(var(--emerald-200) / <alpha-value>)',
+            300: 'rgb(var(--emerald-300) / <alpha-value>)',
+            400: 'rgb(var(--emerald-400) / <alpha-value>)',
+            500: 'rgb(var(--emerald-500) / <alpha-value>)',
+            600: 'rgb(var(--emerald-600) / <alpha-value>)',
+            700: 'rgb(var(--emerald-700) / <alpha-value>)',
             glow: 'rgba(16, 185, 129, 0.22)',
           },
           crimson: {
