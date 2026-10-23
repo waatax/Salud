@@ -29,11 +29,6 @@ import {
   VISIT_PREP,
   URGENCY_META,
   NerveRoot,
-  OSTEO_DXA_LEVELS,
-  OSTEO_MEDS_TABLE,
-  OSTEO_SUPER_NUTRIENTS,
-  OSTEO_CALCIUM_FORMS,
-  OSTEO_DAILY_CHRONO_SCHEDULE,
   VCF_GENANT_GRADES,
   BONE_CEMENT_TABLE,
   CEMENT_MATERIALS_TABLE,
@@ -50,8 +45,6 @@ import { SpineColumnFigure, MotionSegmentFigure, AxialSegmentFigure, AnatomyLege
 import { HandMapsFigure, LegFootMapFigure, NumbPatternFigure } from './figures/NerveFigures';
 import { ImagingSmallMultiples, DiscPressureChart, NeckLoadChart, RegressionChart, DegenCascadeFigure, TreatmentLadderFigure, NaturalCourseFigure } from './figures/ChartFigures';
 import {
-  OsteoporosisMicrostructureFigure,
-  OsteoporosisSuperNutrientFigure,
   VertebralWedgeFractureFigure,
   BoneCementProcedureFigure,
   MissVsOpenFigure,
@@ -220,190 +213,7 @@ export const SpursChapter: React.FC = () => (
 
 // ── 3. Osteoporosis ─────────────────────────────────────────────────────
 
-export const OsteoporosisChapter: React.FC = () => (
-  <div className="space-y-6">
-    <P>
-      骨質疏鬆症常被稱為「無聲的健康殺手」，因為骨骼微結構在流失破壞的過程中<strong>完全沒有任何疼痛感</strong>。多數人直到跌倒骨折、或幾年內身高縮水超過 3–4 公分、駝背日益嚴重時，才震驚發現骨密度已經嚴重低落。
-    </P>
-
-    <FigureFrame
-      number="圖 3-1"
-      title="骨小梁微結構比較與 DXA 骨密度 T 值光譜"
-      source="國際骨質疏鬆症基金會 (IOF) 2023；WHO DXA 診斷標準"
-      caption="左為健康緻密的蜂巢狀骨小梁，垂直與水平樑交織完整；右為骨質疏鬆的骨小梁，水平樑穿孔斷裂、主樑變細孤立，輕微受力即引發塌陷。下方色塊標示 DXA T 值的臨床介入門檻。"
-    >
-      <OsteoporosisMicrostructureFigure />
-    </FigureFrame>
-
-    <div className="grid gap-4 lg:grid-cols-2 items-start">
-      <Callout kind="tip" title="誰應該做 DXA 骨密度檢查？">
-        <ul className="list-disc pl-5 space-y-1 text-[13px]">
-          <li><strong>65 歲以上女性</strong>或 <strong>70 歲以上男性</strong>（無條件建議篩檢）。</li>
-          <li><strong>50 歲以上曾發生脆性骨折</strong>（站立高度跌倒或彎腰即骨折）。</li>
-          <li><strong>停經後女性未滿 65 歲</strong>但具有高風險因子（BMI &lt; 18.5、抽菸、過量飲酒、家族髖部骨折史）。</li>
-          <li><strong>長期服用全身性類固醇</strong>（連續使用 prednisolone ≥ 5mg 超過 3 個月）或類風濕關節炎患者。</li>
-        </ul>
-      </Callout>
-
-      <Callout kind="evidence" title="FRAX 骨折風險評估工具（台灣本土模型）">
-        <p className="text-[13px]">
-          FRAX 由世界衛生組織發展，整合年齡、性別、BMI、父母骨折史、抽菸、類固醇、次發性疾病等。若計算出<strong>未來 10 年主要骨鬆骨折機率 ≥ 20%</strong> 或 <strong>髖部骨折機率 ≥ 3%</strong>，即使 T 值仍在 -1.0 至 -2.5 之間，亦強烈建議啟動藥物治療以防範骨折。
-        </p>
-      </Callout>
-    </div>
-
-    <DataTable
-      title="表 3-1　DXA 骨密度 T 值分級與臨床行動指引"
-      source="世界衛生組織 (WHO) DXA 診斷標準；中華民國骨質疏鬆症學會"
-      columns={[
-        { key: 't_score', header: 'T 值門檻', className: 'min-w-[110px]' },
-        { key: 'category', header: '診斷分類', className: 'min-w-[130px]' },
-        { key: 'definition', header: '微結構狀態', className: 'min-w-[180px]' },
-        { key: 'fracture_risk', header: '骨折風險', className: 'min-w-[140px]' },
-        { key: 'action_zh', header: '臨床處置建議', className: 'min-w-[220px]' },
-      ]}
-      rows={OSTEO_DXA_LEVELS}
-      rowKey={(r) => r.t_score}
-      rowTone={(r) => r.tone}
-    />
-
-    <H3 id="osteo-meds">現代骨質疏鬆處方藥物：抗吸收 vs 促骨生成</H3>
-    <P>
-      單靠補鈣與維生素 D <strong>無法逆轉</strong>已確診的骨質疏鬆，它們是藥物治療的「建材磚瓦」而非處方主體。現代骨鬆治療分為兩大陣營：<strong>抗骨吸收劑</strong>（阻止蝕骨細胞拆骨）與<strong>促進骨生成劑</strong>（直接喚醒造骨細胞長新骨）。對於極高風險長者，國際指引建議「先促生成、後抗吸收」以迅速拉高骨本。
-    </P>
-
-    <DataTable
-      title="表 3-2　常見骨質疏鬆處方藥物機轉、骨折降低率與關鍵警訊"
-      source="AACE/ACE 2020 臨床指引；IOF 2023"
-      columns={[
-        { key: 'category', header: '分類', className: 'min-w-[90px]' },
-        { key: 'generic_name', header: '成分名稱', className: 'min-w-[140px]' },
-        { key: 'brand_examples', header: '常見藥品與用法', className: 'min-w-[150px]' },
-        { key: 'vertebral_risk_reduction', header: '脊椎骨折降低率', className: 'min-w-[140px]' },
-        { key: 'key_precautions', header: '重大警訊與用藥叮嚀', className: 'min-w-[240px]' },
-      ]}
-      rows={OSTEO_MEDS_TABLE}
-      rowKey={(r) => r.generic_name}
-    />
-
-    <H3 id="osteo-super-nutrition">骨骼疏鬆精準「超補」醫學理論與協同礦化全圖解</H3>
-    <P>
-      為什麼許多長者「天天吞高劑量鈣片、喝大杯牛奶」，回診複查 DXA 骨密度<strong>依然持續衰退</strong>，甚至冠狀動脈鈣化指數（CAC）與腎結石風險反而悄悄飆升？這是現代臨床醫學極度重視的<strong>「鈣悖論（The Calcium Paradox）」</strong>——骨骼嚴重缺鈣中空，但游離鈣卻大量沉積於心臟血管壁與軟組織引發硬化！
-    </P>
-    <P>
-      骨骼不是一塊死寂的白堊石塊，而是由<strong>「鋼筋（佔骨重 35% 的第 I 型膠原蛋白有機網架）」</strong>與<strong>「水泥（佔骨重 65% 的羥基磷灰石晶體）」</strong>複合交織而成的動態活體器官。單純猛灌水泥（盲目吞碳酸鈣），若沒有維生素 D3 開通腸道主動入血通道、維生素 K2 (MK-7) 擔任 GPS 導航將鈣引流入骨、生醫鎂離子活化酵素調節晶體柔韌度、特異性膠原蛋白肽架設彈性網架，以及微量礦物質（硼、鋅、錳、銅、矽）鎖緊交聯分子，吞下去的鈣只會造成嚴重便秘、並在動脈血管壁沉積變成硬化斑塊！
-    </P>
-
-    <FigureFrame
-      number="圖 3-2"
-      title="骨質疏鬆精準超補生化協同交響曲與血管鈣化防線圖解"
-      source="Endocrine Society 2024；IOF 2023；Rotterdam Heart Study；Nutrients 2018"
-      caption="展示維生素 D3、K2 (MK-7)、高吸收鈣、鎂、特異性骨膠原蛋白肽與微量礦物質之分子級協同機轉，揭示解開動脈血管鈣化與骨質疏鬆並存之「鈣悖論」核心機制，並提供 24 小時晝夜節律服藥與營養時鐘。"
-    >
-      <OsteoporosisSuperNutrientFigure />
-    </FigureFrame>
-
-    <div className="grid gap-4 lg:grid-cols-2 items-start">
-      <Callout kind="evidence" title="終結鈣悖論的生化金鑰：維生素 K2（MK-7）">
-        <p className="text-[13px]">
-          人體內有兩大關鍵的維生素 K 依賴性蛋白質：
-          <strong>1. 骨鈣素（Osteocalcin, cOC）</strong>：由造骨細胞分泌，經 K2 γ-羧化活化後，擁有 3 個高親和力 Gla 區域，能將血鈣牢牢鑲嵌進骨羥磷灰石中；
-          <strong>2. 基質 Gla 蛋白（Matrix Gla Protein, cMGP）</strong>：由血管平滑肌合成之最強天然鈣化抑制劑，活化後能強烈封印磷酸鈣微晶，阻斷主動脈中層微鈣化。若缺乏 K2，這兩大蛋白均處於未羧化（ucOC / ucMGP）無效狀態，引發「骨鬆＋血管硬化」的致命悲劇！
-        </p>
-      </Callout>
-
-      <Callout kind="tip" title="骨骼的鋼筋彈性哲學：為什麼需要骨膠原蛋白肽？">
-        <p className="text-[13px]">
-          骨骼的力學韌性取決於有機膠原蛋白網架。若缺乏第 I 型膠原蛋白，骨小梁就像「未綁鋼筋的水泥牆」，受到跌倒側向剪切力時會像粉筆一樣脆性折斷！
-          臨床隨機雙盲試驗（RCT）證實：每日補充 5g 特異性水解骨膠原蛋白肽（如 Fortibone）合併維生素 C，能活化成骨細胞整合素受體，刺激骨基質前膠原蛋白合成，12 個月顯著提升腰椎與股骨頸骨密度，賦予骨骼吸收衝擊的彈性緩衝。
-        </p>
-      </Callout>
-    </div>
-
-    <DataTable
-      title="表 3-3　骨質疏鬆八大「超補」營養素分子機轉、臨床劑量與協同效應"
-      source="國際骨質疏鬆症基金會 (IOF)；Endocrine Society 2024 指引；Nutrients 2018"
-      columns={[
-        { key: 'category', header: '生化類別', className: 'min-w-[90px]' },
-        { key: 'name_zh', header: '營養素成分與型態', className: 'min-w-[160px]' },
-        { key: 'target_dose', header: '臨床超補靶向劑量', className: 'min-w-[150px]' },
-        { key: 'molecular_mechanism', header: '分子生理機轉（受體/酵素/靶點）', className: 'min-w-[280px]' },
-        { key: 'synergy_role', header: '協同建構定位', className: 'min-w-[180px]' },
-        { key: 'clinical_evidence', header: '國際實證等級與重點發現', className: 'min-w-[220px]' },
-        { key: 'cautions_and_timing', header: '用藥間隔與安全警訊', className: 'min-w-[200px]' },
-      ]}
-      rows={OSTEO_SUPER_NUTRIENTS}
-      rowKey={(r) => r.name_zh}
-    />
-
-    <H3 id="osteo-calcium-types">生醫鈣化合物劑型大評比：別再盲目吞碳酸鈣！</H3>
-    <P>
-      市售鈣片五花八門，但<strong>「含鈣量高」絕對不等於「吸收率高」</strong>。傳統碳酸鈣雖然標榜含鈣量達 40%，但極度依賴強烈胃酸才能解離，且釋放二氧化碳容易引發嚴重脹氣與頑固便秘；對於 50 歲以上胃酸分泌衰退、萎縮性胃炎或長期使用制酸劑（PPI 胃藥）的長者，碳酸鈣吸收率幾近於零！
-    </P>
-
-    <DataTable
-      title="表 3-4　市售常見生醫鈣化合物劑型（碳酸鈣、檸檬酸鈣、螯合鈣、海藻鈣）吸收率與臨床適用對照"
-      source="美國臨床營養學雜誌 (AJCN)；中華民國骨質疏鬆症學會"
-      columns={[
-        { key: 'form_name', header: '鈣化合物劑型', className: 'min-w-[130px]' },
-        { key: 'elemental_calcium_pct', header: '純元素鈣含量比例', className: 'min-w-[120px]' },
-        { key: 'stomach_acid_dependency', header: '胃酸依賴度', className: 'min-w-[110px]' },
-        { key: 'bioavailability', header: '生化吸收利用率', className: 'min-w-[110px]' },
-        { key: 'gastrointestinal_tolerance', header: '腸胃耐受度與便秘反應', className: 'min-w-[170px]' },
-        { key: 'best_timing', header: '最佳服用時機', className: 'min-w-[130px]' },
-        { key: 'suitable_population', header: '臨床推薦優先族群', className: 'min-w-[200px]' },
-      ]}
-      rows={OSTEO_CALCIUM_FORMS}
-      rowKey={(r) => r.form_name}
-    />
-
-    <H3 id="osteo-chrono-guide">骨鬆「超補四大黃金法則」與 24 小時服藥時序表</H3>
-    <div className="space-y-4">
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="p-3.5 rounded-xl border border-sky-200 dark:border-sky-800/60 bg-sky-50/50 dark:bg-sky-950/20">
-          <span className="text-[12px] font-bold text-sky-800 dark:text-sky-300 block mb-1">法則一：單次不超量</span>
-          <p className="text-[12px] text-slate-700 dark:text-slate-300">
-            小腸 TRPV6 主動轉運載體單次飽和吸收上限為 <strong>500 mg 元素鈣</strong>。一次猛吞 1,000 mg 只會造成浪費、副交感便秘與高血鈣反彈，務必「分次補充」。
-          </p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-amber-200 dark:border-amber-800/60 bg-amber-50/50 dark:bg-amber-950/20">
-          <span className="text-[12px] font-bold text-amber-800 dark:text-amber-300 block mb-1">法則二：藥鈣必隔開</span>
-          <p className="text-[12px] text-slate-700 dark:text-slate-300">
-            口服雙磷酸鹽類（福善美）晨起空腹大杯水吞服後，<strong>至少間隔 2–4 小時</strong>才能吃鈣片；鈣片與甲狀腺素（Levothyroxine）亦需間隔 4 小時以上，避免螯合沉澱失效。
-          </p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-purple-200 dark:border-purple-800/60 bg-purple-50/50 dark:bg-purple-950/20">
-          <span className="text-[12px] font-bold text-purple-800 dark:text-purple-300 block mb-1">法則三：睡前補鈣鎂</span>
-          <p className="text-[12px] text-slate-700 dark:text-slate-300">
-            清晨 2:00–6:00 為人體血鈣最低點與甲狀旁腺素（PTH）溶骨破骨高峰。將檸檬酸鈣與甘胺酸鎂安排於晚餐後或睡前服用，能<strong>精準壓平夜間骨質吸收狂潮</strong>！
-          </p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-rose-200 dark:border-rose-800/60 bg-rose-50/50 dark:bg-rose-950/20">
-          <span className="text-[12px] font-bold text-rose-800 dark:text-rose-300 block mb-1">法則四：阻斷反營養</span>
-          <p className="text-[12px] text-slate-700 dark:text-slate-300">
-            戒除高磷酸碳酸飲料（破壞 Ca:P 比直接激發溶骨）；烹調低鈉少鹽（每多排 2,300mg 鈉伴隨流失 40mg 尿鈣）；菠菜先川燙倒掉菜湯去除草酸。
-          </p>
-        </div>
-      </div>
-
-      <Callout kind="tip" title="骨質疏鬆患者每日黃金排程實戰示範（一日生活時序）">
-        <ul className="space-y-1.5 text-[13px]">
-          <li><strong>07:00 晨起空腹</strong>：若使用口服雙磷酸鹽（福善美），以 250ml 溫水整顆吞服，維持直立坐姿 30 分鐘，不進食。</li>
-          <li><strong>08:00 早餐時光</strong>：優質油脂早餐（如荷包蛋＋橄欖油沙拉），隨餐吞服<strong>維生素 D3 (1000–2000 IU) ＋ 維生素 K2 MK-7 (90–180 µg)</strong>；沖泡 5g 骨膠原蛋白肽飲用。</li>
-          <li><strong>12:30 午間正餐</strong>：傳統板豆腐、小魚乾炒青龍、芥藍深綠蔬菜，補足日常原型食物鈣（約 400–500mg）。嚴禁飲用可樂。</li>
-          <li><strong>15:30 下午微量時段</strong>：曬太陽 15 分鐘（露出手臂小腿），補充綜合微量礦物質（含硼 3mg、鋅 15mg、錳 2mg、銅 1mg）。</li>
-          <li><strong>21:00 晚餐後/睡前</strong>：吞服<strong>檸檬酸鈣（元素鈣 400–500 mg）＋ 甘胺酸鎂（200–300 mg）</strong>，阻斷清晨 PTH 溶骨高峰，並透過甘胺酸促進深層優質睡眠。</li>
-        </ul>
-      </Callout>
-    </div>
-
-    <Callout kind="redflag" title="保骼麗（Denosumab）絕對不可擅自停藥！">
-      <p>
-        Denosumab 是半年皮下注射一次的 RANKL 單株抗體，降骨折效果極佳。但若超過 6–7 個月未續打且未銜接其他藥物，體內被壓抑的蝕骨細胞會產生<strong>爆發性反彈（Rebound phenomenon）</strong>，骨密度在短短 12 個月內迅速回跌，並可能引發<strong>多發性脊椎壓迫骨折</strong>！若因任何原因需停藥，必須在醫師監控下於第 6 個月立刻改用雙磷酸鹽類鎖住骨量。
-      </p>
-    </Callout>
-  </div>
-);
+export { OsteoporosisChapter } from './OsteoporosisChapter';
 
 // ── 4. Compression Fractures & Bone Cement ──────────────────────────────
 
@@ -1178,7 +988,7 @@ export const TriageChapter: React.FC = () => (
 export const CHAPTER_SOURCES: Record<string, string[]> = {
   OVERVIEW: ['ISNCSCI', 'GBD2023', 'WILKE1999'],
   SPURS: ['BRINJIKJI2015', 'AOSPINE2017'],
-  OSTEOPOROSIS: ['IOF2023', 'AACE2020', 'LIFTMOR2018'],
+  OSTEOPOROSIS: ['KANIS2019', 'AACE2020', 'USPSTF2025', 'TOA2023', 'OSTA2001', 'HERNANDEZ2003', 'FREEDOM2009', 'HORIZON2007', 'NEER2001', 'ARCH2017', 'ECTS2017', 'ASBMR2016', 'BLACK2020', 'ENDO2024D', 'VITAL2022', 'BOLLAND2015', 'SANDERS2010', 'TW_DRI', 'LIFTMOR2018', 'TOOFIT2014', 'SHERRINGTON2019', 'IOF2023'],
   FRACTURE: ['GENANT1993', 'BUCHBINDER2018', 'VAPOUR2016', 'FREE2009', 'TMGRGH261', 'TW_SPINE_CARE'],
   SURGERY: ['UBE2023', 'PEUL2007', 'NASS2014', 'TMGRGH261', 'TMGRGH_FEATURE', 'TW_SPINE_CARE'],
   NUMBNESS: ['ISNCSCI', 'AOSPINE2017', 'ADA2025', 'NASS2014'],

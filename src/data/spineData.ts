@@ -268,15 +268,16 @@ export const SPINE_CHAPTERS: SpineChapter[] = [
   {
     id: 'OSTEOPOROSIS',
     label_zh: '骨骼疏鬆',
-    title_zh: '骨質疏鬆症：無聲的骨質流失、DXA T值與抗骨折新療法',
-    goal_zh: '骨質疏鬆是「無聲的健康殺手」，平常完全不痛不癢，第一次有症狀往往就是突發性骨折。認識骨密度檢測、FRAX 風險評估與各類新一代促骨生成與抗骨吸收藥物。',
-    learn_zh: ['DXA 骨密度 T 值與 FRAX 骨折風險評估門檻', '停經後雌激素驟降與骨重塑失衡機轉（RANKL/OPG 軸）', '抗吸收劑（雙磷酸鹽、保骼麗）與促生成劑（骨穩、益穩挺）的階梯策略'],
-    minutes: 8,
+    title_zh: '骨質疏鬆症 11 個知識點：從骨重塑、風險評估、用藥接力到營養運動與骨折後照護',
+    goal_zh: '骨質疏鬆在骨折前不痛不癢，卻是可以檢查、治療與預防的疾病。本章以 11 個知識點、11 張圖解與 2 個自評工具，帶你看懂骨頭為什麼變鬆、自己屬於哪一級風險、藥物怎麼選怎麼接，以及每天能做的飲食與運動。',
+    learn_zh: ['用 OSTA、DXA T 值與 FRAX 判斷自己屬於哪一級骨折風險', '抗吸收與促生成藥物的差別、療程接力順序，以及副作用的真實比例', '用計算器算出每日鈣攝取，並依證據分級選擇營養與運動'],
+    minutes: 15,
     takeaways_zh: [
-      '骨密度 T 值 ≤ -2.5 為骨質疏鬆；若已發生過站立高度脆性骨折，即定義為「嚴重骨質疏鬆症」，未來 1 年內再骨折風險暴增 5 倍。',
-      'FRAX 評估工具預估未來十年骨折機率：主要骨鬆骨折 ≥ 20% 或髖部骨折 ≥ 3% 者，即便 T 值尚未達 -2.5 也強烈建議開始藥物保護。',
-      '促進骨生成藥物（益穩挺 Romosozumab、骨穩 Teriparatide）能直接刺激造骨細胞造新骨；極高風險者應「先促生成、後抗吸收」。',
-      '保骼麗（Denosumab）每半年皮下注射一次，停藥會誘發「骨吸收反彈與脊椎多重骨折風險」，絕對不可擅自停藥，必須銜接雙磷酸鹽類。',
+      '骨頭持續「拆舊蓋新」；停經與老化使拆大於蓋，骨小梁變細斷裂。峰值骨量約在 30 歲，存得越高、骨鬆越晚出現。',
+      'DXA 三個部位取最低 T 值診斷（≤ -2.5 為骨鬆）；骨質缺乏者用 FRAX 判斷，10 年主要骨折 ≥ 20% 或髖部 ≥ 3% 建議用藥；已發生輕微外力的髖部或脊椎骨折，不論 T 值都需治療。',
+      '治療依風險分層：高風險先用抗吸收藥，極高風險（近一年骨折、T ≤ -3.0、多處骨折）優先促生成藥再接抗吸收藥；Denosumab 不可自行停藥，雙磷酸鹽 3–5 年後可評估藥物假期。',
+      '顎骨壞死與非典型股骨骨折都很罕見；雙磷酸鹽 3 年預防的髖部骨折約為非典型股骨骨折的 75 倍。',
+      '鈣以食物吃到每日 1,000 mg、蛋白質每公斤 1.0–1.2 g；維生素 D 補到不缺乏即可，避免超高劑量；K2、膠原蛋白、硼等保健品證據有限。阻力、衝擊與平衡訓練並行，骨折後 1–2 年是治療黃金期。',
     ],
   },
   {
@@ -1824,10 +1825,10 @@ export interface DxaThreshold {
 }
 
 export const OSTEO_DXA_LEVELS: DxaThreshold[] = [
-  { t_score: '≥ -1.0', category: '正常骨質', definition: '骨密度在健康年輕成年人的 1 個標準差之內', fracture_risk: '基準風險', action_zh: '維持均衡飲食（鈣 1000mg/日、維生素 D3 800IU）、負重與阻力運動、健康作息。', tone: 'good' },
+  { t_score: '≥ -1.0', category: '正常骨質', definition: '骨密度在健康年輕成年人的 1 個標準差之內', fracture_risk: '基準風險', action_zh: '維持均衡飲食（食物鈣約 1,000 mg/日、蛋白質充足）、阻力與平衡運動、戒菸限酒。', tone: 'good' },
   { t_score: '-1.0 至 -2.5', category: '骨質缺乏 (Osteopenia)', definition: '骨密度低於正常值，骨小梁微結構已開始變薄', fracture_risk: '骨折風險為正常的 1.5–2 倍', action_zh: '計算 FRAX 風險；若 10 年主要骨鬆骨折 ≥ 20% 或髖部骨折 ≥ 3%，或有類固醇史，需考慮藥物治療。', tone: 'warn' },
   { t_score: '≤ -2.5', category: '骨質疏鬆症 (Osteoporosis)', definition: '骨量顯著流失，骨小梁穿孔斷裂，微結構嚴重脆化', fracture_risk: '高骨折風險（每下降 1 個標準差，骨折風險翻倍）', action_zh: '強烈建議啟動處方藥物（抗吸收劑或促生成劑）治療，並全面進行居家防跌改裝。', tone: 'bad' },
-  { t_score: '≤ -2.5 合併脆性骨折', category: '嚴重骨質疏鬆症', definition: '輕微外力或日常動作（彎腰、咳嗽、摔跌）即發生脊椎、髖部或腕部骨折', fracture_risk: '極高骨折風險（1 年內再骨折風險增加 5 倍）', action_zh: '建議優先使用「促進骨生成藥物」（如 Romosozumab 或 Teriparatide），再銜接抗吸收劑。', tone: 'bad' },
+  { t_score: '≤ -2.5 合併脆性骨折', category: '嚴重骨質疏鬆症', definition: '輕微外力或日常動作（彎腰、咳嗽、摔跌）即發生脊椎、髖部或腕部骨折', fracture_risk: '極高骨折風險（骨折後 1–2 年內再骨折風險約為一般人的 2–5 倍）', action_zh: '建議優先使用「促進骨生成藥物」（如 Romosozumab 或 Teriparatide），再銜接抗吸收劑。', tone: 'bad' },
 ];
 
 export interface OsteoMed {
@@ -1857,7 +1858,7 @@ export const OSTEO_MEDS_TABLE: OsteoMed[] = [
     method: '每 6 個月皮下注射一次',
     mechanism_zh: '精準結合並中和 RANKL，完全切斷蝕骨細胞的成熟與活化訊號。',
     vertebral_risk_reduction: '脊椎骨折風險降低約 68%，髖部骨折降低約 40%',
-    key_precautions: '【重大警訊】停藥後骨吸收會產生劇烈反彈（Rebound phenomenon），骨密度於 1 年內迅速暴跌並顯著增加多發性脊椎壓迫骨折風險！絕對不可自行停藥；若需停用必須立即在第 6 個月銜接雙磷酸鹽類藥物。腎功能不全者可用，但注射前必須確保血鈣正常。',
+    key_precautions: '【重大警訊】停藥後骨吸收會產生劇烈反彈（Rebound phenomenon），骨密度於 1 年內迅速暴跌並顯著增加多發性脊椎壓迫骨折風險！絕對不可自行停藥；若需停用，須由醫師規劃在最後一劑後約 6 個月改用雙磷酸鹽（多為 Zoledronic acid）並追蹤。腎功能不全者可用，但注射前必須確保血鈣正常。',
   },
   {
     category: '促骨生成劑',
@@ -1875,7 +1876,7 @@ export const OSTEO_MEDS_TABLE: OsteoMed[] = [
     method: '每月一次皮下注射（兩劑合打，療程固定 12 個月）',
     mechanism_zh: '阻斷 Wnt 訊息傳遞路徑的抑制因子 Sclerostin，達成「同時大幅促進骨合成＋微幅抑制骨吸收」的強效雙重作用。',
     vertebral_risk_reduction: '脊椎骨折風險降低約 73%，臨床骨折降低約 50%',
-    key_precautions: '目前極高骨折風險長者的第一線首選之一。過去 1 年內曾發生心肌梗塞或中風者禁用。12 個月療程結束後，同樣必須銜接抗吸收劑維持骨密度成果。',
+    key_precautions: '極高骨折風險者的優先選項之一。過去 1 年內曾發生心肌梗塞或中風者禁用。12 個月療程結束後，同樣必須銜接抗吸收劑維持骨密度成果。',
   },
   {
     category: '抗骨吸收劑',
@@ -1888,92 +1889,7 @@ export const OSTEO_MEDS_TABLE: OsteoMed[] = [
   },
 ];
 
-// ── Osteoporosis Super-Nutrition & Synergistic Mineralization Datasets ───────
-
-export interface OsteoSuperNutrient {
-  name_zh: string;
-  category: '基石礦物質' | '活化輔酶' | '導航引流' | '有機基質' | '微量交聯網' | '反營養阻斷';
-  target_dose: string;
-  molecular_mechanism: string;
-  synergy_role: string;
-  clinical_evidence: string;
-  cautions_and_timing: string;
-}
-
-export const OSTEO_SUPER_NUTRIENTS: OsteoSuperNutrient[] = [
-  {
-    name_zh: '生醫元素鈣 (Calcium: 檸檬酸鈣 / 胺基酸螯合鈣 / 海藻鈣)',
-    category: '基石礦物質',
-    target_dose: '每日總量 1,000–1,200 mg（飲食＋補充劑）；補充劑單次 ≤ 500 mg',
-    molecular_mechanism: '骨骼羥基磷灰石晶體 Ca10(PO4)6(OH)2 的核心原料。維持血清游離鈣離子穩態（8.5–10.2 mg/dL），負回饋抑制甲狀旁腺素（PTH）分泌，阻斷蝕骨細胞破骨溶鈣連鎖反應。',
-    synergy_role: '水泥原料。必須搭配 D3 腸道吸收開門、K2 導航入骨，以及鎂離子調控晶體大小，方能避免游離鈣沉積於動脈壁引發血管鈣化。',
-    clinical_evidence: 'IOF 與 NOF 國際骨鬆指引：單純補鈣僅能微幅減緩骨流失（降低骨折風險約 10%），但若合併 D3 則骨折風險顯著降低 15–30%。小腸 TRPV6 主動飽和閾值約 500mg，超量不吸收且引發便秘。',
-    cautions_and_timing: '與雙磷酸鹽類（福善美）間隔至少 2–4 小時；與甲狀腺素間隔 4 小時。推薦晚餐後或睡前服用，削弱夜間清晨 PTH 溶骨高峰。',
-  },
-  {
-    name_zh: '維生素 D3 (Cholecalciferol 膽鈣化醇)',
-    category: '活化輔酶',
-    target_dose: '每日 1,000–2,000 IU（依抽血調整，血清 25(OH)D 目標 30–50 ng/mL）',
-    molecular_mechanism: '經肝臟 CYP2R1 與腎臟 CYP27B1 活化為 1,25(OH)2D3。結合腸道細胞核 VDR 受體，促十二指腸 TRPV6 鈣通道蛋白、Calbindin-D9k 鈣結合蛋白與 PMCA1b 鈣泵轉錄，將小腸被動吸收率（10–15%）大幅躍升至主動吸收（30–40%）；同時抑制破骨細胞 RANKL 誘導。',
-    synergy_role: '吸收引流引擎。負責將腸道中的鈣磚塊大量運入血液循環；但本身不具備骨骼靶向定位功能，需由 K2 接力將血鈣抓入骨基質。',
-    clinical_evidence: 'Endocrine Society 臨床指引：25(OH)D < 20 ng/mL 屬嚴重不足，PTH 持續代償性升高溶骨；濃度達到 30–50 ng/mL 時 PTH 分泌降至基準水平，骨轉換率穩定。',
-    cautions_and_timing: '脂溶性營養素，隨含健康油脂正餐（如蛋黃、橄欖油、深海魚）服用吸收最佳；長期補充應每 6–12 個月複驗 25(OH)D，避免 > 100 ng/mL 產生中毒風險。',
-  },
-  {
-    name_zh: '維生素 K2 (Menaquinone-7, MK-7 鷹嘴豆/納豆發酵型)',
-    category: '導航引流',
-    target_dose: '每日 90–180 µg（天然 MK-7 型）',
-    molecular_mechanism: '內質網 γ-麩胺醯羧化酶（GGCX）的絕對必需輔因子。催化兩大關鍵蛋白質的麩胺酸（Glu）轉化為具備鈣螯合能力的 γ-羧基麩胺酸（Gla）：1. 骨鈣素（Osteocalcin, cOC）：牢固抓住游離鈣鑲嵌進骨羥磷灰石基質；2. 基質 Gla 蛋白（Matrix Gla Protein, cMGP）：由血管平滑肌合成之最強天然鈣化抑制劑，封印磷酸鈣晶體，防動脈中層微鈣化。',
-    synergy_role: '骨骼 GPS 導航員。終結「鈣悖論（Calcium Paradox）」的生化關鍵——將鈣抓入骨骼、趕出動脈血管壁與軟組織。',
-    clinical_evidence: 'Knapen 等人 3 年雙盲 RCT 顯示：停經後婦女每日 180 µg MK-7 顯著降低 ucOC（未羧化骨鈣素），改善股骨頸與腰椎骨強度，顯著減緩骨流失；Rotterdam 心臟研究證實高 K2 攝取使主動脈鈣化與心血管死亡率下降 52%。MK-7 半衰期長達 72 小時（遠超 MK-4 的 1–2 小時）。',
-    cautions_and_timing: '脂溶性，隨餐服用。服用抗凝血藥 Warfarin（香豆素類）者禁用高劑量 K2；新型口服抗凝血劑（DOAC/NOAC 如 Eliquis, Xarelto）則不受干擾。',
-  },
-  {
-    name_zh: '生醫高吸收鎂 (Magnesium: 甘胺酸鎂 / 檸檬酸鎂)',
-    category: '活化輔酶',
-    target_dose: '每日 200–350 mg（維持飲食與補充之鈣鎂比 2:1 至 3:1）',
-    molecular_mechanism: '人體 60% 的鎂蘊藏於骨骼。鎂是催化維生素 D 轉化的 CYP2R1（肝 25-羥化酶）與 CYP27B1（腎 1α-羥化酶）的專屬金屬輔因子。鎂能直接調控骨晶體成核速率，防止羥磷灰石晶體異常過大而脆化，賦予骨骼彈性抗震度；在血管平滑肌胞外與游離磷酸根競爭，阻斷異位血管硬化。',
-    synergy_role: '生化開關與晶體調和師。缺鎂時，再高的 D3 補充劑也無法被肝腎酵素活化，造成「假性維生素 D 阻抗」。',
-    clinical_evidence: '流行病學與介入研究證實：缺鎂族群骨質疏鬆與脆性骨折風險顯著增加；維持血清鎂 > 2.0 mg/dL 能有效維持成骨細胞 Runx2 表達，抑制蝕骨細胞活性。',
-    cautions_and_timing: '氧化鎂吸收率僅 4% 且易致瀉；推薦生物利用率最高的甘胺酸鎂或檸檬酸鎂。建議於晚間或睡前與鈣分開或合劑服用，兼具放鬆副交感神經與助眠效益。嚴重慢性腎病（eGFR < 30）需經醫師評估血鎂。',
-  },
-  {
-    name_zh: '第 I 型生物活性骨膠原蛋白肽 (BCP) ＋ 維生素 C',
-    category: '有機基質',
-    target_dose: '每日 5g 特異性骨膠原蛋白肽（如 Fortibone 等）＋ 100–200 mg 維生素 C',
-    molecular_mechanism: '骨基質乾重中 35% 為有機質，其中 90% 為 Type I 膠原蛋白纖維。特異性水解小分子膠原蛋白肽能跨腸道屏障吸收，與成骨細胞表面整合素受體（Integrin α2β1）結合，信號級聯上調成骨細胞前膠原蛋白及蛋白多醣（Decorin）基因表現；維生素 C 作為脯胺醯 4-羥化酶輔因子，確保膠原三股螺旋空間交聯。',
-    synergy_role: '骨骼鋼筋網架。無機鈣磷如水泥，膠原基質如鋼筋；沒有彈性鋼筋網架，光有水泥的骨骼極度脆弱，一撞即粉碎性骨折。',
-    clinical_evidence: 'König 等人 2018 Nutrients 隨機雙盲對照試驗：131 名骨質缺乏停經婦女每日補充 5g 特異性膠原蛋白肽連續 12 個月，腰椎骨密度顯著提升 4.2%，股骨頸提升 7.7%，骨轉換標記 P1NP 顯著升高。',
-    cautions_and_timing: '任何時間空腹或隨水沖泡皆可。維生素 C 應避免單次超過 1,000mg 以免代謝為草酸。',
-  },
-  {
-    name_zh: '微量骨骼交聯金屬網 (硼 Boron、鋅 Zinc、錳 Manganese、銅 Copper、矽 Silicon)',
-    category: '微量交聯網',
-    target_dose: '每日 硼 3 mg、鋅 15 mg、錳 2 mg、銅 1 mg、正矽酸 5–10 mg',
-    molecular_mechanism: '1. 硼 (Boron)：下調類固醇荷爾蒙硫酸酯酶，延長 17β-雌二醇與 25(OH)D 半衰期，抑制腎小管尿鈣排泄達 40%；2. 鋅 (Zinc)：成骨轉錄因子鋅指結構與鹼性磷酸酶（ALP）的催化中心；3. 錳與銅：賴胺醯氧化酶（LOX）必需輔基，催化膠原纖維交聯形成吡啶諾林交聯鍵；4. 矽 (Silicon)：促進醣胺聚醣合成與骨基質早期成核。',
-    synergy_role: '微結構鎖扣與螺栓。如果沒有錳銅交聯與硼的固鈣效應，膠原蛋白網架如同未栓緊的腳手架，鈣鹽無法牢固著床。',
-    clinical_evidence: 'Nielsen 等人臨床研究：停經後婦女補充 3mg 硼每日，尿鈣排泄平均降低 44%，尿鎂排泄減少 33%，血清 17β-雌二醇與睪固酮翻倍；Framingham 骨骼研究證實飲食矽攝取量與皮質骨與小梁骨密度呈高度正相關。',
-    cautions_and_timing: '鋅與銅應維持 10:1 至 15:1 比例，避免長期高鋅誘發次發性缺銅性貧血。隨餐服用預防胃部刺激。',
-  },
-  {
-    name_zh: '負向反營養因子與骨流失陷阱阻斷 (Anti-Nutrient Guard)',
-    category: '反營養阻斷',
-    target_dose: '戒除高磷碳酸飲料、限制每日食鹽鈉 < 2,300 mg、川燙去除草酸',
-    molecular_mechanism: '1. 高磷酸飲料（可樂、加工肉品聚磷酸鹽）：血磷驟升直接刺激 PTH 劇烈分泌，強制溶骨釋放血鈣平衡血磷；2. 高鈉飲食：近端腎小管鈉-鈣共轉運載體，每排泄 2,300mg 鈉，伴隨流失 40mg 尿鈣；3. 生草酸（未煮熟菠菜）：與鈣結合形成不溶性草酸鈣沉澱，阻斷腸吸收；4. 抽菸與乙醇：直接毒害成骨細胞，下調 Wnt/β-catenin 成骨訊號。',
-    synergy_role: '止血防漏。在水桶底部的破洞上打補丁；若不阻斷反營養因子，再昂貴的超補營養素也會從尿液與糞便中大量漏失。',
-    clinical_evidence: 'NHANES 與 Nurses\' Health Study：每週飲用 ≥ 4 罐可樂之女性，髖部骨密度顯著低於非飲用者 5.4%；高鈉飲食使停經後婦女骨質流失率加倍。',
-    cautions_and_timing: '菠菜、甜菜根等高草酸蔬菜必須先滾水川燙 60–90 秒倒掉菜湯；日常烹調選用低鈉鉀鹽（腎病除外）與天然辛香料減鈉。',
-  },
-  {
-    name_zh: '處方藥物與超補劑型黃金時序排程 (Chrono-Pharmacology)',
-    category: '基石礦物質',
-    target_dose: '雙磷酸鹽晨起空腹 30 分鐘，與鈣劑間隔 ≥ 2–4 小時；鈣鎂移至晚餐/睡前',
-    molecular_mechanism: '雙磷酸鹽類（Alendronate 等）口服生物利用率極低（< 1%），若與含有二價陽離子（Ca2+, Mg2+, Fe2+）之食物或鈣片同時進入胃部，會立即發生不可逆化學螯合沉澱，導致藥物吸收率歸零。而在人體晝夜節律中，清晨 2:00–6:00 為血鈣最低點與 PTH 溶骨高峰，晚餐後補鈣能精準削平夜間骨質吸收波形。',
-    synergy_role: '臨床時空交響樂。確保昂貴的處方抗骨吸收藥物與高濃度超補建材互不干擾、相得益彰。',
-    clinical_evidence: '骨質疏鬆醫學會與臨床藥理學規範：口服雙磷酸鹽必須於晨起以 200–300ml 溫水空腹吞服，維持直立坐姿至少 30 分鐘，且在至少 2 小時（最佳 4 小時）後才可補充鈣片或進食高鈣早餐；保骼麗（Denosumab）注射前後必須補充足量鈣與 D3 防範低血鈣危象。',
-    cautions_and_timing: '嚴格遵守時序表：晨起空腹藥物 ➔ 早餐油脂搭配 D3/K2 ➔ 午餐高纖蛋白質 ➔ 晚餐或睡前檸檬酸鈣/甘胺酸鎂。',
-  },
-];
+// ── Calcium supplement forms (v5.1 evidence-checked) ───────────────────────
 
 export interface OsteoCalciumForm {
   form_name: string;
@@ -1987,95 +1903,40 @@ export interface OsteoCalciumForm {
 
 export const OSTEO_CALCIUM_FORMS: OsteoCalciumForm[] = [
   {
-    form_name: '碳酸鈣 (Calcium Carbonate)',
-    elemental_calcium_pct: '40%（最高，1000mg 含 400mg 元素鈣）',
-    stomach_acid_dependency: '高（必須依賴胃酸解離為游離 Ca2+ 離子）',
-    bioavailability: '約 25–30%（胃酸正常時）',
-    gastrointestinal_tolerance: '較差（胃酸反應釋放二氧化碳，易脹氣、打嗝、消化不良、硬便便秘）',
-    best_timing: '必須「隨餐」或「餐後立即」服用（利用進食刺激的胃酸）',
-    suitable_population: '年輕族群、胃酸分泌旺盛、精打細算經濟型者；不適合胃酸不足或長者。',
+    form_name: '碳酸鈣',
+    elemental_calcium_pct: '40%（1,250 mg 錠含 500 mg 鈣）',
+    stomach_acid_dependency: '需要；隨餐吃時吸收與檸檬酸鈣相近',
+    bioavailability: '隨餐約 25–35%',
+    gastrointestinal_tolerance: '較易脹氣、便秘',
+    best_timing: '隨餐或餐後立即',
+    suitable_population: '多數人的平價選擇；顆數最少',
   },
   {
-    form_name: '檸檬酸鈣 (Calcium Citrate)',
-    elemental_calcium_pct: '21%（中等，1000mg 含 210mg 元素鈣，需較大錠劑）',
-    stomach_acid_dependency: '完全不依賴（已水溶螯合，無需胃酸即可直接被小腸吸收）',
-    bioavailability: '約 35–40%（吸收利用率為碳酸鈣的 2.5 倍）',
-    gastrointestinal_tolerance: '極佳（不產氣、不引起脹氣，檸檬酸根更能抑制腎臟草酸鈣結石成核）',
-    best_timing: '任何時間皆可（空腹、隨餐或睡前皆具極佳吸收率）',
-    suitable_population: '【臨床第一推薦】50 歲以上長者、萎縮性胃炎、胃切除、長期服用制酸劑（PPI 胃藥）及有腎結石疑慮者。',
+    form_name: '檸檬酸鈣',
+    elemental_calcium_pct: '21%（顆粒較大或需多顆）',
+    stomach_acid_dependency: '不需要',
+    bioavailability: '空腹或隨餐都穩定',
+    gastrointestinal_tolerance: '較少脹氣便秘',
+    best_timing: '任何時間',
+    suitable_population: '長期吃制酸劑（PPI）、胃酸少、胃切除、曾有腎結石者',
   },
   {
-    form_name: '胺基酸螯合鈣 (Calcium Bisglycinate 甘胺酸螯合鈣)',
-    elemental_calcium_pct: '18–20%（純化雙分子甘胺酸螯合）',
-    stomach_acid_dependency: '完全不依賴（分子結構穩定，整顆以胺基酸二肽轉運載體直接吸收）',
-    bioavailability: '高達 80–90%（專屬胜肽通道跨細胞吸收，不與鐵、鋅競爭載體）',
-    gastrointestinal_tolerance: '最溫和（零便秘、零脹氣、對胃黏膜完全無刺激性）',
-    best_timing: '任何時間，空腹或睡前效果極佳',
-    suitable_population: '極度敏感腸胃、吃一般鈣片嚴重便秘者、孕婦、吸收不良症候群、需要高效利用的重度骨鬆長者。',
+    form_name: '胺基酸螯合鈣',
+    elemental_calcium_pct: '約 18–20%',
+    stomach_acid_dependency: '不需要',
+    bioavailability: '廠商宣稱較高，缺乏獨立大型研究證實優於檸檬酸鈣',
+    gastrointestinal_tolerance: '溫和',
+    best_timing: '任何時間',
+    suitable_population: '對其他劑型腸胃不適者；價格較高',
   },
   {
-    form_name: '天然紅藻鈣 / 海藻鈣 (Lithothamnion Calcareum)',
-    elemental_calcium_pct: '30–32%（天然海洋多孔性晶體）',
-    stomach_acid_dependency: '低（微孔蜂巢結構比表面積高達 10 倍，極易溶解）',
-    bioavailability: '約 35–45%（富含天然鎂與 70+ 種微量海洋海洋元素）',
-    gastrointestinal_tolerance: '良好（弱鹼性緩衝特性，溫和不刺激胃壁）',
-    best_timing: '隨餐或睡前',
-    suitable_population: '偏好全天然植萃來源、茹素者、同時希望補充海藻微量礦物質者。',
-  },
-];
-
-export interface OsteoDailyChrono {
-  time_slot: string;
-  title: string;
-  actions: string[];
-  scientific_rationale: string;
-  tone: 'good' | 'info' | 'warn' | 'bad';
-}
-
-export const OSTEO_DAILY_CHRONO_SCHEDULE: OsteoDailyChrono[] = [
-  {
-    time_slot: '07:00 晨起空腹',
-    title: '處方藥物專屬空窗期（若有醫囑）',
-    actions: [
-      '若有使用口服雙磷酸鹽類（如福善美 Alendronate weekly）：以 200–300ml 溫水整顆吞服。',
-      '服藥後維持完全直立坐姿或走動至少 30 分鐘，嚴禁躺下以防逆流食道炎。',
-      '服藥後 60 分鐘內禁食任何早餐、牛奶、咖啡、茶；至少 2–4 小時內嚴禁服用任何鈣片或礦物質補充劑。',
-    ],
-    scientific_rationale: '雙磷酸鹽生化利用率極其微弱，任何二價金屬陽離子（Ca2+, Mg2+, Fe2+）都會與其螯合形成不溶沉澱物，使藥效完全歸零。',
-    tone: 'warn',
-  },
-  {
-    time_slot: '08:00 晨間早餐',
-    title: '脂溶性吸收門神 D3 ＋ 導航 K2 啟動',
-    actions: [
-      '搭配含有優質健康油脂的早餐（如水煮蛋、酪梨、黑芝麻燕麥、特級初榨橄欖油炒蔬菜）。',
-      '吞服維生素 D3（1000–2000 IU）＋ 維生素 K2 MK-7（90–180 µg）。',
-      '可搭配特異性骨膠原蛋白肽 5g 加入溫豆漿或溫水飲用。',
-    ],
-    scientific_rationale: '維生素 D3 與 K2 皆為高度脂溶性分子，乳糜微粒刺激膽汁分泌能將其吸收率拉高 3–5 倍；早餐先行活化腸道 TRPV6 鈣通道與骨鈣素羧化酵素，為整天飲食鈣吸收做好導航鋪墊。',
-    tone: 'good',
-  },
-  {
-    time_slot: '12:30 午間餐飲',
-    title: '天然原型高鈣蛋白質餐盤 ＋ 負向反營養阻斷',
-    actions: [
-      '攝取 1 塊傳統石膏凝固板豆腐（非嫩豆腐）、小魚乾炒青龍椒、或芥藍深綠蔬菜。',
-      '確保優質蛋白質攝取（每餐 25–30g），提供成骨細胞充足胺基酸原料。',
-      '阻斷反營養陷阱：嚴禁佐餐飲用高磷酸可樂碳酸飲料；菠菜先滾水川燙去除草酸；避免過鹹高鈉湯底。',
-    ],
-    scientific_rationale: '原型食物中的鈣與膳食纖維、礦物質形成天然緩釋矩陣，吸收平穩；阻斷高磷與高鈉能杜絕近端腎小管的尿鈣強制排泄。',
-    tone: 'info',
-  },
-  {
-    time_slot: '20:30–22:00 晚餐後或睡前',
-    title: '精準超補鈣鎂入骨 ＋ 阻斷夜間 PTH 溶骨高峰',
-    actions: [
-      '服用檸檬酸鈣或胺基酸螯合鈣（單次元素鈣 300–500 mg）。',
-      '搭配高吸收甘胺酸鎂或檸檬酸鎂（200–300 mg），達成鈣鎂協同。',
-      '飲用約 150ml 溫水吞服，若夜尿頻繁者可於晚餐後 1 小時服用完畢。',
-    ],
-    scientific_rationale: '人體晝夜節律中，清晨 2:00–6:00 為血鈣最低點，甲狀旁腺會分泌 PTH 促進蝕骨細胞溶解骨質來救急血鈣；睡前補鈣能平穩維持夜間血鈣，精準封印 PTH 的夜間溶骨狂潮；同時甘胺酸鎂能促進 GABA 釋放，改善深層睡眠。',
-    tone: 'good',
+    form_name: '海藻鈣（紅藻鈣）',
+    elemental_calcium_pct: '約 30%',
+    stomach_acid_dependency: '部分需要',
+    bioavailability: '與碳酸鈣相近（主成分即碳酸鈣），「吸收更好」證據有限',
+    gastrointestinal_tolerance: '與碳酸鈣相近',
+    best_timing: '隨餐',
+    suitable_population: '偏好植物來源、茹素者',
   },
 ];
 
@@ -2592,6 +2453,9 @@ export const SPINE_MYTHS: { chapter: SpineTab; myth: string; fact: string }[] = 
   { chapter: 'SPURS', myth: 'MRI 報告寫「椎間盤突出」，痛一定是它造成的。', fact: '40 歲無症狀的人約三分之一有椎間盤突出，醫師需要把影像、症狀與神經學檢查三者對起來才能判斷。' },
   { chapter: 'OSTEOPOROSIS', myth: '只要多喝牛奶、吃鈣片，就能治好骨質疏鬆。', fact: '鈣質與維生素 D 只是骨骼健康的「建材與基底」；對於已確診骨質疏鬆或發生骨折者，單靠補鈣無法逆轉骨量流失，必須接受處方藥物（抗吸收劑或促生成劑）治療。' },
   { chapter: 'OSTEOPOROSIS', myth: '骨質疏鬆平常沒感覺，代表骨頭還很勇。', fact: '骨質疏鬆被稱為「無聲殺手」，它在骨折前完全沒有疼痛症狀；第一次發作往往就是彎腰搬花盆或輕微跌倒就骨折。定期 DXA 檢測是唯一能及早發現的手段。' },
+  { chapter: 'OSTEOPOROSIS', myth: '骨鬆藥會讓下巴骨頭壞死，太可怕了，不如不要吃。', fact: '顎骨壞死在骨鬆劑量下非常罕見（約每年萬分之一以下）；雙磷酸鹽治療 3 年，預防的髖部骨折約是非典型股骨骨折的 75 倍。用藥前先看牙、保持口腔衛生即可大幅降低風險。' },
+  { chapter: 'OSTEOPOROSIS', myth: '骨密度變好了，就可以自己把保骼麗停掉。', fact: 'Denosumab 停藥後骨吸收會反彈，部分人一年內發生多處脊椎骨折；任何停藥都要由醫師安排銜接雙磷酸鹽並追蹤。' },
+  { chapter: 'OSTEOPOROSIS', myth: '維生素 D 吃越多越好，一次打高劑量最方便。', fact: '對不缺乏的人，額外補充不會降低骨折；一年一次超高劑量反而增加長者跌倒與骨折。補到不缺乏、每日固定劑量即可。' },
   { chapter: 'FRACTURE', myth: '脊椎壓迫性骨折一定要灌骨泥，灌完就一勞永逸。', fact: '多數輕微壓迫性骨折經由短期止痛、硬背架保護與防跌，能在數週內癒合；骨泥主要用於急性劇痛無法下床或進展性塌陷者。更重要的是：骨泥只黏住了碎骨，若沒積極治療全身骨鬆，一年內鄰近節段再骨折率達 15–20%！' },
   { chapter: 'FRACTURE', myth: '脊椎骨折就應該絕對臥床躺一個月不動。', fact: '長者臥床 7 天就足以流失相當於老化 10 年的肌肉量與大量骨鈣；除了前 24–48 小時相對休息外，應盡早佩戴硬背架下床活動，並嚴禁彎腰前屈。' },
   { chapter: 'SURGERY', myth: '微創手術傷口很小，所以完全沒有風險、術後可以馬上搬重物。', fact: '微創手術雖大幅減少肌肉與周邊組織損傷，但神經減壓的本質與傳統手術一樣精細；術後神經孔仍需數週修復消腫，切除椎間盤的纖維環破口仍有 5–10% 的復發機率，術後數週仍需遵循動作保護原則。' },

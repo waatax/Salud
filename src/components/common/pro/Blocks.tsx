@@ -321,3 +321,163 @@ export const GradePill: React.FC<{ grade: 'A' | 'B' | 'C' | 'D' | 'E'; withLabel
     {withLabel && <span>{GRADE_LABEL[grade]}</span>}
   </span>
 );
+
+// ── Knowledge points ────────────────────────────────────────────────────────
+
+export interface KpNumber {
+  value: string;
+  label: string;
+}
+
+export interface KpMapItem {
+  id: string;
+  title: string;
+  oneLine: string;
+}
+
+export interface KpMapGroup {
+  label: string;
+  hint: string;
+  items: KpMapItem[];
+}
+
+const scrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  // Clear the sticky header and chapter tab bar, whose height changes as the tabs wrap.
+  const bar = document.querySelector('[role="tablist"]')?.closest('.sticky');
+  el.style.scrollMarginTop = `${Math.round((bar?.getBoundingClientRect().bottom ?? 116) + 12)}px`;
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  el.focus({ preventScroll: true });
+};
+
+/**
+ * KnowledgeMap — the chapter's knowledge points as a numbered, grouped overview.
+ * Each card jumps to its point, so the map doubles as an in-chapter table of contents.
+ */
+export const KnowledgeMap: React.FC<{ groups: KpMapGroup[]; title?: string; id?: string }> = ({ groups, title = '本章知識地圖', id = 'kp-map' }) => {
+  let n = 0;
+  return (
+    <nav id={id} aria-label={title} tabIndex={-1} className="scroll-mt-32 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 sm:p-5 space-y-3 no-print focus:outline-none">
+      <p className="text-[15px] font-bold text-slate-900 dark:text-white">{title}</p>
+      <ol className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        {groups.map((g, gi) => (
+          <li key={g.label} className="rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 p-3 space-y-2">
+            <p className="flex items-center gap-2 text-[13px] font-bold text-emerald-800 dark:text-emerald-300">
+              <span className="w-5 h-5 rounded-md bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 text-[11px] inline-flex items-center justify-center tabular-nums">{gi + 1}</span>
+              {g.label}
+            </p>
+            <p className="text-[12px] text-slate-500 dark:text-slate-400">{g.hint}</p>
+            <ol className="space-y-1">
+              {g.items.map((it) => {
+                n += 1;
+                return (
+                  <li key={it.id}>
+                    <a
+                      href={`#${it.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToId(it.id);
+                      }}
+                      className="group flex gap-2 rounded-lg px-2 py-1.5 hover:bg-white dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                    >
+                      <span className="shrink-0 text-[11px] font-mono font-bold text-emerald-700 dark:text-emerald-400 mt-0.5">KP{n}</span>
+                      <span className="min-w-0">
+                        <span className="block text-[13px] font-semibold text-slate-800 dark:text-slate-100 group-hover:underline">{it.title}</span>
+                        <span className="block text-[12px] text-slate-500 dark:text-slate-400 leading-snug">{it.oneLine}</span>
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+};
+
+/**
+ * KnowledgePoint — one clearly bounded idea: a numbered title, a one-sentence answer,
+ * the key numbers, the explanation and its figure, then what to do about it.
+ */
+export const KnowledgePoint: React.FC<{
+  id: string;
+  index: number;
+  title: string;
+  oneLine: string;
+  grade?: 'A' | 'B' | 'C' | 'D' | 'E';
+  numbers?: KpNumber[];
+  actions?: string[];
+  caution?: string;
+  mapId?: string;
+  children: React.ReactNode;
+}> = ({ id, index, title, oneLine, grade, numbers, actions, caution, mapId = 'kp-map', children }) => (
+  <section id={id} tabIndex={-1} aria-labelledby={`${id}-h`} className="scroll-mt-32 space-y-4 focus:outline-none">
+    <header className="space-y-2.5 border-l-4 border-emerald-500 dark:border-emerald-400 pl-3.5">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-[11px] font-bold tracking-wide font-mono text-white dark:text-emerald-950 bg-emerald-600 dark:bg-emerald-400 rounded-md px-1.5 py-0.5">知識點 {index}</span>
+        {grade && <GradePill grade={grade} />}
+      </div>
+      <h3 id={`${id}-h`} className="text-lg sm:text-xl font-display font-bold text-slate-900 dark:text-white text-balance">{title}</h3>
+      <p className="text-[15px] leading-7 font-semibold text-emerald-900 dark:text-emerald-200 max-w-3xl">
+        <span className="sr-only">一句話重點：</span>
+        {oneLine}
+      </p>
+    </header>
+    {numbers && numbers.length > 0 && (
+      <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+        {numbers.map((x) => (
+          <div key={x.label} className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 px-3 py-2.5">
+            <dt className="sr-only">{x.label}</dt>
+            <dd className="text-lg font-display font-bold tabular-nums text-slate-900 dark:text-white leading-tight">{x.value}</dd>
+            <dd className="text-[12px] leading-snug text-slate-600 dark:text-slate-400 mt-0.5">{x.label}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+    <div className="space-y-4">{children}</div>
+    {(actions?.length || caution) && (
+      <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] items-start">
+        {actions && actions.length > 0 && (
+          <div className="rounded-2xl border border-emerald-200 dark:border-emerald-800/70 bg-emerald-50/70 dark:bg-emerald-950/25 p-4">
+            <p className="flex items-center gap-1.5 text-[13px] font-bold text-emerald-900 dark:text-emerald-200 mb-2">
+              <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
+              你可以這樣做
+            </p>
+            <ul className="space-y-1.5">
+              {actions.map((a) => (
+                <li key={a} className="flex gap-2 text-[13px] leading-relaxed text-slate-800 dark:text-slate-200">
+                  <span className="shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400" aria-hidden="true" />
+                  {a}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {caution && (
+          <div role="note" className="rounded-2xl border border-rose-200 dark:border-rose-800/70 bg-rose-50 dark:bg-rose-950/30 p-4 flex gap-2.5">
+            <AlertOctagon className="w-4 h-4 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400" aria-hidden="true" />
+            <p className="text-[13px] leading-relaxed text-rose-950 dark:text-rose-100">
+              <strong>注意：</strong>
+              {caution}
+            </p>
+          </div>
+        )}
+      </div>
+    )}
+    <p className="text-right no-print">
+      <a
+        href={`#${mapId}`}
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToId(mapId);
+        }}
+        className="text-[12px] font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+      >
+        ↑ 回到知識地圖
+      </a>
+    </p>
+  </section>
+);

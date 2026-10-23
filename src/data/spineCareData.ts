@@ -2,6 +2,7 @@ import type { ChartSpec } from './curriculumFigures';
 import type { SpineTab } from '../config/routes';
 import { SPINE_TABS } from '../config/routes';
 import { SPINE_CHAPTERS, SPINE_SOURCES, SpineChapter, SpineSource } from './spineData';
+import { OSTEO_SOURCES } from './osteoData';
 
 /**
  * spineCareData.ts — 脊椎照護擴充 (v4.9)
@@ -73,7 +74,7 @@ export const SPINE_CARE_SOURCES: Record<string, SpineSource> = {
   },
 };
 
-export const ALL_SPINE_SOURCES: Record<string, SpineSource> = { ...SPINE_SOURCES, ...SPINE_CARE_SOURCES };
+export const ALL_SPINE_SOURCES: Record<string, SpineSource> = { ...SPINE_SOURCES, ...SPINE_CARE_SOURCES, ...OSTEO_SOURCES };
 
 export const SPINE_CARE_CHAPTER_SOURCES: Record<SpineCareTab, string[]> = {
   ACUTE: ['COSTA2012', 'FRENCH2006', 'NICE59', 'ACP2017', 'LANCET2018'],
