@@ -1,6 +1,6 @@
-import type { Department } from './types';
+import type { DepartmentInput } from './types';
 
-export const INTERNAL1: Department[] = [
+export const INTERNAL1: DepartmentInput[] = [
   // ─── 1. 心臟內科 / 心臟血管內科 ──────────────────────────────────────────
   {
     id: 'cardiology',

@@ -1,50 +1,103 @@
-import type { Department, Division, DivisionId, HospitalCode, Condition } from './types';
+import type {
+  Condition,
+  ConditionDepth,
+  ConditionInput,
+  Department,
+  DepartmentInput,
+  DivisionId,
+  Evidence,
+  LifeStage,
+  MedBlockId,
+} from './types';
 import { INTERNAL1 } from './internal1';
 import { INTERNAL2 } from './internal2';
+import { INTERNAL3, INTERNAL3_ADDITIONS } from './internal3';
 import { SURGERY } from './surgery';
+import { SURGERY2, SURGERY2_ADDITIONS } from './surgery2';
+import { ORTHO, ORTHO_ADDITIONS } from './ortho';
 import { WOMEN_NEURO } from './womenNeuro';
+import { WOMEN_CHILDREN, WOMEN_CHILDREN_ADDITIONS } from './womenChildren';
 import { SENSE_REHAB } from './senseRehab';
+import { PRIMARY_REHAB, PRIMARY_REHAB_ADDITIONS } from './primaryRehab';
+import { NUTRITION_REHAB, NUTRITION_REHAB_ADDITIONS } from './nutritionRehab';
+import { ACUTE_DIAG, ACUTE_DIAG_ADDITIONS } from './acuteDiag';
+import { DEPTH } from './depth';
+import { HOSPITAL_MAP } from './hospitalMap';
+import { DEPT_LIFE_STAGES, DIVISIONS, DIVISION_ORDER, blockOf } from './taxonomy';
+import { CLINIC_NAV } from './nav';
 
 export * from './types';
+export { DIVISIONS, MED_BLOCKS, MED_SCHOOLS, LIFE_STAGES } from './taxonomy';
+export { HOSPITAL_SOURCES } from './hospitalMap';
 
 /** Four reference medical centres whose department lists define Salud's clinical tree. */
-export const HOSPITALS: Record<HospitalCode, { name_zh: string; short_zh: string; city_zh: string; url: string }> = {
+export const HOSPITALS = {
   NTUH: { name_zh: '國立臺灣大學醫學院附設醫院', short_zh: '臺大', city_zh: '臺北', url: 'https://www.ntuh.gov.tw/' },
   NCKUH: { name_zh: '國立成功大學醫學院附設醫院', short_zh: '成大', city_zh: '臺南', url: 'https://www.hosp.ncku.edu.tw/' },
-  VGH: { name_zh: '榮民總醫院（臺北／臺中／高雄）', short_zh: '榮總', city_zh: '北中高', url: 'https://www.vghtpe.gov.tw/' },
+  VGH: { name_zh: '臺北榮民總醫院', short_zh: '北榮', city_zh: '臺北', url: 'https://www.vghtpe.gov.tw/' },
   CCH: { name_zh: '彰化基督教醫院', short_zh: '彰基', city_zh: '彰化', url: 'https://www.cch.org.tw/' },
+} as const;
+
+/** Conditions added in v6.1 to departments that already existed in v6.0. */
+const ADDITIONS: Record<string, ConditionInput[]> = {};
+for (const add of [INTERNAL3_ADDITIONS, SURGERY2_ADDITIONS, ORTHO_ADDITIONS, WOMEN_CHILDREN_ADDITIONS, PRIMARY_REHAB_ADDITIONS, NUTRITION_REHAB_ADDITIONS, ACUTE_DIAG_ADDITIONS]) {
+  for (const [deptId, conds] of Object.entries(add)) (ADDITIONS[deptId] ??= []).push(...conds);
+}
+
+const EMPTY_DEPTH: ConditionDepth = {
+  key_numbers: [],
+  causes_zh: [],
+  prevention_zh: [],
+  prognosis_zh: '',
+  timeline: [],
+  questions_zh: [],
 };
 
-/** Top-three Taiwanese medical schools and how their curricula are staged. */
-export const MED_SCHOOLS = [
-  {
-    id: 'NTU',
-    name_zh: '臺灣大學醫學系',
-    stages_zh: ['M1–M2 通識與基礎醫學（解剖、生理、生化）', 'M3–M4 器官系統整合模組（心血管、呼吸、消化、腎泌尿、內分泌、神經、肌肉骨骼…）', 'M5 臨床見習（內外婦兒核心＋次專科輪訓）', 'M6 實習醫學生／PGY 兩年畢業後一般醫學訓練'],
-  },
-  {
-    id: 'NYCU',
-    name_zh: '陽明交通大學醫學系',
-    stages_zh: ['基礎醫學與人文（含社區醫學、醫學人文）', '器官系統整合課程 + PBL 問題導向學習', '臨床見習（臺北榮總為主要教學醫院）', '實習醫學生 → PGY'],
-  },
-  {
-    id: 'NCKU',
-    name_zh: '成功大學醫學系',
-    stages_zh: ['基礎醫學（含醫學工程、微生物免疫）', '系統整合課程（心臟血管學、胸腔學、腸胃學、腎臟學…）', '成大醫院臨床見習輪訓', '實習醫學生 → PGY'],
-  },
+const stripUndefined = <T extends object>(o: T): Partial<T> =>
+  Object.fromEntries(Object.entries(o).filter(([, v]) => v !== undefined)) as Partial<T>;
+
+/**
+ * New conditions carry their depth inline; v6.0 conditions get it from the DEPTH overlay.
+ * Newer evidence is listed first; superseded guideline editions are dropped by label.
+ */
+const mergeCondition = (c: ConditionInput): Condition => {
+  const overlay = DEPTH[c.id] ?? {};
+  const merged = { ...EMPTY_DEPTH, ...overlay, ...stripUndefined(c) } as Condition;
+  const drop = new Set([...(overlay.evidence_drop ?? []), ...(c.evidence_drop ?? [])]);
+  const add: Evidence[] = [...(c.evidence_add ?? []), ...(overlay.evidence_add ?? [])];
+  return { ...merged, evidence: [...add, ...c.evidence.filter((e) => !drop.has(e.label))] };
+};
+
+const RAW: DepartmentInput[] = [
+  ...INTERNAL1,
+  ...INTERNAL2,
+  ...INTERNAL3,
+  ...SURGERY,
+  ...SURGERY2,
+  ...ORTHO,
+  ...WOMEN_NEURO,
+  ...WOMEN_CHILDREN,
+  ...SENSE_REHAB,
+  ...PRIMARY_REHAB,
+  ...NUTRITION_REHAB,
+  ...ACUTE_DIAG,
 ];
 
-export const DIVISIONS: Division[] = [
-  { id: 'internal', name_zh: '內科部', name_en: 'Internal Medicine', desc_zh: '以藥物、生活型態與長期追蹤處理器官系統疾病：心臟、胸腔、消化、腎臟、內分泌、血液腫瘤、感染、風濕免疫、老年醫學。', curriculum_zh: '對應 M3–M4 器官系統整合模組 → M5–M6 內科見實習' },
-  { id: 'surgery', name_zh: '外科部', name_en: 'Surgery', desc_zh: '以手術與介入治療為主，強調術前評估、加速康復 ERAS、傷口照護與分期復健。', curriculum_zh: '外科學總論 → 外科各次專科見實習' },
-  { id: 'women_children', name_zh: '婦產部 ‧ 兒童醫學部', name_en: "Women's & Children's", desc_zh: '孕前到產後、更年期，以及從新生兒到青少年的生長發育與疾病。', curriculum_zh: '生殖系統／生長發育模組 → 婦產科、小兒科見實習' },
-  { id: 'neuro_psych', name_zh: '神經醫學 ‧ 精神醫學', name_en: 'Neuroscience & Psychiatry', desc_zh: '腦中風、失智、巴金森、頭痛，以及憂鬱、焦慮、失眠與成癮。', curriculum_zh: '神經科學／行為科學模組 → 神經科、精神科見實習' },
-  { id: 'head_sense', name_zh: '眼耳鼻喉 ‧ 皮膚 ‧ 口腔', name_en: 'Senses, Skin & Oral', desc_zh: '視覺、聽覺、呼吸道上段、皮膚與口腔——影響生活品質最直接的器官。', curriculum_zh: '頭頸部／皮膚模組 → 次專科見習' },
-  { id: 'rehab_integrative', name_zh: '家醫 ‧ 復健 ‧ 中醫整合', name_en: 'Family, Rehab & Integrative', desc_zh: '預防保健、全人照護、物理治療與職能治療，以及有實證支持的中醫整合療法。', curriculum_zh: '家庭醫學／社區醫學／復健醫學見習' },
-  { id: 'acute_support', name_zh: '急重症 ‧ 麻醉 ‧ 放射腫瘤', name_en: 'Acute Care & Support', desc_zh: '急診分流與急救、圍手術期麻醉與疼痛控制、放射治療期間照護。', curriculum_zh: '急診醫學、麻醉學、放射腫瘤學見習' },
-];
+const NAV_ORDER = CLINIC_NAV.flatMap((g) => g.depts.map((d) => d.id));
 
-export const ALL_DEPARTMENTS: Department[] = [...INTERNAL1, ...INTERNAL2, ...SURGERY, ...WOMEN_NEURO, ...SENSE_REHAB];
+export const ALL_DEPARTMENTS: Department[] = RAW.map((d): Department => {
+  const { hospitals: _legacy, conditions, ...rest } = d;
+  return {
+    ...rest,
+    hospitals: HOSPITAL_MAP[d.id] ?? {},
+    block: blockOf(d.id) as MedBlockId,
+    life_stages: (DEPT_LIFE_STAGES[d.id] ?? ['adult', 'older']) as LifeStage[],
+    conditions: [...conditions, ...(ADDITIONS[d.id] ?? [])].map(mergeCondition),
+  };
+}).sort((a, b) => {
+  const div = DIVISION_ORDER.indexOf(a.division) - DIVISION_ORDER.indexOf(b.division);
+  return div !== 0 ? div : NAV_ORDER.indexOf(a.id) - NAV_ORDER.indexOf(b.id);
+});
 
 export const departmentsByDivision = (id: DivisionId) => ALL_DEPARTMENTS.filter((d) => d.division === id);
 
@@ -53,3 +106,12 @@ export const getDepartment = (id: string) => ALL_DEPARTMENTS.find((d) => d.id ==
 export const ALL_CONDITIONS: { dept: Department; cond: Condition }[] = ALL_DEPARTMENTS.flatMap((dept) =>
   dept.conditions.map((cond) => ({ dept, cond }))
 );
+
+export const findCondition = (condId: string) => ALL_CONDITIONS.find((x) => x.cond.id === condId);
+
+export const conditionLifeStages = (dept: Department, cond: Condition): LifeStage[] => cond.life_stages ?? dept.life_stages;
+
+/** Ids a test can cross-check: additions must target real departments. */
+export const ADDITION_TARGETS = Object.keys(ADDITIONS);
+
+export const DIVISION_BY_ID = Object.fromEntries(DIVISIONS.map((d) => [d.id, d]));

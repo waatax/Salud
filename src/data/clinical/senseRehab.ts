@@ -1,6 +1,6 @@
-import type { Department } from './types';
+import type { DepartmentInput } from './types';
 
-export const SENSE_REHAB: Department[] = [
+export const SENSE_REHAB: DepartmentInput[] = [
   // ─── 1. 眼科 ──────────────────────────────────────────
   {
     id: 'ophthalmology',
@@ -622,7 +622,7 @@ export const SENSE_REHAB: Department[] = [
     id: 'emergency',
     name_zh: '急診醫學科',
     name_en: 'Emergency Medicine',
-    division: 'acute_support',
+    division: 'acute_periop',
     hospitals: {
       NTUH: '急診醫學部',
       NCKUH: '急診部',
@@ -721,7 +721,7 @@ export const SENSE_REHAB: Department[] = [
     id: 'anesthesia',
     name_zh: '麻醉疼痛科',
     name_en: 'Anesthesiology & Pain Medicine',
-    division: 'acute_support',
+    division: 'acute_periop',
     hospitals: {
       NTUH: '麻醉部',
       NCKUH: '麻醉部',
@@ -795,7 +795,7 @@ export const SENSE_REHAB: Department[] = [
     id: 'radiation_oncology',
     name_zh: '放射腫瘤科',
     name_en: 'Radiation Oncology',
-    division: 'acute_support',
+    division: 'diagnostic_support',
     hospitals: {
       NTUH: '放射腫瘤部',
       NCKUH: '放射腫瘤部',

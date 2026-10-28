@@ -1,28 +1,20 @@
-import type { Department } from './types';
+import type { DepartmentInput } from './types';
 
-export const WOMEN_NEURO: Department[] = [
-  // ───────────────────────── 婦產科 ─────────────────────────
+export const WOMEN_NEURO: DepartmentInput[] = [
+  // ───────────────────────── 產科（v6.0 婦產科拆分：婦科、生殖醫學移至 womenChildren.ts）─────────────────────────
   {
-    id: 'obgyn',
-    name_zh: '婦產科',
-    name_en: 'Obstetrics & Gynecology',
+    id: 'obstetrics',
+    name_zh: '產科',
+    name_en: 'Obstetrics & Maternal-Fetal Medicine',
     division: 'women_children',
-    hospitals: {
-      NTUH: '婦產部',
-      NCKUH: '婦產部',
-      VGH: '婦女醫學部',
-      CCH: '婦產部',
-    },
-    curriculum_zh: '臺大「生殖系統」整合課程與婦產科見實習；陽明交大「生殖與發育」模組；成大「生殖、生長與發育」系統課程 + 婦產科臨床實習',
-    scope_zh: '涵蓋產科（產前檢查、高危險妊娠、分娩與產後照護）、婦科（子宮肌瘤、卵巢腫瘤、骨盆腔疾病、微創手術）、生殖內分泌（不孕、更年期）與婦癌篩檢（子宮頸、卵巢、子宮內膜）。',
-    subspecialties_zh: ['產科／母胎醫學', '一般婦科與微創內視鏡手術', '生殖內分泌與不孕症', '婦癌科', '泌尿婦科與骨盆底重建', '更年期醫學'],
+    curriculum_zh: '生殖與發育模組（妊娠生理、胎兒發育）→ 婦產科核心見實習（產房、產科病房）',
+    scope_zh: '從確認懷孕到產後 6 週：產前檢查與胎兒評估、高危險妊娠（妊娠糖尿病、子癲前症、多胞胎、早產）、分娩與剖腹產、產後恢復與骨盆底照護。',
+    subspecialties_zh: ['母胎醫學與高危險妊娠', '產前超音波與胎兒評估', '產房與分娩', '產後照護與哺乳'],
     when_to_visit_zh: [
-      '月經週期紊亂、經量過多（需換衛生棉 <2 小時）或經痛影響生活',
-      '非經期出血、性交後出血或停經後任何出血',
-      '計畫懷孕、確認懷孕或需要產前檢查',
-      '更年期熱潮紅、失眠、陰道乾澀影響生活',
-      '25 歲以上依國健署建議接受子宮頸抹片／HPV 檢測',
-      '漏尿、下墜感或骨盆腔疼痛',
+      '驗孕陽性、確認懷孕週數',
+      '依時程接受產前檢查（健保給付 14 次）',
+      '孕期血壓升高、血糖異常、水腫或頭痛',
+      '產後漏尿、腹直肌分離、傷口或情緒問題',
     ],
     conditions: [
       {
@@ -163,79 +155,6 @@ export const WOMEN_NEURO: Department[] = [
         salud_links: [
           { hash: 'mental', label_zh: '心理健康' },
           { hash: 'exercise/strength', label_zh: '肌力訓練' },
-        ],
-      },
-      {
-        id: 'fibroids_menopause_hpv',
-        name_zh: '子宮肌瘤／子宮切除術後、更年期與子宮頸癌篩檢',
-        name_en: 'Uterine Fibroids & Hysterectomy, Menopause and HPV/Cervical Screening',
-        icd10: 'D25.9',
-        summary_zh: '子宮肌瘤為良性平滑肌腫瘤，30–50 歲女性約 20–40% 有，停經後多會縮小。更年期平均 50 歲左右，約 75% 有熱潮紅等血管舒縮症狀。台灣子宮頸癌因抹片篩檢發生率大幅下降，2025 年起國健署將 HPV 檢測納入 35、45、65 歲婦女補助，並推動國中女生公費 HPV 疫苗。',
-        symptoms_zh: [
-          '經血過多、經期延長導致缺鐵性貧血',
-          '下腹脹、頻尿、便秘（肌瘤壓迫）',
-          '更年期：熱潮紅、夜間盜汗、失眠、情緒波動、陰道乾澀與性交疼痛',
-          '子宮頸癌前病變通常無症狀；晚期可有性交後出血、異常分泌物',
-        ],
-        diagnosis_zh: [
-          '骨盆腔超音波（經陰道／腹部）為肌瘤首選，必要時 MRI',
-          '血色素、鐵蛋白評估貧血',
-          '更年期為臨床診斷（45 歲以上停經 12 個月），一般不需驗 FSH',
-          '子宮頸抹片：25 歲以上國健署補助每 3 年 1 次；HPV 陽性者轉介陰道鏡切片',
-        ],
-        treatment_zh: [
-          '肌瘤藥物：Tranexamic acid、含黃體素子宮內避孕器（LNG-IUS）、GnRH 促效／拮抗劑（術前縮小）',
-          '保留子宮：子宮鏡肌瘤切除（黏膜下）、腹腔鏡／開腹肌瘤切除、海扶刀（HIFU）、子宮動脈栓塞',
-          '子宮切除術（腹腔鏡、陰道式、機器手臂或開腹）適用完成生育且症狀嚴重者',
-          '更年期：60 歲以下或停經 10 年內無禁忌者，荷爾蒙療法（MHT）效益大於風險；保有子宮者需合併黃體素',
-          '非荷爾蒙選擇：SSRI/SNRI、gabapentin、fezolinetant（NK3 拮抗劑）；陰道局部雌激素',
-          'CIN2+ 病變：子宮頸環狀電刀切除術（LEEP）或錐狀切除',
-        ],
-        postop_zh: [
-          '腹腔鏡子宮切除：術後 1–3 天出院，2–4 週恢復一般工作',
-          '術後 6–8 週內避免提重 >5 kg、盆浴、游泳及性行為（陰道殘端癒合）',
-          '術後 1–2 週可能少量淡紅分泌物，屬正常',
-          '保留卵巢者不會立即更年期；切除雙側卵巢者需評估荷爾蒙補充',
-          '術後 2 週回診看病理報告，切除子宮但有 CIN 病史者仍需持續陰道抹片追蹤',
-        ],
-        diet_zh: [
-          '貧血者攝取紅肉、深綠蔬菜並搭配維生素 C 促進鐵吸收',
-          '更年期每日鈣 1,000–1,200 mg、維生素 D 800–1,000 IU 預防骨質疏鬆',
-          '地中海型飲食、減少酒精與咖啡因可改善熱潮紅與心血管風險',
-          '大豆異黃酮效果有限，不建議以高劑量補充品取代醫療',
-        ],
-        exercise_zh: [
-          '術後第 1 天下床走動，第 2 週每日散步 20–30 分鐘',
-          '術後 6 週起恢復中等強度有氧、8–12 週恢復阻力訓練',
-          '更年期每週 150 分鐘有氧 + 2–3 次阻力訓練 + 平衡訓練，維持骨密度與肌肉量',
-        ],
-        rehab_zh: [
-          '術後骨盆底肌訓練預防尿失禁與陰道殘端脫垂',
-          '術後腹式呼吸與咳嗽時以枕頭護住腹部',
-          '更年期跌倒高風險者接受物理治療平衡訓練（太極、單腳站）',
-        ],
-        selfcare_zh: [
-          '記錄月經日記（天數、衛生棉數量）協助評估治療',
-          '肌瘤每 6–12 個月超音波追蹤大小',
-          '30 歲以上依建議每 3 年抹片或每 5 年 HPV 檢測；65 歲後連續正常可停止',
-          '9–45 歲可自費接種 HPV 疫苗（9 價），國一女生（2024 年起含男生試辦地區依公告）公費接種',
-          '65 歲以上（或有風險因子者更早）做骨密度檢查',
-        ],
-        red_flags_zh: [
-          '停經後任何陰道出血',
-          '肌瘤短期內快速增大或停經後增大（排除肉瘤）',
-          '大量出血頭暈、心悸、血色素 <8 g/dL',
-          '術後發燒 ≥38°C、腹痛加劇、陰道大量出血或惡臭分泌物',
-        ],
-        evidence: [
-          { label: 'The Menopause Society (NAMS) 2022 Hormone Therapy Position Statement', year: 2022 },
-          { label: 'ACOG Practice Bulletin No. 228: Management of Symptomatic Uterine Leiomyomas', year: 2021 },
-          { label: 'ASCCP Risk-Based Management Consensus Guidelines', year: 2019 },
-        ],
-        salud_links: [
-          { hash: 'oncology/GYN_URO_CANCERS', label_zh: '婦科與泌尿癌症' },
-          { hash: 'oncology/SCREENING_TW', label_zh: '台灣癌症篩檢' },
-          { hash: 'spine/OSTEOPOROSIS', label_zh: '骨質疏鬆' },
         ],
       },
     ],

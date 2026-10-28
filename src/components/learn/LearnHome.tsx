@@ -59,7 +59,7 @@ const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigat
 
 /** 熱門即時探索主題標籤 */
 const POPULAR_CHIPS = [
-  { label: '🏥 32 臨床科別照護路徑', hash: 'clinic', icon: Stethoscope, tone: 'text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/40' },
+  { label: '🏥 50 科 157 照護路徑', hash: 'clinic', icon: Stethoscope, tone: 'text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/40' },
   { label: '肝膽腸胃科 12 課', hash: 'gastro', icon: Stethoscope, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
   { label: '癌症防治與六癌篩檢', hash: 'oncology', icon: Ribbon, tone: 'text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
   { label: '神經骨科與脊椎關節', hash: 'spine', icon: Bone, tone: 'text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900/60 bg-amber-50/70 dark:bg-amber-950/30' },
@@ -98,11 +98,11 @@ const CURATED_TOPICS: CuratedTopic[] = [
     category: 'specialty_care',
     title_zh: '臨床科別知識庫（醫學中心分科）',
     title_en: 'Clinical Departments',
-    tagline_zh: '依臺大、成大、榮總、彰基門診科別與臺大／陽明交大／成大醫學系課程重建：7 部門 32 科，每病 10 步驟照護路徑（診斷→治療→術後→飲食→運動→復健）',
+    tagline_zh: '依臺大、成大、榮總、彰基門診科別與臺大／陽明交大／成大醫學系課程重建：10 部 50 科、157 條照護路徑，含症狀掛號導引、復原時間軸、看診問題與台灣資源',
     hash: 'clinic',
     icon: Stethoscope,
     tone: 'emerald',
-    badges: ['7 部門 32 科', '術後與復健路徑', '最新指引實證'],
+    badges: ['10 部 50 科', '我該掛哪一科', '最新指引實證'],
   },
   {
     id: 't-gastro',

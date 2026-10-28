@@ -1,6 +1,6 @@
-import type { Department } from './types';
+import type { DepartmentInput } from './types';
 
-export const INTERNAL2: Department[] = [
+export const INTERNAL2: DepartmentInput[] = [
   // ───────────────────────── 血液腫瘤科 ─────────────────────────
   {
     id: 'hemonc',
@@ -271,7 +271,7 @@ export const INTERNAL2: Department[] = [
     id: 'geriatrics',
     name_zh: '老年醫學科',
     name_en: 'Geriatric Medicine',
-    division: 'internal',
+    division: 'primary_geriatric',
     hospitals: {
       NTUH: '老年醫學部',
       NCKUH: '老年醫學部',
@@ -358,7 +358,7 @@ export const INTERNAL2: Department[] = [
     id: 'family_med',
     name_zh: '家庭醫學科',
     name_en: 'Family Medicine',
-    division: 'rehab_integrative',
+    division: 'primary_geriatric',
     hospitals: {
       NTUH: '家庭醫學部',
       NCKUH: '家庭醫學部',
