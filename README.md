@@ -4,10 +4,18 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v5.0.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.1.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
+
+## 🏥 v6.1.0：臨床科別知識庫——依四大醫學中心部科 × 前三志願醫學系課程重建（2026-10）
+
+- **10 部 · 50 科 · 157 條照護路徑 · 26 個症狀入口**（`#clinic`）。部科依官方文件建立：臺大醫院組織規程（2024-05）、臺北榮總處務規程（2024-11）、成大醫院 22 部與內科部 10 分科、彰基門診表（2026-06）；每一科標示四院實際名稱與來源，無法查證者留白不猜測（`src/data/clinical/hospitalMap.ts`）。
+- **五種瀏覽方式**：依部門科別、「我該掛哪一科？」症狀導引（先看紅色警訊）、依醫學系器官系統模組、依生命階段（孕產 → 新生兒 → 兒童青少年 → 成人 → 高齡 → 生命末期）、四院科別對照表。
+- **每條照護路徑**（參照 Mayo Clinic、NHS、Cleveland Clinic 疾病頁結構）：重點數字 → 原因與風險 → 症狀 → 診斷 → 治療 → 術後／出院照護 → 復原時間軸 → 飲食 → 運動 → 復健與物理治療 → 自我照護 → 預防 → 預後 → 看診問醫師（可複製、可列印）→ 台灣健保／篩檢／補助資源 → 危險警訊 → 實證來源（標示指引／系統性回顧／隨機試驗／官方政策，附 PubMed 與 Scholar 連結）。
+- **閱讀模式**：剛確診／治療與手術／居家生活，只顯示當下需要的段落。
+- 全站搜尋可直接找到科別、照護路徑（含 ICD-10）與症狀入口。
 
 ## 🤝 v5.0.0：失能照護與長照專區 · 五色主題（2026-10）
 

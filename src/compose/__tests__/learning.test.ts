@@ -11,6 +11,8 @@ import { GLOSSARY } from '../../data/learning/glossary';
 import { buildSearchIndex, searchDocs } from '../../data/learning/searchIndex';
 import { HUMAN_SYSTEMS } from '../../data/humanSystemsData';
 import { ALL_CHAPTER_PAGES } from '../../data/chapters';
+import { getDepartment } from '../../data/clinical';
+import { SYMPTOMS } from '../../data/clinical/symptoms';
 import { classifyBP, classifyBMI, classifyWHtR, classifyEGFR, classifyA1c, classifyFPG, countMetSyn } from '../../utils/labBands';
 
 const PAGE_IDS = new Set(ALL_CHAPTER_PAGES.map((p) => p.id));
@@ -40,6 +42,13 @@ function deadLinkReason(hash: string): string | null {
       if (route.pillar === 'updates') return a && !getUpdate(a) ? `unknown update ${a}` : null;
       if (route.pillar === 'home') return a && a !== 'plan' ? `unknown home anchor ${a}` : null;
       if (route.pillar === 'diet') return a && a !== 'patterns' ? `unknown diet view ${a}` : null;
+      if (route.pillar === 'clinic') {
+        if (!a) return null;
+        if (a === 'by') return b === 'symptom' && route.sub?.[2] && !SYMPTOMS.some((s) => s.id === route.sub?.[2]) ? `unknown symptom ${route.sub?.[2]}` : null;
+        const dept = getDepartment(a);
+        if (!dept) return `unknown department ${a}`;
+        return b && !dept.conditions.some((c) => c.id === b) ? `unknown condition ${a}/${b}` : null;
+      }
       const tabs = PILLAR_TABS[route.pillar];
       if (a && !tabs) return `${route.pillar} has no tabs`;
       if (a && tabs && !tabs.includes(a)) return `unknown tab ${route.pillar}/${a}`;

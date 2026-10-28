@@ -34,7 +34,7 @@ export const SymptomNavigator: React.FC<{ symptomId?: string; go: (h: string) =>
       </div>
 
       {active ? (
-        <div className="space-y-3" id="symptom-detail">
+        <div className="space-y-3 scroll-mt-32" id="symptom-detail">
           <Card className="border-red-200 dark:border-red-900 bg-red-50/70 dark:bg-red-950/20">
             <h2 className="flex items-center gap-2 font-bold text-red-700 dark:text-red-300">
               <AlertTriangle className="w-5 h-5" aria-hidden="true" /> {active.name_zh}：有以下任何一項，立即急診或撥 119

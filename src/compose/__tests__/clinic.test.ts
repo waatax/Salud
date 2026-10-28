@@ -8,6 +8,9 @@ import { HOSPITAL_MAP } from '../../data/clinical/hospitalMap';
 import { DEPTH } from '../../data/clinical/depth';
 import { SYMPTOMS } from '../../data/clinical/symptoms';
 import { parseClinicPath } from '../../components/pillars/ClinicHub';
+import { buildSearchIndex, searchDocs } from '../../data/learning/searchIndex';
+import { clinicSearchDocs } from '../../data/clinical/searchDocs';
+import { CLINIC_SEARCH_DOCS } from '../../data/clinical/searchLite.generated';
 import type { HealthPillar } from '../../types';
 
 test('clinic routes parse, including overview views', () => {
@@ -117,4 +120,15 @@ test('symptom navigator routes to real departments and their own conditions', ()
       }
     }
   }
+});
+
+test('clinic departments, pathways and symptom entries are reachable from site search', () => {
+  assert.deepEqual(CLINIC_SEARCH_DOCS, clinicSearchDocs(), 'searchLite.generated.ts is stale: run npm run export:data');
+  const docs = buildSearchIndex();
+  const hit = (q: string, target: string) => assert.ok(searchDocs(docs, q).some((d) => d.target === target), `search "${q}" should reach ${target}`);
+  hit('幽門桿菌', 'clinic/gastro/h_pylori_gastric');
+  hit('新生兒科', 'clinic/neonatology');
+  hit('胸悶', 'clinic/by/symptom/chest_pain');
+  hit('K21', 'clinic/gastro/gerd');
+  for (const { dept, cond } of ALL_CONDITIONS) assert.ok(docs.some((d) => d.target === `clinic/${dept.id}/${cond.id}`), `${cond.id} not indexed`);
 });

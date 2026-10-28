@@ -15,6 +15,7 @@ import { ONCOLOGY_COURSE_CHAPTERS } from '../oncologyData';
 import { HEPB_CHAPTERS, HBV_MARKERS, HBV_DRUGS } from '../hepbData';
 import { LTC_CHAPTERS, OTHER_SCALES, FACILITY_TYPES, SKILL_CARDS, OTHER_SUBSIDIES } from '../ltcData';
 import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
+import { CLINIC_SEARCH_DOCS } from '../clinical/searchLite.generated';
 
 export type SearchGroup =
   | '實用技巧'
@@ -28,6 +29,8 @@ export type SearchGroup =
   | '睡眠呼吸正念'
   | '人體系統'
   | '疾病'
+  | '臨床科別'
+  | '臨床科別'
   | '檢驗與篩檢'
   | '最新實證'
   | '名詞'
@@ -50,6 +53,7 @@ export const GROUP_ORDER: SearchGroup[] = [
   '課程',
   '實用技巧',
   '檢驗與篩檢',
+  '臨床科別',
   '疾病',
   '主題',
   '肝膽腸胃科',
@@ -146,6 +150,9 @@ export function buildSearchIndex(): SearchDoc[] {
       keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} ${c.takeaways_zh.join(' ')} 肝膽腸胃 腸胃科 消化內科 ${GASTRO_KEYWORDS[c.id] ?? ''}`,
     });
   }
+
+  // 臨床科別知識庫 (v6.1): 50 科、157 照護路徑、26 個症狀入口（snapshot, see clinical/searchDocs.ts）
+  docs.push(...CLINIC_SEARCH_DOCS);
 
   // 所有主要癌症防治與精準醫療專區 (v5.2)
   for (const c of ONCOLOGY_COURSE_CHAPTERS) {

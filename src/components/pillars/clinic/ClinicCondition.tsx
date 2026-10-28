@@ -135,6 +135,19 @@ export const ClinicCondition: React.FC<{ dept: Department; cond: Condition; go: 
     () => SECTIONS.filter((s) => hasContent(cond, s.id) && (modeDef.sections === 'all' || modeDef.sections.includes(s.id))),
     [cond, modeDef]
   );
+  /** A half-width card followed by a full-width one would leave an empty half row; stretch it. */
+  const wideIds = useMemo(() => {
+    const out = new Set<SectionId>();
+    let col = 0;
+    visible.forEach((s, i) => {
+      const next = visible[i + 1];
+      if (s.wide || (col === 0 && (!next || next.wide))) {
+        out.add(s.id);
+        col = 0;
+      } else col = col === 0 ? 1 : 0;
+    });
+    return out;
+  }, [visible]);
   const entrySymptoms = SYMPTOMS.filter((s) => s.routes.some((r) => r.cond === cond.id));
   const scrollTo = (id: string) => document.getElementById(`sec-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
@@ -238,7 +251,7 @@ export const ClinicCondition: React.FC<{ dept: Department; cond: Condition; go: 
             <Card
               key={s.id}
               id={`sec-${s.id}`}
-              className={`${s.wide ? 'md:col-span-2' : ''} ${danger ? 'border-red-200 dark:border-red-900 bg-red-50/60 dark:bg-red-950/20' : ''}`}
+              className={`${wideIds.has(s.id) ? 'md:col-span-2' : ''} ${danger ? 'border-red-200 dark:border-red-900 bg-red-50/60 dark:bg-red-950/20' : ''}`}
             >
               <h2 className="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
                 <Icon className={`w-5 h-5 ${s.tone}`} aria-hidden="true" /> {s.title}
