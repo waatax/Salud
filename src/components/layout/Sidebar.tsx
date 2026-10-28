@@ -16,6 +16,7 @@ import {
   PillarNavItem,
 } from '../../config/navigation';
 import { DISCIPLINE_HASH } from '../../config/routes';
+import { CLINIC_NAV } from '../../data/clinical/nav';
 import {
   ChevronDown,
   ChevronRight,
@@ -105,7 +106,7 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
 
   // Auto-expand the pillar the reader is in, so its sub-pages are visible.
   useEffect(() => {
-    if (nav.activePillar === 'diet' || nav.activePillar === 'exercise') setExpandedPillar(nav.activePillar);
+    if (nav.activePillar === 'diet' || nav.activePillar === 'exercise' || nav.activePillar === 'clinic') setExpandedPillar(nav.activePillar);
   }, [nav.activePillar]);
 
   const collapsed = isCollapsed && !inDrawer;
@@ -115,7 +116,13 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
   const isPillarActive = (item: PillarNavItem) =>
     activePillar === item.id || (item.id === 'diet' && activePillar === 'supplements');
 
-  const hasSubNav = (id: HealthPillar) => id === 'diet' || id === 'exercise';
+  const hasSubNav = (id: HealthPillar) => id === 'diet' || id === 'exercise' || id === 'clinic';
+  const [clinicDept, setClinicDept] = useState<string[]>(() => window.location.hash.replace(/^#/, '').split('/'));
+  useEffect(() => {
+    const on = () => setClinicDept(window.location.hash.replace(/^#/, '').split('/'));
+    window.addEventListener('hashchange', on);
+    return () => window.removeEventListener('hashchange', on);
+  }, []);
 
   const subLink = (active: boolean) =>
     `w-full px-2 py-1.5 rounded-lg text-left text-[13px] flex items-center gap-2 transition-colors ${
@@ -203,6 +210,28 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
                 </li>
               );
             })}
+          </ul>
+        )}
+
+        {!collapsed && isExpanded && item.id === 'clinic' && (
+          <ul className="ml-5 pl-3 border-l border-slate-200 dark:border-slate-800 py-1 space-y-1.5">
+            {CLINIC_NAV.map((grp) => (
+              <li key={grp.division_zh}>
+                <p className="px-2 text-[11px] font-semibold text-slate-400">{grp.division_zh}</p>
+                <ul className="space-y-0.5">
+                  {grp.depts.map((d) => {
+                    const isActive = nav.activePillar === 'clinic' && clinicDept[0] === 'clinic' && clinicDept[1] === d.id;
+                    return (
+                      <li key={d.id}>
+                        <button onClick={() => nav.go(`clinic/${d.id}`)} className={subLink(isActive)}>
+                          <span className="truncate">{d.name_zh}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            ))}
           </ul>
         )}
 

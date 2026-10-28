@@ -38,6 +38,7 @@ const GastroHub = lazy(() => import('../pillars/GastroHub').then((m) => ({ defau
 const OncologyHub = lazy(() => import('../pillars/OncologyHub').then((m) => ({ default: m.OncologyHub })));
 const MindBodyHub = lazy(() => import('../pillars/MindBodyHub').then((m) => ({ default: m.MindBodyHub })));
 const HepBHub = lazy(() => import('../pillars/HepBHub').then((m) => ({ default: m.HepBHub })));
+const ClinicHub = lazy(() => import('../pillars/ClinicHub').then((m) => ({ default: m.ClinicHub })));
 const LtcHub = lazy(() => import('../pillars/LtcHub').then((m) => ({ default: m.LtcHub })));
 
 // Lazy-loaded secondary pages and dialogs
@@ -247,6 +248,7 @@ export function AppShell() {
                 {activePillar === 'hepb' && <HepBHub />}
                 {activePillar === 'mindbody' && <MindBodyHub />}
                 {activePillar === 'ltc' && <LtcHub />}
+                {activePillar === 'clinic' && <ClinicHub />}
               </Suspense>
             )}
           </div>

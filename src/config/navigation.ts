@@ -20,6 +20,7 @@ import {
   HeartHandshake,
   Stethoscope,
   Ribbon,
+  Hospital,
   LucideIcon,
 } from 'lucide-react';
 import { HealthPillar } from '../types';
@@ -54,7 +55,7 @@ export interface PillarNavItem {
   blurb_zh: string;
   blurb_en: string;
   /** Group heading used by the sidebar to chunk the list. */
-  group: 'start' | 'foundation' | 'care' | 'daily' | 'goals';
+  group: 'start' | 'foundation' | 'clinic' | 'care' | 'daily' | 'goals';
   /** Whether this pillar appears in the compact mobile bottom bar. */
   mobile: boolean;
   /** Abbreviated label for the mobile bar, where a long label wraps mid-word. */
@@ -70,12 +71,26 @@ export const PILLAR_GROUPS: Record<
   foundation: { title_zh: '🧬 認識身體 · 系統', title_en: 'Know the body' },
   daily: { title_zh: '🥗🏃 飲食與運動 (吃·動·睡·心)', title_en: 'Diet & Exercise (Daily)' },
   goals: { title_zh: '🛡️ 預防醫學與健康目標', title_en: 'Prevention & Goals' },
-  care: { title_zh: '🏥 三大專科 · 疾病與長照專區', title_en: 'Specialty clinical care & LTC' },
+  care: { title_zh: '📚 專科深度課程 · 長照專區', title_en: 'Specialty deep-dives & LTC' },
+  clinic: { title_zh: '🏥 臨床科別 · 醫學中心分科', title_en: 'Clinical departments' },
 };
 
-export const GROUP_ORDER: PillarNavItem['group'][] = ['start', 'foundation', 'daily', 'goals', 'care'];
+export const GROUP_ORDER: PillarNavItem['group'][] = ['start', 'foundation', 'clinic', 'daily', 'goals', 'care'];
 
 export const PILLAR_NAV: PillarNavItem[] = [
+  {
+    id: 'clinic',
+    hash: 'clinic',
+    icon: Hospital,
+    label_zh: '臨床科別總覽',
+    label_en: 'Clinical departments',
+    blurb_zh: '7 部門·32 科',
+    blurb_en: '7 divisions',
+    group: 'clinic',
+    mobile: true,
+    short_zh: '科別',
+    short_en: 'Clinic',
+  },
   {
     id: 'home',
     hash: 'home',

@@ -92,6 +92,7 @@ const SIMPLE_PILLARS: HealthPillar[] = [
   'hepb',
   'mindbody',
   'ltc',
+  'clinic',
 ];
 
 const PILLAR_ALIASES: Record<string, HealthPillar> = {
@@ -155,6 +156,10 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   'nursing-home': 'ltc',
   dementia: 'ltc',
   '1966': 'ltc',
+  departments: 'clinic',
+  department: 'clinic',
+  specialties: 'clinic',
+  hospital: 'clinic',
 };
 
 export function parseHash(rawHash: string): Route | null {

@@ -281,7 +281,8 @@ export type HealthPillar =
   | 'oncology'
   | 'hepb'
   | 'mindbody'
-  | 'ltc';
+  | 'ltc'
+  | 'clinic';
 
 // ── Human Organ Systems Types (主頁人體系統總覽) ──
 export type HumanSystemId =
