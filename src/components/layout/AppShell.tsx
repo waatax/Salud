@@ -34,6 +34,8 @@ const ObesityHub = lazy(() => import('../pillars/ObesityHub').then((m) => ({ def
 const LongevityHub = lazy(() => import('../pillars/LongevityHub').then((m) => ({ default: m.LongevityHub })));
 const CardiometabolicHub = lazy(() => import('../pillars/CardiometabolicHub').then((m) => ({ default: m.CardiometabolicHub })));
 const SpineHub = lazy(() => import('../pillars/SpineHub').then((m) => ({ default: m.SpineHub })));
+const GastroHub = lazy(() => import('../pillars/GastroHub').then((m) => ({ default: m.GastroHub })));
+const OncologyHub = lazy(() => import('../pillars/OncologyHub').then((m) => ({ default: m.OncologyHub })));
 const MindBodyHub = lazy(() => import('../pillars/MindBodyHub').then((m) => ({ default: m.MindBodyHub })));
 const HepBHub = lazy(() => import('../pillars/HepBHub').then((m) => ({ default: m.HepBHub })));
 const LtcHub = lazy(() => import('../pillars/LtcHub').then((m) => ({ default: m.LtcHub })));
@@ -108,7 +110,7 @@ export function AppShell() {
       : 'diet'
     : activePillar === 'exercise'
     ? `exercise:${exerciseSubTab}`
-    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody', 'ltc'] as string[]).includes(activePillar)
+    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'gastro', 'oncology', 'hepb', 'mindbody', 'ltc'] as string[]).includes(activePillar)
     ? activePillar
     : null;
 
@@ -240,6 +242,8 @@ export function AppShell() {
                 {activePillar === 'supplements' && <SupplementsHub />}
                 {activePillar === 'mental' && <MentalHealthHub />}
                 {activePillar === 'spine' && <SpineHub />}
+                {activePillar === 'gastro' && <GastroHub />}
+                {activePillar === 'oncology' && <OncologyHub />}
                 {activePillar === 'hepb' && <HepBHub />}
                 {activePillar === 'mindbody' && <MindBodyHub />}
                 {activePillar === 'ltc' && <LtcHub />}
@@ -256,7 +260,7 @@ export function AppShell() {
                   pageIdOrTopic={dietView === 'chapter' && currentChapterId ? currentChapterId : 'O'}
                 />
               ) : (
-                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'hepb', 'mindbody', 'ltc', 'systems'].includes(
+                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'gastro', 'oncology', 'hepb', 'mindbody', 'ltc', 'systems'].includes(
                   activePillar
                 ) && <FourPillarsClinicalMatrix key={`fp-${activePillar}`} pageIdOrTopic={activePillar} />
               )}

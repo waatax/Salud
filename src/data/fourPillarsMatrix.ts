@@ -977,6 +977,124 @@ export const FOUR_PILLARS_DATA_REGISTRY: Record<string, FourPillarsProfile> = {
       caution: '🚨 若同時出現發燒、心跳極快（>100）、呼吸急促（>22）、血壓下降或意識改變，可能為致命性「敗血症（Sepsis）」，須立即急診搶救！',
       action_item: '就醫前寫下「症狀開始時間、誘發加重因素、伴隨症狀與目前用藥清單」4 重點，提升看診精準度。'
     }
+  },
+
+  // ── 肝膽腸胃科臨床整合專區 (Gastroenterology & Hepatology) ──
+  'gastro': {
+    page_id_or_topic: 'gastro',
+    title_zh: '肝膽腸胃科：消化道黏膜、微生態與肝膽胰全週期防治',
+    topic_badge: '消化系內科與肝膽科學',
+    diet: {
+      title: '護胃養腸與保肝飲食：低 FODMAP 分階、地中海減脂與戒除果糖酒精',
+      one_liner: '胃食道逆流睡前 3 小時禁食；腸躁症執行 2–6 週低 FODMAP 排除與重引入；脂肪肝嚴格戒斷含糖手搖飲與酒精。',
+      points: [
+        '抗逆流與護胃：減少高油脂、薄荷、巧克力、咖啡與濃茶，避免餐後立刻平躺，夜間逆流者將床頭墊高 15–20 公分。',
+        '腸躁症（IBS）與發炎性腸道疾病（IBD）：IBS 發作期暫避洋蔥、大蒜、小麥、蘋果與牛奶等高 FODMAP 食材；IBD 緩解期採天然地中海飲食，嚴避人工乳化劑與超加工食品。',
+        '代謝性脂肪肝（MASLD）逆轉：游離果糖在肝臟直接啟動新生脂肪合成（DNL），戒除含糖飲料並以初榨橄欖油、深海魚及黑咖啡（每日 2 杯無糖黑咖啡具保肝抗纖維化實證）護肝。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'ACG GERD & IBS Guidelines / EASL-EASD-EASO 2024 MASLD Guideline',
+      key_metric: { label: '逆轉脂肪肝減重門檻', target: '≥ 7–10%', unit: '體重減輕' },
+      action_item: '晚餐於睡前 3 小時完成；今日起將含糖手搖飲全面換為無糖茶或黑咖啡。'
+    },
+    exercise: {
+      title: '餐後步行促進胃腸蠕動與有氧加肌力清除肝臟異位脂肪',
+      one_liner: '每週 150 分鐘中高強度有氧結合 2 次阻力訓練，即使體重未大幅下降也能減少 20–30% 肝內脂肪。',
+      points: [
+        '促進腸道推進與排氣：每日餐後散步 15 分鐘與溫和核心活動，能活化副交感迷走神經，改善功能性腹脹與慢性便秘。',
+        '骨骼肌分流肝臟負擔：阻力訓練擴增骨骼肌 GLUT4 葡萄糖吸收，大幅降低高胰島素血症對肝臟堆積脂肪的驅動。',
+        '肝硬化肌少症防治：肝硬化患者極易發生高氨血症與肌少症，應在穩定控制下進行中低強度阻力運動，並補充睡前點心防止夜間肌肉分解。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'AASLD MASLD Practice Guidance 2023 / AGA Clinical Practice Update',
+      key_metric: { label: '保肝消脂運動目標', target: '150–200', unit: '分鐘/週 中強度有氧 + 2次重訓' },
+      action_item: '午餐與晚餐後切勿立刻坐下，起身散步 10–15 分鐘幫助胃排空與平滑血糖。'
+    },
+    prevention: {
+      title: '幽門螺旋桿菌除菌防胃癌、FIB-4 肝纖維化計算與大腸鏡息肉切除',
+      one_liner: '善用碳 13 吹氣檢測根除幽門桿菌（阻斷 Correa 胃癌瀑布）、計算 FIB-4 篩檢肝硬化，並按時做糞便潛血與大腸鏡。',
+      points: [
+        '根除幽門桿菌（H. pylori）：吹氣或糞便抗原陽性者接受 14 天四合一或高劑量雙重除菌治療，完成停藥滿 4 週後務必複驗確認根除，可降低胃癌風險逾 50%。',
+        'B、C 肝公費篩檢與 FIB-4 評估：45–79 歲（原住民 40–79 歲）終身一次免費 B/C 肝篩檢；利用年齡、AST、ALT 與血小板計算 FIB-4（<1.3 為低風險，>2.67 需轉介肝膽科彈性超音波）。',
+        '大腸癌阻斷黃金標準：45–74 歲每 2 年公費定量免疫糞便潛血檢查（FIT）；一旦陽性必須於 3 個月內完成大腸鏡（切勿重驗大便），切除腺瘤性息肉即直接阻斷癌變。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'Maastricht VI/Florence Consensus / 衛福部國健署癌症篩檢指引',
+      key_metric: { label: '大腸鏡清腸品質目標', target: 'BBPS ≥ 6', unit: '分 (清澈黃水便)' },
+      action_item: '打開健檢報告輸入 AST、ALT 與血小板計算 FIB-4，並確認是否已做過公費 B/C 肝與糞便潛血篩檢。'
+    },
+    treatment: {
+      title: 'PPI/P-CAB 階梯抑酸、C 肝全口服根治、B 肝抗病毒與膽胰急症處置',
+      one_liner: '胃藥應於早餐前 30 分鐘空腹服用；C 肝口服 DAA 藥物 8–12 週治癒率 >98%；右上腹劇痛發燒黃疸須立即急診。',
+      points: [
+        '精準抑酸治療：PPI（氫離子幫浦抑制劑）須在餐前 30 分鐘服用以鎖定活化態幫浦；新型 P-CAB（Vonoprazan）則不受進食影響且起效極快。',
+        '病毒性肝炎現代醫療：C 型肝炎健保給付全口服直接抗病毒藥物（DAA），8–12 週即可徹底根治；B 肝帶原者依病毒量與纖維化服用 Entecavir 或 TAF，切忌自行停藥以免猛爆性肝炎。',
+        '膽囊炎與急性胰臟炎：有症狀膽結石標準治療為腹腔鏡膽囊切除術（非僅夾石頭）；急性胰臟炎需禁食、早期適度乳酸林格氏液輸液與病因根除（戒酒或 ERCP 取膽管結石）。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'Tokyo Guidelines 2018 (TG18) / EASL & AASLD Hepatitis B/C Guidelines',
+      caution: '🚨 若出現吐血、解柏油黑便、暗紅血便、吞嚥困難卡住、右上腹劇痛合併發燒黃疸（Charcot 三聯徵）或上腹劇痛穿透背部，必須立即掛急診！',
+      action_item: '正在服用 B 肝抗病毒藥物或帶原者，立即在手機行事曆設定「每 6 個月腹部超音波 + AFP 抽血」鬧鐘。'
+    }
+  },
+
+  // ── 所有主要癌症防治與精準醫療專區 (Clinical Oncology) ──
+  'oncology': {
+    page_id_or_topic: 'oncology',
+    title_zh: '癌症防治與精準腫瘤學：六癌早篩、標靶免疫與抗癌營養照護',
+    topic_badge: '臨床腫瘤學與癌症預防醫學',
+    diet: {
+      title: '防癌地中海飲食與化放療期間「高蛋白、高熱量、熟食安全」鐵律',
+      one_liner: '預防期遠離紅肉加工肉、酒精、檳榔與發霉花生；治療期每公斤體重攝取 1.2–1.5g 蛋白質，破除「餓死癌細胞」迷思！',
+      points: [
+        '一級致癌物歸零：IARC 將菸、酒（特別是台灣人高盛行的 ALDH2 缺乏喝酒臉紅基因）、檳榔、加工肉品（香腸培根）與黃麴毒素列為一級致癌物，應徹底戒除。',
+        '化放療期營養保衛戰（ESPEN 指引）：癌症惡病質與體重流失會導致化療被迫中斷；治療期間應採高熱量（25–30 kcal/kg）與高蛋白（1.2–1.5 g/kg）飲食，食慾差時少量多餐並補充醫療級高蛋白營養品。',
+        '白血球低下期（Neutropenia）熟食鐵律：化療後第 7–14 天絕對嗜中性球（ANC）最低，嚴禁生魚片、生菜沙拉、半熟蛋、未削皮水果與隔夜菜，飲水務必煮沸。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'ESPEN Practical Guideline: Clinical Nutrition in Cancer / WCRF Diet & Cancer Report',
+      key_metric: { label: '抗癌治療期蛋白質', target: '1.2–1.5', unit: 'g/kg/日' },
+      action_item: '治療期間每週固定量體重 2 次；若單月體重下降超過 2% 或進食量減半超過 3 天，立即照會腫瘤營養師。'
+    },
+    exercise: {
+      title: '運動腫瘤學（Exercise Oncology）：對抗癌因性疲憊與降低復發率',
+      one_liner: '確診癌症後絕非完全臥床休息；每週 3 次有氧結合抗阻運動，是改善「癌因性疲憊（CRF）」最高等級的 A 級處方。',
+      points: [
+        '降低癌症復發與死亡率：ASCO 與 ACSM 大型統合分析證實，乳癌、大腸癌與攝護腺癌患者確診後維持規律運動，可降低癌症特異性死亡率達 25–40%。',
+        '破解癌因性疲憊：過度臥床反而加速肌肉萎縮與疲憊惡性循環；每天 20–30 分鐘中強度散步或彈力帶訓練能顯著提振體力、改善睡眠與緩解焦慮。',
+        '特殊防護注意事項：乳癌腋下淋巴廓清術後應循序進行上肢復健並防範淋巴水腫；骨轉移或血小板極低（<50,000/μL）患者需由復健科醫師評估安全動作。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'ASCO Exercise, Diet, and Weight Management During Cancer Treatment Guideline / ACSM Roundtable',
+      key_metric: { label: '腫瘤復健運動劑量', target: '30分鐘×3次', unit: '/週 有氧 + 2次輕中度阻力' },
+      action_item: '即使在化療療程間歇期，每天也在體力允許下於室內或公園慢走 15–20 分鐘。'
+    },
+    prevention: {
+      title: '台灣公費六大癌症篩檢（2025–2026 擴大新制）與疫苗防癌',
+      one_liner: '正常抽血腫瘤標記（CEA/CA19-9）不能排除早期癌！唯有 LDCT、大腸鏡、乳房攝影、抹片/HPV 等專科篩檢能救命。',
+      points: [
+        '2025–2026 台灣公費六癌篩檢：肺癌（重度吸菸 ≥20 包年或具肺癌家族史者，每 2 年 LDCT 低劑量電腦斷層）、大腸癌（45–74 歲或 40–44 歲家族史，每 2 年 FIT 糞便潛血）、乳癌（40–74 歲女性，每 2 年乳房 X 光攝影）、子宮頸癌（25 歲起抹片 + 35/45/65 歲 HPV 檢測）、口腔癌（黏膜檢查）與胃癌（幽門桿菌篩檢）。',
+        '防癌疫苗雙雄：公費 B 型肝炎疫苗已使台灣年輕世代肝癌率暴跌；國中男女生公費九價 HPV 疫苗更能同時預防子宮頸癌與頭頸口咽癌。',
+        '十大癌症警訊（CAUTION）：排便或排尿習慣改變、傷口潰瘍逾 2 週不癒、異常出血（停經後出血、血尿、咳血）、無痛性硬塊、吞嚥困難、痣快速變大流血、久咳沙啞、不明原因體重減輕（半年 >5%）。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: '衛生福利部國民健康署 2025–2026 擴大癌症篩檢指引 / USPSTF Screening Guidelines',
+      key_metric: { label: '第 0–I 期早期癌五年存活率', target: '> 90%', unit: '(定期篩檢攔截)' },
+      action_item: '立即使用本專區「台灣公費六大癌症篩檢資格試算器」，為自己與父母預約符合資格的免費篩檢。'
+    },
+    treatment: {
+      title: 'MDT 多專科團隊、NGS 基因定序、標靶/免疫/ADC 與早期緩和醫療',
+      one_liner: '確診後先完成完整 TNM 分期與基因生物標記檢測（EGFR/ALK/BRCA/MSI/PD-L1），再由多專科團隊擬定精準療程。',
+      points: [
+        '精準醫療五大支柱：微創/達文西手術、現代精準放療（IMRT/SBRT/質子重離子布拉格峰）、化學治療、基因對應標靶藥物（TKI）、免疫檢查點抑制劑（PD-1/PD-L1）與抗體藥物複合體（ADC 生物導彈）。',
+        '免疫治療副作用（irAEs）警戒：免疫療法可能引發自體免疫肺炎、結腸炎、肝炎或甲狀腺/腦下垂體炎，出現莫名乾咳氣喘或每日腹瀉 >4 次須立即聯絡個管師，由醫師給予類固醇控制。',
+        '早期整合疼痛管理與緩和醫療：WHO 三階梯止痛原則強調「按時給藥、口服優先」，醫療用嗎啡在疼痛控制下極少成癮；預立醫療決定（ACP）保障病患尊嚴。'
+      ],
+      evidence_grade: 'A',
+      evidence_source: 'NCCN Clinical Practice Guidelines in Oncology 2025 / ESMO & ASCO Guidelines',
+      caution: '🚨 化療期間若體溫 ≥ 38.0°C（或單次 ≥ 38.3°C），極可能為致命性「嗜中性球低下發燒（Febrile Neutropenia）」，絕對不可自行吃退燒藥睡覺，必須在 1 小時內攜帶化療卡直奔急診！',
+      action_item: '就診時索取病理報告與基因檢測結果，主動與主治醫師及癌症個管師討論第一線最佳治療組合。'
+    }
   }
 };
 

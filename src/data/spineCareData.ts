@@ -12,11 +12,51 @@ import { OSTEO_SOURCES } from './osteoData';
  * 12 chapters stay untouched; SPINE_COURSE_CHAPTERS merges both in SPINE_TABS order.
  */
 
-export type SpineCareTab = 'ACUTE' | 'CHRONIC' | 'CAREGIVER' | 'SPECIAL';
+export type SpineCareTab = 'ACUTE' | 'CHRONIC' | 'CAREGIVER' | 'SPECIAL' | 'PERIPHERAL_NERVE' | 'KNEE_HIP_OA' | 'SHOULDER_UPPER' | 'ANKLE_FOOT_NEURO';
 
 // ── Sources ───────────────────────────────────────────────────────────────────
 
 export const SPINE_CARE_SOURCES: Record<string, SpineSource> = {
+  AAOS_CTS2016: {
+    id: 'AAOS_CTS2016',
+    label: 'AAOS 美國骨科醫學會：腕隧道症候群與周邊神經卡壓臨床實務指引 (2016/2024 Update)',
+    url: 'https://www.aaos.org/quality/quality-programs/upper-extremity-programs/carpal-tunnel-syndrome/',
+  },
+  AANEM_NCS: {
+    id: 'AANEM_NCS',
+    label: 'AANEM 美國神經肌肉與電診斷醫學會：神經傳導與肌電圖鑑別神經根與周邊神經卡壓指引',
+    url: 'https://www.aanem.org/Practice/Practice-Guidelines',
+  },
+  AAOS_KOA2021: {
+    id: 'AAOS_KOA2021',
+    label: 'AAOS 美國骨科醫學會：退化性膝關節炎非關節置換與手術治療臨床指引 (3rd Ed, 2021)',
+    url: 'https://www.aaos.org/quality/quality-programs/lower-extremity-programs/osteoarthritis-of-the-knee/',
+  },
+  OARSI2019: {
+    id: 'OARSI2019',
+    label: 'Bannuru RR, et al. OARSI 國際骨關節炎研究學會：膝、髖與多關節骨關節炎非手術治療指引. Osteoarthritis Cartilage 2019;27:1578-89',
+    url: 'https://doi.org/10.1016/j.joca.2019.06.011',
+  },
+  AAOS_RC2019: {
+    id: 'AAOS_RC2019',
+    label: 'AAOS 美國骨科醫學會：肩旋轉肌袖撕裂與肩關節疾病臨床實務指引 (2019)',
+    url: 'https://www.aaos.org/quality/quality-programs/upper-extremity-programs/rotator-cuff-injuries/',
+  },
+  JOSPT_FS2013: {
+    id: 'JOSPT_FS2013',
+    label: 'Kelley MJ, et al. 肩部疼痛與活動受限：沾黏性關節囊炎（五十肩）臨床實務指引. J Orthop Sports Phys Ther 2013;43:A1-31',
+    url: 'https://doi.org/10.2519/jospt.2013.0302',
+  },
+  BJSM_PEACELOVE2020: {
+    id: 'BJSM_PEACELOVE2020',
+    label: 'Dubois B, Esculier JF. 軟組織急性傷害處理新準則：PEACE & LOVE 取代傳統冰敷. Br J Sports Med 2020;54:72-73',
+    url: 'https://doi.org/10.1136/bjsports-2019-101253',
+  },
+  JOSPT_PF2023: {
+    id: 'JOSPT_PF2023',
+    label: 'Koc TA Jr, et al. 足跟痛與足底筋膜炎臨床實務指引 2023 修訂版. J Orthop Sports Phys Ther 2023;53:CPG1-CPG39',
+    url: 'https://doi.org/10.2519/jospt.2023.0303',
+  },
   COSTA2012: {
     id: 'COSTA2012',
     label: 'da C Menezes Costa L, et al. 急性與持續性下背痛的病程：系統性回顧與統合分析. CMAJ 2012;184:E613-24',
@@ -81,6 +121,10 @@ export const SPINE_CARE_CHAPTER_SOURCES: Record<SpineCareTab, string[]> = {
   CHRONIC: ['WHO2023', 'RESTORE2023', 'LOUW2016', 'WALKBACK2024', 'NICE59'],
   CAREGIVER: ['EPUAP2019', 'TW_LTC', 'TW_SPINE_CARE', 'TMGRGH261'],
   SPECIAL: ['BRAIST2013', 'SOSORT2016', 'ASAS2009', 'ASASEULAR2022', 'LIDDLE2015', 'FDA2020NSAID'],
+  PERIPHERAL_NERVE: ['AAOS_CTS2016', 'AANEM_NCS', 'ISNCSCI'],
+  KNEE_HIP_OA: ['AAOS_KOA2021', 'OARSI2019', 'TMGRGH261'],
+  SHOULDER_UPPER: ['AAOS_RC2019', 'JOSPT_FS2013', 'AANEM_NCS'],
+  ANKLE_FOOT_NEURO: ['JOSPT_PF2023', 'BJSM_PEACELOVE2020', 'ISNCSCI'],
 };
 
 // ── Chapters ──────────────────────────────────────────────────────────────────
@@ -146,9 +190,61 @@ export const SPINE_CARE_CHAPTERS: (Omit<SpineChapter, 'id'> & { id: SpineCareTab
       '青少年書包建議不超過體重 10–15%；運動員伸展時腰痛持續，需排除脊椎解離。',
     ],
   },
+  {
+    id: 'PERIPHERAL_NERVE',
+    label_zh: '周邊神經卡壓',
+    title_zh: '腕隧道、肘隧道、梨狀肌與垂足：周邊神經卡壓 vs 脊椎骨刺鑑別',
+    goal_zh: '手麻腳麻不一定是頸椎或腰椎長骨刺！學會分辨正中神經、尺神經、梨狀肌與腓總神經卡壓的麻木地圖與治療。',
+    learn_zh: ['腕隧道症候群（前三指半麻、半夜甩手醒）vs 肘隧道症候群（無名指小指麻）vs 頸椎神經根壓迫', '梨狀肌症候群（假性坐骨神經痛）與翹二郎腿壓迫腓總神經導致「垂足症」', '雙重壓迫症候群（Double Crush）、神經傳導肌電圖（NCS/EMG）與超音波導引神經解套注射'],
+    minutes: 8,
+    takeaways_zh: [
+      '大拇指、食指、中指麻且半夜甩手才舒服，最常見為手腕「腕隧道症候群」，睡覺穿戴中立位手腕副木最有效。',
+      '小指與無名指半邊麻、手肘彎曲講電話加劇，多為手肘內側「肘隧道尺神經卡壓」。',
+      '若大拇指根部大魚際肌或虎口肌肉已出現「凹陷萎縮、對掌無力或垂足」，代表運動神經受損，必須盡速評估微創減壓手術！',
+    ],
+  },
+  {
+    id: 'KNEE_HIP_OA',
+    label_zh: '膝髖關節退化',
+    title_zh: '膝關節與髖關節退化性關節炎：KL 分級、玻尿酸／PRP、保膝截骨與微創人工關節',
+    goal_zh: '打破「膝蓋退化就不能走路運動」的迷思，看懂第 1–4 期退化治療階梯、股四頭肌訓練與保膝／換膝手術時機。',
+    learn_zh: ['Kellgren-Lawrence (KL 1–4 期) 影像分級與「體重每減 1 公斤、膝蓋減壓 4 公斤」力學原理', '運動護膝（直抬腿、靠牆微蹲）、關節內玻尿酸與自體高濃度血小板（PRP）的國際實證評級', '3D 導航高位脛骨截骨術（HTO 保膝）vs 微創半人工（UKA）／全人工膝與髖關節置換，以及髖關節鼠蹊部痛鑑別'],
+    minutes: 9,
+    takeaways_zh: [
+      '關節軟骨沒有血管，需靠走路與運動擠壓才能吸收關節液養分；大腿股四頭肌訓練與減重是所有期別的第一線基石！',
+      '腰椎坐骨神經痛多從後臀麻到小腿；真正的「髖關節退化或股骨頭缺血性壞死」則是痛在「前側鼠蹊部深處」且穿襪盤腿受限。',
+      'KL 第 2–3 期合併內翻 O 型腿的活躍族群可評估 HTO 保膝截骨；第 4 期骨頭磨骨頭則透過微創人工關節置換可重拾無痛行走。',
+    ],
+  },
+  {
+    id: 'SHOULDER_UPPER',
+    label_zh: '肩關節與上肢',
+    title_zh: '肩膀舉不起來是「五十肩」還是「旋轉肌撕裂」？鈣化性肌腱炎、網球肘與扳機指',
+    goal_zh: '用 10 秒鐘「主動 vs 被動抬手測試」分辨五十肩與旋轉肌袖撕裂，避免錯誤甩手把破洞拉大，並認識上肢常見肌腱病變。',
+    learn_zh: ['五十肩（沾黏性關節囊炎，自己舉與別人抬皆卡死）三期病程與超音波導引關節囊擴張術', '旋轉肌袖肌腱撕裂（自己舉 60–120 度無力劇痛，但別人托著卻抬得起來）與微創關節鏡縫合', '急性鈣化性肌腱炎超音波抽吸洗滌、網球肘離心訓練與扳機指微創鬆解'],
+    minutes: 8,
+    takeaways_zh: [
+      '五十肩是「關節囊沾黏卡死（別人幫你抬也抬不動、手扣不到後背）」；旋轉肌撕裂是「肌腱拉繩斷了（自己舉無力但別人抬得上去）」。',
+      '旋轉肌袖若已撕裂破洞，千萬不可像五十肩那樣用力甩手或吊單槓，否則破洞會越扯越大！',
+      '五十肩在發炎劇痛期先做「超音波導引關節囊擴張注射」再搭配爬牆伸展，恢復速度比單純乾拉快數倍。',
+    ],
+  },
+  {
+    id: 'ANKLE_FOOT_NEURO',
+    label_zh: '足踝與神經步態',
+    title_zh: '足底筋膜炎、踝扭傷 PEACE & LOVE 與四大「神經骨科異常步態」鑑別',
+    goal_zh: '解決早晨下床第一步腳跟劇痛，掌握踝扭傷最新不盲目冰敷原則，並從走路步態揪出脊髓壓迫與巴金森氏症。',
+    learn_zh: ['足底筋膜炎（晨起第一步腳跟內側如踩釘子痛）與阿基里斯腱炎的下床前伸展與體外震波治療', '急性腳踝扭傷國際新準則「PEACE & LOVE」與單腳閉眼本體感覺訓練（預防習慣性翻船）', '四大異常步態鑑別：垂足跨閾步態（L5/腓總神經）、頸椎脊髓痙攣踩棉花步態、巴金森小碎步與臀中肌搖擺步態'],
+    minutes: 8,
+    takeaways_zh: [
+      '足底筋膜炎患者早上醒來「雙腳還沒踩地前」，先在床沿把腳趾頭往腳背扳到底拉筋 15 秒 × 10 次，並穿厚底足弓拖鞋不赤腳踩地。',
+      '腳踝扭傷消腫後務必練「單腳站立平衡（進階至閉眼單腳站）」，重新接通韌帶本體感覺神經，才能根治習慣性扭傷。',
+      '若長輩出現「雙腳僵硬像踩棉花、走一直線不穩且雙手扣鈕扣變笨拙」，高度懷疑「頸椎脊髓壓迫病變（Myelopathy）」，需立即照頸椎 MRI！',
+    ],
+  },
 ];
 
-/** Full course in SPINE_TABS order (original 12 chapters + 4 care chapters). */
+/** Full course in SPINE_TABS order (original 12 chapters + 8 care & neuro-ortho chapters). */
 export const SPINE_COURSE_CHAPTERS: SpineChapter[] = SPINE_TABS.map((id) => {
   const c = [...SPINE_CHAPTERS, ...(SPINE_CARE_CHAPTERS as SpineChapter[])].find((x) => x.id === id);
   if (!c) throw new Error(`spine chapter ${id} missing`);
@@ -169,6 +265,7 @@ export const SPINE_UNITS: SpineUnit[] = [
   { title: '骨鬆與骨折', blurb: '骨質疏鬆診斷用藥、壓迫性骨折與骨泥', chapters: ['OSTEOPOROSIS', 'FRACTURE'] },
   { title: '手術、復健與居家照護', blurb: '微創手術、術後復健與家屬照護技巧', chapters: ['SURGERY', 'REHAB', 'CAREGIVER'] },
   { title: '日常預防與特殊族群', blurb: '姿勢、護脊運動、側彎、僵直性脊椎炎、孕產', chapters: ['POSTURE', 'EXERCISE', 'SPECIAL'] },
+  { title: '周邊神經與四肢關節（神經骨科）', blurb: '腕肘隧道神經卡壓、膝髖退化關節炎、五十肩旋轉肌與足踝步態', chapters: ['PERIPHERAL_NERVE', 'KNEE_HIP_OA', 'SHOULDER_UPPER', 'ANKLE_FOOT_NEURO'] },
   { title: '安全網', blurb: '危險警訊、看哪一科、檢查與就醫準備', chapters: ['TRIAGE'] },
 ];
 
@@ -182,11 +279,11 @@ export interface SpinePath {
 }
 
 export const SPINE_PATHS: SpinePath[] = [
-  { key: 'flare', label: '我現在腰或脖子很痛', hint: '先排除警訊，再照 72 小時計畫照顧自己', chapters: ['TRIAGE', 'ACUTE', 'TREATMENT', 'MEDS'] },
-  { key: 'chronic', label: '已經痛好幾個月了', hint: '理解疼痛科學、節律活動與重返工作', chapters: ['CHRONIC', 'EXERCISE', 'POSTURE', 'TREATMENT'] },
-  { key: 'surgery', label: '我（或家人）要開刀或剛開完', hint: '手術選擇、術後復健與返家照護', chapters: ['SURGERY', 'REHAB', 'CAREGIVER', 'FRACTURE'] },
-  { key: 'caregiver', label: '我在照顧臥床或長輩家人', hint: '翻身移位、防壓瘡、防跌與長照資源', chapters: ['CAREGIVER', 'OSTEOPOROSIS', 'FRACTURE', 'TRIAGE'] },
-  { key: 'prevent', label: '想預防、保養脊椎', hint: '姿勢、運動、骨質與特殊族群', chapters: ['POSTURE', 'EXERCISE', 'OSTEOPOROSIS', 'SPECIAL'] },
+  { key: 'flare', label: '我現在腰或脖子很痛、手腳發麻', hint: '分辨脊椎神經根 vs 腕肘隧道卡壓，照 72 小時計畫處理', chapters: ['TRIAGE', 'ACUTE', 'NUMBNESS', 'PERIPHERAL_NERVE'] },
+  { key: 'chronic', label: '膝蓋痛、肩膀舉不高或腳跟踩地痛', hint: '退化性膝髖關節炎、五十肩 vs 旋轉肌撕裂、足底筋膜炎與步態', chapters: ['KNEE_HIP_OA', 'SHOULDER_UPPER', 'ANKLE_FOOT_NEURO', 'CHRONIC'] },
+  { key: 'surgery', label: '我（或家人）要開刀或剛開完', hint: '微創脊椎與人工關節手術選擇、術後復健與返家照護', chapters: ['SURGERY', 'REHAB', 'CAREGIVER', 'FRACTURE'] },
+  { key: 'caregiver', label: '我在照顧臥床或長輩家人', hint: '翻身移位、防壓瘡、骨鬆骨折防跌與長照資源', chapters: ['CAREGIVER', 'OSTEOPOROSIS', 'FRACTURE', 'TRIAGE'] },
+  { key: 'prevent', label: '想預防、保養脊椎與關節', hint: '姿勢、運動、骨質與特殊族群', chapters: ['POSTURE', 'EXERCISE', 'OSTEOPOROSIS', 'SPECIAL'] },
 ];
 
 // ── Quiz & myths ──────────────────────────────────────────────────────────────
@@ -216,6 +313,50 @@ export const SPINE_CARE_QUIZ: Record<SpineCareTab, { question: string; options: 
     answer: 1,
     explain: '40 歲前、緩慢開始、活動改善、休息不改善、夜間痛醒是發炎性背痛特徵，應轉介風濕免疫科。',
   },
+  PERIPHERAL_NERVE: {
+    question: '陳小姐最近騎機車催油門或半夜睡覺時，「大拇指、食指、中指」經常麻醒，起來甩一甩手會比較舒服，小指則完全不麻。最可能的原因與第一線處理為何？',
+    options: [
+      '腰椎間盤突出，需要穿護腰',
+      '腕隧道症候群（正中神經在手腕受壓迫），第一線建議夜間穿戴手腕中立位副木固定並減少手腕反覆彎曲出力',
+      '肘隧道尺神經壓迫（通常麻在無名指與小指）',
+      '一定已經中風了',
+    ],
+    answer: 1,
+    explain: '正中神經負責大拇指、食指、中指與無名指半邊的掌側感覺，半夜麻醒且甩手緩解（Flick sign）是腕隧道症候群最經典表現，夜間手腕副木固定在 0 度中立位能有效降低腕隧道內壓。',
+  },
+  KNEE_HIP_OA: {
+    question: '關於退化性膝關節炎的保養與髖關節疼痛鑑別，下列敘述何者最符合國際骨科醫學會（AAOS / OARSI）實證？',
+    options: [
+      '膝蓋退化就應該完全坐著不動、不要走路，這樣軟骨才不會磨損',
+      '體重每減輕 1 公斤可減少膝蓋 4 公斤負荷，且強化「大腿股四頭肌與臀肌」是所有期別退化性膝關節炎的第一線核心治療；而真正的髖關節病變疼痛多位於「前側鼠蹊部深處」',
+      '只要吃鈣片就可以讓已經磨光的第 4 期膝關節軟骨重新長回來',
+      '玻尿酸注射對第 4 期骨頭磨骨頭的重度變形最有效',
+    ],
+    answer: 1,
+    explain: '鈣片補的是「骨質疏鬆（骨頭密度）」，不是「關節軟骨（退化性關節炎）」！軟骨需靠適度運動擠壓吸收關節液養分，減重與股四頭肌肌力訓練是 Grade A 最高等級推薦。',
+  },
+  SHOULDER_UPPER: {
+    question: '怎麼用簡單的動作測試，初步分辨肩膀痛是「五十肩（沾黏性關節囊炎）」還是「旋轉肌袖肌腱撕裂」？',
+    options: [
+      '五十肩無論「自己舉（主動）」或「請別人幫忙托著手肘往上抬（被動）」都卡死抬不上去且手扣不到後背；旋轉肌袖撕裂則是自己舉無力疼痛，但別人幫忙托著卻可以抬高',
+      '兩者完全一模一樣，都是越痛越要用力甩手拉單槓',
+      '五十肩只會發生在剛好滿 50 歲的那一年',
+      '旋轉肌袖全層破洞只要貼痠痛貼布就會自己縫合起來',
+    ],
+    answer: 0,
+    explain: '五十肩是關節囊整個沾黏縮水（主動與被動角度皆受限）；旋轉肌撕裂則是拉動骨頭的肌腱斷了（主動舉無力，但關節囊沒卡死所以被動抬得動）。若旋轉肌撕裂卻拼命甩手，會讓破洞擴大！',
+  },
+  ANKLE_FOOT_NEURO: {
+    question: '早上睡醒下床踩地的「第一步」腳跟內側像踩到釘子一樣劇痛，走幾步後稍微緩解。這最典型是什麼問題？早上起床還沒踩地前應該先做什麼？',
+    options: [
+      '痛風發作，應該立刻赤腳去踩健康步道鵝卵石把結晶踩碎',
+      '足底筋膜炎！雙腳還沒踩到地板前，應先坐在床沿將腳趾頭往腳背方向扳到底（拉伸足底筋膜與小腿肚 15 秒 × 10 次），且下床務必穿具足弓支撐的厚底拖鞋',
+      '腳踝骨折，需要打石膏三個月',
+      '馬上把腳泡進滾燙熱水裡',
+    ],
+    answer: 1,
+    explain: '晨起第一步劇痛（First-step pain）是足底筋膜炎的招牌特徵；下床前先做足底筋膜與蹠趾關節背屈伸展，並絕對避免赤腳踩硬地板或踩健康步道，才能避免微撕裂反覆發生。',
+  },
 };
 
 export const SPINE_CARE_MYTHS: { chapter: SpineCareTab; myth: string; fact: string }[] = [
@@ -227,6 +368,10 @@ export const SPINE_CARE_MYTHS: { chapter: SpineCareTab; myth: string; fact: stri
   { chapter: 'CAREGIVER', myth: '照顧家人就該全部幫他做好，不要讓他自己動。', fact: '在安全前提下讓被照顧者盡量自己做，能保留肌力與自信、降低臥床併發症；照顧者負擔也會減輕。' },
   { chapter: 'SPECIAL', myth: '脊椎側彎是書包背太重或坐姿不良造成的。', fact: '青少年特發性脊椎側彎的原因不明，與姿勢或書包無直接因果；書包過重會引起肩背痠痛，但不會造成結構性側彎。' },
   { chapter: 'SPECIAL', myth: '懷孕腰痛是正常的，只能忍到生完。', fact: '孕期腰痛很常見但可以處理：運動、水中運動、骨盆帶與姿勢調整都有幫助；劇痛、出血或規律宮縮則要立即就醫。' },
+  { chapter: 'PERIPHERAL_NERVE', myth: '手麻已經好幾年了，現在反而「比較不麻、只是大拇指肌肉扁下去沒力氣」，代表快要自己好了？', fact: '完全相反！這是極危險的警訊！從麻痛變成「不麻卻肌肉凹陷萎縮、拿不住東西」，代表感覺與運動神經纖維已經嚴重壞死失去訊號，必須立刻做肌電圖並評估微創減壓手術！' },
+  { chapter: 'KNEE_HIP_OA', myth: '多吃鈣片跟維生素 D 就可以保養膝蓋軟骨、治療退化性膝關節炎？', fact: '很多人把「骨質疏鬆（骨頭變脆）」跟「退化性關節炎（軟骨磨損）」搞混了！鈣片與維生素 D 補的是硬骨頭的骨密度，對磨損的軟骨沒有直接修補作用；護膝真正有效的是減重、練大腿股四頭肌與保護關節力線。' },
+  { chapter: 'SHOULDER_UPPER', myth: '肩膀痛舉不起來一定是五十肩，去公園用力拉單槓、瘋狂甩手就會好？', fact: '門診超過一半肩膀痛其實是「旋轉肌袖肌腱撕裂或夾擠」，而不是五十肩！如果是肌腱破洞還去用力甩手拉單槓，會直接把小破洞扯成無法修補的大斷裂，務必先照高解析超音波確認病因。' },
+  { chapter: 'ANKLE_FOOT_NEURO', myth: '足底筋膜炎腳跟痛，是因為腳底長骨刺，要去公園赤腳走健康步道把骨刺踩平？', fact: 'X 光看到的腳跟骨刺只是筋膜長期拉扯的「結果」而非疼痛主因；赤腳去踩尖銳的鵝卵石健康步道會嚴重挫傷發炎的足底筋膜與脂肪墊，讓病情雪上加霜！' },
 ];
 
 // ── Charts (rendered with CurriculumChart's ChartBody) ───────────────────────

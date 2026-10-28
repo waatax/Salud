@@ -10,11 +10,30 @@ import { ALL_QUICK_TIPS } from './quickTips';
 import { STARTER_WEEKS } from './starterPlan';
 import { NUMB_CAUSES, SPINE_MEDS, PT_MODALITIES, SPINE_EXERCISES, POSTURE_GUIDE, SPUR_CONDITIONS } from '../spineData';
 import { SPINE_COURSE_CHAPTERS } from '../spineCareData';
+import { GASTRO_CHAPTERS } from '../gastroData';
+import { ONCOLOGY_COURSE_CHAPTERS } from '../oncologyData';
 import { HEPB_CHAPTERS, HBV_MARKERS, HBV_DRUGS } from '../hepbData';
 import { LTC_CHAPTERS, OTHER_SCALES, FACILITY_TYPES, SKILL_CARDS, OTHER_SUBSIDIES } from '../ltcData';
 import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
 
-export type SearchGroup = '實用技巧' | '課程' | '主題' | '脊椎與神經' | 'B 型肝炎' | '失能與長照' | '睡眠呼吸正念' | '人體系統' | '疾病' | '檢驗與篩檢' | '最新實證' | '名詞' | '飲食章節' | '運動專項' | '工具';
+export type SearchGroup =
+  | '實用技巧'
+  | '課程'
+  | '主題'
+  | '肝膽腸胃科'
+  | '癌症防治專區'
+  | '脊椎與神經'
+  | 'B 型肝炎'
+  | '失能與長照'
+  | '睡眠呼吸正念'
+  | '人體系統'
+  | '疾病'
+  | '檢驗與篩檢'
+  | '最新實證'
+  | '名詞'
+  | '飲食章節'
+  | '運動專項'
+  | '工具';
 
 export interface SearchDoc {
   id: string;
@@ -27,7 +46,25 @@ export interface SearchDoc {
   keywords: string;
 }
 
-export const GROUP_ORDER: SearchGroup[] = ['課程', '實用技巧', '檢驗與篩檢', '疾病', '主題', '脊椎與神經', 'B 型肝炎', '失能與長照', '睡眠呼吸正念', '人體系統', '最新實證', '名詞', '飲食章節', '運動專項', '工具'];
+export const GROUP_ORDER: SearchGroup[] = [
+  '課程',
+  '實用技巧',
+  '檢驗與篩檢',
+  '疾病',
+  '主題',
+  '肝膽腸胃科',
+  '癌症防治專區',
+  '脊椎與神經',
+  'B 型肝炎',
+  '失能與長照',
+  '睡眠呼吸正念',
+  '人體系統',
+  '最新實證',
+  '名詞',
+  '飲食章節',
+  '運動專項',
+  '工具',
+];
 
 /**
  * Build the in-memory search corpus. Every entry points to an existing route so the
@@ -38,6 +75,40 @@ const CARE_KEYWORDS: Record<string, string> = {
   CHRONIC: '慢性疼痛 慢性腰痛 中樞敏感化 節律活動 pacing 認知行為治療 CBT 復工 重返工作 失眠',
   CAREGIVER: '照顧者 家屬 照護 臥床 翻身 移位 輪椅 壓瘡 褥瘡 壓力性損傷 防跌 跌倒 輔具 助行器 長照 1966 喘息服務',
   SPECIAL: '脊椎側彎 側彎 Cobb 背架 僵直性脊椎炎 HLA-B27 發炎性背痛 孕婦腰痛 產後腰痛 骨盆帶疼痛 書包 青少年',
+  PERIPHERAL_NERVE: '腕隧道症候群 腕隧道 正中神經 肘隧道 尺神經 腓總神經 垂足 股外側皮神經 糖尿病神經病變 肌電圖 神經傳導 NCV EMG 手麻 腳麻',
+  KNEE_HIP_OA: '退化性膝關節炎 膝蓋痛 膝關節 髖關節 股骨頭缺血性壞死 十字韌帶 ACL 半月板 玻尿酸 PRP 人工膝關節 TKA 人工髖關節 THA O型腿',
+  SHOULDER_UPPER: '五十肩 沾黏性肩關節囊炎 旋轉肌袖 旋轉肌撕裂 肩夾擠 鈣化性肌腱炎 網球肘 高爾夫球肘 媽媽手 板機指 肩膀痛 手舉不高',
+  ANKLE_FOOT_NEURO: '足底筋膜炎 足跟痛 腳底痛 阿基里斯腱 腳踝扭傷 慢性踝關節不穩 扁平足 拇趾外翻 步態 頸椎脊髓病變 痙攣步態 間歇性跛行',
+};
+
+const GASTRO_KEYWORDS: Record<string, string> = {
+  OVERVIEW: '消化系統 腸胃 肝膽腸胃科 腦腸軸 迷走神經 腸道菌 微生物 消化不良 脹氣',
+  GERD_ULCER: '胃食道逆流 火燒心 溢赤酸 胃酸 巴瑞特氏食道 胃潰瘍 十二指腸潰瘍 PPI P-CAB 氫離子幫浦抑制劑 止痛藥傷胃 NSAIDs',
+  HP_GASTRIC: '幽門螺旋桿菌 幽門桿菌 碳13吹氣 除菌 四合一 萎縮性胃炎 腸化生 Correa 胃癌預防',
+  IBS_FODMAP: '腸躁症 大腸激躁症 IBS 腹瀉 便秘 低FODMAP FODMAP 腹痛 脹氣 Rome IV',
+  IBD_CARE: '發炎性腸道疾病 克隆氏症 潰瘍性結腸炎 IBD 血便 黏液便 生物製劑 鈣衛蛋白 Calprotectin',
+  CRC_POLYPS: '大腸息肉 腺瘤 大腸癌 糞便潛血 FIT 大腸鏡 無痛大腸鏡 清腸 低渣飲食 痔瘡 血便',
+  MASLD_FATTY: '脂肪肝 代謝性脂肪肝 MASLD NAFLD NASH MASH 肝纖維化 FIB-4 減重 果糖 肝指數 GPT ALT',
+  HEPATITIS_BC: 'B型肝炎 C型肝炎 病毒性肝炎 C肝根治 DAA 全口服抗病毒 恩替卡韋 替諾福韋 猛爆性肝炎',
+  CIRRHOSIS_PORTAL: '肝硬化 門脈高壓 食道靜脈曲張 腹水 肝性腦病變 肝昏迷 黃疸 白蛋白 Child-Pugh MELD',
+  GALLBLADDER_BILE: '膽結石 膽囊炎 膽囊息肉 膽管炎 膽管結石 Charcot 夏科氏三聯徵 ERCP 腹腔鏡膽囊切除 右上腹痛',
+  PANCREAS_CARE: '急性胰臟炎 慢性胰臟炎 胰臟 胰管 IPMN 胰臟囊腫 脂肪便 澱粉酶 解脂酶 上腹痛',
+  ENDOSCOPY_TRIAGE: '胃鏡 大腸鏡 腹部超音波 內視鏡 清腸準備 布里斯托大便分類法 黑便 吐血 腹痛分流',
+};
+
+const ONCOLOGY_KEYWORDS: Record<string, string> = {
+  OVERVIEW: '癌症 惡性腫瘤 致癌基因 抑癌基因 TNM分期 原位癌 轉移 活檢 切片 癌症警訊',
+  SCREENING_TW: '癌症篩檢 公費癌篩 六癌篩檢 五癌篩檢 LDCT 糞便潛血 乳房攝影 子宮頸抹片 口腔黏膜 腫瘤標記 CEA CA19-9 AFP PSA CA125',
+  LUNG_CANCER: '肺癌 肺腺癌 毛玻璃結節 GGO LDCT 低劑量電腦斷層 EGFR ALK ROS1 標靶治療 泰格莎 Osimertinib',
+  COLORECTAL_CANCER: '大腸直腸癌 大腸癌 直腸癌 血便 里急後重 KRAS NRAS BRAF MSI-H 人工肛門 腸造口 保肛手術',
+  BREAST_CANCER: '乳癌 乳房攝影 BI-RADS 乳房鈣化 三陰性乳癌 HER2 荷爾蒙受體 CDK4/6 ADC 優赫得 Enhertu 基因檢測 BRCA',
+  LIVER_BILIARY_PANCREAS: '肝癌 膽管癌 胰臟癌 癌王 BCLC 電燒 RFA 栓塞 TACE 免疫加標靶 黃疸 無痛性黃疸 新發糖尿病 CA19-9',
+  GASTRIC_ESOPHAGEAL_HEADNECK: '胃癌 食道癌 口腔癌 頭頸癌 鼻咽癌 NPC EBV 檳榔 喝酒臉紅 ALDH2 內視鏡黏膜下剝離術 ESD',
+  GYN_URO_CANCERS: '子宮頸癌 子宮內膜癌 卵巢癌 攝護腺癌 前列腺癌 膀胱癌 腎細胞癌 HPV疫苗 九價 停經後出血 無痛性血尿 PSA 達文西手術 PARP抑制劑',
+  THYROID_HEME_CANCERS: '甲狀腺癌 放射碘 淋巴瘤 淋巴癌 何杰金氏 多發性骨髓瘤 CRAB 白血病 血癌 CAR-T 標靶 盜汗 淋巴腫大',
+  PRECISION_THERAPY: '精準醫療 基因檢測 NGS 次世代定序 標靶治療 免疫治療 PD-1 PD-L1 抗體藥物複合體 ADC 質子治療 重離子 放療 化療 達文西',
+  NUTRITION_SIDE_EFFECTS: '癌症飲食 化療飲食 高蛋白 惡病質 餓死癌細胞 白血球低下 嗜中性球低下發燒 口腔潰瘍 止吐 掉髮 手足症候群',
+  SURVIVORSHIP_PALLIATIVE: '癌症追蹤 防復發 癌因性疲憊 運動腫瘤學 疼痛控制 嗎啡 止痛貼片 安寧緩和醫療 預立醫療決定 ACP 癌症資源中心',
 };
 
 export function buildSearchIndex(): SearchDoc[] {
@@ -64,15 +135,39 @@ export function buildSearchIndex(): SearchDoc[] {
     docs.push({ id: `diet:${d.hash}`, group: '主題', title: d.label_zh, subtitle: '飲食營養', target: d.hash, keywords: d.label_en });
   }
 
-  // 脊椎與神經專區 (v4.4): chapters, causes of numbness, medicines, therapies, exercises, postures.
+  // 肝膽腸胃科專區 (v5.2)
+  for (const c of GASTRO_CHAPTERS) {
+    docs.push({
+      id: `gastro:${c.id}`,
+      group: '肝膽腸胃科',
+      title: c.title_zh,
+      subtitle: `肝膽腸胃科 · ${c.label_zh}`,
+      target: `gastro/${c.id}`,
+      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} ${c.takeaways_zh.join(' ')} 肝膽腸胃 腸胃科 消化內科 ${GASTRO_KEYWORDS[c.id] ?? ''}`,
+    });
+  }
+
+  // 所有主要癌症防治與精準醫療專區 (v5.2)
+  for (const c of ONCOLOGY_COURSE_CHAPTERS) {
+    docs.push({
+      id: `oncology:${c.id}`,
+      group: '癌症防治專區',
+      title: c.title_zh,
+      subtitle: `癌症防治 · ${c.label_zh}`,
+      target: `oncology/${c.id}`,
+      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} ${c.takeaways_zh.join(' ')} 腫瘤科 癌症 抗癌 防癌 ${ONCOLOGY_KEYWORDS[c.id] ?? ''}`,
+    });
+  }
+
+  // 神經骨科與脊椎關節專區 (v5.2): 20 chapters including peripheral nerve, knee/hip, shoulder/upper, ankle/foot/gait.
   for (const c of SPINE_COURSE_CHAPTERS) {
     docs.push({
       id: `spine:${c.id}`,
       group: '脊椎與神經',
       title: c.title_zh,
-      subtitle: `脊椎專區 · ${c.label_zh}`,
+      subtitle: `神經骨科與脊椎 · ${c.label_zh}`,
       target: `spine/${c.id}`,
-      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 脊椎 骨刺 骨骼疏鬆 骨質疏鬆 壓迫性骨折 微創手術 骨泥 椎體成形術 UBE PELD 復健 物理治療 脊柱健康 生理曲線 McGill 麥吉爾 腰痛 背痛 脖子痛 頸椎 腰椎 手麻 腳麻 脊椎照護 ${CARE_KEYWORDS[c.id] ?? ''}`,
+      keywords: `${c.goal_zh} ${c.learn_zh.join(' ')} 神經骨科 骨科 脊椎 骨刺 骨骼疏鬆 骨質疏鬆 壓迫性骨折 微創手術 骨泥 椎體成形術 UBE PELD 復健 物理治療 脊柱健康 生理曲線 McGill 麥吉爾 腰痛 背痛 脖子痛 頸椎 腰椎 手麻 腳麻 關節痛 ${CARE_KEYWORDS[c.id] ?? ''}`,
     });
   }
   // Dedicated specialty keyword targets
@@ -353,7 +448,12 @@ export function buildSearchIndex(): SearchDoc[] {
     { id: 'tool:quick', group: '工具', title: '健檢報告快查', subtitle: '填入數字，看落在哪一區', target: 'checkup/quick', keywords: '血壓 血糖 BMI 腰圍 eGFR 代謝症候群' },
     { id: 'tool:hbv', group: '工具', title: 'B 肝報告解讀器', subtitle: '輸入 HBsAg、Anti-HBs、Anti-HBc 看懂結果', target: 'hepb/TESTS', keywords: 'B肝 表面抗原 表面抗體 核心抗體 疫苗 帶原' },
     { id: 'tool:numb', group: '工具', title: '我的麻在哪裡？手腳麻互動判斷', subtitle: '依麻的位置看可能原因與就醫急迫度', target: 'spine/NUMBNESS', keywords: '手麻 腳麻 麻木 腕隧道 坐骨神經 神經根' },
-    { id: 'tool:redflag', group: '工具', title: '脊椎警訊：我需要多快就醫？', subtitle: '勾選症狀，看急診、盡快或門診', target: 'spine/TRIAGE', keywords: '腰痛 背痛 急診 馬尾 大小便 無力' }
+    { id: 'tool:redflag', group: '工具', title: '脊椎警訊：我需要多快就醫？', subtitle: '勾選症狀，看急診、盡快或門診', target: 'spine/TRIAGE', keywords: '腰痛 背痛 急診 馬尾 大小便 無力' },
+    { id: 'tool:fib4', group: '工具', title: 'FIB-4 肝纖維化指數計算器', subtitle: '輸入年齡、AST、ALT 與血小板，評估肝硬化風險', target: 'gastro/MASLD_FATTY', keywords: 'FIB-4 肝纖維化 脂肪肝 肝硬化 AST ALT GOT GPT 血小板' },
+    { id: 'tool:abdpain', group: '工具', title: '腹痛九宮格與消化道紅旗分流器', subtitle: '依腹痛部位與黑便/吐血/黃疸警訊判斷急診或門診', target: 'gastro/ENDOSCOPY_TRIAGE', keywords: '腹痛 肚子痛 胃痛 右上腹痛 盲腸炎 膽囊炎 胰臟炎 黑便' },
+    { id: 'tool:bowelprep', group: '工具', title: '大腸鏡低渣飲食與清腸合格檢查器', subtitle: '檢查前 3 天飲食紅綠燈與糞便清澈度對照', target: 'gastro/ENDOSCOPY_TRIAGE', keywords: '大腸鏡 低渣飲食 清腸 瀉藥 息肉' },
+    { id: 'tool:cancerscreen', group: '工具', title: '台灣公費六大癌症篩檢個人化資格試算器', subtitle: '依年齡、性別、吸菸與家族史列出免費癌篩項目', target: 'oncology/SCREENING_TW', keywords: '癌症篩檢 公費癌篩 六癌篩檢 LDCT 乳房攝影 糞便潛血 抹片' },
+    { id: 'tool:cancerredflag', group: '工具', title: '癌症十大警訊與化療急症分流器', subtitle: '發燒 ≥38°C 嗜中性球低下、脊髓壓迫與十大症狀評估', target: 'oncology/OVERVIEW', keywords: '癌症警訊 化療發燒 嗜中性球低下 體重減輕 腫塊' }
   );
 
   return docs;

@@ -35,6 +35,9 @@ import {
   Calculator,
   HeartHandshake,
   UserCheck,
+  Stethoscope,
+  Ribbon,
+  Bone,
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal } from '../../context/ModalContext';
@@ -56,6 +59,9 @@ const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigat
 
 /** 熱門即時探索主題標籤 */
 const POPULAR_CHIPS = [
+  { label: '肝膽腸胃科 12 課', hash: 'gastro', icon: Stethoscope, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
+  { label: '癌症防治與六癌篩檢', hash: 'oncology', icon: Ribbon, tone: 'text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
+  { label: '神經骨科與脊椎關節', hash: 'spine', icon: Bone, tone: 'text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900/60 bg-amber-50/70 dark:bg-amber-950/30' },
   { label: 'ApoB 心血管早篩', hash: 'cardiometabolic', icon: HeartPulse, tone: 'text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
   { label: '地中海飲食法', hash: 'diet/patterns', icon: Utensils, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
   { label: '科學增肌減脂', hash: 'obesity', icon: Scale, tone: 'text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900/60 bg-amber-50/70 dark:bg-amber-950/30' },
@@ -70,7 +76,7 @@ const POPULAR_CHIPS = [
   { label: '史丹佛生理嘆氣', hash: 'mental', icon: Wind, tone: 'text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900/60 bg-teal-50/70 dark:bg-teal-950/30' },
 ];
 
-type TopicCategory = 'all' | 'diet' | 'exercise' | 'cardio' | 'sleep_mind' | 'recomp_aging' | 'systems';
+type TopicCategory = 'all' | 'specialty_care' | 'diet' | 'exercise' | 'cardio' | 'sleep_mind' | 'recomp_aging' | 'systems';
 
 interface CuratedTopic {
   id: string;
@@ -84,8 +90,41 @@ interface CuratedTopic {
   badges: string[];
 }
 
-/** 18 個核心全景主題卡片（滿足「信達雅」且讓使用者直覺找到興趣主題） */
+/** 21 個核心全景主題卡片（滿足「信達雅」且讓使用者直覺找到興趣主題） */
 const CURATED_TOPICS: CuratedTopic[] = [
+  {
+    id: 't-gastro',
+    category: 'specialty_care',
+    title_zh: '肝膽腸胃科全方位專區',
+    title_en: 'Gastroenterology & Hepatology',
+    tagline_zh: '胃食道逆流、幽門桿菌、腸躁症 FODMAP、大腸息肉、脂肪肝 FIB-4、B/C 肝與膽胰急症',
+    hash: 'gastro',
+    icon: Stethoscope,
+    tone: 'emerald',
+    badges: ['12 章節全圖解', 'FIB-4 計算器', '清腸與腹痛分流'],
+  },
+  {
+    id: 't-oncology',
+    category: 'specialty_care',
+    title_zh: '所有主要癌症防治與精準醫療',
+    title_en: 'Clinical Oncology & Screening',
+    tagline_zh: '台灣公費六癌篩檢、肺/大腸/乳/肝膽胰/胃食道頭頸/婦科泌尿/血液癌、標靶免疫 ADC 與營養',
+    hash: 'oncology',
+    icon: Ribbon,
+    tone: 'rose',
+    badges: ['12 章節全圖解', '公費六癌試算', '標靶·免疫·質子'],
+  },
+  {
+    id: 't-spine-neuro',
+    category: 'specialty_care',
+    title_zh: '神經骨科與脊椎關節專區',
+    title_en: 'Neuro-Orthopedics & Spine',
+    tagline_zh: '頸腰椎神經根、骨質疏鬆、微創內視鏡、腕隧道神經卡壓、退化性膝髖關節、五十肩與足踝步態',
+    hash: 'spine',
+    icon: Bone,
+    tone: 'amber',
+    badges: ['20 章節全圖解', '麻木地圖定位', '骨鬆與關節復健'],
+  },
   {
     id: 't-diet-patterns',
     category: 'diet',
@@ -288,6 +327,7 @@ const CURATED_TOPICS: CuratedTopic[] = [
 
 const CATEGORY_TABS: { id: TopicCategory; label_zh: string }[] = [
   { id: 'all', label_zh: '✨ 全部精選主題' },
+  { id: 'specialty_care', label_zh: '🏥 肝膽腸胃 · 癌症 · 神經骨科' },
   { id: 'diet', label_zh: '🥗 飲食與營養' },
   { id: 'exercise', label_zh: '🏃 運動與體能' },
   { id: 'cardio', label_zh: '🫀 心血代謝與檢驗' },
@@ -862,6 +902,41 @@ const SymptomToCourseGuide: React.FC<{ onNavigate: (hash: string) => void }> = (
       hash: 'learn/prevent/L-PRE-06',
       action: '每餐補足 2.5g 白胺酸蛋白質 (約 1 顆蛋+1 份豆/魚)，每週 2 次居家椅子深蹲',
     },
+    {
+      symptom: '經常胃脹、火燒心、胸骨後灼熱或噯氣泛酸',
+      mechanism: '下食道括約肌一過性鬆弛、裂孔疝氣或胃酸過度刺激',
+      lesson: '胃食道逆流與消化性潰瘍深度防護',
+      hash: 'gastro/GERD_ULCER',
+      action: '睡前 3 小時禁食，戒除含糖飲與高脂宵夜，胃藥 PPI 於早餐前 30 分鐘空腹服用',
+    },
+    {
+      symptom: '想為自己與父母規劃真正救命的防癌健檢',
+      mechanism: '早期原位癌無症狀，抽血腫瘤標記偽陽性高，需依致病路徑專科早篩',
+      lesson: '台灣公費六大癌症篩檢與腫瘤標記解讀',
+      hash: 'oncology/SCREENING_TW',
+      action: '用試算器核對年齡與家族史，預約 LDCT 低劑量肺斷層、乳房攝影、糞便潛血或抹片',
+    },
+    {
+      symptom: '手指常麻（甩手稍緩）、或膝蓋上下樓梯無力痠軟',
+      mechanism: '腕隧道正中神經壓迫，或股四頭肌力量衰退導致髕股關節過載',
+      lesson: '周邊神經卡壓與退化性關節炎照護',
+      hash: 'spine/PERIPHERAL_NERVE',
+      action: '直立坐姿避免手腕過屈，減重 1 公斤即減少膝蓋 4 公斤負擔，每日練習直抬腿與臀橋',
+    },
+    {
+      symptom: '想減脂但怕流失肌肉、或體重卡在高原期',
+      mechanism: '極端節食引發代謝適應（BMR 下降）與骨骼肌分解',
+      lesson: '科學增肌減脂：熱量赤字與體組成重塑',
+      hash: 'obesity',
+      action: '每日蛋白質攝取達 1.6–2.2 g/kg，每週 3 次漸進阻力重訓，優先保留瘦體組織',
+    },
+    {
+      symptom: '想延緩細胞老化衰退、降低慢性發炎與退化風險',
+      mechanism: '細胞老化分泌表型（SASP）、粒線體功能障礙與表觀遺傳時鐘失調',
+      lesson: '抗老延壽：12 大細胞衰老標誌與激效反應',
+      hash: 'longevity',
+      action: '實踐 12:12 晝夜限時進食啟動細胞自噬，維持每週 150 分鐘 Zone 2 有氧改善粒線體',
+    },
   ];
 
   return (
@@ -960,6 +1035,34 @@ const HealthMasteryFrameworkTable: React.FC<{ onNavigate: (hash: string) => void
       focus: '成人預防保健、722 血壓、血糖三指標、LDL 風險階梯、KDIGO 腎病、FIB-4、代謝症候群、公費六癌與疫苗',
       time: '約 1.7 小時',
       link: 'learn/checkup',
+    },
+    {
+      pillar: '7. 專科臨床：肝膽腸胃消化醫學',
+      tracks: '肝膽腸胃科專區（5 單元 12 課）',
+      focus: '胃食道逆流 LA 分級、幽門桿菌除菌、低 FODMAP 腸躁飲食、大腸息肉腺瘤癌變、MASLD 脂肪肝逆轉、B/C 肝根治與膽胰急症',
+      time: '約 1.8 小時',
+      link: 'gastro',
+    },
+    {
+      pillar: '8. 專科臨床：癌症防治與精準醫療',
+      tracks: '所有主要癌症防治專區（5 單元 12 課）',
+      focus: '台灣公費六大癌症篩檢、肺/大腸/乳/肝膽胰/頭頸/婦泌/血癌、標靶藥物、PD-1 免疫、ADC 導彈、質子放療、抗癌高蛋白營養與緩和醫療',
+      time: '約 2.0 小時',
+      link: 'oncology',
+    },
+    {
+      pillar: '9. 專科臨床：神經骨科與脊椎關節',
+      tracks: '神經骨科與脊椎專區（7 單元 20 課）',
+      focus: '頸腰椎神經根、DXA 骨密度 T 值、FRAX 骨折風險、微創雙通道 UBE、腕/肘隧道神經卡壓、退化性膝髖關節炎、五十肩與步態防跌',
+      time: '約 2.5 小時',
+      link: 'spine',
+    },
+    {
+      pillar: '10. 代謝抗衰：增肌減脂與健康延壽',
+      tracks: '體組成重塑 (Obesity) 與長壽醫學 (Longevity)',
+      focus: '能量赤字與蛋白質槓桿、GLP-1 腸泌素利弊、12 大細胞衰老標誌、表觀遺傳生物年齡時鐘、激效反應與壓縮疾病假說',
+      time: '約 1.6 小時',
+      link: 'obesity',
     },
   ];
 

@@ -87,6 +87,8 @@ const SIMPLE_PILLARS: HealthPillar[] = [
   'checkup',
   'glossary',
   'spine',
+  'gastro',
+  'oncology',
   'hepb',
   'mindbody',
   'ltc',
@@ -112,6 +114,28 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   scoliosis: 'spine',
   caregiver: 'spine',
   'spine-care': 'spine',
+  'neuro-ortho': 'spine',
+  orthopedics: 'spine',
+  'carpal-tunnel': 'spine',
+  knee: 'spine',
+  shoulder: 'spine',
+  gi: 'gastro',
+  stomach: 'gastro',
+  gerd: 'gastro',
+  ibs: 'gastro',
+  ibd: 'gastro',
+  liver: 'gastro',
+  'fatty-liver': 'gastro',
+  masld: 'gastro',
+  cirrhosis: 'gastro',
+  gallbladder: 'gastro',
+  pancreas: 'gastro',
+  colonoscopy: 'gastro',
+  cancer: 'oncology',
+  tumor: 'oncology',
+  'lung-cancer': 'oncology',
+  'breast-cancer': 'oncology',
+  'colorectal-cancer': 'oncology',
   hepatitis: 'hepb',
   'hepatitis-b': 'hepb',
   hbv: 'hepb',
@@ -193,8 +217,12 @@ export type SpineTab =
   | 'ACUTE'
   | 'CHRONIC'
   | 'CAREGIVER'
-  | 'SPECIAL';
-/** Course order follows the six units in spineCareData.SPINE_UNITS. */
+  | 'SPECIAL'
+  | 'PERIPHERAL_NERVE'
+  | 'KNEE_HIP_OA'
+  | 'SHOULDER_UPPER'
+  | 'ANKLE_FOOT_NEURO';
+/** Course order follows the seven units in spineCareData.SPINE_UNITS. */
 export const SPINE_TABS: readonly SpineTab[] = [
   'OVERVIEW',
   'SPURS',
@@ -211,7 +239,65 @@ export const SPINE_TABS: readonly SpineTab[] = [
   'POSTURE',
   'EXERCISE',
   'SPECIAL',
+  'PERIPHERAL_NERVE',
+  'KNEE_HIP_OA',
+  'SHOULDER_UPPER',
+  'ANKLE_FOOT_NEURO',
   'TRIAGE',
+];
+export type GastroTab =
+  | 'OVERVIEW'
+  | 'GERD_ULCER'
+  | 'HP_GASTRIC'
+  | 'IBS_FODMAP'
+  | 'IBD_CARE'
+  | 'CRC_POLYPS'
+  | 'MASLD_FATTY'
+  | 'HEPATITIS_BC'
+  | 'CIRRHOSIS_PORTAL'
+  | 'GALLBLADDER_BILE'
+  | 'PANCREAS_CARE'
+  | 'ENDOSCOPY_TRIAGE';
+export const GASTRO_TABS: readonly GastroTab[] = [
+  'OVERVIEW',
+  'GERD_ULCER',
+  'HP_GASTRIC',
+  'IBS_FODMAP',
+  'IBD_CARE',
+  'CRC_POLYPS',
+  'MASLD_FATTY',
+  'HEPATITIS_BC',
+  'CIRRHOSIS_PORTAL',
+  'GALLBLADDER_BILE',
+  'PANCREAS_CARE',
+  'ENDOSCOPY_TRIAGE',
+];
+export type OncologyTab =
+  | 'OVERVIEW'
+  | 'SCREENING_TW'
+  | 'LUNG_CANCER'
+  | 'COLORECTAL_CANCER'
+  | 'BREAST_CANCER'
+  | 'LIVER_BILIARY_PANCREAS'
+  | 'GASTRIC_ESOPHAGEAL_HEADNECK'
+  | 'GYN_URO_CANCERS'
+  | 'THYROID_HEME_CANCERS'
+  | 'PRECISION_THERAPY'
+  | 'NUTRITION_SIDE_EFFECTS'
+  | 'SURVIVORSHIP_PALLIATIVE';
+export const ONCOLOGY_TABS: readonly OncologyTab[] = [
+  'OVERVIEW',
+  'SCREENING_TW',
+  'LUNG_CANCER',
+  'COLORECTAL_CANCER',
+  'BREAST_CANCER',
+  'LIVER_BILIARY_PANCREAS',
+  'GASTRIC_ESOPHAGEAL_HEADNECK',
+  'GYN_URO_CANCERS',
+  'THYROID_HEME_CANCERS',
+  'PRECISION_THERAPY',
+  'NUTRITION_SIDE_EFFECTS',
+  'SURVIVORSHIP_PALLIATIVE',
 ];
 export type HepbTab = 'OVERVIEW' | 'SPREAD' | 'TESTS' | 'PHASES' | 'TREATMENT' | 'MONITOR' | 'LIFE';
 export const HEPB_TABS: readonly HepbTab[] = ['OVERVIEW', 'SPREAD', 'TESTS', 'PHASES', 'TREATMENT', 'MONITOR', 'LIFE'];
@@ -281,6 +367,8 @@ export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
   mental: MENTAL_TABS,
   checkup: CHECKUP_TABS,
   spine: SPINE_TABS,
+  gastro: GASTRO_TABS,
+  oncology: ONCOLOGY_TABS,
   hepb: HEPB_TABS,
   mindbody: MINDBODY_TABS,
   ltc: LTC_TABS,

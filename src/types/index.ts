@@ -277,6 +277,8 @@ export type HealthPillar =
   | 'supplements'
   | 'mental'
   | 'spine'
+  | 'gastro'
+  | 'oncology'
   | 'hepb'
   | 'mindbody'
   | 'ltc';
