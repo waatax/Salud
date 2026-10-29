@@ -1,0 +1,407 @@
+{
+  "id": "lab_medicine",
+  "name_zh": "檢驗醫學 · 病理",
+  "name_en": "Laboratory Medicine & Pathology",
+  "division": "diagnostic_support",
+  "curriculum_zh": "臨床病理學、病理學 → 病理與檢驗醫學見習",
+  "scope_zh": "抽血、尿液、細菌培養、基因與分子檢測，以及手術或切片組織的病理診斷。病人很少直接看到檢驗科與病理科醫師，但多數重大診斷靠他們。這裡教你抽血前準備、看懂報告與病理報告、以及腫瘤標記的正確用法。",
+  "subspecialties_zh": [
+    "臨床生化與血液學",
+    "微生物與感染檢驗",
+    "分子病理與基因檢測",
+    "外科病理與細胞病理",
+    "輸血醫學"
+  ],
+  "when_to_visit_zh": [
+    "抽血前不知道要不要空腹、要不要停藥",
+    "健檢報告出現「紅字」",
+    "拿到病理報告但看不懂名詞",
+    "自費健檢想加做腫瘤標記"
+  ],
+  "salud_links": [
+    {
+      "hash": "checkup/labs",
+      "label_zh": "看懂健檢數值"
+    },
+    {
+      "hash": "checkup/quick",
+      "label_zh": "健檢快速指南"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "檢驗醫學部／病理部",
+    "NCKUH": "病理部",
+    "VGH": "病理檢驗部"
+  },
+  "block": "diagnostics",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "8 小時",
+          "label_zh": "空腹血糖需禁食"
+        },
+        {
+          "value": "95%",
+          "label_zh": "參考範圍涵蓋健康人比例"
+        },
+        {
+          "value": "≥2–3 天",
+          "label_zh": "高劑量生物素抽血前暫停（依醫囑）"
+        }
+      ],
+      "causes_zh": [
+        "（造成誤差的常見原因）未空腹、抽血前劇烈運動",
+        "脫水、剛喝酒、熬夜",
+        "保健品（生物素、肌酸）與藥物",
+        "抽血技術或檢體放置太久（溶血造成鉀假性升高）"
+      ],
+      "prevention_zh": [
+        "依年齡規律成人健檢，及早發現三高與肝腎問題"
+      ],
+      "prognosis_zh": "多數單次輕微異常在複檢時恢復正常；趨勢持續惡化者早期介入效果最好。",
+      "timeline": [
+        {
+          "when_zh": "抽血前 1–3 天",
+          "goal_zh": "維持平常狀態",
+          "do_zh": [
+            "避免熬夜、喝酒、劇烈運動",
+            "確認是否需停保健品"
+          ]
+        },
+        {
+          "when_zh": "抽血當天",
+          "goal_zh": "正確空腹",
+          "do_zh": [
+            "空腹 8 小時（可喝白開水）",
+            "慢性病藥物依醫囑服用"
+          ]
+        },
+        {
+          "when_zh": "拿到報告後",
+          "goal_zh": "正確解讀",
+          "do_zh": [
+            "與過去數值比較",
+            "回診討論是否需複檢"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "這個紅字代表什麼？需要複檢嗎？",
+        "和我上次的數值比起來如何？",
+        "我的保健品或藥物會影響結果嗎？",
+        "多久要再追蹤一次？"
+      ],
+      "id": "blood_test_prep",
+      "kind": "topic",
+      "name_zh": "抽血前準備與看懂檢驗報告",
+      "name_en": "Preparing for Blood Tests & Reading Lab Reports",
+      "icd10": "Z01.812",
+      "summary_zh": "「參考範圍」是健康人群中間 95% 的數值，所以每 20 項檢驗就可能有 1 項落在範圍外但完全正常。判讀要看趨勢、合併症狀與其他數值。空腹主要影響血糖與三酸甘油酯；高劑量生物素（維生素 B7）會干擾甲狀腺、心肌酵素等多種免疫檢驗，抽血前應告知或暫停。",
+      "symptoms_zh": [
+        "報告出現紅字或「H／L」標記",
+        "數值與身體感受不符"
+      ],
+      "diagnosis_zh": [
+        "空腹：血糖、三酸甘油酯；總膽固醇與 LDL 可非空腹",
+        "運動影響：CK、肝指數、尿蛋白（避免抽血前 24–48 小時劇烈運動）",
+        "藥物時機：甲狀腺素在抽血後再吃；部分藥物需抽「谷底濃度」",
+        "異常值通常需複檢確認"
+      ],
+      "treatment_zh": [
+        "輕微異常：依醫師建議數週到數月後複檢",
+        "持續異常：找原因並轉專科",
+        "危急值：醫院會主動通知立即處理"
+      ],
+      "postop_zh": [
+        "抽血後按壓 3–5 分鐘（服用抗凝血劑者更久），不要揉",
+        "當天避免該側手提重物"
+      ],
+      "diet_zh": [
+        "空腹期間只喝白開水，不喝咖啡、茶、果汁",
+        "抽血後即可進食，糖尿病人帶點心防低血糖"
+      ],
+      "exercise_zh": [
+        "抽血前 1–2 天避免高強度或長距離運動",
+        "抽血後當天可正常活動"
+      ],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "用健保快易通 App「健康存摺」追蹤歷年檢驗趨勢",
+        "把每次報告存在同一個資料夾",
+        "紅字先別慌，看看是否只有一點點、是否與上次差不多"
+      ],
+      "tw_resources_zh": [
+        "成人預防保健：30–39 歲每 5 年、40–64 歲每 3 年、65 歲以上每年（2025 年起新增尿酸）",
+        "健保快易通 App 健康存摺查詢檢驗紀錄"
+      ],
+      "red_flags_zh": [
+        "醫院主動通知的危急值（如鉀極高、血糖極低）",
+        "報告異常合併胸痛、喘、意識改變"
+      ],
+      "evidence": [
+        {
+          "label": "Nordestgaard BG et al. Fasting is not routinely required for determination of a lipid profile: EAS/EFLM joint consensus (Eur Heart J)",
+          "year": 2016,
+          "level": "consensus"
+        },
+        {
+          "label": "US FDA Safety Communication: Biotin (Vitamin B7) interference with laboratory tests – update",
+          "year": 2019,
+          "level": "official"
+        },
+        {
+          "label": "衛生福利部國民健康署：成人預防保健服務（2025 年擴大至 30 歲）",
+          "year": 2025,
+          "level": "official"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "checkup/labs",
+          "label_zh": "常見檢驗數值解讀"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "3–7 天",
+          "label_zh": "一般病理報告時間（特殊染色更久）"
+        },
+        {
+          "value": "TNM",
+          "label_zh": "腫瘤、淋巴結、遠端轉移分期"
+        },
+        {
+          "value": "切緣",
+          "label_zh": "陰性＝邊緣無癌細胞"
+        }
+      ],
+      "causes_zh": [
+        "（為什麼需要病理）影像只能「懷疑」，切片才能確診",
+        "生物標記決定能否使用標靶或免疫治療"
+      ],
+      "prevention_zh": [],
+      "prognosis_zh": "病理報告提供的分期與生物標記是預估預後與選擇治療最重要的依據，現在許多癌症可依生物標記選擇更有效的精準治療。",
+      "timeline": [
+        {
+          "when_zh": "切片後 3–7 天",
+          "goal_zh": "取得初步診斷",
+          "do_zh": [
+            "回診聽說明",
+            "把問題寫下來"
+          ]
+        },
+        {
+          "when_zh": "1–3 週",
+          "goal_zh": "生物標記與分期",
+          "do_zh": [
+            "完成特殊染色或基因檢測",
+            "多專科討論治療"
+          ]
+        },
+        {
+          "when_zh": "治療期間",
+          "goal_zh": "以報告引導治療",
+          "do_zh": [
+            "保存所有報告影本",
+            "必要時申請第二意見"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "這是哪一種癌？分級與分期是多少？",
+        "切緣乾淨嗎？淋巴結有轉移嗎？",
+        "有哪些生物標記？我適合標靶或免疫治療嗎？",
+        "需要做基因檢測或病理會診嗎？"
+      ],
+      "id": "pathology_report",
+      "kind": "topic",
+      "name_zh": "看懂病理報告：良惡性、分級、分期與生物標記",
+      "name_en": "Understanding Your Pathology Report",
+      "icd10": "Z03.89",
+      "summary_zh": "病理報告是癌症診斷的「最終答案」，決定治療方向。報告會說明：是不是惡性、哪一種組織型態、分化程度（分級）、腫瘤大小與侵犯範圍（分期的一部分）、切緣是否乾淨、淋巴結與血管淋巴管侵犯，以及荷爾蒙受體、HER2、PD-L1、基因突變等生物標記。",
+      "symptoms_zh": [
+        "等待報告期間焦慮是正常的",
+        "專有名詞多、看不懂"
+      ],
+      "diagnosis_zh": [
+        "組織型態：如腺癌、鱗狀細胞癌、淋巴瘤",
+        "分級（G1–G3）：細胞越不像正常組織，分級越高",
+        "病理分期（pTNM）：手術後綜合大小、淋巴結、侵犯",
+        "生物標記：ER／PR／HER2（乳癌）、EGFR／ALK（肺癌）、MSI／MMR（大腸癌）、PD-L1"
+      ],
+      "treatment_zh": [
+        "多專科團隊（腫瘤委員會）依病理擬定治療",
+        "必要時申請病理切片會診（第二意見）",
+        "基因檢測（次世代定序 NGS）尋找用藥機會"
+      ],
+      "postop_zh": [
+        "手術後回診時要求取得完整病理報告影本",
+        "保存切片（蠟塊）可日後補做檢測"
+      ],
+      "diet_zh": [],
+      "exercise_zh": [],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "請醫師在報告上圈出最重要的 3 個重點",
+        "不要只看網路上的存活率數字，個人差異很大",
+        "可請家人陪同回診",
+        "等待期間的焦慮可找癌症資源中心或心理師談談，維持日常活動"
+      ],
+      "tw_resources_zh": [
+        "可向醫院申請病歷與病理報告影本、切片借調",
+        "健保給付部分癌別的次世代定序基因檢測（依給付規定）",
+        "各醫院癌症資源中心"
+      ],
+      "red_flags_zh": [
+        "（非醫療急症）等待過久或報告與病情不符時，主動詢問主治醫師"
+      ],
+      "evidence": [
+        {
+          "label": "AJCC Cancer Staging Manual, 8th Edition",
+          "year": 2017,
+          "level": "guideline"
+        },
+        {
+          "label": "College of American Pathologists (CAP) Cancer Protocol Templates",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "Mosele MF et al. Recommendations for the use of next-generation sequencing (NGS) for patients with advanced cancer: ESMO Precision Medicine Working Group (Ann Oncol)",
+          "year": 2024,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/PRECISION_THERAPY",
+          "label_zh": "精準醫療與生物標記"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "55–69 歲",
+          "label_zh": "PSA 篩檢需醫病共享決策"
+        },
+        {
+          "value": "每 6 個月",
+          "label_zh": "高風險肝病 AFP + 超音波"
+        },
+        {
+          "value": "趨勢",
+          "label_zh": "比單次數值更重要"
+        }
+      ],
+      "causes_zh": [
+        "（偽陽性原因）CEA：吸菸、發炎性腸病、肝病",
+        "CA19-9：膽道阻塞、胰臟炎、糖尿病控制差",
+        "CA-125：月經、懷孕、子宮內膜異位、腹水",
+        "PSA：攝護腺肥大、發炎、騎腳踏車或射精後"
+      ],
+      "prevention_zh": [
+        "依國健署公費癌症篩檢時程完成篩檢"
+      ],
+      "prognosis_zh": "在健康人身上，大多數輕度升高的腫瘤標記最終找不到癌症；在已確診病人身上，趨勢變化是追蹤治療效果的好工具。",
+      "timeline": [
+        {
+          "when_zh": "發現升高",
+          "goal_zh": "排除干擾",
+          "do_zh": [
+            "回想近期感染、月經、吸菸、運動",
+            "與醫師討論複檢時間"
+          ]
+        },
+        {
+          "when_zh": "4–8 週後",
+          "goal_zh": "複檢",
+          "do_zh": [
+            "同一實驗室複驗",
+            "看趨勢"
+          ]
+        },
+        {
+          "when_zh": "持續上升",
+          "goal_zh": "找原因",
+          "do_zh": [
+            "依標記安排影像或內視鏡"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "這個標記升高可能有哪些非癌症原因？",
+        "需要複檢嗎？多久後？",
+        "我應該做哪些「有證據」的癌症篩檢？",
+        "（已確診）這個標記適合用來追蹤我的癌症嗎？"
+      ],
+      "id": "tumor_markers",
+      "kind": "topic",
+      "name_zh": "腫瘤標記的正確用法（CEA、AFP、CA19-9、CA-125、PSA）",
+      "name_en": "Tumour Markers: CEA, AFP, CA19-9, CA-125 & PSA",
+      "icd10": "R97",
+      "summary_zh": "腫瘤標記主要用於「已確診癌症的治療監測與復發追蹤」，不適合拿來篩檢一般健康人。偽陽性很常見：吸菸使 CEA 升高、膽道發炎使 CA19-9 升高、月經或子宮內膜異位症使 CA-125 升高；偽陰性也常見，早期癌症多數不會升高。例外是 B 肝或肝硬化者以 AFP 搭配超音波監測，以及 PSA 經醫病共享決策後篩檢攝護腺癌。",
+      "symptoms_zh": [
+        "腫瘤標記升高本身沒有症狀",
+        "常見情境：自費健檢出現紅字而焦慮"
+      ],
+      "diagnosis_zh": [
+        "單次輕度升高：排除干擾因素後數週複檢",
+        "持續上升：依標記與症狀安排影像或內視鏡",
+        "已確診癌症：與治療前比較趨勢"
+      ],
+      "treatment_zh": [
+        "不要因單次輕度升高就做全身 PET 或侵入性檢查",
+        "依臨床情境由醫師決定下一步",
+        "癌症追蹤：標記上升合併影像確認才調整治療"
+      ],
+      "postop_zh": [],
+      "diet_zh": [],
+      "exercise_zh": [],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "PSA 檢查前 48 小時避免騎腳踏車與射精",
+        "把錢花在有實證的篩檢：糞便潛血、乳房攝影、子宮頸抹片／HPV、口腔黏膜、LDCT（符合資格）、胃幽門桿菌",
+        "不要因為標記正常就忽略症狀"
+      ],
+      "tw_resources_zh": [
+        "國健署公費六癌篩檢：大腸癌、乳癌、子宮頸癌、口腔癌、肺癌（LDCT 特定族群）、胃幽門桿菌（2026 年起）",
+        "B、C 肝帶原者 AFP 與超音波追蹤（健保）"
+      ],
+      "red_flags_zh": [
+        "腫瘤標記持續快速上升合併體重下降或疼痛",
+        "已確診癌症病人標記突然大幅上升"
+      ],
+      "evidence": [
+        {
+          "label": "USPSTF: Screening for Prostate Cancer (JAMA)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "USPSTF: Screening for Ovarian Cancer (JAMA)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "AASLD Practice Guidance on prevention, diagnosis, and treatment of hepatocellular carcinoma (Hepatology)",
+          "year": 2023,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/SCREENING_TW",
+          "label_zh": "台灣六癌篩檢"
+        }
+      ]
+    }
+  ]
+}

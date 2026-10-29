@@ -1,10 +1,11 @@
 import type { SearchDoc } from '../learning/searchIndex';
-import { ALL_DEPARTMENTS, DIVISION_BY_ID } from '.';
+import { DIVISION_BY_ID } from '.';
+import { ALL_DEPARTMENTS } from './full';
 import { SYMPTOMS } from './symptoms';
 
 /**
  * Search entries for the clinical knowledge base. Built from the full data, but the app never
- * imports this at runtime: `scripts/gen-clinic-search.ts` snapshots it into
+ * imports this at runtime: `scripts/gen-clinic-data.ts` snapshots it into
  * `searchLite.generated.ts` so the search palette does not download every care pathway.
  * clinic.test.ts fails if the snapshot drifts from the data.
  */

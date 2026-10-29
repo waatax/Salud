@@ -1,0 +1,418 @@
+{
+  "id": "imaging",
+  "name_zh": "影像醫學 · 核醫",
+  "name_en": "Radiology & Nuclear Medicine",
+  "division": "diagnostic_support",
+  "curriculum_zh": "放射線學、核子醫學 → 影像醫學部見習",
+  "scope_zh": "X 光、超音波、電腦斷層（CT）、磁振造影（MRI）、乳房攝影、介入性放射（栓塞、引流），以及核醫的正子造影（PET）、骨骼掃描、心肌灌注與放射性碘治療。病人最常遇到的問題是：檢查前怎麼準備、顯影劑安不安全、輻射劑量、報告怎麼看。",
+  "subspecialties_zh": [
+    "CT 與 MRI",
+    "超音波與乳房影像",
+    "介入性放射（血管栓塞、經皮引流）",
+    "正子造影與核醫治療",
+    "低劑量胸部 CT 肺癌篩檢"
+  ],
+  "when_to_visit_zh": [
+    "醫師安排 CT、MRI、PET 等檢查，想知道如何準備",
+    "曾對顯影劑過敏或有腎功能不全",
+    "懷孕或哺乳中需要做影像檢查",
+    "收到 LDCT 肺結節報告不知道怎麼辦"
+  ],
+  "salud_links": [
+    {
+      "hash": "oncology/SCREENING_TW",
+      "label_zh": "台灣癌症篩檢（含 LDCT）"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "影像醫學部／核子醫學部",
+    "NCKUH": "影像醫學部",
+    "VGH": "影像診療部／核醫部",
+    "CCH": "影像醫學部／核子醫學科"
+  },
+  "block": "diagnostics",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "<30",
+          "label_zh": "eGFR 低於此值需評估顯影劑腎病預防"
+        },
+        {
+          "value": "≈0.01–0.04%",
+          "label_zh": "顯影劑嚴重過敏反應發生率"
+        },
+        {
+          "value": "4–6 小時",
+          "label_zh": "腹部顯影 CT 常見禁食時間（依院所）"
+        }
+      ],
+      "causes_zh": [
+        "（需要特別注意的人）曾對顯影劑過敏、氣喘或多重藥物過敏",
+        "慢性腎病、脫水、使用 metformin",
+        "體內有心律調節器、人工耳蝸、金屬碎片",
+        "懷孕、幽閉恐懼"
+      ],
+      "prevention_zh": [
+        "不必要的影像檢查不做（「Choosing Wisely」原則）",
+        "每次檢查前主動告知過敏與植入物"
+      ],
+      "prognosis_zh": "絕大多數人做顯影檢查都安全；少數過敏反應在醫院中可立即處理。",
+      "timeline": [
+        {
+          "when_zh": "檢查前 1–7 天",
+          "goal_zh": "安全評估",
+          "do_zh": [
+            "確認過敏、腎功能、植入物",
+            "詢問禁食與停藥規定"
+          ]
+        },
+        {
+          "when_zh": "檢查當天",
+          "goal_zh": "順利完成",
+          "do_zh": [
+            "移除金屬物品",
+            "有不適立即告知技術師"
+          ]
+        },
+        {
+          "when_zh": "檢查後 1–3 天",
+          "goal_zh": "恢復與看報告",
+          "do_zh": [
+            "多喝水",
+            "回診由醫師說明報告"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "這個檢查一定要打顯影劑嗎？",
+        "我腎功能不好，需要什麼預防？",
+        "我有植入物，可以做 MRI 嗎？",
+        "報告什麼時候出來？誰會跟我說明？"
+      ],
+      "id": "ct_mri_contrast",
+      "kind": "topic",
+      "name_zh": "CT／MRI 檢查準備與顯影劑安全",
+      "name_en": "Preparing for CT/MRI & Contrast Safety",
+      "icd10": "Z01.89 / T50.8X5",
+      "summary_zh": "CT 常用含碘顯影劑、MRI 常用含釓顯影劑，能讓血管與病灶更清楚。嚴重過敏反應很少見；現代研究顯示，含碘顯影劑造成腎損傷的風險比過去認為的低，eGFR <30 才需特別預防。MRI 沒有輻射，但有強磁場，心律調節器或體內金屬需事先確認相容性。",
+      "symptoms_zh": [
+        "顯影劑注射時全身發熱、口中金屬味屬正常",
+        "輕度過敏：皮膚癢、蕁麻疹",
+        "嚴重過敏：喘、喉嚨緊、血壓下降（立即處理）",
+        "延遲型皮疹可在數小時到數天後出現"
+      ],
+      "diagnosis_zh": [
+        "檢查前填寫問卷：過敏、腎功能、金屬植入物、懷孕",
+        "高風險者近期 eGFR",
+        "醫師評估是否真的需要顯影劑或改用其他檢查"
+      ],
+      "treatment_zh": [
+        "曾有過敏：更換顯影劑品牌，必要時事前類固醇與抗組織胺（依醫囑）",
+        "腎功能差：使用最低劑量並靜脈補充水分",
+        "Metformin：eGFR <30 或急性腎損傷者檢查後暫停 48 小時，複驗腎功能再恢復",
+        "幽閉恐懼：事先告知、可安排開放式 MRI 或輕度鎮靜"
+      ],
+      "postop_zh": [
+        "檢查後多喝水（無限水者）協助排出顯影劑",
+        "觀察 30 分鐘無不適再離開",
+        "哺乳者不需停止哺乳（依 ACR 建議）"
+      ],
+      "diet_zh": [
+        "依院所指示禁食（通常 4–6 小時，清水可依規定）",
+        "糖尿病人禁食期間調整降血糖藥，避免低血糖",
+        "檢查後恢復正常飲食"
+      ],
+      "exercise_zh": [
+        "檢查後即可正常活動",
+        "核醫或部分特殊檢查前可能需避免劇烈運動（依指示）"
+      ],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "保留過去的影像光碟與報告，避免重複檢查",
+        "知道自己的 eGFR 與過敏史",
+        "健保快易通 App 可查詢部分影像報告"
+      ],
+      "tw_resources_zh": [
+        "健保署「健康存摺」可查詢影像檢查紀錄",
+        "影像光碟可向原院申請（可能酌收費用）"
+      ],
+      "red_flags_zh": [
+        "注射後喘、喉嚨緊、嘴唇腫、頭暈：立即告知醫護",
+        "檢查後數天尿量減少、水腫"
+      ],
+      "evidence": [
+        {
+          "label": "ACR Manual on Contrast Media",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "Davenport MS et al. Use of Intravenous Iodinated Contrast Media in Patients with Kidney Disease: Consensus Statements from the ACR and NKF (Radiology)",
+          "year": 2020,
+          "level": "consensus"
+        },
+        {
+          "label": "Weinreb JC et al. Use of Intravenous Gadolinium-based Contrast Media in Patients with Kidney Disease: Consensus Statements from the ACR and NKF (Radiology)",
+          "year": 2021,
+          "level": "consensus"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≈1–1.5 mSv",
+          "label_zh": "一次低劑量胸部 CT"
+        },
+        {
+          "value": "≈2–3 mSv",
+          "label_zh": "全球每年自然背景輻射"
+        },
+        {
+          "value": "20 包‧年",
+          "label_zh": "2025 年起公費 LDCT 重度吸菸門檻（50–74 歲）"
+        }
+      ],
+      "causes_zh": [
+        "（需要 LDCT 的人）重度吸菸史、一等親肺癌家族史",
+        "職業暴露（石綿、氡）、空氣污染",
+        "（輻射風險較高者）兒童、孕婦、反覆接受 CT 者"
+      ],
+      "prevention_zh": [
+        "戒菸、避免二手菸與廚房油煙",
+        "只在有明確適應症時接受 CT",
+        "兒童影像優先考慮超音波或 MRI"
+      ],
+      "prognosis_zh": "絕大多數 LDCT 發現的結節是良性；早期發現的肺癌手術後五年存活率高。過度診斷的風險在不吸菸女性較明顯，應與醫師討論。",
+      "timeline": [
+        {
+          "when_zh": "收到報告",
+          "goal_zh": "了解分級",
+          "do_zh": [
+            "回診讓醫師說明 Lung-RADS 類別",
+            "不要自行上網對號入座"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "依分級追蹤",
+          "do_zh": [
+            "按時回診 LDCT",
+            "比較結節變化"
+          ]
+        },
+        {
+          "when_zh": "每 1–2 年",
+          "goal_zh": "持續篩檢（符合資格者）",
+          "do_zh": [
+            "依國健署公費資格",
+            "持續戒菸"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的結節屬於 Lung-RADS 幾類？需要多久追蹤？",
+        "這個結節需要切片或手術嗎？",
+        "我符合公費 LDCT 嗎？多久做一次？",
+        "這幾年做了多少次 CT？輻射累積需要擔心嗎？"
+      ],
+      "id": "radiation_dose_ldct",
+      "kind": "topic",
+      "name_zh": "醫療輻射劑量與低劑量 CT 肺癌篩檢報告",
+      "name_en": "Medical Radiation Dose & Low-dose CT Lung Screening Reports",
+      "icd10": "Z12.2 / R91.1",
+      "summary_zh": "一張胸部 X 光的輻射劑量約等於幾天的自然背景輻射；一次低劑量胸部 CT（LDCT）約 1–1.5 毫西弗（mSv），約數個月的自然背景量。台灣 2022 年起提供有家族史與重度吸菸者公費 LDCT，2025 年再擴大。肺結節多數是良性，依 Lung-RADS 分級追蹤；也要了解在不吸菸女性中，LDCT 可能帶來「過度診斷」。",
+      "symptoms_zh": [
+        "篩檢對象通常沒有症狀",
+        "肺結節本身多無症狀"
+      ],
+      "diagnosis_zh": [
+        "LDCT 報告以 Lung-RADS 分級：1–2 類多為良性定期篩檢，3 類 6 個月追蹤，4 類需進一步檢查",
+        "結節大小、實心或毛玻璃、成長速度是判斷重點",
+        "持續毛玻璃結節成長緩慢，多以追蹤為主"
+      ],
+      "treatment_zh": [
+        "依分級：定期 LDCT 追蹤、PET-CT、切片或手術",
+        "多專科討論避免不必要的侵入性檢查",
+        "吸菸者同時戒菸（篩檢是戒菸的好時機）"
+      ],
+      "postop_zh": [],
+      "diet_zh": [],
+      "exercise_zh": [],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "保存每次 LDCT 影像與報告，換醫院時一起帶",
+        "記錄自己的醫療輻射檢查次數",
+        "懷孕或可能懷孕時告知醫師"
+      ],
+      "tw_resources_zh": [
+        "國健署肺癌早期偵測計畫：2025 年起家族史篩檢年齡下修（男 45 歲、女 40 歲起），重度吸菸者 50–74 歲吸菸史達 20 包‧年（每 2 年 1 次，以國健署公告為準）",
+        "戒菸專線 0800-636363"
+      ],
+      "red_flags_zh": [
+        "咳血、持續咳嗽超過 3 週",
+        "體重不明下降、聲音沙啞",
+        "胸痛合併喘"
+      ],
+      "evidence": [
+        {
+          "label": "American College of Radiology Lung-RADS v2022",
+          "year": 2022,
+          "level": "guideline"
+        },
+        {
+          "label": "Gao W et al. Association of Computed Tomographic Screening Promotion With Lung Cancer Overdiagnosis Among Asian Women (JAMA Intern Med)",
+          "year": 2022,
+          "level": "cohort"
+        },
+        {
+          "label": "衛生福利部國民健康署：肺癌早期偵測計畫（2025 年擴大）",
+          "year": 2025,
+          "level": "official"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/LUNG_CANCER",
+          "label_zh": "肺癌篩檢與精準治療"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "4–6 小時",
+          "label_zh": "FDG PET 前禁食"
+        },
+        {
+          "value": "1–2 週",
+          "label_zh": "碘-131 治療前低碘飲食"
+        },
+        {
+          "value": "數天",
+          "label_zh": "碘-131 治療後與孕婦、幼兒保持距離"
+        }
+      ],
+      "causes_zh": [
+        "（常見檢查原因）癌症分期與追蹤",
+        "骨頭疼痛疑骨轉移",
+        "胸痛疑冠心病、無法做運動心電圖",
+        "甲狀腺亢進或甲狀腺癌術後"
+      ],
+      "prevention_zh": [
+        "依醫囑做必要的檢查，避免重複",
+        "孕婦與哺乳者事先告知"
+      ],
+      "prognosis_zh": "核醫檢查輻射劑量可接受、安全性高；碘-131 治療甲狀腺亢進多數一次即可控制，部分轉為甲狀腺低下需終身補充甲狀腺素。",
+      "timeline": [
+        {
+          "when_zh": "檢查前 1–2 週",
+          "goal_zh": "準備",
+          "do_zh": [
+            "碘-131：低碘飲食、依醫囑停甲狀腺素或打 rhTSH",
+            "PET：控制血糖"
+          ]
+        },
+        {
+          "when_zh": "檢查當天",
+          "goal_zh": "順利完成",
+          "do_zh": [
+            "PET：禁食、注射後安靜休息 45–60 分鐘",
+            "依指示排尿後掃描"
+          ]
+        },
+        {
+          "when_zh": "檢查後",
+          "goal_zh": "防護與追蹤",
+          "do_zh": [
+            "多喝水",
+            "回診看報告"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "這個檢查要回答什麼問題？",
+        "我有糖尿病，PET 前怎麼調藥？",
+        "碘-131 後要隔離多久？可以抱小孩嗎？",
+        "治療後多久可以懷孕？"
+      ],
+      "id": "pet_nuclear",
+      "kind": "topic",
+      "name_zh": "正子造影、骨骼掃描與放射性碘治療",
+      "name_en": "PET-CT, Bone Scan & Radioactive Iodine Therapy",
+      "icd10": "Z01.89 / C73",
+      "summary_zh": "核醫檢查是把微量放射性藥物注入體內，看器官「功能」而非只看形狀。FDG 正子造影常用於癌症分期與治療反應評估；骨骼掃描找骨轉移；心肌灌注掃描評估冠心病。放射性碘（I-131）則用來治療甲狀腺亢進與分化型甲狀腺癌，治療後需短期隔離與防護。",
+      "symptoms_zh": [
+        "檢查本身多無不適",
+        "碘-131 治療後可能口乾、唾液腺腫痛、噁心"
+      ],
+      "diagnosis_zh": [
+        "FDG PET：血糖過高會影響準確度，糖尿病人需事先控制",
+        "發炎、感染也會攝取 FDG，可能偽陽性",
+        "骨骼掃描：骨折、關節炎也可能顯影",
+        "依醫師判讀合併 CT、MRI 綜合判斷"
+      ],
+      "treatment_zh": [
+        "碘-131 治療甲狀腺亢進或甲狀腺癌殘餘組織",
+        "其他核醫治療：前列腺癌 PSMA 標靶放射配體治療、神經內分泌腫瘤（依適應症）",
+        "檢查結果交由原開單科別擬定治療"
+      ],
+      "postop_zh": [
+        "PET 後多喝水、多排尿；當天避免長時間抱嬰幼兒或接觸孕婦（依院所指示）",
+        "碘-131 治療後：依指示隔離、單獨使用廁所並沖水 2 次、餐具分開",
+        "治療後 6–12 個月內避免懷孕（依醫囑）"
+      ],
+      "diet_zh": [
+        "PET 前禁食 4–6 小時，可喝白開水",
+        "碘-131 前低碘飲食：避免海帶、紫菜、海鮮、加碘鹽",
+        "治療後多喝水、吃酸梅或檸檬促進唾液分泌（依醫囑時機）"
+      ],
+      "exercise_zh": [
+        "PET 前 24 小時避免劇烈運動（肌肉攝取 FDG 影響判讀）",
+        "檢查後恢復正常活動"
+      ],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "糖尿病人事先詢問降血糖藥與胰島素調整",
+        "保存核醫報告與影像",
+        "旅行時攜帶治療證明（機場輻射偵測可能響）"
+      ],
+      "tw_resources_zh": [
+        "PET 健保給付有特定癌別與適應症限制，其他為自費",
+        "各醫學中心核醫科提供碘-131 隔離病房"
+      ],
+      "red_flags_zh": [
+        "注射後過敏反應（極少見）",
+        "碘-131 治療後頸部劇烈腫痛、心悸、高燒"
+      ],
+      "evidence": [
+        {
+          "label": "Boellaard R et al. FDG PET/CT: EANM procedure guidelines for tumour imaging: version 2.0 (Eur J Nucl Med Mol Imaging)",
+          "year": 2015,
+          "level": "guideline"
+        },
+        {
+          "label": "Fendler WP et al. PSMA PET/CT: joint EANM procedure guideline/SNMMI procedure standard for prostate cancer imaging 2.0 (Eur J Nucl Med Mol Imaging)",
+          "year": 2023,
+          "level": "guideline"
+        },
+        {
+          "label": "Ross DS et al. 2016 ATA Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis (Thyroid)",
+          "year": 2016,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/THYROID_HEME_CANCERS",
+          "label_zh": "甲狀腺與血液腫瘤"
+        }
+      ]
+    }
+  ]
+}

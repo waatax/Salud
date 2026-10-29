@@ -1,0 +1,568 @@
+{
+  "id": "cardiology",
+  "name_zh": "心臟內科",
+  "name_en": "Cardiovascular Medicine",
+  "division": "internal",
+  "curriculum_zh": "臺大 M3-M4「心血管系統」模組、陽明交大「心臟血管系統」模組、成大「心臟血管學」→ M5-M6 內科見實習",
+  "scope_zh": "負責高血壓、冠狀動脈疾病、心肌梗塞、心臟衰竭、心律不整、瓣膜性心臟病與周邊血管疾病的診斷、藥物治療與心導管介入處置。",
+  "subspecialties_zh": [
+    "冠狀動脈介入治療",
+    "心律不整與電生理燒灼",
+    "心臟衰竭與心臟移植評估",
+    "心臟超音波與非侵入性檢查",
+    "結構性心臟病與瓣膜介入 (TAVI)"
+  ],
+  "when_to_visit_zh": [
+    "胸悶、胸痛如大石壓迫感且延伸至左肩或下巴",
+    "心悸、心跳不規則或跳動漏拍",
+    "走路或爬樓梯易喘、夜間端坐呼吸、下肢雙側水腫",
+    "居家量測血壓持續 ≥130/80 mmHg",
+    "運動時呼吸急促或曾有不明原因昏厥"
+  ],
+  "salud_links": [
+    {
+      "hash": "cardiometabolic",
+      "label_zh": "心血管與代謝健康專區"
+    },
+    {
+      "hash": "cardiometabolic/BP_722",
+      "label_zh": "722 居家血壓量測指引"
+    },
+    {
+      "hash": "systems/cardiovascular",
+      "label_zh": "心血管生理系統"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "內科部 心臟科",
+    "NCKUH": "內科部 心臟血管科",
+    "VGH": "心臟血管中心（心臟內科）",
+    "CCH": "內科部 心臟血管內科"
+  },
+  "block": "cardio",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "<130/80",
+          "label_zh": "多數成人治療目標（mmHg）"
+        },
+        {
+          "value": "722",
+          "label_zh": "居家量測：7 天、早晚 2 回、每回 2 次"
+        },
+        {
+          "value": "≈20%",
+          "label_zh": "收縮壓每降 10 mmHg 心血管事件減少"
+        }
+      ],
+      "causes_zh": [
+        "年齡增加、家族史",
+        "高鈉飲食、過重、缺乏運動、飲酒",
+        "睡眠呼吸中止、慢性腎病、原發性醛固酮症等次發性原因",
+        "長期壓力、睡眠不足；部分藥物（NSAIDs、類固醇、感冒藥）"
+      ],
+      "prevention_zh": [
+        "每日鈉攝取 <2,000 毫克，多吃高鉀蔬果（腎功能正常者）",
+        "維持 BMI 18.5–24、腰圍男 <90／女 <80 公分",
+        "每週 150 分鐘中等強度運動",
+        "18 歲起至少每年量一次血壓"
+      ],
+      "prognosis_zh": "高血壓多需長期管理，但收縮壓每下降 10 mmHg，中風、冠心病與心衰竭等主要心血管事件約減少兩成。生活型態調整可減少用藥種類與劑量，部分早期患者甚至不需用藥。",
+      "timeline": [
+        {
+          "when_zh": "確診 0–4 週",
+          "goal_zh": "確認診斷、找原因",
+          "do_zh": [
+            "完成 722 居家血壓",
+            "抽血尿液檢查：腎功能、鉀、血糖、血脂、尿蛋白"
+          ]
+        },
+        {
+          "when_zh": "1–3 個月",
+          "goal_zh": "達到目標",
+          "do_zh": [
+            "開始或調整藥物（常用單錠複方）",
+            "每 2–4 週回診直到達標"
+          ]
+        },
+        {
+          "when_zh": "達標後",
+          "goal_zh": "長期保護器官",
+          "do_zh": [
+            "每 3–6 個月回診",
+            "每年抽血與尿液追蹤"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的血壓目標是多少？需要吃藥嗎？",
+        "需要檢查次發性高血壓（如醛固酮）嗎？",
+        "可以用一天一顆的複方藥嗎？",
+        "家裡量的數值和診間差很多，以哪個為準？"
+      ],
+      "tw_resources_zh": [
+        "健保慢性病連續處方箋（最長 3 個月）",
+        "成人預防保健含血壓、血脂、血糖檢查",
+        "社區藥局與衛生所免費血壓站"
+      ],
+      "evidence_add": [
+        {
+          "label": "Jones DW et al. 2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure in Adults (Hypertension)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Ettehad D et al. Blood pressure lowering for prevention of cardiovascular disease and death: a systematic review and meta-analysis (Lancet)",
+          "year": 2016,
+          "level": "sr"
+        }
+      ],
+      "id": "hypertension",
+      "name_zh": "原發性高血壓與動脈硬化預防",
+      "name_en": "Essential Hypertension & Atherosclerosis Prevention",
+      "icd10": "I10",
+      "summary_zh": "台灣成人高血壓盛行率近三成。依據 2022/2024 台灣高血壓學會 (THS/TSOC) 指引，門診與居家血壓閾值下修至 130/80 mmHg。長年未受控的高血壓為腦中風、冠心病、心衰竭與終末期腎病之主要獨立危險因子。",
+      "symptoms_zh": [
+        "早期多數無明顯自覺症狀（沉默的殺手）",
+        "後頸僵硬、晨起後枕部鈍痛",
+        "頭暈、疲倦、耳鳴",
+        "心悸、活動時微喘",
+        "嚴重血壓驟升時視力模糊或噁心頭痛"
+      ],
+      "diagnosis_zh": [
+        "居家 722 連續血壓監測（連續 7 天、早晚 2 回、每回 2 次平均）",
+        "24 小時動態血壓監測 (ABPM)",
+        "12 導程心電圖評估左心室肥厚 (LVH)",
+        "血清肌酸酐、eGFR、電解質、空腹血糖與血脂",
+        "微量白蛋白尿檢測 (UACR) 評估標的器官早期微血管損傷"
+      ],
+      "treatment_zh": [
+        "生活型態調整 S-ABCDE（限鈉、限酒、減重、戒菸、飲食 DASH、規律運動）",
+        "第一線降壓藥物組合：CCB、ACEI/ARB、Thiazide 類利尿劑單錠複方製劑 (SPC)",
+        "難治型高血壓評估：醛固酮拮抗劑 (Spironolactone) 或經皮腎交感神經燒灼術 (RDN)",
+        "目標血壓：高風險及心血管疾病患者全面降至 <130/80 mmHg"
+      ],
+      "postop_zh": [
+        "開始用藥後 2-4 週回診追蹤電解質與腎功能 (Cr, K+)",
+        "若合併使用 ACEI/ARB 注意咳嗽與血鉀變化",
+        "勿自行停藥或隨感覺調藥，防止反彈性高血壓",
+        "規律記錄血壓日誌供醫師門診調整依據"
+      ],
+      "diet_zh": [
+        "DASH 得舒飲食：全穀雜糧、高鉀蔬菜、適量水果與低脂乳製品",
+        "嚴格限鹽：每日食鹽攝取量控制在 5-6 公克以內（鈉 <2,300 mg）",
+        "戒酒或嚴格節酒：男性每日酒精 <20g，女性 <10g",
+        "減少加工食品、醃漬品、濃肉湯與含高鈉醬料"
+      ],
+      "exercise_zh": [
+        "中等強度有氧運動：每週至少 150 分鐘（快走、游泳、自行車）",
+        "阻力訓練：每週 2-3 次，大肌群肌力訓練（注意不可用力閉氣造成憋氣 Valsalva 效應）",
+        "等長握力訓練：每週 3-4 次，每次 4 組各 2 分鐘（實證可輔助降收縮壓 4-5 mmHg）"
+      ],
+      "rehab_zh": [
+        "物理治療師指導下進行運動前暖身與運動後緩和收操各 10 分鐘",
+        "血壓控制不良期（收縮壓 >160 或舒張壓 >100 mmHg）暫緩高強度重量訓練",
+        "自主神經調節練習：史丹佛生理嘆氣與緩慢腹式呼吸（每分鐘 6 次呼吸）"
+      ],
+      "selfcare_zh": [
+        "晨起如廁後、服藥前量測 722 血壓；晚間睡前再量測一次",
+        "定期監測體重，維持身體質量指數 BMI 18.5-24 kg/m²，腰圍男 <90cm、女 <80cm",
+        "避免長時間泡熱水澡或冷熱水交替衝擊血管",
+        "充足睡眠 7-8 小時，避免長期慢性熬夜焦慮"
+      ],
+      "red_flags_zh": [
+        "血壓驟升收縮壓 >180 mmHg 或舒張壓 >120 mmHg（高血壓危象）",
+        "突發劇烈胸痛、背部撕裂痛（懷疑主動脈剝離）",
+        "突發臉部歪斜、單側肢體無力、言語不清（急性腦中風徵兆）",
+        "突發嚴重呼吸困難、咳粉紅色泡沫痰（急性肺水腫）"
+      ],
+      "evidence": [
+        {
+          "label": "Jones DW et al. 2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure in Adults (Hypertension)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Ettehad D et al. Blood pressure lowering for prevention of cardiovascular disease and death: a systematic review and meta-analysis (Lancet)",
+          "year": 2016,
+          "level": "sr"
+        },
+        {
+          "label": "2022 Guidelines of Taiwan Society of Cardiology (TSOC) and Taiwan Hypertension Society (THS) for Management of Hypertension",
+          "year": 2022
+        },
+        {
+          "label": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
+          "year": 2024
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "cardiometabolic/BP_722",
+          "label_zh": "722 血壓標準指引"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "<55",
+          "label_zh": "LDL-C 目標（mg/dL，極高風險）"
+        },
+        {
+          "value": "6–12 個月",
+          "label_zh": "雙重抗血小板（依出血風險調整）"
+        },
+        {
+          "value": "≈26%",
+          "label_zh": "心臟復健降低心血管死亡"
+        }
+      ],
+      "causes_zh": [
+        "LDL 膽固醇高、高血壓、糖尿病、吸菸",
+        "家族早發冠心病（男 <55 歲、女 <65 歲）",
+        "肥胖、久坐、慢性腎病",
+        "脂蛋白(a) 偏高（遺傳，一生驗一次）"
+      ],
+      "prevention_zh": [
+        "徹底戒菸（含電子煙）",
+        "LDL、血壓、血糖達標",
+        "每年接種流感疫苗",
+        "規律運動與地中海飲食"
+      ],
+      "prognosis_zh": "心導管介入能迅速改善缺血症狀，在急性心肌梗塞時可救命；長期預後取決於危險因子控制與藥物遵從。完成心臟復健者心血管死亡與再住院較低。",
+      "timeline": [
+        {
+          "when_zh": "術後 0–7 天",
+          "goal_zh": "安全度過術後",
+          "do_zh": [
+            "穿刺處照護",
+            "開始雙重抗血小板、第一期心臟復健"
+          ]
+        },
+        {
+          "when_zh": "第 2–12 週",
+          "goal_zh": "恢復體能",
+          "do_zh": [
+            "第二期門診心臟復健（監測下運動）",
+            "多數人 2–6 週內回到工作"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "鞏固二級預防",
+          "do_zh": [
+            "LDL 複驗達標",
+            "依醫囑調整抗血小板療程"
+          ]
+        },
+        {
+          "when_zh": "1 年以後",
+          "goal_zh": "終身保護",
+          "do_zh": [
+            "持續藥物與運動",
+            "每年回診與抽血"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "支架放在哪裡？還有其他血管狹窄嗎？",
+        "抗血小板藥要吃多久？拔牙或手術可以停嗎？",
+        "我可以參加心臟復健嗎？",
+        "我的 LDL 目標是多少？需要加藥嗎？"
+      ],
+      "tw_resources_zh": [
+        "健保給付第二期心臟復健",
+        "塗藥支架部分品項需差額自付",
+        "戒菸門診與戒菸專線 0800-636363"
+      ],
+      "evidence_add": [
+        {
+          "label": "Rao SV et al. 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes (Circulation)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Vrints C et al. 2024 ESC Guidelines for the management of chronic coronary syndromes (Eur Heart J)",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "Dibben G et al. Exercise-based cardiac rehabilitation for coronary heart disease (Cochrane Review)",
+          "year": 2021,
+          "level": "sr"
+        }
+      ],
+      "id": "cad_pci",
+      "name_zh": "冠狀動脈疾病與心導管術後照護",
+      "name_en": "Coronary Artery Disease & Post-PCI Cardiac Rehabilitation",
+      "icd10": "I25.10",
+      "summary_zh": "心臟動脈因粥狀硬化斑塊沉積狹窄造成心肌缺血。急性冠心症需緊急執行心導管介入氣球擴張及藥物塗藥支架 (DES) 置放。術後需嚴格雙重抗血小板治療 (DAPT) 與三階段心肺復健，方能有效降低支架血栓與二次復發風險。",
+      "symptoms_zh": [
+        "壓迫性或擠壓性胸骨後胸痛，活動時加劇，休息或含舌下硝化甘油後緩解",
+        "疼痛輻射至左肩、左臂內側、頸部、喉嚨或下頜",
+        "運動耐受力下降、易喘、冷汗淋漓",
+        "消化不良感或上腹鈍痛（常好發於女性及糖尿病長輩）"
+      ],
+      "diagnosis_zh": [
+        "高敏感度心肌鈣蛋白 (hs-cTnI / hs-cTnT) 檢驗排除急性心肌梗塞",
+        "運動心電圖 (Treadmill test) 評估缺血性變化與 ST 段改變",
+        "心臟超音波 (Echocardiography) 評估左心室射出分率 (LVEF) 與局部心壁運動異常",
+        "冠狀動脈電腦斷層血管攝影 (CCTA) 計算鈣化分數 (CAC) 與狹窄程度",
+        "心導管血管造影檢查 (Coronary Angiography) 作為確診與介入治療黃金標準"
+      ],
+      "treatment_zh": [
+        "經皮冠狀動脈介入治療 (PCI)：血栓抽吸、氣球擴張與藥物塗層支架 (DES) 置放",
+        "冠狀動脈繞道手術 (CABG)：多血管複雜病變或左主幹狹窄之首選重建",
+        "抗血小板藥物：阿斯匹靈 (Aspirin) 加上 P2Y12 抑制劑（Ticagrelor / Prasugrel / Clopidogrel）持續 6-12 個月",
+        "強化降血脂藥物：高強度 Statin 併用 Ezetimibe / PCSK9 抑制劑，目標 LDL-C <55 mg/dL",
+        "抗缺血藥物：β-受體阻斷劑、ACEI/ARB/ARNI、舌下硝化甘油片隨身備用"
+      ],
+      "postop_zh": [
+        "經橈動脈 (手腕) 穿刺者：加壓帶依醫囑分段減壓，患肢避免提重物 (>3kg) 持續 1 週",
+        "經股動脈 (鼠蹊部) 穿刺者：平躺加壓砂袋 4-6 小時，避免劇烈咳嗽彎曲髖關節",
+        "穿刺傷口保持乾燥，觀察有無血腫、劇痛、發紫或溫度降低",
+        "嚴格遵從抗血小板藥物指示，絕不可自行因拔牙或小手術任意停藥"
+      ],
+      "diet_zh": [
+        "地中海飲食原則：高纖全穀、深海魚類 (Omega-3 EPA/DHA)、特級初榨橄欖油",
+        "嚴禁反式脂肪（酥皮、人造奶油）並將飽和脂肪限制在總熱量 7% 以下",
+        "嚴格限制精緻糖與高果糖糖漿，減少血管內皮發炎指標",
+        "高纖蔬果每日至少 5 份（3 份蔬菜 + 2 份水果），促進膽固醇排泄"
+      ],
+      "exercise_zh": [
+        "第一期心臟復健（住院期）：術後隔天在心電圖監控下由床邊坐起、站立至平地緩步走",
+        "第二期心臟復健（出院後門診復健）：運動心肺功能測試 (CPET) 測定無氧閾值 (AT)，由專業物理治療師開立心率靶區",
+        "有氧耐力訓練：每週 3-5 次，每次 30-45 分鐘，以最大心率 60-75% 進行心肺腳踏車或跑步機訓練",
+        "第三期心臟復健（社區維持期）：培養終身運動習慣，中等強度運動每週至少 150 分鐘"
+      ],
+      "rehab_zh": [
+        "運動期間密切監控心率、血壓、自覺用力係數 (RPE 11-13 之間，說話略喘但仍能成句)",
+        "呼吸控制法：運動用力時呼氣，放鬆時吸氣，避免憋氣引發心律不整",
+        "肌耐力訓練：輕重量、多次數（15-20 次/組），術後 4-6 週經評估後逐步加入"
+      ],
+      "selfcare_zh": [
+        "隨身攜帶舌下硝化甘油片 (NTG)，防潮避光，每半年更新",
+        "每日量測晨起血壓、心率並記錄體重變化",
+        "戒菸（包括電子煙與二手菸），香菸尼古丁會直接造成冠狀動脈痙攣與內皮剝落",
+        "注射流感疫苗與肺炎鏈球菌疫苗，減少感染引發的心肌缺血惡化"
+      ],
+      "red_flags_zh": [
+        "胸痛再次復發且含舌下含片 5 分鐘後仍未緩解，或 15 分鐘內含第 2-3 片無效（立即叫 119）",
+        "伴隨冷汗、昏倒、休克血壓下降、極度呼吸困難",
+        "導管穿刺部位迅速腫大、劇烈跳痛、大出血或整條下肢冰冷蒼白",
+        "突發心跳過慢 (<40 bpm) 或過快 (>130 bpm) 併頭暈眼黑"
+      ],
+      "evidence": [
+        {
+          "label": "Rao SV et al. 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes (Circulation)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Vrints C et al. 2024 ESC Guidelines for the management of chronic coronary syndromes (Eur Heart J)",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "Dibben G et al. Exercise-based cardiac rehabilitation for coronary heart disease (Cochrane Review)",
+          "year": 2021,
+          "level": "sr"
+        },
+        {
+          "label": "2023 ESC Guidelines for the management of acute coronary syndromes",
+          "year": 2023
+        },
+        {
+          "label": "2021 ACC/AHA/SCAI Guideline for Coronary Artery Revascularization",
+          "year": 2021
+        },
+        {
+          "label": "台灣動脈硬化暨心臟學會 (TSOC) 動脈粥狀硬化血脂異常治療指引",
+          "year": 2022
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "cardiometabolic",
+          "label_zh": "心血管危險因子與 ApoB"
+        },
+        {
+          "hash": "exercise",
+          "label_zh": "Zone 2 與心肺耐力訓練"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "4 柱",
+          "label_zh": "心衰竭核心藥物（ARNI、β 阻斷劑、MRA、SGLT2i）"
+        },
+        {
+          "value": ">2 kg／3 天",
+          "label_zh": "體重上升警訊"
+        },
+        {
+          "value": "CHA₂DS₂-VA",
+          "label_zh": "心房顫動中風風險（ESC 2024 起不計性別）"
+        }
+      ],
+      "causes_zh": [
+        "冠心病、高血壓、瓣膜疾病、心肌病變",
+        "心房顫動：年齡、高血壓、肥胖、睡眠呼吸中止、飲酒",
+        "甲狀腺亢進、糖尿病、慢性腎病",
+        "部分化療藥物（anthracycline、trastuzumab）"
+      ],
+      "prevention_zh": [
+        "控制血壓與血糖",
+        "限酒：酒精是心房顫動可逆的誘因",
+        "減重與治療睡眠呼吸中止",
+        "規律中等強度運動"
+      ],
+      "prognosis_zh": "四柱藥物可明顯降低心衰竭死亡與住院，部分射出分率降低的病人在治療後可回升。心房顫動合併抗凝血治療可使中風風險下降六成以上。",
+      "timeline": [
+        {
+          "when_zh": "出院 0–2 週",
+          "goal_zh": "避免再住院",
+          "do_zh": [
+            "每天量體重與血壓",
+            "1–2 週內回診調藥"
+          ]
+        },
+        {
+          "when_zh": "1–3 個月",
+          "goal_zh": "藥物加到目標劑量",
+          "do_zh": [
+            "每 2–4 週調整一次",
+            "抽血看腎功能與鉀"
+          ]
+        },
+        {
+          "when_zh": "3–6 個月",
+          "goal_zh": "重新評估",
+          "do_zh": [
+            "心臟超音波看射出分率",
+            "心房顫動決定節律或心率控制、是否電燒"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "穩定生活",
+          "do_zh": [
+            "心臟復健",
+            "每年流感與肺炎鏈球菌疫苗"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的射出分率是多少？四種核心藥物都用了嗎？",
+        "抗凝血劑需要終身吃嗎？",
+        "我適合做心房顫動電燒嗎？",
+        "一天可以喝多少水、吃多少鹽？"
+      ],
+      "tw_resources_zh": [
+        "NOAC 抗凝血劑健保給付（依中風風險條件）",
+        "多家醫院設有心衰竭個案管理師與心衰竭門診",
+        "健保給付心臟復健"
+      ],
+      "evidence_add": [
+        {
+          "label": "Joglar JA et al. 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation (Circulation)",
+          "year": 2023,
+          "level": "guideline"
+        }
+      ],
+      "id": "hf_af",
+      "name_zh": "心臟衰竭與心房顫動照護",
+      "name_en": "Heart Failure & Atrial Fibrillation Integrated Care",
+      "icd10": "I50.9 / I48.91",
+      "summary_zh": "心臟衰竭 (HF) 與心房顫動 (AF) 常互為因果。心衰竭依射出分率分為 HFrEF 及 HFpEF；最新黃金四柱藥物可顯著降低死亡率與再住院率。心房顫動易使心房形成血栓，引發心因性腦中風，需評估 CHA2DS2-VASc 分數並及早給予非維生素 K 拮抗劑口服抗凝血劑 (NOAC)。",
+      "symptoms_zh": [
+        "活動時呼吸急促、平躺時咳嗽夜間陣發性呼吸困難 (PND) 需墊高枕頭",
+        "雙側下肢凹陷性水腫、腹脹腹水、食慾不振",
+        "心悸、心臟不規律亂跳、如蝴蝶拍翅般紊亂脈搏",
+        "異常疲憊虛弱、運動耐受度斷崖式下滑"
+      ],
+      "diagnosis_zh": [
+        "心臟超音波 (Echo)：量測 LVEF、舒張功能指標 (E/e’)、心房大小與瓣膜逆流程度",
+        "血清生物標記：NT-proBNP 或 BNP 濃度檢驗（排除非心因性呼吸困難）",
+        "12 導程心電圖與 24 小時霍特心電圖 (Holter)：確認 AF 心律與心室心跳反應速度",
+        "經食道心臟超音波 (TEE)：電擊整流或導管燒灼前排除左心耳 (LAA) 內血栓"
+      ],
+      "treatment_zh": [
+        "心衰竭新四柱藥物 (Fantastic Four)：ARNI (Sacubitril/Valsartan)、β-阻斷劑、MRA (Spironolactone) 及 SGLT2 抑制劑 (Dapagliflozin / Empagliflozin)",
+        "利尿劑 (Loop diuretics)：急性水腫期排除體液蓄積，緩解肺水腫",
+        "心房顫動抗凝血治療：依 CHA2DS2-VASc 評分給予 NOAC (Apixaban/Edoxaban/Rivaroxaban/Dabigatran)",
+        "心律/心率控制：抗心律不整藥物、肺靜脈隔離導管電氣消融術 (PVI Catheter Ablation) 或左心耳封堵術 (LAAO)"
+      ],
+      "postop_zh": [
+        "電燒術後平躺壓迫鼠蹊部穿刺處 4-6 小時，注意穿刺點有無硬塊瘀血",
+        "術後持續使用抗凝血藥物至少 2-3 個月，依中風風險評估是否長期維持",
+        "每日固定時間體重監測：若 3 天內增加超過 2 公斤，警惕水分滯留心衰竭惡化"
+      ],
+      "diet_zh": [
+        "嚴格低鈉飲食：每日食鹽 <3-5 克（鈉含量 <1,500-2,000 mg）以防體液滯留",
+        "體液管理：中重度心衰竭患者依醫囑限制每日總液體攝取量在 1,500-2,000 mL 內（包含開水、湯品、水果水分）",
+        "戒絕酒精及高咖啡因刺激飲品，減少心房肌肉異常去極化引發心房顫動",
+        "注意高鉀/低鉀飲食：依利尿劑及保鉀藥物種類定期抽血監測電解質"
+      ],
+      "exercise_zh": [
+        "慢性穩定期在醫師指導下進行心肺運動耐力訓練（走路、平地踏步機）",
+        "熱身及緩和時間各延長至 10-15 分鐘，避免血壓及自律神經急遽變動",
+        "採間歇式休息訓練原則，RPE 運動自覺量表維持在 11-13（輕鬆至稍微吃力），不誘發喘促為原則"
+      ],
+      "rehab_zh": [
+        "物理治療橫膈膜呼吸與縮唇呼吸訓練，增加肺泡換氣效率並減輕胸腔通氣耗能",
+        "下肢抬腿與踝關節幫浦運動，促進靜脈回流，減輕遠端下肢水腫",
+        "心衰竭病患日常活動節能原則 (Energy Conservation Techniques)，分段完成家務"
+      ],
+      "selfcare_zh": [
+        "每日清晨如廁後、吃早餐前，穿著輕便衣物量測體重並詳細記錄",
+        "按時服用抗凝血劑與心衰竭藥物，切勿任意停藥或因不出門漏服",
+        "拔牙或安排侵入性檢查前，務必主動告知醫師正服用抗凝血劑",
+        "注意出血徵兆：刷牙牙齦滲血不止、不明皮下大片瘀斑、黑便或血尿"
+      ],
+      "red_flags_zh": [
+        "突發呼吸急促無法平躺、端坐呼吸咳出粉紅色泡沫痰（急性肺水腫）",
+        "體重快速增加（一週內增加 >2 公斤且伴隨雙腳浮腫明顯）",
+        "突發臉部歪斜、口齒不清、單側手腳無力（腦栓塞中風）",
+        "持續嚴重胸痛、心跳每分鐘 >140 下伴隨冷汗頭暈發黑"
+      ],
+      "evidence": [
+        {
+          "label": "Joglar JA et al. 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation (Circulation)",
+          "year": 2023,
+          "level": "guideline"
+        },
+        {
+          "label": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+          "year": 2023
+        },
+        {
+          "label": "2024 ESC Guidelines for the management of atrial fibrillation",
+          "year": 2024
+        },
+        {
+          "label": "2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure",
+          "year": 2022
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "cardiometabolic",
+          "label_zh": "心臟功能與代謝評估"
+        },
+        {
+          "hash": "systems/cardiovascular",
+          "label_zh": "心臟搏出與循環生理"
+        }
+      ]
+    }
+  ]
+}

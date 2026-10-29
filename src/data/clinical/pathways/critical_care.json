@@ -1,0 +1,468 @@
+{
+  "id": "critical_care",
+  "name_zh": "重症醫學",
+  "name_en": "Critical Care Medicine",
+  "division": "acute_periop",
+  "curriculum_zh": "生理學、藥理學、急重症醫學 → 加護病房見實習",
+  "scope_zh": "照顧加護病房（ICU）中危及生命的病人：敗血症、呼吸衰竭與呼吸器、休克、多重器官衰竭。也包含出加護病房後的身心康復（加護後症候群）、長期呼吸器與氣切照護，以及與家屬的決策溝通。",
+  "subspecialties_zh": [
+    "內科／外科／心臟／神經加護",
+    "呼吸治療與呼吸器脫離",
+    "敗血症與感染加護",
+    "葉克膜（ECMO）",
+    "加護後康復追蹤"
+  ],
+  "when_to_visit_zh": [
+    "（多由急診或病房轉入）家人住進加護病房，想了解治療與探病",
+    "出 ICU 後體力、記憶或情緒明顯變差",
+    "需要長期呼吸器或氣切照護的規劃"
+  ],
+  "salud_links": [
+    {
+      "hash": "ltc/SKILLS",
+      "label_zh": "居家照護技巧"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "急診醫學部 復甦重症科／各加護病房",
+    "NCKUH": "內科部 重症加護科",
+    "VGH": "重症醫學部"
+  },
+  "block": "acute",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "1 小時",
+          "label_zh": "疑似敗血性休克給予抗生素"
+        },
+        {
+          "value": "30 mL/kg",
+          "label_zh": "低血壓時初始輸液（依醫囑）"
+        },
+        {
+          "value": "≈40%",
+          "label_zh": "存活者 90 天內再住院"
+        }
+      ],
+      "causes_zh": [
+        "肺炎、泌尿道感染、腹腔感染、皮膚軟組織感染最常見",
+        "高齡、糖尿病、癌症、免疫抑制、慢性腎病",
+        "管路（導尿管、中心靜脈導管）",
+        "未接種流感與肺炎鏈球菌疫苗"
+      ],
+      "prevention_zh": [
+        "接種流感、肺炎鏈球菌、COVID-19 疫苗",
+        "控制糖尿病、照顧傷口、勤洗手",
+        "早期治療感染，不拖延就醫"
+      ],
+      "prognosis_zh": "早期治療可明顯降低死亡率；存活者約半數會完全恢復，其他人可能留有體能、認知或情緒後遺症，且一年內再住院與死亡風險較高。",
+      "timeline": [
+        {
+          "when_zh": "0–6 小時",
+          "goal_zh": "搶救",
+          "do_zh": [
+            "抗生素、輸液、升壓",
+            "找感染源"
+          ]
+        },
+        {
+          "when_zh": "ICU 期間",
+          "goal_zh": "器官支持、預防併發症",
+          "do_zh": [
+            "每日評估減鎮靜、自主呼吸試驗",
+            "早期床邊活動"
+          ]
+        },
+        {
+          "when_zh": "出院後 0–3 個月",
+          "goal_zh": "康復",
+          "do_zh": [
+            "漸進運動與營養",
+            "注意再感染徵象"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "回到生活",
+          "do_zh": [
+            "認知與情緒追蹤",
+            "更新疫苗"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "感染從哪裡來？抗生素要用多久？",
+        "出院後要注意哪些警訊？",
+        "體力和記憶力會恢復嗎？需要復健嗎？",
+        "我應該補打哪些疫苗？"
+      ],
+      "id": "sepsis",
+      "name_zh": "敗血症與敗血症後康復",
+      "name_en": "Sepsis & Post-sepsis Recovery",
+      "icd10": "A41.9 / R65.2",
+      "summary_zh": "敗血症是感染引發身體失控的反應，導致器官功能受損，是醫院死亡的主要原因之一。關鍵是「早期辨識、1 小時內給抗生素與輸液」。存活者有相當比例在出院後出現疲倦、肌力下降、記憶變差與再住院，稱為「敗血症後症候群」，需要有計畫的康復與追蹤。",
+      "symptoms_zh": [
+        "發燒或體溫過低、寒顫",
+        "呼吸急促、心跳快",
+        "意識混亂、嗜睡",
+        "血壓低、尿量少、皮膚花斑冰冷"
+      ],
+      "diagnosis_zh": [
+        "Sepsis-3：感染合併器官功能惡化（SOFA 分數上升 ≥2）",
+        "血液培養（抗生素前）、乳酸、血球、肝腎功能",
+        "找感染源：胸部 X 光、尿液、影像",
+        "休克：輸液後仍需升壓劑且乳酸 >2 mmol/L"
+      ],
+      "treatment_zh": [
+        "廣效抗生素儘早給予，培養結果出來後降階",
+        "輸液與升壓劑（norepinephrine）維持器官灌流",
+        "控制感染源：引流、移除感染管路、手術",
+        "器官支持：呼吸器、透析",
+        "早期復健與營養"
+      ],
+      "postop_zh": [
+        "轉出 ICU 後持續早期活動",
+        "出院前評估體能、認知、吞嚥與情緒",
+        "出院後 1–2 週回診，檢視用藥與感染復發徵象"
+      ],
+      "diet_zh": [
+        "康復期蛋白質每公斤 1.2–1.5 克、熱量足夠",
+        "少量多餐，必要時口服營養品",
+        "吞嚥評估後才恢復一般飲食"
+      ],
+      "exercise_zh": [
+        "ICU 期間由治療師協助床上與下床活動",
+        "出院後每天步行，逐步增加時間",
+        "加入阻力訓練恢復肌力"
+      ],
+      "rehab_zh": [
+        "物理治療：肌力、平衡、耐力",
+        "職能治療：日常生活與認知策略",
+        "心理支持：焦慮、憂鬱、創傷後壓力"
+      ],
+      "selfcare_zh": [
+        "出院後量體溫、注意感染徵象",
+        "完成抗生素療程",
+        "向醫師說「我得過敗血症」，日後就醫更警覺"
+      ],
+      "tw_resources_zh": [
+        "急性後期照護與居家復能（依條件）",
+        "成人公費流感與肺炎鏈球菌疫苗（依疾管署對象）",
+        "長照 1966（功能下降時）"
+      ],
+      "red_flags_zh": [
+        "發燒合併意識混亂、呼吸急促、血壓低",
+        "尿量明顯減少、皮膚花斑",
+        "出院後再次高燒寒顫"
+      ],
+      "evidence": [
+        {
+          "label": "Evans L et al. Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021 (Crit Care Med)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Singer M et al. The Third International Consensus Definitions for Sepsis and Septic Shock: Sepsis-3 (JAMA)",
+          "year": 2016,
+          "level": "consensus"
+        },
+        {
+          "label": "Prescott HC, Angus DC. Enhancing Recovery From Sepsis: A Review (JAMA)",
+          "year": 2018,
+          "level": "consensus"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": ">50%",
+          "label_zh": "ICU 存活者出現 PICS"
+        },
+        {
+          "value": "ABCDEF",
+          "label_zh": "ICU 解放照護組合"
+        },
+        {
+          "value": "3–12 個月",
+          "label_zh": "主要恢復期"
+        }
+      ],
+      "causes_zh": [
+        "長時間臥床與鎮靜造成加護病房後肌無力",
+        "譫妄、缺氧、低血壓影響大腦",
+        "創傷性經驗、睡眠剝奪",
+        "原有慢性病與衰弱"
+      ],
+      "prevention_zh": [
+        "ICU 實施 ABCDEF 照護組合",
+        "鼓勵家屬探視與參與",
+        "出院前完整功能評估"
+      ],
+      "prognosis_zh": "多數人在 3–12 個月逐步改善，但部分人的體能與認知影響可持續數年；及早復健與心理支持可加快恢復。",
+      "timeline": [
+        {
+          "when_zh": "ICU 期間",
+          "goal_zh": "預防",
+          "do_zh": [
+            "每日減鎮靜、床邊坐起",
+            "家屬參與照顧與 ICU 日記"
+          ]
+        },
+        {
+          "when_zh": "轉出 ICU 0–2 週",
+          "goal_zh": "重建功能",
+          "do_zh": [
+            "下床步行、吞嚥訓練",
+            "睡眠與日夜節律"
+          ]
+        },
+        {
+          "when_zh": "出院 0–3 個月",
+          "goal_zh": "居家康復",
+          "do_zh": [
+            "每天運動計畫",
+            "記憶策略：清單、提醒"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "回到工作與生活",
+          "do_zh": [
+            "評估復工",
+            "心理追蹤"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "他在 ICU 期間發生了什麼？有用過哪些鎮靜藥？",
+        "出院後需要哪些復健？",
+        "記憶和情緒問題會改善嗎？可以看哪一科？",
+        "家屬可以怎麼幫忙？"
+      ],
+      "id": "pics_recovery",
+      "name_zh": "加護病房後症候群（PICS）與早期活動",
+      "name_en": "Post-Intensive Care Syndrome & Early Mobilisation",
+      "icd10": "Z99.89 / G72.81",
+      "summary_zh": "從加護病房存活的人，一半以上在出院後仍有新出現或惡化的身體無力、記憶與注意力問題、焦慮憂鬱或創傷後壓力，稱為加護後症候群（PICS）；家屬也可能出現 PICS-F。ICU 期間的 ABCDEF 照護組合（減痛、每日減鎮靜、自主呼吸、譫妄評估、早期活動、家屬參與）可以降低發生率。",
+      "symptoms_zh": [
+        "極度無力、走路不穩、容易跌倒",
+        "記憶差、注意力不集中、做事變慢",
+        "惡夢、焦慮、憂鬱、迴避就醫",
+        "吞嚥困難、聲音沙啞（插管後）"
+      ],
+      "diagnosis_zh": [
+        "出院前與追蹤時評估：肌力（MRC 分數）、6 分鐘步行",
+        "認知篩檢（如 MoCA）",
+        "焦慮憂鬱（HADS）、創傷後壓力（IES-R）量表",
+        "家屬照顧壓力評估"
+      ],
+      "treatment_zh": [
+        "ICU 內：ABCDEF 照護組合",
+        "ICU 日記：減少創傷後壓力",
+        "出院後復健：物理、職能、語言治療",
+        "心理治療；必要時精神科藥物",
+        "加護後追蹤門診（部分醫院）"
+      ],
+      "postop_zh": [
+        "轉普通病房後持續每日活動，不要「等體力好了再動」",
+        "出院時帶回 ICU 摘要，讓家醫科或復健科接手"
+      ],
+      "diet_zh": [
+        "足夠蛋白質與熱量支持肌肉再生",
+        "吞嚥問題依語言治療師建議調整質地",
+        "體重持續下降需營養師介入"
+      ],
+      "exercise_zh": [
+        "由坐、站、走循序進展",
+        "每天多次短時間活動優於一次長時間",
+        "加入阻力與平衡訓練"
+      ],
+      "rehab_zh": [
+        "物理治療：肌力、步態",
+        "職能治療：日常生活、認知訓練",
+        "語言治療：吞嚥、發聲",
+        "心理師：創傷後壓力與焦慮"
+      ],
+      "selfcare_zh": [
+        "寫下 ICU 期間的記憶與問題，回診時討論",
+        "規律作息、白天曬太陽",
+        "家屬也要照顧自己的情緒與睡眠"
+      ],
+      "tw_resources_zh": [
+        "急性後期照護與居家復能",
+        "1925 安心專線、社區心理衛生中心",
+        "長照 1966（功能下降時）"
+      ],
+      "red_flags_zh": [
+        "反覆惡夢、極度焦慮或有自殺念頭（撥 1925）",
+        "跌倒、無法起床",
+        "吞嚥時嗆咳合併發燒"
+      ],
+      "evidence": [
+        {
+          "label": "Pun BT et al. Caring for Critically Ill Patients with the ABCDEF Bundle: Results of the ICU Liberation Collaborative (Crit Care Med)",
+          "year": 2019,
+          "level": "cohort"
+        },
+        {
+          "label": "Devlin JW et al. Clinical Practice Guidelines for the Prevention and Management of Pain, Agitation/Sedation, Delirium, Immobility, and Sleep Disruption in Adult Patients in the ICU: PADIS (Crit Care Med)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "Needham DM et al. Improving long-term outcomes after discharge from intensive care unit: report from a stakeholders' conference (Crit Care Med)",
+          "year": 2012,
+          "level": "consensus"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": ">21 天",
+          "label_zh": "每天 ≥6 小時呼吸器即屬長期"
+        },
+        {
+          "value": "4 階段",
+          "label_zh": "ICU → RCC → RCW → 居家"
+        },
+        {
+          "value": "每 8 小時",
+          "label_zh": "氣切傷口與內管清潔（依醫囑）"
+        }
+      ],
+      "causes_zh": [
+        "嚴重肺病（COPD、肺纖維化）、肺炎後",
+        "神經肌肉疾病（漸凍症、脊髓損傷）",
+        "中風或腦傷後意識不佳",
+        "心衰竭、長期臥床衰弱"
+      ],
+      "prevention_zh": [
+        "重大疾病前完成預立醫療決定，讓團隊知道意願",
+        "ICU 期間減少鎮靜、早期活動以利脫離",
+        "COPD、神經肌肉疾病者及早與醫師討論呼吸衰竭時的治療選擇"
+      ],
+      "prognosis_zh": "部分病人可在數週到數月內脫離呼吸器；高齡、多重器官衰竭或神經退化疾病者長期依賴機率高，一年存活率有限，需要以病人價值為核心做決策。",
+      "timeline": [
+        {
+          "when_zh": "ICU 期",
+          "goal_zh": "穩定與嘗試脫離",
+          "do_zh": [
+            "每日自主呼吸試驗",
+            "早期活動"
+          ]
+        },
+        {
+          "when_zh": "呼吸照護中心（RCC）",
+          "goal_zh": "積極脫離",
+          "do_zh": [
+            "呼吸訓練、營養",
+            "評估說話閥與吞嚥"
+          ]
+        },
+        {
+          "when_zh": "呼吸照護病房（RCW）或居家",
+          "goal_zh": "長期照護與生活品質",
+          "do_zh": [
+            "照顧者訓練",
+            "定期重新評估脫離與目標"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "他有機會脫離呼吸器嗎？需要多久？",
+        "氣切的好處與風險？",
+        "如果長期依賴，照護地點與費用如何？",
+        "如果他不希望長期依賴維生設備，我們可以怎麼做？"
+      ],
+      "id": "ventilator_trach",
+      "name_zh": "長期呼吸器、氣切照護與脫離",
+      "name_en": "Prolonged Mechanical Ventilation, Tracheostomy Care & Weaning",
+      "icd10": "Z99.11 / Z93.0",
+      "summary_zh": "插管超過 1–2 週或預期無法短期脫離呼吸器時，常考慮氣管切開，讓病人較舒適、可減少鎮靜並嘗試說話與進食。台灣健保自 2000 年起推動呼吸器依賴患者整合照護（加護病房 → 呼吸照護中心 → 呼吸照護病房 → 居家），但長期呼吸器病人的存活與生活品質差異很大，治療目標需要與家屬坦誠討論。",
+      "symptoms_zh": [
+        "無法通過自主呼吸試驗",
+        "痰多、咳嗽無力",
+        "無法說話（未使用說話閥）",
+        "焦慮、睡眠差"
+      ],
+      "diagnosis_zh": [
+        "每日自主呼吸試驗評估脫離可能",
+        "評估呼吸肌力、痰量、意識與吞嚥",
+        "找出阻礙脫離的原因：感染、心衰竭、營養、電解質、譫妄",
+        "團隊與家屬會議：預後與照護目標"
+      ],
+      "treatment_zh": [
+        "逐步呼吸器脫離計畫、吸氣肌訓練",
+        "氣管切開：降低鎮靜需求、利於口腔照護與活動",
+        "說話閥（Passy-Muir 等）在條件允許下使用",
+        "居家呼吸器：照顧者訓練、緊急應變計畫",
+        "依病人意願考慮撤除維生治療（依法規與倫理程序）"
+      ],
+      "postop_zh": [
+        "氣切後 1 週內首次換管由醫療團隊執行",
+        "每日清潔造口、更換紗布、檢查固定帶鬆緊（可放一指）",
+        "依需要抽痰，維持濕化避免痰栓"
+      ],
+      "diet_zh": [
+        "足夠熱量與蛋白質，避免過度餵食（增加二氧化碳）",
+        "氣切病人經語言治療評估後才由口進食",
+        "管灌者依營養師計畫"
+      ],
+      "exercise_zh": [
+        "在呼吸器支持下仍可做床上與床邊運動",
+        "吸氣肌訓練（依醫囑）",
+        "依能力坐輪椅外出"
+      ],
+      "rehab_zh": [
+        "呼吸治療：抽痰、擴張、脫離",
+        "語言治療：說話閥、吞嚥",
+        "物理與職能治療：維持功能、預防攣縮與壓傷"
+      ],
+      "selfcare_zh": [
+        "居家備妥備用氣切管、抽痰機、急救甦醒球與停電應變",
+        "學會氣切管脫出時的緊急處理",
+        "照顧者輪替與喘息"
+      ],
+      "tw_resources_zh": [
+        "健保呼吸器依賴患者整合性照護（RCC、RCW、居家呼吸照護）",
+        "病人自主權利法、安寧緩和醫療條例",
+        "長照 2.0 與身障輔具補助（抽痰機、氣墊床）"
+      ],
+      "red_flags_zh": [
+        "氣切管脫出或阻塞、病人發紫：依應變流程處理並撥 119",
+        "呼吸器警報持續、血氧下降",
+        "造口大量出血、發燒、痰變膿"
+      ],
+      "evidence": [
+        {
+          "label": "Ouellette DR et al. Liberation From Mechanical Ventilation in Critically Ill Adults: ACCP/ATS Clinical Practice Guideline (Chest)",
+          "year": 2017,
+          "level": "guideline"
+        },
+        {
+          "label": "McGrath BA et al. Multidisciplinary guidance for safe tracheostomy care (Lancet Respir Med)",
+          "year": 2020,
+          "level": "consensus"
+        },
+        {
+          "label": "Damuth E et al. Long-term survival of critically ill patients treated with prolonged mechanical ventilation: systematic review and meta-analysis (Lancet Respir Med)",
+          "year": 2015,
+          "level": "sr"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "ltc/LEGAL",
+          "label_zh": "預立醫療決定"
+        }
+      ]
+    }
+  ]
+}

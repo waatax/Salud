@@ -1,0 +1,463 @@
+{
+  "id": "nutrition",
+  "name_zh": "臨床營養",
+  "name_en": "Clinical Nutrition & Dietetics",
+  "division": "rehab_integrative",
+  "curriculum_zh": "生化學與營養學 → 內外科見實習中的營養會診；臨床營養學",
+  "scope_zh": "由營養師與醫師處理疾病相關的營養問題：營養不良篩檢與口服營養補充、吞嚥困難的質地調整（IDDSI）、管灌與靜脈營養、腎病／糖尿病／肝病／癌症等治療飲食，以及住院到居家的營養銜接。",
+  "subspecialties_zh": [
+    "營養不良篩檢與口服營養補充",
+    "吞嚥困難飲食（IDDSI）",
+    "腸道與靜脈營養支持",
+    "慢性病治療飲食",
+    "兒童與孕產營養"
+  ],
+  "when_to_visit_zh": [
+    "半年內非刻意體重下降 >5%，或長者吃得越來越少",
+    "吃飯喝水常嗆咳、吞嚥困難",
+    "需要放鼻胃管、胃造口，或回家後不知道怎麼灌食",
+    "腎病、糖尿病、肝硬化、癌症治療期間不知道怎麼吃"
+  ],
+  "salud_links": [
+    {
+      "hash": "ltc/SKILLS",
+      "label_zh": "鼻胃管與經口進食照護"
+    },
+    {
+      "hash": "diet",
+      "label_zh": "飲食營養專區"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "營養室",
+    "NCKUH": "營養部",
+    "VGH": "營養部",
+    "CCH": "營養諮詢門診"
+  },
+  "block": "community",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": ">5%",
+          "label_zh": "6 個月體重下降即需評估"
+        },
+        {
+          "value": "1.0–1.5 g/kg",
+          "label_zh": "長者／疾病期每日蛋白質"
+        },
+        {
+          "value": "2 份",
+          "label_zh": "口服營養品每日常見補充量"
+        }
+      ],
+      "causes_zh": [
+        "疾病發炎與代謝增加（癌症、感染、COPD、心衰竭）",
+        "食慾差、牙口不好、吞嚥困難",
+        "憂鬱、失智、獨居、經濟困難",
+        "多重用藥造成味覺改變或噁心"
+      ],
+      "prevention_zh": [
+        "65 歲以上每年營養篩檢",
+        "住院時主動詢問營養評估",
+        "口腔保健與定期牙科檢查"
+      ],
+      "prognosis_zh": "及早營養介入可改善體重、肌力、傷口癒合與生活品質，並降低再住院與死亡風險。",
+      "timeline": [
+        {
+          "when_zh": "第 0–1 週",
+          "goal_zh": "篩檢與找原因",
+          "do_zh": [
+            "營養師評估",
+            "開始飲食強化"
+          ]
+        },
+        {
+          "when_zh": "第 1–4 週",
+          "goal_zh": "達到目標攝取",
+          "do_zh": [
+            "每天 ONS 1–2 份",
+            "每週量體重"
+          ]
+        },
+        {
+          "when_zh": "1–3 個月",
+          "goal_zh": "體重與肌力回升",
+          "do_zh": [
+            "阻力運動配合營養",
+            "重新評估是否持續 ONS"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我（或家人）的營養狀況屬於哪一級？",
+        "需要口服營養品嗎？要選哪一種配方？",
+        "每天蛋白質與熱量目標是多少？",
+        "多久要回來追蹤？"
+      ],
+      "id": "malnutrition_ons",
+      "name_zh": "營養不良篩檢與口服營養補充",
+      "name_en": "Malnutrition Screening & Oral Nutritional Supplements",
+      "icd10": "E44 / E46",
+      "summary_zh": "營養不良常被忽略：住院病人約三成、居家失能長者比例更高，會增加感染、壓傷、跌倒、再住院與死亡。依 2019 年國際 GLIM 準則，以體重下降、BMI 偏低或肌肉量減少，加上進食減少或疾病發炎來診斷。2019 年 EFFORT 大型試驗顯示，住院病人個別化營養支持可降低併發症與死亡。",
+      "symptoms_zh": [
+        "衣服變鬆、臉頰凹陷",
+        "肌力下降、走路變慢、容易跌倒",
+        "傷口不易癒合、常感染",
+        "疲倦、注意力差"
+      ],
+      "diagnosis_zh": [
+        "篩檢：MNA-SF（長者）、MUST、NRS-2002（住院）",
+        "GLIM 診斷：表現型（體重下降、低 BMI、肌肉量減少）+ 病因型（攝取減少、發炎）",
+        "握力、小腿圍（男 <34、女 <33 公分提示肌少）",
+        "抽血白蛋白受發炎影響大，不宜單獨用來診斷"
+      ],
+      "treatment_zh": [
+        "飲食強化：在原本食物中加入蛋白質與熱量（如加蛋、奶粉、油脂）",
+        "口服營養補充品（ONS）每日 1–2 份作為兩餐間點心",
+        "處理原因：牙科、吞嚥、憂鬱、噁心、用藥檢討",
+        "無法經口吃足 60% 需求超過 1 週：考慮管灌"
+      ],
+      "postop_zh": [
+        "出院後持續 ONS 與營養追蹤可降低再住院",
+        "每週量體重直到穩定"
+      ],
+      "diet_zh": [
+        "少量多餐，每餐都有蛋白質（蛋、豆、魚、肉、奶）",
+        "熱量優先：營養不良時不需刻意少油少糖",
+        "糖尿病或腎病者使用對應配方，請營養師調整"
+      ],
+      "exercise_zh": [
+        "營養搭配阻力訓練才能長回肌肉",
+        "每週 2–3 次坐站、彈力帶訓練",
+        "臥床者做床上抬腿、握力球"
+      ],
+      "rehab_zh": [
+        "物理治療與職能治療維持功能",
+        "牙科處理假牙與咀嚼"
+      ],
+      "selfcare_zh": [
+        "每週同一時間量體重並記錄",
+        "準備容易拿取的點心（優格、豆漿、堅果醬吐司）",
+        "獨居者申請送餐服務"
+      ],
+      "tw_resources_zh": [
+        "長照 2.0 營養餐飲服務（送餐）與社區營養推廣中心",
+        "醫院營養諮詢門診（部分自費）",
+        "低收入戶或特定疾病可申請營養品補助（依縣市或基金會）"
+      ],
+      "red_flags_zh": [
+        "一週內幾乎無法進食",
+        "持續嘔吐或腹瀉、尿量減少",
+        "意識混亂、極度虛弱"
+      ],
+      "evidence": [
+        {
+          "label": "Cederholm T et al. GLIM criteria for the diagnosis of malnutrition – A consensus report from the global clinical nutrition community (Clin Nutr)",
+          "year": 2019,
+          "level": "consensus"
+        },
+        {
+          "label": "Schuetz P et al. Individualised nutritional support in medical inpatients at nutritional risk: EFFORT randomised clinical trial (Lancet)",
+          "year": 2019,
+          "level": "rct"
+        },
+        {
+          "label": "Volkert D et al. ESPEN practical guideline: Clinical nutrition and hydration in geriatrics (Clin Nutr)",
+          "year": 2022,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "obesity/HYPERTROPHY",
+          "label_zh": "增肌的營養與訓練"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "0–7 級",
+          "label_zh": "IDDSI 液體與食物分級"
+        },
+        {
+          "value": "30–45°",
+          "label_zh": "進食後維持坐姿至少 30 分鐘"
+        },
+        {
+          "value": "≥3 分",
+          "label_zh": "EAT-10 篩檢需進一步評估"
+        }
+      ],
+      "causes_zh": [
+        "中風、巴金森、失智症、肌萎縮症",
+        "頭頸癌手術或放療後",
+        "高齡肌少與衰弱（老年吞嚥障礙）",
+        "鎮靜藥物、口乾、牙齒不全"
+      ],
+      "prevention_zh": [
+        "中風或住院長者及早吞嚥篩檢",
+        "口腔照護預防吸入性肺炎",
+        "避免不必要的鎮靜藥"
+      ],
+      "prognosis_zh": "中風後的吞嚥困難多數在數週到數月內改善；退化性疾病則需長期調整。良好的口腔照護與質地管理可大幅降低肺炎。",
+      "timeline": [
+        {
+          "when_zh": "第 0–1 週",
+          "goal_zh": "安全評估",
+          "do_zh": [
+            "吞嚥篩檢與評估",
+            "決定 IDDSI 等級"
+          ]
+        },
+        {
+          "when_zh": "第 1–8 週",
+          "goal_zh": "訓練與調整",
+          "do_zh": [
+            "每天吞嚥運動",
+            "學會增稠劑與食物製備"
+          ]
+        },
+        {
+          "when_zh": "每 1–3 個月",
+          "goal_zh": "重新評估",
+          "do_zh": [
+            "嘗試升級質地",
+            "追蹤體重與肺炎"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的家人適合哪一級 IDDSI 液體與食物？",
+        "需要做吞嚥攝影嗎？",
+        "在家可以做哪些吞嚥運動？",
+        "什麼情況需要考慮管灌？"
+      ],
+      "id": "dysphagia_iddsi",
+      "name_zh": "吞嚥困難與 IDDSI 食物質地分級",
+      "name_en": "Dysphagia & IDDSI Texture Modification",
+      "icd10": "R13",
+      "summary_zh": "吞嚥困難常見於中風、巴金森、失智、頭頸癌放療後與高齡衰弱者，會造成嗆咳、吸入性肺炎、脫水與營養不良。國際吞嚥障礙飲食標準（IDDSI）把液體與食物分為 0–7 級，讓醫院、機構與家庭用同一套語言調整質地。口腔清潔可明顯降低吸入性肺炎。",
+      "symptoms_zh": [
+        "吃飯或喝水嗆咳、聲音變濕",
+        "食物卡喉嚨、吃一餐要很久",
+        "反覆肺炎或不明發燒",
+        "體重下降、脫水"
+      ],
+      "diagnosis_zh": [
+        "篩檢：EAT-10 問卷、喝水測試",
+        "語言治療師床邊吞嚥評估",
+        "儀器：螢光吞嚥攝影（VFSS）或軟式內視鏡吞嚥檢查（FEES）",
+        "找原因：神經、結構、藥物"
+      ],
+      "treatment_zh": [
+        "依評估調整 IDDSI 液體（稀、微稠、輕度稠、中度稠、高度稠）與食物質地",
+        "代償技巧：低頭吞嚥、轉頭吞嚥、少量慢吃",
+        "吞嚥訓練：舌頭肌力、下巴抵抗、聲門上吞嚥等",
+        "神經肌肉電刺激（輔助）",
+        "經口無法安全或足量：暫時或長期管灌"
+      ],
+      "postop_zh": [
+        "（頭頸癌術後或放療後）及早開始吞嚥訓練可減少纖維化",
+        "定期由語言治療師重新評估升級質地"
+      ],
+      "diet_zh": [
+        "依 IDDSI 等級製備，使用增稠劑時按說明比例並等待成形",
+        "避免混合質地（如湯泡飯）與乾碎易散食物",
+        "確保水分足夠：可用果凍水、增稠飲品"
+      ],
+      "exercise_zh": [
+        "吞嚥肌力訓練：抬頭運動（Shaker）、下巴抵抗運動",
+        "口腔運動：舌頭伸縮、鼓頰",
+        "全身活動維持肌力"
+      ],
+      "rehab_zh": [
+        "語言治療：吞嚥評估、代償與復健",
+        "職能治療：餐具改良、進食姿勢",
+        "物理治療：坐姿穩定與頭頸控制"
+      ],
+      "selfcare_zh": [
+        "進食時坐直、專心、不說話不看電視",
+        "每口少量、確認吞完再吃下一口",
+        "每天至少 2 次口腔清潔（含假牙與舌頭）"
+      ],
+      "tw_resources_zh": [
+        "語言治療（健保給付，依醫院復健科）",
+        "長照 2.0 居家復能與營養照護",
+        "各醫院營養室提供 IDDSI 飲食衛教單"
+      ],
+      "red_flags_zh": [
+        "進食中突然無法說話、呼吸困難（噎到）：哈姆立克急救並撥 119",
+        "發燒、咳嗽、痰變多（疑吸入性肺炎）",
+        "連續數天幾乎無法進食或喝水"
+      ],
+      "evidence": [
+        {
+          "label": "International Dysphagia Diet Standardisation Initiative (IDDSI) Framework",
+          "year": 2019,
+          "level": "consensus"
+        },
+        {
+          "label": "Dziewas R et al. European Stroke Organisation and ESSD guideline for the diagnosis and treatment of post-stroke dysphagia (Eur Stroke J)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Sjögren P et al. A systematic review of the preventive effect of oral hygiene on pneumonia in nursing homes (J Am Geriatr Soc)",
+          "year": 2008,
+          "level": "sr"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "ltc/SKILLS",
+          "label_zh": "IDDSI 與經口進食照護"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": ">4–6 週",
+          "label_zh": "長期管灌考慮胃造口"
+        },
+        {
+          "value": "30–45°",
+          "label_zh": "灌食中與後床頭抬高"
+        },
+        {
+          "value": "30 mL",
+          "label_zh": "灌食前後溫開水沖管"
+        }
+      ],
+      "causes_zh": [
+        "中風或神經疾病造成嚴重吞嚥困難",
+        "頭頸癌或食道阻塞",
+        "意識障礙、長期呼吸器",
+        "重度營養不良需補足攝取"
+      ],
+      "prevention_zh": [
+        "灌食時與灌食後抬高床頭預防吸入",
+        "配方開封後依說明冷藏與使用時限",
+        "避免約束：可用手套等替代方案並與醫療團隊討論"
+      ],
+      "prognosis_zh": "對可逆的吞嚥困難，管灌是過渡；中風病人可能數週到數月後移除。晚期失智症管灌不改善存活，決策應以病人意願與舒適為優先。",
+      "timeline": [
+        {
+          "when_zh": "放置後 0–3 天",
+          "goal_zh": "安全開始灌食",
+          "do_zh": [
+            "確認位置後開始",
+            "家屬學習灌食技巧"
+          ]
+        },
+        {
+          "when_zh": "第 1–4 週",
+          "goal_zh": "達到營養目標",
+          "do_zh": [
+            "依耐受度增加量",
+            "每週量體重"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "維持與重新評估",
+          "do_zh": [
+            "定期更換管路",
+            "每 1–3 個月評估是否能移除"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "預計需要管灌多久？適合鼻胃管還是胃造口？",
+        "配方與每天的量是多少？",
+        "有機會恢復經口進食嗎？",
+        "（晚期失智）管灌對他有什麼好處和負擔？"
+      ],
+      "id": "tube_feeding",
+      "name_zh": "管灌飲食：鼻胃管、胃造口與居家照護",
+      "name_en": "Enteral Tube Feeding: NG Tube, PEG & Home Care",
+      "icd10": "Z93.1 / Z46.59",
+      "summary_zh": "當經口進食無法安全或足量時，可用鼻胃管短期灌食；預計需要超過 4–6 週時，經皮內視鏡胃造口（PEG）通常較舒適、較少移位與鼻部壓傷。對於晚期失智症，研究顯示管灌並不能延長生命或預防吸入性肺炎，「小心的手餵」是另一個合理選擇，需與家屬充分討論。",
+      "symptoms_zh": [
+        "（管灌常見問題）腹瀉、便秘、腹脹",
+        "管子移位、阻塞",
+        "鼻翼或造口周圍皮膚紅腫",
+        "嘔吐或咳嗽（疑逆流吸入）"
+      ],
+      "diagnosis_zh": [
+        "確認管路位置：放置後以 X 光確認，每次灌食前檢查刻度",
+        "營養師計算熱量、蛋白質與水分需求",
+        "定期評估是否能恢復部分經口進食"
+      ],
+      "treatment_zh": [
+        "配方選擇：一般、糖尿病、腎病、高蛋白等（依醫囑）",
+        "灌食方式：分次灌食或連續滴注（幫浦）",
+        "鼻胃管約 1 個月更換（依材質與院所規定）；胃造口管依醫囑更換",
+        "能經口少量者持續吞嚥訓練"
+      ],
+      "postop_zh": [
+        "胃造口術後傷口每天清潔，保持乾燥",
+        "造口管每天輕轉（依類型與醫囑）避免包埋",
+        "前 1–2 週觀察出血、滲漏與發燒"
+      ],
+      "diet_zh": [
+        "使用商業配方或營養師設計的天然食物配方（需過濾、均質）",
+        "每日水分依醫囑補足（含沖管水）",
+        "藥物分開磨粉溶解、逐一給藥並沖管（緩釋錠不可磨）"
+      ],
+      "exercise_zh": [
+        "灌食後 30–60 分鐘避免平躺與劇烈活動",
+        "依能力持續坐起、下床、被動或主動運動"
+      ],
+      "rehab_zh": [
+        "語言治療：持續吞嚥訓練，爭取移除管路",
+        "物理治療：維持肌力、預防攣縮"
+      ],
+      "selfcare_zh": [
+        "每次灌食前確認刻度、反抽確認在胃內（依衛教）",
+        "口腔照護每天至少 2 次（不經口進食也需要）",
+        "固定鼻胃管時更換貼布位置避免壓傷"
+      ],
+      "tw_resources_zh": [
+        "胃造口術健保給付；居家護理可到宅更換鼻胃管（依健保規定）",
+        "長照 2.0 居家護理指導與喘息服務",
+        "預立醫療決定可事先表達是否接受人工營養及流體餵養"
+      ],
+      "red_flags_zh": [
+        "灌食中或後劇烈咳嗽、喘、發燒",
+        "管子脫出、位置改變或阻塞無法沖通",
+        "胃造口周圍紅腫流膿、出血",
+        "嚴重腹瀉合併尿少、嘔吐咖啡色物"
+      ],
+      "evidence": [
+        {
+          "label": "Bischoff SC et al. ESPEN guideline on home enteral nutrition (Clin Nutr)",
+          "year": 2022,
+          "level": "guideline"
+        },
+        {
+          "label": "American Geriatrics Society Feeding Tubes in Advanced Dementia Position Statement (J Am Geriatr Soc)",
+          "year": 2014,
+          "level": "consensus"
+        },
+        {
+          "label": "Gomes CAR Jr et al. Percutaneous endoscopic gastrostomy versus nasogastric tube feeding for adults with swallowing disturbances (Cochrane Review)",
+          "year": 2015,
+          "level": "sr"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "ltc/SKILLS",
+          "label_zh": "鼻胃管照護技巧"
+        }
+      ]
+    }
+  ]
+}

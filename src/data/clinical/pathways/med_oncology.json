@@ -1,0 +1,503 @@
+{
+  "id": "med_oncology",
+  "name_zh": "腫瘤內科",
+  "name_en": "Medical Oncology",
+  "division": "internal",
+  "curriculum_zh": "血液與腫瘤模組（腫瘤生物學、抗癌藥理、精準醫療）→ 內科與腫瘤科見實習",
+  "scope_zh": "負責實體腫瘤的全身性治療：化學治療、標靶治療、免疫檢查點抑制劑與荷爾蒙治療，並與外科、放射腫瘤科組成多專科團隊（MDT）。也照顧治療副作用、癌症疼痛與營養、以及治療結束後的存活者長期追蹤。",
+  "subspecialties_zh": [
+    "胸腔腫瘤（肺癌標靶與免疫）",
+    "消化道與肝膽胰腫瘤",
+    "乳癌與婦癌藥物治療",
+    "頭頸癌",
+    "癌症存活者與心臟腫瘤學",
+    "癌症疼痛與支持性照護"
+  ],
+  "when_to_visit_zh": [
+    "病理確診癌症，需要討論全身性治療",
+    "化療、標靶或免疫治療期間出現副作用",
+    "治療結束後的定期追蹤與復發監測",
+    "癌症疼痛、食慾差、體重持續下降"
+  ],
+  "salud_links": [
+    {
+      "hash": "oncology/PRECISION_THERAPY",
+      "label_zh": "精準醫療：標靶與免疫"
+    },
+    {
+      "hash": "oncology/NUTRITION_SIDE_EFFECTS",
+      "label_zh": "治療期營養與副作用"
+    },
+    {
+      "hash": "oncology/SURVIVORSHIP_PALLIATIVE",
+      "label_zh": "存活者與緩和照護"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "腫瘤醫學部 化學治療科",
+    "NCKUH": "腫瘤醫學部",
+    "VGH": "腫瘤醫學部",
+    "CCH": "腫瘤中心（血液腫瘤科）"
+  },
+  "block": "heme_onc",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "10–20%",
+          "label_zh": "單一 PD-1 抑制劑 3–4 級副作用"
+        },
+        {
+          "value": "≈50%+",
+          "label_zh": "台灣肺腺癌 EGFR 突變比例"
+        },
+        {
+          "value": "停藥後",
+          "label_zh": "免疫副作用仍可能延遲出現"
+        }
+      ],
+      "causes_zh": [
+        "免疫檢查點被阻斷後 T 細胞對自身組織過度活化",
+        "合併兩種免疫藥（如 PD-1 + CTLA-4）風險較高",
+        "原有自體免疫疾病者復發風險較高",
+        "EGFR／ALK 等標靶藥物作用於皮膚與腸道上皮"
+      ],
+      "prevention_zh": [
+        "不要自行服用來源不明的「增強免疫」保健品或中草藥",
+        "治療前完成 B 肝篩檢，必要時預防性抗病毒",
+        "依醫囑接種不活化疫苗（流感、肺炎鏈球菌、COVID-19）"
+      ],
+      "prognosis_zh": "多數免疫副作用經及時治療可緩解；內分泌缺乏常需終身補充。研究顯示，出現副作用並不代表治療失敗，部分族群反而療效較佳。",
+      "timeline": [
+        {
+          "when_zh": "開始治療前",
+          "goal_zh": "建立基準值",
+          "do_zh": [
+            "抽血：肝、甲狀腺、血糖、皮質醇",
+            "告知自體免疫病史與用藥"
+          ]
+        },
+        {
+          "when_zh": "治療期（每 2–6 週一次給藥）",
+          "goal_zh": "早期發現副作用",
+          "do_zh": [
+            "每天記錄排便次數、皮膚、體溫",
+            "腹瀉 ≥4 次／日或新症狀立即聯絡個管師"
+          ]
+        },
+        {
+          "when_zh": "停藥後 6–12 個月",
+          "goal_zh": "監測延遲型副作用",
+          "do_zh": [
+            "持續定期抽血甲狀腺與血糖",
+            "新症狀主動告知醫師曾用免疫藥"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我用的藥最常見的副作用是什麼？出現時打哪支電話？",
+        "腹瀉幾次需要回診或掛急診？",
+        "如果需要類固醇，會影響抗癌效果嗎？",
+        "治療結束後還要追蹤哪些抽血項目、多久一次？"
+      ],
+      "id": "immunotherapy_irae",
+      "name_zh": "免疫與標靶治療副作用照護",
+      "name_en": "Immunotherapy & Targeted Therapy Toxicities",
+      "icd10": "T45.1X5",
+      "summary_zh": "免疫檢查點抑制劑（PD-1、PD-L1、CTLA-4 抗體）讓免疫系統攻擊癌細胞，但也可能攻擊正常器官，稱為免疫相關不良反應（irAE），可發生在皮膚、腸道、肝、肺、甲狀腺、腦下垂體、胰臟甚至心肌，且可能在停藥後數月才出現。標靶藥物（如肺腺癌常見的 EGFR 抑制劑）則常見皮疹、甲溝炎與腹瀉。早期通報、分級處理，多數可控制並繼續治療。",
+      "symptoms_zh": [
+        "皮膚：皮疹、搔癢、白斑；標靶藥：痘痘樣皮疹、甲溝炎",
+        "腸道：腹瀉、腹痛、血便（免疫性腸炎）",
+        "內分泌：疲倦、怕冷或心悸（甲狀腺）、頭痛低血壓（腦下垂體炎）、突然高血糖",
+        "肺：乾咳、喘（免疫性肺炎）；心肌炎：胸痛、心悸、肌肉無力"
+      ],
+      "diagnosis_zh": [
+        "每次治療前抽血：肝功能、甲狀腺、血糖、電解質、皮質醇",
+        "依 CTCAE 分 1–4 級決定處置",
+        "腹瀉需排除感染（含困難梭菌）",
+        "懷疑肺炎照胸部 CT；懷疑心肌炎驗 troponin、心電圖、心臟 MRI"
+      ],
+      "treatment_zh": [
+        "1 級：多可繼續治療並症狀處理",
+        "2 級：暫停免疫藥，給予口服類固醇（約每公斤 0.5–1 毫克 prednisolone）",
+        "3–4 級：住院、靜脈高劑量類固醇，無效時加 infliximab、mycophenolate 等",
+        "內分泌缺乏（甲狀腺、腎上腺）需長期荷爾蒙補充，多不必停免疫治療",
+        "EGFR 抑制劑皮疹：保濕、防曬、預防性口服 tetracycline 類抗生素與外用藥"
+      ],
+      "postop_zh": [
+        "類固醇需緩慢減量 4–6 週以上，太快減會復發",
+        "長期類固醇期間注意血糖、感染與骨質",
+        "恢復後是否重啟免疫治療由腫瘤科醫師評估"
+      ],
+      "diet_zh": [
+        "腹瀉時少量多餐、補充水分與電解質，避免高油與乳糖",
+        "使用類固醇期間減少精製糖、注意血糖",
+        "口腔黏膜破損時選軟質、常溫食物"
+      ],
+      "exercise_zh": [
+        "治療期間維持每週 150 分鐘中等強度活動（依體力調整）",
+        "加入每週 2 次阻力訓練預防肌少",
+        "高燒、心肌炎或肺炎急性期暫停運動"
+      ],
+      "rehab_zh": [
+        "免疫性關節炎或肌炎者由復健科協助關節活動與肌力",
+        "周邊神經病變者做平衡訓練防跌"
+      ],
+      "selfcare_zh": [
+        "隨身攜帶「免疫治療病人卡」，急診時出示",
+        "皮膚每天保濕、使用溫和清潔劑與防曬",
+        "定時量血糖（尤其使用類固醇時）"
+      ],
+      "tw_resources_zh": [
+        "健保自 2019 年起有條件給付免疫檢查點抑制劑（依癌別、PD-L1 表現與事前審查）",
+        "各醫院癌症個案管理師與 24 小時腫瘤諮詢專線",
+        "癌症希望基金會、台灣癌症基金會提供病友衛教"
+      ],
+      "red_flags_zh": [
+        "每天腹瀉 ≥7 次、血便或劇烈腹痛",
+        "新出現的喘、乾咳或胸痛",
+        "劇烈頭痛、視力改變、低血壓昏沉",
+        "皮膚大面積起水泡脫皮或口腔潰爛",
+        "高燒 ≥38°C（特別是同時接受化療時）"
+      ],
+      "evidence": [
+        {
+          "label": "Schneider BJ et al. Management of Immune-Related Adverse Events in Patients Treated With Immune Checkpoint Inhibitor Therapy: ASCO Guideline Update (J Clin Oncol)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Haanen J et al. Management of toxicities from immunotherapy: ESMO Clinical Practice Guideline (Ann Oncol)",
+          "year": 2022,
+          "level": "guideline"
+        },
+        {
+          "label": "Lacouture ME et al. Prevention and management of dermatological toxicities related to anticancer agents: ESMO Clinical Practice Guidelines (Ann Oncol)",
+          "year": 2021,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/PRECISION_THERAPY",
+          "label_zh": "標靶與免疫治療原理"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "28%",
+          "label_zh": "CHALLENGE：運動組復發或新癌風險下降"
+        },
+        {
+          "value": "150 分",
+          "label_zh": "每週中等強度有氧"
+        },
+        {
+          "value": "2 次",
+          "label_zh": "每週阻力訓練"
+        }
+      ],
+      "causes_zh": [
+        "化療、放療、手術與荷爾蒙治療的晚期效應",
+        "共同危險因子（吸菸、酒精、肥胖、不活動）持續存在",
+        "遺傳性癌症症候群增加第二原發癌",
+        "心理壓力、恐懼復發、社會角色改變"
+      ],
+      "prevention_zh": [
+        "戒菸、限酒、防曬",
+        "依年齡完成其他癌症篩檢（大腸、乳房、子宮頸、口腔、肺、胃幽門桿菌）",
+        "接種疫苗（流感、肺炎鏈球菌、帶狀疱疹；HPV 依年齡）"
+      ],
+      "prognosis_zh": "多數癌症的五年存活率持續上升，存活者的健康挑戰逐漸轉向心血管疾病、第二原發癌與生活品質。規律運動、健康體重與戒菸是可控因素中影響最大者。",
+      "timeline": [
+        {
+          "when_zh": "治療結束 0–3 個月",
+          "goal_zh": "恢復體能與日常",
+          "do_zh": [
+            "每天步行逐步增加至 30 分鐘",
+            "取得治療摘要與追蹤時程"
+          ]
+        },
+        {
+          "when_zh": "3 個月–2 年",
+          "goal_zh": "復發監測高峰期",
+          "do_zh": [
+            "依時程回診",
+            "開始阻力訓練、達每週 150 分鐘",
+            "評估重返工作"
+          ]
+        },
+        {
+          "when_zh": "2–5 年",
+          "goal_zh": "長期健康",
+          "do_zh": [
+            "追蹤間隔拉長",
+            "一般癌症篩檢與心血管預防"
+          ]
+        },
+        {
+          "when_zh": "5 年以上",
+          "goal_zh": "回歸一般健康管理",
+          "do_zh": [
+            "每年家醫科健康檢查",
+            "持續運動與健康飲食"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的追蹤時程是什麼？每次要做哪些檢查？",
+        "哪些症狀代表可能復發，要提早回診？",
+        "我的治療會造成哪些長期影響（心臟、骨骼、生育）？",
+        "我可以做哪些運動？有沒有不能做的？"
+      ],
+      "id": "cancer_survivorship",
+      "name_zh": "癌症存活者長期照護與運動處方",
+      "name_en": "Cancer Survivorship Care & Exercise Prescription",
+      "icd10": "Z85",
+      "summary_zh": "從確診那一刻起就是「癌症存活者」。治療結束後的重點轉為：依時程追蹤復發、篩檢第二原發癌、處理長期副作用（疲倦、神經病變、心臟與骨骼影響、不孕）、心理與重返工作。2025 年 CHALLENGE 隨機試驗證實，大腸癌術後化療完成者接受 3 年結構化運動計畫，無病存活與整體存活皆顯著改善，運動已是有實證的「處方」。",
+      "symptoms_zh": [
+        "癌因性疲憊、注意力與記憶變差（化療腦）",
+        "手腳麻（化療神經病變）、淋巴水腫",
+        "更年期症狀、性功能與生育問題",
+        "焦慮、失眠、害怕每次回診檢查"
+      ],
+      "diagnosis_zh": [
+        "依癌別的追蹤時程：問診、理學檢查、腫瘤標記、影像（不宜過度檢查）",
+        "心臟：使用 anthracycline、trastuzumab 或胸部放療者定期心臟超音波",
+        "骨骼：荷爾蒙治療者做骨密度",
+        "憂鬱、焦慮與疲倦篩檢"
+      ],
+      "treatment_zh": [
+        "結構化運動計畫：有氧 + 阻力，由物理治療師或運動指導員監督起步",
+        "疲倦：運動與認知行為治療證據最佳，排除貧血、甲狀腺低下",
+        "神經病變：duloxetine 有證據；平衡訓練防跌",
+        "心理腫瘤科與病友支持團體"
+      ],
+      "postop_zh": [
+        "建立「存活者照護計畫」：治療摘要 + 追蹤時程 + 誰負責什麼",
+        "由腫瘤科逐步交回家醫科處理慢性病與預防保健",
+        "持續荷爾蒙治療者（如乳癌 5–10 年）注意服藥遵從"
+      ],
+      "diet_zh": [
+        "以蔬果、全穀、豆類為主的植物性飲食",
+        "限制紅肉與加工肉、避免含糖飲料",
+        "不喝酒或盡量少喝（酒精與多種癌症復發相關）",
+        "維持健康體重，避免肌少型肥胖"
+      ],
+      "exercise_zh": [
+        "每週 150–300 分鐘中等強度有氧（快走、騎車）",
+        "每週 2–3 次全身阻力訓練",
+        "淋巴水腫者阻力訓練安全且有益，循序漸進並穿壓力袖套（依醫囑）",
+        "骨轉移者需先評估骨折風險再設計運動"
+      ],
+      "rehab_zh": [
+        "癌症復健：淋巴水腫綜合消腫治療、肩關節活動度",
+        "職能治療協助重返工作與認知策略",
+        "骨盆底訓練（攝護腺、婦癌、直腸癌術後）"
+      ],
+      "selfcare_zh": [
+        "保存一份自己的治療摘要（藥名、劑量、放療部位）",
+        "把新症狀與「持續超過 2 週」的變化記下來回診討論",
+        "找到可以談心的人或病友團體"
+      ],
+      "tw_resources_zh": [
+        "各醫院癌症資源中心：病友支持團體、假髮與義乳租借、社會福利諮詢",
+        "勞動部「職場重返」與就業服務（癌友就業協助）",
+        "國健署與癌症希望基金會「癌友運動」課程"
+      ],
+      "red_flags_zh": [
+        "原手術部位或淋巴結出現新腫塊",
+        "持續骨頭痛（尤其夜間）、不明體重減輕",
+        "新的持續咳嗽、血便、頭痛合併嘔吐",
+        "有傷害自己的想法：撥 1925"
+      ],
+      "evidence": [
+        {
+          "label": "Courneya KS et al. Structured Exercise after Adjuvant Chemotherapy for Colon Cancer: CHALLENGE trial (N Engl J Med)",
+          "year": 2025,
+          "level": "rct"
+        },
+        {
+          "label": "Ligibel JA et al. Exercise, Diet, and Weight Management During Cancer Treatment: ASCO Guideline (J Clin Oncol)",
+          "year": 2022,
+          "level": "guideline"
+        },
+        {
+          "label": "Campbell KL et al. Exercise Guidelines for Cancer Survivors: Consensus Statement from International Multidisciplinary Roundtable (Med Sci Sports Exerc)",
+          "year": 2019,
+          "level": "consensus"
+        },
+        {
+          "label": "NCCN Clinical Practice Guidelines in Oncology: Survivorship",
+          "year": 2025,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/SURVIVORSHIP_PALLIATIVE",
+          "label_zh": "存活者與緩和照護"
+        },
+        {
+          "hash": "exercise/strength",
+          "label_zh": "阻力訓練入門"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≈2/3",
+          "label_zh": "晚期癌症病人有中重度疼痛"
+        },
+        {
+          "value": ">5%",
+          "label_zh": "6 個月體重流失即需評估惡病質"
+        },
+        {
+          "value": "0–3/10",
+          "label_zh": "疼痛控制目標"
+        }
+      ],
+      "causes_zh": [
+        "腫瘤侵犯骨頭、神經、內臟",
+        "治療相關：術後痛、化療神經病變、放射性黏膜炎",
+        "惡病質：腫瘤引發全身發炎與代謝改變",
+        "吞嚥困難、噁心、味覺改變、憂鬱使進食減少"
+      ],
+      "prevention_zh": [
+        "癌症確診時就做營養篩檢，越早介入越有效",
+        "每次回診主動報告疼痛分數",
+        "預防性處理便秘與噁心"
+      ],
+      "prognosis_zh": "超過九成的癌症疼痛可透過藥物與介入治療獲得良好控制。惡病質難以完全逆轉，但早期營養與運動介入可維持體能與治療耐受度。",
+      "timeline": [
+        {
+          "when_zh": "開始止痛 0–3 天",
+          "goal_zh": "找到有效劑量",
+          "do_zh": [
+            "按時吃藥、記錄疼痛分數與救援劑量次數",
+            "同時開始軟便劑"
+          ]
+        },
+        {
+          "when_zh": "第 1–2 週",
+          "goal_zh": "穩定控制",
+          "do_zh": [
+            "依救援次數調整長效劑量",
+            "處理噁心、嗜睡"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "維持生活品質",
+          "do_zh": [
+            "定期回診重新評估",
+            "與營養師、復健師、心理師合作"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的疼痛是哪一種？有沒有可以處理根本原因的方法（如放療）？",
+        "爆發痛時可以多吃幾次救援藥？",
+        "吃嗎啡會上癮或縮短生命嗎？",
+        "我需要營養師或口服營養品嗎？健保有給付嗎？"
+      ],
+      "id": "cancer_pain_cachexia",
+      "name_zh": "癌症疼痛與惡病質（食慾不振、體重流失）",
+      "name_en": "Cancer Pain & Cancer Cachexia",
+      "icd10": "G89.3 / R64",
+      "summary_zh": "晚期癌症病人多數會經歷疼痛，但約有三分之一沒有被充分控制，常見原因是害怕「嗎啡會上癮、會加速死亡」。正確使用鴉片類止痛藥並不會縮短壽命。惡病質則是發炎造成的肌肉與脂肪流失，單靠多吃無法逆轉，需要營養、運動、症狀與藥物的多面向處理，越早介入越好。",
+      "symptoms_zh": [
+        "持續性疼痛加上突發性疼痛（爆發痛）",
+        "神經痛：燒灼、電擊、針刺感",
+        "食慾差、早飽、味覺改變",
+        "肌肉變少、無力、衣服變鬆"
+      ],
+      "diagnosis_zh": [
+        "疼痛評估：0–10 分、性質、部位、對睡眠與活動的影響",
+        "找出可治療原因：骨轉移（放療）、脊髓壓迫（急症）",
+        "營養篩檢（如 PG-SGA）、體重與握力追蹤",
+        "檢查可逆因素：便秘、口腔念珠菌、憂鬱、高血鈣"
+      ],
+      "treatment_zh": [
+        "依 WHO 原則：口服優先、按時給藥、依強度選藥、個別化",
+        "中重度疼痛：嗎啡、oxycodone、fentanyl 貼片等鴉片類藥物，並開立爆發痛救援劑量",
+        "神經痛：加 gabapentinoid 或抗憂鬱劑；骨轉移：放療、骨保護藥",
+        "鴉片類藥物一定要同時預防便秘",
+        "惡病質：營養諮詢、口服營養補充品、運動；可考慮 megestrol 或低劑量 olanzapine 促進食慾（依醫囑）"
+      ],
+      "postop_zh": [
+        "開始或調整鴉片類藥物後 24–72 小時評估效果與副作用",
+        "頭暈嗜睡多在數天內適應；若呼吸變慢、叫不醒需立即就醫",
+        "神經阻斷術或放療後追蹤疼痛分數變化"
+      ],
+      "diet_zh": [
+        "少量多餐（每天 6–8 次），先吃高蛋白高熱量食物",
+        "口服營養補充品（ONS）作為點心",
+        "蛋白質每公斤 1.0–1.5 克，熱量每公斤 25–30 大卡",
+        "口乾或黏膜炎時選濕潤、常溫、質地軟的食物"
+      ],
+      "exercise_zh": [
+        "在可耐受範圍內每天活動，阻力訓練可延緩肌肉流失",
+        "疼痛控制良好時再運動",
+        "骨轉移者避免扭轉與重壓脊椎的動作"
+      ],
+      "rehab_zh": [
+        "物理治療：疼痛緩解姿勢、輔具、步態訓練",
+        "職能治療：節能技巧、居家環境調整",
+        "淋巴引流、經皮神經電刺激（TENS）作為輔助"
+      ],
+      "selfcare_zh": [
+        "疼痛日記：分數、時間、吃了什麼藥",
+        "鴉片類藥物放在孩子拿不到的地方，剩藥交回醫院藥局",
+        "不要自行停用長效止痛藥或剪開緩釋錠"
+      ],
+      "tw_resources_zh": [
+        "癌症疼痛用藥（含鴉片類）由健保給付，屬管制藥品需專用處方",
+        "安寧共同照護與安寧居家療護（健保給付）",
+        "癌症希望基金會營養品補助（依資格）"
+      ],
+      "red_flags_zh": [
+        "背痛合併雙腳無力、麻木或大小便失禁（脊髓壓迫，急症）",
+        "叫不醒、呼吸每分鐘 <8 次",
+        "超過 3 天未排便合併腹脹嘔吐",
+        "新出現的劇烈疼痛或骨頭變形"
+      ],
+      "evidence": [
+        {
+          "label": "WHO Guidelines for the pharmacological and radiotherapeutic management of cancer pain in adults and adolescents",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "Fallon M et al. Management of cancer pain in adult patients: ESMO Clinical Practice Guidelines (Ann Oncol)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "Roeland EJ et al. Management of Cancer Cachexia: ASCO Guideline (J Clin Oncol)",
+          "year": 2020,
+          "level": "guideline"
+        },
+        {
+          "label": "Arends J et al. Cancer cachexia in adult patients: ESMO Clinical Practice Guidelines (ESMO Open)",
+          "year": 2021,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/NUTRITION_SIDE_EFFECTS",
+          "label_zh": "治療期營養與副作用"
+        }
+      ]
+    }
+  ]
+}

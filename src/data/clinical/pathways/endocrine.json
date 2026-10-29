@@ -1,0 +1,534 @@
+{
+  "id": "endocrine",
+  "name_zh": "內分泌新陳代謝科",
+  "name_en": "Endocrinology & Metabolism",
+  "division": "internal",
+  "curriculum_zh": "臺大 M3-M4「內分泌生殖系統」模組、陽明交大「內分泌新陳代謝」模組、成大「內分泌學」→ M5-M6 內科見實習",
+  "scope_zh": "主治第 1 型與第 2 型糖尿病、甲狀腺疾病（亢進、低下、甲狀腺結節與甲狀腺癌）、骨質疏鬆症、高血脂症、腦下垂體與腎上腺異常、內分泌性高血壓。",
+  "subspecialties_zh": [
+    "糖尿病共同照護網與連續血糖監測 (CGM)",
+    "甲狀腺超音波與細針抽吸細胞學檢查 (FNA)",
+    "骨質疏鬆症與骨密度 (DEXA) 特診",
+    "高血脂症與家族性高膽固醇血症",
+    "腦下垂體、腎上腺與內分泌性高血壓"
+  ],
+  "when_to_visit_zh": [
+    "三多一少：多吃、多喝、多尿，體重不明原因暴瘦",
+    "空腹血糖 ≥126 mg/dL，糖化血色素 HbA1c ≥6.5%",
+    "脖子腫大、吞嚥異物感或健檢查出甲狀腺結節",
+    "心悸手抖、怕熱爆汗、失眠體重銳減（甲狀腺亢進）；或怕冷水腫、嗜睡發福（甲狀腺低下）",
+    "骨密度檢測 T-score ≤ -2.5 或輕微跌倒即發生脆弱性骨折"
+  ],
+  "salud_links": [
+    {
+      "hash": "systems/endocrine",
+      "label_zh": "荷爾蒙迴饋與代謝平衡"
+    },
+    {
+      "hash": "spine/OSTEOPOROSIS",
+      "label_zh": "骨質疏鬆 11 知識點全解析"
+    },
+    {
+      "hash": "cardiometabolic",
+      "label_zh": "ApoB 與血脂動脈硬化"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "內科部 代謝內分泌科",
+    "NCKUH": "內科部 內分泌新陳代謝科",
+    "VGH": "內科部（內分泌新陳代謝科）",
+    "CCH": "內科部 內分泌新陳代謝科"
+  },
+  "block": "endo",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "<7%",
+          "label_zh": "多數成人 HbA1c 目標"
+        },
+        {
+          "value": "≥70%",
+          "label_zh": "CGM 血糖在目標範圍時間"
+        },
+        {
+          "value": "58%",
+          "label_zh": "生活型態介入降低前期進展為糖尿病（DPP）"
+        }
+      ],
+      "causes_zh": [
+        "遺傳體質",
+        "肥胖（尤其腹部）",
+        "少動、睡眠不足、壓力",
+        "妊娠糖尿病史、多囊性卵巢症候群"
+      ],
+      "prevention_zh": [
+        "減重 5–7% 加每週 150 分鐘運動",
+        "戒含糖飲料",
+        "高風險者每年驗血糖或 HbA1c"
+      ],
+      "prognosis_zh": "良好控制可大幅降低視網膜、腎臟與神經病變；SGLT2 抑制劑與 GLP-1 受體促效劑可降低心腎事件。部分早期患者經顯著減重可達緩解。",
+      "timeline": [
+        {
+          "when_zh": "確診 0–3 個月",
+          "goal_zh": "學會自我管理",
+          "do_zh": [
+            "糖尿病衛教與飲食",
+            "開始藥物"
+          ]
+        },
+        {
+          "when_zh": "每 3 個月",
+          "goal_zh": "達標",
+          "do_zh": [
+            "驗 HbA1c、調整治療"
+          ]
+        },
+        {
+          "when_zh": "每年",
+          "goal_zh": "預防併發症",
+          "do_zh": [
+            "眼底、尿蛋白、足部、血脂",
+            "流感與肺炎鏈球菌疫苗"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的 HbA1c 目標是多少？",
+        "我適合用 CGM 嗎？",
+        "我的藥能保護心臟與腎臟嗎？",
+        "低血糖時該怎麼處理？"
+      ],
+      "tw_resources_zh": [
+        "健保糖尿病共同照護網（論質計酬）",
+        "糖尿病衛教師",
+        "CGM 多為自費（部分條件給付）"
+      ],
+      "evidence_add": [
+        {
+          "label": "American Diabetes Association. Standards of Care in Diabetes—2026 (Diabetes Care)",
+          "year": 2026,
+          "level": "guideline"
+        },
+        {
+          "label": "Knowler WC et al. Reduction in the Incidence of Type 2 Diabetes with Lifestyle Intervention or Metformin: DPP (N Engl J Med)",
+          "year": 2002,
+          "level": "rct"
+        }
+      ],
+      "evidence_drop": [
+        "American Diabetes Association (ADA) Standards of Care in Diabetes—2024/2025"
+      ],
+      "id": "t2dm",
+      "name_zh": "第 2 型糖尿病與連續血糖監測",
+      "name_en": "Type 2 Diabetes Mellitus & Continuous Glucose Monitoring (CGM)",
+      "icd10": "E11.9",
+      "summary_zh": "第 2 型糖尿病為胰島素阻抗與胰島 β 細胞分泌不足引發之全身代謝性疾病。依 ADA/EASD 2024/2025 指引，治療目標已從單純降血糖提升至「器官保護（心血管、腎臟、體重管理）」。搭配連續血糖監測 (CGM) 與目標範圍內時間 (TIR >70%) 能精準預防微血管與大血管併發症。",
+      "symptoms_zh": [
+        "典型三多一少：多尿 (Polyuria)、多渴 (Polydipsia)、多食 (Polyphagia) 及體重減輕",
+        "傷口經久不癒、反覆念珠菌感染或皮膚泌尿道感染",
+        "視力模糊、視物對焦困難（晶狀體滲透壓變動）",
+        "手腳末端對稱性麻木、刺痛、如戴手套穿襪子般鈍感（周邊神經病變）"
+      ],
+      "diagnosis_zh": [
+        "空腹 8 小時血漿血糖 (FPG) ≥ 126 mg/dL (7.0 mmol/L)",
+        "口服 75g 葡萄糖耐量試驗 (OGTT) 2 小時血糖 ≥ 200 mg/dL",
+        "糖化血色素 (HbA1c) ≥ 6.5%（經 NGSP 認證實驗室標準化測定）",
+        "高血糖典型症狀合併隨機血糖 ≥ 200 mg/dL (11.1 mmol/L)",
+        "連續血糖監測 (CGM) 評估指標：目標範圍內時間 (TIR 70-180 mg/dL >70%)、低血糖時間 (TBR <70 mg/dL <4%)"
+      ],
+      "treatment_zh": [
+        "第一線生活型態調整合併 Metformin（無禁忌症時）",
+        "器官保護導向首選：SGLT2 抑制劑（排糖藥，兼具心衰竭與腎臟保護）及 GLP-1 受體促效劑（降糖、強效減重、中風心梗防護）",
+        "雙重促效劑 (Tirzepatide GIP/GLP-1 RA) 與 DPP-4 抑制劑、磺醯尿素類 (SU) 或基礎胰島素個人化組合",
+        "血糖控制目標：多數成人 HbA1c < 7.0%；年輕無共病者追求嚴格 <6.5%；高齡多共病防低血糖者放寬至 7.5-8.0%"
+      ],
+      "postop_zh": [
+        "使用胰島素或促泌劑 (SU) 患者，門診指導低血糖「15-15 法則」：血糖 <70 mg/dL 立即攝取 15 克快速糖類（3-4 顆方糖或 120-150 mL 果汁），15 分鐘後複測",
+        "每年定期檢查：視網膜眼底攝影散瞳檢查、尿液微量白蛋白 (UACR)、足部感覺神經尼龍絲單絲測試 (Monofilament) 及震動音叉檢查",
+        "胰島素注射部位輪替（腹部、大腿、上臂），避免脂肪增生變硬阻礙藥物吸收"
+      ],
+      "diet_zh": [
+        "採「蔬菜 → 蛋白質 → 澱粉碳水」之進食順序，實證可平抑餐後血糖高峰值 30-40%",
+        "選擇低升糖指數 (Low-GI) 複合全穀雜糧（糙米、燕麥、地瓜），嚴格限制精緻白米、白麵包、含糖飲料與甜點",
+        "定時定量分配三餐碳水化合物，搭配健康脂肪（特級初榨橄欖油、酪梨、堅果）延緩胃排空",
+        "每日膳食纖維攝取達 25-35 公克，輔助改善腸道菌相與胰島素敏感度"
+      ],
+      "exercise_zh": [
+        "每週至少 150 分鐘中等強度有氧運動（如快走、慢跑、游泳），運動間隔不超過 2 天（避免胰島素敏感度改善效應消退）",
+        "抗阻力重量訓練每週 2-3 次：鍛鍊臀大肌、股四頭肌等全身最大肌肉群，肌肉為人體最大的葡萄糖儲存庫",
+        "餐後 30-60 分鐘散步 15-20 分鐘，能有效啟動肌肉非胰島素依賴性 GLUT-4 葡萄糖轉運蛋白降糖"
+      ],
+      "rehab_zh": [
+        "糖尿病足部物理保護復健：每日以溫水洗腳、鏡子檢查腳底有無水泡破皮紅腫，絕不可赤腳行走，穿著無縫線棉襪與合腳減壓鞋",
+        "足踝關節幫浦與被動牽拉小腿阿基里斯腱，維持踝關節活動度，預防足底高壓點形成 Charcot 關節變形",
+        "自律神經與周邊感覺神經刺激訓練，預防神經病變引發步態不穩跌倒"
+      ],
+      "selfcare_zh": [
+        "學會正確居家血糖量測技巧或佩戴連續血糖感應器 (CGM)，了解飲食內容對自身即時血糖之動態曲線",
+        "生病時守則 (Sick-day management)：生病感染時血糖常反常飆高，切忌隨意停用胰島素，需密切加測血糖酮體並補充水分",
+        "隨身攜帶糖尿病識別卡與糖包糖果，向親友告知低血糖處理方式",
+        "定期戒菸、維持血壓 <130/80 mmHg、LDL-C 控制在 <70 mg/dL（合併心血管疾病者 <55 mg/dL）"
+      ],
+      "red_flags_zh": [
+        "血糖過低且出現神智混亂、嗜睡、抽搐甚至失去意識昏迷（嚴重低血糖急症，需立即給予升糖素注射或急送 119 靜脈葡萄糖）",
+        "血糖極高 (>300-600 mg/dL) 伴隨急促深快呼吸 (Kussmaul breathing)、呼氣有水果腐敗爛蘋果味、劇烈嘔吐腹痛（糖尿病酮酸中毒 DKA）",
+        "高血糖高滲透壓狀態 (HHS)：嚴重脫水、嗜睡昏迷、血壓驟降，多見於高齡患者",
+        "足部出現發黑、壞疽、劇烈紅腫熱痛並向上蔓延（糖尿病足壞死性筋膜炎，有截肢致命風險）"
+      ],
+      "evidence": [
+        {
+          "label": "American Diabetes Association. Standards of Care in Diabetes—2026 (Diabetes Care)",
+          "year": 2026,
+          "level": "guideline"
+        },
+        {
+          "label": "Knowler WC et al. Reduction in the Incidence of Type 2 Diabetes with Lifestyle Intervention or Metformin: DPP (N Engl J Med)",
+          "year": 2002,
+          "level": "rct"
+        },
+        {
+          "label": "EASD/ADA Consensus: Management of Hyperglycemia in Type 2 Diabetes",
+          "year": 2022
+        },
+        {
+          "label": "中華民國糖尿病學會 2022-2024 糖尿病臨床照護指引",
+          "year": 2024
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/endocrine",
+          "label_zh": "胰島素與血糖調控軸"
+        },
+        {
+          "hash": "obesity",
+          "label_zh": "胰島素阻抗與脂肪代謝"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≈95%",
+          "label_zh": "甲狀腺結節為良性"
+        },
+        {
+          "value": "6–8 週",
+          "label_zh": "調藥後複驗甲狀腺功能"
+        },
+        {
+          "value": "30–60 分",
+          "label_zh": "甲狀腺素早餐前空腹服用"
+        }
+      ],
+      "causes_zh": [
+        "自體免疫：葛瑞夫茲病（亢進）、橋本氏甲狀腺炎（低下）",
+        "碘攝取過多或不足",
+        "頸部放射線暴露",
+        "家族史、女性、產後"
+      ],
+      "prevention_zh": [
+        "使用加碘鹽、避免過量海藻類補充",
+        "計畫懷孕者驗 TSH",
+        "結節依超音波分級定期追蹤"
+      ],
+      "prognosis_zh": "甲狀腺功能異常多可藥物良好控制；甲狀腺癌以乳突癌最常見，預後很好，十年存活率超過九成。",
+      "timeline": [
+        {
+          "when_zh": "0–6 週",
+          "goal_zh": "確診與開始治療",
+          "do_zh": [
+            "抽血、超音波",
+            "開始藥物"
+          ]
+        },
+        {
+          "when_zh": "6–8 週",
+          "goal_zh": "調整劑量",
+          "do_zh": [
+            "複驗 TSH 與 free T4"
+          ]
+        },
+        {
+          "when_zh": "穩定後",
+          "goal_zh": "長期追蹤",
+          "do_zh": [
+            "每 6–12 個月抽血",
+            "結節依分級追蹤"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我是亢進還是低下？原因是什麼？",
+        "結節需要細針穿刺嗎？",
+        "藥物怎麼吃、要吃多久？",
+        "懷孕要注意什麼？"
+      ],
+      "tw_resources_zh": [
+        "健保給付甲狀腺功能檢查與細針穿刺",
+        "核醫放射性碘治療"
+      ],
+      "id": "thyroid_disorders",
+      "name_zh": "甲狀腺疾病（亢進/低下/結節）照護",
+      "name_en": "Thyroid Disorders: Hyperthyroidism, Hypothyroidism & Nodules",
+      "icd10": "E05.0 / E03.9 / E04.1",
+      "summary_zh": "甲狀腺素主導人體全身基礎代謝率。格雷夫斯病 (Graves’ disease) 為甲狀腺亢進最常見原因；橋本氏甲狀腺炎 (Hashimoto’s thyroiditis) 則易導致永久低下。超音波檢測出的甲狀腺結節盛行率逾四成，需依 ACR TI-RADS 分級評估細針穿刺切片排除惡性腫瘤。",
+      "symptoms_zh": [
+        "甲狀腺機能亢進：怕熱爆汗、心悸手抖、多食易飢卻體重暴跌、腹瀉排便頻繁、失眠脾氣暴躁、眼突甲狀腺腫大",
+        "甲狀腺機能低下：極度怕冷、疲倦無精打采、體重增加黏液水腫、嚴重便秘、記憶力減退聲音低沉沙啞、女性經血過多",
+        "甲狀腺結節：頸部前方無痛性硬塊凸起、吞嚥時有異物滑動感、較大結節可壓迫氣管致喘或壓迫喉返神經致聲啞"
+      ],
+      "diagnosis_zh": [
+        "血清荷爾蒙檢驗：游離甲狀腺素 (Free T4) 及促甲狀腺素 (TSH，最敏感篩檢指標)",
+        "自體抗體檢驗：促甲狀腺素受體抗體 (TRAb，診斷 Graves’)、抗甲狀腺過氧化酶抗體 (Anti-TPO Ab，診斷橋本氏病)",
+        "高解析甲狀腺超音波 (Thyroid Ultrasound)：評估大小、血流訊號、結節邊緣特徵、微鈣化及縱橫比 (T-I-RADS 分級)",
+        "細針抽吸細胞學檢查 (Fine-Needle Aspiration, FNA)：以 Bethesda 報告系統進行惡性風險分層判讀"
+      ],
+      "treatment_zh": [
+        "甲亢抗甲狀腺藥物 (ATD)：Methimazole (MMI) 或 Propylthiouracil (PTU，懷孕初期適用)，療程約 12-18 個月",
+        "甲亢輔助用藥：β-阻斷劑（Propranolol）快速緩解心悸、震顫與焦慮",
+        "甲亢替代根治性療法：放射性碘-131 (RAI) 內放射治療或次全/全甲狀腺切除手術",
+        "甲狀腺機能低下補充療法：左旋甲狀腺素 (Levothyroxine, LT4) 每日晨起空腹服用",
+        "甲狀腺良性結節壓迫：微創甲狀腺射頻消融術 (RFA) 或外科微創手術"
+      ],
+      "postop_zh": [
+        "甲亢服用抗甲狀腺藥物 (ATD) 期間：若突發喉嚨劇痛發高燒，必須立即回急診驗白血球（警惕罕見致命併發症：顆粒性白血球缺乏症 Agranulocytosis）",
+        "甲狀腺手術後注意傷口出血壓迫氣管、低血鈣（手麻抽筋，因副甲狀腺受波及）及聲音沙啞（喉返神經牽拉）",
+        "服用 Levothyroxine (放甲狀腺素) 須在早晨起床後空腹以大杯白開水送服，且需與早餐、牛奶、鈣片、鐵劑相隔至少 30-60 分鐘以防阻礙吸收"
+      ],
+      "diet_zh": [
+        "甲亢活動發炎期嚴格限碘：禁止食用海帶、紫菜、海苔、昆布高湯及含碘鹽，避免海產貝類過量",
+        "甲亢期避免咖啡因（濃茶、咖啡）與烈酒刺激物，防止加重交感神經心悸心律不整",
+        "甲狀腺低下患者若非缺碘地區，應維持均衡正常飲食，切勿盲目過度大量吞食海藻碘片補品，過量碘反會抑制甲狀腺素合成釋放（Wolff-Chaikoff 效應）",
+        "甲狀腺結節且功能正常者正常均衡飲食即可，無需刻意極端限碘"
+      ],
+      "exercise_zh": [
+        "甲亢未受控制前（心跳 >100 bpm）：嚴禁高強度心肺與重量訓練，防範誘發心房顫動或甲狀腺風暴",
+        "甲亢用藥控制血壓心律正常後，循序漸進從低衝擊有氧運動（步行、瑜珈）開始恢復",
+        "甲狀腺低下患者代謝偏慢易有肌肉無力關節僵硬，適合進行肌力重訓與快走，有助刺激新陳代謝並預防肌少症"
+      ],
+      "rehab_zh": [
+        "甲亢突眼症眼部物理照護：睡覺時略抬高頭部減輕眼窩水腫，外出佩戴墨鏡防風光刺激，睡前點人工淚液凝膠或眼藥膏防角膜乾燥潰瘍",
+        "甲狀腺術後頸部物理牽拉運動：術後 1 週後經醫師同意，進行頸部溫和左右轉頭、仰頭伸展，預防頸部肌肉筋膜攣縮沾黏",
+        "自主神經放鬆引導：深層慢速腹式呼吸，降低甲亢患者過度活躍之交感神經張力"
+      ],
+      "selfcare_zh": [
+        "服用抗甲狀腺藥物每 4-8 週定期回診抽血追蹤 Free T4、TSH 及肝功能、白血球",
+        "服用甲狀腺素 (LT4) 患者維持每日規律單一時間服藥，每年追蹤 TSH 滴定最適劑量",
+        "戒菸：抽菸是格雷夫斯甲狀腺眼病變 (Graves’ ophthalmopathy) 惡化與失明之最強危險因子，必須澈底戒除",
+        "超音波追蹤良性結節每年一次，若結節迅速增大或出現吞嚥困難聲啞應及早穿刺複驗"
+      ],
+      "red_flags_zh": [
+        "甲狀腺風暴 (Thyroid Storm)：極度高燒 (>39-40°C)、心跳狂飆過速 (>140-160 bpm)、心律不整、譫妄狂躁、黃疸、休克昏迷（死亡率極高之急性急症）",
+        "服用抗甲狀腺藥物後突然高燒、嚴重喉嚨潰爛痛（顆粒性白血球缺乏症）",
+        "黏液水腫性昏迷 (Myxedema coma)：重度甲狀腺低下未治療，體溫過低 (<35°C)、嗜睡無反應、嚴重低血壓低心率休克",
+        "甲狀腺結節短時間內迅速增大如石頭般堅硬無彈性、合併頸部巨大淋巴結腫大與持續嗆咳聲音嘶啞"
+      ],
+      "evidence": [
+        {
+          "label": "American Thyroid Association (ATA) Guidelines for Diagnosis and Management of Hyperthyroidism",
+          "year": 2021
+        },
+        {
+          "label": "ETA Clinical Practice Guidelines for the Management of Graves’ Orbitopathy",
+          "year": 2021
+        },
+        {
+          "label": "ACR Thyroid Imaging Reporting and Data System (TI-RADS)",
+          "year": 2020
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/endocrine",
+          "label_zh": "甲狀腺荷爾蒙調節軸 (HPT)"
+        },
+        {
+          "hash": "systems/immune",
+          "label_zh": "器官特異性自體免疫"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "<55／<70／<100",
+          "label_zh": "LDL 依風險分級目標（mg/dL）"
+        },
+        {
+          "value": "T ≤ −2.5",
+          "label_zh": "骨質疏鬆診斷"
+        },
+        {
+          "value": "≈22%",
+          "label_zh": "LDL 每降 1 mmol/L 心血管事件減少"
+        }
+      ],
+      "causes_zh": [
+        "遺傳（家族性高膽固醇血症）、飽和與反式脂肪",
+        "停經、年齡、類固醇、甲狀腺亢進",
+        "少動、吸菸、飲酒、低體重",
+        "慢性腎病、糖尿病"
+      ],
+      "prevention_zh": [
+        "地中海飲食、多纖維",
+        "負重與阻力運動",
+        "依風險篩檢血脂與骨密度（65 歲以上女性、高風險者）"
+      ],
+      "prognosis_zh": "降低 LDL 可穩定減少心肌梗塞與中風；骨鬆藥物可降低椎體骨折 40–70%、髖部骨折約 20–40%。兩者都需要長期遵從。",
+      "timeline": [
+        {
+          "when_zh": "0–3 個月",
+          "goal_zh": "開始治療",
+          "do_zh": [
+            "statin 或骨鬆藥物",
+            "鈣與維生素 D 足量"
+          ]
+        },
+        {
+          "when_zh": "6–12 週",
+          "goal_zh": "確認效果",
+          "do_zh": [
+            "血脂複驗、調整劑量"
+          ]
+        },
+        {
+          "when_zh": "1–2 年",
+          "goal_zh": "評估",
+          "do_zh": [
+            "骨密度複檢",
+            "討論骨鬆藥物假期或銜接"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的 LDL 目標是多少？statin 會傷肝傷肌肉嗎？",
+        "骨鬆藥要吃多久？可以停藥嗎？",
+        "我需要補鈣或維生素 D 嗎？",
+        "有沒有需要驗脂蛋白(a)？"
+      ],
+      "tw_resources_zh": [
+        "健保 statin 給付依心血管風險",
+        "骨鬆藥物給付需符合骨折或骨密度條件",
+        "成人預防保健含血脂"
+      ],
+      "evidence_add": [
+        {
+          "label": "2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias (Eur Heart J)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "USPSTF: Screening for Osteoporosis to Prevent Fractures (JAMA)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Cholesterol Treatment Trialists' Collaboration. Efficacy and safety of more intensive lowering of LDL cholesterol: meta-analysis (Lancet)",
+          "year": 2010,
+          "level": "sr"
+        }
+      ],
+      "evidence_drop": [
+        "2023 ESC/EAS Clinical Practice Guidelines for the management of dyslipidaemias"
+      ],
+      "id": "osteoporosis_dyslipidemia",
+      "name_zh": "高血脂症與骨質疏鬆症綜合防治",
+      "name_en": "Dyslipidemia & Osteoporosis Comprehensive Management",
+      "icd10": "E78.5 / M81.0",
+      "summary_zh": "高血脂為動脈硬化心血管疾病 (ASCVD) 的首要元凶，ApoB 及非 HDL-C 能更精確反映致粥狀動脈硬化顆粒總數。骨質疏鬆症則是高齡社會骨折失能的主因，雙能量 X 光骨密度檢查 (DXA) 為診斷黃金標準，兩者皆為無聲但危害長遠的代謝代謝性疾病。",
+      "symptoms_zh": [
+        "早期皆無任何痛感或自覺症狀",
+        "嚴重高血脂：眼瞼黃斑瘤 (Xanthelasma)、阿基里斯腱黃色瘤、角膜老年環",
+        "重度高三酸甘油酯 (>500-1,000 mg/dL)：可誘發急性胰臟炎嚴重劇烈上腹痛",
+        "骨質疏鬆進展：身高變矮（縮水 >4 公分）、駝背變形、下背慢性鈍痛、輕微跌倒或甚至用力打噴嚏即發生手腕或脊椎壓迫性骨折"
+      ],
+      "diagnosis_zh": [
+        "完整血脂分析：總膽固醇 (TC)、低密度脂蛋白膽固醇 (LDL-C)、高密度脂蛋白 (HDL-C)、三酸甘油酯 (TG)、載脂蛋白 B (ApoB) 及脂蛋白 (a) [Lp(a)]",
+        "雙能量 X 光吸收儀 (DXA)：測定腰椎 (L1-L4) 與雙側髖部骨密度，取最低值換算 T-score（T ≤ -2.5 為骨質疏鬆；T -1.0 至 -2.5 為骨質缺乏）",
+        "FRAX 台灣版骨折風險評估工具：計算未來 10 年主要骨質疏鬆骨折與髖部骨折機率",
+        "胸腰椎側位 X 光 (VFA)：評估有無無症狀之脊椎壓迫性骨折變形",
+        "骨代謝轉換指標：P1NP（骨形成指標）與 β-CTX（骨吸收指標）"
+      ],
+      "treatment_zh": [
+        "降血脂首要標靶：高強度 Statin（如 Atorvastatin/Rosuvastatin）併用膽固醇吸收抑制劑 (Ezetimibe) 與 PCSK9 抑制劑/siRNA (Inclisiran)，極高風險患者目標 LDL-C <55 mg/dL 且降幅 ≥50%",
+        "高三酸甘油酯處置：高純度 EPA 乙酯 (Icosapent ethyl) 或 Fibrate 類藥物預防胰臟炎與心血管剩餘風險",
+        "骨質疏鬆抗骨吸收藥物：雙磷酸鹽類 (Bisphosphonates，如口服 Alendronate、年針 Zoledronic acid) 或 RANKL 單株抗體 (Denosumab 保骼麗每半年皮下注射)",
+        "骨質疏鬆成骨促進藥物：副甲狀腺素類似物 (Teriparatide) 或雙重作用 sclerostin 單株抗體 (Romosozumab 益穩挺)，適用於極高骨折風險者"
+      ],
+      "postop_zh": [
+        "使用 Denosumab 治療者絕不可擅自延遲或停藥，停藥會產生「反彈性骨流失」驟增多發性脊椎骨折風險",
+        "使用抗骨吸收藥物前務必先至牙科完成全口檢查、拔牙與植牙治療，治療期間保持口腔衛生預防罕見顎骨壞死 (ONJ)",
+        "骨質疏鬆藥物治療滿 1-2 年應複查 DXA 骨密度與骨代謝標記評估療效與是否需調整序列藥物"
+      ],
+      "diet_zh": [
+        "降血脂飲食：嚴格消除反式脂肪，飽和脂肪限制在總熱量 7% 以下，每日攝取水溶性膳食纖維（燕麥、秋葵、蘋果、洋車前子）吸附膽汁酸",
+        "骨骼防護鈣質：每日攝取足量鈣質 1,000-1,200 毫克（黑芝麻、板豆腐、乳製品、小魚乾、深綠蔬菜）",
+        "維生素 D3/K2 充足補充：每日維生素 D 800-2,000 IU，血中 25(OH)D 維持在 30-50 ng/mL 促進鈣質吸收與骨基質礦化",
+        "戒菸並限制酒精攝取，避免咖啡因過量（每日咖啡 <2 杯）以防干擾鈣質腸道吸收"
+      ],
+      "exercise_zh": [
+        "負重運動 (Weight-bearing exercises)：快走、慢跑、上下階梯、登山，利用地面垂直反作用力刺激成骨細胞活性",
+        "阻力訓練 (Resistance training)：每週 2-3 次，使用啞鈴、槓鈴或彈力帶進行背肌擴背與下肢深蹲肌力訓練",
+        "平衡與防跌運動：太極拳、單腳站立練習與瑜珈平衡動作，強化本體感覺，大幅降低跌倒受傷機率"
+      ],
+      "rehab_zh": [
+        "背部伸肌強化訓練 (Back extensor strengthening)：加強胸椎伸直肌肉群，對抗駝背並減少脊椎前側椎體壓迫應力",
+        "骨質疏鬆患者運動禁忌安全指導：嚴禁脊椎過度屈曲彎曲（如傳統仰臥起坐、直腿彎腰摸腳趾）與高速旋轉動作（如高爾夫揮桿猛力扭轉），以防脊椎擠壓骨折",
+        "居家防跌環境物理評估：浴室加裝扶手、止滑墊、室內照明充足、清除地板雜物與防滑地毯固定"
+      ],
+      "selfcare_zh": [
+        "高血脂患者定期每 3-6 個月抽血複查血脂指標，監控生活型態與藥物成效",
+        "停經後女性與 65 歲以上男性，建議定期接受雙能量 X 光骨密度 (DXA) 篩檢",
+        "維持良好日常站姿與坐姿，提重物時屈膝蹲下以腿部力量施力，避免直接彎腰提重",
+        "每日於陽光充足時溫和日曬 10-15 分鐘（避開正午紫外線過強時段），促成體內天然活性維生素 D 合成"
+      ],
+      "red_flags_zh": [
+        "輕微跌倒、咳嗽或搬動微小物品後，突發劇烈腰部或背部銳痛、翻身翻床極度困難（急性脊椎壓迫性骨折）",
+        "跌倒後臀部或鼠蹊部劇痛、無法站立負重且患肢出現縮短外旋畸形（急性髖關節骨折，需 24-48 小時內緊急手術）",
+        "三酸甘油酯 >1,000 mg/dL 突發劇烈上腹痛如刀割、輻射至背部伴隨嚴重噁心嘔吐（急性壞死性胰臟炎）",
+        "服用降血脂 Statin 藥物後出現全身肌肉廣泛性劇烈痠痛、肌肉無力並解出可樂色深色尿液（罕見橫紋肌溶解症）"
+      ],
+      "evidence": [
+        {
+          "label": "2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias (Eur Heart J)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "USPSTF: Screening for Osteoporosis to Prevent Fractures (JAMA)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Cholesterol Treatment Trialists' Collaboration. Efficacy and safety of more intensive lowering of LDL cholesterol: meta-analysis (Lancet)",
+          "year": 2010,
+          "level": "sr"
+        },
+        {
+          "label": "AACE/ACE Clinical Practice Guidelines for the Diagnosis and Treatment of Postmenopausal Osteoporosis",
+          "year": 2020
+        },
+        {
+          "label": "中華民國骨質疏鬆症學會 (TOA) 骨質疏鬆症指引",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "spine/OSTEOPOROSIS",
+          "label_zh": "骨質疏鬆完整指南"
+        },
+        {
+          "hash": "cardiometabolic",
+          "label_zh": "心血管硬化與動脈斑塊"
+        }
+      ]
+    }
+  ]
+}

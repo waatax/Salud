@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertTriangle, ChevronRight, Phone } from 'lucide-react';
-import { findCondition, getDepartment } from '../../../data/clinical';
+import { conditionSummary, deptSummary } from '../../../data/clinical';
+import { prefetchDepartment } from '../../../data/clinical/loadDepartment';
 import { SYMPTOMS } from '../../../data/clinical/symptoms';
 import { Card } from './clinicUi';
 
@@ -57,13 +58,15 @@ export const SymptomNavigator: React.FC<{ symptomId?: string; go: (h: string) =>
             <h3 className="mt-4 font-bold text-slate-900 dark:text-white">🔎 依你的情況，最可能的科別</h3>
             <ul className="mt-2 space-y-2">
               {active.routes.map((r) => {
-                const dept = getDepartment(r.dept);
-                const cond = r.cond ? findCondition(r.cond)?.cond : undefined;
+                const dept = deptSummary(r.dept);
+                const cond = r.cond ? conditionSummary(r.cond)?.cond : undefined;
                 if (!dept) return null;
                 return (
                   <li key={r.when_zh}>
                     <button
                       onClick={() => go(cond ? `clinic/${dept.id}/${cond.id}` : `clinic/${dept.id}`)}
+                      onPointerEnter={() => prefetchDepartment(dept.id)}
+                      onFocus={() => prefetchDepartment(dept.id)}
                       className="w-full text-left rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-2.5 hover:border-emerald-400 flex gap-3 items-center"
                     >
                       <span className="flex-1 min-w-0">

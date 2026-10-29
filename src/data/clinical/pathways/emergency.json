@@ -1,0 +1,491 @@
+{
+  "id": "emergency",
+  "name_zh": "急診醫學科",
+  "name_en": "Emergency Medicine",
+  "division": "acute_periop",
+  "curriculum_zh": "臺大 M5 急重症醫學見習、陽明交大急診醫學臨床輪訓、成大急診醫學臨床實習",
+  "scope_zh": "專責急重症檢傷分類 (TTAS 一至五級)、心肺復甦術 (CPR/ACLS)、急性冠心症綠色通道 (Door-to-Balloon <90mins)、急性腦中風溶栓/動脈取栓分流、嚴重外傷止血復甦、急性中毒解毒及環境急症降溫。",
+  "subspecialties_zh": [
+    "急重症復甦與高級心臟救命術 (ACLS)",
+    "創傷急救加護中心 (Trauma Center)",
+    "急診床邊即時超音波 (POCUS)",
+    "急性中毒與毒物諮詢中心",
+    "災難醫學與到院前緊急救護 (EMS)"
+  ],
+  "when_to_visit_zh": [
+    "突發劇烈胸痛、冒冷汗、呼吸極度困難（疑似急性心肌梗塞）",
+    "突發臉部歪斜、單側肢體癱瘓無力、言語不清（急性腦中風 FAST）",
+    "意識突然不清、叫不醒、昏迷休克、全身抽搐癲癇發作",
+    "大量吐血、咳鮮血、劇烈刀割般腹痛、嚴重外傷大出血",
+    "誤食有毒物質農藥、嚴重熱中暑高燒昏迷、過敏性休克氣道水腫"
+  ],
+  "salud_links": [
+    {
+      "hash": "cardiometabolic",
+      "label_zh": "急性冠心症心肌梗塞"
+    },
+    {
+      "hash": "systems/cardiovascular",
+      "label_zh": "心臟停止與腦灌流急救"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "急診醫學部",
+    "NCKUH": "急診部",
+    "VGH": "急診部",
+    "CCH": "急診部"
+  },
+  "block": "acute",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "100–120 次／分",
+          "label_zh": "成人壓胸速率"
+        },
+        {
+          "value": "5–6 公分",
+          "label_zh": "壓胸深度"
+        },
+        {
+          "value": "119",
+          "label_zh": "胸痛、中風立即撥打"
+        }
+      ],
+      "causes_zh": [
+        "急性冠心症：冠狀動脈斑塊破裂",
+        "中風：血栓或出血",
+        "心跳停止：致命性心律不整"
+      ],
+      "prevention_zh": [
+        "學會 CPR 與 AED",
+        "辨識胸痛與 BE-FAST 中風警訊",
+        "控制三高、戒菸"
+      ],
+      "prognosis_zh": "旁觀者立即 CPR 與使用 AED 可使到院前心跳停止存活率提升 2–3 倍；胸痛與中風越早送醫，心肌與腦組織保留越多。",
+      "timeline": [
+        {
+          "when_zh": "0–10 分鐘",
+          "goal_zh": "辨識與呼救",
+          "do_zh": [
+            "撥 119、開始 CPR、取 AED"
+          ]
+        },
+        {
+          "when_zh": "10–90 分鐘",
+          "goal_zh": "到院治療",
+          "do_zh": [
+            "心導管或溶栓／取栓"
+          ]
+        },
+        {
+          "when_zh": "之後",
+          "goal_zh": "復健與預防",
+          "do_zh": [
+            "心臟或中風復健"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我可以去哪裡學 CPR？",
+        "AED 在哪裡可以找到？",
+        "家人有心臟病，在家要準備什麼？",
+        "胸痛什麼時候該叫救護車？"
+      ],
+      "tw_resources_zh": [
+        "119 救護（派遣員可電話指導 CPR）",
+        "衛福部 AED 地圖",
+        "各地消防局與紅十字會 CPR 課程"
+      ],
+      "evidence_add": [
+        {
+          "label": "2025 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care (Circulation)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Prabhakaran S et al. 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke: AHA/ASA (Stroke)",
+          "year": 2026,
+          "level": "guideline"
+        },
+        {
+          "label": "Rao SV et al. 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes (Circulation)",
+          "year": 2025,
+          "level": "guideline"
+        }
+      ],
+      "evidence_drop": [
+        "American Heart Association (AHA) Guidelines for CPR and ECC",
+        "AHA/ASA Guidelines for the Early Management of Patients with Acute Ischemic Stroke",
+        "AHA/ACC Clinical Performance and Quality Measures for Adults with STEMI and NSTEMI"
+      ],
+      "id": "acs_stroke_triage",
+      "name_zh": "急性胸痛/中風急診分流與 CPR/AED 急救",
+      "name_en": "Acute Chest Pain, Stroke Triage & CPR/AED Resuscitation",
+      "icd10": "I21.9 / I63.9",
+      "summary_zh": "急診遵循五級檢傷分類 (TTAS)。急性冠心症 (STEMI) 需在到院 10 分鐘內完成心電圖、90 分鐘內打通血管 (D2B <90 mins)。急性缺血性中風需在黃金 4.5 小時內靜脈溶栓 (rt-PA) 或 24 小時內動脈機械取栓 (EVT)。心跳驟停時高品質 CPR 搭配公眾電擊 (AED) 為生還救命唯一關鍵。",
+      "symptoms_zh": [
+        "急性心肌梗塞：胸骨後如大石重壓、緊箍窒息感、疼痛輻射至左肩左下巴、伴隨臉色蒼白大汗淋漓、瀕死感",
+        "急性腦中風（FAST 口訣）：Face 臉歪嘴斜嘴角下垂、Arm 單側手臂無力下垂、Speech 口齒不清言語斷續大舌頭、Time 記下發病確切時間即刻撥打 119 送急診！",
+        "心跳驟停猝死：突發倒地無意識、無正常呼吸（僅剩瀕死喘息 Agonal breathing）、大動脈無搏動"
+      ],
+      "diagnosis_zh": [
+        "急診檢傷分類 (TTAS)：第一級復甦急救（立即處置）、第二級危急（10分鐘內處置）",
+        "10 分鐘完成 12 導程心電圖：判讀 ST 段上升型心肌梗塞 (STEMI) 即刻啟動心導管室",
+        "高敏感度心肌鈣蛋白 (hs-cTnI) 0/1 小時快速鑑別分流流程",
+        "無顯影腦部電腦斷層 (Non-contrast Brain CT)：秒速排除顱內出血 (ICH)，判定是否符合缺血性中風溶栓條件",
+        "腦部 CT 血管攝影 (CTA) 與灌注攝影 (CTP)：評估大血管阻塞 (LVO) 與缺血半影區 (Penumbra)"
+      ],
+      "treatment_zh": [
+        "急性心肌梗塞綠色通道：緊急經皮冠狀動脈介入治療 (Primary PCI)，氣球擴張置放塗藥支架",
+        "急性缺血性中風溶栓：靜脈注射重組組織纖維蛋白原活化劑 (Alteplase rt-PA) 或 Tenecteplase",
+        "大血管阻塞機械性動脈血栓抽吸切除術 (Endovascular Thrombectomy, EVT)：將取栓黃金時間窗延伸至 24 小時",
+        "心跳停止復甦流程：高品質 CPR（按壓胸骨中段、深度 5-6 公分、速率 100-120 次/分、胸壁完全回彈、中斷不超過 10 秒）搭配自動體外心臟電擊去顫器 (AED) 語音指示電擊分析"
+      ],
+      "postop_zh": [
+        "導管或取栓術後加護病房監護：密切監測神經學檢查 NIHSS 分數、生命徵象與穿刺點血腫",
+        "嚴密控制血壓：溶栓後 24 小時內血壓嚴格維持在 <180/105 mmHg，預防腦部再灌流出血性轉化 (Hemorrhagic transformation)",
+        "術後平躺限制患肢活動 4-6 小時，避免加壓沙袋移位出血",
+        "及早啟動跨領域早期神經心臟復健與營養評估"
+      ],
+      "diet_zh": [
+        "急診評估與急性期嚴格禁食 (NPO)：包含禁止喝水吃藥，防止急診緊急手術麻醉時嘔吐誤吸引發吸入性肺炎窒息",
+        "病情穩定轉入普通病房後採低鈉、低飽和脂肪、質軟易咀嚼飲食",
+        "中風吞嚥功能尚未經篩檢通過前，嚴禁由口餵食任何水液，避免嗆咳吸入性肺炎",
+        "充足電解質與水分靜脈輸液維持體液容積平衡"
+      ],
+      "exercise_zh": [
+        "急性期絕對臥床休息，避免任何自行下床走動、上廁所用力，以防心律不整猝死或血壓劇變",
+        "病情完全穩定 48-72 小時後，在醫護人員監測下由床頭抬高 30 度、床邊坐起、站立踏步循序開展",
+        "出院後規則參加第二期心肺/中風門診運動復健班"
+      ],
+      "rehab_zh": [
+        "急重症加護病房早期被動關節活動度 (PROM) 與良肢位防護擺位，預防關節攣縮與下肢深部靜脈栓塞",
+        "吞嚥功能初步篩檢（吞水試驗），判定管灌或安全質地飲食策略",
+        "家屬急救技能普及衛教：人人學會「叫叫 CD」（叫病人、叫 119 與拿 AED、CPR 按壓、Defibrillator 電擊）"
+      ],
+      "selfcare_zh": [
+        "切記「時間就是大腦，時間就是心肌」：一旦出現胸痛或中風徵兆，絕對不可自行「等待觀察休息看會不會好」、不可自行「搭計程車或自行騎車就醫」，必須「立即撥打 119」！救護車上有救護技術員 (EMT) 可即時進行心電圖與到院前無線傳輸，直達綠色通道急救！",
+        "牢記並準確告知醫護人員「最後看起來正常的時間 (Last known normal time)」，此為決定中風能否接受溶栓與取栓最關鍵基準",
+        "嚴格遵循醫囑服用抗血小板與降壓降脂藥物，切勿任意停藥",
+        "家中常備 722 血壓計，每日監控血壓"
+      ],
+      "red_flags_zh": [
+        "胸痛再次大發作且含舌下硝化甘油完全無效、冷汗淋漓昏厥（再梗塞急症）",
+        "中風溶栓或取栓後突發劇烈頭痛、瞳孔不等大、嘔吐、意識陷入重度昏迷（腦出血急性轉化危急重症，需緊急腦部 CT 與開顱減壓！）",
+        "股動脈穿刺處突發劇烈膨脹如大血球、鮮血噴出或下肢整條冰冷麻木蒼白（穿刺處活動性出血或假性動脈瘤破裂）",
+        "突發心跳過速、心悸發黑、心電圖呈現心室顫動 (VF) 致命心律不整"
+      ],
+      "evidence": [
+        {
+          "label": "2025 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care (Circulation)",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "Prabhakaran S et al. 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke: AHA/ASA (Stroke)",
+          "year": 2026,
+          "level": "guideline"
+        },
+        {
+          "label": "Rao SV et al. 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes (Circulation)",
+          "year": 2025,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "cardiometabolic",
+          "label_zh": "心血管急症與動脈斑塊"
+        },
+        {
+          "hash": "systems/cardiovascular",
+          "label_zh": "心肺復甦與循環急救"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "沖脫泡蓋送",
+          "label_zh": "燒燙傷急救五步驟"
+        },
+        {
+          "value": "20 分鐘",
+          "label_zh": "流動冷水沖洗"
+        },
+        {
+          "value": "直接加壓",
+          "label_zh": "大部分出血的第一步"
+        }
+      ],
+      "causes_zh": [
+        "交通事故、跌倒、工安意外",
+        "居家熱液與火焰燙傷",
+        "化學與電燒傷"
+      ],
+      "prevention_zh": [
+        "騎車戴安全帽、開車繫安全帶",
+        "熱水器 50°C 以下、兒童遠離廚房",
+        "住宅火災警報器"
+      ],
+      "prognosis_zh": "正確的現場急救（止血、冷水沖洗）可明顯降低傷害程度；嚴重創傷需創傷團隊與長期復健。",
+      "timeline": [
+        {
+          "when_zh": "0–10 分鐘",
+          "goal_zh": "現場急救",
+          "do_zh": [
+            "止血、沖洗、撥 119"
+          ]
+        },
+        {
+          "when_zh": "到院",
+          "goal_zh": "評估與處置",
+          "do_zh": [
+            "創傷評估、清創"
+          ]
+        },
+        {
+          "when_zh": "之後",
+          "goal_zh": "傷口與復健",
+          "do_zh": [
+            "換藥、疤痕照護"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "傷口需要縫合或打破傷風嗎？",
+        "燒燙傷需要轉燒燙傷中心嗎？",
+        "如何換藥？",
+        "何時回診？"
+      ],
+      "tw_resources_zh": [
+        "119 救護",
+        "燒燙傷中心",
+        "紅十字會急救訓練"
+      ],
+      "id": "trauma_burn_firstaid",
+      "name_zh": "嚴重創傷、燒燙傷沖脫泡蓋送與止血急救",
+      "name_en": "Severe Trauma Resuscitation, Burn First Aid & Hemorrhage Control",
+      "icd10": "T14.90 / T30.0",
+      "summary_zh": "創傷急救嚴格遵循高級外傷救命術 (ATLS) ABCDE 流程（氣道、呼吸、循環、神經、暴露）。嚴重外傷致死三大元凶為「創傷致死三聯徵 (Lethal Triad：低體溫、酸中毒、凝血功能障礙)」，需及早啟動大量輸血方案 (MTP) 與止血性復甦。燒燙傷急救則需在黃金 30 分鐘內落實「沖、脫、泡、蓋、送」。",
+      "symptoms_zh": [
+        "創傷大出血：傷口如泉湧般大量鮮血噴射或持續湧出、面色蒼白、指甲發紺",
+        "低血容性休克：意識模糊、心跳狂飆過速 (>120 bpm)、脈搏微弱摸不清、血壓驟降 (收縮壓 <90 mmHg)、四肢冰冷皮膚濕冷",
+        "燒燙傷：大面積表皮起水泡、劇烈劇痛或深三度無痛皮革樣焦痂發黑",
+        "張力性氣胸/連枷胸：呼吸極度困難、胸壁異常反向呼吸運動"
+      ],
+      "diagnosis_zh": [
+        "ATLS 初級評估 (Primary Survey)：A 氣道維持合併頸椎固定、B 呼吸與通氣、C 循環與控制出血、D 神經功能障礙 (GCS/瞳孔)、E 暴露檢查與預防低體溫",
+        "創傷重點式超音波評估 (eFAST)：數分鐘內床邊快速偵測心包膜填塞、胸腔積血、腹腔內出血（肝腎間隙、脾腎間隙、骨盆腔）與氣胸",
+        "骨盆前後位 X 光、胸部 X 光及全脊椎固定影像",
+        "全身體創傷電腦斷層血管攝影 (Trauma Pan-scan CT)"
+      ],
+      "treatment_zh": [
+        "外出血控制：首要「直接傷口加壓止血法」；四肢動脈大出血立即於傷口近心端 5-7 公分處施加「戰術止血帶 (CAT Tourniquet)」，緊轉至動脈完全無搏動並記錄上止血帶時間",
+        "骨盆骨折大出血：立即使用「骨盆加壓束帶 (Pelvic binder)」包裹大轉子加壓閉合骨盆骨折容積",
+        "傷害管制復甦 (Damage Control Resuscitation, DCR)：避免大量過度輸注生理鹽水（會稀釋凝血因子並引起酸中毒），採 1:1:1 比例之血漿、血小板與紅血球進行大量輸血 (MTP)，並給予止血環酸 (TXA / 斷血炎注射劑)",
+        "傷害管制外科手術 (Damage Control Surgery, DCS)：先以最快速度止血、控制腸道污染及腹腔填塞包紮，待重症加護穩定後再行二期重建手術"
+      ],
+      "postop_zh": [
+        "燒燙傷急救黃金口訣「沖、脫、泡、蓋、送」徹底落實：沖（流動微涼自來水沖洗患部 15-30 分鐘迅速降溫）、脫（於水中輕柔剪開或脫去衣物，切忌硬扯連皮撕下）、泡（持續在冷水中浸泡 15 分鐘冷卻止痛，注意大面積者避免泡過久失溫）、蓋（覆蓋乾淨無菌紗布或乾淨床單，禁止塗抹任何牙膏醬油蛋清偏方！）、送（立即送往具燒燙傷中心之大型醫院）",
+        "保溫與加溫設備維持體溫 >36°C，徹底打破低體溫致死三聯徵",
+        "密切監測尿量（維持成人尿量 0.5-1.0 mL/kg/hr），指導液體輸注速度"
+      ],
+      "diet_zh": [
+        "創傷急診手術前嚴格完全禁食 (NPO)，包括禁止飲水，防範插管麻醉時嘔吐誤吸窒息",
+        "大手術或嚴重創傷加護穩定後，盡早啟動腸道早期營養 (Early enteral nutrition)，保護腸道黏膜屏障防細菌移位",
+        "高蛋白高鋅高維生素 C 創傷修復營養配方支持"
+      ],
+      "exercise_zh": [
+        "急性期在頸椎固定器、夾板與骨盆帶保護下絕對臥床制動，嚴禁翻動未固定的骨折肢體",
+        "病情完全穩定且骨折獲解剖復位固定後，在物理治療師指導下循序漸進開展床邊早期被動活動度訓練",
+        "出院後逐步進行步態平衡與肌力耐力重建"
+      ],
+      "rehab_zh": [
+        "肢體骨折夾板固定與高位懸吊抬高，減輕末梢水腫與腔室腔室壓力",
+        "早期神經心理危機干預：創傷後壓力症候群 (PTSD) 評估與急性心理創傷輔導",
+        "呼吸肌復健訓練，預防胸部創傷連枷胸病患長期依賴呼吸器"
+      ],
+      "selfcare_zh": [
+        "全民急救技能掌握：學習戰術止血帶 (Tourniquet) 正確綁紮手法與心肺復甦術 CPR",
+        "遵守交通安全法規：行車繫緊安全帶、騎機車必須佩戴標準安全帽、絕不酒後駕車或超速危險駕駛",
+        "居家燒燙傷預防：熱水瓶熱湯放置在幼兒拿不到之深處高台，洗澡水永遠「先放冷水、再放熱水」測溫防燙傷",
+        "家中常備無菌紗布、彈性繃帶等標準急救包"
+      ],
+      "red_flags_zh": [
+        "傷口大出血噴射不止，止血帶加壓後血流仍大量滲漏，病患面色慘白神智陷入昏迷（急性失血性休克瀕死危象）",
+        "四肢骨折或擠壓傷後，肢體極度腫脹僵硬如石、伴隨遠端劇烈麻木刺痛、被動牽拉肌肉時引發無法忍受的劇痛（急性「腔室症候群 Compartment Syndrome」急症，需緊急筋膜切開減壓 fasciotomy 搶救肢體防截肢！）",
+        "胸部外傷出現頸靜脈極度怒張、血壓暴跌、聽診心音極度微弱遙遠（急性「心包膜填塞 Cardiac Tamponade」，需立即超音波導引心包膜穿刺抽血減壓！）",
+        "呼吸極度困難發黑紫紺、氣管歪斜、單側呼吸音完全消失（張力性氣胸，需立即粗針胸壁穿刺減壓！）"
+      ],
+      "evidence": [
+        {
+          "label": "American College of Surgeons (ACS) Advanced Trauma Life Support (ATLS), 10th Edition",
+          "year": 2020
+        },
+        {
+          "label": "European guideline on management of major bleeding and coagulopathy following trauma: sixth edition",
+          "year": 2023
+        },
+        {
+          "label": "ISBI Practice Guidelines for Burn Care",
+          "year": 2020
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/cardiovascular",
+          "label_zh": "血液動力學與失血性休克"
+        },
+        {
+          "hash": "systems/immune",
+          "label_zh": "凝血瀑布與止血生理"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "先降溫後送醫",
+          "label_zh": "中暑急救原則"
+        },
+        {
+          "value": "02-2875-7525",
+          "label_zh": "臺北榮總毒藥物諮詢專線"
+        },
+        {
+          "value": "不要催吐",
+          "label_zh": "誤食化學物的一般原則"
+        }
+      ],
+      "causes_zh": [
+        "高溫高濕環境、劇烈運動或勞動",
+        "長者、慢性病、利尿劑使用者",
+        "誤食藥物、清潔劑、農藥、一氧化碳"
+      ],
+      "prevention_zh": [
+        "高溫時多喝水、避開正午",
+        "藥物與化學品放孩子拿不到的地方、保留原包裝",
+        "熱水器裝在室外、保持通風"
+      ],
+      "prognosis_zh": "中暑若在 30 分鐘內有效降溫，多數可完全恢復；中毒的預後取決於物質與送醫速度，保留容器能幫助醫師判斷。",
+      "timeline": [
+        {
+          "when_zh": "0–30 分鐘",
+          "goal_zh": "急救",
+          "do_zh": [
+            "中暑：冷水降溫；中毒：撥 119 或毒物諮詢"
+          ]
+        },
+        {
+          "when_zh": "到院",
+          "goal_zh": "治療",
+          "do_zh": [
+            "支持性治療、解毒劑"
+          ]
+        },
+        {
+          "when_zh": "之後",
+          "goal_zh": "追蹤",
+          "do_zh": [
+            "腎功能、器官功能"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "中暑後多久可以回到戶外工作？",
+        "誤食時要不要催吐或喝牛奶？",
+        "一氧化碳中毒需要高壓氧嗎？",
+        "家中藥品怎麼收納？"
+      ],
+      "tw_resources_zh": [
+        "臺北榮總臨床毒藥物防治諮詢中心 02-2875-7525",
+        "119 救護",
+        "勞動部熱危害預防"
+      ],
+      "id": "heat_stroke_poisoning",
+      "name_zh": "中暑熱衰竭急救降溫與急性中毒處置",
+      "name_en": "Heat Stroke Emergency Cooling & Acute Poisoning Management",
+      "icd10": "T67.0XXA / T65.9",
+      "summary_zh": "熱急症依嚴重度分為熱痙攣、熱衰竭及致死率極高之「中暑 (Heat Stroke，核心體溫 >40°C 合併中樞神經障礙)」。治療首重「黃金 30 分鐘內全身冰水浸泡快速降溫至 <39°C」。急性中毒處置則重在穩定生命徵象、辨識毒性症候群 (Toxidrome)、使用特效解毒劑與血液淨化排毒。",
+      "symptoms_zh": [
+        "熱衰竭：大量爆汗、面色蒼白皮膚濕冷、頭暈虛脫、心跳過速血壓偏低、嚴重噁心嘔吐但意識清楚",
+        "中暑 (Heat Stroke)：核心體溫飆高超過 40°C (104°F)、神智混亂、瞻妄、胡言亂語、抽搐癲癇發作甚至陷入昏迷、皮膚常由大汗轉為乾熱泛紅無汗（排汗體溫調節中樞徹底崩潰）",
+        "急性中毒：有機磷農藥（大汗流口水、瞳孔縮成針尖狀、大小便失禁 SLUDGE 症候群）；鎮靜安眠藥過量（呼吸抑制極慢、昏睡叫不醒、瞳孔放大）；一氧化碳中毒（頭痛頭暈噁心、面色櫻桃紅）；普拿疼過量（初期噁心嘔吐，數天後肝壞死黃疸）"
+      ],
+      "diagnosis_zh": [
+        "直腸核心體溫量測 (Rectal temperature)：最精確測定深部核心體溫（耳溫或額溫常受出汗蒸發影響而嚴重低估！）",
+        "動脈血液氣體分析 (ABGA)、乳酸 (Lactate)、電解質與肌酸激酶 (CK / CPK)：評估嚴重乳酸中毒與橫紋肌溶解症 (Rhabdomyolysis)",
+        "毒物篩檢分析：尿液毒物快篩、血中乙醯胺酚 (Acetaminophen) 濃度、血中碳氧血紅素 (COHb) 濃度、血清膽鹼酯酶 (Cholinesterase) 活性",
+        "肝腎功能、凝血功能 (DIC 評估) 及心電圖檢測（QT 間期延長與致命心律不整）"
+      ],
+      "treatment_zh": [
+        "中暑最快救命黃金準則：「全身冷水/冰水浸泡法 (Cold-water immersion, CWI)」！將病患除頭部外整個人浸泡在 2-10°C 冰水槽中，降溫速率最快（每分鐘降溫 0.15-0.2°C），目標在 30 分鐘內將核心體溫降至 38.5-39.0°C 後立即停止浸泡，防止過度低體溫",
+        "替代降溫法：強力電風扇吹風並持續噴灑微溫涼水霧（蒸發降溫法），頸部、腋下、鼠蹊部置放冰袋冰敷大動脈",
+        "急性中毒專屬特效解毒劑處置：有機磷農藥中毒立即給予阿托品 (Atropine) 散瞳並合併解磷定 (PAM)；普拿疼過量給予 N-乙醯半胱胺酸 (NAC / 愛克痰注射劑)；鴉片類藥物過量給予納洛酮 (Naloxone)；一氧化碳中毒立即給予 100% 高濃度純氧或高壓氧 (HBOT) 治療",
+        "活性碳洗胃吸附：服毒 1 小時內評估給予藥用活性碳 (Activated charcoal) 吸附胃內殘留毒素（強酸強鹼與腐蝕劑絕對禁用洗胃！）"
+      ],
+      "postop_zh": [
+        "中暑降溫達標後轉送加護病房嚴密監控：維持大量靜脈輸液水化治療，維持每小時尿量 >100-200 mL/hr，預防橫紋肌溶解症之肌紅素堵塞腎小管引發急性腎衰竭",
+        "急性中毒患者密切監控呼吸狀態與心電圖變化，防範遲發性心律不整或呼吸衰竭",
+        "強酸強鹼腐蝕性液體誤食者：嚴禁催吐！催吐會造成食道二次腐蝕穿孔與吸入性肺炎窒息，禁盲目喝大量水或牛奶酸鹼中和（酸鹼中和產生大量高熱反應會直接燙穿胃壁！）"
+      ],
+      "diet_zh": [
+        "熱衰竭清醒病患：口服補充含有電解質的等張運動飲料或口服補液鹽 (ORS)，少量多次飲用，切忌一口氣灌飲大量純純白開水（極易誘發低血鈉腦水腫水中毒抽搐！）",
+        "中暑昏迷病患：嚴格完全禁食，由靜脈輸液補充生理食鹽水與電解質，防嗆咳吸入性肺炎",
+        "中毒完全脫離險境、腸胃道功能評估正常後，由清淡溫和流質飲食逐步進展"
+      ],
+      "exercise_zh": [
+        "熱急症完全康復後：必須「完全停止運動休養至少 1-2 週」，讓體溫調節中樞大腦下視丘與全身受損細胞徹底修復",
+        "重新運動前必須落實「熱適應訓練 (Heat acclimatization)」：在 1-2 週內循序漸進增加在溫熱環境中的運動時間與強度，讓排汗機能與心血管耐受力重新建立",
+        "中毒病患出院後 1 個月內以低強度散步休息為主，避免過勞使受損肝腎器官負荷超載"
+      ],
+      "rehab_zh": [
+        "重度中暑神經功能復健：部分重度中暑小腦蒲金野細胞受損遺留步態共濟失調 (Ataxia)，進行平衡儀與協調動作訓練",
+        "橫紋肌溶解後之肌肉功能性拉伸與肌力恢復指導",
+        "蓄意服毒者（自傷意圖）之精神心理會談與心理社會支持轉介"
+      ],
+      "selfcare_zh": [
+        "預防熱中暑「防熱五大要訣」：躲太陽（避開正午戶外暴曬）、補水分（每小時定時補充水分電解質）、透氣衣（穿著寬鬆淺色透氣排汗衣服）、通風處（室內開冷氣風扇維持涼爽通風）、知警訊（一有頭暈無力即刻移至陰涼處）",
+        "老人幼童及寵物安全防護：絕對嚴禁將嬰幼兒或長輩單獨留在熄火緊閉的汽車內，夏天烈日下車廂內部溫度在 10 分鐘內即可飆升至 50-60°C 引發致命性中暑！",
+        "農藥與有毒清潔劑安全存放：放置於高處上鎖櫥櫃，嚴禁將農藥、有毒化學溶劑裝入一般寶特瓶或飲料罐中，防止家人誤食釀成家庭悲劇",
+        "高溫天氣戶外勞動或軍隊操練時，強制落實定時休息補水制度"
+      ],
+      "red_flags_zh": [
+        "高溫環境下突發核心體溫飆高 >40°C、意識混亂、發狂胡言亂語、昏倒抽搐失去知覺（極危急致命「中暑 Heat Stroke」，需立即就地冷水浸泡降溫並叫 119 送醫，每拖延數分鐘死亡率暴增！）",
+        "解出如醬油色或可樂色之深暗紅色尿液、全身肌肉劇烈僵硬劇痛（嚴重「橫紋肌溶解症」，易引發急性腎衰竭與高血鉀心臟驟停！）",
+        "誤食強酸、強鹼、有機磷農藥或劇毒百草枯 (Paraquat)（需立即將農藥瓶罐一併攜至急診搶救！）",
+        "服毒後突發呼吸頻率極慢（每分鐘 <8 次）、瞳孔針尖縮小、指甲發紫昏迷（急性鴉片類或鎮靜劑重度呼吸抑制急症，需即刻注射解毒劑 Naloxone！）"
+      ],
+      "evidence": [
+        {
+          "label": "Wilderness Medical Society Clinical Practice Guidelines for the Prevention and Treatment of Heat Illness: 2024 Update",
+          "year": 2024
+        },
+        {
+          "label": "American College of Emergency Physicians (ACEP) Clinical Policy: Critical Issues in the Management of Adult Patients Presenting to the Emergency Department With Overdose",
+          "year": 2020
+        },
+        {
+          "label": "World Health Organization (WHO) Guidelines for the Management of Common Poisonings",
+          "year": 2021
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "W",
+          "label_zh": "水分電解質補充平衡"
+        },
+        {
+          "hash": "systems/nervous",
+          "label_zh": "下視丘體溫調節中樞"
+        }
+      ]
+    }
+  ]
+}

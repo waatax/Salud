@@ -1,13 +1,17 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { parseHash, PILLAR_TABS } from '../../config/routes';
 import { PILLAR_NAV } from '../../config/navigation';
-import { ADDITION_TARGETS, ALL_CONDITIONS, ALL_DEPARTMENTS, DIVISIONS, MED_BLOCKS, findCondition } from '../../data/clinical';
+import { DEPARTMENT_INDEX, DIVISIONS, MED_BLOCKS } from '../../data/clinical';
+import { ADDITION_TARGETS, ALL_CONDITIONS, ALL_DEPARTMENTS, findCondition, summarizeDepartment } from '../../data/clinical/full';
 import { CLINIC_NAV, CLINIC_DEPT_COUNT } from '../../data/clinical/nav';
 import { HOSPITAL_MAP } from '../../data/clinical/hospitalMap';
 import { DEPTH } from '../../data/clinical/depth';
 import { SYMPTOMS } from '../../data/clinical/symptoms';
-import { parseClinicPath } from '../../components/pillars/ClinicHub';
+import { parseClinicPath } from '../../components/pillars/clinic/clinicPath';
 import { buildSearchIndex, searchDocs } from '../../data/learning/searchIndex';
 import { clinicSearchDocs } from '../../data/clinical/searchDocs';
 import { CLINIC_SEARCH_DOCS } from '../../data/clinical/searchLite.generated';
@@ -131,4 +135,42 @@ test('clinic departments, pathways and symptom entries are reachable from site s
   hit('胸悶', 'clinic/by/symptom/chest_pain');
   hit('K21', 'clinic/gastro/gerd');
   for (const { dept, cond } of ALL_CONDITIONS) assert.ok(docs.some((d) => d.target === `clinic/${dept.id}/${cond.id}`), `${cond.id} not indexed`);
+});
+
+test('the light index and per-department pathway chunks match the data', () => {
+  const stale = 'run npm run export:data';
+  assert.deepEqual(DEPARTMENT_INDEX, ALL_DEPARTMENTS.map(summarizeDepartment), `catalog.generated.ts is stale: ${stale}`);
+  const dir = new URL('../../data/clinical/pathways/', import.meta.url);
+  const files = readdirSync(dir).sort();
+  assert.deepEqual(files, ALL_DEPARTMENTS.map((d) => `${d.id}.json`).sort(), `pathways/ does not hold one file per department: ${stale}`);
+  for (const d of ALL_DEPARTMENTS) {
+    const chunk = JSON.parse(readFileSync(new URL(`${d.id}.json`, dir), 'utf8'));
+    assert.deepEqual(chunk, JSON.parse(JSON.stringify(d)), `pathways/${d.id}.json is stale: ${stale}`);
+  }
+});
+
+test('the app bundle never reaches the full clinical data', () => {
+  // Walk relative imports (static, re-export and dynamic) from the entry. Type-only imports are erased
+  // at build time, so they are skipped; the pathway JSON is reached only through import.meta.glob.
+  const SRC = fileURLToPath(new URL('../../', import.meta.url));
+  const CLINICAL = join(SRC, 'data', 'clinical');
+  const LIGHT = new Set(['index.ts', 'types.ts', 'taxonomy.ts', 'hospitalMap.ts', 'symptoms.ts', 'nav.ts', 'catalog.generated.ts', 'searchLite.generated.ts', 'loadDepartment.ts']);
+  const resolveImport = (from: string, spec: string) => {
+    const base = resolve(dirname(from), spec);
+    return [base, `${base}.ts`, `${base}.tsx`, join(base, 'index.ts'), join(base, 'index.tsx')].find((f) => existsSync(f) && statSync(f).isFile());
+  };
+  const seen = new Set<string>();
+  const walk = (file: string) => {
+    if (seen.has(file) || !/\.tsx?$/.test(file)) return;
+    seen.add(file);
+    const code = readFileSync(file, 'utf8').replace(/^\s*(?:import|export)\s+type\s[^;]*;/gm, '');
+    for (const m of code.matchAll(/(?:from\s+|import\s*\(\s*|^\s*import\s+)['"](\.[^'"]+)['"]/gm)) {
+      const next = resolveImport(file, m[1]);
+      if (next) walk(next);
+    }
+  };
+  walk(join(SRC, 'main.tsx'));
+  const heavy = [...seen].filter((f) => f.startsWith(CLINICAL) && !(dirname(f) === CLINICAL && LIGHT.has(relative(CLINICAL, f))));
+  assert.ok(seen.has(join(CLINICAL, 'loadDepartment.ts')), 'walker should reach the clinic hub');
+  assert.deepEqual(heavy.map((f) => relative(SRC, f)), [], 'app code imports the full clinical data; use data/clinical (light index) or loadDepartment');
 });

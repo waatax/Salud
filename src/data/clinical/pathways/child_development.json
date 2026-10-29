@@ -1,0 +1,462 @@
+{
+  "id": "child_development",
+  "name_zh": "兒童發展 · 青少年",
+  "name_en": "Child Development & Adolescent Health",
+  "division": "women_children",
+  "curriculum_zh": "生長發育、行為科學 → 小兒科（青少年醫學科）與精神科（兒童精神科）見實習",
+  "scope_zh": "評估與支持 0–18 歲的發展、學習、行為與情緒：發展遲緩與早期療育、自閉症類群障礙、學習與注意力問題（另見兒科 ADHD），以及青少年憂鬱、焦慮、自傷、網路成癮與拒學。整合小兒神經、兒童精神、復健治療師與學校。",
+  "subspecialties_zh": [
+    "兒童發展聯合評估中心",
+    "早期療育（物理、職能、語言、心理）",
+    "兒童青少年精神科",
+    "青少年醫學門診",
+    "學習障礙評估"
+  ],
+  "when_to_visit_zh": [
+    "說話、走路、手部動作明顯比同齡孩子慢",
+    "很少看人眼睛、叫名字反應少、重複固定行為",
+    "已學會的能力退化",
+    "青少年拒學、情緒低落、自傷或網路使用失控"
+  ],
+  "salud_links": [
+    {
+      "hash": "mental",
+      "label_zh": "心理與呼吸調節"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "小兒部 青少年醫學科／精神醫學部 兒童精神科",
+    "NCKUH": "小兒部／精神部（兒童青少年）",
+    "VGH": "兒童醫學部／精神醫學部",
+    "CCH": "兒童心智暨認知發展科／兒童發展中心"
+  },
+  "block": "behavior",
+  "life_stages": [
+    "infant",
+    "child"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "0–6 歲",
+          "label_zh": "早期療育黃金期"
+        },
+        {
+          "value": "7 次",
+          "label_zh": "公費兒童預防保健含發展篩檢"
+        },
+        {
+          "value": "6–8%",
+          "label_zh": "學齡前兒童發展遲緩估計比例"
+        }
+      ],
+      "causes_zh": [
+        "早產、低出生體重、出生時缺氧",
+        "遺傳或染色體異常（如唐氏症、X 染色體脆折症）",
+        "聽力或視力障礙",
+        "環境刺激不足、3C 螢幕時間過長"
+      ],
+      "prevention_zh": [
+        "規律產檢、避免孕期菸酒",
+        "完成新生兒聽力篩檢與兒童預防保健",
+        "豐富的語言互動、減少螢幕"
+      ],
+      "prognosis_zh": "多數發展遲緩兒童經早期療育有明顯進步，部分可趕上同齡；越早開始、家長越投入，效果越好。",
+      "timeline": [
+        {
+          "when_zh": "發現疑慮 0–1 個月",
+          "goal_zh": "盡快評估",
+          "do_zh": [
+            "兒科轉介聯合評估中心",
+            "同時檢查聽力"
+          ]
+        },
+        {
+          "when_zh": "評估後 1–3 個月",
+          "goal_zh": "開始療育",
+          "do_zh": [
+            "每週治療課程",
+            "家長學習居家練習"
+          ]
+        },
+        {
+          "when_zh": "每 6–12 個月",
+          "goal_zh": "重新評估",
+          "do_zh": [
+            "調整治療目標",
+            "銜接幼兒園與小學"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "孩子哪一個面向落後？落後多少？",
+        "需要做哪些檢查找原因？",
+        "早療課程要上多久、多頻繁？哪裡可以上？",
+        "在家裡我可以怎麼練習？"
+      ],
+      "id": "developmental_delay",
+      "name_zh": "發展遲緩與早期療育",
+      "name_en": "Developmental Delay & Early Intervention",
+      "icd10": "R62.0 / F88",
+      "summary_zh": "發展遲緩是指在動作、語言、認知、社會情緒等一個或多個面向明顯落後同齡孩子。0–6 歲是大腦可塑性最高的時期，越早接受早期療育效果越好。台灣兒童預防保健提供 7 次發展篩檢，各縣市設有兒童發展聯合評估中心，評估後可申請早療補助。",
+      "symptoms_zh": [
+        "動作：9 個月不會坐、18 個月不會走",
+        "語言：18 個月不會說單字、2 歲不會說兩字詞",
+        "社會：不會用手指東西分享、不模仿",
+        "任何年齡已會的能力退化"
+      ],
+      "diagnosis_zh": [
+        "兒童預防保健發展篩檢（兒童健康手冊里程碑）",
+        "兒童發展聯合評估中心：小兒神經、復健、精神、心理、各治療師聯合評估",
+        "聽力與視力檢查",
+        "必要時基因、代謝或腦部影像檢查"
+      ],
+      "treatment_zh": [
+        "早期療育：物理治療（粗大動作）、職能治療（精細動作與感覺統合）、語言治療、心理治療",
+        "家長參與：在日常生活中練習（家庭為中心）",
+        "幼兒園融合教育與特教資源",
+        "治療潛在原因（如中耳積水、聽損）"
+      ],
+      "postop_zh": [
+        "（非手術）定期回評估中心追蹤進步",
+        "入小學前完成鑑定與安置"
+      ],
+      "diet_zh": [
+        "均衡飲食、避免偏食造成營養不足",
+        "吞嚥或口腔動作困難者由語言治療師調整食物質地",
+        "不需特殊飲食（如無麩質）除非有明確疾病"
+      ],
+      "exercise_zh": [
+        "每天充足戶外遊戲與大肌肉活動",
+        "2 歲以下避免螢幕、2–5 歲每天 <1 小時",
+        "親子共讀、對話與遊戲"
+      ],
+      "rehab_zh": [
+        "物理治療：坐、爬、走、平衡",
+        "職能治療：抓握、生活自理、感覺處理",
+        "語言治療：理解、表達、構音、吞嚥"
+      ],
+      "selfcare_zh": [
+        "每次兒童健檢帶健康手冊、記錄里程碑",
+        "拍下孩子日常表現影片給醫師參考",
+        "家長也需要支持與喘息"
+      ],
+      "tw_resources_zh": [
+        "各縣市兒童發展聯合評估中心",
+        "社會局早期療育通報轉介中心與療育補助",
+        "兒童預防保健 7 次（健保署、國健署）"
+      ],
+      "red_flags_zh": [
+        "任何已學會的語言或社交能力消失",
+        "頭圍過大或過小、抽搐",
+        "對聲音沒有反應"
+      ],
+      "evidence": [
+        {
+          "label": "Lipkin PH, Macias MM. Promoting Optimal Development: Identifying Infants and Young Children With Developmental Disorders Through Developmental Surveillance and Screening (Pediatrics)",
+          "year": 2020,
+          "level": "guideline"
+        },
+        {
+          "label": "Zubler JM et al. Evidence-Informed Milestones for Developmental Surveillance Tools (Pediatrics)",
+          "year": 2022,
+          "level": "consensus"
+        },
+        {
+          "label": "WHO Guidelines on physical activity, sedentary behaviour and sleep for children under 5 years of age",
+          "year": 2019,
+          "level": "guideline"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "1/31",
+          "label_zh": "美國 8 歲兒童盛行率（CDC 2025）"
+        },
+        {
+          "value": "18、24 個月",
+          "label_zh": "建議常規篩檢時間點"
+        },
+        {
+          "value": "≈4:1",
+          "label_zh": "男女比例"
+        }
+      ],
+      "causes_zh": [
+        "強烈遺傳因素（手足再發風險較高）",
+        "父母高齡、早產",
+        "孕期部分藥物（如 valproate）",
+        "疫苗與自閉症無關（大型研究一致證實）"
+      ],
+      "prevention_zh": [
+        "無法預防，但可「早期發現、早期介入」",
+        "孕期避免已知致畸藥物、戒菸酒",
+        "觀察性研究提示孕前與孕期補充葉酸可能與較低風險相關（證據有限）"
+      ],
+      "prognosis_zh": "自閉症是終身的神經發展差異，但早期介入可顯著改善溝通與生活能力；許多人在適當支持下能求學、就業並建立關係。",
+      "timeline": [
+        {
+          "when_zh": "疑慮出現",
+          "goal_zh": "盡快評估，不要「等等看」",
+          "do_zh": [
+            "M-CHAT 篩檢",
+            "轉介兒童心智科"
+          ]
+        },
+        {
+          "when_zh": "確診後 0–6 個月",
+          "goal_zh": "開始密集介入",
+          "do_zh": [
+            "每週多次治療",
+            "家長訓練"
+          ]
+        },
+        {
+          "when_zh": "學齡期",
+          "goal_zh": "學習與社交",
+          "do_zh": [
+            "特教資源、社交技巧團體",
+            "處理焦慮與睡眠"
+          ]
+        },
+        {
+          "when_zh": "青少年到成人",
+          "goal_zh": "獨立與就業",
+          "do_zh": [
+            "生活技能、職業轉銜",
+            "心理支持"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "孩子的支持需求程度是多少？",
+        "有沒有合併 ADHD、焦慮或睡眠問題？",
+        "哪些介入方式有實證？要多頻繁？",
+        "學校可以提供哪些特教資源？"
+      ],
+      "id": "autism",
+      "name_zh": "自閉症類群障礙（ASD）",
+      "name_en": "Autism Spectrum Disorder",
+      "icd10": "F84.0",
+      "summary_zh": "自閉症類群障礙是神經發展差異，核心特徵為社交溝通困難與侷限、重複的行為或興趣，表現從需要大量支持到能獨立生活都有。美國疾管署 2025 年報告約每 31 名 8 歲兒童有 1 名。及早在 18–24 個月篩檢與介入，可明顯改善溝通與適應能力。疫苗不會造成自閉症。",
+      "symptoms_zh": [
+        "很少眼神接觸、叫名字少回應",
+        "不會用手指東西分享興趣、很少模仿",
+        "語言發展遲緩或特殊（鸚鵡式仿說）",
+        "固著行為：排列物品、對改變強烈反應、感官過度或過低敏感"
+      ],
+      "diagnosis_zh": [
+        "18 與 24 個月以 M-CHAT-R/F 篩檢",
+        "兒童心智科或發展評估中心：ADOS-2、ADI-R 等標準化評估",
+        "聽力檢查、基因檢測（染色體微陣列、X 染色體脆折症）",
+        "評估共病：ADHD、焦慮、睡眠、腸胃問題、癲癇"
+      ],
+      "treatment_zh": [
+        "早期密集行為與發展介入（如 ESDM、JASPER、應用行為分析）",
+        "語言治療、職能治療（感覺處理）",
+        "家長訓練：在日常生活中教導溝通",
+        "共病藥物治療（如 ADHD、嚴重躁動）",
+        "學校特教支持與個別化教育計畫（IEP）"
+      ],
+      "postop_zh": [
+        "（非手術）定期回診追蹤發展與共病",
+        "升學轉銜時更新評估與支持需求"
+      ],
+      "diet_zh": [
+        "挑食常見，循序擴展食物種類，必要時營養師協助",
+        "目前無證據支持無麩質無酪蛋白飲食可治療自閉症",
+        "注意腸胃問題（便秘）"
+      ],
+      "exercise_zh": [
+        "規律體能活動可改善睡眠、情緒與動作協調",
+        "游泳、騎車等規則清楚的活動通常較適合"
+      ],
+      "rehab_zh": [
+        "語言治療、職能治療、物理治療（動作協調）",
+        "社交技巧訓練團體"
+      ],
+      "selfcare_zh": [
+        "建立可預期的作息與視覺提示",
+        "提前告知環境改變",
+        "照顧者尋求支持團體與喘息"
+      ],
+      "tw_resources_zh": [
+        "各縣市兒童發展聯合評估中心與早期療育補助",
+        "身心障礙證明與相關福利",
+        "中華民國自閉症基金會、自閉症總會"
+      ],
+      "red_flags_zh": [
+        "語言或社交能力退化",
+        "自傷行為（撞頭、咬手）頻繁",
+        "癲癇發作"
+      ],
+      "evidence": [
+        {
+          "label": "Hyman SL et al. Identification, Evaluation, and Management of Children With Autism Spectrum Disorder (Pediatrics)",
+          "year": 2020,
+          "level": "guideline"
+        },
+        {
+          "label": "Shaw KA et al. Prevalence and Early Identification of Autism Spectrum Disorder Among Children Aged 4 and 8 Years — ADDM Network, 2022 (MMWR Surveill Summ)",
+          "year": 2025,
+          "level": "cohort"
+        },
+        {
+          "label": "Hviid A et al. Measles, Mumps, Rubella Vaccination and Autism: A Nationwide Cohort Study (Ann Intern Med)",
+          "year": 2019,
+          "level": "cohort"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "1925",
+          "label_zh": "24 小時安心專線"
+        },
+        {
+          "value": "3 次",
+          "label_zh": "15–45 歲免費心理諮商（2026 年延續）"
+        },
+        {
+          "value": "12–18 歲",
+          "label_zh": "美國指引建議每年憂鬱篩檢"
+        }
+      ],
+      "causes_zh": [
+        "遺傳體質與家族精神病史",
+        "學業壓力、霸凌（含網路霸凌）、家庭衝突",
+        "睡眠不足、晝夜節律延遲",
+        "社群媒體比較、網路成癮；性別認同或性傾向壓力"
+      ],
+      "prevention_zh": [
+        "家長多傾聽、少批評，留意行為改變",
+        "學校反霸凌與心理健康教育",
+        "家中妥善保管藥物、農藥與危險物品"
+      ],
+      "prognosis_zh": "多數青少年憂鬱經治療可緩解，但約半數在數年內可能再發，持續追蹤與早期辨識警訊很重要。",
+      "timeline": [
+        {
+          "when_zh": "0–2 週",
+          "goal_zh": "確保安全",
+          "do_zh": [
+            "評估自殺風險、建立安全計畫",
+            "移除藥物、刀具等危險物品"
+          ]
+        },
+        {
+          "when_zh": "2–12 週",
+          "goal_zh": "開始治療",
+          "do_zh": [
+            "每週心理治療",
+            "用藥者每 1–2 週回診"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "恢復功能、預防復發",
+          "do_zh": [
+            "回到學校與社交",
+            "症狀緩解後持續治療 6–12 個月"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "孩子是憂鬱症、焦慮，還是青春期正常情緒起伏？",
+        "需要用藥嗎？有什麼要特別注意的？",
+        "學校可以怎麼配合？",
+        "家長可以怎麼陪伴，而不是讓情況更糟？"
+      ],
+      "id": "adolescent_mental_health",
+      "name_zh": "青少年憂鬱、自傷與網路使用失控",
+      "name_en": "Adolescent Depression, Self-harm & Problematic Internet Use",
+      "icd10": "F32 / X78 / F63.0",
+      "summary_zh": "青春期是許多心理疾病開始的年紀。青少年憂鬱常表現為易怒、拒學、沉迷手機或遊戲，而不一定是哭泣。台灣青年族群的自殺死亡率近年上升，任何自傷或輕生言語都應認真對待。認知行為治療是第一線治療，中重度可合併抗憂鬱藥並密切追蹤。",
+      "symptoms_zh": [
+        "持續兩週以上的低落或易怒、失去興趣",
+        "睡太多或失眠、食慾改變",
+        "拒學、成績下滑、與朋友疏離",
+        "自傷（割腕）、談論死亡、整理或送出物品",
+        "網路或遊戲使用失控，影響睡眠、上學與家庭"
+      ],
+      "diagnosis_zh": [
+        "兒童青少年精神科或身心科評估",
+        "單獨與青少年會談（保密原則與其限制）",
+        "PHQ-A 等量表篩檢",
+        "評估自殺風險、物質使用、共病（焦慮、ADHD）"
+      ],
+      "treatment_zh": [
+        "認知行為治療（CBT）、人際心理治療（IPT）",
+        "中重度：SSRI（fluoxetine 等）合併心理治療，用藥初期密切觀察自殺意念",
+        "家庭治療與親職溝通",
+        "安全計畫：辨認警訊、求助對象、移除致命工具",
+        "網路使用：設定界線、替代活動、必要時專業治療"
+      ],
+      "postop_zh": [
+        "自傷就醫後 1 週內安排追蹤",
+        "學校輔導室與導師共同照顧（取得青少年同意）"
+      ],
+      "diet_zh": [
+        "規律三餐、不跳早餐",
+        "減少含糖與高咖啡因能量飲料",
+        "避免酒精與任何物質使用"
+      ],
+      "exercise_zh": [
+        "規律運動對青少年憂鬱有中等效果",
+        "團隊運動同時增加社交連結",
+        "每天戶外活動與日照幫助調整生理時鐘"
+      ],
+      "rehab_zh": [
+        "職能治療：作息、時間管理",
+        "社交技巧與情緒調節團體（如 DBT 技巧）"
+      ],
+      "selfcare_zh": [
+        "睡前 1 小時放下手機，固定起床時間",
+        "找一位可信任的大人或朋友說出感受",
+        "記錄心情與觸發事件"
+      ],
+      "tw_resources_zh": [
+        "1925 安心專線（24 小時）、1995 生命線、1980 張老師",
+        "衛福部「青壯世代心理健康支持方案」：15–45 歲每人 3 次免費心理諮商（2026 年延續）",
+        "各校輔導室、各縣市社區心理衛生中心"
+      ],
+      "red_flags_zh": [
+        "說出想死、有具體計畫或已準備工具：立即陪同就醫或撥 119／1925",
+        "自傷傷口深、需要縫合",
+        "幻聽、極度激動或數天不睡",
+        "使用不明藥物或過量服藥"
+      ],
+      "evidence": [
+        {
+          "label": "USPSTF: Screening for Depression and Suicide Risk in Children and Adolescents (JAMA)",
+          "year": 2022,
+          "level": "guideline"
+        },
+        {
+          "label": "NICE NG134: Depression in children and young people: identification and management",
+          "year": 2019,
+          "level": "guideline"
+        },
+        {
+          "label": "AAP, AFSP, NIMH. Blueprint for Youth Suicide Prevention",
+          "year": 2023,
+          "level": "consensus"
+        },
+        {
+          "label": "衛生福利部：青壯世代心理健康支持方案（15–45 歲）",
+          "year": 2026,
+          "level": "official"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "mental/TRIAGE",
+          "label_zh": "心理危機分級與求助"
+        }
+      ]
+    }
+  ]
+}

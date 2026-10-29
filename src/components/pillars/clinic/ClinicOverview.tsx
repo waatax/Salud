@@ -1,23 +1,23 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Building2, ChevronRight, GraduationCap, Search, Stethoscope } from 'lucide-react';
 import {
-  ALL_CONDITIONS,
-  ALL_DEPARTMENTS,
+  CONDITION_INDEX,
+  DEPARTMENT_INDEX,
   DIVISIONS,
   HOSPITALS,
   HOSPITAL_SOURCES,
   LIFE_STAGES,
   MED_BLOCKS,
   MED_SCHOOLS,
-  conditionLifeStages,
-  departmentsByDivision,
-  getDepartment,
+  deptSummary,
+  indexByDivision,
+  type DepartmentSummary,
 } from '../../../data/clinical';
+import { prefetchDepartment } from '../../../data/clinical/loadDepartment';
 import { SYMPTOMS } from '../../../data/clinical/symptoms';
+import type { OverviewView } from './clinicPath';
 import { Card, Chip, Disclaimer, HOSP_ORDER, HospitalBadges, HospitalSourceLink, RowLink } from './clinicUi';
 import { SymptomNavigator } from './ClinicSymptoms';
-
-export type OverviewView = 'dept' | 'symptom' | 'system' | 'stage' | 'hospital';
 
 const VIEWS: { id: OverviewView; label: string; hint: string }[] = [
   { id: 'dept', label: '🏥 依部門科別', hint: '醫學中心怎麼分科' },
@@ -29,19 +29,39 @@ const VIEWS: { id: OverviewView; label: string; hint: string }[] = [
 
 const norm = (s: string) => s.toLowerCase().replace(/\s+/g, '');
 
-/** Search over conditions, departments and symptom entries. */
-const useClinicSearch = (q: string) =>
-  useMemo(() => {
+/**
+ * Search over conditions, departments and symptom entries. Names match at once from the light
+ * index; symptoms and causes join once the site-search snapshot (fetched on the first query) arrives.
+ */
+const useClinicSearch = (q: string) => {
+  const [keywords, setKeywords] = useState<Map<string, string>>();
+  const searching = q.trim() !== '';
+  useEffect(() => {
+    if (!searching || keywords) return;
+    let live = true;
+    import('../../../data/clinical/searchLite.generated').then(
+      (m) => live && setKeywords(new Map(m.CLINIC_SEARCH_DOCS.map((d) => [d.target, d.keywords]))),
+      () => undefined
+    );
+    return () => {
+      live = false;
+    };
+  }, [searching, keywords]);
+  return useMemo(() => {
     const s = norm(q);
     if (!s) return null;
     const hit = (...texts: (string | undefined)[]) => texts.some((t) => t && norm(t).includes(s));
-    const conds = ALL_CONDITIONS.filter(({ dept, cond }) =>
-      hit(cond.name_zh, cond.name_en, cond.icd10, cond.summary_zh, dept.name_zh, ...cond.symptoms_zh, ...cond.causes_zh, ...cond.treatment_zh)
+    const conds = CONDITION_INDEX.filter(({ dept, cond }) =>
+      hit(cond.name_zh, cond.name_en, cond.icd10, dept.name_zh, keywords?.get(`clinic/${dept.id}/${cond.id}`))
     ).slice(0, 40);
-    const depts = ALL_DEPARTMENTS.filter((d) => hit(d.name_zh, d.name_en, d.scope_zh, ...d.subspecialties_zh, ...Object.values(d.hospitals)));
+    const depts = DEPARTMENT_INDEX.filter((d) => hit(d.name_zh, d.name_en, d.scope_zh, ...d.subspecialties_zh, ...Object.values(d.hospitals)));
     const symptoms = SYMPTOMS.filter((x) => hit(x.name_zh, ...x.routes.map((r) => r.when_zh)));
     return { conds, depts, symptoms };
-  }, [q]);
+  }, [q, keywords]);
+};
+
+/** Start a department's chunk on hover or keyboard focus, so the click lands on loaded content. */
+const prefetch = (deptId: string) => ({ onPointerEnter: () => prefetchDepartment(deptId), onFocus: () => prefetchDepartment(deptId) });
 
 export const ClinicOverview: React.FC<{ view: OverviewView; symptomId?: string; go: (h: string) => void }> = ({ view, symptomId, go }) => {
   const [q, setQ] = useState('');
@@ -60,8 +80,8 @@ export const ClinicOverview: React.FC<{ view: OverviewView; symptomId?: string; 
         <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
           {[
             [DIVISIONS.length, '大部門'],
-            [ALL_DEPARTMENTS.length, '科別'],
-            [ALL_CONDITIONS.length, '照護路徑'],
+            [DEPARTMENT_INDEX.length, '科別'],
+            [CONDITION_INDEX.length, '照護路徑'],
             [SYMPTOMS.length, '症狀入口'],
           ].map(([n, l]) => (
             <div key={l as string} className="rounded-xl bg-white/10 px-3 py-2">
@@ -104,7 +124,7 @@ export const ClinicOverview: React.FC<{ view: OverviewView; symptomId?: string; 
                 <ul className="grid sm:grid-cols-2 gap-2">
                   {results.depts.map((d) => (
                     <li key={d.id}>
-                      <RowLink onClick={() => go(`clinic/${d.id}`)} title={`🏥 ${d.name_zh}`} sub={d.name_en} />
+                      <RowLink onClick={() => go(`clinic/${d.id}`)} title={`🏥 ${d.name_zh}`} sub={d.name_en} {...prefetch(d.id)} />
                     </li>
                   ))}
                 </ul>
@@ -113,7 +133,7 @@ export const ClinicOverview: React.FC<{ view: OverviewView; symptomId?: string; 
                 <ul className="grid sm:grid-cols-2 gap-2">
                   {results.conds.map(({ dept, cond }) => (
                     <li key={dept.id + cond.id}>
-                      <RowLink onClick={() => go(`clinic/${dept.id}/${cond.id}`)} title={cond.name_zh} sub={`${dept.name_zh} · ${cond.name_en}`} />
+                      <RowLink onClick={() => go(`clinic/${dept.id}/${cond.id}`)} title={cond.name_zh} sub={`${dept.name_zh} · ${cond.name_en}`} {...prefetch(dept.id)} />
                     </li>
                   ))}
                 </ul>
@@ -160,7 +180,7 @@ export const ClinicOverview: React.FC<{ view: OverviewView; symptomId?: string; 
 const ByDivision: React.FC<{ go: (h: string) => void }> = ({ go }) => (
   <div className="space-y-8">
     {DIVISIONS.map((div) => {
-      const depts = departmentsByDivision(div.id);
+      const depts = indexByDivision(div.id);
       if (!depts.length) return null;
       const n = depts.reduce((s, d) => s + d.conditions.length, 0);
       return (
@@ -181,6 +201,7 @@ const ByDivision: React.FC<{ go: (h: string) => void }> = ({ go }) => (
               <button
                 key={d.id}
                 onClick={() => go(`clinic/${d.id}`)}
+                {...prefetch(d.id)}
                 className="text-left rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-salud-dark-surface p-4 hover:border-emerald-400 hover:shadow-sm transition flex flex-col"
               >
                 <div className="flex items-start justify-between gap-2">
@@ -219,7 +240,7 @@ const BySystem: React.FC<{ go: (h: string) => void }> = ({ go }) => (
     </p>
     <div className="grid md:grid-cols-2 gap-3">
       {MED_BLOCKS.map((b) => {
-        const depts = b.depts.map(getDepartment).filter(Boolean) as NonNullable<ReturnType<typeof getDepartment>>[];
+        const depts = b.depts.map(deptSummary).filter((d): d is DepartmentSummary => Boolean(d));
         return (
           <Card key={b.id}>
             <h2 className="font-bold text-slate-900 dark:text-white">
@@ -229,12 +250,12 @@ const BySystem: React.FC<{ go: (h: string) => void }> = ({ go }) => (
             <div className="mt-3 space-y-2">
               {depts.map((d) => (
                 <div key={d.id}>
-                  <button onClick={() => go(`clinic/${d.id}`)} className="text-sm font-semibold text-emerald-800 dark:text-emerald-300 hover:underline">
+                  <button onClick={() => go(`clinic/${d.id}`)} {...prefetch(d.id)} className="text-sm font-semibold text-emerald-800 dark:text-emerald-300 hover:underline">
                     {d.name_zh} →
                   </button>
                   <div className="mt-1 flex flex-wrap gap-1">
                     {d.conditions.map((c) => (
-                      <button key={c.id} onClick={() => go(`clinic/${d.id}/${c.id}`)} className="text-[11px] rounded-full bg-slate-100 dark:bg-slate-800 px-2 py-0.5 text-slate-700 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-950">
+                      <button key={c.id} onClick={() => go(`clinic/${d.id}/${c.id}`)} {...prefetch(d.id)} className="text-[11px] rounded-full bg-slate-100 dark:bg-slate-800 px-2 py-0.5 text-slate-700 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-950">
                         {c.name_zh.split('：')[0].split('（')[0]}
                       </button>
                     ))}
@@ -277,7 +298,7 @@ const MedSchoolCard: React.FC = () => (
 const ByStage: React.FC<{ go: (h: string) => void }> = ({ go }) => (
   <div className="space-y-4">
     {LIFE_STAGES.map((s) => {
-      const items = ALL_CONDITIONS.filter(({ dept, cond }) => conditionLifeStages(dept, cond).includes(s.id));
+      const items = CONDITION_INDEX.filter(({ cond }) => cond.life_stages.includes(s.id));
       return (
         <Card key={s.id}>
           <div className="flex flex-wrap items-baseline gap-2">
@@ -292,6 +313,7 @@ const ByStage: React.FC<{ go: (h: string) => void }> = ({ go }) => (
               <button
                 key={dept.id + cond.id}
                 onClick={() => go(`clinic/${dept.id}/${cond.id}`)}
+                {...prefetch(dept.id)}
                 className="text-xs rounded-full border border-slate-200 dark:border-slate-700 px-2.5 py-1 text-slate-700 dark:text-slate-300 hover:border-emerald-400"
                 title={dept.name_zh}
               >
@@ -348,7 +370,7 @@ const HospitalMatrix: React.FC<{ go: (h: string) => void }> = ({ go }) => (
                 {div.emoji} {div.name_zh}
               </th>
             </tr>
-            {departmentsByDivision(div.id).map((d) => (
+            {indexByDivision(div.id).map((d) => (
               <tr key={d.id} className="border-t border-slate-100 dark:border-slate-800 align-top">
                 <th scope="row" className="px-3 py-1.5 text-left font-medium">
                   <button onClick={() => go(`clinic/${d.id}`)} className="text-emerald-800 dark:text-emerald-300 hover:underline">

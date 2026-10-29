@@ -1,0 +1,491 @@
+{
+  "id": "psychiatry",
+  "name_zh": "精神科",
+  "name_en": "Psychiatry",
+  "division": "neuro_psych",
+  "curriculum_zh": "臺大「行為科學與精神醫學」整合課程 + 精神科見實習；陽明交大「心智與行為」模組；成大「神經系統與行為」系統課程 + 精神科實習",
+  "scope_zh": "診治憂鬱症、焦慮症、恐慌症、失眠、雙相情緒障礙、思覺失調症、物質使用障礙、兒童青少年與老年精神疾病，結合藥物、心理治療、腦刺激治療（rTMS、ECT）與社區照護。",
+  "subspecialties_zh": [
+    "一般精神科",
+    "兒童青少年精神科",
+    "老年精神科",
+    "成癮精神科",
+    "身心醫學（照會）",
+    "司法精神科",
+    "睡眠醫學"
+  ],
+  "when_to_visit_zh": [
+    "情緒低落、失去興趣持續 2 週以上",
+    "反覆莫名心悸、胸悶、恐懼（排除心臟病後）",
+    "失眠每週 ≥3 晚持續 3 個月",
+    "飲酒、安眠藥或其他物質失控",
+    "出現自殺或自傷念頭（立即就醫或撥 1925 安心專線）"
+  ],
+  "hospitals": {
+    "NTUH": "精神醫學部",
+    "NCKUH": "精神部",
+    "VGH": "精神醫學部",
+    "CCH": "精神科（成人／老年精神科、身心科）"
+  },
+  "block": "behavior",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "≥2 週",
+          "label_zh": "持續低落或失去興趣"
+        },
+        {
+          "value": "6–12 個月",
+          "label_zh": "緩解後持續治療"
+        },
+        {
+          "value": "1925",
+          "label_zh": "24 小時安心專線"
+        }
+      ],
+      "causes_zh": [
+        "遺傳體質與大腦神經傳導失衡",
+        "重大壓力事件、失落、孤立",
+        "慢性疾病、慢性疼痛、產後",
+        "酒精與物質使用、睡眠問題"
+      ],
+      "prevention_zh": [
+        "規律運動（實證有中等效果）",
+        "維持睡眠與社會連結",
+        "壓力事件時及早尋求支持"
+      ],
+      "prognosis_zh": "憂鬱症是可治療的疾病，多數人經心理治療、藥物或兩者合併明顯改善；過早停藥容易復發。",
+      "timeline": [
+        {
+          "when_zh": "0–2 週",
+          "goal_zh": "安全與評估",
+          "do_zh": [
+            "評估自殺風險",
+            "開始治療"
+          ]
+        },
+        {
+          "when_zh": "2–8 週",
+          "goal_zh": "見效",
+          "do_zh": [
+            "抗憂鬱藥約 4–6 週見效",
+            "每 1–2 週回診"
+          ]
+        },
+        {
+          "when_zh": "緩解後 6–12 個月",
+          "goal_zh": "鞏固",
+          "do_zh": [
+            "持續治療避免復發"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我需要吃藥還是心理治療就可以？",
+        "藥物有什麼副作用？要吃多久？",
+        "如果有輕生念頭該怎麼辦？",
+        "運動要做到什麼程度？"
+      ],
+      "tw_resources_zh": [
+        "1925 安心專線",
+        "15–45 歲「青壯世代心理健康支持方案」3 次免費諮商（2026 年延續）",
+        "各縣市社區心理衛生中心"
+      ],
+      "id": "depression",
+      "name_zh": "憂鬱症",
+      "name_en": "Major Depressive Disorder",
+      "icd10": "F32.9",
+      "summary_zh": "憂鬱症終生盛行率約 8–15%，女性為男性 2 倍。台灣就醫率偏低，健保每年約百萬人次以上因憂鬱就醫。憂鬱症可治療，約 2/3 患者經適當治療可改善。",
+      "symptoms_zh": [
+        "幾乎每天情緒低落或失去興趣，持續 ≥2 週",
+        "睡眠、食慾、體重明顯改變",
+        "疲倦、注意力差、動作遲緩或坐立不安",
+        "無價值感、罪惡感、反覆想到死亡"
+      ],
+      "diagnosis_zh": [
+        "依 DSM-5-TR 診斷；PHQ-9 ≥10 分為中度以上",
+        "台灣常用簡式健康量表（BSRS-5，心情溫度計）",
+        "排除甲狀腺低下、貧血、藥物、物質及雙相情緒障礙",
+        "評估自殺風險（意念、計畫、工具、過去企圖）"
+      ],
+      "treatment_zh": [
+        "輕度：心理治療（認知行為治療 CBT、人際治療）、運動",
+        "中重度：SSRI（sertraline、escitalopram、fluoxetine）、SNRI（venlafaxine、duloxetine）、bupropion、mirtazapine、vortioxetine",
+        "抗憂鬱劑需 2–4 週起效、4–8 週評估療效；緩解後持續 6–12 個月",
+        "難治型：增強劑（aripiprazole、lithium）、rTMS（健保自 2024 年有條件給付）、esketamine 鼻噴劑、ECT"
+      ],
+      "postop_zh": [
+        "急性住院出院後 7 天內門診追蹤（自殺高風險期）",
+        "開始用藥後 1–2 週回診評估副作用與自殺意念（25 歲以下尤其注意）",
+        "不可自行突然停藥，需逐步減量避免停藥症候群",
+        "反覆發作 ≥3 次者考慮長期維持治療"
+      ],
+      "diet_zh": [
+        "地中海飲食與憂鬱風險降低相關",
+        "攝取富含 omega-3 魚類，EPA 為主補充品可作輔助",
+        "避免酒精（加重憂鬱並與藥物交互作用）",
+        "規律三餐，減少高糖加工食品"
+      ],
+      "exercise_zh": [
+        "每週 3–5 次、每次 30–45 分鐘中等強度有氧，效果可與輕中度藥物治療相當",
+        "阻力訓練、瑜伽、太極亦有效",
+        "從每天 10 分鐘散步開始，逐步增加"
+      ],
+      "rehab_zh": [
+        "行為活化：安排有成就感與愉悅感的活動",
+        "職能治療與復工計畫（漸進式返回職場）",
+        "日間病房、社區心理衛生中心資源"
+      ],
+      "selfcare_zh": [
+        "固定作息、曬太陽（早晨 30 分鐘）",
+        "記錄心情日記與 PHQ-9 每 2–4 週自評",
+        "維持社交連結，告訴信任的人自己的狀況",
+        "撥打 1925（依舊愛我）安心專線 24 小時、各縣市心理諮商補助（15–45 歲 3 次免費方案）"
+      ],
+      "red_flags_zh": [
+        "有自殺計畫或準備工具",
+        "出現幻聽、妄想",
+        "突然情緒高昂、不需睡眠（可能轉為躁期）",
+        "拒食拒水"
+      ],
+      "evidence": [
+        {
+          "label": "CANMAT 2023 Update on Clinical Guidelines for Management of Major Depressive Disorder in Adults",
+          "year": 2023,
+          "url": "https://doi.org/10.1177/07067437241245384"
+        },
+        {
+          "label": "APA Clinical Practice Guideline for the Treatment of Depression Across Three Age Cohorts",
+          "year": 2019
+        },
+        {
+          "label": "Noetel M et al. Effect of exercise for depression: systematic review and network meta-analysis (BMJ)",
+          "year": 2024,
+          "url": "https://doi.org/10.1136/bmj-2023-075847"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "mental",
+          "label_zh": "心理健康"
+        },
+        {
+          "hash": "mindbody",
+          "label_zh": "身心醫學"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≥6 個月",
+          "label_zh": "廣泛性焦慮症狀持續"
+        },
+        {
+          "value": "4–6 週",
+          "label_zh": "SSRI 開始見效"
+        },
+        {
+          "value": "CBT",
+          "label_zh": "第一線心理治療"
+        }
+      ],
+      "causes_zh": [
+        "遺傳與性格特質",
+        "壓力事件、童年逆境",
+        "咖啡因、酒精戒斷、甲狀腺亢進等身體因素",
+        "慢性疾病"
+      ],
+      "prevention_zh": [
+        "規律運動與睡眠",
+        "減少咖啡因與酒精",
+        "學習呼吸與放鬆技巧"
+      ],
+      "prognosis_zh": "焦慮症與恐慌症經認知行為治療與藥物多可顯著改善；長期使用苯二氮平類藥物不建議。",
+      "timeline": [
+        {
+          "when_zh": "0–4 週",
+          "goal_zh": "評估與開始治療",
+          "do_zh": [
+            "排除身體疾病",
+            "學習呼吸技巧"
+          ]
+        },
+        {
+          "when_zh": "4–12 週",
+          "goal_zh": "心理治療",
+          "do_zh": [
+            "每週 CBT",
+            "藥物逐步調整"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "維持",
+          "do_zh": [
+            "持續練習、預防復發"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的心悸胸悶是焦慮還是心臟問題？",
+        "CBT 在哪裡可以做？",
+        "藥物會成癮嗎？",
+        "恐慌發作時怎麼辦？"
+      ],
+      "tw_resources_zh": [
+        "1925 安心專線",
+        "15–45 歲免費心理諮商 3 次"
+      ],
+      "id": "anxiety_panic",
+      "name_zh": "焦慮症與恐慌症",
+      "name_en": "Generalized Anxiety Disorder & Panic Disorder",
+      "icd10": "F41.0",
+      "summary_zh": "焦慮症是最常見的精神疾患，終生盛行率約 20–30%。恐慌症約 2–3%，常因心悸胸悶先跑急診或心臟科。台灣民間常稱「自律神經失調」者，多屬焦慮症範疇。",
+      "symptoms_zh": [
+        "廣泛性焦慮：過度擔心難以控制 ≥6 個月，伴隨緊繃、易疲倦、失眠、肌肉痠痛",
+        "恐慌發作：突發心悸、胸悶、呼吸困難、發抖、瀕死感，10 分鐘內達高峰",
+        "預期性焦慮，害怕再次發作而避免搭捷運、開車",
+        "腸胃不適、頻尿、頭暈"
+      ],
+      "diagnosis_zh": [
+        "GAD-7 ≥10 分需進一步評估",
+        "排除甲狀腺亢進、心律不整、低血糖、咖啡因或藥物",
+        "首次胸痛需心電圖等排除心臟疾病",
+        "評估共病憂鬱與物質使用"
+      ],
+      "treatment_zh": [
+        "第一線：CBT（含暴露治療、內感暴露），療程約 12–16 次",
+        "藥物：SSRI（escitalopram、sertraline、paroxetine）或 SNRI（venlafaxine、duloxetine），從低劑量開始",
+        "苯二氮平類（alprazolam、lorazepam）僅短期 2–4 週或急性使用，避免依賴",
+        "Pregabalin、buspirone 可用於廣泛性焦慮"
+      ],
+      "postop_zh": [
+        "急診恐慌發作排除器質性病因後，轉介精神科或身心科門診",
+        "用藥前 2 週可能焦慮短暫加劇，需回診調整",
+        "症狀緩解後持續用藥 12 個月再逐步減量"
+      ],
+      "diet_zh": [
+        "減少咖啡因（咖啡、茶、能量飲料）",
+        "避免以酒精助眠或紓壓",
+        "規律進食，避免低血糖誘發心悸"
+      ],
+      "exercise_zh": [
+        "每週 3–5 次有氧運動，每次 30 分鐘",
+        "瑜伽、太極、八段錦結合呼吸",
+        "運動造成的心跳加快也是一種內感暴露練習"
+      ],
+      "rehab_zh": [
+        "呼吸再訓練：4 秒吸、6 秒吐，每天 2 次各 5 分鐘",
+        "漸進式肌肉放鬆、正念減壓（MBSR）8 週課程",
+        "逐級暴露練習（建立害怕情境階梯）"
+      ],
+      "selfcare_zh": [
+        "發作時提醒自己「這會過去」，進行慢呼吸",
+        "記錄焦慮日記，辨識自動化想法",
+        "規律睡眠 7–8 小時",
+        "避免自行長期使用鎮靜安眠藥"
+      ],
+      "red_flags_zh": [
+        "胸痛合併冒冷汗、放射至左臂或下顎（需排除心肌梗塞）",
+        "伴隨自殺意念",
+        "苯二氮平類突然停藥後抽搐、意識混亂"
+      ],
+      "evidence": [
+        {
+          "label": "NICE CG113: Generalised anxiety disorder and panic disorder in adults: management",
+          "year": 2011
+        },
+        {
+          "label": "Canadian Clinical Practice Guidelines for the Management of Anxiety, Posttraumatic Stress and Obsessive-Compulsive Disorders",
+          "year": 2014
+        },
+        {
+          "label": "USPSTF: Screening for Anxiety Disorders in Adults",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "mental",
+          "label_zh": "心理健康"
+        },
+        {
+          "hash": "mindbody",
+          "label_zh": "身心醫學"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "3×3",
+          "label_zh": "每週 ≥3 晚、持續 ≥3 個月的失眠"
+        },
+        {
+          "value": "AUDIT-C",
+          "label_zh": "飲酒問題篩檢"
+        },
+        {
+          "value": "4–8 次",
+          "label_zh": "CBT-I 療程"
+        }
+      ],
+      "causes_zh": [
+        "壓力、焦慮、憂鬱",
+        "不良睡眠習慣、晝夜節律紊亂",
+        "用酒精助眠反而破壞睡眠",
+        "藥物、物質使用與戒斷"
+      ],
+      "prevention_zh": [
+        "固定起床時間",
+        "不用酒精或安眠藥自行助眠",
+        "下午後避免咖啡因"
+      ],
+      "prognosis_zh": "CBT-I 對慢性失眠效果持久；酒精與物質使用障礙可治療，結合藥物與心理社會支持的戒治成功率較高。",
+      "timeline": [
+        {
+          "when_zh": "0–2 週",
+          "goal_zh": "評估",
+          "do_zh": [
+            "睡眠日記、飲酒評估"
+          ]
+        },
+        {
+          "when_zh": "2–8 週",
+          "goal_zh": "CBT-I 或戒治",
+          "do_zh": [
+            "睡眠限制、刺激控制",
+            "戒酒藥物與支持"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "預防復發",
+          "do_zh": [
+            "持續追蹤"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我需要吃安眠藥嗎？",
+        "CBT-I 哪裡可以做？",
+        "我的喝酒算不算有問題？",
+        "戒酒有藥物幫忙嗎？"
+      ],
+      "tw_resources_zh": [
+        "衛福部酒癮治療費用補助方案",
+        "1925 安心專線",
+        "各精神科睡眠與成癮門診"
+      ],
+      "evidence_add": [
+        {
+          "label": "Edinger JD et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: AASM Clinical Practice Guideline (J Clin Sleep Med)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Riemann D et al. The European Insomnia Guideline 2023 (J Sleep Res)",
+          "year": 2023,
+          "level": "guideline"
+        }
+      ],
+      "id": "insomnia_substance",
+      "name_zh": "失眠與物質使用障礙",
+      "name_en": "Insomnia Disorder & Substance Use Disorders",
+      "icd10": "G47.00",
+      "summary_zh": "台灣慢性失眠盛行率約 10%，健保鎮靜安眠藥使用量高，長期使用易產生依賴。酒精使用障礙、安眠藥依賴與菸草是最常見物質使用問題；近年也需留意 K 他命、電子菸等。",
+      "symptoms_zh": [
+        "入睡困難（>30 分鐘）、易醒或早醒，每週 ≥3 晚、持續 ≥3 個月",
+        "白天疲倦、注意力差、情緒易怒",
+        "物質使用：用量越來越多、想減卻減不了、影響工作家庭",
+        "戒斷症狀：手抖、冒汗、焦慮、失眠反彈"
+      ],
+      "diagnosis_zh": [
+        "睡眠日記 2 週、失眠嚴重度指數（ISI）≥15 為中度以上",
+        "懷疑睡眠呼吸中止（打鼾、STOP-BANG ≥3）時安排睡眠檢查",
+        "AUDIT 飲酒問卷 ≥8 分為危險飲酒；肝功能、GGT、MCV",
+        "評估共病憂鬱、焦慮與疼痛"
+      ],
+      "treatment_zh": [
+        "失眠第一線：失眠認知行為治療（CBT-I），4–8 次療程",
+        "藥物短期使用：Z-drugs（zolpidem）、低劑量 doxepin、orexin 受體拮抗劑（lemborexant、daridorexant、suvorexant）",
+        "酒精使用障礙：naltrexone、acamprosate、disulfiram；戒斷以長效苯二氮平類 + 維生素 B1 預防 Wernicke 腦病",
+        "安眠藥依賴：每 2 週減量 10–25% 緩慢減藥，配合 CBT-I",
+        "戒菸：varenicline、尼古丁替代療法（國健署戒菸服務補助）"
+      ],
+      "postop_zh": [
+        "住院戒斷出院後每 1–2 週門診追蹤，前 3 個月為復發高風險期",
+        "戒酒後 1 年持續參與支持團體（如 AA 戒酒無名會）",
+        "減安眠藥期間失眠反彈約 1–2 週，屬預期現象"
+      ],
+      "diet_zh": [
+        "下午 2 點後避免咖啡因",
+        "睡前 3 小時避免大餐與酒精（酒精使後半夜睡眠片段）",
+        "酒精使用者補充維生素 B1、葉酸與均衡蛋白質"
+      ],
+      "exercise_zh": [
+        "規律有氧運動可縮短入睡時間、提升睡眠品質",
+        "運動宜在睡前 2–3 小時前結束",
+        "戶外晨間活動調整生理時鐘"
+      ],
+      "rehab_zh": [
+        "CBT-I 核心：刺激控制（只在想睡時上床、20 分鐘睡不著就離床）",
+        "睡眠限制：依睡眠日記設定臥床時間，睡眠效率 >85% 再增加 15 分鐘",
+        "動機式晤談、復發預防訓練、成癮治療團體",
+        "台灣數位 CBT-I App 與醫院睡眠中心團體課程"
+      ],
+      "selfcare_zh": [
+        "固定起床時間（含週末），臥室只用於睡眠",
+        "睡前 1 小時遠離手機螢幕",
+        "不與酒精併用安眠藥；避免開車前服用",
+        "戒菸專線 0800-636-363；毒品危害防制中心諮詢 0800-770-885"
+      ],
+      "red_flags_zh": [
+        "戒酒 48–72 小時出現幻覺、意識混亂、抽搐（震顫性譫妄）",
+        "服用安眠藥後夢遊、夢中開車或進食",
+        "睡眠中呼吸停止、嚴重打鼾合併白天嗜睡",
+        "過量用藥、意識不清"
+      ],
+      "evidence": [
+        {
+          "label": "Edinger JD et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: AASM Clinical Practice Guideline (J Clin Sleep Med)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Riemann D et al. The European Insomnia Guideline 2023 (J Sleep Res)",
+          "year": 2023,
+          "level": "guideline"
+        },
+        {
+          "label": "AASM Clinical Practice Guideline for the Pharmacologic Treatment of Chronic Insomnia in Adults",
+          "year": 2017
+        },
+        {
+          "label": "ACP Guideline: Management of Chronic Insomnia Disorder in Adults",
+          "year": 2016
+        },
+        {
+          "label": "APA Practice Guideline for the Pharmacological Treatment of Patients With Alcohol Use Disorder",
+          "year": 2018
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "sleep",
+          "label_zh": "睡眠健康"
+        },
+        {
+          "hash": "mental",
+          "label_zh": "心理健康"
+        }
+      ]
+    }
+  ]
+}

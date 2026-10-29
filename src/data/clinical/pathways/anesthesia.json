@@ -1,0 +1,486 @@
+{
+  "id": "anesthesia",
+  "name_zh": "麻醉疼痛科",
+  "name_en": "Anesthesiology & Pain Medicine",
+  "division": "acute_periop",
+  "curriculum_zh": "臺大 M5 麻醉學臨床見習、陽明交大麻醉與重症醫學模組、成大麻醉學臨床實習",
+  "scope_zh": "專責手術前麻醉風險評估 (ASA 分級)、術後加速康復 (ERAS) 圍手術期照護、術後病患自控式止痛 (PCA) 與多模式止痛、超音波導引周邊神經阻斷術 (PNB) 及慢性頑固性疼痛介入治療（高頻熱凝止痛/神經調節）。",
+  "subspecialties_zh": [
+    "術前麻醉評估與困難氣道中心",
+    "微創多模式止痛與術後加速康復 (ERAS)",
+    "超音波導引局部神經阻斷特診",
+    "慢性頑固性疼痛介入中心（高頻熱凝/椎管內給藥）",
+    "重症與心臟胸腔神經專科麻醉"
+  ],
+  "when_to_visit_zh": [
+    "各項重大手術前需進行詳細心肺麻醉風險評估與禁食諮詢",
+    "曾有麻醉過敏史、惡性高熱 (Malignant hyperthermia) 家族史或困難插管史",
+    "手術後擔心傷口劇痛，欲諮詢個人化病患自控止痛 (PCA)",
+    "慢性帶狀皰疹後神經痛、三叉神經痛、癌症頑固性骨轉移劇痛",
+    "慢性下背痛或退化性關節炎，藥物無效欲評估超音波導引神經阻斷"
+  ],
+  "salud_links": [
+    {
+      "hash": "spine/MEDS",
+      "label_zh": "止痛藥物階梯與神經阻斷"
+    },
+    {
+      "hash": "systems/nervous",
+      "label_zh": "痛覺傳導與中樞敏化"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "麻醉部（含疼痛治療科）",
+    "NCKUH": "麻醉部",
+    "VGH": "麻醉部",
+    "CCH": "術前麻醉門診／疼痛科"
+  },
+  "block": "acute",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "2 小時",
+          "label_zh": "術前清流質禁食"
+        },
+        {
+          "value": "6 小時",
+          "label_zh": "輕食禁食"
+        },
+        {
+          "value": "≥4 週",
+          "label_zh": "術前戒菸降低併發症"
+        }
+      ],
+      "causes_zh": [
+        "（為什麼需要準備）麻醉時吸入胃內容物的風險",
+        "術前體能、營養不良與貧血增加併發症",
+        "吸菸增加肺部與傷口併發症"
+      ],
+      "prevention_zh": [
+        "術前 4 週以上戒菸",
+        "術前運動與營養（預康復）",
+        "依醫囑調整抗凝血與糖尿病藥物"
+      ],
+      "prognosis_zh": "ERAS 照護可縮短住院天數、減少併發症；術前準備越充分，恢復越快。",
+      "timeline": [
+        {
+          "when_zh": "術前 2–4 週",
+          "goal_zh": "預康復",
+          "do_zh": [
+            "步行、呼吸訓練、營養"
+          ]
+        },
+        {
+          "when_zh": "術前一天",
+          "goal_zh": "準備",
+          "do_zh": [
+            "依指示禁食、可喝含糖清流質"
+          ]
+        },
+        {
+          "when_zh": "術後 0–3 天",
+          "goal_zh": "快速恢復",
+          "do_zh": [
+            "早期進食、下床、多模式止痛"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的哪些藥要停？",
+        "禁食禁水時間是幾點開始？",
+        "可以喝術前碳水飲品嗎？",
+        "麻醉方式有哪些？"
+      ],
+      "tw_resources_zh": [
+        "各醫院麻醉前評估門診"
+      ],
+      "id": "eras_preop_fasting",
+      "name_zh": "術前麻醉風險評估、禁食新制與 ERAS 照護",
+      "name_en": "Preoperative Anesthesia Risk, Modern Fasting & ERAS Protocol",
+      "icd10": "Z01.810 / Z98.890",
+      "summary_zh": "手術前麻醉評估核心在於評估 ASA 生理狀態分級、心肺共病與困難氣道。現代麻醉指引破除傳統「午夜後全面嚴格禁食禁水」觀念，推行「禁食新制 2-4-6-8 原則」，並導入「術後加速康復 (ERAS)」流程，包含術前 2 小時飲用清澈碳水化合物飲料，大幅減輕術前飢餓焦慮、術後胰島素阻抗與腸胃不適。",
+      "symptoms_zh": [
+        "傳統過度禁食常見症狀：口乾舌燥、飢餓難耐、焦慮躁動、頭暈心悸、術前脫水引發麻醉誘導時血壓劇烈驟降",
+        "術後嚴重反胃、乾嘔、嘔吐膽汁消化液（術後噁心嘔吐 PONV）",
+        "術後全身冰冷寒顫發抖、牙齒打顫（術中未保溫引起低體溫）",
+        "手術傷口撕裂疼痛限制深呼吸與下床活動"
+      ],
+      "diagnosis_zh": [
+        "ASA 身體狀況分級 (ASA PS I-VI 級評估全身系統性疾病嚴重度)",
+        "困難氣道評估 (Difficult Airway Evaluation)：馬蘭帕提評級 (Mallampati score I-IV)、頦甲距離 (<6cm 警惕短下巴困難插管)、頸部伸展活動度與門牙突出度",
+        "修訂版心臟風險指數 (RCRI) 或心肺運動耐量 (METs <4 提示心肺儲備不良)",
+        "Stop-Bang 問卷篩檢未診斷之阻塞型睡眠呼吸中止症 (OSA)"
+      ],
+      "treatment_zh": [
+        "現代術前禁食「2-4-6-8 準則」落實：術前 2 小時可飲用「清澈液體（水、無果粒清蘋果汁、專用碳水飲料）」；4 小時前可食用母乳；6 小時前可食用輕食/配方奶；8 小時前禁食高油脂炸物與肉類",
+        "術前 2 小時口服複合碳水化合物飲品 (CHO loading)：維持體內肝醣儲備，顯著減輕術後胰島素抗性與分解代謝",
+        "多模式預防術後噁心嘔吐 (Apfel PONV 評估分層)：術中合併使用 Dexamethasone、5-HT3 拮抗劑 (Ondansetron) 及全靜脈標靶麻醉 (TIVA/Propofol)",
+        "術中目標導向輸液治療 (GDFT) 搭配主動式溫風加溫毯 (Bair Hugger)，精準維持常溫與組織灌流"
+      ],
+      "postop_zh": [
+        "麻醉恢復室 (PACU) 照護：Aldrete 甦醒評分達到 9-10 分（呼吸自主平穩、血氧飽和、肢體活動良好、意識清醒）方可安全轉回病房",
+        "疼痛控制早期介入：在麻醉甦醒前即刻執行超音波導引周邊神經阻斷術 (PNB)，讓病患清醒時幾乎感受不到傷口劇痛",
+        "術後早期進食：非腸胃道重大吻合手術者，術後清醒即可由少量溫開水開始嘗試，無不適當晚即可進食清淡軟質食物",
+        "術後早期移除管路：盡早拔除導尿管，鼓勵當天下床坐立行走，降低術後尿道感染與血栓形成"
+      ],
+      "diet_zh": [
+        "術前嚴格遵守麻醉科醫師指示的禁食時程表，切勿在禁食時間內偷吃檳榔、偷嚼口香糖或喝奶茶（口香糖會刺激大量胃酸胃液分泌，若麻醉時嘔吐極易嗆入肺部引發吸入性肺炎窒息致命！）",
+        "術後進食進展：溫開水 → 溫清湯、米湯 → 軟質清淡食物，避免一次大量進食引發胃擴張嘔吐",
+        "高蛋白質飲食配合深綠蔬菜，加速手術切口癒合",
+        "術後 48 小時內避免油膩產氣食材，減少腹脹"
+      ],
+      "exercise_zh": [
+        "術後甦醒後立即在床上開始「踝關節幫浦與深呼吸運動」，促進下肢靜脈血液回流並預防肺泡微塌陷",
+        "術後第 1 天即在護理人員協助下下床走動，早期活動是刺激腸胃排氣、預防腸沾黏最有效天然手段",
+        "出院後循序漸進由平地散步恢復日常體適能鍛鍊"
+      ],
+      "rehab_zh": [
+        "深呼吸與誘發性肺量計 (Triflow) 練習：每小時深吸氣 10 次，深吸氣後微張口哈氣排痰 (Huffing)，減輕肺塌陷發燒",
+        "多模式止痛與復健無縫接軌：在神經阻斷止痛保護下，無痛開展關節活動度復健訓練",
+        "術前焦慮放鬆技巧指導（腹式呼吸慢息），穩定術前自律神經與血壓"
+      ],
+      "selfcare_zh": [
+        "手術前評估門診時務必「誠實告知所有常規用藥與保健品」：特別是阿斯匹靈、抗凝血劑、降血壓藥、降血糖藥（特別是 SGLT2 抑制劑排糖藥，術前需停藥 3-4 天以防術中酮酸中毒！）及減重針劑（GLP-1 RA 需評估胃排空延遲風險）",
+        "移除活動假牙、眼鏡、隱形眼鏡、手飾金屬物及指甲油（指甲油會阻礙指夾血氧機紅外線偵測準確度）",
+        "術後 24 小時內嚴禁自行駕駛汽車、騎機車或簽署法律重要文件（麻醉殘存鎮靜效應會影響判斷力與反射速度）",
+        "返家後按時服用處方止痛藥，切勿忍痛忍到劇痛難耐才服藥"
+      ],
+      "red_flags_zh": [
+        "術後突發劇烈發冷寒顫、體溫異常飆高 (>40°C)、全身肌肉強直痙攣如鐵板、心跳狂飆過速 (>150 bpm)（極罕見致命「惡性高熱 Malignant Hyperthermia」，為麻醉急症，需立即靜脈注射特效解毒劑 Dantrolene 搶救！）",
+        "突發呼吸急促、喘不過氣、胸悶或咳粉紅色泡沫痰（急性肺水腫或肺栓塞）",
+        "大量嘔吐胃內容物且不慎嗆入氣管引發劇烈窒息咳嗽、面色發紫（吸入性肺炎窒息急症）",
+        "神經阻斷注射側肢體突發大片血腫、感覺運動功能完全喪失超過預期 48 小時無恢復跡象"
+      ],
+      "evidence": [
+        {
+          "label": "ASA Practice Guidelines for Preoperative Fasting: Carbohydrate-Containing Drinks, Milk and Solids",
+          "year": 2023
+        },
+        {
+          "label": "Consensus Guidelines for the Management of Postoperative Nausea and Vomiting (SAMBA)",
+          "year": 2020
+        },
+        {
+          "label": "ERAS Society Guidelines for Perioperative Care: General Principles and System-Specific Protocols",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/nervous",
+          "label_zh": "中樞麻醉作用機制與疼痛傳導"
+        },
+        {
+          "hash": "systems/respiratory",
+          "label_zh": "氣道保護與呼吸力學"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "0–3／10",
+          "label_zh": "術後疼痛控制目標"
+        },
+        {
+          "value": "多模式",
+          "label_zh": "合併不同機轉止痛藥減少鴉片類用量"
+        },
+        {
+          "value": "PCA",
+          "label_zh": "病人自控止痛"
+        }
+      ],
+      "causes_zh": [
+        "手術組織傷害",
+        "焦慮、睡眠差放大疼痛",
+        "術後噁心：女性、不吸菸、量車史、鴉片類藥物"
+      ],
+      "prevention_zh": [
+        "術前說明與焦慮處理",
+        "多模式止痛與區域麻醉",
+        "高風險者預防性止吐"
+      ],
+      "prognosis_zh": "良好的術後止痛可促進早期活動、降低併發症與慢性術後疼痛。",
+      "timeline": [
+        {
+          "when_zh": "術後 0–24 小時",
+          "goal_zh": "控制疼痛與噁心",
+          "do_zh": [
+            "PCA 或神經阻斷"
+          ]
+        },
+        {
+          "when_zh": "第 1–3 天",
+          "goal_zh": "轉口服",
+          "do_zh": [
+            "多模式口服止痛"
+          ]
+        },
+        {
+          "when_zh": "出院後",
+          "goal_zh": "逐步減藥",
+          "do_zh": [
+            "鴉片類短期使用、剩藥繳回"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "術後會有多痛？有哪些止痛方式？",
+        "PCA 怎麼用？",
+        "我容易噁心，可以預防嗎？",
+        "出院後止痛藥怎麼吃？"
+      ],
+      "tw_resources_zh": [
+        "自控式止痛（PCA）多為自費",
+        "各醫院急性疼痛照護團隊"
+      ],
+      "evidence_add": [
+        {
+          "label": "Chou R et al. Management of Postoperative Pain: A Clinical Practice Guideline From the American Pain Society, ASRA, and ASA (J Pain)",
+          "year": 2016,
+          "level": "guideline"
+        },
+        {
+          "label": "Practice Guidelines for Acute Pain Management in the Perioperative Setting: Updated Report by the ASA Task Force (Anesthesiology)",
+          "year": 2012,
+          "level": "guideline"
+        },
+        {
+          "label": "Gan TJ et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting (Anesth Analg)",
+          "year": 2020,
+          "level": "guideline"
+        }
+      ],
+      "evidence_drop": [
+        "Management of Postoperative Pain: A Clinical Practice Guideline From the American Pain Society and ASA",
+        "ASA Practice Guidelines for Acute Pain Management in the Perioperative Setting",
+        "Consensus Guidelines for the Management of Postoperative Nausea and Vomiting (SAMBA)"
+      ],
+      "id": "postop_pain_ponv",
+      "name_zh": "術後病患自控止痛 (PCA) 與慢性疼痛介入",
+      "name_en": "Patient-Controlled Analgesia (PCA) & Chronic Pain Interventions",
+      "icd10": "G89.18 / G89.29",
+      "summary_zh": "術後急性疼痛若未妥善控制，極易轉化為不可逆的中樞敏化「慢性手術後疼痛 (CPSP)」。病患自控式止痛 (PCA) 讓病患在微電腦幫浦安全鎖定下，依自身痛感自行按鈕給藥。多模式止痛 (MMA) 整合神經阻斷、NSAIDs、Acetaminophen 與 Gabapentinoids，大幅減少嗎啡用量與副作用。針對慢性頑固性神經痛則提供高頻熱凝 (RFA) 與脊髓電刺激 (SCS)。",
+      "symptoms_zh": [
+        "手術切口處劇烈刺痛、撕裂痛、深部搏動跳痛，活動翻身咳嗽時痛感達到滿分 10 分",
+        "疼痛引發血壓飆高、心跳加速、冷汗直冒、不敢呼吸不敢翻身咳嗽",
+        "慢性神經痛：帶狀皰疹後神經痛 (PHN) 皮膚如火燒電擊般劇痛、衣服輕輕拂過即引發劇痛 (Allodynia 異痛症)",
+        "三叉神經痛：單側顏面如刀割電擊般陣發性劇痛、洗臉刷牙甚至吹風即誘發劇痛"
+      ],
+      "diagnosis_zh": [
+        "視覺類比量表 (VAS 0-10分) 與數字疼痛評分 (NRS)：動態評估靜止時與活動咳嗽時之疼痛分數（目標控制在 <3-4 分輕度無痛範圍）",
+        "神經性疼痛評估問卷 (DN4 或 painDETECT)：鑑別體感傷害性疼痛或神經病變性疼痛",
+        "高解析肌肉骨骼與神經超音波：精準掃描定位周邊神經（股神經、坐骨神經、收肌管神經、椎旁間隙）",
+        "X 光透視機 (Fluoroscopy C-arm) 導引神經造影：精確導引脊椎硬脊膜外腔或關節面神經分支 (Medial branch)"
+      ],
+      "treatment_zh": [
+        "靜脈或硬脊膜外病患自控式止痛 (IV-PCA / PCEA)：微電腦幫浦持續微量輸注合併病患自行按鈕給藥，設定鎖定時間 (Lockout time 通常 5-10 分鐘) 與每小時劑量上限，安全防過量",
+        "超音波導引周邊神經連續導管置放阻斷術 (Continuous Nerve Block)：術後持續輸注低濃度局部麻醉劑 48-72 小時，達到完全無痛關節置換",
+        "多模式口服止痛階梯：Acetaminophen 加上非類固醇消炎止痛藥 (NSAIDs/COX-2 抑制劑) 加上鈣離子通道調節劑 (Pregabalin/Gabapentin)",
+        "慢性疼痛高頻熱凝療法 (Radiofrequency Ablation, RFA)：利用高頻電磁波產生熱能 (80°C 熱凝) 或低溫脈衝 (42°C 脈衝射頻 PRF)，阻斷慢性退化關節或受損神經的痛覺傳入神經訊號持续 6-12 個月"
+      ],
+      "postop_zh": [
+        "PCA 使用正確觀念衛教：感覺傷口「開始微痛時」即可自行按下按鈕，約數分鐘內藥物進入血液發揮止痛效果；按鈕只能由「病患本人親自按下」，家屬切勿代按！（病患若已產生鎮靜嗜睡便不會再按，此乃最重要的天然安全防線；家屬代按極易引發嗎啡過量呼吸抑制！）",
+        "PCA 幫浦設有精確安全鎖定機制，即使連續狂按多次，機器在鎖定時間內亦不會重複給藥，絕無成癮或過量風險，不需強忍劇痛",
+        "若使用止痛藥後出現頭暈、輕微噁心皮膚發癢，可通知護理人員由醫師調整止痛配方或給予止吐止癢藥物緩解",
+        "慢性介入性神經阻斷術後：注射針孔保持乾燥 24 小時，避免劇烈負重活動"
+      ],
+      "diet_zh": [
+        "使用類鴉片止痛藥物期間飲食守則：多攝取高膳食纖維蔬果（黑棗汁、地瓜、香蕉、秋葵）與每日充足飲水 2,000 mL，並搭配溫和軟便劑，防止類鴉片引起之胃腸蠕動減慢與頑固性便秘",
+        "清淡易消化飲食，少吃油膩炸物以減輕術後胃部排空負擔與噁心反胃感",
+        "慢性疼痛抗發炎飲食：多補充 Omega-3 魚油、抗氧化薑黃素，有助減輕中樞神經膠質細胞慢性發炎敏化",
+        "避免過量飲酒，酒精與中樞鎮痛藥物併用會產生危險的呼吸抑制協同毒性"
+      ],
+      "exercise_zh": [
+        "在良好止痛保護下「盡早下床活動」：唯有徹底消除疼痛，病患才敢深呼吸排痰、敢下床站立翻身，從而徹底阻斷術後肺塌陷、腸沾黏與下肢深部靜脈栓塞！",
+        "術後當天在床上進行雙腳踝關節幫浦與被動屈伸抬腿",
+        "慢性下背痛或關節痛患者於神經阻斷止痛後，把握黃金無痛期積極進行核心肌群與穩定伸展運動，重塑健康肌肉支撐"
+      ],
+      "rehab_zh": [
+        "物理治療經皮神經電刺激 (TENS)：以特定頻率微電流刺激局部皮膚感覺神經粗纖維，啟動脊髓「門閥控制理論 (Gate Control Theory)」阻斷細纖維痛覺傳入",
+        "熱療與深層組織筋膜放鬆，緩解因長年劇痛引發的代償性全身肌肉防衛性痙攣緊繃",
+        "疼痛心理學認知行為治療 (CBT) 與正念減壓引導，打破「疼痛-焦慮恐懼-中樞敏化-更痛」的慢性疼痛痛苦惡性循環"
+      ],
+      "selfcare_zh": [
+        "建立「疼痛不是美德、忍痛有害健康」的現代科學觀念：強忍劇痛會使交感神經劇烈亢奮、皮質醇大量釋放、心跳血壓狂飆，大幅增加心肌梗塞心律不整風險，並嚴重削弱免疫系統延緩傷口癒合，應主動向醫護誠實表達痛感評分",
+        "術後出院時依醫囑按時服用口服止痛藥物，出院後 3-5 天若痛感顯著減輕，可在醫師指導下逐步遞減止痛藥劑量",
+        "三叉神經痛患者日常自我防護：洗臉刷牙動作溫和，避免冷風直吹面部板機點 (Trigger zone)",
+        "長期受慢性疼痛折磨者，及早至各大醫學中心「疼痛特診」接受多學科跨領域介入整合治療"
+      ],
+      "red_flags_zh": [
+        "類鴉片藥物過量嚴重呼吸抑制：病患極度嗜睡叫不醒、呼吸頻率急劇減慢至「每分鐘 <8 次」以下、呼氣暫停中斷、嘴唇指甲發發紫發紺（需立即停止 PCA 輸注，給予高濃度純氧並即刻靜脈注射嗎啡特效解毒劑 Naloxone 搶救！）",
+        "神經阻斷注射後突發口周圍金屬味痲木、耳鳴、視力模糊、抽搐痙攣發作、心律不整心跳驟停（局部麻醉藥全身毒性反應 LAST 危急重症，需立即靜脈輸注 20% 脂肪乳劑 Lipid emulsion 搶救！）",
+        "硬脊膜外導管注射處突發劇烈腰背痛、下肢突發急性癱瘓無力、大小便失禁（硬脊膜外血腫或硬脊膜外膿瘍壓迫脊髓急症，需數小時內緊急開刀清除血腫減壓！）",
+        "傷口劇痛完全無法被任何大劑量止痛藥緩解，伴隨肢體冰冷發白無脈搏（疑似血管栓塞或骨折腔室症候群）"
+      ],
+      "evidence": [
+        {
+          "label": "Chou R et al. Management of Postoperative Pain: A Clinical Practice Guideline From the American Pain Society, ASRA, and ASA (J Pain)",
+          "year": 2016,
+          "level": "guideline"
+        },
+        {
+          "label": "Practice Guidelines for Acute Pain Management in the Perioperative Setting: Updated Report by the ASA Task Force (Anesthesiology)",
+          "year": 2012,
+          "level": "guideline"
+        },
+        {
+          "label": "Gan TJ et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting (Anesth Analg)",
+          "year": 2020,
+          "level": "guideline"
+        },
+        {
+          "label": "ESRA/ASRA Guidelines on Regional Anesthesia and Pain Medicine",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "spine/MEDS",
+          "label_zh": "止痛藥物階梯與神經阻斷"
+        },
+        {
+          "hash": "systems/nervous",
+          "label_zh": "脊髓背角痛覺閘門控制"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "6 小時",
+          "label_zh": "固體食物禁食（依 ASA）"
+        },
+        {
+          "value": "2 小時",
+          "label_zh": "清流質禁食"
+        },
+        {
+          "value": "當天",
+          "label_zh": "不可開車、騎車或簽重要文件"
+        }
+      ],
+      "causes_zh": [
+        "（需要特別評估的人）睡眠呼吸中止、肥胖",
+        "心臟或肺部疾病、高齡",
+        "長期使用安眠藥或止痛藥",
+        "使用 GLP-1 類藥物（胃排空變慢，需依醫囑調整）"
+      ],
+      "prevention_zh": [
+        "如實告知睡眠呼吸中止與用藥",
+        "依規定禁食降低吸入風險"
+      ],
+      "prognosis_zh": "絕大多數人無痛內視鏡過程順利，嚴重併發症極少；術前完整評估是安全的關鍵。",
+      "timeline": [
+        {
+          "when_zh": "檢查前 1 週",
+          "goal_zh": "用藥調整",
+          "do_zh": [
+            "確認抗凝血劑、GLP-1、糖尿病藥是否需停",
+            "大腸鏡低渣飲食"
+          ]
+        },
+        {
+          "when_zh": "檢查前一天到當天",
+          "goal_zh": "準備",
+          "do_zh": [
+            "依時間喝清腸劑（大腸鏡）",
+            "遵守禁食與禁水時間"
+          ]
+        },
+        {
+          "when_zh": "檢查後 24 小時",
+          "goal_zh": "安全恢復",
+          "do_zh": [
+            "不開車、不喝酒",
+            "先少量進食再恢復正常"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我適合無痛檢查嗎？需要麻醉科評估嗎？",
+        "我的抗凝血劑或 GLP-1 藥物要停多久？",
+        "費用是健保還是自費？",
+        "如果切除息肉，報告多久出來？"
+      ],
+      "id": "sedation_endoscopy",
+      "kind": "topic",
+      "name_zh": "無痛內視鏡與檢查鎮靜",
+      "name_en": "Procedural Sedation for Endoscopy (\"Painless\" Endoscopy)",
+      "icd10": "Z01.818",
+      "summary_zh": "無痛胃鏡、大腸鏡多使用靜脈鎮靜藥（如 propofol），讓人在數分鐘內睡著、檢查後快速清醒。整體安全性高，但仍有呼吸抑制、血壓下降等風險；睡眠呼吸中止、肥胖、心肺疾病者需事先評估。檢查當天不可開車或騎車，需有人陪同。",
+      "symptoms_zh": [
+        "檢查後短暫頭暈、嗜睡",
+        "喉嚨痛（胃鏡）、腹脹（大腸鏡打氣）"
+      ],
+      "diagnosis_zh": [
+        "麻醉前評估：病史、用藥、氣道、ASA 分級",
+        "高風險者安排麻醉科醫師全程監測",
+        "確認抗凝血劑與糖尿病藥物處理方式"
+      ],
+      "treatment_zh": [
+        "靜脈鎮靜（中度至深度）並全程監測血氧、血壓、心跳",
+        "必要時給氧與呼吸道處置",
+        "高風險者改在手術室或由麻醉科執行"
+      ],
+      "postop_zh": [
+        "恢復區觀察至清醒穩定",
+        "當天由家人陪同返家、不可開車騎車",
+        "腹脹可多走動排氣"
+      ],
+      "diet_zh": [
+        "大腸鏡前 2–3 天低渣飲食（避免蔬菜、水果皮籽、全穀）",
+        "檢查後先喝水，無嗆咳再進食",
+        "有做息肉切除者依醫囑避免辛辣與酒精數天"
+      ],
+      "exercise_zh": [
+        "檢查當天休息，隔天恢復一般活動",
+        "息肉切除後 1–2 週避免劇烈運動與提重（依醫囑）"
+      ],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "安排家人陪同接送",
+        "帶藥物清單與過去麻醉經驗",
+        "清腸要喝足量，腸道越乾淨越不會漏看息肉"
+      ],
+      "tw_resources_zh": [
+        "無痛內視鏡麻醉費用多為自費（依院所公告）",
+        "45–74 歲糞便潛血陽性者大腸鏡由健保給付"
+      ],
+      "red_flags_zh": [
+        "檢查後劇烈腹痛、發燒（疑穿孔）",
+        "大量血便或黑便",
+        "持續嗜睡叫不醒、呼吸困難"
+      ],
+      "evidence": [
+        {
+          "label": "Joshi GP et al. 2023 ASA Practice Guidelines for Preoperative Fasting (Anesthesiology)",
+          "year": 2023,
+          "level": "guideline"
+        },
+        {
+          "label": "Practice Guidelines for Moderate Procedural Sedation and Analgesia 2018: ASA Task Force (Anesthesiology)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "Early DS et al. Guidelines for sedation and anesthesia in GI endoscopy: ASGE (Gastrointest Endosc)",
+          "year": 2018,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "gastro/ENDOSCOPY_TRIAGE",
+          "label_zh": "內視鏡檢查與就醫分流"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "id": "sports_med",
+  "name_zh": "運動醫學科",
+  "name_en": "Sports Medicine",
+  "division": "ortho",
+  "curriculum_zh": "肌肉骨骼系統模組（運動生物力學、肌腱韌帶修復生理）→ 骨科見習；復健科運動醫學門診",
+  "scope_zh": "處理運動與日常活動造成的韌帶、肌腱、軟骨與肌肉傷害：前十字韌帶、半月板、旋轉肌袖、踝扭傷、肌腱病變與重返運動評估，以關節鏡手術與漸進式負荷訓練為核心。",
+  "subspecialties_zh": [
+    "膝關節鏡與韌帶重建",
+    "肩關節鏡與旋轉肌袖修補",
+    "踝關節不穩定",
+    "肌腱病變與體外震波",
+    "重返運動測試"
+  ],
+  "when_to_visit_zh": [
+    "運動中聽到「啪」一聲後膝蓋腫、打軟腿",
+    "同一側腳踝一年內反覆扭傷",
+    "肌腱處（腳跟上方、膝蓋下方、手肘外側）痛超過 6 週",
+    "肩膀舉高或夜間側睡疼痛",
+    "受傷後想知道何時能安全回到球場"
+  ],
+  "salud_links": [
+    {
+      "hash": "spine/KNEE_HIP_OA",
+      "label_zh": "膝髖關節深度課程"
+    },
+    {
+      "hash": "spine/SHOULDER_UPPER",
+      "label_zh": "肩肘上肢課程"
+    },
+    {
+      "hash": "exercise/strength",
+      "label_zh": "重量訓練與漸進負荷"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "骨科部 運動醫學科",
+    "NCKUH": "骨科部（運動醫學）",
+    "VGH": "骨科部（運動醫學）",
+    "CCH": "骨科部（運動傷害）"
+  },
+  "block": "msk",
+  "life_stages": [
+    "child",
+    "adult"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "≥9 個月",
+          "label_zh": "ACL 重建後重返運動可降低再斷"
+        },
+        {
+          "value": "4–6 週",
+          "label_zh": "旋轉肌袖修補後吊帶"
+        },
+        {
+          "value": "≈50%",
+          "label_zh": "FIFA 11+ 等神經肌肉訓練降低 ACL 傷害"
+        }
+      ],
+      "causes_zh": [
+        "旋轉肌袖：年齡退化、過肩運動、跌倒",
+        "ACL：急停、變向、落地膝蓋內夾",
+        "女性運動員 ACL 風險較高",
+        "肌力不平衡"
+      ],
+      "prevention_zh": [
+        "運動前神經肌肉暖身（FIFA 11+）",
+        "肩部肌力與肩胛穩定訓練",
+        "正確落地技巧"
+      ],
+      "prognosis_zh": "旋轉肌袖修補後多數疼痛改善；ACL 重建後完成完整復健並通過測試再回場，可降低再受傷。",
+      "timeline": [
+        {
+          "when_zh": "術後 0–6 週",
+          "goal_zh": "保護",
+          "do_zh": [
+            "吊帶或護膝",
+            "被動活動"
+          ]
+        },
+        {
+          "when_zh": "6 週–3 個月",
+          "goal_zh": "主動活動與肌力",
+          "do_zh": [
+            "物理治療"
+          ]
+        },
+        {
+          "when_zh": "3–9 個月",
+          "goal_zh": "回到運動",
+          "do_zh": [
+            "功能測試後回場"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "一定要開刀嗎？",
+        "多久可以回到運動？",
+        "重返運動需要通過哪些測試？",
+        "如何預防再受傷？"
+      ],
+      "tw_resources_zh": [
+        "健保給付關節鏡手術與物理治療"
+      ],
+      "id": "rotator_cuff_acl",
+      "name_zh": "旋轉肌袖修補與膝十字韌帶重建運動復健",
+      "name_en": "Rotator Cuff Repair & ACL Reconstruction Sports Rehabilitation",
+      "icd10": "M75.10 / S83.519A",
+      "summary_zh": "關節鏡微創手術為現代運動醫學的核心。旋轉肌袖破裂導致肩關節無力夜痛，關節鏡下以縫合錨釘 (Suture anchors) 緊密縫合肌腱；前十字韌帶 (ACL) 斷裂導致膝關節旋轉不穩，取自體膕旁肌腱或髕骨肌腱進行解剖重建。術後成功關鍵取決於結構保護與分期運動醫學物理治療。",
+      "symptoms_zh": [
+        "旋轉肌袖破裂：肩膀深部慢性痠痛鈍痛、梳頭或穿脫內衣等過肩與背手動作疼痛無力",
+        "夜間側躺壓迫患側劇痛痛醒 (Night pain)、手垂下放鬆時仍有隱痛",
+        "前十字韌帶 (ACL) 斷裂：運動扭轉或跳躍著地瞬間膝關節發出「啪」爆裂聲 (Pop)",
+        "膝關節在數小時內急速腫脹積血、行走急停變向時膝蓋有晃動鬆脫錯位感 (Giving way)"
+      ],
+      "diagnosis_zh": [
+        "高階關節磁振造影 (MRI)：確診旋轉肌袖全層/部分破裂長度與肌腹脂肪浸潤萎縮等級 (Goutallier 分期)；確診 ACL 斷裂合併半月板 (Meniscus) 與軟骨損傷",
+        "旋轉肌特殊理學測試：棘上肌測試 (Empty-can test)、落臂試驗 (Drop arm sign) 與外旋肌力減退",
+        "前十字韌帶理學測試：拉赫曼測試 (Lachman test，最敏感) 與前抽屜測試 (Anterior drawer test)、樞紐旋轉測試 (Pivot shift test)",
+        "膝關節超音波導引穿刺：抽出大量關節內血腫 (Hemarthrosis，伴隨油脂滴常為前十字韌帶撕裂斷裂典型表現)"
+      ],
+      "treatment_zh": [
+        "微創全關節鏡下旋轉肌袖修補術 (Arthroscopic Rotator Cuff Repair)：以無張力雙排縫合橋技術 (Double-row suture bridge) 將肌腱固定回肱骨大結節足印區",
+        "全關節鏡前十字韌帶解剖單束或雙束重建術 (Anatomic ACL Reconstruction)：以自體肌腱編織植入並以懸吊式扣環及吸收性干涉螺釘固定於股骨與脛骨骨隧道",
+        "合併關節鏡半月板縫合修補術 (Meniscal repair) 或軟骨微骨折再生術",
+        "術後客觀「重返運動評估 (Return to sports testing)」"
+      ],
+      "postop_zh": [
+        "旋轉肌袖術後固定原則：術後 4-6 週內必須 24 小時穿戴「外展枕肩部支架 (Abduction sling)」，將手臂固定於外展 30-45 度放鬆肌腱縫合處張力，僅在沐浴或被動運動時短暫卸下",
+        "前十字韌帶術後護具原則：穿戴可調角度式膝關節長支架 (Post-op Knee Brace)，初期鎖定於完全伸直 0 度提供關節支撐與防挫屈",
+        "術後 48 小時內密集間歇冰敷（每次 15-20 分鐘，每天 4-6 次），加壓減輕關節內積血積液",
+        "傷口保持乾燥，微創小傷口一週內防水保護，避免泡澡"
+      ],
+      "diet_zh": [
+        "充沛優質蛋白質補充（每日 1.5-2.0 g/kg，如乳清蛋白、雞肉、水煮蛋），提供肌腱-骨整合 (Tendon-bone healing) 之膠原母質原料",
+        "補充維生素 C（每日 500-1,000 mg）及水解膠原蛋白胜肽，研究證實可促進肌腱纖維生長與抗拉伸強度",
+        "多攝取抗發炎天然食材（深海魚 Omega-3 EPA/DHA、薑黃素），緩解關節鏡術後創傷發炎反應",
+        "戒菸：尼古丁極度阻礙骨隧道內肌腱骨化癒合，大幅增加肌腱重撕裂率與鬆脫率"
+      ],
+      "exercise_zh": [
+        "旋轉肌袖 Phase 1 (0-6週)：絕對被動關節活動 (PROM，鐘擺運動、滑輪被動牽拉)，嚴禁主動抬手",
+        "旋轉肌袖 Phase 2-4：6-12 週主動輔助至主動活動 (AAROM/AROM)；12 週後輕量彈力帶肌力訓練；6 個月以上重返非碰撞運動",
+        "前十字韌帶 Phase 1-2 (0-6週)：終末伸膝 0 度鎖定、髕骨鬆動、直腿抬高、屈膝角度循序進展與閉鎖鏈微蹲訓練",
+        "前十字韌帶 Phase 3-5 (6週-12個月)：單車阻力踩踏、平衡墊本體感覺、直線慢跑、增強式跳躍與側向敏捷變向訓練 (LSI >90%)"
+      ],
+      "rehab_zh": [
+        "關節鬆動術與疤痕筋膜鬆解，預防術後「沾黏性肩關節囊炎（五十肩）」或膝關節伸直角度受限 (Cyclops lesion)",
+        "等速肌力測試儀 (Isokinetic dynamometry) 客觀量測股四頭肌與膕旁肌肌力比 (H/Q ratio)，判定兩腿對稱性",
+        "神經肌肉控制訓練 (Neuromuscular training)：落地緩衝姿勢校正（膝關節避免內扣 Valgus，增加髖關節屈曲緩衝），預防韌帶二度斷裂"
+      ],
+      "selfcare_zh": [
+        "嚴格遵守支架配戴時程，切勿因術後無痛即自作聰明提前拆除支架，肌腱與骨骼完全牢固癒合至少需 8-12 週",
+        "前十字韌帶重建者重返激烈切入變向運動（籃球、足球、排球）建議至少等待術後滿 9-12 個月，並經專業運醫團隊客觀測試通過",
+        "冰敷保養：在每次劇烈復健或運動訓練後，立即冰敷 15 分鐘預防微創傷腫脹",
+        "避免提重物或手提行李箱拖拉患側手臂"
+      ],
+      "red_flags_zh": [
+        "關節突發劇烈如火燒般灼熱紅腫、關節囊極度膨脹積膿、伴隨高燒畏寒（化膿性關節炎急症，需緊急關節鏡清創引流沖洗！）",
+        "復健或活動時突發「啪」一聲銳痛，伴隨手臂再次無法抬起或膝關節再次晃動錯位（肌腱縫合錨釘脫落或重建韌帶再斷裂）",
+        "小腿腓腸肌劇烈壓痛腫脹發硬（深部靜脈栓塞 DVT）",
+        "手部或足部末梢冰冷蒼白、脈搏消失、感覺麻木癱瘓（嚴重血管神經卡壓受損）"
+      ],
+      "evidence": [
+        {
+          "label": "AAOS Clinical Practice Guideline on the Management of Rotator Cuff Injuries",
+          "year": 2020
+        },
+        {
+          "label": "MOON Knee Group: Rehabilitation Following Anterior Cruciate Ligament Reconstruction",
+          "year": 2021
+        },
+        {
+          "label": "Consensus Statement on Return to Sport After ACL Injury (British Journal of Sports Medicine)",
+          "year": 2020
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "exercise/strength",
+          "label_zh": "漸進式抗阻力肌力訓練"
+        },
+        {
+          "hash": "exercise/mobility",
+          "label_zh": "關節活動度與軟組織放鬆"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "2–4 成",
+          "label_zh": "扭傷後發展為慢性不穩定"
+        },
+        {
+          "value": "≈50%",
+          "label_zh": "平衡訓練降低再扭傷"
+        },
+        {
+          "value": "6–12 週",
+          "label_zh": "中度扭傷回到運動"
+        }
+      ],
+      "causes_zh": [
+        "落地踩到別人腳或不平地面，腳掌內翻",
+        "曾扭傷過（最強預測因子）",
+        "踝關節本體感覺與腓骨肌力不足",
+        "高跟鞋、場地濕滑、疲勞時運動"
+      ],
+      "prevention_zh": [
+        "曾扭傷者運動時配戴護踝或貼紮至少 1 年",
+        "每次運動前做 10 分鐘神經肌肉暖身（如 FIFA 11+）",
+        "持續平衡訓練列為終身習慣"
+      ],
+      "prognosis_zh": "多數輕中度扭傷 2–6 週可恢復日常活動；未做平衡訓練者再扭傷與慢性不穩定風險顯著較高。合併軟骨傷害者恢復較慢。",
+      "timeline": [
+        {
+          "when_zh": "受傷 0–3 天",
+          "goal_zh": "控制腫脹、保護韌帶",
+          "do_zh": [
+            "抬高患肢高於心臟",
+            "彈性繃帶加壓",
+            "可忍受範圍內用拐杖部分負重"
+          ]
+        },
+        {
+          "when_zh": "第 4 天–2 週",
+          "goal_zh": "恢復走路與活動度",
+          "do_zh": [
+            "戴護踝正常走路",
+            "踝幫浦、畫字母運動",
+            "開始雙腳平衡"
+          ]
+        },
+        {
+          "when_zh": "第 2–6 週",
+          "goal_zh": "肌力與本體感覺",
+          "do_zh": [
+            "彈力帶外翻訓練",
+            "單腳站 30 秒→閉眼→軟墊",
+            "提踵 3×15"
+          ]
+        },
+        {
+          "when_zh": "第 6–12 週",
+          "goal_zh": "重返運動",
+          "do_zh": [
+            "跳躍、側併步、8 字跑",
+            "通過單腳跳測試後回場",
+            "回場後持續護踝或貼紮 6 個月"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我需要照 X 光嗎？符合渥太華規則嗎？",
+        "要戴護踝多久？什麼時候可以跑跳？",
+        "我是第幾級扭傷？有沒有傷到軟骨或肌腱？",
+        "反覆扭傷時，手術前還有哪些復健可以做？"
+      ],
+      "id": "ankle_sprain",
+      "name_zh": "踝關節扭傷與慢性踝關節不穩定",
+      "name_en": "Lateral Ankle Sprain & Chronic Ankle Instability",
+      "icd10": "S93.4",
+      "summary_zh": "踝扭傷是最常見的運動傷害，多為腳掌內翻拉傷外側前距腓韌帶。約 2–4 成的人會發展成「慢性踝關節不穩定」，主因不是韌帶沒長好，而是平衡與本體感覺訓練不足、太早回場。早期保護下負重、加上 6 週以上的平衡訓練，可讓再扭傷率下降約一半。",
+      "symptoms_zh": [
+        "外踝前下方腫脹、瘀青",
+        "走路疼痛、無法單腳站",
+        "數週後仍覺得腳踝「鬆鬆的」、容易拐到",
+        "慢性期上下樓梯或跑跳時不穩"
+      ],
+      "diagnosis_zh": [
+        "渥太華踝關節規則（Ottawa ankle rules）：骨頭壓痛或無法走 4 步才需照 X 光",
+        "前拉測試與距骨傾斜測試評估韌帶鬆弛",
+        "受傷 4–5 天後消腫再理學檢查最準確",
+        "慢性不穩或懷疑軟骨傷害時安排超音波或 MRI"
+      ],
+      "treatment_zh": [
+        "急性期 PEACE & LOVE 原則：保護、抬高、避免過早抗發炎藥、加壓、衛教，之後循序負重",
+        "功能性護踝或貼紮優於石膏固定（輕中度扭傷）",
+        "止痛以乙醯胺酚為主，必要時短期 NSAIDs",
+        "慢性不穩定經 3–6 個月完整復健仍反覆扭傷：考慮韌帶修補（Broström）或重建"
+      ],
+      "postop_zh": [
+        "韌帶修補術後：短腿石膏或行走靴 2–6 週，依醫囑漸進負重",
+        "術後 6 週起開始平衡與腓骨肌力訓練",
+        "術後約 3–4 個月經功能測試後回到運動"
+      ],
+      "diet_zh": [
+        "足夠蛋白質（每公斤體重 1.2–1.6 克）支持韌帶修復",
+        "補足維生素 C 與膠原合成所需營養，從蔬果攝取即可",
+        "避免受傷初期飲酒，會加重腫脹"
+      ],
+      "exercise_zh": [
+        "受傷期間維持上肢與核心訓練、游泳（腳踝消腫後）",
+        "平衡訓練每週 3 次以上、持續至少 6 週",
+        "回場前完成跳躍落地與變向訓練"
+      ],
+      "rehab_zh": [
+        "物理治療：關節鬆動術改善背屈活動度",
+        "本體感覺訓練：平衡板、單腳站接球",
+        "腓骨長短肌與臀中肌肌力訓練",
+        "神經肌肉控制訓練（落地屈膝、膝蓋不內夾）"
+      ],
+      "selfcare_zh": [
+        "前 2 週避免熱敷與按摩加重腫脹",
+        "穿包覆性好的運動鞋，避免高跟鞋",
+        "記錄每日疼痛與可走距離"
+      ],
+      "tw_resources_zh": [
+        "健保給付物理治療（依醫囑開立，每次需部分負擔）",
+        "各縣市運動傷害防護中心與大專院校運動防護員諮詢"
+      ],
+      "red_flags_zh": [
+        "腳踝明顯變形或骨頭突出",
+        "完全無法承重走 4 步",
+        "腳掌冰冷、發麻或顏色改變",
+        "小腿後側劇痛、無法墊腳尖（疑阿基里斯腱斷裂）"
+      ],
+      "evidence": [
+        {
+          "label": "Vuurberg G et al. Diagnosis, treatment and prevention of ankle sprains: update of an evidence-based clinical guideline (Br J Sports Med)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "Martin RL et al. Ankle Stability and Movement Coordination Impairments: Lateral Ankle Ligament Sprains Revision 2021 (JOSPT CPG)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Dubois B, Esculier JF. Soft-tissue injuries simply need PEACE and LOVE (Br J Sports Med)",
+          "year": 2020,
+          "level": "consensus"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "spine/ANKLE_FOOT_NEURO",
+          "label_zh": "足踝與神經課程"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≥12 週",
+          "label_zh": "漸進負荷訓練療程"
+        },
+        {
+          "value": "0–3/10",
+          "label_zh": "訓練中可接受疼痛"
+        },
+        {
+          "value": "1 年",
+          "label_zh": "類固醇注射後網球肘復發較高"
+        }
+      ],
+      "causes_zh": [
+        "訓練量或強度突然增加（跑量、跳躍、球拍運動）",
+        "肌力不足、小腿或股四頭肌柔軟度差",
+        "使用 fluoroquinolone 類抗生素、全身性類固醇",
+        "糖尿病、肥胖、年齡增加"
+      ],
+      "prevention_zh": [
+        "訓練量循序增加、每週不超過 10%",
+        "持續下肢肌力訓練",
+        "服用 fluoroquinolone 期間與後數週避免高強度跳躍"
+      ],
+      "prognosis_zh": "多數人經 3–6 個月規律負荷訓練顯著改善，但容易復發；把肌力訓練變成長期習慣是關鍵。",
+      "timeline": [
+        {
+          "when_zh": "第 1–2 週",
+          "goal_zh": "降低疼痛",
+          "do_zh": [
+            "等長收縮 5×45 秒",
+            "暫停誘發疼痛的跑跳",
+            "維持其他部位訓練"
+          ]
+        },
+        {
+          "when_zh": "第 3–8 週",
+          "goal_zh": "重建肌腱承受力",
+          "do_zh": [
+            "慢速重阻力 3 秒上 3 秒下，每週 3 次",
+            "疼痛隔天不加重才增加重量"
+          ]
+        },
+        {
+          "when_zh": "第 9–12 週以上",
+          "goal_zh": "回到運動",
+          "do_zh": [
+            "加入彈跳與速度訓練",
+            "逐步恢復跑量（每週增加 ≤10%）"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的肌腱有部分斷裂嗎？",
+        "訓練時多痛是可以接受的？",
+        "震波或注射適合我嗎？要幾次？",
+        "現在可以繼續跑步或打球嗎？要減多少量？"
+      ],
+      "id": "tendinopathy",
+      "name_zh": "肌腱病變（阿基里斯腱、髕骨肌腱、網球肘）",
+      "name_en": "Tendinopathy: Achilles, Patellar & Lateral Elbow",
+      "icd10": "M76.6 / M76.5 / M77.1",
+      "summary_zh": "肌腱病變是負荷超過肌腱適應能力的「過度使用」問題，而非單純發炎。治療主軸是「漸進式負荷訓練」至少 12 週；類固醇注射短期有效，但網球肘研究顯示 1 年後反而較差，且可能增加肌腱斷裂風險。",
+      "symptoms_zh": [
+        "早上第一步或運動開始時肌腱痛，熱身後減輕、運動後隔天更痛",
+        "肌腱局部壓痛或增厚",
+        "網球肘：擰毛巾、提水壺時手肘外側痛",
+        "髕骨肌腱：跳躍、深蹲時膝蓋下方痛"
+      ],
+      "diagnosis_zh": [
+        "理學檢查即可診斷多數個案",
+        "超音波：肌腱增厚、新生血管",
+        "VISA-A／VISA-P 問卷追蹤功能",
+        "懷疑部分斷裂時安排 MRI"
+      ],
+      "treatment_zh": [
+        "負荷管理：先減量而非完全休息",
+        "漸進式負荷訓練：等長收縮止痛 → 慢速重阻力（HSR）→ 增強式跳躍",
+        "體外震波（ESWT）：慢性鈣化性或難治型可考慮",
+        "類固醇注射僅短期止痛、避免重複注射於承重肌腱",
+        "PRP 證據不一，屬自費選項"
+      ],
+      "postop_zh": [
+        "極少需手術；保守治療 6–12 個月無效才考慮清創或修補",
+        "震波治療後 48 小時避免高強度跑跳",
+        "注射後 2 週內避免劇烈負荷"
+      ],
+      "diet_zh": [
+        "足夠蛋白質與總熱量，避免能量不足（RED-S）",
+        "訓練前 1 小時補充明膠或膠原 + 維生素 C 的證據仍有限",
+        "控制血糖與體重，減少肌腱負擔"
+      ],
+      "exercise_zh": [
+        "阿基里斯腱：直膝與屈膝提踵，負重漸增",
+        "髕骨肌腱：西班牙深蹲、傾斜板深蹲",
+        "網球肘：腕伸肌離心與等長訓練、握力訓練"
+      ],
+      "rehab_zh": [
+        "物理治療師評估動力鏈（臀、核心、足部）",
+        "貼紮或護具分散負荷",
+        "徒手治療可短期止痛，需搭配運動",
+        "跑步姿勢與步頻調整"
+      ],
+      "selfcare_zh": [
+        "用「24 小時疼痛反應」調整訓練量",
+        "更換磨損鞋款、避免突然改穿極簡鞋",
+        "球拍運動檢查握把尺寸與擊球技巧"
+      ],
+      "tw_resources_zh": [
+        "體外震波多為自費；物理治療可由健保給付",
+        "運動醫學門診與運動防護員提供重返運動評估"
+      ],
+      "red_flags_zh": [
+        "突然一聲斷裂、無法墊腳尖或伸直膝蓋",
+        "肌腱處紅腫熱痛合併發燒",
+        "夜間持續劇痛、不因休息改善"
+      ],
+      "evidence": [
+        {
+          "label": "Coombes BK et al. Effect of corticosteroid injection, physiotherapy, or both on lateral epicondylalgia: RCT (JAMA)",
+          "year": 2013,
+          "level": "rct"
+        },
+        {
+          "label": "Martin RL et al. Achilles Pain, Stiffness, and Muscle Power Deficits: Midportion Achilles Tendinopathy Revision 2018 (JOSPT CPG)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "Malliaras P et al. Achilles and patellar tendinopathy loading programmes: systematic review (Sports Med)",
+          "year": 2013,
+          "level": "sr"
+        },
+        {
+          "label": "Silbernagel KG, Hanlon S, Sprague A. Current Clinical Concepts: Conservative Management of Achilles Tendinopathy (J Athl Train)",
+          "year": 2020,
+          "level": "consensus"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "spine/ANKLE_FOOT_NEURO",
+          "label_zh": "足踝課程"
+        },
+        {
+          "hash": "exercise/running",
+          "label_zh": "跑步訓練與跑量管理"
+        }
+      ]
+    }
+  ]
+}

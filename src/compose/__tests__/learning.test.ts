@@ -11,7 +11,7 @@ import { GLOSSARY } from '../../data/learning/glossary';
 import { buildSearchIndex, searchDocs } from '../../data/learning/searchIndex';
 import { HUMAN_SYSTEMS } from '../../data/humanSystemsData';
 import { ALL_CHAPTER_PAGES } from '../../data/chapters';
-import { getDepartment } from '../../data/clinical';
+import { getDepartment } from '../../data/clinical/full';
 import { SYMPTOMS } from '../../data/clinical/symptoms';
 import { classifyBP, classifyBMI, classifyWHtR, classifyEGFR, classifyA1c, classifyFPG, countMetSyn } from '../../utils/labBands';
 

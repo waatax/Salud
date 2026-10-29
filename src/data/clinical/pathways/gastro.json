@@ -1,0 +1,996 @@
+{
+  "id": "gastro",
+  "name_zh": "胃腸肝膽科",
+  "name_en": "Gastroenterology & Hepatology",
+  "division": "internal",
+  "curriculum_zh": "臺大 M3-M4「消化系統」模組、陽明交大「消化系統」模組、成大「腸胃學」→ M5-M6 內科見實習",
+  "scope_zh": "主治消化性潰瘍、胃食道逆流、幽門桿菌感染、肝炎 (B/C/脂肪肝)、肝硬化、膽結石膽囊炎、急慢性胰臟炎、腸躁症與胃腸道息肉及腫瘤之診斷內視鏡治療。",
+  "subspecialties_zh": [
+    "治療性內視鏡（止血、息肉黏膜切除 ESD/EMR）",
+    "肝炎與脂肪肝特診",
+    "內視鏡逆行性膽胰管造影 (ERCP)",
+    "發炎性腸道疾病 (IBD) 與腸躁症特診",
+    "腹部超音波診斷與腫瘤射頻消融 (RFA)"
+  ],
+  "when_to_visit_zh": [
+    "反覆胃酸逆流、火燒心或喉頭異物感",
+    "上腹部悶痛、飽脹消化不良、空腹或飯後疼痛",
+    "皮膚或眼白泛黃（黃疸）、茶色尿、灰白色糞便",
+    "排便習慣改變、糞便帶血、黏液便或長期腹瀉便秘交替",
+    "國健署糞便潛血陽性或健檢肝功能指數 (AST/ALT) 異常"
+  ],
+  "salud_links": [
+    {
+      "hash": "gastro",
+      "label_zh": "肝膽腸胃科專區全覽"
+    },
+    {
+      "hash": "gastro/GERD_ULCER",
+      "label_zh": "胃食道逆流與胃潰瘍"
+    },
+    {
+      "hash": "gastro/MASLD_FATTY",
+      "label_zh": "脂肪肝與肝纖維化 FIB-4"
+    },
+    {
+      "hash": "gastro/CRC_POLYPS",
+      "label_zh": "大腸息肉與內視鏡切除"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "內科部 胃腸肝膽科",
+    "NCKUH": "內科部 胃腸肝膽科",
+    "VGH": "內科部（胃腸肝膽科）",
+    "CCH": "內科部 胃腸肝膽科"
+  },
+  "block": "gi",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "4–8 週",
+          "label_zh": "氫離子幫浦抑制劑初始療程"
+        },
+        {
+          "value": "30–60 分",
+          "label_zh": "PPI 在早餐前服用"
+        },
+        {
+          "value": "3 小時",
+          "label_zh": "睡前避免進食"
+        }
+      ],
+      "causes_zh": [
+        "下食道括約肌鬆弛、食道裂孔疝氣",
+        "肥胖、懷孕",
+        "飽餐、高脂、咖啡、酒、菸、巧克力",
+        "消化性潰瘍：幽門桿菌與 NSAIDs"
+      ],
+      "prevention_zh": [
+        "減重 5–10%",
+        "睡前 3 小時不進食、床頭抬高",
+        "長期服用 NSAIDs 或阿斯匹靈者評估幽門桿菌並保護胃"
+      ],
+      "prognosis_zh": "多數胃食道逆流經生活調整與 PPI 改善，但停藥後易復發，可改為按需使用。長期逆流少數會形成巴瑞特食道，需定期胃鏡追蹤；消化性潰瘍在除菌後復發率大幅下降。",
+      "timeline": [
+        {
+          "when_zh": "0–8 週",
+          "goal_zh": "控制症狀與癒合",
+          "do_zh": [
+            "PPI 依醫囑服用",
+            "生活與飲食調整"
+          ]
+        },
+        {
+          "when_zh": "8–12 週",
+          "goal_zh": "減藥",
+          "do_zh": [
+            "評估效果、逐步減量或按需",
+            "未改善者安排胃鏡"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "預防復發",
+          "do_zh": [
+            "有警訊或巴瑞特食道定期胃鏡",
+            "幽門桿菌除菌後確認"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我需要做胃鏡嗎？",
+        "PPI 要吃多久？長期吃安全嗎？",
+        "我有沒有幽門桿菌？",
+        "哪些食物需要避免？"
+      ],
+      "tw_resources_zh": [
+        "健保 PPI 給付與胃鏡診斷相關",
+        "2026 年起 45–74 歲公費幽門桿菌糞便抗原檢測"
+      ],
+      "id": "gerd",
+      "name_zh": "胃食道逆流症與消化性潰瘍",
+      "name_en": "Gastroesophageal Reflux Disease (GERD) & Peptic Ulcer",
+      "icd10": "K21.9 / K27.9",
+      "summary_zh": "胃食道逆流為胃酸反流刺激食道黏膜引起。洛杉磯分類法 (LA classification) 將食道發炎依長度與融合程度分級。消化性潰瘍則常伴隨幽門螺旋桿菌 (H. pylori) 感染或 NSAIDs 止痛藥使用，若未根除可能引發出血穿孔。",
+      "symptoms_zh": [
+        "典型火燒心（胸骨後灼熱刺痛感）與酸水逆流 (Acid regurgitation)",
+        "非典型症狀：慢性乾咳、喉嚨卡卡異物感、聲音嘶啞、氣喘發作",
+        "上腹部飢餓痛（十二指腸潰瘍常見）或飯後悶痛脹滿（胃潰瘍常見）",
+        "噯氣打嗝頻繁、噁心想吐"
+      ],
+      "diagnosis_zh": [
+        "胃鏡檢查（上消化道內視鏡 EGD）：直視食道黏膜缺損分級 (LA Grade A-D) 並排除 Barrett 食道或食道腺癌",
+        "幽門螺旋桿菌檢驗：胃黏膜切片快速尿素酶測試 (CLO test)、碳 13 尿素呼氣試驗 (13C-UBT) 或糞便抗原檢驗",
+        "24 小時食道酸鹼阻抗監測 (pH-impedance monitoring) 釐清非酸逆流與難治型逆流",
+        "上消化道內視鏡超音波 (EUS) 評估黏膜下病灶侵犯層次"
+      ],
+      "treatment_zh": [
+        "質子幫浦抑制劑 (PPI) 或新一代鉀離子競爭性胃酸抑制劑 (P-CAB，如 Vonoprazan)：強效抑酸療程 8-12 週",
+        "幽門桿菌第一線四聯療法（Bismuth 四聯或含 PPI+Amoxicillin+Clarithromycin+Metronidazole）服藥 14 天",
+        "黏膜保護劑與胃腸蠕動促進劑 (Prokinetics) 作為輔助緩解",
+        "抗逆流內視鏡治療 (ARMA) 或腹腔鏡胃底摺疊手術 (Nissen fundoplication) 針對難治頑固型"
+      ],
+      "postop_zh": [
+        "胃鏡息肉切除或切片檢查後 2 小時內禁食，待喉頭麻醉退去後先小口試喝溫水",
+        "當日飲食避免過熱、粗糙堅硬食物，注意是否有黑便、吐血或劇烈腹痛",
+        "幽門桿菌抗生素療程結束後至少停藥 4 週，再行呼氣試驗確認是否成功除菌"
+      ],
+      "diet_zh": [
+        "避免胃食道括約肌鬆弛誘發物質：咖啡因（咖啡、濃茶）、巧克力、薄荷、高油脂炸物與酒精",
+        "避免直接刺激發炎黏膜食材：辛辣調味料、高酸水果（柑橘、鳳梨、檸檬）與碳酸飲料",
+        "採「乾濕分離」飲食：用餐時不大量喝湯水，避免胃內體積過大頂開賁門",
+        "細嚼慢嚥，每餐吃七分飽，睡前 3 小時內絕對不進食宵夜"
+      ],
+      "exercise_zh": [
+        "餐後避免立即躺下或久坐，可於平地緩步散步 15-20 分鐘促進排空",
+        "避免飯後立即進行增加腹內壓的運動（如仰臥起坐、捲腹、深蹲、硬舉及倒立）",
+        "維持規律中等強度有氧運動每週 150 分鐘，有助於減輕內臟脂肪，減小腹壓降低逆流機率"
+      ],
+      "rehab_zh": [
+        "橫膈膜呼吸肌訓練 (Diaphragmatic breathing training)：透過增強食道下括約肌外在橫膈腳張力，減少逆流發作",
+        "睡姿調整物理防護：將床頭抬高 15-20 公分（非單純墊高枕頭，應使用楔形斜角墊托高整個上半身）",
+        "右側躺易造成胃體高於食道而加劇逆流，建議採取「左側臥位」睡姿以利用胃部解剖彎曲防逆流"
+      ],
+      "selfcare_zh": [
+        "嚴格控制體重，BMI 超標者減重 5-10% 可使逆流症狀顯著改善",
+        "避免穿著過度緊繃的束腹、塑身衣、皮帶緊扣",
+        "戒菸：香菸尼古丁會直接降低食道下括約肌 (LES) 靜止張力",
+        "避免未經醫師指示長期自行購買 NSAID 非類固醇消炎止痛藥或阿斯匹靈"
+      ],
+      "red_flags_zh": [
+        "吞嚥困難、食物卡在胸口咽喉無法下嚥，或吞嚥時有明顯劇痛 (Odynophagia)",
+        "吐咖啡色液體、吐鮮血或解瀝青般黏稠黑便 (Melena)",
+        "不明原因體重一個月內驟降 >5%",
+        "持續頑固嘔吐伴隨嚴重脫水或劇烈上腹撕裂刀割般疼痛（警惕潰瘍穿孔腹膜炎）"
+      ],
+      "evidence": [
+        {
+          "label": "ACG Clinical Guideline for the Diagnosis and Management of Gastroesophageal Reflux Disease",
+          "year": 2022
+        },
+        {
+          "label": "Management of Helicobacter pylori infection: the Maastricht VI/Florence consensus report",
+          "year": 2022
+        },
+        {
+          "label": "台灣消化系醫學會胃食道逆流疾病共識指引",
+          "year": 2022
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "gastro/GERD_ULCER",
+          "label_zh": "逆流分級與治療"
+        },
+        {
+          "hash": "systems/digestive",
+          "label_zh": "胃酸分泌與胃腸動力"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "7–10%",
+          "label_zh": "減重可改善脂肪性肝炎與纖維化"
+        },
+        {
+          "value": "<1.3",
+          "label_zh": "FIB-4 低纖維化風險"
+        },
+        {
+          "value": "≈1/3",
+          "label_zh": "台灣成人脂肪肝比例"
+        }
+      ],
+      "causes_zh": [
+        "肥胖（尤其腹部）、胰島素阻抗、第二型糖尿病",
+        "高三酸甘油酯",
+        "含糖飲料、精緻澱粉、高果糖",
+        "睡眠呼吸中止、多囊性卵巢症候群、甲狀腺低下"
+      ],
+      "prevention_zh": [
+        "戒含糖飲料",
+        "每週 150 分鐘有氧加 2 次阻力運動",
+        "控制體重、血糖與血脂"
+      ],
+      "prognosis_zh": "單純脂肪肝多數穩定，最常見死因其實是心血管疾病。纖維化程度是預後關鍵；減重 10% 以上可使部分纖維化退步。2024–2025 年 resmetirom 與 semaglutide 在大型試驗中證實可改善脂肪性肝炎。",
+      "timeline": [
+        {
+          "when_zh": "0–3 個月",
+          "goal_zh": "風險分層",
+          "do_zh": [
+            "FIB-4、超音波或彈性檢查",
+            "飲食與運動計畫"
+          ]
+        },
+        {
+          "when_zh": "3–6 個月",
+          "goal_zh": "減重 ≥5%",
+          "do_zh": [
+            "追蹤肝指數、血糖、血脂"
+          ]
+        },
+        {
+          "when_zh": "6–12 個月",
+          "goal_zh": "減重 7–10%",
+          "do_zh": [
+            "重新評估纖維化",
+            "高纖維化者轉胃腸肝膽科討論藥物"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "維持",
+          "do_zh": [
+            "每 1–2 年 FIB-4",
+            "心血管風險管理"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的纖維化程度如何？需要 FibroScan 嗎？",
+        "要減多少體重才有效？",
+        "有適合我的藥物嗎？",
+        "我可以喝咖啡嗎？"
+      ],
+      "tw_resources_zh": [
+        "成人預防保健含肝功能與血糖血脂",
+        "公費 B、C 肝篩檢排除病毒性肝炎"
+      ],
+      "evidence_add": [
+        {
+          "label": "Harrison SA et al. A Phase 3, Randomized, Controlled Trial of Resmetirom in NASH with Liver Fibrosis: MAESTRO-NASH (N Engl J Med)",
+          "year": 2024,
+          "level": "rct"
+        },
+        {
+          "label": "Sanyal AJ et al. Phase 3 Trial of Semaglutide in Metabolic Dysfunction-Associated Steatohepatitis: ESSENCE (N Engl J Med)",
+          "year": 2025,
+          "level": "rct"
+        }
+      ],
+      "id": "masld",
+      "name_zh": "代謝異常相關脂肪肝病 (MASLD/MASH)",
+      "name_en": "Metabolic Dysfunction-Associated Steatotic Liver Disease",
+      "icd10": "K76.0",
+      "summary_zh": "國際學會已將 NAFLD 正名為 MASLD。其定義為肝臟脂肪沉積合併至少一項心血管代謝危險因子。若合併肝細胞發炎壞死即為 MASH，可進展至肝纖維化、肝硬化與肝細胞癌。首要處置為減重 7-10% 與 FIB-4 風險分層。",
+      "symptoms_zh": [
+        "早期絕大多數完全無自覺症狀",
+        "輕微右上腹隱隱脹痛或沉重不適感",
+        "容易莫名疲倦、全身無力、白天嗜睡",
+        "進展至嚴重纖維化可能出現手掌紅斑、蜘蛛痣"
+      ],
+      "diagnosis_zh": [
+        "腹部超音波檢查：評估肝實質回音增強、深部音波衰減與肝內血管模糊度",
+        "肝功能酵素檢驗：ALT、AST、GGT、血小板計數與血糖血脂",
+        "FIB-4 指數計算：整合年齡、AST、ALT 與血小板數值進行纖維化風險分流",
+        "肝臟瞬時彈性造影 (FibroScan)：非侵入性定量測定肝臟脂肪含量 (CAP 值) 與硬度 (kPa 纖維化分期)",
+        "磁振造影質子密度脂肪分率 (MRI-PDFF) 或肝切片檢查"
+      ],
+      "treatment_zh": [
+        "生活型態介入：減輕體重 7-10% 可使肝發炎甚至纖維化發生顯著逆轉",
+        "代謝共病治療：合併糖尿病者優先選用具護肝減重實證之 GLP-1 RA 或 SGLT2 抑制劑",
+        "新型 MASH 標靶藥物：甲狀腺激素受體-β 促效劑 (Resmetirom) 針對中重度纖維化",
+        "保肝抗氧化支持：高劑量維生素 E (非糖尿病之 MASH 患者評估使用)"
+      ],
+      "postop_zh": [
+        "每 3-6 個月門診追蹤肝功能指數、血脂與血糖控制指標",
+        "每 6-12 個月複查腹部超音波及 FIB-4 指數評估脂肪肝變化",
+        "高風險纖維化 (F3-F4) 患者納入每半年肝癌超音波及胎兒蛋白 (AFP) 篩檢計畫"
+      ],
+      "diet_zh": [
+        "徹底戒除果糖與含糖飲料：手搖飲高果糖糖漿直通肝臟形成脂肪肝",
+        "採地中海飲食：富含不飽和脂肪酸、堅果、全穀物與深綠色蔬菜",
+        "避免酒精：MASLD 患者哪怕微量飲酒亦會倍增肝纖維化與肝癌風險",
+        "黑咖啡每日 2-3 杯（不加糖奶）：大型流行病學證實咖啡多酚具顯著抗肝纖維化保護作用"
+      ],
+      "exercise_zh": [
+        "中等強度有氧運動：每週至少 150-200 分鐘（快走、慢跑、有氧舞蹈、游泳）",
+        "阻力肌力訓練：每週 2-3 次核心與下肢大肌群重量訓練，增加肌肉胰島素敏感度以利肝臟去脂",
+        "即使體重尚未顯著減輕，規律運動本身即能獨立降低 20-30% 肝臟內脂肪"
+      ],
+      "rehab_zh": [
+        "漸進式體適能提升：針對重度肥胖或關節退化者，初期採水中運動或坐姿踩踏機減少關節負重",
+        "運動後深層肌肉筋膜伸展放鬆，維持心肺訓練順應性",
+        "非運動性日常活動消耗量 (NEAT) 提升：減少久坐時間，每坐 45 分鐘起身活動 3 分鐘"
+      ],
+      "selfcare_zh": [
+        "設定實際可達成的減重目標：以每週減 0.5-1 公斤為宜，切忌極端斷食以免引發肝細胞急性損傷",
+        "定期量測體重、腰圍（男性維持 <90cm，女性 <80cm）與血壓",
+        "謹慎用藥，切勿自行購買成分不明之護肝草藥或偏方保養品加重肝臟排毒負擔",
+        "維持正常睡眠作息，熬夜生理時鐘紊亂易加重脂肪生成調控基因失衡"
+      ],
+      "red_flags_zh": [
+        "眼白泛黃、皮膚明顯發黃（黃疸徵兆）",
+        "腹部急劇膨脹腫脹、肚臍突起或雙下肢凹陷水腫（腹水形成）",
+        "解黑便、嘔吐出鮮血或茶色尿液",
+        "個性改變、日夜作息顛倒、雙手拍撲樣震顫（肝性腦病變早期表徵）"
+      ],
+      "evidence": [
+        {
+          "label": "Harrison SA et al. A Phase 3, Randomized, Controlled Trial of Resmetirom in NASH with Liver Fibrosis: MAESTRO-NASH (N Engl J Med)",
+          "year": 2024,
+          "level": "rct"
+        },
+        {
+          "label": "Sanyal AJ et al. Phase 3 Trial of Semaglutide in Metabolic Dysfunction-Associated Steatohepatitis: ESSENCE (N Engl J Med)",
+          "year": 2025,
+          "level": "rct"
+        },
+        {
+          "label": "AASLD Practice Guidance on the Clinical Assessment and Management of MASLD",
+          "year": 2023
+        },
+        {
+          "label": "EASL-EASD-EASO Clinical Practice Guidelines on the management of metabolic dysfunction-associated steatotic liver disease",
+          "year": 2024
+        },
+        {
+          "label": "台灣消化系醫學會 MASLD 臨床診療共識",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "gastro/MASLD_FATTY",
+          "label_zh": "脂肪肝與 FIB-4 評估"
+        },
+        {
+          "hash": "obesity",
+          "label_zh": "增肌減脂與體重管理"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "45–74 歲",
+          "label_zh": "公費糞便潛血每 2 年 1 次"
+        },
+        {
+          "value": "3–10 年",
+          "label_zh": "息肉切除後追蹤間隔（依病理）"
+        },
+        {
+          "value": "≈10 年",
+          "label_zh": "腺瘤演變為癌的典型時間"
+        }
+      ],
+      "causes_zh": [
+        "年齡 45 歲以上",
+        "一等親大腸癌或腺瘤家族史",
+        "紅肉與加工肉、肥胖、吸菸、飲酒、少動",
+        "發炎性腸道疾病、遺傳性症候群（林奇症候群）"
+      ],
+      "prevention_zh": [
+        "依時程做糞便潛血篩檢，陽性一定要做大腸鏡",
+        "高纖蔬果、全穀，限制加工肉",
+        "規律運動、戒菸限酒"
+      ],
+      "prognosis_zh": "多數大腸癌由腺瘤性息肉經多年演變而來，切除息肉可降低大腸癌發生與死亡；早期大腸癌五年存活率超過九成。",
+      "timeline": [
+        {
+          "when_zh": "篩檢陽性",
+          "goal_zh": "盡快確認",
+          "do_zh": [
+            "3 個月內完成大腸鏡"
+          ]
+        },
+        {
+          "when_zh": "切除後 1–2 週",
+          "goal_zh": "避免出血",
+          "do_zh": [
+            "避免劇烈運動與提重",
+            "抗凝血劑依醫囑恢復"
+          ]
+        },
+        {
+          "when_zh": "病理報告後",
+          "goal_zh": "決定追蹤間隔",
+          "do_zh": [
+            "依息肉數目、大小、病理型態安排 3、5 或 7–10 年"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的息肉是什麼類型？",
+        "下次大腸鏡什麼時候做？",
+        "家人需要提早篩檢嗎？",
+        "切除後飲食要注意什麼？"
+      ],
+      "tw_resources_zh": [
+        "國健署糞便潛血篩檢：45–74 歲及 40–44 歲有家族史者每 2 年 1 次",
+        "篩檢陽性大腸鏡由健保給付"
+      ],
+      "id": "crc_polyps",
+      "name_zh": "大腸息肉與大腸鏡檢後照護",
+      "name_en": "Colorectal Polyps & Post-Colonoscopy Polypectomy Care",
+      "icd10": "K63.5 / D12.6",
+      "summary_zh": "大腸癌高達九成由腺瘤性息肉經由「腺瘤-腺癌序列 (Adenoma-carcinoma sequence)」惡變而來。藉由國健署糞便潛血篩檢搭配高品質全大腸鏡切除腺瘤，能大幅截斷癌變路徑。術後依息肉大小、數目及病理組織決定追蹤間隔。",
+      "symptoms_zh": [
+        "絕大多數早期大腸息肉完全無症狀",
+        "較大息肉可能有糞便表面附著鮮血或混雜黏液",
+        "排便次數改變（腹瀉或便秘持續數週）",
+        "大腸直腸深處大型病灶可能引發慢性隱性貧血、頭暈疲倦"
+      ],
+      "diagnosis_zh": [
+        "定量免疫法糞便潛血檢查 (FIT)：國健署提供 50-74 歲民眾每兩年一次免費公費篩檢",
+        "全大腸內視鏡檢查 (Colonoscopy)：兼具病灶診斷、組織切片與同步息肉切除功能之黃金標準",
+        "窄頻影像技術 (NBI) 與放大內視鏡：即時判讀腺管開口微血管構造 (JNET 分類法)，評估良惡性侵犯深度",
+        "病理組織化驗：區分管狀腺瘤、絨毛狀腺瘤、鋸齒狀腺瘤 (SSA) 或增生性息肉"
+      ],
+      "treatment_zh": [
+        "冷式息肉切除術 (Cold Snare Polypectomy)：針對 <10mm 小型息肉，避免熱傷害與遲發性出血穿孔",
+        "熱式息肉切除術 (Hot Snare) 與內視鏡黏膜切除術 (EMR)：針對 10-20mm 扁平或有莖息肉",
+        "內視鏡黏膜下剝離術 (ESD)：針對 >20mm 巨大扁平息肉或早期大腸黏膜癌進行完整整塊切除",
+        "金屬止血夾 (Hemoclip) 封閉息肉切除基底部傷口，預防延遲性穿孔與出血"
+      ],
+      "postop_zh": [
+        "檢查後腹脹處理：因內視鏡充氣引起，可多走動、如廁排氣，現行多採用二氧化碳 (CO2) 充氣可迅速吸收",
+        "切除較大息肉後 2-3 天內：避免劇烈運動、腹部用力、提重物 (>5kg) 及騎腳踏車",
+        "術後 1 週內避免遠行或搭乘飛機，防止氣壓變動與延遲性出血處置不及",
+        "觀察排便：若僅有微量擦拭血絲屬正常黏膜癒合滲液；若排出大量暗紅或鮮紅血塊須即刻就醫"
+      ],
+      "diet_zh": [
+        "清腸準備期：檢查前 2 天採「低渣飲食」（白稀飯、去皮吐司、豆腐），嚴禁高纖蔬菜、種子、牛奶",
+        "術後當天：麻醉清醒後若無腹痛噁心，可先喝常溫開水，當餐採清淡低渣流質飲食",
+        "切除息肉後 3-5 天內：避免過度辛辣刺激、酒精、油膩炸物及高纖粗硬雜糧，降低糞便對切除創面摩擦",
+        "術後一週恢復正常後：採高纖防癌飲食（每日膳食纖維 25-35g，多吃十字花科蔬菜，嚴格限制紅肉與加工肉品）"
+      ],
+      "exercise_zh": [
+        "術後 48 小時內以靜態平地散步為宜，禁止重訓深蹲、高強度間歇與馬拉松跑步",
+        "術後第 3-7 天可進行輕度有氧運動與日常伸展活動",
+        "術後滿 1 週後，經確認無延遲性出血，即可全面恢復規律中高強度體能鍛鍊"
+      ],
+      "rehab_zh": [
+        "術後腸道氣體排出運動：仰臥屈膝抱膝運動 (Knee-to-chest) 協助腸道轉彎處殘餘氣體順利排空",
+        "骨盆底肌肉放鬆練習，避免排便過度骨盆底過度用力擠壓造成傷口滲血",
+        "腹部輕柔順時針環形按摩，促進大腸蠕動機能正常化"
+      ],
+      "selfcare_zh": [
+        "依息肉病理切片結果嚴格遵守複查追蹤間隔：低風險腺瘤 3-5 年，高風險群（≥3 顆、≥10mm 或具高度異型增生）1-3 年複查",
+        "養成每日規律定時排便習慣，避免久坐馬桶看手機超過 10 分鐘",
+        "維持充足每日水分攝取 2,000 mL，預防便秘乾硬糞便摩擦腸壁",
+        "50 歲起每兩年定期接受公費糞便潛血檢查，若為陽性者務必於 1-2 個月內完成大腸鏡確診"
+      ],
+      "red_flags_zh": [
+        "排便出現大量鮮紅色或暗紅色血塊（延遲性息肉切除出血）",
+        "突發持續性劇烈腹部絞痛、腹肌僵硬如木板（腸穿孔性腹膜炎緊急重症）",
+        "術後出現畏寒高燒 (>38.5°C)",
+        "心跳過速、臉色蒼白、頭暈冷汗甚至步態不穩昏厥（內出血低血容性休克徵兆）"
+      ],
+      "evidence": [
+        {
+          "label": "US Multi-Society Task Force on Colorectal Cancer: Recommendations for Follow-Up After Colonoscopy and Polypectomy",
+          "year": 2020
+        },
+        {
+          "label": "ESGE Guideline: Colorectal polypectomy and endoscopic mucosal resection",
+          "year": 2024
+        },
+        {
+          "label": "台灣消化系內視鏡醫學會 大腸息肉切除與處置指引",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "gastro/CRC_POLYPS",
+          "label_zh": "大腸息肉與鏡檢追蹤"
+        },
+        {
+          "hash": "oncology/COLORECTAL_CANCER",
+          "label_zh": "大腸直腸癌篩檢防治"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "45–74 歲",
+          "label_zh": "公費糞便抗原篩檢（終身 1 次）"
+        },
+        {
+          "value": "14 天",
+          "label_zh": "除菌療程"
+        },
+        {
+          "value": "≈40–50%",
+          "label_zh": "除菌降低胃癌風險"
+        }
+      ],
+      "causes_zh": [
+        "兒童期家庭內傳染（共用餐具、口對口餵食）",
+        "一等親有胃癌或幽門桿菌感染",
+        "高鹽、醃漬與煙燻食物、吸菸增加胃癌風險",
+        "抗生素抗藥性（clarithromycin、levofloxacin）影響除菌成功率"
+      ],
+      "prevention_zh": [
+        "公筷母匙、不嚼食餵小孩",
+        "45 歲起把握公費篩檢",
+        "戒菸、少鹽少醃漬"
+      ],
+      "prognosis_zh": "除菌成功後再感染率在成人很低（每年約 1–2%）。及早除菌可降低胃癌，但已有嚴重萎縮或腸上皮化生者仍需內視鏡追蹤。早期胃癌可經內視鏡切除，五年存活率超過九成。",
+      "timeline": [
+        {
+          "when_zh": "篩檢陽性",
+          "goal_zh": "確認並開始治療",
+          "do_zh": [
+            "門診討論除菌藥物",
+            "詢問是否需要胃鏡"
+          ]
+        },
+        {
+          "when_zh": "第 1–14 天",
+          "goal_zh": "完成療程",
+          "do_zh": [
+            "按時服藥、設鬧鐘",
+            "療程中不飲酒"
+          ]
+        },
+        {
+          "when_zh": "停藥 4–8 週後",
+          "goal_zh": "確認除菌",
+          "do_zh": [
+            "尿素呼氣或糞便抗原複檢",
+            "失敗則依醫囑二線治療"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "預防胃癌",
+          "do_zh": [
+            "萎縮性胃炎者依醫囑 1–3 年胃鏡",
+            "家人一起篩檢"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我需要先做胃鏡，還是可以直接除菌？",
+        "你建議哪一種療法？過去用過的抗生素會影響嗎？",
+        "我的家人需要檢查嗎？",
+        "除菌後還需要定期胃鏡嗎？"
+      ],
+      "id": "h_pylori_gastric",
+      "name_zh": "幽門桿菌與胃癌預防",
+      "name_en": "Helicobacter pylori & Gastric Cancer Prevention",
+      "icd10": "B96.81 / C16",
+      "summary_zh": "幽門桿菌是胃癌最主要的危險因子，約八成以上的胃癌與它有關；感染多在兒童期經家庭口對口或共食傳播。除菌可降低胃癌風險約四到五成、也能治療消化性潰瘍。台灣自 2026 年 1 月 1 日起提供 45–74 歲民眾終身一次公費「糞便抗原檢測幽門桿菌」，成為第 6 項公費癌症篩檢；健保亦放寬為驗出感染即可給付除菌藥物。",
+      "symptoms_zh": [
+        "多數感染者沒有症狀",
+        "上腹悶痛、飯前或半夜痛（消化性潰瘍）",
+        "脹氣、噁心、早飽",
+        "胃癌警訊：體重減輕、貧血、黑便、吞嚥困難"
+      ],
+      "diagnosis_zh": [
+        "非侵入性：碳 13 尿素呼氣試驗、糞便抗原檢測",
+        "內視鏡切片：快速尿素酶、病理、培養與抗藥性檢測",
+        "檢測前 2 週停用氫離子幫浦抑制劑（PPI）、4 週內避免抗生素以免偽陰性",
+        "50 歲以上或有警訊者優先胃鏡"
+      ],
+      "treatment_zh": [
+        "第一線（台灣常用）：含鉍劑四合一療法 14 天，或高劑量雙藥（PPI + amoxicillin）14 天",
+        "第二線依前次用藥與抗藥性選擇（如含 levofloxacin 療法）",
+        "兩次失敗者做細菌培養與抗藥性檢測再選藥",
+        "除菌完成且停藥 ≥4 週（停 PPI ≥2 週）後以呼氣或糞便抗原確認除菌"
+      ],
+      "postop_zh": [
+        "療程中可能出現腹瀉、味覺改變、黑便（鉍劑造成，正常）",
+        "一定要吃完整 14 天，中斷會增加抗藥性",
+        "確認除菌成功後，高風險者（萎縮性胃炎、腸上皮化生）仍需定期胃鏡"
+      ],
+      "diet_zh": [
+        "減少醃漬、煙燻、高鹽食物",
+        "多吃新鮮蔬果",
+        "使用公筷母匙、避免口對口餵食幼兒",
+        "療程期間避免酒精（與部分藥物交互作用）"
+      ],
+      "exercise_zh": [
+        "除菌療程期間維持日常活動即可",
+        "規律運動、維持健康體重降低胃食道逆流與多種癌症風險"
+      ],
+      "rehab_zh": [
+        "胃切除術後轉營養師與復健：少量多餐、預防傾食症候群與體重流失",
+        "胃癌術後由物理治療師安排漸進有氧與阻力訓練，預防肌少與疲倦"
+      ],
+      "selfcare_zh": [
+        "完成療程後一定要回來確認是否除菌成功",
+        "告知家人共同篩檢",
+        "長期服用阿斯匹靈或 NSAIDs 者先篩檢並治療幽門桿菌"
+      ],
+      "tw_resources_zh": [
+        "2026 年起 45–74 歲公費糞便抗原檢測（終身 1 次，與大腸癌糞便潛血可同次採檢；曾參加 2024–2025 試辦者可能不符資格）",
+        "健保已放寬：驗出幽門桿菌感染即可給付除菌藥物",
+        "國健署癌症篩檢醫療院所查詢"
+      ],
+      "red_flags_zh": [
+        "黑便、吐血或咖啡渣樣嘔吐",
+        "持續嘔吐、吞嚥困難",
+        "不明體重減輕、貧血",
+        "突發劇烈上腹痛（疑潰瘍穿孔）"
+      ],
+      "evidence": [
+        {
+          "label": "Malfertheiner P et al. Management of Helicobacter pylori infection: the Maastricht VI/Florence consensus report (Gut)",
+          "year": 2022,
+          "level": "consensus"
+        },
+        {
+          "label": "Liou JM et al. Screening and eradication of Helicobacter pylori for gastric cancer prevention: the Taipei global consensus (Gut)",
+          "year": 2020,
+          "level": "consensus"
+        },
+        {
+          "label": "Ford AC et al. Helicobacter pylori eradication for the prevention of gastric neoplasia (Cochrane Review)",
+          "year": 2020,
+          "level": "sr"
+        },
+        {
+          "label": "衛生福利部國民健康署：45–74 歲胃幽門螺旋桿菌糞便抗原檢測公費篩檢",
+          "year": 2026,
+          "level": "official"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "gastro/HP_GASTRIC",
+          "label_zh": "幽門桿菌與胃癌深度課程"
+        },
+        {
+          "hash": "oncology/SCREENING_TW",
+          "label_zh": "台灣六癌篩檢"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": ">95%",
+          "label_zh": "C 肝口服藥治癒率"
+        },
+        {
+          "value": "每 6 個月",
+          "label_zh": "高風險者肝癌超音波監測"
+        },
+        {
+          "value": "45–79 歲",
+          "label_zh": "公費 B、C 肝篩檢（終身 1 次）"
+        }
+      ],
+      "causes_zh": [
+        "B 肝：出生時母嬰垂直傳染（1986 年前出生者多未接種疫苗）",
+        "C 肝：過去輸血、不安全注射、共用針具、刺青穿洞、透析",
+        "飲酒、脂肪肝、糖尿病加速肝纖維化",
+        "黃麴毒素（發霉花生、穀類）增加肝癌"
+      ],
+      "prevention_zh": [
+        "新生兒 B 肝疫苗與高病毒量孕婦的免疫球蛋白與抗病毒藥阻斷",
+        "不共用刮鬍刀、牙刷、針具",
+        "安全性行為、選擇合格刺青店"
+      ],
+      "prognosis_zh": "C 肝治癒後肝癌風險明顯下降但不歸零；B 肝長期用藥可大幅降低肝硬化與肝癌。代償性肝硬化中位存活期可超過 10 年，一旦失代償（腹水、出血、肝腦病變）預後明顯變差，應評估移植。",
+      "timeline": [
+        {
+          "when_zh": "篩檢陽性",
+          "goal_zh": "確認病毒活性與肝纖維化",
+          "do_zh": [
+            "抽血病毒量、肝功能",
+            "超音波與彈性檢查"
+          ]
+        },
+        {
+          "when_zh": "C 肝治療 8–12 週",
+          "goal_zh": "治癒",
+          "do_zh": [
+            "每天固定時間服藥",
+            "療程結束 12 週後驗 HCV RNA 確認治癒"
+          ]
+        },
+        {
+          "when_zh": "B 肝長期",
+          "goal_zh": "壓制病毒",
+          "do_zh": [
+            "每 3–6 個月抽血",
+            "每 6 個月超音波"
+          ]
+        },
+        {
+          "when_zh": "肝硬化終身",
+          "goal_zh": "預防併發症與早期抓肝癌",
+          "do_zh": [
+            "每 6 個月超音波",
+            "依醫囑胃鏡篩檢靜脈瘤"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的肝纖維化程度如何？有肝硬化嗎？",
+        "我符合健保抗病毒藥給付嗎？要吃多久？",
+        "多久做一次超音波？需要驗甲型胎兒蛋白嗎？",
+        "我的家人需要篩檢或打疫苗嗎？"
+      ],
+      "id": "viral_hepatitis_cirrhosis",
+      "name_zh": "B／C 型肝炎、肝硬化與肝癌監測",
+      "name_en": "Chronic Hepatitis B/C, Cirrhosis & HCC Surveillance",
+      "icd10": "B18.1 / B18.2 / K74.6",
+      "summary_zh": "慢性 B 型與 C 型肝炎是台灣肝硬化與肝癌的主因。C 肝口服抗病毒藥（DAA）8–12 週治癒率超過 95%，健保全額給付；B 肝雖無法根除，但口服抗病毒藥可長期壓制病毒、降低肝癌。所有帶原者與肝硬化病人都應每 6 個月接受腹部超音波（± 甲型胎兒蛋白）監測，才能在早期發現肝癌。",
+      "symptoms_zh": [
+        "慢性肝炎多無症狀，「肝不會痛」",
+        "疲倦、食慾差",
+        "肝硬化：腹水、下肢水腫、黃疸、蜘蛛痣、手掌紅",
+        "失代償：吐血解黑便（靜脈瘤出血）、意識混亂（肝腦病變）"
+      ],
+      "diagnosis_zh": [
+        "HBsAg、anti-HCV 篩檢；陽性者驗 HBV DNA／HCV RNA",
+        "肝功能、血小板、白蛋白、凝血",
+        "肝纖維化：超音波彈性檢查（FibroScan）、FIB-4",
+        "肝癌監測：每 6 個月腹部超音波 ± AFP；肝硬化者胃鏡篩檢靜脈瘤"
+      ],
+      "treatment_zh": [
+        "C 肝：DAA 口服 8–12 週，治癒後肝硬化者仍需持續肝癌監測",
+        "B 肝：依病毒量、肝功能與纖維化使用 entecavir、tenofovir（TDF／TAF）",
+        "肝硬化：非選擇性乙型阻斷劑預防靜脈瘤出血、利尿劑控制腹水、lactulose／rifaximin 預防肝腦病變",
+        "末期肝病或早期肝癌符合條件者評估肝臟移植"
+      ],
+      "postop_zh": [
+        "B 肝抗病毒藥不可自行停藥，停藥可能引發肝炎急性發作",
+        "靜脈瘤結紮術後依醫囑流質飲食 1–2 天",
+        "腹水穿刺後觀察穿刺點滲液與血壓"
+      ],
+      "diet_zh": [
+        "完全戒酒",
+        "肝硬化：每日鈉 <2,000 毫克控制腹水；蛋白質每公斤 1.2–1.5 克（不需限制蛋白質）",
+        "睡前點心（含碳水與蛋白質）減少夜間肌肉分解",
+        "肝硬化者絕對避免生食海鮮（創傷弧菌致命感染）"
+      ],
+      "exercise_zh": [
+        "規律有氧與阻力訓練對抗肝硬化肌少症",
+        "有大靜脈瘤者避免憋氣用力的重量訓練",
+        "腹水多時以步行等低強度活動為主"
+      ],
+      "rehab_zh": [
+        "肝硬化肌少症：營養 + 阻力訓練",
+        "肝移植前後的預康復與術後復健"
+      ],
+      "selfcare_zh": [
+        "不吃來路不明的草藥、保健品（藥物性肝損傷）",
+        "止痛藥以乙醯胺酚為主，每日不超過 2 克（肝硬化）",
+        "家人篩檢 B、C 肝；未有抗體者接種 B 肝疫苗"
+      ],
+      "tw_resources_zh": [
+        "成人預防保健 B、C 肝炎篩檢：45–79 歲終身 1 次（原住民 40–79 歲）",
+        "健保全額給付 C 肝 DAA 口服新藥",
+        "健保 B 肝抗病毒藥依給付規定（病毒量、肝功能、肝硬化）",
+        "肝病防治學術基金會、各縣市衛生局免費篩檢活動"
+      ],
+      "red_flags_zh": [
+        "吐血、解黑便",
+        "意識混亂、日夜顛倒、手抖（肝腦病變）",
+        "腹水合併發燒腹痛（自發性腹膜炎）",
+        "皮膚眼白迅速變黃"
+      ],
+      "evidence": [
+        {
+          "label": "WHO Guidelines for the prevention, diagnosis, care and treatment for people with chronic hepatitis B infection",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "de Franchis R et al. Baveno VII – Renewing consensus in portal hypertension (J Hepatol)",
+          "year": 2022,
+          "level": "consensus"
+        },
+        {
+          "label": "EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis (J Hepatol)",
+          "year": 2018,
+          "level": "guideline"
+        },
+        {
+          "label": "AASLD Practice Guidance on prevention, diagnosis, and treatment of hepatocellular carcinoma (Hepatology)",
+          "year": 2023,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "gastro/HEPATITIS_BC",
+          "label_zh": "B／C 肝深度課程"
+        },
+        {
+          "hash": "gastro/CIRRHOSIS_PORTAL",
+          "label_zh": "肝硬化與門脈高壓"
+        },
+        {
+          "hash": "hepb",
+          "label_zh": "B 型肝炎專區"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≈10%",
+          "label_zh": "大腸激躁症盛行率"
+        },
+        {
+          "value": "4–6 週",
+          "label_zh": "低 FODMAP 排除期"
+        },
+        {
+          "value": "<50 μg/g",
+          "label_zh": "糞便鈣衛蛋白多可排除 IBD"
+        }
+      ],
+      "causes_zh": [
+        "IBS：腸道過度敏感、腸腦軸失調、腸道菌相改變、感染性腸炎後",
+        "IBS 誘發：壓力、焦慮、睡眠不足、特定發酵性醣類（FODMAP）",
+        "IBD：遺傳易感性 + 免疫失衡 + 環境（西化飲食、吸菸影響克隆氏症）",
+        "抗生素與飲食改變腸道菌相"
+      ],
+      "prevention_zh": [
+        "腸胃炎後注意休息與補充水分",
+        "抗生素只在必要時使用",
+        "IBD：戒菸（克隆氏症）、接種不活化疫苗、使用生物製劑前篩檢 B 肝與結核"
+      ],
+      "prognosis_zh": "IBS 不會變成癌症或 IBD，多數經飲食與壓力管理可大幅改善。IBD 是慢性病，現代生物製劑可讓多數人達到長期緩解、過正常生活。",
+      "timeline": [
+        {
+          "when_zh": "第 0–4 週",
+          "goal_zh": "排除器質性疾病、建立紀錄",
+          "do_zh": [
+            "完成抽血與糞便檢查",
+            "飲食與排便日記"
+          ]
+        },
+        {
+          "when_zh": "第 4–10 週",
+          "goal_zh": "IBS 飲食調整",
+          "do_zh": [
+            "低 FODMAP 排除期 4–6 週",
+            "逐一重新引入找出誘發食物"
+          ]
+        },
+        {
+          "when_zh": "IBD 誘導期 8–12 週",
+          "goal_zh": "症狀與發炎緩解",
+          "do_zh": [
+            "依醫囑使用藥物",
+            "追蹤糞便鈣衛蛋白"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "黏膜癒合、預防復發",
+          "do_zh": [
+            "維持治療、定期大腸鏡",
+            "IBD 病程 8 年以上依醫囑監測大腸癌"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的症狀比較像 IBS 還是 IBD？需要做大腸鏡嗎？",
+        "低 FODMAP 要怎麼開始？可以轉營養師嗎？",
+        "（IBD）我的疾病範圍與嚴重度？生物製劑健保有給付嗎？",
+        "什麼情況代表發作，需要提早回診？"
+      ],
+      "id": "ibs_ibd",
+      "name_zh": "大腸激躁症與發炎性腸道疾病",
+      "name_en": "Irritable Bowel Syndrome & Inflammatory Bowel Disease",
+      "icd10": "K58 / K50 / K51",
+      "summary_zh": "大腸激躁症（IBS）是腸腦軸的功能失調，反覆腹痛合併排便改變，但腸道結構正常，影響約一成人口。發炎性腸道疾病（IBD：克隆氏症、潰瘍性結腸炎）則是腸道真正的慢性發炎與潰瘍，台灣盛行率近二十年持續上升，需要長期藥物控制。分辨兩者的關鍵是「警訊症狀」與糞便鈣衛蛋白等檢查。",
+      "symptoms_zh": [
+        "IBS：腹痛與排便有關，排便後緩解；腹瀉型、便秘型或混合型",
+        "IBS：脹氣、排便不乾淨感、黏液便",
+        "IBD：持續腹瀉、血便、夜間需起床排便",
+        "IBD：體重減輕、發燒、肛門廔管（克隆氏症）、關節或眼睛發炎"
+      ],
+      "diagnosis_zh": [
+        "IBS 依 Rome IV 準則：近 3 個月平均每週至少 1 天腹痛，且與排便相關",
+        "基本檢查：血球、CRP、糞便鈣衛蛋白、乳糜瀉抗體（視情況）",
+        "有警訊或 45 歲以上：大腸鏡",
+        "IBD：大腸鏡切片、小腸影像（CT／MR enterography）、膠囊內視鏡"
+      ],
+      "treatment_zh": [
+        "IBS：衛教與飲食（低 FODMAP 由營養師指導）、水溶性纖維（洋車前子）、薄荷油",
+        "IBS 藥物：解痙劑、依型別使用止瀉或促排便藥、低劑量三環抗憂鬱劑（作用於腸腦軸）",
+        "IBS 心理治療：認知行為治療、腸道導向催眠",
+        "IBD：5-ASA（潰瘍性結腸炎）、類固醇誘導緩解、免疫調節劑、生物製劑與小分子藥物（JAK 抑制劑等）",
+        "IBD 合併狹窄、廔管或藥物無效：手術"
+      ],
+      "postop_zh": [
+        "IBD 腸切除或造口術後依 ERAS 早期進食",
+        "造口照護與營養師追蹤",
+        "術後持續維持治療以減少復發"
+      ],
+      "diet_zh": [
+        "IBS：規律三餐、少油炸辛辣、限制咖啡因與酒精",
+        "IBS：低 FODMAP 不是終身飲食，重新引入後盡量放寬",
+        "IBD 發作期：低渣飲食、少量多餐；狹窄者避免高纖粗糙食物",
+        "IBD 緩解期：均衡多樣，注意鐵、維生素 D、B12 與鈣"
+      ],
+      "exercise_zh": [
+        "規律有氧運動可改善 IBS 症狀與便秘",
+        "瑜伽與腹式呼吸調節腸腦軸",
+        "IBD 緩解期正常運動；使用類固醇者加入阻力訓練保護骨骼"
+      ],
+      "rehab_zh": [
+        "骨盆底功能障礙（排便困難）可做生物回饋治療",
+        "腹式呼吸與放鬆訓練"
+      ],
+      "selfcare_zh": [
+        "記錄飲食、壓力、睡眠與症狀的關係",
+        "固定如廁時間、避免久坐馬桶滑手機",
+        "IBD 病人不可自行停藥，旅遊前備足藥物"
+      ],
+      "tw_resources_zh": [
+        "IBD 生物製劑健保給付須符合事前審查條件",
+        "台灣發炎性腸道疾病學會病友衛教",
+        "45–74 歲公費糞便潛血檢查（大腸癌篩檢）"
+      ],
+      "red_flags_zh": [
+        "血便、黑便或夜間腹瀉",
+        "不明體重減輕、發燒",
+        "劇烈腹痛合併腹脹、嘔吐、停止排氣",
+        "50 歲後才出現的排便習慣改變"
+      ],
+      "evidence": [
+        {
+          "label": "Lacy BE et al. ACG Clinical Guideline: Management of Irritable Bowel Syndrome (Am J Gastroenterol)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Vasant DH et al. British Society of Gastroenterology guidelines on the management of irritable bowel syndrome (Gut)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Gordon H et al. ECCO Guidelines on Therapeutics in Crohn's Disease: Medical Treatment (J Crohns Colitis)",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "Raine T et al. ECCO Guidelines on Therapeutics in Ulcerative Colitis: Medical Treatment (J Crohns Colitis)",
+          "year": 2022,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "gastro/IBS_FODMAP",
+          "label_zh": "腸躁症與低 FODMAP"
+        },
+        {
+          "hash": "gastro/IBD_CARE",
+          "label_zh": "發炎性腸道疾病照護"
+        }
+      ]
+    }
+  ]
+}

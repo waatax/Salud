@@ -1,0 +1,468 @@
+{
+  "id": "sleep_med",
+  "name_zh": "睡眠醫學",
+  "name_en": "Sleep Medicine",
+  "division": "neuro_psych",
+  "curriculum_zh": "神經科學與行為科學模組（睡眠生理、晝夜節律）→ 胸腔、精神、耳鼻喉、神經科見習",
+  "scope_zh": "由胸腔、精神、耳鼻喉、神經與牙科共同組成的跨科睡眠門診：阻塞型睡眠呼吸中止、慢性失眠、晝夜節律失調（輪班、睡眠相位延遲）、嗜睡症與睡眠中異常行為。核心工具是睡眠檢查與認知行為治療。",
+  "subspecialties_zh": [
+    "多項睡眠生理檢查（PSG）與居家睡眠檢測",
+    "陽壓呼吸器（CPAP）門診",
+    "失眠認知行為治療（CBT-I）",
+    "口內止鼾器（牙科）",
+    "上呼吸道手術（耳鼻喉）"
+  ],
+  "when_to_visit_zh": [
+    "打鼾大聲、被說睡覺會停止呼吸",
+    "白天嗜睡、開車打瞌睡",
+    "每週 3 晚以上難入睡或早醒，持續 3 個月",
+    "輪班後長期睡不好或白天無法清醒",
+    "睡眠中大吼、拳打腳踢（需排除快速動眼期行為障礙）"
+  ],
+  "salud_links": [
+    {
+      "hash": "sleep/OSA_SCREEN",
+      "label_zh": "睡眠呼吸中止自評"
+    },
+    {
+      "hash": "sleep/CBTI_CALC",
+      "label_zh": "CBT-I 睡眠效率計算"
+    },
+    {
+      "hash": "mindbody/SLEEP_PLAN",
+      "label_zh": "睡眠改善計畫"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "跨科睡眠門診（胸腔、精神、耳鼻喉、神經）",
+    "NCKUH": "跨科睡眠門診",
+    "VGH": "跨科睡眠門診（胸腔部、精神醫學部、耳鼻喉頭頸醫學部）",
+    "CCH": "睡眠障礙特別門診"
+  },
+  "block": "neuro",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "≥15 次/時",
+          "label_zh": "中度以上 AHI"
+        },
+        {
+          "value": "≥4 小時",
+          "label_zh": "CPAP 每晚有效使用"
+        },
+        {
+          "value": "≈50–60%",
+          "label_zh": "SURMOUNT-OSA：tirzepatide 降低 AHI"
+        }
+      ],
+      "causes_zh": [
+        "肥胖、頸圍粗（男 >43 公分、女 >40 公分）",
+        "下巴後縮、扁桃腺或舌頭肥大（亞洲人顱顏結構）",
+        "男性、停經後女性、年齡增加",
+        "睡前飲酒、安眠藥、仰睡"
+      ],
+      "prevention_zh": [
+        "維持健康體重",
+        "戒菸、少喝酒",
+        "兒童打鼾及早評估扁桃腺與過敏"
+      ],
+      "prognosis_zh": "規律使用 CPAP 可改善嗜睡、生活品質與血壓；長期心血管保護效果取決於使用時數。減重者可能降低嚴重度甚至不再需要 CPAP。",
+      "timeline": [
+        {
+          "when_zh": "診斷後 0–4 週",
+          "goal_zh": "適應 CPAP",
+          "do_zh": [
+            "每晚戴、從看電視時開始練習",
+            "面罩漏氣或乾燥找廠商調整"
+          ]
+        },
+        {
+          "when_zh": "1–3 個月",
+          "goal_zh": "確認有效",
+          "do_zh": [
+            "每晚 ≥4 小時、每週 ≥5 晚",
+            "回診看數據"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "改善體重與共病",
+          "do_zh": [
+            "減重計畫",
+            "血壓、血糖追蹤"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的 AHI 與最低血氧是多少？屬於哪一級？",
+        "CPAP、止鼾器、減重藥或手術，哪個適合我？",
+        "CPAP 要自費多少？可以先租用試戴嗎？",
+        "多久要再做一次睡眠檢查？"
+      ],
+      "id": "osa",
+      "name_zh": "阻塞型睡眠呼吸中止症",
+      "name_en": "Obstructive Sleep Apnoea",
+      "icd10": "G47.33",
+      "summary_zh": "睡眠時上呼吸道反覆塌陷，造成呼吸暫停與血氧下降，讓人睡了很久還是累，並增加高血壓、心房顫動、中風、糖尿病與交通事故風險。陽壓呼吸器（CPAP）是中重度的標準治療；肥胖者減重有明確幫助，2024 年 SURMOUNT-OSA 試驗顯示 tirzepatide 可讓呼吸中止指數下降約一半以上。",
+      "symptoms_zh": [
+        "大聲打鼾、呼吸暫停、喘醒",
+        "白天嗜睡、注意力差",
+        "晨起頭痛、口乾",
+        "夜尿、高血壓難控制"
+      ],
+      "diagnosis_zh": [
+        "STOP-BANG 問卷篩檢",
+        "多項睡眠生理檢查（PSG）或居家睡眠檢測（HSAT）",
+        "呼吸中止指數 AHI：5–15 輕度、15–30 中度、≥30 重度",
+        "耳鼻喉科評估上呼吸道結構"
+      ],
+      "treatment_zh": [
+        "陽壓呼吸器（CPAP／APAP）：中重度首選",
+        "減重：生活型態、GLP-1／GIP 類藥物（tirzepatide 已獲美國 FDA 核准用於肥胖合併中重度 OSA）",
+        "口內止鼾器（下顎前移裝置）：輕中度或無法耐受 CPAP",
+        "側睡、避免睡前飲酒與鎮靜藥",
+        "手術：扁桃腺切除（兒童首選）、上呼吸道手術、舌下神經刺激"
+      ],
+      "postop_zh": [
+        "CPAP 初期 1–4 週適應期：調整面罩、加濕器",
+        "使用 1–3 個月後下載數據檢視使用時數與殘餘 AHI",
+        "手術後 1–2 週吞嚥疼痛，3 個月後追蹤睡眠檢查"
+      ],
+      "diet_zh": [
+        "減重 10% 可使 AHI 明顯下降",
+        "睡前 3–4 小時避免酒精與大餐",
+        "減少夜間逆流（抬高床頭）"
+      ],
+      "exercise_zh": [
+        "規律有氧運動即使體重不變也能改善 OSA",
+        "口咽肌功能訓練（舌頭與軟顎運動）對輕中度有幫助",
+        "每週 2 次阻力訓練"
+      ],
+      "rehab_zh": [
+        "口咽肌功能治療",
+        "體位治療裝置（防仰睡）"
+      ],
+      "selfcare_zh": [
+        "每天清潔面罩、每週清潔管路與水槽",
+        "嗜睡時不要開車",
+        "告知麻醉醫師你有 OSA（手術前）"
+      ],
+      "tw_resources_zh": [
+        "睡眠檢查多為健保給付（依醫院規定）；CPAP 機器多為自費，部分縣市或身障資格可申請輔具補助",
+        "台灣睡眠醫學學會睡眠中心名單"
+      ],
+      "red_flags_zh": [
+        "開車時打瞌睡或差點發生事故",
+        "睡眠中嘴唇發紫或明顯喘不過氣",
+        "合併胸痛、心律不整或難控制高血壓"
+      ],
+      "evidence": [
+        {
+          "label": "Patil SP et al. Treatment of Adult Obstructive Sleep Apnea With Positive Airway Pressure: AASM Clinical Practice Guideline (J Clin Sleep Med)",
+          "year": 2019,
+          "level": "guideline"
+        },
+        {
+          "label": "Malhotra A et al. Tirzepatide for the Treatment of Obstructive Sleep Apnea and Obesity: SURMOUNT-OSA (N Engl J Med)",
+          "year": 2024,
+          "level": "rct"
+        },
+        {
+          "label": "Kapur VK et al. Clinical Practice Guideline for Diagnostic Testing for Adult Obstructive Sleep Apnea: AASM (J Clin Sleep Med)",
+          "year": 2017,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "sleep/OSA_SCREEN",
+          "label_zh": "睡眠呼吸中止自評"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "3×3",
+          "label_zh": "每週 ≥3 晚、持續 ≥3 個月"
+        },
+        {
+          "value": "4–8 次",
+          "label_zh": "CBT-I 療程"
+        },
+        {
+          "value": "≥85%",
+          "label_zh": "睡眠效率目標"
+        }
+      ],
+      "causes_zh": [
+        "壓力事件引發，之後因「怕睡不著」而延續（過度警醒）",
+        "在床上滑手機、補眠、白天小睡等延續行為",
+        "憂鬱、焦慮、慢性疼痛、夜尿、睡眠呼吸中止",
+        "咖啡因、酒精、部分藥物（類固醇、某些抗憂鬱劑）"
+      ],
+      "prevention_zh": [
+        "壓力期維持規律作息",
+        "短期失眠時避免「早早上床」等延續行為",
+        "控制咖啡因與螢幕時間"
+      ],
+      "prognosis_zh": "約七到八成病人完成 CBT-I 後明顯改善，且效果可持續數年；長期安眠藥使用者在協助下多可成功減量。",
+      "timeline": [
+        {
+          "when_zh": "第 1–2 週",
+          "goal_zh": "記錄與了解",
+          "do_zh": [
+            "睡眠日記",
+            "固定起床時間（含週末）"
+          ]
+        },
+        {
+          "when_zh": "第 3–6 週",
+          "goal_zh": "重建睡眠驅力",
+          "do_zh": [
+            "睡眠限制與刺激控制",
+            "睡不著 20 分鐘就離床"
+          ]
+        },
+        {
+          "when_zh": "第 6–8 週",
+          "goal_zh": "鞏固與延長",
+          "do_zh": [
+            "逐步延長躺床時間",
+            "處理焦慮想法"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的失眠有沒有其他原因（呼吸中止、憂鬱、藥物）？",
+        "哪裡可以接受 CBT-I？有數位版本嗎？",
+        "我現在的安眠藥要怎麼減？",
+        "吃安眠藥時要注意什麼（開車、跌倒、喝酒）？"
+      ],
+      "id": "insomnia_cbti",
+      "name_zh": "慢性失眠與失眠認知行為治療（CBT-I）",
+      "name_en": "Chronic Insomnia & CBT-I",
+      "icd10": "G47.00 / F51.01",
+      "summary_zh": "每週至少 3 晚難以入睡、維持睡眠或早醒，持續 3 個月以上並影響白天功能，就是慢性失眠。國際指引一致把失眠認知行為治療（CBT-I）列為第一線，效果與安眠藥相當且停止後仍持續；安眠藥適合短期使用，長期使用苯二氮平類有依賴、跌倒與認知風險。",
+      "symptoms_zh": [
+        "躺床 30 分鐘以上睡不著",
+        "半夜醒來難再入睡、早醒",
+        "白天疲倦、易怒、注意力差",
+        "越到晚上越焦慮「今天又睡不著」"
+      ],
+      "diagnosis_zh": [
+        "兩週睡眠日記：上床、入睡、醒來、起床時間",
+        "失眠嚴重度量表（ISI）",
+        "排除睡眠呼吸中止、不寧腿、晝夜節律問題",
+        "篩檢憂鬱與焦慮"
+      ],
+      "treatment_zh": [
+        "CBT-I：睡眠限制（縮短躺床時間）、刺激控制（床只用來睡覺）、認知調整、放鬆訓練、睡眠衛教",
+        "數位 CBT-I 應用程式可作為替代",
+        "短期藥物：依醫囑使用非苯二氮平類或食慾素受體拮抗劑等，避免長期依賴",
+        "長期使用安眠藥者在醫師協助下緩慢減量"
+      ],
+      "postop_zh": [
+        "睡眠限制初期 1–2 週白天較累屬正常，勿開車或操作危險機械",
+        "每週依睡眠效率調整躺床時間（≥85% 延長 15 分鐘）"
+      ],
+      "diet_zh": [
+        "中午後避免咖啡、茶、能量飲料",
+        "睡前不喝酒（讓後半夜睡眠變淺）",
+        "晚餐不過飽、睡前避免大量喝水"
+      ],
+      "exercise_zh": [
+        "規律有氧運動改善入睡與深睡",
+        "白天戶外日照幫助穩定生理時鐘",
+        "睡前 2 小時避免高強度運動"
+      ],
+      "rehab_zh": [
+        "放鬆訓練：腹式呼吸、漸進式肌肉放鬆、正念",
+        "慢性疼痛造成失眠者同時處理疼痛"
+      ],
+      "selfcare_zh": [
+        "固定起床時間比固定上床時間更重要",
+        "床只用來睡覺，不在床上滑手機或工作",
+        "不要白天補眠超過 20–30 分鐘"
+      ],
+      "tw_resources_zh": [
+        "精神科、身心科與睡眠門診（健保）；心理師 CBT-I 多為自費",
+        "15–45 歲「青壯世代心理健康支持方案」3 次免費心理諮商",
+        "台灣睡眠醫學學會"
+      ],
+      "red_flags_zh": [
+        "合併嚴重憂鬱或自殺念頭（撥 1925）",
+        "安眠藥後夢遊、夜間進食或開車而不自知",
+        "突然停藥後出現抽搐或嚴重戒斷"
+      ],
+      "evidence": [
+        {
+          "label": "Edinger JD et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: AASM Clinical Practice Guideline (J Clin Sleep Med)",
+          "year": 2021,
+          "level": "guideline"
+        },
+        {
+          "label": "Riemann D et al. The European Insomnia Guideline: An update on the diagnosis and treatment of insomnia 2023 (J Sleep Res)",
+          "year": 2023,
+          "level": "guideline"
+        },
+        {
+          "label": "Qaseem A et al. Management of Chronic Insomnia Disorder in Adults: ACP Clinical Practice Guideline (Ann Intern Med)",
+          "year": 2016,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "sleep/CBTI_CALC",
+          "label_zh": "CBT-I 睡眠效率計算"
+        },
+        {
+          "hash": "mindbody/CAPD_PLAN",
+          "label_zh": "睡眠日記計畫"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "2A 類",
+          "label_zh": "IARC：夜班工作可能致癌"
+        },
+        {
+          "value": "20–30 分",
+          "label_zh": "值班前或值班中小睡"
+        },
+        {
+          "value": "順時針",
+          "label_zh": "早→午→夜班較易適應"
+        }
+      ],
+      "causes_zh": [
+        "夜間光照抑制褪黑激素、白天睡眠被打斷",
+        "排班逆時針或輪替太快",
+        "通勤時日照重設生理時鐘",
+        "青少年：生理時鐘延後 + 睡前螢幕"
+      ],
+      "prevention_zh": [
+        "排班採順時針、輪替不要太快",
+        "連續夜班不超過 3–4 個",
+        "每年檢查血壓、血糖、血脂"
+      ],
+      "prognosis_zh": "調整光照與作息可明顯改善睡眠與警覺度；有些人本身較難適應夜班，長期症狀嚴重時可考慮調整職務。",
+      "timeline": [
+        {
+          "when_zh": "第 1–2 週",
+          "goal_zh": "了解自己的模式",
+          "do_zh": [
+            "記錄班表與睡眠",
+            "找出最難熬的時段"
+          ]
+        },
+        {
+          "when_zh": "第 3–6 週",
+          "goal_zh": "調整光照與作息",
+          "do_zh": [
+            "遮光窗簾、耳塞",
+            "固定錨定睡眠時段"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "保護健康",
+          "do_zh": [
+            "每年健檢代謝指標",
+            "與雇主討論排班方向"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的失眠是輪班造成的，還是有其他睡眠問題？",
+        "褪黑激素或藥物適合我嗎？",
+        "怎麼安排休假日的睡眠才不會打亂時鐘？",
+        "需要開立診斷證明調整班表嗎？"
+      ],
+      "id": "shift_work_circadian",
+      "name_zh": "輪班工作與晝夜節律失調",
+      "name_en": "Shift Work & Circadian Rhythm Sleep Disorders",
+      "icd10": "G47.26",
+      "summary_zh": "醫護、製造業、保全、運輸等輪班工作者，生理時鐘與工作時間錯位，造成失眠與上班嗜睡（輪班工作障礙），長期與代謝症候群、心血管疾病有關，國際癌症研究署將夜班工作列為「可能致癌」（2A 類）。青少年常見的「睡眠相位延遲」也屬晝夜節律問題。重點是以光照、錨定睡眠與排班設計調整時鐘。",
+      "symptoms_zh": [
+        "下班後白天睡不著或睡不久",
+        "上班時嗜睡、反應變慢",
+        "腸胃不適、情緒起伏",
+        "青少年：半夜 2–3 點才睡得著、早上起不來"
+      ],
+      "diagnosis_zh": [
+        "睡眠日記或穿戴式裝置 2 週",
+        "早晚型問卷",
+        "排除睡眠呼吸中止、憂鬱",
+        "必要時腕動計（actigraphy）"
+      ],
+      "treatment_zh": [
+        "光照策略：夜班時明亮光線、下班通勤戴墨鏡",
+        "錨定睡眠：每天至少 4 小時固定在同一時段睡",
+        "值班前或值班中 20–30 分鐘小睡",
+        "咖啡因只在班表前半段使用",
+        "褪黑激素在白天睡前使用效果有限，可與醫師討論；嗜睡嚴重者藥物需醫師評估"
+      ],
+      "postop_zh": [],
+      "diet_zh": [
+        "夜班避免大餐與高糖點心，選擇小份量高蛋白",
+        "下班前 4–6 小時停止咖啡因",
+        "維持規律「主餐時間」減少代謝紊亂"
+      ],
+      "exercise_zh": [
+        "規律運動，但避開白天睡眠前 2 小時的高強度運動",
+        "休假日接觸早晨陽光"
+      ],
+      "rehab_zh": [
+        "睡眠衛教與認知行為策略",
+        "疲勞管理訓練（尤其駕駛、醫護）"
+      ],
+      "selfcare_zh": [
+        "臥室全暗、安靜、涼爽",
+        "家人協助白天不打擾",
+        "疲倦時不要開車回家，先小睡或搭車"
+      ],
+      "tw_resources_zh": [
+        "職業安全衛生法：雇主應預防輪班、夜間工作等異常工作負荷促發疾病",
+        "勞工健康服務（臨場服務醫師、護理師）",
+        "職業醫學科門診"
+      ],
+      "red_flags_zh": [
+        "工作或開車時睡著",
+        "心悸、胸悶、血壓顯著上升",
+        "出現憂鬱或自殺念頭（撥 1925）"
+      ],
+      "evidence": [
+        {
+          "label": "IARC Monographs Volume 124: Night Shift Work",
+          "year": 2020,
+          "level": "official"
+        },
+        {
+          "label": "Auger RR et al. Clinical Practice Guideline for the Treatment of Intrinsic Circadian Rhythm Sleep-Wake Disorders: AASM (J Clin Sleep Med)",
+          "year": 2015,
+          "level": "guideline"
+        },
+        {
+          "label": "Wickwire EM et al. Shift Work and Shift Work Sleep Disorder: Clinical and Organizational Perspectives (Chest)",
+          "year": 2017,
+          "level": "consensus"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "sleep/CIRCADIAN",
+          "label_zh": "晝夜節律與光照"
+        }
+      ]
+    }
+  ]
+}

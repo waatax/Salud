@@ -176,6 +176,18 @@ export interface Department extends DepartmentBase {
   conditions: Condition[];
 }
 
+/** A pathway as overviews, the symptom navigator and search list it; the page loads with its department. */
+export interface ConditionSummary extends Pick<ConditionBase, 'id' | 'name_zh' | 'name_en' | 'kind' | 'icd10'> {
+  /** Resolved: the condition's own stages, else its department's. */
+  life_stages: LifeStage[];
+}
+
+/** A department in the light index (`catalog.generated.ts`), without its care pathways. */
+export interface DepartmentSummary
+  extends Pick<Department, 'id' | 'name_zh' | 'name_en' | 'division' | 'scope_zh' | 'subspecialties_zh' | 'hospitals' | 'block' | 'life_stages'> {
+  conditions: ConditionSummary[];
+}
+
 export interface Division {
   id: DivisionId;
   name_zh: string;

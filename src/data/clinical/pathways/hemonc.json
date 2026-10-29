@@ -1,0 +1,484 @@
+{
+  "id": "hemonc",
+  "name_zh": "血液腫瘤科",
+  "name_en": "Hematology & Oncology",
+  "division": "internal",
+  "curriculum_zh": "臺大「血液與腫瘤學」整合課程；陽明交大「血液淋巴系統」模組；成大「血液與腫瘤」器官系統課程 → 內科見實習血腫科輪訓",
+  "scope_zh": "診治貧血、出血與凝血異常、白血病、淋巴瘤、多發性骨髓瘤等血液疾病，以及各類實體腫瘤的化學治療、標靶與免疫治療，並負責治療副作用處理與造血幹細胞移植。",
+  "subspecialties_zh": [
+    "良性血液學（貧血、血栓、出血）",
+    "白血病與骨髓移植",
+    "淋巴瘤與骨髓瘤",
+    "實體腫瘤內科治療",
+    "安寧緩和照護"
+  ],
+  "when_to_visit_zh": [
+    "血紅素偏低或不明原因疲倦、心悸",
+    "白血球或血小板異常",
+    "頸部、腋下、鼠蹊淋巴結無痛性腫大超過 2–4 週",
+    "不明原因發燒、盜汗、體重 6 個月內下降 >10%",
+    "確診癌症需化療或標靶治療"
+  ],
+  "salud_links": [
+    {
+      "hash": "oncology/THYROID_HEME_CANCERS",
+      "label_zh": "甲狀腺與血液癌症"
+    },
+    {
+      "hash": "oncology/NUTRITION_SIDE_EFFECTS",
+      "label_zh": "癌症營養與副作用"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "內科部 血液腫瘤科",
+    "NCKUH": "內科部 血液科",
+    "VGH": "內科部（血液科）",
+    "CCH": "內科部 血液腫瘤科"
+  },
+  "block": "heme_onc",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "<13／<12",
+          "label_zh": "男／女血紅素（g/dL）"
+        },
+        {
+          "value": "<30",
+          "label_zh": "ferritin 提示缺鐵（ng/mL）"
+        },
+        {
+          "value": "≈6%",
+          "label_zh": "台灣地中海型貧血帶因率"
+        }
+      ],
+      "causes_zh": [
+        "缺鐵：經血過多、消化道出血、攝取不足、吸收不良",
+        "維生素 B12 或葉酸缺乏（素食、胃切除、metformin）",
+        "慢性腎病、慢性發炎",
+        "地中海型貧血、溶血"
+      ],
+      "prevention_zh": [
+        "均衡攝取紅肉、深綠蔬菜、豆類，搭配維生素 C",
+        "全素者補充 B12",
+        "不明原因缺鐵一定要找出血源"
+      ],
+      "prognosis_zh": "缺鐵性貧血補鐵 2–4 週血紅素上升，約 3 個月補足儲存鐵；關鍵是找出原因，50 歲以上或男性缺鐵需排除消化道腫瘤。",
+      "timeline": [
+        {
+          "when_zh": "0–2 週",
+          "goal_zh": "找原因",
+          "do_zh": [
+            "抽血分型",
+            "開始補鐵或維生素"
+          ]
+        },
+        {
+          "when_zh": "4 週",
+          "goal_zh": "確認反應",
+          "do_zh": [
+            "血紅素上升 ≥1 g/dL"
+          ]
+        },
+        {
+          "when_zh": "3 個月",
+          "goal_zh": "補足儲存",
+          "do_zh": [
+            "ferritin 回升",
+            "原因處理完成"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我是哪一種貧血？",
+        "需要做胃鏡或大腸鏡嗎？",
+        "鐵劑怎麼吃最好吸收？",
+        "地中海型貧血需要補鐵嗎？"
+      ],
+      "tw_resources_zh": [
+        "婚前與產前地中海型貧血篩檢",
+        "靜脈鐵劑依健保規定"
+      ],
+      "id": "anemia",
+      "name_zh": "貧血（缺鐵性與其他）",
+      "name_en": "Anemia (iron deficiency and others)",
+      "icd10": "D50-D64",
+      "summary_zh": "WHO 定義成年男性 Hb <13 g/dL、非懷孕女性 <12 g/dL 為貧血。台灣最常見為缺鐵性貧血（月經、消化道出血）與海洋性貧血（帶因率約 6%），老年人須排除慢性病、腎病與腸胃道腫瘤。",
+      "symptoms_zh": [
+        "疲倦、活動耐受度下降、喘",
+        "頭暈、心悸、臉色與結膜蒼白",
+        "異食癖（嗜冰）、指甲湯匙狀、口角炎",
+        "不寧腿、掉髮",
+        "嚴重時胸悶、昏厥"
+      ],
+      "diagnosis_zh": [
+        "CBC：Hb、MCV（<80 小球性、>100 大球性）、網狀紅血球",
+        "鐵蛋白 ferritin <30 ng/mL 支持缺鐵（發炎時 <100 且 TSAT <20%）",
+        "小球性但鐵正常→血紅素電泳排除海洋性貧血",
+        "B12、葉酸、腎功能、甲狀腺功能",
+        "50 歲以上或男性缺鐵→胃鏡＋大腸鏡找出血源"
+      ],
+      "treatment_zh": [
+        "口服鐵劑：元素鐵 40–100 mg 隔日或每日一次，持續至 Hb 正常後再補 3 個月",
+        "口服不耐、吸收不良、IBD、CKD 或術前→靜脈鐵劑（如 ferric carboxymaltose）",
+        "B12 缺乏：肌注或高劑量口服 1000–2000 μg/日",
+        "治療病因：月經過多轉婦科、消化道出血內視鏡處理",
+        "Hb <7 g/dL（心臟病 <8）或症狀明顯時考慮輸血"
+      ],
+      "postop_zh": [
+        "開始鐵劑 2–4 週後網狀紅血球上升，4–8 週 Hb 應升 ≥2 g/dL",
+        "輸血後觀察發燒、蕁麻疹、喘等輸血反應",
+        "靜脈鐵劑注射後觀察 30 分鐘過敏反應",
+        "每 3 個月追蹤 CBC 與 ferritin 至少 1 年"
+      ],
+      "diet_zh": [
+        "多吃血基質鐵：紅肉、豬肝、鴨血、文蛤（吸收率 15–35%）",
+        "植物鐵（深綠蔬菜、豆類）搭配維生素 C 水果提升吸收",
+        "鐵劑與茶、咖啡、牛奶、鈣片相隔 2 小時",
+        "素食者注意 B12 補充"
+      ],
+      "exercise_zh": [
+        "Hb <8 g/dL 時避免劇烈運動，以散步為主",
+        "Hb 回升後漸進有氧運動，每週 150 分鐘中強度",
+        "運動時以自覺費力 RPE 11–13 為上限，出現胸悶即停"
+      ],
+      "rehab_zh": [
+        "長期貧血老人合併肌少症：阻力訓練每週 2–3 次",
+        "能量節省技巧（職能治療）：分段活動、坐姿作業",
+        "心肺耐力訓練：從 10 分鐘步行開始，每週增加 5 分鐘"
+      ],
+      "selfcare_zh": [
+        "記錄月經量與天數，衛生棉每 1–2 小時須更換屬經血過多",
+        "注意黑便、血便",
+        "鐵劑可能致便秘、黑便，屬正常",
+        "海洋性貧血帶因者勿自行補鐵，婚前或孕前做配偶篩檢"
+      ],
+      "red_flags_zh": [
+        "黑便、吐血或大量血便",
+        "胸痛、喘到無法平躺、昏厥",
+        "Hb 快速下降或合併血小板、白血球異常（疑骨髓疾病）",
+        "黃疸、茶色尿（溶血）"
+      ],
+      "evidence": [
+        {
+          "label": "AGA Clinical Practice Update on Management of Iron Deficiency Anemia",
+          "year": 2024
+        },
+        {
+          "label": "WHO Guideline on haemoglobin cutoffs to define anaemia",
+          "year": 2024
+        },
+        {
+          "label": "BSG guidelines for the management of iron deficiency anaemia in adults",
+          "year": 2021
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "diet",
+          "label_zh": "飲食原則"
+        },
+        {
+          "hash": "checkup",
+          "label_zh": "健康檢查"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": ">2 週",
+          "label_zh": "無痛淋巴結持續腫大需就醫"
+        },
+        {
+          "value": "60–70%",
+          "label_zh": "瀰漫性大 B 細胞淋巴瘤第一線治療可治癒"
+        },
+        {
+          "value": "CAR-T",
+          "label_zh": "復發難治型的新治療"
+        }
+      ],
+      "causes_zh": [
+        "年齡增加",
+        "免疫缺陷、自體免疫疾病",
+        "病毒或細菌：EB 病毒、HTLV-1、HIV、C 肝、幽門桿菌（MALT）",
+        "苯等化學物質、放射線、過去化療"
+      ],
+      "prevention_zh": [
+        "避免苯暴露、戒菸",
+        "治療前篩檢 B 肝並視需要預防性抗病毒",
+        "依時程接種不活化疫苗"
+      ],
+      "prognosis_zh": "許多淋巴瘤與部分白血病可以治癒或長期控制；標靶、雙特異性抗體與 CAR-T 等新治療持續改善預後。",
+      "timeline": [
+        {
+          "when_zh": "診斷 2–4 週",
+          "goal_zh": "確診分期",
+          "do_zh": [
+            "切片、骨髓、PET-CT"
+          ]
+        },
+        {
+          "when_zh": "治療 3–6 個月",
+          "goal_zh": "誘導緩解",
+          "do_zh": [
+            "化療、標靶或免疫治療"
+          ]
+        },
+        {
+          "when_zh": "緩解後",
+          "goal_zh": "追蹤",
+          "do_zh": [
+            "2 年內每 3–6 個月回診",
+            "長期副作用監測"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我是哪一型？分期多少？",
+        "治癒的機會有多少？",
+        "有適合我的臨床試驗嗎？",
+        "治療前需要生育保存嗎？"
+      ],
+      "tw_resources_zh": [
+        "癌症重大傷病卡",
+        "CAR-T 等新治療部分適應症健保給付（事前審查）",
+        "血液病病友協會"
+      ],
+      "id": "lymphoma_leukemia",
+      "name_zh": "淋巴瘤與白血病概論",
+      "name_en": "Lymphoma and Leukemia Overview",
+      "icd10": "C81-C95",
+      "summary_zh": "淋巴瘤為淋巴球惡性增生，台灣以瀰漫性大 B 細胞淋巴瘤最多；白血病分急性（AML、ALL）與慢性（CML、CLL）。台灣每年新診斷淋巴瘤約 3,000 例、白血病約 2,000 例，屬重大傷病，標靶與免疫治療已大幅改善存活。",
+      "symptoms_zh": [
+        "無痛性淋巴結腫大",
+        "B 症狀：發燒 >38°C、夜間盜汗、半年體重減輕 >10%",
+        "反覆感染、瘀青、牙齦出血（白血病）",
+        "貧血症狀、骨痛",
+        "脾臟腫大致左上腹脹"
+      ],
+      "diagnosis_zh": [
+        "CBC 與周邊血液抹片",
+        "淋巴結切除或粗針切片＋免疫組織化學",
+        "骨髓穿刺與切片、流式細胞儀、染色體與基因（如 BCR-ABL、FLT3）",
+        "PET-CT 分期（Lugano 分類）",
+        "LDH、尿酸、B/C 肝炎與 HIV 篩檢（治療前必要）"
+      ],
+      "treatment_zh": [
+        "DLBCL：R-CHOP 或 Pola-R-CHP 6 個療程",
+        "CML：酪胺酸激酶抑制劑（imatinib 等），健保給付",
+        "AML：誘導化療（7+3）±標靶藥，高風險者行異體造血幹細胞移植",
+        "CLL：BTK 抑制劑或 venetoclax 組合",
+        "復發難治：CAR-T 細胞治療、雙特異性抗體"
+      ],
+      "postop_zh": [
+        "化療後 7–14 天為白血球最低點，注意發燒",
+        "B 肝帶原者使用 rituximab 須預防性抗病毒藥並持續至停藥後 12–18 個月",
+        "移植後追蹤移植物抗宿主病（皮疹、腹瀉、黃疸）",
+        "完成治療後前 2 年每 3–6 個月回診"
+      ],
+      "diet_zh": [
+        "治療期間低微生物飲食：食物全熟、避免生魚片、生菜沙拉、未殺菌乳品",
+        "高蛋白每公斤 1.2–1.5 g",
+        "少量多餐應對噁心",
+        "避免葡萄柚（影響標靶藥代謝）"
+      ],
+      "exercise_zh": [
+        "治療期間每日步行 20–30 分鐘以減少疲倦",
+        "血小板 <20,000/μL 避免阻力訓練與碰撞性運動",
+        "治療結束後逐步達每週 150 分鐘有氧＋2 次肌力"
+      ],
+      "rehab_zh": [
+        "移植後住院期間床邊運動與呼吸訓練",
+        "出院後 3 個月漸進式阻力訓練（彈力帶）",
+        "周邊神經病變者平衡訓練與職能治療"
+      ],
+      "selfcare_zh": [
+        "每日量體溫，備好體溫計",
+        "勤洗手、戴口罩、避開人群",
+        "口腔清潔用軟毛牙刷與無酒精漱口水",
+        "自行觸摸淋巴結變化並記錄"
+      ],
+      "red_flags_zh": [
+        "體溫 ≥38°C 持續 1 小時或單次 ≥38.3°C",
+        "不止血、血尿、劇烈頭痛（出血）",
+        "意識改變、呼吸困難",
+        "尿量明顯減少（腫瘤溶解症候群）"
+      ],
+      "evidence": [
+        {
+          "label": "NCCN Guidelines: B-Cell Lymphomas",
+          "year": 2025
+        },
+        {
+          "label": "ELN recommendations for diagnosis and management of AML in adults",
+          "year": 2022
+        },
+        {
+          "label": "iwCLL guidelines for diagnosis and treatment of CLL",
+          "year": 2018
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/THYROID_HEME_CANCERS",
+          "label_zh": "血液癌症"
+        },
+        {
+          "hash": "hepb",
+          "label_zh": "B 型肝炎"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "<500/μL",
+          "label_zh": "嗜中性球低下（ANC）"
+        },
+        {
+          "value": "≥38°C",
+          "label_zh": "化療中發燒即需立即就醫"
+        },
+        {
+          "value": "1 小時",
+          "label_zh": "發燒後抗生素黃金時間"
+        }
+      ],
+      "causes_zh": [
+        "化療抑制骨髓",
+        "高齡、營養不良、骨髓侵犯",
+        "合併放射治療",
+        "口腔或腸道黏膜破損"
+      ],
+      "prevention_zh": [
+        "勤洗手、戴口罩、避開人群",
+        "高風險療程依醫囑使用白血球生長激素",
+        "避免生食、未洗淨蔬果"
+      ],
+      "prognosis_zh": "及時使用抗生素可大幅降低嚴重感染死亡；嗜中性球多在化療後 7–14 天降到最低，之後回升。",
+      "timeline": [
+        {
+          "when_zh": "化療後 0–7 天",
+          "goal_zh": "監測",
+          "do_zh": [
+            "每天量體溫"
+          ]
+        },
+        {
+          "when_zh": "第 7–14 天",
+          "goal_zh": "最低點，最需小心",
+          "do_zh": [
+            "避免人群",
+            "發燒立即就醫"
+          ]
+        },
+        {
+          "when_zh": "第 14–21 天",
+          "goal_zh": "回升",
+          "do_zh": [
+            "下次療程前抽血"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的白血球最低點大約是哪一天？",
+        "需要打白血球生長激素嗎？",
+        "發燒時打哪支電話、去哪裡？",
+        "可以吃哪些食物？"
+      ],
+      "tw_resources_zh": [
+        "白血球生長激素健保給付依規定",
+        "腫瘤個案管理師 24 小時專線"
+      ],
+      "id": "chemo_neutropenia",
+      "name_zh": "化療副作用與嗜中性白血球低下照護",
+      "name_en": "Chemotherapy Side Effects & Febrile Neutropenia",
+      "icd10": "D70.1",
+      "summary_zh": "化學治療常見副作用包括噁心嘔吐、骨髓抑制、口腔黏膜炎、掉髮、周邊神經病變與疲倦。嗜中性白血球絕對值（ANC）<500/μL 合併發燒即為「發燒性嗜中性白血球低下」，屬腫瘤急症，須 1 小時內給予抗生素。",
+      "symptoms_zh": [
+        "發燒、寒顫",
+        "噁心、嘔吐、食慾差",
+        "口腔破皮、吞嚥痛",
+        "手腳麻木刺痛",
+        "極度疲倦、掉髮"
+      ],
+      "diagnosis_zh": [
+        "CBC 與分類計算 ANC",
+        "血液培養兩套（含導管）、尿液與痰液培養",
+        "胸部 X 光、乳酸、腎肝功能",
+        "MASCC 分數評估風險（≥21 低風險）"
+      ],
+      "treatment_zh": [
+        "發燒性嗜中性白血球低下：1 小時內靜脈廣效抗生素（如 cefepime 或 piperacillin-tazobactam）",
+        "低風險者可口服 amoxicillin-clavulanate＋ciprofloxacin 門診治療",
+        "高風險化療（FN 風險 >20%）預防性 G-CSF（健保有條件給付）",
+        "止吐：5-HT3 拮抗劑＋NK1 拮抗劑＋dexamethasone（±olanzapine）",
+        "神經病變：duloxetine 有證據，必要時調降劑量"
+      ],
+      "postop_zh": [
+        "化療後第 7–14 天最低點期間每日量體溫",
+        "人工血管（Port-A）傷口保持乾燥，每 4 週沖洗一次",
+        "住院 FN 退燒 48 小時且 ANC 回升後可轉口服或出院",
+        "下次療程前抽血確認 ANC ≥1,500、血小板 ≥100,000"
+      ],
+      "diet_zh": [
+        "熟食、新鮮現煮，剩菜冷藏不超過 24 小時",
+        "口腔炎時吃軟質、溫涼食物，避免辛辣酸",
+        "每日水分 2,000–3,000 mL（除心腎限制）",
+        "體重下降時加口服營養補充品"
+      ],
+      "exercise_zh": [
+        "化療期間中強度有氧每週 90–150 分鐘可減少疲倦（ASCO 建議）",
+        "ANC <500 時避免公共健身房與游泳池",
+        "阻力訓練每週 2 次，從低負荷 12–15 下開始"
+      ],
+      "rehab_zh": [
+        "癌因性疲憊：結構化運動計畫＋能量節省",
+        "化療引起周邊神經病變：平衡與本體感覺訓練、足部保護",
+        "掉髮與身體心像：心理師或癌症資源中心支持"
+      ],
+      "selfcare_zh": [
+        "每日 2 次量體溫並記錄",
+        "飯後與睡前軟毛刷牙、鹽水漱口",
+        "避免接觸生病者、寵物排泄物、園藝土壤",
+        "依醫囑按時服用止吐藥，不要等吐了才吃"
+      ],
+      "red_flags_zh": [
+        "體溫 ≥38°C",
+        "寒顫、血壓低、意識不清",
+        "24 小時無法進食進水或嘔吐 >5 次",
+        "腹瀉每日 >6 次或血便"
+      ],
+      "evidence": [
+        {
+          "label": "ASCO/IDSA Outpatient Management of Fever and Neutropenia Guideline Update",
+          "year": 2018
+        },
+        {
+          "label": "NCCN Guidelines: Prevention and Treatment of Cancer-Related Infections",
+          "year": 2025
+        },
+        {
+          "label": "ASCO Antiemetics Guideline Update",
+          "year": 2020
+        },
+        {
+          "label": "ASCO Guideline: Exercise, Diet, and Weight Management During Cancer Treatment",
+          "year": 2022
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/NUTRITION_SIDE_EFFECTS",
+          "label_zh": "癌症營養與副作用"
+        }
+      ]
+    }
+  ]
+}

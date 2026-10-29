@@ -1,0 +1,418 @@
+{
+  "id": "genetics",
+  "name_zh": "基因醫學",
+  "name_en": "Medical Genetics & Genetic Counselling",
+  "division": "diagnostic_support",
+  "curriculum_zh": "醫學遺傳學、胚胎學 → 小兒科、婦產科見習（遺傳諮詢）",
+  "scope_zh": "產前遺傳篩檢與診斷、新生兒篩檢與罕見疾病、遺傳性癌症（BRCA、Lynch）、家族性疾病的基因檢測與遺傳諮詢。臺大、成大設有基因醫學部，北榮婦女醫學部掌理基因醫學與優生保健，彰基設有遺傳諮詢門診。",
+  "subspecialties_zh": [
+    "產前遺傳診斷",
+    "新生兒篩檢與罕見疾病",
+    "遺傳性癌症諮詢",
+    "神經遺傳與代謝疾病",
+    "基因檢測報告解讀"
+  ],
+  "when_to_visit_zh": [
+    "懷孕想了解唐氏症篩檢、NIPT、羊膜穿刺",
+    "新生兒篩檢通知異常",
+    "家族中多人罹患乳癌、卵巢癌、大腸癌或年輕即罹癌",
+    "自費基因檢測報告看不懂"
+  ],
+  "salud_links": [
+    {
+      "hash": "oncology/PRECISION_THERAPY",
+      "label_zh": "精準醫療"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "基因醫學部",
+    "NCKUH": "基因醫學部",
+    "VGH": "婦女醫學部（基因醫學、優生保健）",
+    "CCH": "遺傳諮詢門診／遺傳及新陳代謝科"
+  },
+  "block": "repro_growth",
+  "life_stages": [
+    "pregnancy",
+    "infant",
+    "adult"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "11–14 週",
+          "label_zh": "第一孕期篩檢（頸部透明帶 + 抽血）"
+        },
+        {
+          "value": "≥10 週",
+          "label_zh": "NIPT 可抽血"
+        },
+        {
+          "value": "16–18 週",
+          "label_zh": "羊膜穿刺常見時間"
+        }
+      ],
+      "causes_zh": [
+        "母親年齡增加使染色體異常機率上升",
+        "過去生育過染色體異常孩子",
+        "父母為染色體平衡轉位帶因者",
+        "超音波發現胎兒結構異常"
+      ],
+      "prevention_zh": [
+        "孕前帶因篩檢（海洋性貧血等）",
+        "有家族遺傳疾病者孕前遺傳諮詢"
+      ],
+      "prognosis_zh": "絕大多數篩檢結果正常；篩檢陽性者中，確診檢查後許多為正常。及早知道可讓家庭有充分時間準備與決定。",
+      "timeline": [
+        {
+          "when_zh": "第 8–10 週",
+          "goal_zh": "了解選項",
+          "do_zh": [
+            "產檢醫師說明篩檢與診斷",
+            "評估是否符合補助"
+          ]
+        },
+        {
+          "when_zh": "第 10–14 週",
+          "goal_zh": "篩檢",
+          "do_zh": [
+            "第一孕期篩檢或 NIPT",
+            "高風險者考慮絨毛取樣"
+          ]
+        },
+        {
+          "when_zh": "第 15–20 週",
+          "goal_zh": "確診與超音波",
+          "do_zh": [
+            "需要時羊膜穿刺",
+            "20–24 週高層次超音波"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "NIPT 和第一孕期篩檢差在哪？我適合哪一種？",
+        "篩檢陽性後下一步是什麼？",
+        "羊膜穿刺的風險？我符合補助嗎？",
+        "需要做 SMA 或海洋性貧血帶因篩檢嗎？"
+      ],
+      "id": "prenatal_genetic",
+      "kind": "topic",
+      "name_zh": "產前遺傳篩檢：唐氏症篩檢、NIPT 與羊膜穿刺",
+      "name_en": "Prenatal Genetic Screening: Combined Test, NIPT & Amniocentesis",
+      "icd10": "Z36",
+      "summary_zh": "產前檢查分為「篩檢」與「診斷」。第一孕期唐氏症篩檢與非侵入性胎兒染色體檢測（NIPT）都是篩檢，陽性需以絨毛取樣或羊膜穿刺確認。NIPT 對唐氏症偵測率高，但不能取代所有檢查。台灣提供 34 歲以上孕婦等高風險族群產前遺傳診斷補助。",
+      "symptoms_zh": [
+        "（篩檢）通常沒有症狀"
+      ],
+      "diagnosis_zh": [
+        "第一孕期整合篩檢：頸部透明帶、母血 PAPP-A 與 hCG",
+        "NIPT：分析母血中胎兒游離 DNA",
+        "確診：絨毛取樣（10–13 週）或羊膜穿刺（15 週後）＋染色體或微陣列分析",
+        "海洋性貧血、脊髓性肌肉萎縮症（SMA）帶因篩檢（依需求）"
+      ],
+      "treatment_zh": [
+        "篩檢陽性：遺傳諮詢並討論確診檢查",
+        "確診異常：完整諮詢、胎兒醫學評估、尊重家庭決定",
+        "侵入性檢查流產風險低（約 0.1–0.3%）"
+      ],
+      "postop_zh": [
+        "羊膜穿刺後當天休息、避免提重",
+        "觀察出血、腹痛、羊水流出、發燒",
+        "Rh 陰性孕婦依醫囑注射免疫球蛋白"
+      ],
+      "diet_zh": [
+        "持續葉酸與均衡孕期營養",
+        "孕期避免生食、酒精與吸菸"
+      ],
+      "exercise_zh": [
+        "羊膜穿刺後 1–2 天避免劇烈運動，之後恢復孕期運動",
+        "無併發症孕婦每週 150 分鐘中等強度運動"
+      ],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "先想清楚「如果結果異常，我會怎麼做」，再選擇檢查",
+        "和伴侶一起參加遺傳諮詢",
+        "保存所有報告"
+      ],
+      "tw_resources_zh": [
+        "國健署產前遺傳診斷補助：34 歲以上孕婦、曾生育異常兒、家族遺傳疾病、篩檢高風險等（依公告）",
+        "部分縣市補助 NIPT 或唐氏症篩檢（依縣市）",
+        "各醫學中心遺傳諮詢門診"
+      ],
+      "red_flags_zh": [
+        "羊膜穿刺後持續出血、羊水流出、發燒或腹痛",
+        "胎動明顯減少"
+      ],
+      "evidence": [
+        {
+          "label": "ACOG Practice Bulletin No. 226: Screening for Fetal Chromosomal Abnormalities (Obstet Gynecol)",
+          "year": 2020,
+          "level": "guideline"
+        },
+        {
+          "label": "Dungan JS et al. Noninvasive prenatal screening (NIPS) for fetal chromosome abnormalities in a general-risk population: ACMG evidence-based clinical guideline (Genet Med)",
+          "year": 2023,
+          "level": "guideline"
+        },
+        {
+          "label": "衛生福利部國民健康署：產前遺傳診斷補助",
+          "year": 2024,
+          "level": "official"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "5–10%",
+          "label_zh": "癌症屬遺傳性"
+        },
+        {
+          "value": "50%",
+          "label_zh": "帶因者一等親遺傳機率"
+        },
+        {
+          "value": "≈40–70%",
+          "label_zh": "BRCA 帶因者一生乳癌風險（依基因與研究）"
+        }
+      ],
+      "causes_zh": [
+        "父母任一方遺傳的體染色體顯性突變",
+        "家族中多人同一類癌症、年輕罹癌（<50 歲）",
+        "同一人罹患多種癌症、雙側乳癌、男性乳癌",
+        "卵巢癌、胰臟癌、轉移性攝護腺癌患者本身就有較高帶因率"
+      ],
+      "prevention_zh": [
+        "符合條件者及早遺傳諮詢",
+        "帶因者遵守加強篩檢"
+      ],
+      "prognosis_zh": "帶因者透過加強篩檢與預防性手術，可大幅降低癌症死亡風險；未帶因的家人則可避免不必要的焦慮與檢查。",
+      "timeline": [
+        {
+          "when_zh": "諮詢前",
+          "goal_zh": "整理家族史",
+          "do_zh": [
+            "問清楚親戚罹癌種類與年齡",
+            "準備病理報告"
+          ]
+        },
+        {
+          "when_zh": "檢測後 2–4 週",
+          "goal_zh": "解讀結果",
+          "do_zh": [
+            "遺傳諮詢說明",
+            "擬定個人化篩檢計畫"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "降低風險",
+          "do_zh": [
+            "依時程加強篩檢",
+            "通知並陪伴家人檢測"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "以我的家族史，需要做基因檢測嗎？",
+        "檢測哪些基因？費用多少？",
+        "如果是 VUS 怎麼辦？",
+        "我的結果對子女與兄弟姊妹代表什麼？"
+      ],
+      "id": "hereditary_cancer",
+      "kind": "topic",
+      "name_zh": "遺傳性癌症：BRCA 與林奇症候群",
+      "name_en": "Hereditary Cancer: BRCA & Lynch Syndrome",
+      "icd10": "Z15.0 / Z80",
+      "summary_zh": "約 5–10% 的癌症與遺傳的基因突變有關。BRCA1／2 突變大幅增加乳癌、卵巢癌、攝護腺癌與胰臟癌風險；林奇症候群增加大腸癌與子宮內膜癌風險。找出帶因者，可提早並加強篩檢、考慮預防性手術，並讓家人接受「瀑布式」檢測。部分癌症病人的基因結果也決定能否使用 PARP 抑制劑等藥物。",
+      "symptoms_zh": [
+        "帶因本身沒有症狀",
+        "家族史是最重要的線索"
+      ],
+      "diagnosis_zh": [
+        "遺傳諮詢：繪製三代家族樹",
+        "多基因檢測組合（panel）",
+        "結果分為致病、可能致病、意義未明（VUS）、良性",
+        "VUS 不應用來做醫療決策"
+      ],
+      "treatment_zh": [
+        "BRCA：25–30 歲起加強乳房 MRI ± 乳房攝影；考慮預防性雙側乳房切除；35–45 歲完成生育後考慮預防性輸卵管卵巢切除",
+        "林奇症候群：20–25 歲起每 1–2 年大腸鏡；討論子宮內膜癌預防策略與阿斯匹靈",
+        "癌症病人：依基因結果選擇 PARP 抑制劑或免疫治療",
+        "家人瀑布式檢測"
+      ],
+      "postop_zh": [
+        "預防性手術後依外科照護路徑恢復",
+        "提早停經者討論荷爾蒙補充與骨骼心血管保護"
+      ],
+      "diet_zh": [
+        "維持健康體重、限制酒精（乳癌風險）",
+        "多蔬果全穀、限制紅肉加工肉（大腸癌）"
+      ],
+      "exercise_zh": [
+        "規律運動降低多種癌症風險",
+        "預防性手術後依外科指示循序恢復運動"
+      ],
+      "rehab_zh": [
+        "心理支持：帶因的焦慮與家庭溝通",
+        "預防性卵巢切除提早停經者：評估骨密度、心血管風險與骨盆底功能"
+      ],
+      "selfcare_zh": [
+        "把基因報告存檔並告訴主治醫師",
+        "每年更新家族史（新診斷的親戚）",
+        "了解基因資訊在保險與就業上的保護與風險"
+      ],
+      "tw_resources_zh": [
+        "部分符合用藥條件的癌症病人，BRCA 等檢測可由健保或相關計畫給付；其他多為自費（依院所說明）",
+        "各醫學中心遺傳諮詢與高風險癌症門診",
+        "國健署乳癌與大腸癌篩檢（一般風險）"
+      ],
+      "red_flags_zh": [
+        "（非急症）家族中出現新的年輕癌症病例：重新評估"
+      ],
+      "evidence": [
+        {
+          "label": "USPSTF: Risk Assessment, Genetic Counseling, and Genetic Testing for BRCA-Related Cancer (JAMA)",
+          "year": 2019,
+          "level": "guideline"
+        },
+        {
+          "label": "NCCN Clinical Practice Guidelines in Oncology: Genetic/Familial High-Risk Assessment: Breast, Ovarian, Pancreatic, and Prostate",
+          "year": 2025,
+          "level": "guideline"
+        },
+        {
+          "label": "NCCN Clinical Practice Guidelines in Oncology: Genetic/Familial High-Risk Assessment: Colorectal, Endometrial, and Gastric",
+          "year": 2025,
+          "level": "guideline"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "oncology/BREAST_CANCER",
+          "label_zh": "乳癌"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "21 項",
+          "label_zh": "公費代謝異常篩檢（2019 年起）"
+        },
+        {
+          "value": "48 小時",
+          "label_zh": "出生後足跟採血時機（進食後）"
+        },
+        {
+          "value": "2000",
+          "label_zh": "罕見疾病防治及藥物法施行"
+        }
+      ],
+      "causes_zh": [
+        "多數為體染色體隱性遺傳：父母皆為帶因者時每胎 1/4 機率",
+        "近親婚配增加風險",
+        "部分為新發生突變"
+      ],
+      "prevention_zh": [
+        "孕前或產前帶因篩檢",
+        "家族遺傳疾病者孕前遺傳諮詢"
+      ],
+      "prognosis_zh": "透過早期篩檢與治療，許多過去會造成智能障礙或死亡的疾病，現在孩子可以正常上學與生活。",
+      "timeline": [
+        {
+          "when_zh": "出生 48 小時",
+          "goal_zh": "完成篩檢",
+          "do_zh": [
+            "足跟採血、聽力篩檢"
+          ]
+        },
+        {
+          "when_zh": "接到通知",
+          "goal_zh": "盡速複檢",
+          "do_zh": [
+            "依通知時限到指定醫院",
+            "不要自行停止餵食或用藥"
+          ]
+        },
+        {
+          "when_zh": "確診後",
+          "goal_zh": "早期治療",
+          "do_zh": [
+            "專科團隊治療",
+            "遺傳諮詢（下一胎規劃）"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "篩檢陽性代表什麼？確診機率多高？",
+        "需要到哪裡複檢？要多快？",
+        "確診後治療費用有補助嗎？",
+        "下一胎的風險是多少？"
+      ],
+      "id": "newborn_screening",
+      "kind": "topic",
+      "name_zh": "新生兒篩檢與罕見疾病",
+      "name_en": "Newborn Screening & Rare Diseases",
+      "icd10": "Z13.89 / E88.9",
+      "summary_zh": "台灣自 1985 年起推行新生兒先天代謝異常疾病篩檢，2019 年 10 月起公費項目擴大為 21 項，另有新生兒聽力篩檢。許多罕見疾病若在出現症狀前就治療（特殊飲食、酵素或基因治療），孩子可以正常發展。篩檢陽性不等於確診，需在時限內到確認診斷醫院複檢。",
+      "symptoms_zh": [
+        "出生時多半看起來正常",
+        "未治療可能出現餵食困難、嗜睡、抽搐、發展遲緩"
+      ],
+      "diagnosis_zh": [
+        "足跟血串聯質譜等篩檢",
+        "陽性通知後至確認診斷醫院複檢（血液、尿液、酵素、基因）",
+        "聽力篩檢未通過：3 個月內完成診斷性聽力檢查"
+      ],
+      "treatment_zh": [
+        "苯酮尿症等代謝病：特殊飲食與奶粉",
+        "先天甲狀腺低下：甲狀腺素補充",
+        "溶小體儲積症（如龐貝氏症）：酵素替代療法",
+        "脊髓性肌肉萎縮症（SMA）：症狀出現前給予基因或分子治療效果最佳",
+        "聽損：6 個月內配戴助聽器或人工電子耳評估"
+      ],
+      "postop_zh": [],
+      "diet_zh": [
+        "代謝疾病依營養師設計的特殊飲食，終身或長期遵守",
+        "特殊奶粉多由罕見疾病政策補助"
+      ],
+      "exercise_zh": [],
+      "rehab_zh": [
+        "早期療育：物理、職能、語言治療",
+        "聽損兒聽能復健"
+      ],
+      "selfcare_zh": [
+        "保存篩檢結果與通知單",
+        "生病發燒時依醫師給的「緊急處置卡」就醫（部分代謝病）",
+        "家長加入病友團體互助"
+      ],
+      "tw_resources_zh": [
+        "國健署公費新生兒先天代謝異常疾病篩檢與聽力篩檢",
+        "罕見疾病防治及藥物法：罕藥與特殊營養品補助",
+        "財團法人罕見疾病基金會"
+      ],
+      "red_flags_zh": [
+        "新生兒嗜睡、拒食、嘔吐、抽搐：立即就醫",
+        "已知代謝病的孩子發燒或嘔吐：依緊急處置卡立即就醫"
+      ],
+      "evidence": [
+        {
+          "label": "衛生福利部國民健康署：新生兒先天代謝異常疾病篩檢（2019 年 10 月起 21 項）",
+          "year": 2019,
+          "level": "official"
+        },
+        {
+          "label": "Chien YH et al. Presymptomatic Diagnosis of Spinal Muscular Atrophy Through Newborn Screening (J Pediatr)",
+          "year": 2017,
+          "level": "cohort"
+        },
+        {
+          "label": "罕見疾病防治及藥物法",
+          "year": 2000,
+          "level": "official"
+        }
+      ]
+    }
+  ]
+}

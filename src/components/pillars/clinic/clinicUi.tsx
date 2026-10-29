@@ -37,7 +37,7 @@ export const Chip: React.FC<{ children: React.ReactNode; tone?: 'slate' | 'emera
   return <span className={`inline-flex items-center gap-1 text-[11px] rounded-full px-2 py-0.5 ${tones[tone]}`}>{children}</span>;
 };
 
-export const HospitalBadges: React.FC<{ dept: Department }> = ({ dept }) => (
+export const HospitalBadges: React.FC<{ dept: Pick<Department, 'hospitals'> }> = ({ dept }) => (
   <div className="flex flex-wrap gap-1" aria-label="四院是否設有此科">
     {HOSP_ORDER.map((h) => (
       <span
@@ -176,9 +176,12 @@ export const HospitalSourceLink: React.FC<{ url: string; children: React.ReactNo
   </a>
 );
 
-export const RowLink: React.FC<{ onClick: () => void; title: string; sub?: string; right?: React.ReactNode }> = ({ onClick, title, sub, right }) => (
+export const RowLink: React.FC<
+  { onClick: () => void; title: string; sub?: string; right?: React.ReactNode } & Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onPointerEnter' | 'onFocus'>
+> = ({ onClick, title, sub, right, ...hover }) => (
   <button
     onClick={onClick}
+    {...hover}
     className="w-full text-left rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-salud-dark-surface px-3 py-2 hover:border-emerald-400 flex items-center gap-2"
   >
     <span className="min-w-0 flex-1">

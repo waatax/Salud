@@ -1,0 +1,489 @@
+{
+  "id": "infectious",
+  "name_zh": "感染科",
+  "name_en": "Infectious Diseases",
+  "division": "internal",
+  "curriculum_zh": "臺大「微生物與感染」整合課程；陽明交大「感染與免疫」模組；成大「感染症學」器官系統課程 → 內科實習感染科輪訓",
+  "scope_zh": "診治細菌、病毒、黴菌與寄生蟲感染，包括不明原因發燒、抗藥性菌感染、HIV、結核病、旅遊醫學與成人疫苗接種，並主導院內感染管制與抗生素管理。",
+  "subspecialties_zh": [
+    "一般感染症",
+    "HIV 與性傳染病",
+    "結核病與非結核分枝桿菌",
+    "旅遊醫學與疫苗",
+    "院內感染管制"
+  ],
+  "when_to_visit_zh": [
+    "發燒超過 1 週找不到原因",
+    "反覆泌尿道或皮膚感染",
+    "高風險性行為後需 PEP 或 PrEP",
+    "出國前疫苗與瘧疾預防諮詢",
+    "慢性咳嗽 >2 週疑結核"
+  ],
+  "salud_links": [
+    {
+      "hash": "systems/immune",
+      "label_zh": "免疫系統"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "內科部 感染科",
+    "NCKUH": "內科部 感染病科",
+    "VGH": "內科部（感染科）",
+    "CCH": "內科部 感染科"
+  },
+  "block": "infect_immune",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "3–5 天",
+          "label_zh": "單純膀胱炎抗生素療程"
+        },
+        {
+          "value": "5–6 天",
+          "label_zh": "蜂窩性組織炎多數療程"
+        },
+        {
+          "value": "≈1/3",
+          "label_zh": "蜂窩性組織炎復發比例"
+        }
+      ],
+      "causes_zh": [
+        "女性尿道短、性行為、停經後陰道萎縮",
+        "糖尿病、導尿管、攝護腺肥大",
+        "皮膚破損、香港腳、蚊蟲叮咬",
+        "肥胖、淋巴水腫、靜脈功能不全"
+      ],
+      "prevention_zh": [
+        "多喝水、不憋尿、性行為後排尿",
+        "停經後反覆感染可考慮陰道雌激素",
+        "治療香港腳、保濕、抬高水腫肢體"
+      ],
+      "prognosis_zh": "單純膀胱炎數天內改善；蜂窩性組織炎經治療多可痊癒，但約三分之一會復發，處理足癬與水腫可減少。",
+      "timeline": [
+        {
+          "when_zh": "0–3 天",
+          "goal_zh": "控制感染",
+          "do_zh": [
+            "開始抗生素",
+            "抬高患肢、多喝水"
+          ]
+        },
+        {
+          "when_zh": "3–5 天",
+          "goal_zh": "確認改善",
+          "do_zh": [
+            "未改善或發燒持續回診"
+          ]
+        },
+        {
+          "when_zh": "療程結束後",
+          "goal_zh": "預防復發",
+          "do_zh": [
+            "處理誘因"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "需要做尿液培養嗎？",
+        "抗生素要吃幾天？",
+        "反覆感染該怎麼預防？",
+        "紅腫範圍擴大時怎麼辦？"
+      ],
+      "tw_resources_zh": [
+        "抗生素合理使用衛教",
+        "社區藥局用藥諮詢"
+      ],
+      "id": "uti_cellulitis",
+      "name_zh": "泌尿道感染與蜂窩性組織炎",
+      "name_en": "Urinary Tract Infection & Cellulitis",
+      "icd10": "N39.0, L03",
+      "summary_zh": "泌尿道感染以女性膀胱炎最常見，一生約 50% 女性會發生，大腸桿菌占 75–90%；腎盂腎炎與男性 UTI 屬複雜性感染。蜂窩性組織炎多為鏈球菌或金黃色葡萄球菌經皮膚破口入侵，下肢最常見，糖尿病、足癬、水腫為危險因子。",
+      "symptoms_zh": [
+        "頻尿、尿急、解尿灼痛、下腹痛",
+        "發燒、寒顫、腰側痛（腎盂腎炎）",
+        "皮膚紅、腫、熱、痛且範圍擴大",
+        "患肢局部淋巴結腫痛"
+      ],
+      "diagnosis_zh": [
+        "尿液分析（白血球酯酶、亞硝酸鹽）與尿液培養",
+        "複雜性 UTI 抽血培養、腎功能，必要時腎臟超音波或 CT",
+        "蜂窩性組織炎以臨床診斷，用筆標記紅腫邊界",
+        "懷疑膿瘍做軟組織超音波；疑壞死性筋膜炎用 LRINEC 與緊急外科評估"
+      ],
+      "treatment_zh": [
+        "單純膀胱炎：nitrofurantoin 5 天或 fosfomycin 單劑，依台灣抗藥性避免經驗性 fluoroquinolone",
+        "腎盂腎炎：依培養給 7–14 天，需住院者靜脈 ceftriaxone",
+        "蜂窩性組織炎（非化膿）：cephalexin 或 cefazolin，療程 5–6 天，未改善可延長",
+        "化膿性或疑 MRSA：引流＋TMP-SMX、doxycycline 或 vancomycin",
+        "抬高患肢、治療足癬"
+      ],
+      "postop_zh": [
+        "抗生素 48–72 小時內應退燒或紅腫停止擴大",
+        "膿瘍切開引流後每日換藥，2–3 天回診",
+        "腎盂腎炎出院後完成全程口服抗生素",
+        "男性或反覆感染者追蹤泌尿科評估攝護腺與結構異常"
+      ],
+      "diet_zh": [
+        "每日飲水 1.5–2 L（除心衰竭限水）",
+        "蔓越莓產品對反覆 UTI 女性有中等證據可降低復發",
+        "糖尿病者控制血糖 HbA1c <7%",
+        "減少含糖飲料"
+      ],
+      "exercise_zh": [
+        "急性期臥床抬高患肢高於心臟",
+        "紅腫消退後恢復步行",
+        "下肢水腫者每日踝幫浦運動 3 組×20 下"
+      ],
+      "rehab_zh": [
+        "慢性淋巴水腫：徒手淋巴引流與彈性襪（20–30 mmHg）",
+        "骨盆底肌訓練改善尿失禁、減少殘尿",
+        "足部照護衛教（糖尿病足）"
+      ],
+      "selfcare_zh": [
+        "不憋尿，性行為後排尿",
+        "如廁由前往後擦拭",
+        "停經女性反覆 UTI 可與醫師討論陰道雌激素",
+        "每日檢查雙腳破皮、足癬並保持乾燥"
+      ],
+      "red_flags_zh": [
+        "高燒合併血壓低、意識改變（敗血症）",
+        "皮膚紫黑、水泡、劇痛與外觀不成比例（壞死性筋膜炎）",
+        "無尿或腰痛劇烈（阻塞性腎盂腎炎）",
+        "紅腫快速擴散至眼眶周圍"
+      ],
+      "evidence": [
+        {
+          "label": "IDSA Guideline on Management of Complicated UTI",
+          "year": 2025
+        },
+        {
+          "label": "IDSA Practice Guidelines for Skin and Soft Tissue Infections",
+          "year": 2014
+        },
+        {
+          "label": "EAU Guidelines on Urological Infections",
+          "year": 2025
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/renal",
+          "label_zh": "泌尿系統"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≈1/3",
+          "label_zh": "一生罹患帶狀疱疹的機率"
+        },
+        {
+          "value": "2 劑",
+          "label_zh": "重組帶狀疱疹疫苗（間隔 2–6 個月）"
+        },
+        {
+          "value": "72 小時",
+          "label_zh": "發疹後抗病毒藥黃金期"
+        }
+      ],
+      "causes_zh": [
+        "水痘病毒潛伏神經節再活化",
+        "50 歲以上",
+        "免疫低下、化療、器官移植",
+        "壓力、糖尿病、自體免疫疾病"
+      ],
+      "prevention_zh": [
+        "50 歲以上接種重組帶狀疱疹疫苗",
+        "依時程接種流感、肺炎鏈球菌、RSV、COVID-19 疫苗",
+        "免疫低下者接種前與醫師討論"
+      ],
+      "prognosis_zh": "及早抗病毒治療可縮短病程；約一到兩成發生帶狀疱疹後神經痛，年紀越大越常見，疫苗可大幅降低發生。",
+      "timeline": [
+        {
+          "when_zh": "發疹 0–72 小時",
+          "goal_zh": "抗病毒",
+          "do_zh": [
+            "盡快就醫用藥"
+          ]
+        },
+        {
+          "when_zh": "1–2 週",
+          "goal_zh": "結痂",
+          "do_zh": [
+            "保持清潔，避免接觸孕婦與未出過水痘者"
+          ]
+        },
+        {
+          "when_zh": "4 週後",
+          "goal_zh": "評估神經痛",
+          "do_zh": [
+            "必要時神經痛藥物",
+            "康復後可接種疫苗"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我適合打哪些成人疫苗？",
+        "免疫抑制的人能打嗎？",
+        "疫苗費用多少？有補助嗎？",
+        "神經痛該怎麼處理？"
+      ],
+      "tw_resources_zh": [
+        "疾管署成人預防接種建議時程",
+        "部分縣市補助帶狀疱疹疫苗（依縣市）",
+        "65 歲以上公費流感與肺炎鏈球菌疫苗"
+      ],
+      "evidence_add": [
+        {
+          "label": "Britton A et al. Use of Respiratory Syncytial Virus Vaccines in Adults Aged ≥60 Years: Updated Recommendations of ACIP (MMWR)",
+          "year": 2024,
+          "level": "guideline"
+        }
+      ],
+      "id": "zoster_vaccination",
+      "name_zh": "帶狀皰疹與成人疫苗接種",
+      "name_en": "Herpes Zoster & Adult Immunization",
+      "icd10": "B02",
+      "summary_zh": "帶狀皰疹為水痘病毒再活化，一生約三分之一人會發生，50 歲後風險明顯上升，約 10–20% 留下皰疹後神經痛。重組型帶狀皰疹疫苗（Shingrix）保護力 >90%，多縣市對長者有公費補助。成人另應接種流感、肺炎鏈球菌、COVID-19、RSV 等疫苗。",
+      "symptoms_zh": [
+        "單側帶狀分布刺痛、灼熱，皮疹前 1–5 天即可疼痛",
+        "紅斑上成簇水泡，7–10 天結痂",
+        "眼周皮疹（三叉神經眼支）可傷眼",
+        "皰疹後神經痛：皮疹癒合後疼痛持續 >90 天"
+      ],
+      "diagnosis_zh": [
+        "典型皮疹以臨床診斷",
+        "不典型或免疫低下者水泡液 PCR",
+        "眼部侵犯須眼科裂隙燈檢查",
+        "反覆或多皮節者評估免疫狀態（HIV、癌症）"
+      ],
+      "treatment_zh": [
+        "皮疹 72 小時內開始抗病毒藥：valacyclovir 1 g 每日 3 次 ×7 天，或 famciclovir、acyclovir",
+        "急性疼痛：acetaminophen、NSAID，必要時短期弱鴉片",
+        "皰疹後神經痛：gabapentin/pregabalin、三環抗鬱劑、5% lidocaine 貼片",
+        "眼部或播散型、免疫低下者住院靜脈 acyclovir"
+      ],
+      "postop_zh": [
+        "水泡未結痂前具傳染性，避免接觸孕婦、新生兒、未出過水痘者",
+        "皮疹癒合後 4–8 週回診評估神經痛",
+        "帶狀皰疹痊癒後約 2 個月即可接種 Shingrix 預防復發"
+      ],
+      "diet_zh": [
+        "均衡飲食、足量蛋白質",
+        "目前無證據支持離胺酸等補充品治療帶狀皰疹",
+        "服用 gabapentin 期間避免飲酒"
+      ],
+      "exercise_zh": [
+        "急性期以休息與輕度散步為主",
+        "癒合後恢復規律有氧運動，有助睡眠與疼痛調節",
+        "避免衣物摩擦患部的運動直到結痂脫落"
+      ],
+      "rehab_zh": [
+        "皰疹後神經痛：經皮神經電刺激（TENS）",
+        "減敏訓練：以不同材質輕觸患部漸進適應",
+        "疼痛相關失眠與憂鬱：認知行為治療"
+      ],
+      "selfcare_zh": [
+        "50 歲以上（或 18 歲以上免疫低下）接種 Shingrix 2 劑，間隔 2–6 個月",
+        "65 歲以上：每年公費流感、COVID-19 疫苗；PCV20 或 PCV15+PPSV23（公費肺炎鏈球菌）",
+        "60 歲以上（或高風險者）討論 RSV 疫苗",
+        "每 10 年 Td/Tdap 追加；B 肝抗體陰性成人補接"
+      ],
+      "red_flags_zh": [
+        "皮疹在鼻尖、眼周或視力模糊",
+        "耳朵皰疹合併顏面麻痺（Ramsay Hunt 症候群）",
+        "全身播散水泡或發燒、頭痛、頸僵硬",
+        "免疫低下者出現皮疹"
+      ],
+      "evidence": [
+        {
+          "label": "Britton A et al. Use of Respiratory Syncytial Virus Vaccines in Adults Aged ≥60 Years: Updated Recommendations of ACIP (MMWR)",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "ACIP Recommendations for Use of Recombinant Zoster Vaccine in Adults",
+          "year": 2022
+        },
+        {
+          "label": "ACIP Adult Immunization Schedule, United States",
+          "year": 2025
+        },
+        {
+          "label": "衛福部疾管署 成人預防接種建議時程",
+          "year": 2025,
+          "url": "https://www.cdc.gov.tw"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/immune",
+          "label_zh": "免疫系統"
+        },
+        {
+          "hash": "longevity",
+          "label_zh": "長壽醫學"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "U=U",
+          "label_zh": "病毒量測不到＝不會經性行為傳染"
+        },
+        {
+          "value": "≥99%",
+          "label_zh": "PrEP 正確使用預防性行為傳染"
+        },
+        {
+          "value": "3HP",
+          "label_zh": "潛伏結核 12 劑短程治療"
+        }
+      ],
+      "causes_zh": [
+        "HIV：無保護性行為、共用針具",
+        "結核：與活動性結核病人密切接觸",
+        "糖尿病、免疫抑制、洗腎、長者",
+        "高盛行地區旅居"
+      ],
+      "prevention_zh": [
+        "PrEP（每日或事件型）與保險套",
+        "定期 HIV 與性病篩檢",
+        "結核接觸者完成潛伏結核檢查與治療"
+      ],
+      "prognosis_zh": "HIV 感染者規律服藥、病毒量測不到，預期壽命接近一般人；結核病規則服藥完成療程治癒率高。",
+      "timeline": [
+        {
+          "when_zh": "開始前",
+          "goal_zh": "基礎檢查",
+          "do_zh": [
+            "HIV、腎功能、B 肝"
+          ]
+        },
+        {
+          "when_zh": "每 3 個月",
+          "goal_zh": "PrEP 追蹤",
+          "do_zh": [
+            "HIV 與性病篩檢"
+          ]
+        },
+        {
+          "when_zh": "結核治療",
+          "goal_zh": "完成療程",
+          "do_zh": [
+            "加強期 2 個月、持續期依處方（都治 DOTS）"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我適合每日還是事件型 PrEP？",
+        "PrEP 有什麼副作用？",
+        "長效針劑 PrEP 可行嗎？",
+        "結核接觸後要做哪些檢查？"
+      ],
+      "tw_resources_zh": [
+        "疾管署 PrEP 計畫與匿名篩檢（依資格）",
+        "結核病都治計畫（DOTS）與 3HP 潛伏結核治療",
+        "愛滋諮詢專線"
+      ],
+      "evidence_add": [
+        {
+          "label": "Bekker LG et al. Twice-Yearly Lenacapavir or Daily F/TAF for HIV Prevention in Cisgender Women: PURPOSE 1 (N Engl J Med)",
+          "year": 2024,
+          "level": "rct"
+        }
+      ],
+      "id": "hiv_prep_tb",
+      "name_zh": "HIV、暴露前預防（PrEP）與結核病",
+      "name_en": "HIV, PrEP and Tuberculosis",
+      "icd10": "B20, A15",
+      "summary_zh": "台灣 HIV 感染者累計逾 3.8 萬人，抗反轉錄病毒治療（ART）達到病毒量測不到即不具性傳染力（U=U）。PrEP 正確使用可降低性行為感染風險約 99%，疾管署有計畫補助。結核病仍為台灣最重要的法定傳染病之一，每年新案約 6,000 例，以長者為主。",
+      "symptoms_zh": [
+        "急性 HIV：感染後 2–4 週類流感、皮疹、淋巴結腫",
+        "HIV 晚期：體重減輕、口腔念珠菌、伺機性感染",
+        "結核：咳嗽 >2 週、痰血、午後低燒、夜間盜汗",
+        "體重減輕、食慾不振"
+      ],
+      "diagnosis_zh": [
+        "HIV 第四代抗原抗體篩檢，陽性以確認檢驗；匿名篩檢站可免費",
+        "CD4、病毒量、抗藥性基因檢測",
+        "結核：胸部 X 光、痰抹片 3 套、培養與分子快速檢測（Xpert MTB/RIF）",
+        "潛伏結核：IGRA 或結核菌素皮膚測試"
+      ],
+      "treatment_zh": [
+        "HIV：確診後盡快開始 ART，首選 integrase 抑制劑為基礎單錠（如 bictegravir/FTC/TAF），國家公費",
+        "PrEP：TDF/FTC 每日口服或 2-1-1 事件型；長效注射 cabotegravir 為新選項",
+        "PEP：暴露後 72 小時內開始，服用 28 天",
+        "活動性結核：2HRZE/4HR 共 6 個月，都治計畫（DOTS）",
+        "潛伏結核：3HP（每週一次共 12 劑）或 4R"
+      ],
+      "postop_zh": [
+        "開始 ART 後 4–8 週驗病毒量，之後每 3–6 個月追蹤",
+        "PrEP 使用者每 3 個月 HIV、性病篩檢與腎功能",
+        "結核治療前 2 個月每 2–4 週抽血追蹤肝功能",
+        "痰抹片陰轉前（通常治療 2 週後）避免進出密閉公共場所"
+      ],
+      "diet_zh": [
+        "結核治療期間禁酒以減少肝毒性",
+        "高蛋白高熱量飲食改善營養不良",
+        "Isoniazid 服用者補充維生素 B6",
+        "ART 部分藥物須與含鈣、鎂、鐵制酸劑間隔服用"
+      ],
+      "exercise_zh": [
+        "HIV 穩定者建議一般成人運動量：每週 150 分鐘有氧＋2 次肌力",
+        "結核治療初期以輕度活動為主，體力恢復後漸進",
+        "阻力訓練改善 HIV 相關肌肉流失"
+      ],
+      "rehab_zh": [
+        "結核後肺損傷：肺復健、呼吸訓練與有氧耐力訓練 8–12 週",
+        "心理支持與去污名化諮商",
+        "戒菸服務（吸菸增加結核與 HIV 心血管風險）"
+      ],
+      "selfcare_zh": [
+        "每日固定時間服藥，使用提醒 App",
+        "使用保險套並定期性病篩檢",
+        "咳嗽時戴口罩、居家通風",
+        "密切接觸者依疾管署通知接受檢查"
+      ],
+      "red_flags_zh": [
+        "大量咳血",
+        "持續高燒、呼吸困難",
+        "服抗結核藥後黃疸、茶色尿、嚴重噁心（藥物性肝炎）",
+        "視力模糊或辨色力下降（ethambutol）",
+        "HIV 感染者劇烈頭痛、意識改變"
+      ],
+      "evidence": [
+        {
+          "label": "Bekker LG et al. Twice-Yearly Lenacapavir or Daily F/TAF for HIV Prevention in Cisgender Women: PURPOSE 1 (N Engl J Med)",
+          "year": 2024,
+          "level": "rct"
+        },
+        {
+          "label": "IAS-USA Recommendations for Antiretroviral Drugs for HIV Treatment and Prevention",
+          "year": 2024
+        },
+        {
+          "label": "WHO Consolidated Guidelines on Tuberculosis: Module 4 Treatment",
+          "year": 2025
+        },
+        {
+          "label": "衛福部疾管署 結核病診治指引（第八版）",
+          "year": 2022
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/respiratory",
+          "label_zh": "呼吸系統"
+        }
+      ]
+    }
+  ]
+}

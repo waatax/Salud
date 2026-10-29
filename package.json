@@ -1,13 +1,13 @@
 {
   "name": "salud",
   "private": true,
-  "version": "6.1.0",
+  "version": "6.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "test": "tsx --test src/compose/__tests__/*.test.ts",
     "validate": "tsx scripts/validate.ts",
-    "export:data": "tsx scripts/gen-clinic-search.ts && tsx src/serving/exportJson.ts && tsx scripts/a11y-audit.ts",
+    "export:data": "tsx scripts/gen-clinic-data.ts && tsx src/serving/exportJson.ts && tsx scripts/a11y-audit.ts",
     "a11y:audit": "tsx scripts/a11y-audit.ts",
     "content:metrics": "tsx scripts/content-metrics.ts --baseline scripts/content-baseline.json",
     "build": "npm run export:data && tsc -b && vite build",

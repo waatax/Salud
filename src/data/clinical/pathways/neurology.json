@@ -1,0 +1,694 @@
+{
+  "id": "neurology",
+  "name_zh": "神經內科",
+  "name_en": "Neurology",
+  "division": "neuro_psych",
+  "curriculum_zh": "臺大「神經科學與神經系統」整合課程 + 神經科見實習；陽明交大「神經系統」模組；成大「神經系統與行為」系統課程 + 神經科實習",
+  "scope_zh": "診治腦、脊髓、周邊神經與肌肉疾病：腦中風、失智症、巴金森氏症與動作障礙、癲癇、頭痛、多發性硬化症、周邊神經病變與肌肉疾病，並提供腦波、肌電圖、神經超音波等檢查。",
+  "subspecialties_zh": [
+    "腦血管疾病（中風）",
+    "失智症與認知神經學",
+    "動作障礙（巴金森）",
+    "癲癇",
+    "頭痛",
+    "神經肌肉疾病",
+    "神經免疫（多發性硬化症）"
+  ],
+  "when_to_visit_zh": [
+    "突發單側無力、口齒不清、臉歪（立即撥 119）",
+    "記憶力明顯退步影響日常生活",
+    "手抖、動作變慢、走路小碎步",
+    "頭痛型態改變或頻率增加",
+    "手腳麻木、無力持續數週"
+  ],
+  "hospitals": {
+    "NTUH": "神經部",
+    "NCKUH": "神經部",
+    "VGH": "神經醫學中心",
+    "CCH": "神經醫學部 神經內科"
+  },
+  "block": "neuro",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "4.5 小時",
+          "label_zh": "靜脈血栓溶解治療時間窗"
+        },
+        {
+          "value": "24 小時",
+          "label_zh": "經影像篩選的動脈取栓時間窗"
+        },
+        {
+          "value": "BE-FAST",
+          "label_zh": "中風辨識口訣"
+        }
+      ],
+      "causes_zh": [
+        "高血壓（最重要）、心房顫動",
+        "糖尿病、高血脂、吸菸",
+        "頸動脈狹窄、肥胖、少動",
+        "過量飲酒、睡眠呼吸中止"
+      ],
+      "prevention_zh": [
+        "血壓、血糖、血脂達標",
+        "心房顫動依風險抗凝血",
+        "戒菸、限酒、規律運動"
+      ],
+      "prognosis_zh": "越早溶栓或取栓，恢復越好；中風後前 3–6 個月是恢復最快的時期，之後仍可持續進步。第一次中風後再中風風險高，二級預防至關重要。",
+      "timeline": [
+        {
+          "when_zh": "0–24 小時",
+          "goal_zh": "再灌流",
+          "do_zh": [
+            "119 送醫、溶栓或取栓"
+          ]
+        },
+        {
+          "when_zh": "1–7 天",
+          "goal_zh": "穩定與早期復健",
+          "do_zh": [
+            "吞嚥篩檢、早期下床"
+          ]
+        },
+        {
+          "when_zh": "1–3 個月",
+          "goal_zh": "密集復健",
+          "do_zh": [
+            "急性後期照護 PAC"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "預防再中風",
+          "do_zh": [
+            "藥物與危險因子控制"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "這次中風的原因是什麼？",
+        "我需要抗凝血或抗血小板藥嗎？",
+        "可以申請 PAC 嗎？",
+        "開車、工作何時可以恢復？"
+      ],
+      "tw_resources_zh": [
+        "急性後期照護（PAC）",
+        "長照 1966",
+        "中風病友協會"
+      ],
+      "evidence_add": [
+        {
+          "label": "Prabhakaran S et al. 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke: AHA/ASA (Stroke)",
+          "year": 2026,
+          "level": "guideline"
+        }
+      ],
+      "evidence_drop": [
+        "AHA/ASA Guidelines for the Early Management of Patients With Acute Ischemic Stroke (2019 update)"
+      ],
+      "id": "ischemic_stroke",
+      "name_zh": "缺血性腦中風與中風復健",
+      "name_en": "Acute Ischemic Stroke & Stroke Rehabilitation",
+      "icd10": "I63.9",
+      "summary_zh": "腦中風為台灣十大死因第 4–5 位、成人殘障主因，約 80% 為缺血性。治療分秒必爭：發病 4.5 小時內可靜脈血栓溶解，大血管阻塞 24 小時內（經影像篩選）可動脈取栓。",
+      "symptoms_zh": [
+        "BE FAST：平衡（Balance）、視力（Eyes）、臉歪（Face）、手無力（Arm）、說話不清（Speech）、立刻就醫（Time）",
+        "突發單側肢體麻木無力",
+        "突發失語、理解困難",
+        "暫時性腦缺血（TIA）：症狀數分鐘內恢復，但 48 小時內中風風險高"
+      ],
+      "diagnosis_zh": [
+        "到院即刻非顯影電腦斷層排除出血，NIHSS 評估嚴重度",
+        "CT 血管攝影（CTA）／灌流影像評估大血管阻塞與可挽救區",
+        "MRI DWI 確認梗塞；頸動脈超音波、心電圖與 Holter 找心房顫動",
+        "血糖、血脂、HbA1c、心臟超音波找病因（TOAST 分類）"
+      ],
+      "treatment_zh": [
+        "靜脈血栓溶解：alteplase 0.9 mg/kg（台灣常用亦有 0.6 mg/kg）或 tenecteplase 0.25 mg/kg，4.5 小時內",
+        "動脈取栓：大血管阻塞發病 6 小時內，特定病人延長至 24 小時；2023–2024 試驗支持大範圍梗塞也可取栓",
+        "輕度中風／高風險 TIA：aspirin + clopidogrel 雙重抗血小板 21 天後改單一",
+        "心房顫動：首選 DOAC（apixaban、rivaroxaban、edoxaban、dabigatran）",
+        "二級預防：高強度 statin 使 LDL-C <70 mg/dL，血壓 <130/80 mmHg；頸動脈狹窄 ≥70% 考慮內膜切除或支架"
+      ],
+      "postop_zh": [
+        "急性期住加護或中風單元，24 小時內吞嚥篩檢後才進食",
+        "血栓溶解後 24 小時內避免抗血栓藥物、24 小時後複查 CT",
+        "出院後 1–2 週回神經科，之後每 1–3 個月追蹤",
+        "健保急性後期照護（PAC）：中風後 30 天內轉介，提供 6–12 週密集復健",
+        "需要時申請長照 2.0（居家復能、輔具、喘息服務）"
+      ],
+      "diet_zh": [
+        "得舒（DASH）或地中海飲食，鈉 <2,000 mg/日（約 5 g 鹽）",
+        "吞嚥困難者依 IDDSI 分級調整食物質地與增稠液體",
+        "減少飽和脂肪、加工肉品，增加蔬果、全穀、堅果、魚類",
+        "戒菸、限制酒精"
+      ],
+      "exercise_zh": [
+        "病情穩定後 24–48 小時漸進下床（避免 24 小時內高強度早期活動）",
+        "恢復期每週 3–5 天、每次 20–60 分鐘中等強度有氧（踏步機、固定式腳踏車）",
+        "每週 2–3 次阻力訓練，加強患側肌力"
+      ],
+      "rehab_zh": [
+        "急性期（0–2 週）：擺位、關節活動度、翻身坐起、預防肩關節半脫位與壓瘡",
+        "亞急性期（2 週–6 個月，黃金恢復期）：坐站平衡、步態訓練、限制誘發運動治療（CIMT）、作業導向訓練",
+        "職能治療：日常生活活動（穿衣、進食、如廁）、上肢精細動作",
+        "語言治療：失語症與吞嚥治療（VFSS 評估）",
+        "慢性期（>6 個月）：社區復健、肉毒桿菌素治療痙攣（健保給付條件下）、輔具（AFO 足踝支架、四腳拐）"
+      ],
+      "selfcare_zh": [
+        "每日早晚量血壓並記錄（722 原則：連續 7 天、早晚各 2 次）",
+        "按時服用抗血栓與降脂藥，不自行停藥",
+        "居家防跌：浴室扶手、防滑墊、夜燈",
+        "留意中風後憂鬱（約 1/3），必要時轉介"
+      ],
+      "red_flags_zh": [
+        "新的肢體無力或說話不清（再次中風）",
+        "劇烈頭痛、嘔吐、意識下降（出血轉化）",
+        "黑便、血尿、牙齦大量出血（抗凝血劑出血）",
+        "嗆咳、發燒（吸入性肺炎）"
+      ],
+      "evidence": [
+        {
+          "label": "Prabhakaran S et al. 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke: AHA/ASA (Stroke)",
+          "year": 2026,
+          "level": "guideline"
+        },
+        {
+          "label": "AHA/ASA Guideline for the Prevention of Stroke in Patients With Stroke and TIA",
+          "year": 2021,
+          "url": "https://doi.org/10.1161/STR.0000000000000375"
+        },
+        {
+          "label": "台灣腦中風學會 急性缺血性腦中風靜脈血栓溶解治療指引",
+          "year": 2019
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/nervous",
+          "label_zh": "神經系統"
+        },
+        {
+          "hash": "cardiometabolic",
+          "label_zh": "心血管代謝"
+        },
+        {
+          "hash": "ltc",
+          "label_zh": "長期照護"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "14 個",
+          "label_zh": "可改變的失智危險因子（Lancet 2024）"
+        },
+        {
+          "value": "≈45%",
+          "label_zh": "理論上可預防或延緩的比例"
+        },
+        {
+          "value": "AD-8 ≥2",
+          "label_zh": "建議進一步評估"
+        }
+      ],
+      "causes_zh": [
+        "年齡、APOE ε4 基因",
+        "高血壓、糖尿病、高 LDL、肥胖、吸菸、過量飲酒",
+        "聽力與視力損失未矯正、社交孤立、憂鬱、少動",
+        "頭部外傷、空氣污染、教育程度較低"
+      ],
+      "prevention_zh": [
+        "控制血壓、血糖與 LDL",
+        "聽損配戴助聽器、矯正視力",
+        "規律運動、社交與認知活動"
+      ],
+      "prognosis_zh": "多數失智症會漸進惡化，但早期診斷可治療可逆原因、規劃照護與法律安排。2023 年起抗類澱粉抗體藥物在早期阿茲海默症可減緩約 1/4–1/3 的退化速度，需嚴格評估適應症與副作用。",
+      "timeline": [
+        {
+          "when_zh": "出現警訊",
+          "goal_zh": "評估",
+          "do_zh": [
+            "AD-8 篩檢、神經內科或高齡科就診"
+          ]
+        },
+        {
+          "when_zh": "確診 0–3 個月",
+          "goal_zh": "治療與規劃",
+          "do_zh": [
+            "藥物、照護資源、預立醫療決定"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "支持與照顧",
+          "do_zh": [
+            "失智據點、日照、照顧者喘息"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "是哪一型失智？有可逆的原因嗎？",
+        "新的抗體藥物適合嗎？",
+        "可以申請哪些長照服務？",
+        "如何預防走失？"
+      ],
+      "tw_resources_zh": [
+        "失智共同照護中心與失智社區服務據點",
+        "長照 1966、失智症關懷專線 0800-474-580",
+        "愛心手鍊（防走失）"
+      ],
+      "evidence_add": [
+        {
+          "label": "van Dyck CH et al. Lecanemab in Early Alzheimer's Disease: CLARITY AD (N Engl J Med)",
+          "year": 2023,
+          "level": "rct"
+        },
+        {
+          "label": "Sims JR et al. Donanemab in Early Symptomatic Alzheimer Disease: TRAILBLAZER-ALZ 2 (JAMA)",
+          "year": 2023,
+          "level": "rct"
+        }
+      ],
+      "id": "dementia",
+      "name_zh": "失智症",
+      "name_en": "Dementia (Alzheimer Disease and Others)",
+      "icd10": "F03.90",
+      "summary_zh": "台灣 65 歲以上失智症盛行率約 7–8%，推估 2025 年已超過 35 萬人。阿茲海默症約占 60%，其次為血管型、路易氏體與額顳葉失智。早期診斷可介入可逆原因並規劃照護。",
+      "symptoms_zh": [
+        "近期記憶力減退、重複問同樣問題",
+        "迷路、時間地點混淆",
+        "執行功能下降：理財、烹飪、用藥出錯",
+        "個性改變、妄想、幻覺、日落症候群"
+      ],
+      "diagnosis_zh": [
+        "認知篩檢：MMSE、MoCA、AD8 極早期失智篩檢（國健署推廣）",
+        "抽血排除可逆因素：B12、葉酸、甲狀腺功能、梅毒、電解質",
+        "腦部 MRI／CT；必要時類澱粉 PET 或腦脊髓液／血液 p-tau217 生物標記",
+        "CDR 臨床失智評估量表分期"
+      ],
+      "treatment_zh": [
+        "乙醯膽鹼酶抑制劑（donepezil、rivastigmine、galantamine）用於輕中度，健保需 MMSE/CDR 條件",
+        "Memantine 用於中重度",
+        "抗類澱粉單株抗體（lecanemab、donanemab）適用早期 AD 且類澱粉陽性，需 MRI 監測 ARIA，台灣已核准自費",
+        "行為精神症狀首選非藥物；必要時短期低劑量 quetiapine 等，需留意死亡率風險",
+        "控制血壓、血糖、聽力（助聽器）等可改變危險因子"
+      ],
+      "postop_zh": [
+        "使用抗類澱粉抗體者依時程（例如第 5、7、14 次注射前）做 MRI 監測",
+        "住院後易發生譫妄，出院後安排熟悉環境與規律作息",
+        "每 6–12 個月門診評估認知與功能",
+        "申請身心障礙證明、長照 2.0、失智共照中心個案管理"
+      ],
+      "diet_zh": [
+        "MIND 飲食：綠葉蔬菜、莓果、堅果、全穀、魚類、橄欖油",
+        "避免油炸、紅肉與甜食過量",
+        "中重度者注意吞嚥、脫水與體重下降，少量多餐"
+      ],
+      "exercise_zh": [
+        "每週 150 分鐘中等強度有氧，搭配每週 2 次肌力訓練",
+        "太極、舞蹈等結合認知與動作的活動",
+        "陪同散步，避免單獨外出迷路"
+      ],
+      "rehab_zh": [
+        "認知刺激治療（CST）：每週 2 次團體活動",
+        "職能治療：環境改造、日常生活技能維持",
+        "社區據點、日照中心參與（長照 2.0）",
+        "照顧者訓練課程與支持團體"
+      ],
+      "selfcare_zh": [
+        "使用藥盒、行事曆、提醒便條",
+        "配戴愛心手鍊或申請指紋建檔、防走失 GPS",
+        "及早進行預立醫療照護諮商（AD）與財務安排",
+        "照顧者善用 1966 長照專線與失智關懷專線 0800-474-580"
+      ],
+      "red_flags_zh": [
+        "數天內快速意識混亂（譫妄，常因感染或藥物）",
+        "跌倒後頭痛嗜睡（硬腦膜下出血）",
+        "走失、攻擊行為危及安全",
+        "數月內快速惡化（需排除庫賈氏病等）"
+      ],
+      "evidence": [
+        {
+          "label": "van Dyck CH et al. Lecanemab in Early Alzheimer's Disease: CLARITY AD (N Engl J Med)",
+          "year": 2023,
+          "level": "rct"
+        },
+        {
+          "label": "Sims JR et al. Donanemab in Early Symptomatic Alzheimer Disease: TRAILBLAZER-ALZ 2 (JAMA)",
+          "year": 2023,
+          "level": "rct"
+        },
+        {
+          "label": "Lancet Commission on dementia prevention, intervention, and care: 2024 update",
+          "year": 2024,
+          "url": "https://doi.org/10.1016/S0140-6736(24)01296-0"
+        },
+        {
+          "label": "Alzheimer Association Revised Criteria for Diagnosis and Staging of Alzheimer Disease",
+          "year": 2024
+        },
+        {
+          "label": "衛福部 失智症防治照護政策綱領暨行動方案 2.0",
+          "year": 2018
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "ltc",
+          "label_zh": "長期照護"
+        },
+        {
+          "hash": "longevity",
+          "label_zh": "健康長壽"
+        },
+        {
+          "hash": "diet/patterns",
+          "label_zh": "飲食型態"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≈1%",
+          "label_zh": "60 歲以上盛行率"
+        },
+        {
+          "value": "levodopa",
+          "label_zh": "最有效的症狀治療"
+        },
+        {
+          "value": "150 分鐘",
+          "label_zh": "每週有氧運動（可減緩功能退化）"
+        }
+      ],
+      "causes_zh": [
+        "年齡增加",
+        "遺傳（少數，如 LRRK2、GBA）",
+        "農藥與某些化學物質暴露",
+        "頭部外傷"
+      ],
+      "prevention_zh": [
+        "規律中高強度運動與較低風險相關",
+        "減少農藥暴露",
+        "跌倒預防"
+      ],
+      "prognosis_zh": "巴金森病是慢性進行性疾病，但多數人在藥物、運動與復健支持下可維持多年良好生活；藥效波動明顯者可考慮深腦刺激術。",
+      "timeline": [
+        {
+          "when_zh": "確診 0–6 個月",
+          "goal_zh": "開始治療",
+          "do_zh": [
+            "藥物",
+            "物理治療與運動計畫"
+          ]
+        },
+        {
+          "when_zh": "1–5 年",
+          "goal_zh": "穩定期",
+          "do_zh": [
+            "定期調藥",
+            "平衡、步態與語言訓練"
+          ]
+        },
+        {
+          "when_zh": "進展期",
+          "goal_zh": "處理波動與非動作症狀",
+          "do_zh": [
+            "評估深腦刺激",
+            "吞嚥、便秘、睡眠、情緒"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的藥物要怎麼調整？",
+        "哪些運動最有幫助？",
+        "深腦刺激術適合我嗎？",
+        "吞嚥、便秘與情緒問題要怎麼處理？"
+      ],
+      "tw_resources_zh": [
+        "台灣巴金森症病友協會",
+        "健保給付深腦刺激術（依適應症）",
+        "長照 2.0"
+      ],
+      "evidence_add": [
+        {
+          "label": "Grimes D et al. Canadian guideline for Parkinson disease (CMAJ)",
+          "year": 2019,
+          "level": "guideline"
+        }
+      ],
+      "id": "parkinson",
+      "name_zh": "巴金森氏症",
+      "name_en": "Parkinson Disease",
+      "icd10": "G20",
+      "summary_zh": "巴金森氏症是中腦黑質多巴胺神經退化造成的動作障礙，台灣約 4–5 萬名患者，60 歲以上約 1%。除動作症狀外，便秘、嗅覺喪失、快速動眼期睡眠行為障礙常早於動作症狀多年出現。",
+      "symptoms_zh": [
+        "靜止型顫抖（多從單側手開始）",
+        "動作遲緩、肌肉僵硬、面無表情、字越寫越小",
+        "步態小碎步、凍結步態、姿勢不穩易跌倒",
+        "非動作症狀：便秘、嗅覺減退、憂鬱、睡眠中拳打腳踢、姿勢性低血壓"
+      ],
+      "diagnosis_zh": [
+        "依 MDS 臨床診斷標準：動作遲緩 + 顫抖或僵硬",
+        "對 levodopa 治療反應良好支持診斷",
+        "腦部 MRI 排除其他病因；必要時 TRODAT-1 多巴胺轉運體掃描（健保給付條件）",
+        "UPDRS 量表、Hoehn & Yahr 分期追蹤"
+      ],
+      "treatment_zh": [
+        "Levodopa/carbidopa 或 benserazide 為最有效藥物",
+        "多巴胺促效劑（pramipexole、ropinirole、rotigotine 貼片）、MAO-B 抑制劑（rasagiline、safinamide）",
+        "COMT 抑制劑（entacapone、opicapone）改善藥效減退（wearing-off）",
+        "進階治療：深部腦刺激術（DBS）、腸道 levodopa 凝膠持續輸注、皮下 apomorphine"
+      ],
+      "postop_zh": [
+        "DBS 術後約 2–4 週開機調整參數，前 3–6 個月需多次回診程控",
+        "術後傷口保持乾燥 7–10 天，避免 MRI 除非確認相容條件",
+        "住院或手術期間不可突然停用 levodopa（可能導致類神經抑制劑惡性症候群）",
+        "每 3–6 個月門診調整藥物"
+      ],
+      "diet_zh": [
+        "高蛋白餐可能干擾 levodopa 吸收，建議飯前 30–60 分鐘服藥或蛋白質集中於晚餐",
+        "高纖飲食 + 每日水分 1,500–2,000 mL 改善便秘",
+        "吞嚥困難者調整食物質地",
+        "補充鈣與維生素 D 預防骨折"
+      ],
+      "exercise_zh": [
+        "每週 ≥150 分鐘中高強度有氧（快走、腳踏車），研究顯示可延緩動作惡化",
+        "太極拳改善平衡與降低跌倒",
+        "大幅度動作訓練（LSVT BIG）與拳擊課程",
+        "每週 2–3 次阻力訓練"
+      ],
+      "rehab_zh": [
+        "物理治療：步態訓練、聽覺節拍提示（節拍器）克服凍結、地面視覺標記",
+        "LSVT LOUD 語言治療改善音量；吞嚥治療預防嗆咳",
+        "職能治療：居家安全、輔具（加粗湯匙、穿衣輔具）",
+        "平衡訓練：重心轉移、跨步、轉身練習"
+      ],
+      "selfcare_zh": [
+        "準時服藥，設手機鬧鐘；記錄開關期（on/off）日記",
+        "居家移除地毯、增設扶手，起身先坐 1 分鐘預防低血壓",
+        "加入病友團體（台灣巴金森之友協會）",
+        "定期篩檢憂鬱、焦慮與認知變化"
+      ],
+      "red_flags_zh": [
+        "高燒、意識混亂、全身僵硬（藥物突然停用或感染）",
+        "頻繁跌倒、骨折",
+        "幻覺、妄想加劇",
+        "嗆咳、發燒（吸入性肺炎）"
+      ],
+      "evidence": [
+        {
+          "label": "Grimes D et al. Canadian guideline for Parkinson disease (CMAJ)",
+          "year": 2019,
+          "level": "guideline"
+        },
+        {
+          "label": "MDS Clinical Diagnostic Criteria for Parkinson Disease (Postuma et al., Mov Disord)",
+          "year": 2015,
+          "url": "https://doi.org/10.1002/mds.26424"
+        },
+        {
+          "label": "Parkinson Disease: A Review (Bloem BR et al., Lancet)",
+          "year": 2021,
+          "url": "https://doi.org/10.1016/S0140-6736(21)00218-X"
+        },
+        {
+          "label": "European Physiotherapy Guideline for Parkinson Disease",
+          "year": 2014
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "systems/nervous",
+          "label_zh": "神經系統"
+        },
+        {
+          "hash": "exercise",
+          "label_zh": "運動處方"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≥4 天／月",
+          "label_zh": "考慮預防性治療"
+        },
+        {
+          "value": "CGRP",
+          "label_zh": "抗體或 gepant 類預防藥為第一線選項"
+        },
+        {
+          "value": "≤10 天／月",
+          "label_zh": "急性止痛藥使用上限（避免藥物過度使用頭痛）"
+        }
+      ],
+      "causes_zh": [
+        "遺傳體質、女性荷爾蒙波動",
+        "睡眠不足或過多、跳餐",
+        "壓力與放鬆後",
+        "酒精、特定食物、強光氣味、天氣變化"
+      ],
+      "prevention_zh": [
+        "規律作息與三餐",
+        "頭痛日記找出誘因",
+        "規律有氧運動"
+      ],
+      "prognosis_zh": "偏頭痛是可控制的慢性神經疾病；預防性治療可使許多人頭痛天數減半。避免止痛藥過度使用很重要。",
+      "timeline": [
+        {
+          "when_zh": "0–4 週",
+          "goal_zh": "記錄",
+          "do_zh": [
+            "頭痛日記"
+          ]
+        },
+        {
+          "when_zh": "1–3 個月",
+          "goal_zh": "急性與預防治療",
+          "do_zh": [
+            "找到有效急性藥",
+            "預防藥評估效果需 2–3 個月"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "維持",
+          "do_zh": [
+            "每 6–12 個月評估是否減藥"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我需要預防性藥物嗎？",
+        "CGRP 類藥物適合我嗎？健保有給付嗎？",
+        "止痛藥一個月可以吃幾天？",
+        "什麼樣的頭痛要立即就醫？"
+      ],
+      "tw_resources_zh": [
+        "台灣頭痛學會",
+        "CGRP 單株抗體健保有條件給付（事前審查）"
+      ],
+      "evidence_add": [
+        {
+          "label": "Charles AC et al. Calcitonin gene-related peptide-targeting therapies are a first-line option for the prevention of migraine: AHS position statement update (Headache)",
+          "year": 2024,
+          "level": "guideline"
+        }
+      ],
+      "id": "migraine",
+      "name_zh": "偏頭痛",
+      "name_en": "Migraine",
+      "icd10": "G43.909",
+      "summary_zh": "偏頭痛為常見的原發性頭痛，台灣盛行率約 9%，女性約為男性 2–3 倍，好發於 20–50 歲。全球失能主因之一，近年 CGRP 標靶藥物大幅改善預防治療。",
+      "symptoms_zh": [
+        "單側搏動性頭痛，持續 4–72 小時，中重度",
+        "活動加劇、合併噁心嘔吐、畏光畏聲",
+        "約 1/3 有預兆：閃光、鋸齒狀視野缺損，持續 5–60 分鐘",
+        "常見誘因：睡眠不規律、月經、壓力、空腹、酒精"
+      ],
+      "diagnosis_zh": [
+        "依 ICHD-3 臨床診斷，記錄頭痛日記",
+        "典型偏頭痛不需例行影像檢查",
+        "有危險徵兆（SNOOP4）才做 MRI/CT",
+        "每月頭痛 ≥15 天且其中 ≥8 天偏頭痛 >3 個月為慢性偏頭痛"
+      ],
+      "treatment_zh": [
+        "急性：NSAIDs（ibuprofen 400–600 mg、naproxen）、acetaminophen；中重度用 triptans（sumatriptan、rizatriptan）",
+        "新型急性藥：gepants（rimegepant）、lasmiditan",
+        "預防（每月 ≥4 天）：propranolol、topiramate、flunarizine、amitriptyline",
+        "CGRP 單株抗體（erenumab、fremanezumab、galcanezumab）每月皮下注射，健保有條件給付；慢性偏頭痛可用肉毒桿菌素"
+      ],
+      "postop_zh": [
+        "開始預防藥物後 2–3 個月評估效果（頭痛天數減少 ≥50%）",
+        "急診施打止痛後，回家休息於暗室並補充水分",
+        "止痛藥每月使用 >10–15 天易造成藥物過度使用頭痛，需回診調整"
+      ],
+      "diet_zh": [
+        "三餐規律，避免空腹或脫水",
+        "咖啡因適量且固定（<200 mg/日）",
+        "注意個人化誘發食物（紅酒、熟成起司、加工肉品）",
+        "鎂 400–600 mg/日、核黃素 400 mg/日可作輔助預防"
+      ],
+      "exercise_zh": [
+        "每週 3 次、每次 40 分鐘規律有氧可減少發作頻率",
+        "瑜伽、伸展改善頸肩緊繃",
+        "避免發作期間劇烈運動"
+      ],
+      "rehab_zh": [
+        "頸部物理治療：深層頸屈肌訓練、姿勢矯正",
+        "放鬆訓練、生物回饋、認知行為治療",
+        "非侵入性神經調控裝置（依可近性）"
+      ],
+      "selfcare_zh": [
+        "固定作息，每晚睡眠 7–8 小時",
+        "使用頭痛日記 App 記錄誘因與用藥",
+        "發作初期即早服藥效果較佳",
+        "有預兆的偏頭痛女性避免含雌激素避孕藥並戒菸（中風風險）"
+      ],
+      "red_flags_zh": [
+        "突發「一生最劇烈」雷擊樣頭痛",
+        "頭痛合併發燒、頸部僵硬、意識改變",
+        "50 歲後新發頭痛或型態改變",
+        "合併肢體無力、口齒不清、預兆持續 >1 小時"
+      ],
+      "evidence": [
+        {
+          "label": "Charles AC et al. Calcitonin gene-related peptide-targeting therapies are a first-line option for the prevention of migraine: AHS position statement update (Headache)",
+          "year": 2024,
+          "level": "guideline"
+        },
+        {
+          "label": "International Classification of Headache Disorders, 3rd edition (ICHD-3)",
+          "year": 2018
+        },
+        {
+          "label": "American Headache Society Consensus Statement: Integrating New Migraine Treatments into Clinical Practice",
+          "year": 2021
+        },
+        {
+          "label": "台灣頭痛學會 偏頭痛預防治療指引",
+          "year": 2022
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "sleep",
+          "label_zh": "睡眠"
+        },
+        {
+          "hash": "mindbody",
+          "label_zh": "身心醫學"
+        }
+      ]
+    }
+  ]
+}

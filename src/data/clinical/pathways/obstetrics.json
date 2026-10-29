@@ -1,0 +1,512 @@
+{
+  "id": "obstetrics",
+  "name_zh": "產科",
+  "name_en": "Obstetrics & Maternal-Fetal Medicine",
+  "division": "women_children",
+  "curriculum_zh": "生殖與發育模組（妊娠生理、胎兒發育）→ 婦產科核心見實習（產房、產科病房）",
+  "scope_zh": "從確認懷孕到產後 6 週：產前檢查與胎兒評估、高危險妊娠（妊娠糖尿病、子癲前症、多胞胎、早產）、分娩與剖腹產、產後恢復與骨盆底照護。",
+  "subspecialties_zh": [
+    "母胎醫學與高危險妊娠",
+    "產前超音波與胎兒評估",
+    "產房與分娩",
+    "產後照護與哺乳"
+  ],
+  "when_to_visit_zh": [
+    "驗孕陽性、確認懷孕週數",
+    "依時程接受產前檢查（健保給付 14 次）",
+    "孕期血壓升高、血糖異常、水腫或頭痛",
+    "產後漏尿、腹直肌分離、傷口或情緒問題"
+  ],
+  "salud_links": [
+    {
+      "hash": "oncology/SCREENING_TW",
+      "label_zh": "國健署癌症篩檢"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "婦產部 產科",
+    "NCKUH": "婦產部（產科）",
+    "VGH": "婦女醫學部（產科）",
+    "CCH": "婦產部（產科）"
+  },
+  "block": "repro_growth",
+  "life_stages": [
+    "pregnancy"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "24–28 週",
+          "label_zh": "75 克口服葡萄糖耐受試驗"
+        },
+        {
+          "value": "≈10%",
+          "label_zh": "台灣孕婦妊娠糖尿病比例"
+        },
+        {
+          "value": "產後 4–12 週",
+          "label_zh": "複檢 OGTT"
+        }
+      ],
+      "causes_zh": [
+        "懷孕荷爾蒙造成胰島素阻抗",
+        "高齡、孕前過重、體重增加過快",
+        "糖尿病家族史、多囊性卵巢症候群",
+        "前胎妊娠糖尿病或巨嬰"
+      ],
+      "prevention_zh": [
+        "孕前達到健康體重",
+        "孕期依 BMI 控制體重增加",
+        "每週 150 分鐘中等強度運動（無禁忌者）"
+      ],
+      "prognosis_zh": "多數妊娠糖尿病在產後恢復正常，但日後罹患第二型糖尿病的風險約為一般人的 7–10 倍，產後與長期篩檢非常重要；哺乳與減重可降低風險。",
+      "timeline": [
+        {
+          "when_zh": "確診後 1–2 週",
+          "goal_zh": "學會控糖",
+          "do_zh": [
+            "營養師飲食計畫",
+            "每日自我血糖監測"
+          ]
+        },
+        {
+          "when_zh": "至分娩",
+          "goal_zh": "母胎安全",
+          "do_zh": [
+            "每 1–2 週檢視血糖",
+            "必要時胰島素",
+            "胎兒生長超音波"
+          ]
+        },
+        {
+          "when_zh": "產後 4–12 週",
+          "goal_zh": "確認恢復",
+          "do_zh": [
+            "75 克 OGTT 複檢"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "預防糖尿病",
+          "do_zh": [
+            "每 1–3 年驗血糖",
+            "哺乳、運動、體重管理"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的血糖目標是多少？",
+        "需要打胰島素嗎？對寶寶安全嗎？",
+        "會不會需要提早生產？",
+        "產後多久要再檢查？"
+      ],
+      "tw_resources_zh": [
+        "國健署產前檢查補助含妊娠糖尿病篩檢（2021 年 7 月起擴大）",
+        "孕產婦關懷專線 0800-870-870",
+        "糖尿病衛教師"
+      ],
+      "evidence_add": [
+        {
+          "label": "Vounzoulaki E et al. Progression to type 2 diabetes in women with a known history of gestational diabetes: systematic review and meta-analysis (BMJ)",
+          "year": 2020,
+          "level": "sr"
+        }
+      ],
+      "id": "pregnancy_gdm",
+      "name_zh": "孕期照護與妊娠糖尿病",
+      "name_en": "Prenatal Care & Gestational Diabetes Mellitus",
+      "icd10": "O24.4",
+      "summary_zh": "國健署提供 14 次產前檢查與 3 次超音波補助，並自 2024 年起將妊娠糖尿病篩檢、貧血檢驗納入補助。妊娠糖尿病（GDM）指孕期首次出現的高血糖，台灣盛行率約 10–15%，與巨嬰、肩難產、子癲前症及產婦日後第 2 型糖尿病風險（約 7–10 倍）相關。",
+      "symptoms_zh": [
+        "GDM 多數無症狀，需靠篩檢發現",
+        "少數有口渴、多尿、疲倦或反覆泌尿道／陰道感染",
+        "超音波發現胎兒偏大或羊水過多",
+        "需同時注意子癲前症徵兆：血壓 ≥140/90、水腫、頭痛"
+      ],
+      "diagnosis_zh": [
+        "初診時檢測空腹血糖或 HbA1c 以排除孕前糖尿病（HbA1c ≥6.5% 視為顯性糖尿病）",
+        "24–28 週 75 g OGTT 一步驟法：空腹 ≥92、1 小時 ≥180、2 小時 ≥153 mg/dL 任一項即診斷（IADPSG/ADA）",
+        "或兩步驟法：50 g 葡萄糖挑戰試驗 ≥140 mg/dL 再做 100 g OGTT",
+        "例行產檢：血壓、尿蛋白、體重、胎心音；11–14 週可加做子癲前症風險評估"
+      ],
+      "treatment_zh": [
+        "醫學營養治療 + 運動為第一線，約 70–85% 可控制",
+        "血糖目標：空腹 <95、餐後 1 小時 <140 或 2 小時 <120 mg/dL",
+        "控制不佳時首選胰島素（基礎 + 餐前），metformin 為次選需與醫師討論",
+        "子癲前症高風險者 12–16 週起每晚低劑量阿斯匹靈 75–162 mg 至 36 週（依醫囑）",
+        "血糖控制良好者約 39–40+6 週分娩；需藥物或控制不佳者依醫師提早計畫"
+      ],
+      "postop_zh": [
+        "產後停用胰島素，產後 24–72 小時內監測血糖確認恢復",
+        "產後 4–12 週做 75 g OGTT 再評估是否持續糖尿病",
+        "之後每 1–3 年追蹤血糖／HbA1c 終身",
+        "鼓勵哺餵母乳，可降低母親日後糖尿病風險"
+      ],
+      "diet_zh": [
+        "每日三餐 + 2–3 次點心，碳水化合物平均分配，每日至少 175 g",
+        "選擇全穀、糙米、燕麥等低 GI 主食，避免含糖飲料、果汁、精緻甜點",
+        "每餐搭配優質蛋白（蛋、魚、豆腐）與蔬菜，水果每次一拳頭",
+        "孕期增重依孕前 BMI：正常者 11.5–16 kg，過重 7–11.5 kg",
+        "補充葉酸 400–800 µg（孕前 1 個月起）、鐵、碘與鈣"
+      ],
+      "exercise_zh": [
+        "每週 ≥150 分鐘中等強度有氧（快走、固定式腳踏車、孕婦游泳），可說話但無法唱歌",
+        "餐後 10–15 分鐘散步可降低餐後血糖",
+        "每週 2 次輕阻力訓練（彈力帶、輕啞鈴）",
+        "避免仰躺過久（16 週後）、接觸性運動及跌倒風險高活動"
+      ],
+      "rehab_zh": [
+        "孕期骨盆底肌（Kegel）訓練：每次收縮 5–10 秒，每回 10 下，每日 3 回",
+        "腰背痛可做貓牛式、骨盆傾斜運動，必要時物理治療師指導使用托腹帶",
+        "營養師個別衛教與血糖紀錄判讀"
+      ],
+      "selfcare_zh": [
+        "每日自我監測血糖 4 次（空腹 + 三餐後）並記錄帶回門診",
+        "每日留意胎動，28 週後每 2 小時應有 ≥10 次",
+        "依產檢時程回診：28 週前每 4 週、28–36 週每 2 週、36 週後每週"
+      ],
+      "red_flags_zh": [
+        "陰道出血、破水或規則宮縮（37 週前）",
+        "胎動明顯減少",
+        "劇烈頭痛、視力模糊、上腹痛、血壓 ≥160/110",
+        "血糖 <60 mg/dL 合併冒冷汗、意識改變"
+      ],
+      "evidence": [
+        {
+          "label": "Vounzoulaki E et al. Progression to type 2 diabetes in women with a known history of gestational diabetes: systematic review and meta-analysis (BMJ)",
+          "year": 2020,
+          "level": "sr"
+        },
+        {
+          "label": "ADA Standards of Care in Diabetes—2025, Section 15: Management of Diabetes in Pregnancy",
+          "year": 2025
+        },
+        {
+          "label": "ACOG Practice Bulletin No. 190: Gestational Diabetes Mellitus",
+          "year": 2018
+        },
+        {
+          "label": "USPSTF: Aspirin Use to Prevent Preeclampsia",
+          "year": 2021
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "cardiometabolic",
+          "label_zh": "代謝與心血管健康"
+        },
+        {
+          "hash": "diet",
+          "label_zh": "飲食指南"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "6 週",
+          "label_zh": "產後檢查與恢復運動評估"
+        },
+        {
+          "value": "≥2 指寬",
+          "label_zh": "腹直肌分離常見判斷"
+        },
+        {
+          "value": "≈30%",
+          "label_zh": "產後女性漏尿比例"
+        }
+      ],
+      "causes_zh": [
+        "懷孕荷爾蒙使結締組織鬆弛",
+        "自然產（尤其產程長、巨嬰、器械助產）",
+        "多胎、高齡",
+        "產後便秘、慢性咳嗽、過早搬重"
+      ],
+      "prevention_zh": [
+        "孕期即開始骨盆底肌訓練",
+        "產後循序恢復核心，避免過早仰臥起坐",
+        "預防便秘與用力"
+      ],
+      "prognosis_zh": "多數產後漏尿與腹直肌分離在 6–12 個月內隨訓練改善；持續症狀可由骨盆底物理治療或手術處理。產後情緒低落常見，憂鬱症需及早治療。",
+      "timeline": [
+        {
+          "when_zh": "產後 0–2 週",
+          "goal_zh": "休息與基本訓練",
+          "do_zh": [
+            "腹式呼吸、輕度骨盆底收縮",
+            "傷口照護"
+          ]
+        },
+        {
+          "when_zh": "第 2–6 週",
+          "goal_zh": "循序活動",
+          "do_zh": [
+            "步行、骨盆底訓練"
+          ]
+        },
+        {
+          "when_zh": "第 6–12 週",
+          "goal_zh": "核心重建",
+          "do_zh": [
+            "產後檢查後加入核心與阻力訓練"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "回到運動",
+          "do_zh": [
+            "跑跳前確認無漏尿與下墜感"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的腹直肌分離有多寬？要做哪些運動？",
+        "漏尿可以轉骨盆底物理治療嗎？",
+        "什麼時候可以跑步、重訓？",
+        "情緒低落是正常還是產後憂鬱？"
+      ],
+      "tw_resources_zh": [
+        "國健署孕產婦關懷專線與產後憂鬱篩檢衛教",
+        "1925 安心專線",
+        "骨盆底物理治療門診"
+      ],
+      "id": "postpartum_pelvic",
+      "name_zh": "產後恢復：骨盆底與腹直肌分離",
+      "name_en": "Postpartum Recovery, Pelvic Floor Dysfunction & Diastasis Recti",
+      "icd10": "O90.89",
+      "summary_zh": "產後 6–12 週為「第四孕期」，身體與情緒大幅調整。約 30% 產婦產後出現壓力性尿失禁，約 60% 產後 6 週仍有腹直肌分離（DRA，兩側腹直肌間距 >2 指或 >2 cm）。產後憂鬱約 10–15%，需篩檢。",
+      "symptoms_zh": [
+        "咳嗽、打噴嚏、跳躍時漏尿",
+        "陰道下墜感、異物感（骨盆器官脫垂）",
+        "肚臍上下出現縱向隆起或凹陷、腰痛",
+        "惡露 4–6 週逐漸由紅轉白；情緒低落、失眠超過 2 週"
+      ],
+      "diagnosis_zh": [
+        "產後 6 週內完成產後檢查（ACOG 建議 3 週內首次接觸、12 週內完整評估）",
+        "腹直肌分離指寬測試：仰躺抬頭，於臍上、臍、臍下量測間距",
+        "骨盆底肌力評估（內診 Modified Oxford 量表）、POP-Q 脫垂分期",
+        "愛丁堡產後憂鬱量表（EPDS）≥10 分需進一步評估"
+      ],
+      "treatment_zh": [
+        "骨盆底肌訓練為壓力性尿失禁第一線，持續 ≥3 個月",
+        "腹直肌分離以運動治療為主，嚴重（>5 cm）且合併疝氣、12 個月以上無改善可考慮腹壁整形／腹直肌摺疊手術",
+        "脫垂可用子宮托（pessary）或於完成生育後考慮手術",
+        "產後憂鬱：心理治療、SSRI（sertraline 可哺乳）、2023 年後 zuranolone 為新選項"
+      ],
+      "postop_zh": [
+        "自然產會陰傷口：每次如廁後溫水沖洗、坐浴 10 分鐘每日 2–3 次，7–10 天癒合",
+        "剖腹產：術後第 1 天下床、保持傷口乾燥，6 週內避免提重 >5 kg",
+        "產後 6 週內避免盆浴、性行為依傷口及惡露狀況，並討論避孕",
+        "產後 4–12 週回診；妊娠高血壓者產後 3–10 天內量血壓"
+      ],
+      "diet_zh": [
+        "哺乳者每日額外約 500 大卡、蛋白質增加約 15–20 g",
+        "每日水分 2,000–3,000 mL，多攝取蔬菜與全穀預防便秘",
+        "「坐月子」麻油雞、酒水料理宜適量，哺乳期避免酒精",
+        "持續補充鐵、鈣（1,000 mg/日）與維生素 D"
+      ],
+      "exercise_zh": [
+        "產後第 1–2 天即可開始腹式呼吸與 Kegel（無痛範圍）",
+        "產後 2–6 週：散步每日 10→30 分鐘漸進",
+        "產後 6–12 週經評估後恢復低衝擊有氧與核心訓練",
+        "跑跳等高衝擊運動建議 ≥12 週且骨盆底無漏尿、下墜症狀後再開始"
+      ],
+      "rehab_zh": [
+        "Phase I 0–2 週：橫膈呼吸 + 骨盆底收縮、腹橫肌啟動（吐氣時肚臍內收），每日 3 回各 10 下",
+        "Phase II 2–6 週：仰臥抬腳跟滑行、骨盆傾斜、側躺蚌殼式，避免仰臥起坐與捲腹",
+        "Phase III 6–12 週：死蟲式、橋式、四足跪姿對側伸展、鳥狗式，進行間距再評估",
+        "Phase IV 12 週後：負重深蹲、硬舉逐步回歸，搭配骨盆底專業物理治療（生物回饋、電刺激）"
+      ],
+      "selfcare_zh": [
+        "起身時先側翻再撐起，避免直接仰臥起身增加腹壓",
+        "抱嬰兒、提物前先收縮骨盆底（the Knack 技巧）",
+        "便秘時避免用力解便，可用腳凳抬高膝蓋",
+        "家人共同留意情緒變化，善用國健署孕產婦關懷專線 0800-870-870"
+      ],
+      "red_flags_zh": [
+        "產後出血 1 小時濕透 1 片以上衛生棉或排出大血塊",
+        "發燒 ≥38°C、傷口紅腫流膿、惡露有惡臭",
+        "單側小腿腫痛、胸痛、呼吸困難（血栓警訊）",
+        "傷害自己或嬰兒的念頭"
+      ],
+      "evidence": [
+        {
+          "label": "ACOG Committee Opinion No. 736: Optimizing Postpartum Care",
+          "year": 2018
+        },
+        {
+          "label": "Cochrane Review: Pelvic floor muscle training for prevention and treatment of urinary incontinence in antenatal and postnatal women",
+          "year": 2020
+        },
+        {
+          "label": "ACOG Committee Opinion No. 804: Physical Activity and Exercise During Pregnancy and the Postpartum Period",
+          "year": 2020
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "mental",
+          "label_zh": "心理健康"
+        },
+        {
+          "hash": "exercise/strength",
+          "label_zh": "肌力訓練"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≥140/90",
+          "label_zh": "20 週後血壓即需評估"
+        },
+        {
+          "value": "12–16 週",
+          "label_zh": "高風險者開始低劑量阿斯匹靈"
+        },
+        {
+          "value": "≈2 倍",
+          "label_zh": "日後心血管疾病風險"
+        }
+      ],
+      "causes_zh": [
+        "胎盤血管發育異常",
+        "第一胎、多胞胎、人工生殖",
+        "高齡（≥35–40 歲）、肥胖",
+        "慢性高血壓、糖尿病、腎病、紅斑性狼瘡；過去曾有子癲前症"
+      ],
+      "prevention_zh": [
+        "孕前控制慢性高血壓、糖尿病與體重",
+        "高風險者阿斯匹靈預防",
+        "下一胎提早告知醫師過去病史"
+      ],
+      "prognosis_zh": "及時診斷與適時分娩，多數母嬰預後良好；產後血壓多在 12 週內恢復，但需終身注意心血管健康，下一胎再發風險約一到二成。",
+      "timeline": [
+        {
+          "when_zh": "孕前／第一孕期",
+          "goal_zh": "風險評估",
+          "do_zh": [
+            "篩檢危險因子",
+            "高風險開始阿斯匹靈"
+          ]
+        },
+        {
+          "when_zh": "20 週以後",
+          "goal_zh": "早期發現",
+          "do_zh": [
+            "居家量血壓",
+            "每次產檢驗尿蛋白"
+          ]
+        },
+        {
+          "when_zh": "分娩後 0–6 週",
+          "goal_zh": "安全度過產後",
+          "do_zh": [
+            "每日量血壓",
+            "依醫囑調藥"
+          ]
+        },
+        {
+          "when_zh": "產後 1 年起",
+          "goal_zh": "長期心血管保護",
+          "do_zh": [
+            "每年量血壓、血糖、血脂",
+            "維持健康體重與運動"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我屬於高風險嗎？需要吃阿斯匹靈嗎？",
+        "我的血壓目標是多少？什麼數值要回診？",
+        "可能什麼時候需要提早生產？",
+        "產後要追蹤多久？"
+      ],
+      "id": "preeclampsia",
+      "name_zh": "妊娠高血壓與子癲前症",
+      "name_en": "Hypertensive Disorders of Pregnancy & Pre-eclampsia",
+      "icd10": "O14",
+      "summary_zh": "子癲前症是懷孕 20 週後出現高血壓，合併蛋白尿或器官功能異常，可能突然惡化成子癲（抽搐）、HELLP 症候群或胎盤早期剝離，威脅母胎安全。高風險孕婦從 12–16 週開始每天服用低劑量阿斯匹靈可明顯降低早發型子癲前症。分娩是唯一根治方法；產後血壓仍需追蹤，且日後心血管疾病風險加倍。",
+      "symptoms_zh": [
+        "常無症狀，產檢量血壓才發現",
+        "嚴重頭痛、視力模糊、看到閃光",
+        "右上腹或胃部疼痛、噁心嘔吐",
+        "臉部與手部突然水腫、體重快速增加"
+      ],
+      "diagnosis_zh": [
+        "每次產檢量血壓與尿蛋白",
+        "抽血：血小板、肝腎功能",
+        "第一孕期風險篩檢（血壓、子宮動脈血流、胎盤生長因子 PlGF）",
+        "胎兒生長與羊水超音波、胎心監測"
+      ],
+      "treatment_zh": [
+        "高風險：12–16 週起每日低劑量阿斯匹靈至約 36 週",
+        "降壓藥（labetalol、nifedipine 等孕期安全藥物）",
+        "重度：住院、硫酸鎂預防抽搐",
+        "依週數與嚴重度決定分娩時機；未滿 34 週給產前類固醇"
+      ],
+      "postop_zh": [
+        "產後 3–6 天是血壓高峰，出院後每天量血壓",
+        "產後 1–2 週內回診調整降壓藥",
+        "產後仍可能發生子癲，頭痛視力模糊要立即就醫"
+      ],
+      "diet_zh": [
+        "不需嚴格限鹽（可能減少血容積），但避免高鈉加工食品",
+        "鈣攝取不足者補充鈣（每日 1–1.5 克）可降低風險",
+        "均衡飲食、控制孕期體重增加"
+      ],
+      "exercise_zh": [
+        "無禁忌者孕期每週 150 分鐘中等強度運動可降低風險",
+        "確診子癲前症後依醫囑減少活動"
+      ],
+      "rehab_zh": [
+        "產後骨盆底與核心復健",
+        "產後心血管風險管理（家醫科、心臟科）"
+      ],
+      "selfcare_zh": [
+        "家中用上臂式血壓計，早晚量並記錄",
+        "記錄胎動",
+        "準備待產包，熟悉產科急診路線"
+      ],
+      "tw_resources_zh": [
+        "健保孕婦產前檢查 14 次與超音波 3 次（依健保規定）",
+        "國健署孕產婦關懷專線 0800-870-870",
+        "各醫學中心高危險妊娠門診"
+      ],
+      "red_flags_zh": [
+        "血壓 ≥160/110 mmHg",
+        "劇烈頭痛、視力模糊、右上腹痛",
+        "抽搐或意識改變",
+        "陰道出血、腹部持續變硬疼痛、胎動減少"
+      ],
+      "evidence": [
+        {
+          "label": "ACOG Practice Bulletin No. 222: Gestational Hypertension and Preeclampsia (Obstet Gynecol)",
+          "year": 2020,
+          "level": "guideline"
+        },
+        {
+          "label": "Magee LA et al. The 2021 ISSHP classification, diagnosis & management recommendations (Pregnancy Hypertens)",
+          "year": 2022,
+          "level": "guideline"
+        },
+        {
+          "label": "Rolnik DL et al. Aspirin versus Placebo in Pregnancies at High Risk for Preterm Preeclampsia: ASPRE (N Engl J Med)",
+          "year": 2017,
+          "level": "rct"
+        },
+        {
+          "label": "Parikh NI et al. Adverse Pregnancy Outcomes and Cardiovascular Disease Risk: AHA Scientific Statement (Circulation)",
+          "year": 2021,
+          "level": "consensus"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "cardiometabolic/BP_722",
+          "label_zh": "722 居家血壓量測"
+        }
+      ]
+    }
+  ]
+}

@@ -28,10 +28,8 @@ export default defineConfig({
           ) {
             return 'salud-sports-data';
           }
-          // v6.1: the 157 care pathways load only with the clinic hub; search uses a snapshot.
-          if (id.includes('src/data/clinical') && !id.includes('searchLite.generated')) {
-            return 'salud-clinic-data';
-          }
+          // v6.2: clinical data is not grouped here. The clinic hub carries only the light index;
+          // each department's pathways (src/data/clinical/pathways/*.json) are their own chunk.
           // v4.0: other data files are no longer forced into one eager 'salud-data'
           // chunk; Rollup splits them by importer so lazy hubs load their own data.
         },

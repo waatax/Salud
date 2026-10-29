@@ -1,0 +1,451 @@
+{
+  "id": "palliative",
+  "name_zh": "安寧緩和醫療",
+  "name_en": "Hospice & Palliative Medicine",
+  "division": "primary_geriatric",
+  "curriculum_zh": "家庭醫學、醫學倫理與溝通 → 安寧病房與家醫科見習",
+  "scope_zh": "照顧所有重症與末期病人（癌症、心衰竭、末期腎病、COPD、失智症等）及其家屬：緩解疼痛、喘、譫妄等症狀；預立醫療照護諮商（ACP）與預立醫療決定；安寧住院、共同照護與居家療護；以及臨終陪伴與哀傷支持。緩和醫療不等於放棄治療，可與積極治療同時進行。",
+  "subspecialties_zh": [
+    "安寧病房",
+    "安寧共同照護（住院各科會診）",
+    "安寧居家療護",
+    "預立醫療照護諮商（ACP）門診",
+    "非癌症末期與失智症緩和照護"
+  ],
+  "when_to_visit_zh": [
+    "重大疾病治療期間症狀難以控制（疼痛、喘、失眠、焦慮）",
+    "想事先決定未來的醫療選擇（ACP、預立醫療決定）",
+    "醫師告知病情進入末期、治療選擇有限",
+    "家屬不知道如何照顧臨終的親人"
+  ],
+  "salud_links": [
+    {
+      "hash": "ltc/LEGAL",
+      "label_zh": "預立醫療決定與意定監護"
+    },
+    {
+      "hash": "oncology/SURVIVORSHIP_PALLIATIVE",
+      "label_zh": "癌症存活與緩和照護"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "家庭醫學部 緩和醫療科",
+    "NCKUH": "家庭醫學部（安寧緩和）",
+    "VGH": "家庭醫學部（安寧緩和）",
+    "CCH": "家庭醫學科（安寧緩和照護）"
+  },
+  "block": "community",
+  "life_stages": [
+    "end_of_life",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "2019",
+          "label_zh": "病人自主權利法施行"
+        },
+        {
+          "value": "5 種",
+          "label_zh": "預立醫療決定適用的臨床條件"
+        },
+        {
+          "value": "二親等",
+          "label_zh": "至少一位家屬參與諮商"
+        }
+      ],
+      "causes_zh": [
+        "重大疾病或年長時，希望自己的價值觀被尊重",
+        "避免家屬在危急時替你做痛苦決定",
+        "減少不符合意願的急救與延命治療"
+      ],
+      "prevention_zh": [
+        "及早 ACP 可減少臨終時不必要的急救與家屬衝突",
+        "每次重大病情改變時更新"
+      ],
+      "prognosis_zh": "完成 ACP 的病人，臨終醫療較符合本人意願，家屬的焦慮與哀傷也較少。",
+      "timeline": [
+        {
+          "when_zh": "健康或確診時",
+          "goal_zh": "開始思考與對話",
+          "do_zh": [
+            "和家人聊「什麼對我最重要」",
+            "查詢 ACP 門診"
+          ]
+        },
+        {
+          "when_zh": "諮商當天",
+          "goal_zh": "完成 ACP",
+          "do_zh": [
+            "帶家屬與醫療委任代理人一同參加",
+            "了解五種臨床條件與選項"
+          ]
+        },
+        {
+          "when_zh": "簽署後",
+          "goal_zh": "讓決定被看見",
+          "do_zh": [
+            "完成見證或公證、健保卡註記",
+            "每 1–2 年或病情變化時重新檢視"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "以我的病情，未來可能面臨哪些醫療決定？",
+        "CPR、插管、洗腎、鼻胃管對我可能的好處與負擔是什麼？",
+        "如果我無法表達，誰可以替我說話？",
+        "我可以隨時改變決定嗎？"
+      ],
+      "id": "advance_care_planning",
+      "kind": "topic",
+      "name_zh": "預立醫療照護諮商（ACP）與預立醫療決定",
+      "name_en": "Advance Care Planning & Advance Decisions (Patient Right to Autonomy Act)",
+      "icd10": "Z71.89",
+      "summary_zh": "台灣《病人自主權利法》自 2019 年 1 月 6 日施行，成年且具完全行為能力者可在醫療機構接受預立醫療照護諮商（ACP）後，簽署「預立醫療決定（AD）」，在末期病人、不可逆昏迷、永久植物人、極重度失智或公告之重症等五種臨床條件時，選擇接受或拒絕維持生命治療與人工營養流體餵養，並註記於健保卡。《安寧緩和醫療條例》的 DNR 意願書則適用於末期病人。",
+      "symptoms_zh": [
+        "（非疾病）常見情境：剛確診重病、反覆住院、家人意見分歧",
+        "不知道「插管、CPR、洗腎、鼻胃管」對自己的意義"
+      ],
+      "diagnosis_zh": [
+        "由醫師、護理師、心理師或社工組成的 ACP 團隊諮商",
+        "確認意願人、至少一位二親等內家屬（及醫療委任代理人，若有）參與",
+        "討論價值觀、可接受的生活品質、各種維生治療的利弊"
+      ],
+      "treatment_zh": [
+        "簽署預立醫療決定，經見證或公證，並註記健保卡",
+        "指定醫療委任代理人",
+        "已是末期病人：可簽署安寧緩和意願書（DNR）",
+        "定期（或病情改變時）重新檢視並可隨時修改或撤回"
+      ],
+      "postop_zh": [
+        "把決定告訴家人與主治醫師",
+        "健保卡註記後，就醫時醫師可查詢",
+        "病情改變時重新諮商"
+      ],
+      "diet_zh": [
+        "（相關決定）人工營養與流體餵養（如鼻胃管）也是可以事先表達意願的項目",
+        "末期時以「舒適進食」為原則"
+      ],
+      "exercise_zh": [],
+      "rehab_zh": [],
+      "selfcare_zh": [
+        "把預立醫療決定影本放在家中明顯處",
+        "告知醫療委任代理人你的價值觀",
+        "健康時就做，不必等到生病"
+      ],
+      "tw_resources_zh": [
+        "衛福部「預立醫療照護諮商」機構名單（全台醫院 ACP 門診）",
+        "特定族群（如 65 歲以上低收入或中低收入、55 歲以上原住民、失智症等）可申請 ACP 費用補助，以衛福部公告為準",
+        "安寧照顧基金會、病人自主研究中心衛教資源"
+      ],
+      "red_flags_zh": [
+        "（非醫療急症）家屬對醫療決定嚴重分歧：可申請醫院倫理諮詢或家庭會議"
+      ],
+      "evidence": [
+        {
+          "label": "病人自主權利法（2019 年 1 月 6 日施行，2021 年修正）",
+          "year": 2019,
+          "level": "official"
+        },
+        {
+          "label": "Rietjens JAC et al. Definition and recommendations for advance care planning: an international consensus supported by the EAPC (Lancet Oncol)",
+          "year": 2017,
+          "level": "consensus"
+        },
+        {
+          "label": "McMahan RD et al. Advance care planning beyond advance directives: perspectives from patients and surrogates (J Pain Symptom Manage)",
+          "year": 2020,
+          "level": "cohort"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "ltc/LEGAL",
+          "label_zh": "預立醫療決定與意定監護"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "早期整合",
+          "label_zh": "確診晚期就可轉介緩和照護"
+        },
+        {
+          "value": "低劑量",
+          "label_zh": "嗎啡可安全緩解末期喘"
+        },
+        {
+          "value": "24/7",
+          "label_zh": "安寧團隊聯絡窗口"
+        }
+      ],
+      "causes_zh": [
+        "疾病進展：腫瘤、心肺衰竭、腎衰竭",
+        "治療副作用",
+        "電解質異常、感染、藥物（譫妄）",
+        "心理與靈性痛苦放大身體症狀"
+      ],
+      "prevention_zh": [
+        "預防性處理便秘與噁心",
+        "避免不必要的檢查與約束",
+        "及早討論意願減少臨終衝突"
+      ],
+      "prognosis_zh": "多數末期症狀可獲得良好控制；早期接受緩和照護的病人生活品質較好，家屬的憂鬱與哀傷也較少。",
+      "timeline": [
+        {
+          "when_zh": "確診晚期",
+          "goal_zh": "早期整合緩和照護",
+          "do_zh": [
+            "症狀評估、ACP",
+            "與腫瘤科或主治科共同照顧"
+          ]
+        },
+        {
+          "when_zh": "病情進展",
+          "goal_zh": "舒適優先",
+          "do_zh": [
+            "精簡藥物與檢查",
+            "討論照顧地點"
+          ]
+        },
+        {
+          "when_zh": "臨終數日",
+          "goal_zh": "善終",
+          "do_zh": [
+            "口腔濕潤、翻身、陪伴",
+            "家人道謝、道歉、道愛、道別"
+          ]
+        },
+        {
+          "when_zh": "離世後",
+          "goal_zh": "家屬哀傷支持",
+          "do_zh": [
+            "安寧團隊追蹤關懷",
+            "必要時轉介哀傷諮商"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "哪些症狀可以改善？要用什麼藥？",
+        "如果在家突然很喘或很痛，我們該怎麼做？",
+        "還有哪些治療對他有意義？哪些可以停？",
+        "臨終前會出現哪些變化？"
+      ],
+      "id": "palliative_symptoms",
+      "name_zh": "末期症狀緩解：喘、譫妄、噁心與臨終照護",
+      "name_en": "Palliative Symptom Control: Breathlessness, Delirium, Nausea & Last Days",
+      "icd10": "Z51.5",
+      "summary_zh": "緩和醫療的核心是讓病人「舒服」。末期常見症狀包括疼痛、喘、疲倦、食慾差、噁心便秘、譫妄與焦慮；多數可透過藥物與非藥物方法改善。研究顯示，晚期肺癌病人及早接受緩和照護，生活品質與情緒較好，甚至存活時間不比只接受標準治療者短。",
+      "symptoms_zh": [
+        "喘、呼吸費力、焦慮",
+        "日夜顛倒、混亂、躁動（譫妄）",
+        "噁心嘔吐、便秘、口乾",
+        "臨終：睡眠時間變長、進食減少、呼吸型態改變、喉嚨痰音"
+      ],
+      "diagnosis_zh": [
+        "症狀評估量表（如 ESAS）",
+        "找可逆原因：便秘、尿滯留、感染、高血鈣、藥物",
+        "評估照顧者負荷與病人意願（照顧地點、想見的人）"
+      ],
+      "treatment_zh": [
+        "喘：低劑量鴉片類藥物、電風扇吹臉、調整姿勢；低血氧者才需氧氣",
+        "譫妄：處理原因、維持熟悉環境與日夜節律，必要時低劑量抗精神病藥",
+        "噁心：依原因選止吐藥；便秘：預防性軟便劑",
+        "臨終痰音：調整姿勢、減少輸液，必要時藥物",
+        "難以控制的痛苦：緩和鎮靜（嚴格評估與告知）"
+      ],
+      "postop_zh": [
+        "（非手術）每天評估症狀並調整藥物",
+        "居家病人：安寧居家團隊定期訪視、提供緊急聯絡方式"
+      ],
+      "diet_zh": [
+        "以病人想吃、吃得舒服為原則，不強迫進食",
+        "口乾時以棉棒濕潤、護唇膏",
+        "末期減少靜脈輸液可降低水腫與痰液"
+      ],
+      "exercise_zh": [
+        "在體力允許下下床、坐椅子、短距離步行",
+        "被動關節活動預防僵硬與壓傷"
+      ],
+      "rehab_zh": [
+        "物理治療：舒適擺位、呼吸輔助技巧",
+        "職能治療：節能、輔具",
+        "芳香、音樂、按摩等輔助療法"
+      ],
+      "selfcare_zh": [
+        "記錄症狀與用藥時間",
+        "照顧者輪班休息",
+        "保留可以說話與陪伴的時間"
+      ],
+      "tw_resources_zh": [
+        "健保給付：安寧住院、安寧共同照護、安寧居家療護",
+        "台灣安寧照顧基金會、各醫院安寧病房與社工"
+      ],
+      "red_flags_zh": [
+        "突然劇烈疼痛或喘無法緩解",
+        "無法控制的躁動或抽搐",
+        "大出血",
+        "照顧者無法負荷（立即聯絡安寧團隊）"
+      ],
+      "evidence": [
+        {
+          "label": "Temel JS et al. Early Palliative Care for Patients with Metastatic Non-Small-Cell Lung Cancer (N Engl J Med)",
+          "year": 2010,
+          "level": "rct"
+        },
+        {
+          "label": "Hui D et al. Management of breathlessness in patients with cancer: ESMO Clinical Practice Guidelines (ESMO Open)",
+          "year": 2020,
+          "level": "guideline"
+        },
+        {
+          "label": "Crawford GB et al. Care of the adult cancer patient at the end of life: ESMO Clinical Practice Guidelines (ESMO Open)",
+          "year": 2021,
+          "level": "guideline"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "健保",
+          "label_zh": "安寧居家療護給付"
+        },
+        {
+          "value": "8 類",
+          "label_zh": "非癌症末期可收案（依健保規定）"
+        },
+        {
+          "value": "24 小時",
+          "label_zh": "緊急聯絡窗口"
+        }
+      ],
+      "causes_zh": [
+        "病人希望在熟悉環境、家人陪伴下度過",
+        "反覆住院急診造成痛苦",
+        "醫療資源整合（居家醫療、長照）讓在家照顧可行"
+      ],
+      "prevention_zh": [
+        "及早轉介安寧居家，而不是最後幾天才開始",
+        "預先討論臨終流程減少慌亂",
+        "提早準備輔具與照顧技巧，避免臨時送急診"
+      ],
+      "prognosis_zh": "有安寧居家支持的病人，在家往生比例較高，症狀控制與家屬滿意度也較好；照顧者的準備程度是成功關鍵。",
+      "timeline": [
+        {
+          "when_zh": "收案前",
+          "goal_zh": "確認意願與準備",
+          "do_zh": [
+            "與主治醫師、家人討論",
+            "申請長照與輔具（電動床、氣墊床）"
+          ]
+        },
+        {
+          "when_zh": "居家照護期",
+          "goal_zh": "舒適與安全",
+          "do_zh": [
+            "學習翻身、口腔、給藥",
+            "保存團隊 24 小時聯絡電話"
+          ]
+        },
+        {
+          "when_zh": "臨終",
+          "goal_zh": "平靜陪伴",
+          "do_zh": [
+            "依先前計畫，不再撥 119 急救（若已簽 DNR）",
+            "聯絡安寧團隊協助確認死亡與開立證明"
+          ]
+        },
+        {
+          "when_zh": "離世後",
+          "goal_zh": "哀傷支持",
+          "do_zh": [
+            "團隊追蹤關懷",
+            "照顧自己的身心"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我們符合安寧居家收案嗎？",
+        "晚上或假日症狀惡化時誰來處理？",
+        "在家往生的流程是什麼？需要準備什麼？",
+        "可以同時申請長照服務嗎？"
+      ],
+      "id": "hospice_home",
+      "name_zh": "安寧居家療護與在家善終",
+      "name_en": "Home Hospice Care & Dying at Home",
+      "icd10": "Z51.5",
+      "summary_zh": "許多台灣人希望在家中走完最後一程。安寧居家療護由醫師、護理師、社工等團隊到家訪視，處理症狀、教導照顧技巧、協助準備臨終與死亡證明。健保給付癌症與多種非癌症末期病人；也可與長照服務、居家醫療合併使用。",
+      "symptoms_zh": [
+        "照顧者常擔心：不會處理症狀、怕臨終時手足無措",
+        "病人：體力下降、臥床時間增加",
+        "家屬常見疑問：不吃不喝會不會餓、呼吸聲音改變是否痛苦（多數不會）"
+      ],
+      "diagnosis_zh": [
+        "安寧團隊收案評估：疾病末期、病人與家屬意願",
+        "居家環境、照顧人力與輔具評估",
+        "討論預立醫療決定或 DNR"
+      ],
+      "treatment_zh": [
+        "定期居家訪視：症狀控制、管路與傷口照護",
+        "藥物與醫材到宅（依院所）",
+        "社工協助申請長照、喘息、輔具與經濟補助",
+        "臨終準備：衣物、宗教儀式、聯絡清單、在宅往生流程（醫師開立死亡證明）"
+      ],
+      "postop_zh": [],
+      "diet_zh": [
+        "少量、喜歡、好吞的食物",
+        "不強迫進食或灌食",
+        "口腔護理維持舒適"
+      ],
+      "exercise_zh": [
+        "協助病人在可耐受範圍內坐起、移位",
+        "照顧者注意自身腰背安全（移位技巧、輔具）"
+      ],
+      "rehab_zh": [
+        "居家物理或職能治療：擺位、移位、輔具",
+        "壓傷預防：每 2 小時翻身、氣墊床"
+      ],
+      "selfcare_zh": [
+        "照顧者輪班、安排喘息服務",
+        "把病人的願望寫下來",
+        "準備好重要文件（身分證、健保卡、DNR）"
+      ],
+      "tw_resources_zh": [
+        "健保安寧居家療護、居家醫療整合照護計畫",
+        "長照 1966：居家服務、喘息、輔具",
+        "台灣安寧照顧基金會、各地安寧緩和醫療團隊"
+      ],
+      "red_flags_zh": [
+        "症狀無法控制：先聯絡安寧團隊 24 小時電話",
+        "大量出血或抽搐：依事先討論的計畫處理並聯絡團隊",
+        "照顧者身心崩潰：尋求安寧團隊與 1966 協助"
+      ],
+      "evidence": [
+        {
+          "label": "Gomes B et al. Effectiveness and cost-effectiveness of home palliative care services for adults with advanced illness and their caregivers (Cochrane Review)",
+          "year": 2013,
+          "level": "sr"
+        },
+        {
+          "label": "Sallnow L et al. Report of the Lancet Commission on the Value of Death: bringing death back into life (Lancet)",
+          "year": 2022,
+          "level": "consensus"
+        },
+        {
+          "label": "WHO Palliative care fact sheet",
+          "year": 2020,
+          "level": "official"
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "ltc/HOME",
+          "label_zh": "居家照護與居家醫療"
+        }
+      ]
+    }
+  ]
+}

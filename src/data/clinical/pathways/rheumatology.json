@@ -1,0 +1,490 @@
+{
+  "id": "rheumatology",
+  "name_zh": "風濕免疫過敏科",
+  "name_en": "Rheumatology, Immunology & Allergy",
+  "division": "internal",
+  "curriculum_zh": "臺大「免疫學與風濕病」整合課程；陽明交大「肌肉骨骼與免疫」模組；成大「免疫與風濕」器官系統課程 → 內科見實習風濕科輪訓",
+  "scope_zh": "診治自體免疫與發炎性關節疾病，如類風濕性關節炎、紅斑性狼瘡、僵直性脊椎炎、痛風、乾燥症、血管炎，以及藥物與食物過敏、蕁麻疹。",
+  "subspecialties_zh": [
+    "發炎性關節炎",
+    "結締組織疾病（SLE、硬皮症、肌炎）",
+    "血管炎",
+    "晶體性關節炎",
+    "過敏與臨床免疫"
+  ],
+  "when_to_visit_zh": [
+    "多處小關節腫痛、晨僵 >30 分鐘超過 6 週",
+    "下背痛休息不改善、活動後反而好轉（發炎性背痛）",
+    "關節突然紅腫熱痛（如大腳趾）",
+    "不明原因皮疹、口腔潰瘍、掉髮、雷諾氏現象",
+    "ANA 陽性需判讀"
+  ],
+  "salud_links": [
+    {
+      "hash": "systems/immune",
+      "label_zh": "免疫系統"
+    },
+    {
+      "hash": "systems/musculoskeletal",
+      "label_zh": "肌肉骨骼系統"
+    }
+  ],
+  "hospitals": {
+    "NTUH": "內科部 免疫風濕過敏科",
+    "NCKUH": "內科部 過敏免疫風濕科",
+    "VGH": "內科部（過敏免疫風濕科）",
+    "CCH": "內科部 過敏免疫風濕科"
+  },
+  "block": "infect_immune",
+  "life_stages": [
+    "adult",
+    "older"
+  ],
+  "conditions": [
+    {
+      "key_numbers": [
+        {
+          "value": "3 個月",
+          "label_zh": "症狀出現後的黃金治療期"
+        },
+        {
+          "value": "6 個月",
+          "label_zh": "治療達標（treat-to-target）時限"
+        },
+        {
+          "value": "MTX",
+          "label_zh": "第一線錨定藥物"
+        }
+      ],
+      "causes_zh": [
+        "遺傳易感性（HLA-DR4 等）",
+        "吸菸",
+        "女性、荷爾蒙",
+        "牙周病"
+      ],
+      "prevention_zh": [
+        "戒菸",
+        "關節晨僵腫脹及早轉診風濕科",
+        "治療牙周病"
+      ],
+      "prognosis_zh": "及早使用疾病修飾藥物並達到緩解，可避免關節破壞與變形，多數病人能維持工作與生活；長期需注意心血管與骨鬆風險。",
+      "timeline": [
+        {
+          "when_zh": "0–3 個月",
+          "goal_zh": "確診與開始 DMARD",
+          "do_zh": [
+            "抽血、X 光",
+            "methotrexate 為主"
+          ]
+        },
+        {
+          "when_zh": "3–6 個月",
+          "goal_zh": "達標",
+          "do_zh": [
+            "未達標升階生物製劑或標靶藥"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "維持緩解",
+          "do_zh": [
+            "每 3–6 個月抽血",
+            "骨鬆、心血管與疫苗"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的疾病活動度如何？",
+        "何時需要生物製劑？",
+        "計畫懷孕要如何調藥？",
+        "需要打哪些疫苗？"
+      ],
+      "tw_resources_zh": [
+        "類風濕性關節炎可申請重大傷病",
+        "生物製劑健保事前審查"
+      ],
+      "id": "rheumatoid_arthritis",
+      "name_zh": "類風濕性關節炎",
+      "name_en": "Rheumatoid Arthritis",
+      "icd10": "M05-M06",
+      "summary_zh": "類風濕性關節炎是自體免疫造成滑膜發炎的慢性疾病，台灣盛行率約 0.3–0.5%，女性為男性 3 倍。發病 3–6 個月內積極治療（機會之窗）可避免關節破壞，健保已給付多種生物製劑與 JAK 抑制劑。",
+      "symptoms_zh": [
+        "對稱性手指近端指間、掌指關節及腕關節腫痛",
+        "晨僵超過 1 小時",
+        "疲倦、低燒",
+        "類風濕結節",
+        "晚期關節變形（尺側偏移、鵝頸變形）"
+      ],
+      "diagnosis_zh": [
+        "2010 ACR/EULAR 分類標準（≥6 分）",
+        "RF、anti-CCP 抗體（特異性 >95%）",
+        "ESR、CRP 發炎指數",
+        "手足 X 光、關節超音波或 MRI 偵測早期滑膜炎",
+        "疾病活動度 DAS28：<2.6 緩解、>5.1 高活動"
+      ],
+      "treatment_zh": [
+        "首選 methotrexate 每週 1 次，7.5 mg 起漸增至 15–25 mg，併用葉酸",
+        "短期低劑量類固醇作為橋接，3 個月內減停",
+        "3–6 個月未達標：加生物製劑（TNF 抑制劑、tocilizumab、abatacept、rituximab）或 JAK 抑制劑",
+        "目標治療（treat-to-target）：每 1–3 個月評估至緩解或低活動度",
+        "嚴重關節破壞可考慮人工關節置換"
+      ],
+      "postop_zh": [
+        "methotrexate 前 3 個月每 4–6 週驗血球、肝腎功能，之後每 3 個月",
+        "生物製劑前篩檢 B/C 肝、潛伏結核（IGRA），陽性者預防性治療",
+        "人工關節術後依骨科復健，術前後與醫師討論暫停生物製劑時機",
+        "每年追蹤心血管風險與骨密度"
+      ],
+      "diet_zh": [
+        "地中海飲食與 omega-3（魚類每週 2 次）可能減輕發炎",
+        "服 methotrexate 避免飲酒",
+        "長期類固醇者補充鈣 1,000–1,200 mg 與維生素 D",
+        "維持理想體重以減少關節負擔與提升藥效"
+      ],
+      "exercise_zh": [
+        "每週 150 分鐘中強度有氧（游泳、腳踏車、水中運動）",
+        "每週 2 次阻力訓練，急性腫痛關節避免負重",
+        "每日關節活動度運動：手指握拳伸展 10 次 ×3 組"
+      ],
+      "rehab_zh": [
+        "職能治療：手部副木（夜間休息副木）、輔具（粗柄餐具、開罐器）",
+        "關節保護原則：用大關節取代小關節出力",
+        "物理治療：急性期冰敷、慢性期溫熱（石蠟浴）",
+        "手部肌力與靈巧度訓練"
+      ],
+      "selfcare_zh": [
+        "戒菸（吸菸增加發病及降低藥效）",
+        "每年接種流感、肺炎鏈球菌、Shingrix 疫苗（避免活疫苗）",
+        "記錄關節腫痛數目與晨僵時間",
+        "備孕前 3 個月停用 methotrexate"
+      ],
+      "red_flags_zh": [
+        "發燒、咳嗽、喘（感染或間質性肺病）",
+        "頸部疼痛合併手腳麻木（寰樞椎不穩定）",
+        "口腔潰瘍、血球低下（MTX 毒性）",
+        "單一關節突然劇烈紅腫（化膿性關節炎）"
+      ],
+      "evidence": [
+        {
+          "label": "EULAR recommendations for management of RA with synthetic and biological DMARDs: 2022 update",
+          "year": 2023
+        },
+        {
+          "label": "ACR Guideline for the Treatment of Rheumatoid Arthritis",
+          "year": 2021
+        },
+        {
+          "label": "2010 ACR/EULAR Rheumatoid Arthritis Classification Criteria",
+          "year": 2010
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "exercise/mobility",
+          "label_zh": "活動度訓練"
+        },
+        {
+          "hash": "diet/patterns",
+          "label_zh": "飲食型態"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "<6",
+          "label_zh": "尿酸目標（mg/dL；有痛風石 <5）"
+        },
+        {
+          "value": "≈20%",
+          "label_zh": "台灣人帶 HLA-B*5801 比例（allopurinol 過敏風險）"
+        },
+        {
+          "value": "3–6 個月",
+          "label_zh": "開始降尿酸時合併預防發作藥物"
+        }
+      ],
+      "causes_zh": [
+        "高尿酸：遺傳、腎臟排出不足",
+        "啤酒、烈酒、內臟、海鮮",
+        "含糖飲料（果糖）",
+        "肥胖、高血壓、利尿劑、慢性腎病"
+      ],
+      "prevention_zh": [
+        "戒含糖飲料、限酒",
+        "減重",
+        "反覆發作者長期降尿酸並達標"
+      ],
+      "prognosis_zh": "尿酸持續控制在 6 以下，可讓痛風石溶解、發作逐漸消失；台灣 HLA-B*5801 帶因者使用 allopurinol 有嚴重皮膚過敏風險，用藥前應與醫師討論檢測。",
+      "timeline": [
+        {
+          "when_zh": "急性發作 0–7 天",
+          "goal_zh": "止痛消炎",
+          "do_zh": [
+            "秋水仙素、NSAIDs 或類固醇",
+            "休息、冰敷"
+          ]
+        },
+        {
+          "when_zh": "2–4 週後",
+          "goal_zh": "開始降尿酸",
+          "do_zh": [
+            "低劑量開始、逐步調整"
+          ]
+        },
+        {
+          "when_zh": "3–6 個月",
+          "goal_zh": "達標",
+          "do_zh": [
+            "尿酸 <6",
+            "預防性藥物逐步停"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的尿酸目標是多少？",
+        "使用 allopurinol 前需要驗 HLA-B*5801 嗎？",
+        "降尿酸藥要吃多久？",
+        "哪些食物最需要避免？"
+      ],
+      "tw_resources_zh": [
+        "成人預防保健 2025 年起新增尿酸檢測",
+        "中華民國風濕病醫學會衛教"
+      ],
+      "id": "gout",
+      "name_zh": "痛風",
+      "name_en": "Gout",
+      "icd10": "M10",
+      "summary_zh": "痛風是尿酸鈉結晶沉積引起的發炎性關節炎，台灣盛行率約 6%，為亞洲最高之一，男性多於女性。血尿酸 >6.8 mg/dL 即可能結晶，長期控制在 <6 mg/dL（有痛風石 <5）可溶解結晶並預防發作。",
+      "symptoms_zh": [
+        "夜間突發大腳趾（第一蹠趾關節）劇痛紅腫",
+        "腳踝、膝蓋、手腕紅腫熱痛",
+        "發作 7–14 天內自行緩解",
+        "耳廓、關節旁痛風石",
+        "合併腎結石"
+      ],
+      "diagnosis_zh": [
+        "關節液偏光顯微鏡見負雙折射針狀結晶（黃金標準）",
+        "血尿酸（急性發作時可能正常，2–4 週後再驗）",
+        "關節超音波雙軌徵（double contour sign）或雙能量 CT",
+        "評估腎功能、血糖、血脂、血壓等共病"
+      ],
+      "treatment_zh": [
+        "急性發作：24 小時內 colchicine 低劑量（1 mg 後 1 小時 0.5 mg）、NSAID 或類固醇",
+        "降尿酸藥適應症：每年發作 ≥2 次、痛風石、腎結石、CKD ≥3 期",
+        "Allopurinol 從 50–100 mg 起漸增；台灣人用前建議 HLA-B*5801 檢測（避免嚴重皮膚過敏）",
+        "Febuxostat 或 benzbromarone 為替代",
+        "開始降尿酸前 3–6 個月併用 colchicine 0.5 mg/日預防發作"
+      ],
+      "postop_zh": [
+        "降尿酸期間每 2–5 週驗尿酸調整劑量直至達標",
+        "達標後每 6–12 個月追蹤",
+        "發作期間不要停降尿酸藥",
+        "痛風石手術切除後保持傷口乾燥，持續降尿酸治療"
+      ],
+      "diet_zh": [
+        "減少內臟、濃肉湯、帶殼海鮮與啤酒",
+        "避免含高果糖糖漿飲料與果汁",
+        "每日水分 2,000 mL 以上",
+        "低脂乳製品、咖啡可能降低尿酸",
+        "減重 5–10% 可降低尿酸"
+      ],
+      "exercise_zh": [
+        "急性期休息、抬高患肢、冰敷 20 分鐘",
+        "緩解後規律中強度有氧每週 150 分鐘",
+        "避免激烈運動後脫水，運動中適時補水"
+      ],
+      "rehab_zh": [
+        "慢性痛風關節變形：關節活動度與肌力訓練",
+        "鞋墊與寬鬆鞋減輕足部壓力",
+        "肥胖者結合營養師的體重管理計畫"
+      ],
+      "selfcare_zh": [
+        "長期遵從降尿酸藥，不因不痛而停藥",
+        "記錄發作日期與誘因",
+        "定期驗血壓、血糖、血脂",
+        "避免自行使用 aspirin 高劑量或利尿劑而未告知醫師"
+      ],
+      "red_flags_zh": [
+        "關節紅腫合併高燒寒顫（排除化膿性關節炎）",
+        "服 allopurinol 後皮疹、發燒、口腔潰爛（SJS/TEN）",
+        "腰痛合併血尿（腎結石）",
+        "尿量減少"
+      ],
+      "evidence": [
+        {
+          "label": "ACR Guideline for the Management of Gout",
+          "year": 2020
+        },
+        {
+          "label": "EULAR updated evidence-based recommendations for the management of gout",
+          "year": 2016
+        },
+        {
+          "label": "中華民國風濕病醫學會 台灣痛風與高尿酸血症診治指引",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "cardiometabolic",
+          "label_zh": "心血管代謝"
+        },
+        {
+          "hash": "diet",
+          "label_zh": "飲食原則"
+        }
+      ]
+    },
+    {
+      "key_numbers": [
+        {
+          "value": "≤5 mg/kg",
+          "label_zh": "hydroxychloroquine 每日劑量上限"
+        },
+        {
+          "value": "HLA-B27",
+          "label_zh": "僵直性脊椎炎相關基因"
+        },
+        {
+          "value": "每年",
+          "label_zh": "HCQ 使用滿 5 年後眼科檢查"
+        }
+      ],
+      "causes_zh": [
+        "遺傳 + 荷爾蒙 + 環境因素",
+        "紫外線、感染、部分藥物誘發",
+        "僵直性脊椎炎：HLA-B27",
+        "吸菸加重病程"
+      ],
+      "prevention_zh": [
+        "紅斑性狼瘡：嚴格防曬",
+        "戒菸",
+        "接種不活化疫苗、定期骨密度"
+      ],
+      "prognosis_zh": "紅斑性狼瘡在現代治療下十年存活率超過九成；僵直性脊椎炎持續運動與生物製劑可維持脊椎活動度與工作能力。",
+      "timeline": [
+        {
+          "when_zh": "確診 0–3 個月",
+          "goal_zh": "控制發炎",
+          "do_zh": [
+            "開始 HCQ 或 NSAIDs",
+            "器官評估"
+          ]
+        },
+        {
+          "when_zh": "3–12 個月",
+          "goal_zh": "調整與維持",
+          "do_zh": [
+            "類固醇減到最低",
+            "生物製劑評估"
+          ]
+        },
+        {
+          "when_zh": "長期",
+          "goal_zh": "預防器官傷害",
+          "do_zh": [
+            "每 3–6 個月抽血與尿液",
+            "眼科、骨密度追蹤"
+          ]
+        }
+      ],
+      "questions_zh": [
+        "我的疾病有影響腎臟或其他器官嗎？",
+        "類固醇要吃多久？",
+        "懷孕前需要準備什麼？",
+        "哪些運動適合我？"
+      ],
+      "tw_resources_zh": [
+        "紅斑性狼瘡與僵直性脊椎炎可申請重大傷病",
+        "生物製劑健保事前審查",
+        "病友協會衛教"
+      ],
+      "id": "sle_as",
+      "name_zh": "紅斑性狼瘡與僵直性脊椎炎",
+      "name_en": "Systemic Lupus Erythematosus & Ankylosing Spondylitis",
+      "icd10": "M32, M45",
+      "summary_zh": "紅斑性狼瘡為多器官自體免疫疾病，好發於 15–45 歲女性，台灣盛行率約每 10 萬人 100 人。僵直性脊椎炎（軸性脊椎關節炎）好發於 20–40 歲男性，台灣 HLA-B27 陽性率約 6–8%，以發炎性下背痛為主，兩者皆屬重大傷病。",
+      "symptoms_zh": [
+        "SLE：蝴蝶斑、光敏感、口腔潰瘍、掉髮、關節痛",
+        "SLE：水腫、泡泡尿（狼瘡腎炎）、發燒、疲倦",
+        "AS：40 歲前發生、超過 3 個月的下背痛，晨僵、活動後改善",
+        "AS：夜間痛醒、臀部交替痛、足跟痛",
+        "眼睛紅痛畏光（葡萄膜炎）"
+      ],
+      "diagnosis_zh": [
+        "SLE：2019 EULAR/ACR 分類標準（ANA ≥1:80 為入門條件）",
+        "Anti-dsDNA、補體 C3/C4、尿蛋白/肌酸酐比，必要時腎臟切片",
+        "AS：HLA-B27、骨盆 X 光看薦腸關節炎、薦腸關節 MRI",
+        "ASAS 分類標準與 BASDAI 評估活動度（≥4 為高活動）"
+      ],
+      "treatment_zh": [
+        "SLE：所有病人長期 hydroxychloroquine（≤5 mg/kg/日）",
+        "SLE：類固醇儘量減至 ≤5 mg/日 prednisolone；免疫抑制劑（mycophenolate、azathioprine）",
+        "SLE 腎炎或難治：belimumab、anifrolumab、cyclophosphamide",
+        "AS：NSAID 為第一線，足量至少 2–4 週",
+        "AS 對 NSAID 反應不佳：TNF 抑制劑或 IL-17 抑制劑、JAK 抑制劑"
+      ],
+      "postop_zh": [
+        "SLE 穩定期每 3 個月抽血驗尿",
+        "Hydroxychloroquine 使用 5 年後每年眼科視網膜檢查",
+        "生物製劑前篩檢結核與 B 肝",
+        "AS 嚴重脊柱後凸或髖關節破壞可行矯正手術或人工髖關節，術後漸進復健"
+      ],
+      "diet_zh": [
+        "SLE 腎炎者限鹽 <5 g/日、依腎功能調整蛋白質",
+        "長期類固醇者補鈣與維生素 D、控制熱量",
+        "地中海飲食降低心血管風險",
+        "AS 避免吸菸飲酒"
+      ],
+      "exercise_zh": [
+        "AS：每日脊椎伸展與姿勢訓練 15–30 分鐘為治療核心",
+        "AS：游泳、水中運動維持脊椎活動度",
+        "SLE：中低強度有氧與阻力訓練改善疲倦，避免正午戶外運動"
+      ],
+      "rehab_zh": [
+        "AS：物理治療監督下團體運動優於居家單獨運動",
+        "AS：深呼吸與胸廓擴張訓練維持肺活量",
+        "AS：俯臥每日 15–20 分鐘、睡硬床低枕預防駝背",
+        "SLE 關節炎：關節保護與職能治療"
+      ],
+      "selfcare_zh": [
+        "SLE 嚴格防曬（SPF ≥30、帽子、陽傘）",
+        "SLE 計畫懷孕需疾病穩定 6 個月以上並與醫師討論用藥",
+        "戒菸",
+        "定期測量身高與枕牆距離追蹤駝背進展"
+      ],
+      "red_flags_zh": [
+        "SLE：水腫、尿量減少、血壓升高（腎炎）",
+        "SLE：抽搐、意識改變、胸痛（漿膜炎）",
+        "發燒（感染或疾病活動）",
+        "AS：眼睛紅痛視力模糊須 24 小時內就醫",
+        "AS：輕微外傷後頸背劇痛（脊椎骨折）"
+      ],
+      "evidence": [
+        {
+          "label": "EULAR recommendations for the management of SLE: 2023 update",
+          "year": 2024
+        },
+        {
+          "label": "2019 EULAR/ACR Classification Criteria for SLE",
+          "year": 2019
+        },
+        {
+          "label": "ASAS-EULAR recommendations for management of axial spondyloarthritis: 2022 update",
+          "year": 2023
+        }
+      ],
+      "salud_links": [
+        {
+          "hash": "spine/OVERVIEW",
+          "label_zh": "脊椎總覽"
+        },
+        {
+          "hash": "spine/REHAB",
+          "label_zh": "脊椎復健"
+        }
+      ]
+    }
+  ]
+}
