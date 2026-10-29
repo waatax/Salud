@@ -16,6 +16,7 @@ import { HEPB_CHAPTERS, HBV_MARKERS, HBV_DRUGS } from '../hepbData';
 import { LTC_CHAPTERS, OTHER_SCALES, FACILITY_TYPES, SKILL_CARDS, OTHER_SUBSIDIES } from '../ltcData';
 import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
 import { CLINIC_SEARCH_DOCS } from '../clinical/searchLite.generated';
+import { expandLay, splitWho } from './layTerms';
 
 export type SearchGroup =
   | '實用技巧'
@@ -473,8 +474,10 @@ const norm = (s: string) => s.toLowerCase().normalize('NFKC');
  * subtitle, which outweighs the hidden keywords; a title that starts with the query wins.
  */
 export function searchDocs(docs: SearchDoc[], query: string, limit = 40): SearchDoc[] {
-  const tokens = norm(query).split(/\s+/).filter(Boolean);
-  if (!tokens.length) return [];
+  // Each word may also match the terms it stands for (layTerms.ts): 血壓高 → 高血壓.
+  const words = norm(query).split(/\s+/).filter(Boolean).flatMap(splitWho);
+  if (!words.length) return [];
+  const tokens = words.map(expandLay);
   const scored: { doc: SearchDoc; score: number }[] = [];
   for (const doc of docs) {
     const title = norm(doc.title);
@@ -482,14 +485,17 @@ export function searchDocs(docs: SearchDoc[], query: string, limit = 40): Search
     const kw = norm(doc.keywords);
     let score = 0;
     let ok = true;
-    for (const t of tokens) {
-      if (title.includes(t)) score += title.startsWith(t) ? 12 : 8;
-      else if (sub.includes(t)) score += 4;
-      else if (kw.includes(t)) score += 1;
-      else {
+    for (const alts of tokens) {
+      let best = 0;
+      for (const t of alts) {
+        const s = title.includes(t) ? (title.startsWith(t) ? 12 : 8) : sub.includes(t) ? 4 : kw.includes(t) ? 1 : 0;
+        if (s > best) best = s;
+      }
+      if (!best) {
         ok = false;
         break;
       }
+      score += best;
     }
     if (!ok) continue;
     score += (GROUP_ORDER.length - GROUP_ORDER.indexOf(doc.group)) / 100; // tie-break only: lessons & labs first

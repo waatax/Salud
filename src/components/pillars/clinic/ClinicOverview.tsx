@@ -15,6 +15,7 @@ import {
 } from '../../../data/clinical';
 import { prefetchDepartment } from '../../../data/clinical/loadDepartment';
 import { SYMPTOMS } from '../../../data/clinical/symptoms';
+import { expandLay } from '../../../data/learning/layTerms';
 import type { OverviewView } from './clinicPath';
 import { Card, Chip, Disclaimer, HOSP_ORDER, HospitalBadges, HospitalSourceLink, RowLink } from './clinicUi';
 import { SymptomNavigator } from './ClinicSymptoms';
@@ -50,7 +51,8 @@ const useClinicSearch = (q: string) => {
   return useMemo(() => {
     const s = norm(q);
     if (!s) return null;
-    const hit = (...texts: (string | undefined)[]) => texts.some((t) => t && norm(t).includes(s));
+    const alts = expandLay(s);
+    const hit = (...texts: (string | undefined)[]) => texts.some((t) => t && alts.some((a) => norm(t).includes(a)));
     const conds = CONDITION_INDEX.filter(({ dept, cond }) =>
       hit(cond.name_zh, cond.name_en, cond.icd10, dept.name_zh, keywords?.get(`clinic/${dept.id}/${cond.id}`))
     ).slice(0, 40);

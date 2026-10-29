@@ -4,7 +4,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.1.1-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.1.2-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

@@ -174,3 +174,14 @@ test('the app bundle never reaches the full clinical data', () => {
   assert.ok(seen.has(join(CLINICAL, 'loadDepartment.ts')), 'walker should reach the clinic hub');
   assert.deepEqual(heavy.map((f) => relative(SRC, f)), [], 'app code imports the full clinical data; use data/clinical (light index) or loadDepartment');
 });
+
+test('everyday words reach the right pages', () => {
+  const docs = buildSearchIndex();
+  const hit = (q: string, target: string) => assert.ok(searchDocs(docs, q).some((d) => d.target === target), `search "${q}" should reach ${target}`);
+  hit('血壓高', 'clinic/cardiology/hypertension');
+  hit('胸口痛', 'clinic/by/symptom/chest_pain');
+  hit('尿尿痛', 'clinic/urology');
+  hit('月經痛', 'clinic/gynecology/endometriosis');
+  hit('小孩發燒', 'clinic/by/symptom/fever');
+  hit('皮膚癢', 'clinic/dermatology');
+});
