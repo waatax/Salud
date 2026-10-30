@@ -184,4 +184,9 @@ test('everyday words reach the right pages', () => {
   hit('月經痛', 'clinic/gynecology/endometriosis');
   hit('小孩發燒', 'clinic/by/symptom/fever');
   hit('皮膚癢', 'clinic/dermatology');
+  const top = (q: string, target: string) => assert.ok(searchDocs(docs, q).slice(0, 3).some((d) => d.target === target), `search "${q}" should rank ${target} in the top 3`);
+  top('長痘痘', 'clinic/dermatology/acne_care');
+  top('青春痘', 'clinic/dermatology/acne_care');
+  top('眼睛乾', 'clinic/ophthalmology/dry_eye');
+  top('眼睛澀', 'clinic/ophthalmology/dry_eye');
 });
