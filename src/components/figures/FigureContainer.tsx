@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FigureMeta } from '../../types';
 import { EvidenceBadge } from '../common/EvidenceBadge';
-import { Maximize2, Table, ChevronDown, ChevronUp, FileText, CheckCircle } from 'lucide-react';
+import { Maximize2, Table, ChevronDown, ChevronUp, FileText, CheckCircle, Copy, CheckCheck, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 import { Modal } from '../common/Modal';
 
 interface Props {
@@ -14,33 +14,75 @@ export const FigureContainer: React.FC<Props> = ({ meta, children, className = '
   const [showTable, setShowTable] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showDesc, setShowDesc] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
+  const [copiedCaption, setCopiedCaption] = useState(false);
+
+  const handleCopyCaption = () => {
+    navigator.clipboard.writeText(`【${meta.id}】${meta.title || ''}\n說明：${meta.caption || ''}\n描述：${meta.alt_text || ''}`);
+    setCopiedCaption(true);
+    setTimeout(() => setCopiedCaption(false), 2000);
+  };
+
+  const handleZoomIn = () => setZoomLevel((z) => Math.min(z + 0.25, 2.5));
+  const handleZoomOut = () => setZoomLevel((z) => Math.max(z - 0.25, 0.75));
+  const handleResetZoom = () => setZoomLevel(1);
 
   return (
     <figure
-      className={`group relative rounded-2xl border border-salud-light-border dark:border-salud-dark-border bg-salud-light-surface dark:bg-salud-dark-surface overflow-hidden transition-all duration-200 hover:border-salud-light-borderHover dark:hover:border-salud-dark-borderHover shadow-sm ${className}`}
+      className={`group relative rounded-3xl border border-salud-light-border dark:border-salud-dark-border bg-salud-light-surface dark:bg-salud-dark-surface overflow-hidden transition-all duration-200 hover:border-salud-light-borderHover dark:hover:border-salud-dark-borderHover shadow-sm ${className}`}
     >
       {/* Figure Top Bar */}
-      <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-salud-light-border/60 dark:border-salud-dark-border/60 bg-salud-light-card/50 dark:bg-salud-dark-card/30">
+      <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-salud-light-border/60 dark:border-salud-dark-border/60 bg-salud-light-card/60 dark:bg-salud-dark-card/40">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-salud-amber/15 text-salud-amber-700 dark:text-salud-amber-400 border border-salud-amber/30">
+          <span className="text-xs font-mono font-extrabold px-2.5 py-0.5 rounded-full bg-salud-amber/15 text-salud-amber-800 dark:text-salud-amber-300 border border-salud-amber/30">
             {meta.id}
           </span>
-          <span className="text-xs font-mono px-2 py-0.5 rounded bg-salud-cyan/15 text-salud-cyan-700 dark:text-salud-cyan-400 border border-salud-cyan/30 hidden sm:inline">
+          <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-salud-cyan/15 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/30 hidden sm:inline font-bold">
             Type {meta.type}
           </span>
         </div>
 
         {/* Interactive action buttons */}
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          {/* Zoom controls */}
+          <div className="hidden sm:flex items-center p-0.5 rounded-xl border border-salud-light-border dark:border-salud-dark-border bg-white/70 dark:bg-slate-900/70 text-slate-600 dark:text-slate-400">
+            <button
+              onClick={handleZoomOut}
+              disabled={zoomLevel <= 0.75}
+              className="p-1 hover:text-slate-900 dark:hover:text-white disabled:opacity-40 transition-colors"
+              title="縮小"
+            >
+              <ZoomOut className="w-3.5 h-3.5" />
+            </button>
+            <span className="px-1.5 text-[10px] font-mono font-bold select-none">{Math.round(zoomLevel * 100)}%</span>
+            <button
+              onClick={handleZoomIn}
+              disabled={zoomLevel >= 2.5}
+              className="p-1 hover:text-slate-900 dark:hover:text-white disabled:opacity-40 transition-colors"
+              title="放大"
+            >
+              <ZoomIn className="w-3.5 h-3.5" />
+            </button>
+            {zoomLevel !== 1 && (
+              <button
+                onClick={handleResetZoom}
+                className="p-1 hover:text-salud-cyan transition-colors"
+                title="重設大小"
+              >
+                <RotateCcw className="w-3 h-3" />
+              </button>
+            )}
+          </div>
+
           {meta.data_table && (
             <button
               onClick={() => setShowTable(!showTable)}
-              className={`flex items-center gap-1 text-xs font-mono px-2.5 py-1 rounded-lg border transition-all ${
+              className={`flex items-center gap-1 text-xs font-mono px-2.5 py-1 rounded-xl border transition-all ${
                 showTable
-                  ? 'bg-salud-cyan/20 border-salud-cyan/50 text-salud-cyan-700 dark:text-salud-cyan-300 font-bold'
+                  ? 'bg-salud-cyan/20 border-salud-cyan/50 text-salud-cyan-800 dark:text-salud-cyan-300 font-bold'
                   : 'border-salud-light-border dark:border-salud-dark-border text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:border-slate-400 dark:hover:border-slate-600'
               }`}
-              title="切換無障礙等價資料表"
+              title="切換無障礙等價資料表 (WCAG 2.2 AA)"
               aria-expanded={showTable}
             >
               <Table className="w-3.5 h-3.5" />
@@ -51,9 +93,9 @@ export const FigureContainer: React.FC<Props> = ({ meta, children, className = '
 
           <button
             onClick={() => setShowDesc(!showDesc)}
-            className={`p-1.5 rounded-lg border transition-all ${
+            className={`p-1.5 rounded-xl border transition-all ${
               showDesc
-                ? 'bg-salud-amber/20 border-salud-amber/50 text-salud-amber-700 dark:text-salud-amber-300'
+                ? 'bg-salud-amber/20 border-salud-amber/50 text-salud-amber-800 dark:text-salud-amber-300'
                 : 'border-salud-light-border dark:border-salud-dark-border text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:border-slate-400 dark:hover:border-slate-600'
             }`}
             title="查看完整科學文字長描述 (Long Description)"
@@ -63,8 +105,16 @@ export const FigureContainer: React.FC<Props> = ({ meta, children, className = '
           </button>
 
           <button
+            onClick={handleCopyCaption}
+            className="p-1.5 rounded-xl border border-salud-light-border dark:border-salud-dark-border text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:border-slate-400 dark:hover:border-slate-600 transition-all"
+            title="複製圖解標題與描述"
+          >
+            {copiedCaption ? <CheckCheck className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+          </button>
+
+          <button
             onClick={() => setIsFullscreen(true)}
-            className="p-1.5 rounded-lg border border-salud-light-border dark:border-salud-dark-border text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:border-slate-400 dark:hover:border-slate-600 transition-all"
+            className="p-1.5 rounded-xl border border-salud-light-border dark:border-salud-dark-border text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:border-slate-400 dark:hover:border-slate-600 transition-all"
             title="全螢幕檢視放大圖解"
             aria-label="全螢幕檢視圖解"
           >
@@ -75,7 +125,10 @@ export const FigureContainer: React.FC<Props> = ({ meta, children, className = '
 
       {/* Main SVG Render Area (CLS = 0 with min-height & responsive layout) */}
       <div className="p-4 sm:p-6 flex items-center justify-center min-h-[300px] sm:min-h-[380px] overflow-hidden bg-slate-100/60 dark:bg-salud-dark-bg/40">
-        <div className="w-full max-w-full overflow-x-auto flex justify-center">
+        <div
+          className="w-full max-w-full overflow-x-auto flex justify-center transition-transform duration-200"
+          style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center' }}
+        >
           {children}
         </div>
       </div>
