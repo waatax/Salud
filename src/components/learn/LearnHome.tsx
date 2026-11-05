@@ -59,6 +59,8 @@ const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigat
 
 /** 熱門即時探索主題標籤 */
 const POPULAR_CHIPS = [
+  { label: '三高完整指南', hash: 'cardiometabolic/THREE_HIGHS', icon: HeartPulse, tone: 'text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
+  { label: '猛健樂完整指南', hash: 'obesity/TIRZEPATIDE_PROTOCOL', icon: Scale, tone: 'text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/40' },
   { label: '🏥 50 科 157 照護路徑', hash: 'clinic', icon: Stethoscope, tone: 'text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/40' },
   { label: '🧭 我該掛哪一科？', hash: 'clinic/by/symptom', icon: Stethoscope, tone: 'text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800 bg-amber-100/70 dark:bg-amber-950/40' },
   { label: '肝膽腸胃科 12 課', hash: 'gastro', icon: Stethoscope, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
@@ -240,13 +242,13 @@ const CURATED_TOPICS: CuratedTopic[] = [
   {
     id: 't-cardio',
     category: 'cardio',
-    title_zh: '心血代謝與 ApoB',
+    title_zh: '三高與心血管健康',
     title_en: 'Cardiometabolic & ApoB',
-    tagline_zh: 'ApoB 顆粒計數致病論、CAC 血管鈣化積分早篩、動脈硬化阻斷路徑',
-    hash: 'cardiometabolic',
+    tagline_zh: '輸入健檢數字看下一步；血壓、血糖、血脂怎麼看、怎麼吃、怎麼動、怎麼治療',
+    hash: 'cardiometabolic/THREE_HIGHS',
     icon: HeartPulse,
     tone: 'rose',
-    badges: ['ACC/AHA 指引', 'ApoB vs LDL', '心血管風險'],
+    badges: ['體重與三高指南', 'ApoB 與 LDL', '心血管風險'],
   },
   {
     id: 't-bp722',
@@ -297,11 +299,11 @@ const CURATED_TOPICS: CuratedTopic[] = [
     category: 'recomp_aging',
     title_zh: '增肌減脂與體組成',
     title_en: 'Body Recomp & Obesity',
-    tagline_zh: '能量赤字、蛋白質槓桿、GLP-1 藥物利弊剖析、EOSS 肥胖分期與體脂計算',
+    tagline_zh: '能量赤字、蛋白質、肌力訓練、猛健樂等減重藥物的用法與利弊、肥胖分期',
     hash: 'obesity',
     icon: Scale,
     tone: 'amber',
-    badges: ['體組成計算機', '減重藥物矩陣', '肌肉保留處方'],
+    badges: ['猛健樂完整指南', '體組成計算機', '減重藥物比較'],
   },
   {
     id: 't-longevity',

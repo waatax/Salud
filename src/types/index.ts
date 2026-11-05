@@ -895,6 +895,7 @@ export interface KpInfoGraph {
 // ── Hypertrophy & Fat Loss Types (增肌減脂與體組成專區) ──
 export type ObesitySubTab = 
   | 'OVERVIEW' 
+  | 'TIRZEPATIDE_PROTOCOL'
   | 'HYPERTROPHY'
   | 'FAT_LOSS'
   | 'RECOMP'
@@ -1138,6 +1139,7 @@ export interface LongevityQuizItem {
 // ── Cardiometabolic Medicine Types (心血代謝專科總樞紐) ──
 export type CardiometabolicSubTab =
   | 'OVERVIEW'
+  | 'THREE_HIGHS'
   | 'LIPIDS_APOB'
   | 'BP_722'
   | 'ATHERO_CAC'

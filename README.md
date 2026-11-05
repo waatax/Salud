@@ -4,10 +4,18 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.1.3-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.2.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
+
+## 💉 v6.2.0：猛健樂完整指南 · 體重與三高系統化（2026-11）
+
+- **猛健樂（tirzepatide）完整指南**（`#obesity/TIRZEPATIDE_PROTOCOL`）：12 節，由「適合我嗎」一路到「長期與停藥」。每節先給一句話答案，再給圖表與工具，最後才是可展開的深入內容。內容依 2026-08 美國仿單、食藥署公告與 SURMOUNT 系列（含 SURMOUNT-MAINTAIN）整理。
+- **五個互動工具**：適應條件對照、體重換算（以試驗平均值呈現範圍）、升劑量討論指引、蛋白質目標與台灣食物排排看、副作用處理與紅色警訊。
+- **體重與三高完整指南**（`#cardiometabolic/THREE_HIGHS`）：輸入健檢數字，看落點、代謝症候群、CKM 下限與下一步；四個主題共用同一份骨架（數字、目標、吃、動、治療、追蹤、警訊）。
+- **知識地圖**：4 個主題 × 5 個層次，把站內既有課程、照護路徑與工具串起來，連結由測試保證。
+- **介面**：專區分頁改為分組與白話標籤、非總覽分頁不再被大型橫幅推到下方、段落導覽可追蹤閱讀位置、手機版浮動按鈕不再遮住內容。
 
 ## 🏥 v6.1.0：臨床科別知識庫——依四大醫學中心部科 × 前三志願醫學系課程重建（2026-10）
 

@@ -123,6 +123,33 @@ export const EVIDENCE_UPDATES: EvidenceUpdate[] = [
     related_hash: 'obesity/PHARMACOTHERAPY',
   },
   {
+    id: 'UPD-2026-SURMOUNT-MAINTAIN',
+    date: '2026-05',
+    category: 'metabolic',
+    org: 'Lancet：SURMOUNT-MAINTAIN',
+    title_zh: '猛健樂減量試驗：繼續原劑量最好，降到 5 mg 約保住 7 成',
+    what_changed_zh:
+      '先用 tirzepatide 最高耐受劑量（10 或 15 mg）60 週，再隨機分配 52 週。第 112 週平均體重變化：繼續原劑量 −21.9%、降到 5 mg −16.6%、改安慰劑 −9.9%；仍維持減重 ≥20% 的比例為 55%、37%、8%。',
+    what_it_means_zh:
+      '這是第一個直接測試「減量維持」的隨機試驗。對費用或耐受度有疑慮的人，降到 5 mg 比完全停藥好，但不是每個人都守得住。自行拉長打針間隔則沒有同等證據。',
+    caveat_zh: '受試者全部來自美國，平均 BMI 約 40；哪些人適合減量仍未解答。數字取自公開摘要與會議報告，應以原文為準。',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/?term=SURMOUNT-MAINTAIN%20tirzepatide%20maintenance%20Lancet%202026',
+    related_hash: 'obesity/TIRZEPATIDE_PROTOCOL',
+  },
+  {
+    id: 'UPD-2025-SURPASS-CVOT',
+    date: '2025-12',
+    category: 'metabolic',
+    org: 'NEJM：SURPASS-CVOT',
+    title_zh: 'Tirzepatide 心血管安全：對照 dulaglutide 達不劣於',
+    what_changed_zh:
+      '第 2 型糖尿病合併動脈硬化性心血管疾病者，主要心血管事件 12.2% 對 13.1%（HR 0.92），達不劣於但未達優於。全死因 HR 0.84，屬未校正多重比較的探索性結果。',
+    what_it_means_zh:
+      '已有心血管病的糖尿病患者使用 tirzepatide，心血管安全性有長期資料支持。這份結果不能直接套用到沒有糖尿病的肥胖者，該族群的 SURMOUNT-MMO 仍待發表。',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/?term=SURPASS-CVOT%20tirzepatide%20dulaglutide%20Nicholls%20NEJM%202025',
+    related_hash: 'obesity/TIRZEPATIDE_PROTOCOL',
+  },
+  {
     id: 'UPD-2025-SURMOUNT5',
     date: '2025-05',
     category: 'metabolic',

@@ -12,7 +12,8 @@ interface Props {
 
 /**
  * FloatingReadingDock — ergonomic reading assistant for mobile and desktop.
- * Floats unobtrusively at bottom-right after scrolling, offering 1-tap font size
+ * Floats at bottom-right after scrolling. Below 2xl only back-to-top shows: the other three already
+ * live in the sticky header and would otherwise cover the reading column. Offers 1-tap font size
  * cycling, theme palette switching (暗色/藍青/棕色/粉色/森林綠), and smooth scroll back to top.
  */
 export const FloatingReadingDock: React.FC<Props> = () => {
@@ -48,7 +49,7 @@ export const FloatingReadingDock: React.FC<Props> = () => {
     >
       <button
         onClick={() => openModal('backpack')}
-        className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md flex items-center justify-center hover:text-amber-600 dark:hover:text-amber-400 backdrop-blur-md btn-tactile"
+        className="relative hidden 2xl:flex w-11 h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md items-center justify-center hover:text-amber-600 dark:hover:text-amber-400 backdrop-blur-md btn-tactile"
         title="我的健康背包與收藏"
         aria-label="我的健康背包與收藏"
       >
@@ -62,7 +63,7 @@ export const FloatingReadingDock: React.FC<Props> = () => {
 
       <button
         onClick={cycleFontSize}
-        className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md flex items-center justify-center hover:text-emerald-700 dark:hover:text-emerald-400 backdrop-blur-md btn-tactile"
+        className="hidden 2xl:flex w-11 h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md items-center justify-center hover:text-emerald-700 dark:hover:text-emerald-400 backdrop-blur-md btn-tactile"
         title={`調整字級大小（當前：${fontSizeLabel}）`}
         aria-label={`調整字級大小，當前：${fontSizeLabel}`}
       >
@@ -71,7 +72,7 @@ export const FloatingReadingDock: React.FC<Props> = () => {
 
       <button
         onClick={cycleTheme}
-        className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md flex items-center justify-center hover:text-emerald-700 dark:hover:text-emerald-400 backdrop-blur-md btn-tactile"
+        className="hidden 2xl:flex w-11 h-11 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 shadow-md items-center justify-center hover:text-emerald-700 dark:hover:text-emerald-400 backdrop-blur-md btn-tactile"
         title={`切換配色主題（當前：${currentTheme.label}，點擊切換：暗色／藍青／棕色／粉色／森林綠）`}
         aria-label={`切換配色主題，當前：${currentTheme.label}`}
       >

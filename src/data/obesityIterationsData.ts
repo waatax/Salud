@@ -206,7 +206,7 @@ export const CLINICAL_TRIALS_DATABASE: ClinicalTrialRecord[] = [
     mean_weight_loss_pct: 20.9, // 15mg 組達 20.9% ~ 22.5%
     placebo_loss_pct: 3.1,
     primary_endpoints: '91% 達成減重 ≥5%，57% 達成減重 ≥20%，36% 達成減重 ≥25%',
-    cardiovascular_metabolic_notes: '減重幅度逼近代謝手術，95.3% 原前期糖尿病患者完全恢復為正常血糖。',
+    cardiovascular_metabolic_notes: '95.3% 糖尿病前期受試者於第 72 週回到正常血糖。',
     source_citation: 'Jastreboff AM, et al. N Engl J Med. 2022;387:205-216.',
   },
   {
@@ -433,17 +433,17 @@ export const OBESITY_MASTERY_QUIZZES: MasteryQuizQuestion[] = [
   {
     id: 'QUIZ-03',
     category: '去脂體重保護',
-    question: '在使用強效抗肥胖藥物（如 Tirzepatide 或 Semaglutide）期間，為了防止高達 35% 的骨骼肌嚴重流失，臨床指南建議每日蛋白質最低應攝取多少？',
+    question: '使用強效抗肥胖藥物（如 tirzepatide 或 semaglutide）減重期間，為了減少肌肉流失，較合理的做法是？',
     options: [
       '0.6 ~ 0.8 g/kg 理想體重 (一般成人最低 RDA)',
-      '1.6 ~ 2.0 g/kg 理想體重，並搭配抗阻力重訓',
+      '蛋白質約 1.2 ~ 1.6 g/kg（依參考體重），並搭配肌力訓練',
       '只需多喝水，蛋白質不需特別補充',
       '3.5 ~ 4.5 g/kg 超極限攝取',
     ],
     correct_index: 1,
-    clinical_pearl_zh: '蛋白質是減重期對抗肌少症肥胖的唯一有效營養護盾，單靠節食必流失肌肉。',
+    clinical_pearl_zh: '聯合共識強調：只補蛋白質、不做肌力訓練，很可能不足以保留肌肉。',
     biochemical_explanation_zh:
-      '熱量赤字下人體會水解骨骼肌以進行糖質新生。攝取 1.6-2.0 g/kg 蛋白質能保證每餐達到「白胺酸閾值 (Leucine Trigger)」，活化 mTORC1 阻斷泛素分解通道。',
+      '熱量赤字下，身體會分解部分肌肉蛋白。足夠的蛋白質提供修復原料，肌力訓練則提供「留下肌肉」的訊號。肥胖者用實際體重計算容易高估，長期 ≥2 g/kg 也應避免。',
     target_remedy_tab: 'DIETARY_REGIMENS',
   },
   {

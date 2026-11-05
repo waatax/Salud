@@ -243,6 +243,22 @@ export function buildSearchIndex(): SearchDoc[] {
       subtitle: '頸前凸、胸後凸、腰前凸、薦骨彈簧避震與矢狀平衡 (Sagittal Balance)',
       target: 'spine/OVERVIEW',
       keywords: '脊柱健康 脊椎健康 生理曲線 彈簧避震 矢狀平衡 Sagittal Balance 頸前凸 胸後凸 腰前凸 平背 駝背 避震',
+    },
+    {
+      id: 'topic:tirzepatide',
+      group: '主題',
+      title: '猛健樂（tirzepatide）完整指南：瘦瘦針怎麼用才有效',
+      subtitle: '適應症、劑量怎麼爬、怎麼打、保住肌肉、副作用、三高用藥調整、停藥與長期維持',
+      target: 'obesity/TIRZEPATIDE_PROTOCOL',
+      keywords: '瘦瘦針 猛健樂 tirzepatide Mounjaro Zepbound 腸泌素 GIP GLP-1 減重針 打針減肥 善纖達 Saxenda 週纖達 Wegovy 劑量 升劑量 漏打 注射 嘔吐 噁心 便秘 打嗝 蛋白質 肌肉流失 復胖 停藥 減量 平台期 副作用 減重 肥胖 體重',
+    },
+    {
+      id: 'topic:three-highs-synergy',
+      group: '工具',
+      title: '體重與三高完整指南：輸入健檢數字看下一步',
+      subtitle: '為什麼三高常一起來、數字怎麼看、怎麼吃怎麼動怎麼治療，以及減重能改善多少',
+      target: 'cardiometabolic/THREE_HIGHS',
+      keywords: '三高 高血壓 高血糖 高血脂 體重 內臟脂肪 胰島素阻抗 糖尿病 ApoB 膽固醇 三酸甘油酯 722 血壓 血管硬化 CKM 心臟 腦中風',
     }
   );
   for (const n of NUMB_CAUSES) {

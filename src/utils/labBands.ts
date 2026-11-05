@@ -69,6 +69,42 @@ export function classifyEGFR(v: number): BandResult | null {
   return { label_zh: 'G5 腎衰竭範圍', tone: 'bad', note_zh: '請盡快就醫。' };
 }
 
+/** Fasting triglycerides, mg/dL. ≥500 raises pancreatitis risk and needs prompt treatment. */
+export function classifyTG(v: number): BandResult | null {
+  if (!(v > 0)) return null;
+  if (v < 150) return { label_zh: '正常', tone: 'good' };
+  if (v < 200) return { label_zh: '邊緣偏高', tone: 'warn', note_zh: '先從含糖飲料、精緻澱粉、酒精與體重著手。' };
+  if (v < 500) return { label_zh: '偏高', tone: 'warn', note_zh: '請複查空腹數值，並評估糖尿病、飲酒、甲狀腺與用藥。' };
+  return { label_zh: '非常高', tone: 'bad', note_zh: '急性胰臟炎風險上升，請盡快就醫；若有劇烈上腹痛請掛急診。' };
+}
+
+/**
+ * LDL-C, mg/dL. There is no single normal value: the target follows cardiovascular risk (Taiwan 2025
+ * lipid pathway), so this only flags how far the number is from the lowest-risk band.
+ */
+export function classifyLDL(v: number): BandResult | null {
+  if (!(v > 0)) return null;
+  if (v < 100) return { label_zh: '多數人可接受', tone: 'good', note_zh: '已有心血管疾病者目標 <70，極高風險者 <55。' };
+  if (v < 130) return { label_zh: '依風險判斷', tone: 'neutral', note_zh: '低風險目標 <130、中風險 <115、高風險（如糖尿病、慢性腎臟病）<100。' };
+  if (v < 190) return { label_zh: '偏高', tone: 'warn', note_zh: '請評估心血管風險，討論生活調整與是否用藥。' };
+  return { label_zh: '很高', tone: 'bad', note_zh: 'LDL ≥190 屬高風險，通常需要藥物治療，並評估家族性高膽固醇血症。' };
+}
+
+export function classifyHDL(v: number, sex: 'M' | 'F'): BandResult | null {
+  if (!(v > 0)) return null;
+  const cut = sex === 'M' ? 40 : 50;
+  if (v < cut) return { label_zh: '偏低', tone: 'warn', note_zh: `${sex === 'M' ? '男性' : '女性'}低於 ${cut} 計入代謝症候群；運動、減重與戒菸有助改善。不建議用藥物專門拉高。` };
+  return { label_zh: '達標', tone: 'good' };
+}
+
+/** Taiwan HPA waist line for central obesity. */
+export function classifyWaist(v: number, sex: 'M' | 'F'): BandResult | null {
+  if (!(v > 0)) return null;
+  const cut = sex === 'M' ? 90 : 80;
+  if (v >= cut) return { label_zh: '腹部肥胖', tone: 'warn', note_zh: `${sex === 'M' ? '男性' : '女性'} ≥${cut} 公分屬腹部肥胖。` };
+  return { label_zh: '正常範圍', tone: 'good' };
+}
+
 /** Taiwan HPA metabolic-syndrome count (3 of 5). Unknown inputs are skipped, not counted. */
 export function countMetSyn(input: {
   sex: 'M' | 'F';

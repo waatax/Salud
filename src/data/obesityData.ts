@@ -208,7 +208,7 @@ export const OBESITY_DRUGS: ObesityDrugReview[] = [
     muscle_loss_mitigation_zh:
       'DEXA 次級分析顯示：體重減輕中約有 20-35% 為去脂體重 (Lean Body Mass, 含骨骼肌)。若無配套處方，易誘發「肌少症肥胖」。臨床對策：每日強制補足優質蛋白質 1.6~2.0 g/kg，並每週強制執行至少 2~3 次全身大肌群漸進式阻抗重訓。',
     cessation_rebound_data_zh:
-      'STEP-1 延伸研究 (Extension Trial)：受試者在第 68 週停用 Semaglutide 後追蹤 1 年，平均反彈回失去體重的 66% (約 2/3)，心血管與代謝指標同步部分退化。臨床定性：肥胖是慢性神經內分泌疾病，停藥後下視丘飢餓迴路會強烈反撲，需擬定終身維持協議或漸進微劑量階梯維持。',
+      'STEP-1 延伸研究 (Extension Trial)：受試者在第 68 週停用 Semaglutide 後追蹤 1 年，平均反彈回失去體重的 66% (約 2/3)，心血管與代謝指標同步部分退化。肥胖是慢性疾病，停藥後食慾與體重多會回升，需要事先規劃長期維持方案。',
     approx_monthly_cost_twd: '約 NT$ 8,000 ~ 13,000 / 月 (自費處方，依劑量而異)',
     expert_review_summary:
       '減重藥物史上的里程碑級突破，減重幅度首次站上 15% 門檻，且 SELECT 試驗賦予強大心血管保護光環。但醫師必須警惕患者「只打針不重訓」導致的骨骼肌崩潰，以及停藥後的復胖防守計畫。',
@@ -218,13 +218,13 @@ export const OBESITY_DRUGS: ObesityDrugReview[] = [
     id: 'DRUG-02',
     generic_name_zh: '替爾泊肽 (Tirzepatide 15mg)',
     generic_name_en: 'Tirzepatide 15 mg',
-    brand_names: ['Zepbound (肥胖適應症)', 'Mounjaro (糖尿病適應症)'],
+    brand_names: ['Mounjaro 猛健樂 (台灣：血糖控制與體重控制)', 'Zepbound (美國體重管理與睡眠呼吸中止)'],
     drug_class: 'GIP / GLP-1 雙重受體促效劑 (Dual Incretin Agonist / Twincretin)',
     target_receptors: ['GIP Receptor (Adipocytes, CNS)', 'GLP-1 Receptor (Brainstem, Hypothalamus, Pancreas)'],
-    administration: '每週一次皮下注射 (由 2.5mg 起步，每 4 週階梯式遞增至 10mg 或 15mg)',
-    typical_dose: '10 mg ~ 15 mg / 每週',
+    administration: '每週一次皮下注射 (由 2.5 mg 起步，每階至少 4 週，每次加 2.5 mg)',
+    typical_dose: '維持劑量 5、10 或 15 mg / 每週',
     mechanism_detail_zh:
-      '全球首創雙重腸泌素胜肽。由 39 個胺基酸組成，具備 GIP 受體完全促效與 GLP-1 受體偏向促效活性。GIP 受體活化能顯著增強白色脂肪組織血流、提升三酸甘油酯清除緩衝力、改善胰島素敏感性並緩解周邊脂毒性；同時在中樞與 GLP-1 協同產生加乘的食慾壓制效應，耐受度較純超高劑量 GLP-1 更佳。',
+      '全球首創雙重腸泌素胜肽。由 39 個胺基酸組成，具備 GIP 受體完全促效與 GLP-1 受體偏向促效活性。兩者都在中樞增加飽足感並降低食慾，也依血糖促進胰島素分泌。GIP 對脂肪組織與耐受度的角色仍在研究中。',
     primary_trial_name: 'SURMOUNT-1 (Tirzepatide Once Weekly for the Treatment of Obesity)',
     primary_trial_duration: '72 週 (2,539 位無第 2 型糖尿病之超重/肥胖受試者)',
     avg_weight_loss_pct: 20.9,
@@ -235,17 +235,17 @@ export const OBESITY_DRUGS: ObesityDrugReview[] = [
     tfda_status_note: '台灣 TFDA 已核准 Mounjaro 用於糖尿病與體重管理適應症。',
     evidence_grade: 'A',
     cardiovascular_benefit_zh:
-      'SURMOUNT 試驗顯示顯著降低收縮壓 (-8.4 mmHg)、空腹三酸甘油酯降幅達 31%、空腹胰島素降低 47%，超過 95% 原前期糖尿病受試者回復為正常血糖。心血管硬終點試驗 SURPASS-CVO 與 SURMOUNT-MMO 進行中。',
+      'SURMOUNT-1 72 週收縮壓約降 7 mmHg、三酸甘油酯降 21–29%、LDL 僅降 5–7%，95% 糖尿病前期受試者回到正常血糖。SURPASS-CVOT（第 2 型糖尿病合併心血管病）對照 dulaglutide 達不劣於（HR 0.92）；肥胖無糖尿病者的 SURMOUNT-MMO 尚未發表。',
     common_adverse_effects: [
       '噁心感 (Nausea, 25-33%，通常隨耐受遞減)',
       '腹瀉 (Diarrhea, 19-23%)',
       '便秘 (Constipation, 11-17%)',
-      '食慾極度低下導致的早期頭痛與無力',
+      '疲倦、掉髮 (約 4–5%)',
       '腹痛、消化不良、脹氣',
     ],
     serious_warnings: [
-      '胰臟炎風險警示',
-      '膽囊相關疾病（膽囊炎、膽石症發生率約 1.5-2.0%）',
+      '急性胰臟炎：持續劇烈上腹痛須立即就醫並停藥',
+      '膽囊疾病（膽囊炎約 0.7%，安慰劑 0.2%）',
       '脫水與急性腎損傷（嚴重腸胃嘔吐腹瀉未能補足水分電解質）',
       '口服避孕藥吸收減弱警訊（胃排空延遲影響吸收，建議換藥期加用物理避孕）',
     ],
@@ -253,22 +253,22 @@ export const OBESITY_DRUGS: ObesityDrugReview[] = [
       '甲狀腺髓質癌 (MTC) 個人或家族病史',
       '多發性內分泌腫瘤第 2 型 (MEN 2)',
       '已知對 Tirzepatide 任一賦形劑過敏者',
-      '懷孕與哺乳期婦女',
+      '懷孕或計畫懷孕者不應使用，發現懷孕應停藥',
     ],
     muscle_loss_mitigation_zh:
-      '因平均減重幅度突破 20%（接近減重手術量級），去脂體重絕對流失量客觀增加。MRI 與 DEXA 亞群試驗顯示：體組成改善中，內臟脂肪比例大幅驟減 40%+，骨骼肌比例相對提高；但仍需嚴密監控長者肌力，建議每日 1.8 g/kg 蛋白質與漸進超負荷阻抗訓練。',
+      'SURMOUNT-1 DXA 次研究：減掉的重量約 75% 是脂肪、25% 是去脂組織，比例與安慰劑相近；但減得越多，絕對流失也越多。建議每公斤 1.2–1.6 克蛋白質（依參考體重）加上每週至少 2 次肌力訓練，並留意長者肌力。',
     cessation_rebound_data_zh:
-      'SURMOUNT-4 試驗專門探討維持性：前 36 週使用 Tirzepatide 平均減重 20.9% 後，隨機雙盲分組為「繼續使用」vs「換回安慰劑」。換回安慰劑組在後續 52 週內反彈了 14% 體重；而持續使用組進一步再減 5.5%（總減重達 25.3%）。證實肥胖需長期藥物管理。',
+      'SURMOUNT-4 試驗專門探討維持性：前 36 週使用 Tirzepatide 平均減重 20.9% 後，隨機雙盲分組為「繼續使用」vs「換回安慰劑」。換回安慰劑組在後續 52 週體重回升 14%，持續使用組再減 5.5%（總減重 25.3%）。SURMOUNT-MAINTAIN（Lancet 2026）：繼續原劑量減 21.9%、降到 5 mg 減 16.6%、改安慰劑減 9.9%。',
     approx_monthly_cost_twd: '約 NT$ 10,000 ~ 16,000 / 月 (自費處方)',
     expert_review_summary:
-      '目前臨床核准減重藥物的最高天花板，平均減重破 20% 直逼胃繞道手術，且超過三分之一患者達成減重 ≥25%。GIP 協同機制使其在脂肪重分佈與代謝改善上具備劃時代優勢。',
+      '目前已上市減重藥中平均幅度最大（SURMOUNT-5 對決 semaglutide：20.2% vs 13.7%）。效果來自長期用藥，停藥多會復胖；完整用法見猛健樂專章。',
     lead_reviewer_id: 'EC-28',
   },
   {
     id: 'DRUG-03',
     generic_name_zh: '瑞他魯肽 (Retatrutide，前瞻三重促效劑)',
     generic_name_en: 'Retatrutide (Triple Hormone Receptor Agonist)',
-    brand_names: ['研發代號: LY3437943 (Phase 3 進行中)'],
+    brand_names: ['研發代號: LY3437943 (第 3 期試驗，尚未核准)'],
     drug_class: 'GIP / GLP-1 / 升糖素 (Glucagon) 三重受體促效劑 (Triple Agonist)',
     target_receptors: ['GIP Receptor', 'GLP-1 Receptor', 'Glucagon Receptor (Liver, Adipose)'],
     administration: '每週一次皮下注射 (臨床試驗劑量 1mg ~ 12mg)',
@@ -282,7 +282,7 @@ export const OBESITY_DRUGS: ObesityDrugReview[] = [
     trial_citation: 'Jastreboff AM, et al. N Engl J Med. 2023;389(6):514-526.',
     fda_approval_year: 2027,
     tfda_approved: false,
-    tfda_status_note: '全球進行 Phase 3 試驗中（TRIUMPH 系列試驗），尚未取得上市許可。',
+    tfda_status_note: '全球尚未核准。TRIUMPH-1 頂線結果：12 mg 於 80 週平均減 28.3%（2026 年公布）。網路販售的都不是合法藥品。',
     evidence_grade: 'B',
     cardiovascular_benefit_zh:
       '二期試驗數據：12mg 組高達 100% 受試者達成減重 ≥5%，超過 25% 受試者減重 ≥30%！更震撼的是，伴有脂肪肝的受試者在 48 週時，肝臟脂肪含量平均下降超過 80%，近 9 成患者脂肪肝完全緩解。',
@@ -628,7 +628,7 @@ export const DIET_REGIMENS: DietRegimenEvaluation[] = [
     suitable_populations: ['所有正在進行熱量赤字減重的健康成人', '合併使用 GLP-1 藥物防肌肉流失者', '肌少症肥胖患者', '健身愛好者'],
     contraindicated_populations: ['已有中重度慢性腎功能不全者 (CKD)', '洗腎前尿毒症期', '痛風急性發作期', '嚴重肝性腦病變'],
     expert_verdict_zh:
-      '【EC-33 運動生理學家 & EC-13 腎臟專科】健康人群腎功能正常下，攝取 1.6-2.2 g/kg 蛋白質已被無數 RCT 證實對腎臟完全無害且對保護肌肉至關重要！它是對抗 GLP-1 瘦瘦針後「肌肉大流失」的唯一有效營養護盾。',
+      '【EC-33 運動生理學家 & EC-13 腎臟專科】腎功能正常者，減重期提高蛋白質有助保留肌肉，但要搭配肌力訓練才有效。用腸泌素類藥物時，聯合共識提出每公斤約 1.2–1.6 克，並避免長期 ≥2 克；腎臟病者須先諮詢。',
     lead_reviewer_id: 'EC-33',
   },
   {
@@ -957,10 +957,10 @@ export const OBESITY_MYTHS: ObesityMythItem[] = [
   {
     id: 'MYTH-04',
     myth_claim: '「既然有了 GLP-1 瘦瘦針神藥，我就不用辛苦運動和忌口了，躺著就能瘦。」',
-    scientific_reality: '只靠打針不重訓管嘴，流失的 40% 是寶貴骨骼肌，停藥後迎接你的將是代謝崩潰的毀滅性復胖！',
+    scientific_reality: '試驗中的受試者都有飲食與運動諮詢。減掉的重量約四分之一是去脂組織，少了蛋白質與肌力訓練，肌力更容易下降；多數人停藥後也會復胖。',
     biochemical_why:
-      'GLP-1 類藥物壓低食慾的同時，若個體未攝取足量蛋白質且缺乏阻力刺激，身體會大量水解骨骼肌去脂質量。停藥後胃排空恢復正常、食慾中樞反彈，但由於基礎代謝率 (BMR) 因肌肉流失而永久性崩塌，熱量盈餘會以倍速轉化為純脂肪堆積，使體脂率比用藥前更高，淪為嚴重的「肌少症肥胖 (Sarcopenic Obesity)」。',
-    actionable_correction: '瘦瘦針是為你爭取養成健康習慣時間的「拐杖」，而非終生輪椅。用藥期間必須強制落實每週 3 次重訓與每日 1.6g/kg 蛋白質。',
+      '藥物降低食慾與熱量攝取，蛋白質與微量營養素也可能跟著不足；沒有阻力訓練的刺激，肌肉與骨質流失更明顯。停藥後食慾回升，而體重下降後所需熱量也變少，因此容易復胖。',
+    actionable_correction: '把用藥期當成建立習慣的機會：每週至少 2 次肌力訓練、蛋白質每公斤約 1.2–1.6 克，並事先和醫師談好長期計畫。',
     danger_level: 'HIGH',
     evidence_grade: 'A',
   },

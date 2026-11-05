@@ -198,9 +198,9 @@ export function parseHash(rawHash: string): Route | null {
 }
 
 /** Tab ids each hub accepts in `#<pillar>/<TAB>`. Hubs and the link tests share these. */
-export const OBESITY_TABS: readonly ObesitySubTab[] = ['OVERVIEW', 'HYPERTROPHY', 'FAT_LOSS', 'RECOMP', 'PATHOPHYSIOLOGY', 'PHARMACOTHERAPY', 'DIETARY_REGIMENS', 'SURGERY_AND_SIM', 'BEHAVIOR_AND_QUIZ'];
+export const OBESITY_TABS: readonly ObesitySubTab[] = ['OVERVIEW', 'TIRZEPATIDE_PROTOCOL', 'HYPERTROPHY', 'FAT_LOSS', 'RECOMP', 'PATHOPHYSIOLOGY', 'PHARMACOTHERAPY', 'DIETARY_REGIMENS', 'SURGERY_AND_SIM', 'BEHAVIOR_AND_QUIZ'];
 export const LONGEVITY_TABS: readonly LongevitySubTab[] = ['OVERVIEW', 'HALLMARKS', 'EPIGENETIC_CLOCKS', 'PHARMACOTHERAPY', 'HORMESIS', 'SIMULATOR', 'BEHAVIOR_AND_QUIZ'];
-export const CARDIO_TABS: readonly CardiometabolicSubTab[] = ['OVERVIEW', 'LIPIDS_APOB', 'BP_722', 'ATHERO_CAC', 'METSYN_CKM', 'CALCULATORS'];
+export const CARDIO_TABS: readonly CardiometabolicSubTab[] = ['OVERVIEW', 'THREE_HIGHS', 'LIPIDS_APOB', 'BP_722', 'ATHERO_CAC', 'METSYN_CKM', 'CALCULATORS'];
 export const SLEEP_TABS: readonly SleepSubTab[] = ['OVERVIEW', 'GLYMPHATIC', 'CAFFEINE_SIM', 'CBTI_CALC', 'OSA_SCREEN', 'CIRCADIAN'];
 export type MentalTab = 'SIMULATOR' | 'NEUROBIOLOGY' | 'PROTOCOLS' | 'VAGUS_HRV' | 'CAPNOMETRY' | 'TRIAGE';
 export const MENTAL_TABS: readonly MentalTab[] = ['SIMULATOR', 'NEUROBIOLOGY', 'PROTOCOLS', 'VAGUS_HRV', 'CAPNOMETRY', 'TRIAGE'];

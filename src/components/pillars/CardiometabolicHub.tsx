@@ -14,6 +14,8 @@ import {
 import { CardiometabolicSubTab } from '../../types';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
+import { ThreeHighsEntry, ThreeHighsGuide } from './cardiometabolic/ThreeHighsGuide';
+import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
 import {
   HeartPulse,
   Activity,
@@ -36,7 +38,29 @@ import {
   ArrowRight,
   ShieldAlert,
   Scale,
+  Syringe,
+  ClipboardCheck,
 } from 'lucide-react';
+
+const CARDIO_TAB_GROUPS: HubTabGroup<CardiometabolicSubTab>[] = [
+  {
+    label: '開始',
+    tabs: [
+      { id: 'OVERVIEW', label: '總覽', icon: HeartPulse },
+      { id: 'THREE_HIGHS', label: '體重與三高指南', icon: ClipboardCheck, featured: true },
+    ],
+  },
+  {
+    label: '單項深入',
+    tabs: [
+      { id: 'BP_722', label: '722 居家血壓', icon: Activity },
+      { id: 'LIPIDS_APOB', label: '血脂與 ApoB', icon: Pill },
+      { id: 'METSYN_CKM', label: '代謝症候群與 CKM', icon: Scale },
+      { id: 'ATHERO_CAC', label: '動脈硬化與鈣化', icon: Layers },
+    ],
+  },
+  { label: '工具', tabs: [{ id: 'CALCULATORS', label: '血脂與血壓試算', icon: Calculator }] },
+];
 
 export const CardiometabolicHub: React.FC = () => {
   const { language } = useLanguage();
@@ -83,125 +107,33 @@ export const CardiometabolicHub: React.FC = () => {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
-      {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-br from-emerald-50 via-teal-50/70 to-emerald-100/50 dark:from-emerald-950/80 dark:via-slate-900/95 dark:to-teal-950/40 p-6 sm:p-10 shadow-sm dark:shadow-2xl backdrop-blur-md">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/90 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 text-xs font-mono font-bold">
-              <HeartPulse className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
-              <span>Salud 旗艦支柱 · 心血代謝專科總樞紐</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
-              <span>心血管與代謝醫學、動脈硬化機轉、現代脂質學與 722 血壓</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              動脈粥狀硬化與心血管疾病（CVD）是全球頭號死因，其病變在青少年期即已悄然展開。超越單純「總膽固醇」迷思，全面導入{' '}
-              <span className="text-emerald-800 dark:text-emerald-400 font-bold">ApoB 致病顆粒真實計數</span>、
-              <span className="text-teal-800 dark:text-cyan-400 font-bold">Lp(a) 遺傳性風險標記</span>、
-              <span className="text-rose-800 dark:text-rose-400 font-bold">動脈硬化 5 階段細胞級聯</span>、
-              <span className="text-indigo-800 dark:text-indigo-400 font-bold">CAC 冠狀動脈鈣化決策樹</span> 與{' '}
-              <span className="text-emerald-800 dark:text-emerald-400 font-bold">2022 TSOC 居家 722 血壓金標準</span>！
-            </p>
+      {/* Hero only on the overview, so every other tab starts with its own content */}
+      {activeTab === 'OVERVIEW' ? (
+        <header className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-5 dark:border-emerald-900 dark:from-emerald-950/40 dark:to-salud-dark-surface sm:p-7">
+          <h1 className="font-display text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">三高與心血管健康</h1>
+          <p className="mt-2 max-w-3xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
+            心肌梗塞與中風往往是幾十年累積的結果。看懂血壓、血糖、血脂和體重，在症狀出現之前就開始處理。
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button type="button" onClick={() => setActiveTab('THREE_HIGHS')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-600">
+              <ClipboardCheck className="h-4 w-4" aria-hidden="true" />看我的健檢數字
+            </button>
+            <button type="button" onClick={() => setActiveTab('BP_722')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-emerald-500 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/40">
+              <Activity className="h-4 w-4" aria-hidden="true" />722 居家血壓
+            </button>
+            <a href="#obesity/TIRZEPATIDE_PROTOCOL" className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+              <Syringe className="h-4 w-4" aria-hidden="true" />猛健樂完整指南
+            </a>
           </div>
+        </header>
+      ) : (
+        <h1 className="font-display text-lg font-bold text-slate-900 dark:text-white">三高與心血管健康</h1>
+      )}
 
-          {/* Quick Metrics Badges */}
-          <div className="grid grid-cols-2 gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">CEBM 1a</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">實證醫學等級</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-teal-400">ApoB</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">致病顆粒金標準</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-cyan-700 dark:text-cyan-400">722 原則</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">TSOC 居家自量</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-indigo-700 dark:text-purple-400">CAC 評分</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">血管斑塊硬化度</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HubTabBar groups={CARDIO_TAB_GROUPS} active={activeTab} onChange={setActiveTab} ariaLabel="三高與心血管專區分頁" />
 
-      {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-emerald-200/80 dark:border-slate-800 pb-2 text-xs font-mono">
-        <button
-          onClick={() => setActiveTab('OVERVIEW')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'OVERVIEW'
-              ? 'bg-emerald-600 text-white font-extrabold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
-          }`}
-        >
-          <HeartPulse className="w-4 h-4" />
-          <span>專區綜覽與治理架構</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('LIPIDS_APOB')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'LIPIDS_APOB'
-              ? 'bg-teal-600 text-white font-bold border-teal-500 shadow-md ring-2 ring-teal-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-400 hover:bg-teal-50/40'
-          }`}
-        >
-          <Pill className="w-4 h-4" />
-          <span>現代脂質學與 ApoB 革命</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('BP_722')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'BP_722'
-              ? 'bg-emerald-600 text-white font-bold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Activity className="w-4 h-4" />
-          <span>TSOC 722 居家血壓原則</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('ATHERO_CAC')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'ATHERO_CAC'
-              ? 'bg-rose-600 text-white font-bold border-rose-500 shadow-md ring-2 ring-rose-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-rose-400 hover:bg-rose-50/40'
-          }`}
-        >
-          <Layers className="w-4 h-4" />
-          <span>動脈硬化5階段與 CAC 評估</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('METSYN_CKM')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'METSYN_CKM'
-              ? 'bg-indigo-600 text-white font-bold border-indigo-500 shadow-md ring-2 ring-indigo-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-indigo-400 hover:bg-indigo-50/40'
-          }`}
-        >
-          <Scale className="w-4 h-4" />
-          <span>代謝症候群與 AHA CKM 症候群</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('CALCULATORS')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'CALCULATORS'
-              ? 'bg-emerald-700 text-white font-bold border-emerald-600 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-500 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Calculator className="w-4 h-4 text-amber-300 animate-pulse" />
-          <span>互動試算機 (ApoB不一致性 / 722日誌)</span>
-        </button>
-      </div>
+      {/* ── Three-highs guide ── */}
+      {activeTab === 'THREE_HIGHS' && <ThreeHighsGuide />}
 
       {/* ── Sub-Tab 1: OVERVIEW ── */}
       {activeTab === 'OVERVIEW' && (
@@ -212,8 +144,7 @@ export const CardiometabolicHub: React.FC = () => {
               <span>心血管與代謝醫學實證核心指引 (Cardiometabolic Evidence Paradigm)</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              心血管疾病（心肌梗塞、主動脈剝離、腦中風）並非突如其來的意外，而是歷經數十年無聲醞釀的「慢性能量與脂質中毒反應」。本專區整合中華民國心臟學會 (TSOC)、中華民國糖尿病學會、ACC/AHA 與 ESC 國際權威指引，遵循
-              Oxford CEBM Level 1a 頂級實證，協助每位追求健康者在症狀爆發前 10–20 年精確阻斷病理鏈。
+              心肌梗塞、中風並不是突如其來的意外，而是多年累積的結果。本專區依台灣心臟學會、糖尿病學會與 ACC/AHA、ESC 指引整理，幫助你在症狀出現前就開始處理。
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
@@ -239,6 +170,8 @@ export const CardiometabolicHub: React.FC = () => {
               </div>
             </div>
           </div>
+
+          <ThreeHighsEntry from="cardio" />
 
           {/* 迷思粉碎區 */}
           <div className="space-y-3">

@@ -29,6 +29,7 @@ export const LEARNING_GOALS: LearningGoal[] = [
   { id: 'G-REPORT', label_zh: '我剛拿到健檢報告', hint_zh: '紅字嚴不嚴重？目標是多少？', icon: 'report', track_id: 'checkup', lesson_id: 'L-CHK-01' },
   { id: 'G-THREE-HIGHS', label_zh: '我想控制三高', hint_zh: '血壓、血糖、血脂', icon: 'heart', track_id: 'prevent', lesson_id: 'L-PRE-01' },
   { id: 'G-WEIGHT', label_zh: '我想健康減重', hint_zh: '飲食、肌力、藥物的真相', icon: 'scale', track_id: 'eat', lesson_id: 'L-EAT-09' },
+  { id: 'G-GLP1', label_zh: '我在考慮打瘦瘦針', hint_zh: '猛健樂的效果、副作用與停藥', icon: 'scale', track_id: 'prevent', lesson_id: 'L-PRE-11' },
   { id: 'G-EAT', label_zh: '我想吃得更健康', hint_zh: '從一個餐盤開始', icon: 'food', track_id: 'eat', lesson_id: 'L-EAT-01' },
   { id: 'G-MOVE', label_zh: '我想開始運動', hint_zh: '每週 150 分鐘、每天 7,000 步', icon: 'move', track_id: 'move', lesson_id: 'L-MOVE-01' },
   { id: 'G-SLEEP', label_zh: '我睡不好', hint_zh: '規律、失眠、咖啡因、打呼', icon: 'moon', track_id: 'rest', lesson_id: 'L-REST-01' },

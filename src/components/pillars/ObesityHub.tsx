@@ -20,6 +20,9 @@ import { ObesityMasteryQuiz } from './obesity/ObesityMasteryQuiz';
 import { MuscleHypertrophyPanel } from './obesity/MuscleHypertrophyPanel';
 import { FatLossMetabolismPanel } from './obesity/FatLossMetabolismPanel';
 import { BodyRecompositionCalculator } from './obesity/BodyRecompositionCalculator';
+import { TirzepatideChapter } from './obesity/tirzepatide/TirzepatideChapter';
+import { ThreeHighsEntry } from './cardiometabolic/ThreeHighsGuide';
+import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { ObesitySubTab } from '../../types';
@@ -28,6 +31,7 @@ import {
   Activity,
   Flame,
   Pill,
+  Syringe,
   Utensils,
   Scissors,
   Dumbbell,
@@ -53,6 +57,34 @@ import {
   Award,
 } from 'lucide-react';
 
+const OBESITY_TAB_GROUPS: HubTabGroup<ObesitySubTab>[] = [
+  { label: '開始', tabs: [{ id: 'OVERVIEW', label: '總覽與分級', icon: Stethoscope }] },
+  {
+    label: '藥物與手術',
+    tabs: [
+      { id: 'TIRZEPATIDE_PROTOCOL', label: '猛健樂專章', icon: Syringe, featured: true },
+      { id: 'PHARMACOTHERAPY', label: '減重藥物比較', icon: Pill },
+      { id: 'SURGERY_AND_SIM', label: '手術與模擬', icon: Activity },
+    ],
+  },
+  {
+    label: '吃與動',
+    tabs: [
+      { id: 'DIETARY_REGIMENS', label: '飲食法比較', icon: Utensils },
+      { id: 'HYPERTROPHY', label: '增肌', icon: Dumbbell },
+      { id: 'FAT_LOSS', label: '減脂', icon: Flame },
+      { id: 'RECOMP', label: '增肌減脂試算', icon: Scale },
+    ],
+  },
+  {
+    label: '深入',
+    tabs: [
+      { id: 'PATHOPHYSIOLOGY', label: '為什麼會胖', icon: Brain },
+      { id: 'BEHAVIOR_AND_QUIZ', label: '衝動管理與測驗', icon: Award },
+    ],
+  },
+];
+
 export const ObesityHub: React.FC = () => {
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useHashTab<ObesitySubTab>('obesity', OBESITY_TABS, 'OVERVIEW');
@@ -67,156 +99,30 @@ export const ObesityHub: React.FC = () => {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
-      {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-br from-emerald-50 via-teal-50/70 to-emerald-100/50 dark:from-cyan-950/80 dark:via-slate-900/95 dark:to-emerald-950/40 p-6 sm:p-10 shadow-sm dark:shadow-2xl backdrop-blur-md">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/90 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 text-xs font-mono font-bold">
-              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
-              <span>Salud 旗艦支柱 · 增肌減脂與體組成醫學專科總樞紐</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
-              <span>增肌肌肥大生理、減脂生化代謝、雙軌重組與臨床醫學</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              超越傳統「只看體重計數字、少吃挨餓掉肌肉」的單純減重思維，全面建構「增肌 (Hypertrophy) × 減脂 (Lipolysis) × 同步重組 (Recomposition)」現代體組成運動生理學與臨床代謝醫學雙翼體系！整合機械力學轉導、白胺酸蛋白質時序、脂肪水解級聯、胰島素阻斷閥、EOSS 分級、GLP-1/GIP 腸泌素評析與動態體組成預測。
-            </p>
+      {/* Hero only on the overview, so every other tab starts with its own content */}
+      {activeTab === 'OVERVIEW' ? (
+        <header className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-5 dark:border-emerald-900 dark:from-emerald-950/40 dark:to-salud-dark-surface sm:p-7">
+          <h1 className="font-display text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">增肌減脂與體重管理</h1>
+          <p className="mt-2 max-w-3xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
+            不只看體重計，更要減掉脂肪、保住肌肉。從飲食、運動到藥物與手術，依你的狀況找到合適的做法。
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button type="button" onClick={() => setActiveTab('TIRZEPATIDE_PROTOCOL')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-600">
+              <Syringe className="h-4 w-4" aria-hidden="true" />猛健樂完整指南
+            </button>
+            <button type="button" onClick={() => setActiveTab('RECOMP')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-emerald-500 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/40">
+              <Scale className="h-4 w-4" aria-hidden="true" />增肌減脂試算
+            </button>
+            <a href="#cardiometabolic/THREE_HIGHS" className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+              <Heart className="h-4 w-4" aria-hidden="true" />體重與三高指南
+            </a>
           </div>
+        </header>
+      ) : (
+        <h1 className="font-display text-lg font-bold text-slate-900 dark:text-white">增肌減脂與體重管理</h1>
+      )}
 
-          {/* Quick Metrics Badges */}
-          <div className="grid grid-cols-2 gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">三大機轉</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">肌肥大機械轉導</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-rose-700 dark:text-rose-400">五部曲</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">脂肪水解與氧化</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-cyan-700 dark:text-cyan-400">Recomp</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">雙軌同步試算器</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">CEBM 1a</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">最高實證醫學等級</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-emerald-200/80 dark:border-slate-800 pb-2 text-xs font-mono">
-        <button
-          onClick={() => setActiveTab('OVERVIEW')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'OVERVIEW'
-              ? 'bg-emerald-600 text-white font-extrabold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Stethoscope className="w-4 h-4" />
-          <span>專區綜覽與 EOSS 分級</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('HYPERTROPHY')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'HYPERTROPHY'
-              ? 'bg-emerald-600 text-white font-extrabold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Dumbbell className="w-4 h-4 text-amber-400" />
-          <span>增肌科學 · 肌肥大三大機轉</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('FAT_LOSS')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'FAT_LOSS'
-              ? 'bg-rose-600 text-white font-extrabold border-rose-500 shadow-md ring-2 ring-rose-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-rose-400 hover:bg-rose-50/40'
-          }`}
-        >
-          <Flame className="w-4 h-4 text-amber-300" />
-          <span>減脂代謝 · 脂解級聯與氧化</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('RECOMP')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'RECOMP'
-              ? 'bg-cyan-600 text-white font-extrabold border-cyan-500 shadow-md ring-2 ring-cyan-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-cyan-400 hover:bg-cyan-50/40'
-          }`}
-        >
-          <Scale className="w-4 h-4 text-cyan-200" />
-          <span>同步重組 · 增肌減脂試算器</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('PHARMACOTHERAPY')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'PHARMACOTHERAPY'
-              ? 'bg-emerald-700 text-white font-extrabold border-emerald-600 shadow-md ring-2 ring-emerald-600/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-500 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Pill className="w-4 h-4" />
-          <span>抗肥胖用藥 (GLP-1/GIP)</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('DIETARY_REGIMENS')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'DIETARY_REGIMENS'
-              ? 'bg-emerald-600 text-white font-bold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Utensils className="w-4 h-4" />
-          <span>8大代表飲食法雷達對比</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('PATHOPHYSIOLOGY')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'PATHOPHYSIOLOGY'
-              ? 'bg-teal-600 text-white font-bold border-teal-500 shadow-md ring-2 ring-teal-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-400 hover:bg-teal-50/40'
-          }`}
-        >
-          <Brain className="w-4 h-4" />
-          <span>神經內分泌病理機轉</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('SURGERY_AND_SIM')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'SURGERY_AND_SIM'
-              ? 'bg-teal-700 text-white font-bold border-teal-600 shadow-md ring-2 ring-teal-600/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-500 hover:bg-teal-50/40'
-          }`}
-        >
-          <Activity className="w-4 h-4" />
-          <span>手術 · 迷思 · 動態模擬器</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('BEHAVIOR_AND_QUIZ')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'BEHAVIOR_AND_QUIZ'
-              ? 'bg-emerald-600 text-white font-bold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Award className="w-4 h-4" />
-          <span>衝動急救儀 · 精熟測驗</span>
-        </button>
-      </div>
+      <HubTabBar groups={OBESITY_TAB_GROUPS} active={activeTab} onChange={setActiveTab} ariaLabel="增肌減脂專區分頁" />
 
       {/* ─────────────────────────────────────────────────────────────
           TAB 1: OVERVIEW & EOSS CLINICAL STAGING
@@ -245,6 +151,8 @@ export const ObesityHub: React.FC = () => {
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
+
+          <ThreeHighsEntry from="obesity" />
 
           {/* EOSS Interactive Staging Navigator */}
           <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 p-6 sm:p-8 space-y-6 shadow-sm backdrop-blur-sm">
@@ -525,10 +433,31 @@ export const ObesityHub: React.FC = () => {
       )}
 
       {/* ─────────────────────────────────────────────────────────────
+          TAB: TIRZEPATIDE & TWINCRETIN MAX-EFFICACY PROTOCOL
+      ───────────────────────────────────────────────────────────── */}
+      {activeTab === 'TIRZEPATIDE_PROTOCOL' && (
+        <TirzepatideChapter />
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
           TAB 3: PHARMACOTHERAPY MEDICAL REVIEWS
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'PHARMACOTHERAPY' && (
         <div className="space-y-6 animate-fade-in">
+          <div className="flex flex-col gap-3 rounded-xl border border-emerald-300 bg-emerald-50/70 p-4 text-sm dark:border-emerald-800 dark:bg-emerald-950/30 sm:flex-row sm:items-center sm:justify-between">
+            <p className="leading-relaxed text-slate-800 dark:text-slate-200">
+              正在使用或考慮<strong>猛健樂</strong>？專章有適應症、劑量、注射、肌肉保護、副作用、三高用藥與停藥規劃。
+            </p>
+            <button
+              type="button"
+              onClick={() => setActiveTab('TIRZEPATIDE_PROTOCOL')}
+              className="btn-tactile inline-flex min-h-[44px] shrink-0 items-center gap-1 self-start rounded-xl bg-emerald-700 px-3 py-2 font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-600 sm:self-auto"
+            >
+              查看專章
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </div>
+
           {/* Drug Selector Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
             {OBESITY_DRUGS.map((d) => (
