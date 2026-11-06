@@ -84,7 +84,7 @@ export const GLOSSARY: GlossaryEntry[] = [
   { term: '集中化現象', zh: 'Centralization', plain_zh: '做某個動作後，手腳的麻痛往脊椎方向收回來；通常代表這個方向的運動適合你。', category: '脊椎與神經', related_hash: 'spine/EXERCISE' },
   { term: 'OPLL', zh: '後縱韌帶骨化症', plain_zh: '頸椎椎體後方的韌帶慢慢變成骨頭、從前方壓迫脊髓；在東亞族群較常見。', category: '脊椎與神經', related_hash: 'spine/SPURS' },
   { term: '超加工食品', zh: 'Ultra-processed food', plain_zh: '主要以工業原料與添加物組成的食品，如泡麵、香腸、洋芋片、含糖飲料。', category: '運動與生活', related_hash: 'learn/eat/L-EAT-06' },
-  { term: '睡眠規律度', zh: 'Sleep regularity', plain_zh: '每天入睡與起床時間的一致程度；研究顯示比睡眠時數更能預測健康。', category: '運動與生活', related_hash: 'learn/rest/L-REST-01' },
+  { term: '睡眠規律度', zh: 'Sleep regularity', plain_zh: '每天入睡與起床時間的一致程度；與健康風險相關，但不能抵銷睡眠不足。', category: '運動與生活', related_hash: 'learn/rest/L-REST-01' },
 ];
 
 export const GLOSSARY_CATEGORIES = ['檢驗與數值', '疾病與狀態', '脊椎與神經', '治療與藥物', '研究與證據', '運動與生活'] as const;

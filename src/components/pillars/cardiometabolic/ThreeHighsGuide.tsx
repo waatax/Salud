@@ -408,7 +408,7 @@ export const ThreeHighsGuide: React.FC = () => {
 
       <SectionNav sections={SECTIONS} ariaLabel="本頁段落" />
 
-      <Section id="why" n={1} title="為什麼三高常常一起來？" answer="很多人的三高有共同源頭：內臟脂肪增加造成胰島素阻抗。所以處理體重，常常能同時改善多項數字。但 LDL 主要受遺傳影響，要另外看。">
+      <Section id="why" n={1} title="為什麼三高常常一起來？" answer="很多人的三高有共同源頭：內臟脂肪增加與胰島素阻抗。處理體重常能同時改善多項數字；LDL 也受遺傳、飲食與其他疾病影響，仍需獨立評估。">
         <Panel>
           <RootCauseFigure />
         </Panel>
@@ -421,6 +421,9 @@ export const ThreeHighsGuide: React.FC = () => {
       </Section>
 
       <Section id="report" n={2} title="我的健檢數字代表什麼？" answer="把報告上的數字填進來，就能看到各項落在哪一區、是否符合代謝症候群，以及該先處理哪一項。">
+        <Callout tone="info" title="紅字、診斷與治療目標，是三件不同的事">
+          檢驗室參考值用來提醒異常；診斷需要合適的量測條件，部分項目需複驗；治療目標則取決於心血管與腎臟風險、年齡及耐受度。沒有紅字不一定已達到個人目標，有紅字也不代表一次檢驗就能確診。以下工具協助整理回診重點，不能取代診斷。
+        </Callout>
         <Panel>
           <ReportChecker onPick={pick} />
         </Panel>

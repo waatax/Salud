@@ -1,428 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Search,
-  ArrowRight,
-  PlayCircle,
-  ClipboardList,
-  AlertOctagon,
-  Gauge,
-  BookA,
-  Wine,
-  CheckCircle2,
-  Clock,
-  Sparkles,
-  ShieldCheck,
-  Rocket,
-  HeartPulse,
-  Scale,
-  Hourglass,
-  Utensils,
-  Activity,
-  Moon,
-  Wind,
-  Droplets,
-  Flame,
-  Pill,
-  Footprints,
-  Dumbbell,
-  Maximize2,
-  PersonStanding,
-  ChevronRight,
-  Filter,
-  GraduationCap,
-  Layers,
-  Table as TableIcon,
-  Calculator,
-  HeartHandshake,
-  UserCheck,
-  Stethoscope,
-  Ribbon,
-  Bone,
-} from 'lucide-react';
+import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { ArrowRight, ArrowUpRight, BookOpen, Search, Leaf, ShieldCheck, Clock, ChevronDown, CheckCircle2, Sparkles, HeartPulse, ClipboardList, Stethoscope, GraduationCap, Calculator, Bookmark, Sun, Moon, Utensils, Footprints, RotateCcw } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal } from '../../context/ModalContext';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useActionPlan } from '../../hooks/useActionPlan';
-import { ALL_STARTER_TASKS } from '../../data/learning/starterPlan';
-import { hashSegment } from '../../config/routes';
-import { ActionPlanPanel } from './ActionPlanPanel';
-import { QuickTips } from './QuickTips';
-import { DailyStreakCard } from '../common/DailyStreakCard';
-import { LEARNING_TRACKS, LEARNING_GOALS, ALL_LESSONS, findLesson, getTrack } from '../../data/learning/tracks';
+import { ALL_LESSONS, LEARNING_TRACKS, LEARNING_GOALS, findLesson, getTrack } from '../../data/learning/tracks';
 import { EVIDENCE_UPDATES, UPDATE_CATEGORY_META } from '../../data/learning/evidenceUpdates';
+import { DISCOVERY_CATEGORIES, filterDiscoveryTopics, type DiscoveryCategory } from '../../data/learning/discovery';
 import { LAB_METRICS } from '../../data/learning/checkup';
 import { GLOSSARY } from '../../data/learning/glossary';
-import { TONE, TrackIcon, ProgressBar, SectionTitle, LEARNING_ICONS, formatYM } from './learnUi';
-import { FourPillarsMasterCompass } from './FourPillarsMasterCompass';
+import { TONE, TrackIcon, ProgressBar, formatYM } from './learnUi';
+import { ActionPlanPanel } from './ActionPlanPanel';
+import { QuickTips } from './QuickTips';
 
-const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
+const MetabolicJourney = lazy(() => import('./MetabolicJourney').then(m => ({ default: m.MetabolicJourney })));
+const FIRST_LESSON = LEARNING_TRACKS[0].lessons[0];
+const featureTracks = ['eat', 'move', 'rest'].map(id => getTrack(id)!);
+const quizLesson = findLesson('L-MOVE-01')!;
+const focusClass = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600 dark:focus-visible:outline-emerald-400';
 
-/** 熱門即時探索主題標籤 */
-const POPULAR_CHIPS = [
-  { label: '三高完整指南', hash: 'cardiometabolic/THREE_HIGHS', icon: HeartPulse, tone: 'text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
-  { label: '猛健樂完整指南', hash: 'obesity/TIRZEPATIDE_PROTOCOL', icon: Scale, tone: 'text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/40' },
-  { label: '🏥 50 科 157 照護路徑', hash: 'clinic', icon: Stethoscope, tone: 'text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 bg-emerald-100/70 dark:bg-emerald-950/40' },
-  { label: '🧭 我該掛哪一科？', hash: 'clinic/by/symptom', icon: Stethoscope, tone: 'text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800 bg-amber-100/70 dark:bg-amber-950/40' },
-  { label: '肝膽腸胃科 12 課', hash: 'gastro', icon: Stethoscope, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
-  { label: '癌症防治與六癌篩檢', hash: 'oncology', icon: Ribbon, tone: 'text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
-  { label: '神經骨科與脊椎關節', hash: 'spine', icon: Bone, tone: 'text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900/60 bg-amber-50/70 dark:bg-amber-950/30' },
-  { label: 'ApoB 心血管早篩', hash: 'cardiometabolic', icon: HeartPulse, tone: 'text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
-  { label: '地中海飲食法', hash: 'diet/patterns', icon: Utensils, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
-  { label: '科學增肌減脂', hash: 'obesity', icon: Scale, tone: 'text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900/60 bg-amber-50/70 dark:bg-amber-950/30' },
-  { label: '深層睡眠與腦排毒', hash: 'sleep', icon: Moon, tone: 'text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-900/60 bg-violet-50/70 dark:bg-violet-950/30' },
-  { label: 'Zone 2 有氧心率', hash: 'exercise', icon: Activity, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
-  { label: '看懂健檢紅字', hash: 'checkup', icon: ClipboardList, tone: 'text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30' },
-  { label: '722 居家量血壓', hash: 'cardiometabolic/BP_722', icon: Gauge, tone: 'text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-900/60 bg-sky-50/70 dark:bg-sky-950/30' },
-  { label: '保健品 GRADE 評級', hash: 'supplements', icon: Pill, tone: 'text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900/60 bg-teal-50/70 dark:bg-teal-950/30' },
-  { label: '12 大細胞衰老標誌', hash: 'longevity', icon: Hourglass, tone: 'text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30' },
-  { label: '長照申請與巴氏量表', hash: 'ltc', icon: HeartHandshake, tone: 'text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900/60 bg-teal-50/70 dark:bg-teal-950/30' },
-  { label: '外籍看護申請新制', hash: 'ltc/FOREIGN', icon: UserCheck, tone: 'text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-900/60 bg-sky-50/70 dark:bg-sky-950/30' },
-  { label: '史丹佛生理嘆氣', hash: 'mental', icon: Wind, tone: 'text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900/60 bg-teal-50/70 dark:bg-teal-950/30' },
-];
-
-type TopicCategory = 'all' | 'specialty_care' | 'diet' | 'exercise' | 'cardio' | 'sleep_mind' | 'recomp_aging' | 'systems';
-
-interface CuratedTopic {
-  id: string;
-  category: TopicCategory;
-  title_zh: string;
-  title_en: string;
-  tagline_zh: string;
-  hash: string;
-  icon: any;
-  tone: 'emerald' | 'sky' | 'amber' | 'rose' | 'violet' | 'teal';
-  badges: string[];
-}
-
-/** 21 個核心全景主題卡片（滿足「信達雅」且讓使用者直覺找到興趣主題） */
-const CURATED_TOPICS: CuratedTopic[] = [
-  {
-    id: 't-clinic',
-    category: 'specialty_care',
-    title_zh: '臨床科別知識庫（醫學中心分科）',
-    title_en: 'Clinical Departments',
-    tagline_zh: '依臺大、成大、榮總、彰基門診科別與臺大／陽明交大／成大醫學系課程重建：10 部 50 科、157 條照護路徑，含症狀掛號導引、復原時間軸、看診問題與台灣資源',
-    hash: 'clinic',
-    icon: Stethoscope,
-    tone: 'emerald',
-    badges: ['10 部 50 科', '我該掛哪一科', '最新指引實證'],
-  },
-  {
-    id: 't-gastro',
-    category: 'specialty_care',
-    title_zh: '肝膽腸胃科全方位專區',
-    title_en: 'Gastroenterology & Hepatology',
-    tagline_zh: '胃食道逆流、幽門桿菌、腸躁症 FODMAP、大腸息肉、脂肪肝 FIB-4、B/C 肝與膽胰急症',
-    hash: 'gastro',
-    icon: Stethoscope,
-    tone: 'emerald',
-    badges: ['12 章節全圖解', 'FIB-4 計算器', '清腸與腹痛分流'],
-  },
-  {
-    id: 't-oncology',
-    category: 'specialty_care',
-    title_zh: '所有主要癌症防治與精準醫療',
-    title_en: 'Clinical Oncology & Screening',
-    tagline_zh: '台灣公費六癌篩檢、肺/大腸/乳/肝膽胰/胃食道頭頸/婦科泌尿/血液癌、標靶免疫 ADC 與營養',
-    hash: 'oncology',
-    icon: Ribbon,
-    tone: 'rose',
-    badges: ['12 章節全圖解', '公費六癌試算', '標靶·免疫·質子'],
-  },
-  {
-    id: 't-spine-neuro',
-    category: 'specialty_care',
-    title_zh: '神經骨科與脊椎關節專區',
-    title_en: 'Neuro-Orthopedics & Spine',
-    tagline_zh: '頸腰椎神經根、骨質疏鬆、微創內視鏡、腕隧道神經卡壓、退化性膝髖關節、五十肩與足踝步態',
-    hash: 'spine',
-    icon: Bone,
-    tone: 'amber',
-    badges: ['20 章節全圖解', '麻木地圖定位', '骨鬆與關節復健'],
-  },
-  {
-    id: 't-diet-patterns',
-    category: 'diet',
-    title_zh: '飲食模式比較',
-    title_en: 'Dietary Patterns',
-    tagline_zh: '地中海、低碳生酮、DASH 等常見飲食法橫向對比，掌握心血管與血糖實證',
-    hash: 'diet/patterns',
-    icon: Utensils,
-    tone: 'emerald',
-    badges: ['GRADE 實證', '熱量與營養素', '飲食法評比'],
-  },
-  {
-    id: 't-supplements',
-    category: 'diet',
-    title_zh: '營養保健品評級',
-    title_en: 'Supplements (GRADE)',
-    tagline_zh: '魚油、維生素D、肌酸、益生菌等成分之 GRADE 實證等級，避開無效補充品',
-    hash: 'supplements',
-    icon: Pill,
-    tone: 'teal',
-    badges: ['GRADE 分級', '人體臨床證據', '安全性評估'],
-  },
-  {
-    id: 't-water',
-    category: 'diet',
-    title_zh: '水分與水合機制',
-    title_en: 'Water & Hydration',
-    tagline_zh: '日常水分需求公式、電解質失衡預防與各類飲品水合指數解析',
-    hash: 'W',
-    icon: Droplets,
-    tone: 'sky',
-    badges: ['補水計算機', '滲透壓生理', '13 頁深度機制'],
-  },
-  {
-    id: 't-oil',
-    category: 'diet',
-    title_zh: '油脂烹調與脂肪酸',
-    title_en: 'Fats & Cooking Oils',
-    tagline_zh: '發煙點迷思、Omega-3/6/9 比例、飽和與不飽和脂肪之動脈硬化影響',
-    hash: 'O',
-    icon: Flame,
-    tone: 'amber',
-    badges: ['油品替換模擬', '脂肪酸矩陣', '13 頁深度機制'],
-  },
-  {
-    id: 't-alcohol',
-    category: 'diet',
-    title_zh: '酒精代謝與健康風險',
-    title_en: 'Alcohol & Metabolism',
-    tagline_zh: 'ALDH2 酒精不耐基因、乙醛毒性、致癌風險與飲酒後生理修復指南',
-    hash: 'A',
-    icon: Wine,
-    tone: 'rose',
-    badges: ['BAC 濃度試算', 'AUDIT-C 自評', '14 頁深度機制'],
-  },
-  {
-    id: 't-exercise-phys',
-    category: 'exercise',
-    title_zh: '運動生理與心率區間',
-    title_en: 'Exercise Physiology',
-    tagline_zh: 'Zone 2 粒線體有氧、最大攝氧量 (VO2 max) 與運動心率區間科學推算',
-    hash: 'exercise',
-    icon: Activity,
-    tone: 'emerald',
-    badges: ['心率區間試算', '粒線體生合成', '運動處方'],
-  },
-  {
-    id: 't-running',
-    category: 'exercise',
-    title_zh: '慢跑配速與跑者防護',
-    title_en: 'Running & Pace Dynamics',
-    tagline_zh: '步頻、乳酸閾值配速、長距離慢跑 (LSD) 處方與下肢肌腱跑步傷害預防',
-    hash: 'exercise/running',
-    icon: Footprints,
-    tone: 'sky',
-    badges: ['配速換算器', '跑步生理學', '防傷指南'],
-  },
-  {
-    id: 't-strength',
-    category: 'exercise',
-    title_zh: '重量訓練與肌肥大',
-    title_en: 'Strength Training & 1RM',
-    tagline_zh: '漸進性超負荷、RPE/RIR 自覺強度、機械張力與 1RM 實用換算矩陣',
-    hash: 'exercise/strength',
-    icon: Dumbbell,
-    tone: 'violet',
-    badges: ['1RM 計算機', '動脈硬化阻力', '肌肥大科學'],
-  },
-  {
-    id: 't-mobility',
-    category: 'exercise',
-    title_zh: '筋膜伸展與活動度',
-    title_en: 'Mobility & Fascial Health',
-    tagline_zh: '活動度關節自檢、筋膜水分調節、動態熱身與靜態伸展最佳時機',
-    hash: 'exercise/mobility',
-    icon: Maximize2,
-    tone: 'teal',
-    badges: ['活動度篩檢', '動力鏈調整', '筋膜生化'],
-  },
-  {
-    id: 't-cardio',
-    category: 'cardio',
-    title_zh: '三高與心血管健康',
-    title_en: 'Cardiometabolic & ApoB',
-    tagline_zh: '輸入健檢數字看下一步；血壓、血糖、血脂怎麼看、怎麼吃、怎麼動、怎麼治療',
-    hash: 'cardiometabolic/THREE_HIGHS',
-    icon: HeartPulse,
-    tone: 'rose',
-    badges: ['體重與三高指南', 'ApoB 與 LDL', '心血管風險'],
-  },
-  {
-    id: 't-bp722',
-    category: 'cardio',
-    title_zh: '722 居家連續血壓',
-    title_en: 'Home BP 722 Protocol',
-    tagline_zh: '連續 7 天、早晚 2 遍、每次 2 回平均值，打破醫院白袍高血壓干擾',
-    hash: 'cardiometabolic/BP_722',
-    icon: Gauge,
-    tone: 'sky',
-    badges: ['TSOC 台灣指引', '連續 7 天評估', '心腎保護'],
-  },
-  {
-    id: 't-checkup',
-    category: 'cardio',
-    title_zh: '看懂健檢報告',
-    title_en: 'Check-up Guide & Labs',
-    tagline_zh: '24 項血液尿液檢驗值白話對照、紅字臨床意義與台灣公費癌症篩檢時程',
-    hash: 'checkup',
-    icon: ClipboardList,
-    tone: 'rose',
-    badges: ['24 項數值白話', '公費篩檢資格', '健檢判讀工具'],
-  },
-  {
-    id: 't-sleep',
-    category: 'sleep_mind',
-    title_zh: '睡眠生理與晝夜修復',
-    title_en: 'Sleep & Circadian Rhythms',
-    tagline_zh: '晝夜生物鐘、腺苷壓力、咖啡因半衰期模擬與深睡期腦淋巴排毒機制',
-    hash: 'sleep',
-    icon: Moon,
-    tone: 'violet',
-    badges: ['咖啡因代謝器', 'OSA 篩檢問卷', 'CBTI 實踐'],
-  },
-  {
-    id: 't-mental',
-    category: 'sleep_mind',
-    title_zh: '心理神經與呼吸科學',
-    title_en: 'Mind, Breath & Vagus',
-    tagline_zh: '史丹佛生理嘆氣、0.1 Hz 迷走神經共振、自律神經 HRV 與皮質醇調控',
-    hash: 'mental',
-    icon: Wind,
-    tone: 'teal',
-    badges: ['呼吸節奏模擬器', '迷走神經煞車', '即時減壓'],
-  },
-  {
-    id: 't-obesity',
-    category: 'recomp_aging',
-    title_zh: '增肌減脂與體組成',
-    title_en: 'Body Recomp & Obesity',
-    tagline_zh: '能量赤字、蛋白質、肌力訓練、猛健樂等減重藥物的用法與利弊、肥胖分期',
-    hash: 'obesity',
-    icon: Scale,
-    tone: 'amber',
-    badges: ['猛健樂完整指南', '體組成計算機', '減重藥物比較'],
-  },
-  {
-    id: 't-longevity',
-    category: 'recomp_aging',
-    title_zh: '抗老延壽與生物年齡',
-    title_en: 'Longevity & Geroscience',
-    tagline_zh: '12 大細胞衰老標誌、表觀遺傳生物時鐘、激效反應與疾病壓縮假說',
-    hash: 'longevity',
-    icon: Hourglass,
-    tone: 'emerald',
-    badges: ['12 衰老標誌', '壽命軌跡模擬', 'ITP 化合物'],
-  },
-  {
-    id: 't-ultrahealth',
-    category: 'recomp_aging',
-    title_zh: '24H 健康生活藍圖',
-    title_en: 'Ultra-Health 24H Living',
-    tagline_zh: '時鐘作息協議、晨光喚醒、進食時鐘與 14 天原子微習慣養成系統',
-    hash: 'ultrahealth',
-    icon: Sparkles,
-    tone: 'emerald',
-    badges: ['24H 作息矩陣', '14天習慣追蹤', '自適應技能樹'],
-  },
-  {
-    id: 't-systems',
-    category: 'systems',
-    title_zh: '人體 8 大系統生理機制',
-    title_en: 'Human Systems Physiology',
-    tagline_zh: '心血管、神經、內分泌、免疫、呼吸、消化、骨骼肌與腎臟系統深度機制',
-    hash: 'systems',
-    icon: PersonStanding,
-    tone: 'sky',
-    badges: ['8 大生理系統', '器官交互圖解', '解剖生理學'],
-  },
-];
-
-const CATEGORY_TABS: { id: TopicCategory; label_zh: string }[] = [
-  { id: 'all', label_zh: '✨ 全部精選主題' },
-  { id: 'specialty_care', label_zh: '🏥 肝膽腸胃 · 癌症 · 神經骨科' },
-  { id: 'diet', label_zh: '🥗 飲食與營養' },
-  { id: 'exercise', label_zh: '🏃 運動與體能' },
-  { id: 'cardio', label_zh: '🫀 心血代謝與檢驗' },
-  { id: 'sleep_mind', label_zh: '🌙 睡眠與身心減壓' },
-  { id: 'recomp_aging', label_zh: '⚖️ 體組成與延壽' },
-  { id: 'systems', label_zh: '🧬 人體系統' },
-];
-
-interface PersonaGuideItem {
-  id: string;
-  emoji: string;
-  title: string;
-  tagline: string;
-  hash: string;
-  recommended: string;
-  tone: string;
-}
-
-const PERSONAS: PersonaGuideItem[] = [
-  {
-    id: 'desk-worker',
-    emoji: '👨‍💻',
-    title: '久坐外食上班族',
-    tagline: '外食高鈉、餐後昏睡、肩頸緊繃、動態不足',
-    hash: 'learn/eat',
-    recommended: '2:1:1 減脂餐盤 · Zone 2 微喘有氧',
-    tone: 'border-sky-200 dark:border-sky-900/60 bg-sky-50/50 dark:bg-sky-950/20 text-sky-900 dark:text-sky-200',
-  },
-  {
-    id: 'athlete',
-    emoji: '🏋️',
-    title: '運動訓練與體態族',
-    tagline: '增肌減脂、突破 1RM、避免運動受傷',
-    hash: 'obesity',
-    recommended: '1RM 最大肌力推算 · 肌肉保留處方',
-    tone: 'border-violet-200 dark:border-violet-900/60 bg-violet-50/50 dark:bg-violet-950/20 text-violet-900 dark:text-violet-200',
-  },
-  {
-    id: 'lab-alert',
-    emoji: '🩺',
-    title: '健檢報告紅字族',
-    tagline: '膽固醇 LDL-C 紅字、脂肪肝、血壓臨界偏高',
-    hash: 'checkup',
-    recommended: 'ApoB 心血管早篩 · 722 居家量血壓',
-    tone: 'border-rose-200 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/20 text-rose-900 dark:text-rose-200',
-  },
-  {
-    id: 'sleep-stress',
-    emoji: '🌙',
-    title: '失眠多夢高壓族',
-    tagline: '入睡困難、自律神經亢奮、夜間易醒',
-    hash: 'sleep',
-    recommended: '咖啡因半衰期試算 · 史丹佛生理嘆氣',
-    tone: 'border-teal-200 dark:border-teal-900/60 bg-teal-50/50 dark:bg-teal-950/20 text-teal-900 dark:text-teal-200',
-  },
-  {
-    id: 'elderly-care',
-    emoji: '👵',
-    title: '熟齡健康與家人守護',
-    tagline: '肌少症防跌、骨質疏鬆、公費癌症篩檢',
-    hash: 'learn/prevent',
-    recommended: '亞洲肌少症 AWGS · 台灣公費癌篩',
-    tone: 'border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200',
-  },
-];
-
+/** The home page offers one short route into the existing, much deeper library. */
 export const LearnHome: React.FC = () => {
   const { go } = useNavigation();
   const { openModal } = useModal();
   const { progress } = useLearningProgress();
-  const { plan, starterDone } = useActionPlan();
-  const [activeCategory, setActiveCategory] = useState<TopicCategory>('all');
+  const { plan } = useActionPlan();
+  const [category, setCategory] = useState<DiscoveryCategory>('all');
+  const [expanded, setExpanded] = useState(false);
+  const [goalId, setGoalId] = useState(LEARNING_GOALS[0].id);
+  const [showMetabolic, setShowMetabolic] = useState(false);
+  const directoryRef = useRef<HTMLElement>(null);
+  const goal = LEARNING_GOALS.find(g => g.id === goalId)!;
+  const goalLesson = goal.lesson_id ? findLesson(goal.lesson_id) : undefined;
+  const goalTrack = getTrack(goal.track_id)!;
+  const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
+  const lastTrack = lastLesson ? getTrack(lastLesson.track_id) : undefined;
+  const done = ALL_LESSONS.filter(l => progress.completed.includes(l.id)).length;
+  const directory = filterDiscoveryTopics(category, expanded);
+  const latest = [...EVIDENCE_UPDATES].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
-  const starterCount = ALL_STARTER_TASKS.filter((t) => starterDone(t.id)).length;
-
-  // `#home/plan` (from any 「立即上手」 card) scrolls straight to the action plan.
   useEffect(() => {
     const scroll = () => {
-      if (hashSegment('home') === 'plan') {
-        window.setTimeout(() => document.getElementById('my-plan')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+      if (window.location.hash === '#home/plan') {
+        requestAnimationFrame(() => document.getElementById('my-plan')?.scrollIntoView({ block: 'start' }));
       }
     };
     scroll();
@@ -430,701 +50,108 @@ export const LearnHome: React.FC = () => {
     return () => window.removeEventListener('hashchange', scroll);
   }, []);
 
-  const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
-  const lastTrack = progress.last ? getTrack(progress.last.trackId) : undefined;
-  const doneCount = progress.completed.filter((id) => ALL_LESSONS.some((l) => l.id === id)).length;
-  const latest = [...EVIDENCE_UPDATES].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
-
-  const filteredTopics = activeCategory === 'all'
-    ? CURATED_TOPICS
-    : CURATED_TOPICS.filter((t) => t.category === activeCategory);
-
-  const scrollToTopicExplorer = () => {
-    document.getElementById('topic-explorer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const explore = () => {
+    directoryRef.current?.scrollIntoView({ block: 'start' });
+    directoryRef.current?.focus({ preventScroll: true });
   };
 
   return (
-    <div className="space-y-12 pb-8 animate-fade-in">
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-200/70 dark:border-emerald-900/50 bg-gradient-to-br from-emerald-50 via-white to-sky-50 dark:from-emerald-950/40 dark:via-salud-dark-card dark:to-sky-950/20 px-5 py-8 sm:px-10 sm:py-12">
-        <div className="relative z-10 max-w-3xl space-y-5">
-          <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 dark:text-emerald-300 bg-white/80 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 rounded-full px-3 py-1">
-            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-            給每個人的健康學習平台 · 實證內容更新至 2026 年
-          </p>
-          <h1 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-slate-900 dark:text-white leading-tight text-balance">
-            看懂身體、吃對食物、
-            <br className="hidden sm:block" />
-            讀懂你的健檢報告
-          </h1>
-          <p className="text-base sm:text-lg leading-8 text-slate-600 dark:text-slate-300">
-            {LEARNING_TRACKS.length} 條學習路徑、{ALL_LESSONS.length} 堂白話小課、18 座專科深度知識庫。每一句都標示證據等級，依據
-            2024–2026 年最新臨床醫學指引。
-          </p>
-
-          {/* 搜尋欄位 */}
-          <button
-            onClick={() => openModal('search')}
-            className="group w-full sm:max-w-xl flex items-center gap-3 rounded-2xl border border-slate-300/80 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3.5 text-left shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors"
-          >
-            <Search className="w-5 h-5 text-slate-400 group-hover:text-emerald-600" aria-hidden="true" />
-            <span className="flex-1 text-[15px] text-slate-500 dark:text-slate-400">搜尋主題、數值、症狀 (例如: ApoB, 睡眠, 膝蓋痛, 糖化血色素)…</span>
-            <kbd className="hidden sm:inline text-[11px] font-mono text-slate-500 border border-slate-300 dark:border-slate-700 rounded-md px-1.5 py-0.5">
-              {isMac ? '⌘' : 'Ctrl'} K
-            </kbd>
-          </button>
-
-          {/* 即時熱門探索標籤 Chips */}
-          <div className="space-y-1.5 pt-1">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">熱門快速探索：</span>
-            <div className="flex flex-wrap gap-1.5">
-              {POPULAR_CHIPS.map((chip) => {
-                const ChipIcon = chip.icon;
-                return (
-                  <button
-                    key={chip.label}
-                    onClick={() => go(chip.hash)}
-                    className={`btn-tactile inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-medium border transition-all ${chip.tone} hover:shadow-xs hover:scale-[1.02]`}
-                  >
-                    <ChipIcon className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>#{chip.label}</span>
-                  </button>
-                );
-              })}
+    <div className="discovery-home space-y-10 sm:space-y-14 pb-8 animate-fade-in">
+      <section className="discovery-hero relative overflow-hidden rounded-[1.75rem] border border-emerald-200/70 dark:border-emerald-900/70" aria-labelledby="home-title">
+        <div className="grid items-center gap-6 px-6 py-9 sm:p-10 xl:grid-cols-[1.35fr_1fr] xl:gap-4">
+          <div className="relative z-10">
+            <p className="mb-5 flex items-center gap-2 text-xs font-semibold tracking-[0.16em] text-emerald-800 dark:text-emerald-300"><span className="h-px w-6 bg-current" /> KNOWLEDGE FOR LIFE</p>
+            <h1 id="home-title" className="font-display text-[clamp(1.5rem,7vw,2rem)] sm:text-[2.8rem] font-bold leading-[1.35] tracking-tight text-slate-900 dark:text-white">健康，從好奇開始。<br /><span className="text-emerald-800 dark:text-emerald-300">把身體的事，<br className="sm:hidden" />慢慢讀懂。</span></h1>
+            <p className="mt-5 max-w-lg text-base leading-8 text-slate-600 dark:text-slate-300">吃什麼、怎麼動、為什麼睡不好？<br />從生活裡的小問題，走進有根據的健康知識。<br className="hidden sm:block" />不需要醫學背景，照自己的步調就好。</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href={`#learn/basics/${FIRST_LESSON.id}`} className={`discovery-primary ${focusClass}`}><BookOpen className="h-4 w-4" aria-hidden="true" />從一堂小課開始<ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+              <button type="button" onClick={explore} className={`discovery-secondary ${focusClass}`}>探索健康主題<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></button>
             </div>
+            <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 dark:text-slate-400"><span>{LEARNING_TRACKS.length} 條學習路徑</span><span>{ALL_LESSONS.length} 堂白話小課</span><span>免費閱讀・免註冊</span></p>
           </div>
-
-          <div className="flex flex-wrap gap-3 pt-2">
-            <button
-              onClick={() => go('start')}
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-emerald-950 font-semibold px-5 py-3 transition-colors shadow-xs"
-            >
-              <Rocket className="w-5 h-5" aria-hidden="true" />
-              {starterCount > 0 ? `繼續 4 週啟動計畫（${starterCount}/${ALL_STARTER_TASKS.length}）` : '開始 4 週健康啟動計畫'}
-            </button>
-            <button
-              onClick={() => go('learn')}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/60 text-slate-800 dark:text-slate-200 font-semibold px-5 py-3 hover:border-emerald-500 transition-colors"
-            >
-              <GraduationCap className="w-5 h-5" aria-hidden="true" />
-              瀏覽 {ALL_LESSONS.length} 堂課
-            </button>
-            <button
-              onClick={scrollToTopicExplorer}
-              className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 dark:border-emerald-800/80 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 font-semibold px-5 py-3 hover:bg-emerald-100/60 transition-colors"
-            >
-              <Layers className="w-5 h-5" aria-hidden="true" />
-              全景主題探索大廳
-            </button>
-          </div>
-
-          <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            {[
-              { n: ALL_LESSONS.length, l: '堂白話小課' },
-              { n: EVIDENCE_UPDATES.length, l: '則最新實證' },
-              { n: LAB_METRICS.length, l: '項檢驗解讀' },
-              { n: GLOSSARY.length, l: '個名詞白話' },
-            ].map((s) => (
-              <div key={s.l} className="rounded-xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 px-3 py-2">
-                <dt className="sr-only">{s.l}</dt>
-                <dd className="text-2xl font-display font-bold text-slate-900 dark:text-white tabular-nums">{s.n}</dd>
-                <dd className="text-xs text-slate-600 dark:text-slate-400">{s.l}</dd>
-              </div>
-            ))}
-          </dl>
+          <DailyBalance />
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-emerald-200/70 dark:border-emerald-900/70 bg-white/60 dark:bg-slate-950/30 px-6 py-4 sm:px-10">
+          <p className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300"><ShieldCheck className="h-4 w-4 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />從白話重點、圖解，到研究來源</p>
+          <a href="#about" className={`inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-emerald-800 dark:text-emerald-300 ${focusClass}`}>認識我們的實證原則<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" /></a>
         </div>
       </section>
 
-      {/* ── 每日健康生活打卡與微習慣 ─────────────────────────────────── */}
-      <DailyStreakCard />
-
-      {/* ── 🌟 健康四大維度羅盤：飲食 · 運動 · 預防 · 治療 ───────────────── */}
-      <FourPillarsMasterCompass />
-
-      {/* ── 接續上次學習 ─────────────────────────────────────────── */}
-      {lastLesson && lastTrack && (
-        <section aria-label="繼續學習">
-          <button
-            onClick={() => go(`learn/${lastTrack.id}/${lastLesson.id}`)}
-            className={`w-full flex items-center gap-4 rounded-2xl border border-slate-200 dark:border-slate-800 ${TONE[lastTrack.tone].soft} ${TONE[lastTrack.tone].ring} px-4 py-4 text-left transition-colors`}
-          >
-            <TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} />
-            <span className="flex-1 min-w-0">
-              <span className="block text-xs text-slate-500 dark:text-slate-400">
-                繼續上次的課程 · {lastTrack.title_zh} · 已完成 {doneCount}/{ALL_LESSONS.length} 課
-              </span>
-              <span className="block font-semibold text-slate-900 dark:text-white truncate">{lastLesson.title_zh}</span>
-            </span>
-            <PlayCircle className={`w-6 h-6 shrink-0 ${TONE[lastTrack.tone].text}`} aria-hidden="true" />
-          </button>
-        </section>
-      )}
-
-      {/* ── 今日行動計畫或新手立即上手技巧 ── */}
-      {plan.items.length > 0 ? <ActionPlanPanel /> : <QuickTips sectionKey="home" />}
-
-      {/* ── 🎯 依身分與生活型態對焦 (Persona Guide) ── */}
-      <section aria-labelledby="persona-h" className="space-y-3">
-        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2.5">
-          <div>
-            <h2 id="persona-h" className="text-lg sm:text-xl font-display font-bold text-slate-900 dark:text-white">
-              依你的生活型態與健康困擾快速對焦
-            </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              選擇最符合你當前狀態的生活情境，直達針對性的實踐方案與核心機制
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-          {PERSONAS.map((p) => (
-            <button
-              key={p.id}
-              onClick={() => go(p.hash)}
-              className={`btn-tactile group flex flex-col justify-between p-4 rounded-2xl border text-left transition-all hover:shadow-sm hover:-translate-y-0.5 space-y-3 ${p.tone}`}
-            >
-              <div className="space-y-1.5">
-                <span className="text-2xl block">{p.emoji}</span>
-                <h3 className="font-bold text-sm leading-snug">{p.title}</h3>
-                <p className="text-[11px] leading-relaxed opacity-80">{p.tagline}</p>
-              </div>
-
-              <div className="pt-2 border-t border-black/5 dark:border-white/5 space-y-1">
-                <span className="text-[10px] uppercase font-mono font-bold block opacity-60">推薦核心：</span>
-                <span className="text-[11px] font-semibold leading-tight block">{p.recommended}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 🧮 互動試算神器大廳 Banner ── */}
-      <section className="rounded-3xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-700 text-white p-5 sm:p-7 flex flex-col md:flex-row md:items-center justify-between gap-5 shadow-sm">
-        <div className="space-y-2 max-w-xl">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-mono font-bold backdrop-blur-sm">
-            <Calculator className="w-3.5 h-3.5" />
-            <span>18+ 款臨床醫學試算工具</span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white">
-            互動健康試算工具箱：精準掌握身體數據
-          </h3>
-          <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed">
-            日常補水公式、Zone 2 心率區間、咖啡因代謝半衰期、重訓 1RM、退酒時間估算與 722 居家連續血壓協定，隨開即算！
-          </p>
-        </div>
-        <button
-          onClick={() => openModal('simulators')}
-          className="btn-tactile shrink-0 px-5 py-3 rounded-2xl bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all self-start md:self-auto"
-        >
-          <Sparkles className="w-4 h-4 text-emerald-600" />
-          <span>開啟試算工具大廳</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
-      </section>
-
-      {/* ── 🔥 全新核心：全景主題探索大廳 (Featured Topics Explorer) ─────────────── */}
-      <section id="topic-explorer" aria-labelledby="curated-topics-h" className="space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 dark:text-emerald-400 uppercase">
-              <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Thematic Topic Navigator</span>
-            </div>
-            <h2 id="curated-topics-h" className="text-2xl font-display font-extrabold text-slate-900 dark:text-white mt-1">
-              全景主題探索大廳
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-              想深入研究特定健康領域？依分類快速探索所有主題、核心疑問與專屬互動模擬器。
-            </p>
-          </div>
-          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-            共 {filteredTopics.length} 個主題模組
-          </span>
-        </div>
-
-        {/* 分類切換器 Filter Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-          {CATEGORY_TABS.map((tab) => {
-            const isSelected = activeCategory === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveCategory(tab.id)}
-                className={`btn-tactile px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border ${
-                  isSelected
-                    ? 'bg-emerald-700 text-white border-emerald-800 shadow-xs dark:bg-emerald-600 dark:border-emerald-500'
-                    : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-emerald-400 dark:hover:border-emerald-700'
-                }`}
-              >
-                {tab.label_zh}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* 主題卡片網格 (信達雅設計) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-1">
-          {filteredTopics.map((item) => {
-            const Icon = item.icon;
-            const toneObj = TONE[item.tone];
-
-            return (
-              <button
-                key={item.id}
-                onClick={() => go(item.hash)}
-                className={`group flex flex-col justify-between rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-5 text-left transition-all duration-200 hover:border-emerald-500 dark:hover:border-emerald-600 hover:shadow-md hover:-translate-y-0.5 space-y-4`}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className={`w-10 h-10 rounded-2xl flex items-center justify-center ${toneObj.chip} border shrink-0 transition-transform group-hover:scale-105`}>
-                      <Icon className="w-5 h-5" aria-hidden="true" />
-                    </span>
-                    <div className="flex items-center gap-1.5 flex-wrap justify-end">
-                      {item.badges.slice(0, 2).map((b) => (
-                        <span key={b} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-slate-700/60">
-                          {b}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
-                      {item.title_zh}
-                    </h3>
-                    <div className="text-[11px] font-mono text-slate-400 dark:text-slate-500 mt-0.5">
-                      {item.title_en}
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
-                    {item.tagline_zh}
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-semibold text-emerald-700 dark:text-emerald-400">
-                  <span className="text-[11px] font-mono">進入深度專區</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ── 目標對焦：你想從哪裡開始？ ────────────────────────────── */}
-      <section aria-labelledby="goals-h">
-        <SectionTitle id="goals-h" title="依個人目標與困擾對焦" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {LEARNING_GOALS.map((g) => {
-            const Icon = LEARNING_ICONS[g.icon];
-            const track = getTrack(g.track_id);
-            return (
-              <button
-                key={g.id}
-                onClick={() => go(`learn/${g.track_id}${g.lesson_id ? `/${g.lesson_id}` : ''}`)}
-                className="group flex items-start gap-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 text-left hover:border-emerald-400 dark:hover:border-emerald-700 hover:shadow-sm transition-all"
-              >
-                <span className={`mt-0.5 w-9 h-9 rounded-xl inline-flex items-center justify-center ${track ? TONE[track.tone].chip : ''} border shrink-0`}>
-                  <Icon className="w-[18px] h-[18px]" aria-hidden="true" />
-                </span>
-                <span className="flex-1 min-w-0">
-                  <span className="block font-semibold text-slate-900 dark:text-white leading-snug">{g.label_zh}</span>
-                  <span className="block text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">{g.hint_zh}</span>
-                </span>
-                <ArrowRight className="w-4 h-4 mt-1 text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all shrink-0" aria-hidden="true" />
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ── 7 大學習路徑 ───────────────────────────────────────────── */}
-      <section aria-labelledby="tracks-h">
-        <SectionTitle
-          id="tracks-h"
-          title="7 大循序漸進學習路徑"
-          action={
-            <button onClick={() => go('learn')} className="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline">
-              課程總表 →
-            </button>
-          }
-        />
-        <p className="text-sm text-slate-600 dark:text-slate-400 -mt-1 mb-4">建議初學者依序閱讀打底；每條路徑也可以依興趣單獨研讀。</p>
-        <ol className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-          {LEARNING_TRACKS.map((t, i) => {
-            const done = t.lessons.filter((l) => progress.completed.includes(l.id)).length;
-            const pct = (done / t.lessons.length) * 100;
-            const minutes = t.lessons.reduce((s, l) => s + l.minutes, 0);
-            return (
-              <li key={t.id}>
-                <button
-                  onClick={() => go(`learn/${t.id}`)}
-                  className={`w-full h-full flex flex-col justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 text-left ${TONE[t.tone].ring} hover:shadow-sm transition-all`}
-                >
-                  <span className="flex items-start gap-3">
-                    <TrackIcon icon={t.icon} tone={t.tone} />
-                    <span className="flex-1 min-w-0">
-                      <span className="block text-xs text-slate-500 dark:text-slate-400">路徑 {i + 1}</span>
-                      <span className="block text-base font-bold text-slate-900 dark:text-white">{t.title_zh}</span>
-                      <span className="block text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-0.5">{t.subtitle_zh}</span>
-                    </span>
-                    {done === t.lessons.length && <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" aria-label="已完成" />}
-                  </span>
-                  <div className="space-y-1.5 w-full">
-                    <span className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
-                      <span>{t.lessons.length} 課</span>
-                      <span className="inline-flex items-center gap-1">
-                        <Clock className="w-3 h-3" aria-hidden="true" />約 {minutes} 分鐘
-                      </span>
-                      <span className="ml-auto tabular-nums">
-                        {done}/{t.lessons.length}
-                      </span>
-                    </span>
-                    <ProgressBar value={pct} tone={t.tone} label={`${t.title_zh} 完成度`} />
-                  </div>
-                </button>
-              </li>
-            );
-          })}
-        </ol>
-      </section>
-
-      {/* ── 最新實證：2024–2026 改變了什麼 ─────────────────────────────── */}
-      <section aria-labelledby="updates-h">
-        <SectionTitle
-          id="updates-h"
-          title="最新實證：2024–2026 改變了什麼"
-          action={
-            <button onClick={() => go('updates')} className="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline">
-              全部 {EVIDENCE_UPDATES.length} 則 →
-            </button>
-          }
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {latest.map((u) => (
-            <button
-              key={u.id}
-              onClick={() => go(`updates/${u.id}`)}
-              className="flex flex-col gap-2 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 text-left hover:border-emerald-400 dark:hover:border-emerald-700 transition-colors"
-            >
-              <span className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                <span className="font-semibold text-slate-700 dark:text-slate-300">{UPDATE_CATEGORY_META[u.category].label_zh}</span>
-                <span aria-hidden="true">·</span>
-                <span>{formatYM(u.date)}</span>
-              </span>
-              <span className="font-semibold text-slate-900 dark:text-white leading-6">{u.title_zh}</span>
-              <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">{u.what_it_means_zh}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 實用工具箱 ────────────────────────────────────────────── */}
-      <section aria-labelledby="tools-h">
-        <SectionTitle id="tools-h" title="實用工具箱" />
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <section aria-labelledby="entry-title">
+        <div className="mb-4 flex items-center gap-3"><h2 id="entry-title" className="text-base font-bold text-slate-900 dark:text-white">今天，想先了解什麼？</h2><span className="h-px flex-1 bg-slate-200 dark:bg-slate-800" /></div>
+        <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
           {[
-            { icon: ClipboardList, label: '看懂健檢報告', hint: '24 項檢驗值白話對照', onClick: () => go('checkup'), tone: 'text-rose-700 dark:text-rose-300' },
-            { icon: AlertOctagon, label: '危險警訊', hint: '何時要立刻撥打119就醫', onClick: () => openModal('emergency'), tone: 'text-red-700 dark:text-red-300' },
-            { icon: Gauge, label: '722 居家血壓', hint: '連續 7 天早晚量測標準協定', onClick: () => go('cardiometabolic/BP_722'), tone: 'text-sky-700 dark:text-sky-300' },
-            { icon: BookA, label: '健康小辭典', hint: '68 個醫學與長照名詞白話', onClick: () => go('glossary'), tone: 'text-violet-700 dark:text-violet-300' },
-            { icon: Wine, label: '飲酒風險自評', hint: 'AUDIT-C 三題標準量表', onClick: () => openModal('auditC'), tone: 'text-amber-700 dark:text-amber-300' },
-          ].map((tool) => (
-            <button
-              key={tool.label}
-              onClick={tool.onClick}
-              className="flex flex-col items-start gap-2 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 text-left hover:border-emerald-400 dark:hover:border-emerald-700 transition-colors shadow-xs"
-            >
-              <tool.icon className={`w-6 h-6 ${tool.tone}`} aria-hidden="true" />
-              <span className="font-semibold text-slate-900 dark:text-white leading-snug">{tool.label}</span>
-              <span className="text-xs text-slate-500 dark:text-slate-400">{tool.hint}</span>
-            </button>
-          ))}
+            { title: '我想建立健康習慣', hint: '從小步開始，慢慢累積', hash: 'start', icon: Leaf, color: 'text-emerald-700 dark:text-emerald-300' },
+            { title: '我想看懂健檢', hint: '數字的意思與下一步', hash: 'checkup', icon: ClipboardList, color: 'text-rose-700 dark:text-rose-300' },
+            { title: '我想認識我的身體', hint: '用圖解理解器官運作', hash: 'systems', icon: HeartPulse, color: 'text-sky-700 dark:text-sky-300' },
+            { title: '我想了解就醫方向', hint: '症狀、科別與看診準備', hash: 'clinic/by/symptom', icon: Stethoscope, color: 'text-violet-700 dark:text-violet-300' },
+          ].map(item => <a key={item.hash} href={`#${item.hash}`} className={`discovery-card group flex flex-col items-start p-4 sm:p-5 ${focusClass}`}><item.icon className={`mb-4 h-6 w-6 ${item.color}`} strokeWidth={1.5} aria-hidden="true" /><span className="text-sm font-semibold text-slate-900 dark:text-white">{item.title}</span><span className="mt-1.5 text-xs leading-6 text-slate-600 dark:text-slate-400">{item.hint}</span><ArrowUpRight className="mt-3 h-4 w-4 self-end text-slate-400 group-hover:text-emerald-700" aria-hidden="true" /></a>)}
         </div>
       </section>
 
-      {/* ── 常見生活困擾與推薦課程速查導航表 ────────────────────────── */}
-      <SymptomToCourseGuide onNavigate={(hash) => go(hash)} />
+      {lastLesson && lastTrack && <section className="discovery-card p-5 sm:p-6" aria-label="繼續上次學習"><div className="flex items-center gap-4"><TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} /><div className="min-w-0 flex-1"><p className="mb-1 text-xs text-slate-600 dark:text-slate-400">歡迎回來・已完成 {done} / {ALL_LESSONS.length} 課</p><a href={`#learn/${lastTrack.id}/${lastLesson.id}`} className={`inline-flex items-center gap-2 font-semibold text-slate-900 dark:text-white ${focusClass}`}>繼續閱讀：{lastLesson.title_zh}<ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></div></div></section>}
 
-      {/* ── 全站學習體系與長壽支柱架構總表 ──────────────────────────── */}
-      <HealthMasteryFrameworkTable onNavigate={(hash) => go(hash)} />
-
-      {/* ── 信任與醫學實證底線 ────────────────────────────────────── */}
-      <section className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/40 p-6 flex flex-col sm:flex-row gap-4 sm:items-center">
-        <ShieldCheck className="w-9 h-9 text-emerald-700 dark:text-emerald-400 shrink-0" aria-hidden="true" />
-        <div className="flex-1 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-          <strong className="text-slate-900 dark:text-white">內容編撰與實證基準：</strong>
-          全站內容依據國際一線醫學會臨床指引（ACC/AHA、ADA、KDIGO、WHO、衛福部國健署）與大型同儕評審臨床試驗編纂，每條建議均明確標記 A–E 證據等級。Salud
-          提供科學健康教育，不能取代主治醫師的臨床診斷與個別化處方。
-        </div>
-        <div className="flex items-center gap-3 shrink-0">
-          <button onClick={() => go('about')} className="text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline">
-            編輯方針
-          </button>
-          <span className="text-slate-300 dark:text-slate-700">·</span>
-          <button onClick={() => go('evidence')} className="text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline">
-            實證分級說明
-          </button>
+      <section aria-labelledby="featured-title">
+        <SectionHeading id="featured-title" eyebrow="A LITTLE LEARNING, EVERY DAY" title="一點時間，學一件對自己好的事" description="先讀懂一個重點，再試著用在生活裡。" action={<a href="#learn" className="discovery-text-link">所有課程<ArrowRight className="h-4 w-4" aria-hidden="true" /></a>} />
+        <div className="grid gap-4 md:grid-cols-3">
+          {featureTracks.map((track, i) => {
+            const lesson = track.lessons[0];
+            return <a key={track.id} href={`#learn/${track.id}/${lesson.id}`} className={`discovery-card group overflow-hidden ${focusClass}`}>
+              <div className={`discovery-lesson-art discovery-lesson-art-${i}`}><LessonArt type={i} /><span className="absolute left-4 top-4 rounded-full border border-white/40 bg-white/85 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-950/80 dark:text-slate-200">{track.title_zh}</span></div>
+              <div className="flex h-[calc(100%-10rem)] flex-col p-5"><p className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400"><Clock className="h-3.5 w-3.5" aria-hidden="true" />{lesson.minutes} 分鐘・入門小課</p><h3 className="mt-3 text-lg font-bold leading-7 text-slate-900 dark:text-white group-hover:text-emerald-800 dark:group-hover:text-emerald-300">{lesson.title_zh}</h3><p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300 line-clamp-3">{lesson.big_idea_zh}</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-800 dark:text-emerald-300">讀這堂小課<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span></div>
+            </a>;
+          })}
         </div>
       </section>
+
+      <section id="topic-explorer" ref={directoryRef} tabIndex={-1} aria-labelledby="topics-title" className="scroll-mt-24 focus:outline-none">
+        <SectionHeading id="topics-title" eyebrow="FOLLOW YOUR CURIOSITY" title="讓好奇，帶你找到下一頁" description="從日常保養到專科醫學，想讀多深，由你決定。" />
+        <button onClick={() => openModal('search')} className={`mb-5 flex min-h-14 w-full items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 text-left text-sm text-slate-600 transition-colors hover:border-emerald-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 ${focusClass}`}><Search className="h-5 w-5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" /><span className="flex-1">搜尋問題、症狀或名詞，例如：睡不好、膽固醇</span><span className="hidden sm:block text-xs">Ctrl / ⌘ K</span></button>
+        <div className="mb-4 flex flex-wrap gap-2" role="group" aria-label="健康主題分類">{DISCOVERY_CATEGORIES.map(item => <button key={item.id} type="button" aria-pressed={category === item.id} aria-controls="discovery-results" onClick={() => { setCategory(item.id); setExpanded(false); }} className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${focusClass} ${category === item.id ? 'border-emerald-800 bg-emerald-800 text-white dark:border-emerald-400 dark:bg-emerald-400 dark:text-emerald-950' : 'border-slate-200 bg-transparent text-slate-600 hover:border-emerald-600 dark:border-slate-700 dark:text-slate-300'}`}>{item.label}</button>)}</div>
+        <p role="status" className="mb-4 text-xs text-slate-600 dark:text-slate-400">{DISCOVERY_CATEGORIES.find(c => c.id === category)!.label}・共 {directory.total} 個主題，顯示 {directory.topics.length} 個</p>
+        <div id="discovery-results" className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{directory.topics.map(topic => <a key={topic.id} href={`#${topic.hash}`} className={`discovery-card group flex items-start gap-3 p-5 ${focusClass}`}><TrackIcon icon={topic.icon} tone={topic.tone} size="sm" /><div className="min-w-0 flex-1"><h3 className="text-sm font-semibold leading-6 text-slate-900 dark:text-white">{topic.title}</h3><p className="mt-1 text-xs leading-6 text-slate-600 dark:text-slate-400">{topic.description}</p></div><ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 group-hover:text-emerald-700" aria-hidden="true" /></a>)}</div>
+        {directory.topics.length < directory.total && <div className="mt-5 text-center"><button type="button" onClick={() => setExpanded(true)} aria-controls="discovery-results" className={`discovery-secondary ${focusClass}`}>展開其餘 {directory.total - directory.topics.length} 個主題<ChevronDown className="h-4 w-4" aria-hidden="true" /></button></div>}
+      </section>
+
+      <div className="grid items-start gap-5 xl:grid-cols-2">
+        <section className="discovery-card p-6 sm:p-7" aria-labelledby="guide-title"><p className="discovery-eyebrow">YOUR NEXT CHAPTER</p><h2 id="guide-title" className="mt-2 text-xl font-bold text-slate-900 dark:text-white">還不知道從哪裡開始？</h2><p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">選一個你在意的問題，找一堂合適的小課。</p><label htmlFor="learning-goal" className="mt-5 block text-sm font-medium text-slate-700 dark:text-slate-200">我現在最想了解…</label><select id="learning-goal" value={goalId} onChange={e => setGoalId(e.target.value)} className={`mt-2 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 ${focusClass}`}>{LEARNING_GOALS.map(g => <option key={g.id} value={g.id}>{g.label_zh}</option>)}</select><div className="mt-5 rounded-2xl bg-emerald-50/70 p-5 dark:bg-emerald-950/40"><p className="text-xs font-medium text-emerald-800 dark:text-emerald-300">推薦起點・{goalTrack.title_zh}</p><h3 className="mt-2 font-bold leading-7 text-slate-900 dark:text-white">{goalLesson?.title_zh ?? goalTrack.title_zh}</h3><p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">{goal.hint_zh}</p><a href={`#learn/${goal.track_id}${goal.lesson_id ? `/${goal.lesson_id}` : ''}`} className="discovery-text-link mt-4">開始閱讀{goalLesson ? `・${goalLesson.minutes} 分鐘` : ''}<ArrowRight className="h-4 w-4" aria-hidden="true" /></a></div><p className="mt-3 text-xs leading-6 text-slate-600 dark:text-slate-400">這是閱讀導引，不是症狀評估或診斷。</p></section>
+        <LearningChallenge />
+      </div>
+
+      <section aria-labelledby="practice-title" className="discovery-practice rounded-[1.75rem] border border-emerald-200 p-6 sm:p-8 dark:border-emerald-900"><div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between"><div><p className="discovery-eyebrow">SMALL STEPS, REAL LIFE</p><h2 id="practice-title" className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">學到的，慢慢變成生活裡的。</h2><p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">不用一次改變全部。從一個做得到的小行動開始。</p></div><a href="#start" className={`discovery-primary shrink-0 ${focusClass}`}>看看 4 週啟動計畫<ArrowRight className="h-4 w-4" aria-hidden="true" /></a></div></section>
+      <div id={plan.items.length > 0 ? undefined : "my-plan"} className="scroll-mt-24">{plan.items.length > 0 ? <ActionPlanPanel /> : <QuickTips sectionKey="home" />}</div>
+      <details className="discovery-card group p-5 sm:p-6" onToggle={e => setShowMetabolic(e.currentTarget.open)}><summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 text-base font-semibold text-slate-900 dark:text-white"><span className="flex items-center gap-2"><HeartPulse className="h-5 w-5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />專題：體重與三高，接成自己的下一步</span><ChevronDown className="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" /></summary>{showMetabolic && <div className="mt-5"><Suspense fallback={<p role="status">載入專題中…</p>}><MetabolicJourney /></Suspense></div>}</details>
+
+      <section aria-labelledby="evidence-title"><SectionHeading id="evidence-title" eyebrow="READ THE EVIDENCE" title="研究怎麼說？一起讀懂" description="除了新發現，也看研究限制與適用對象。" action={<a href="#updates" className="discovery-text-link">更多實證<ArrowRight className="h-4 w-4" aria-hidden="true" /></a>} /><div className="divide-y divide-slate-200 border-y border-slate-200 dark:divide-slate-800 dark:border-slate-800">{latest.map(update => <a key={update.id} href={`#updates/${update.id}`} className={`group flex gap-4 py-5 sm:gap-7 ${focusClass}`}><div className="w-20 shrink-0 pt-1 text-xs leading-6 text-slate-600 dark:text-slate-400"><span className="block font-semibold text-emerald-800 dark:text-emerald-300">{UPDATE_CATEGORY_META[update.category].label_zh}</span><time dateTime={update.date}>{formatYM(update.date)}</time></div><div className="min-w-0 flex-1"><h3 className="font-semibold leading-7 text-slate-900 dark:text-white group-hover:text-emerald-800 dark:group-hover:text-emerald-300">{update.title_zh}</h3><p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400 line-clamp-2">{update.what_it_means_zh}</p></div><ArrowUpRight className="mt-2 hidden h-4 w-4 shrink-0 text-slate-400 sm:block" aria-hidden="true" /></a>)}</div></section>
+
+      <section aria-labelledby="tool-title"><SectionHeading id="tool-title" eyebrow="KEEP THESE CLOSE" title="需要的時候，這裡找得到" /><div className="grid gap-3 sm:grid-cols-2">{[
+        { title: '健康小辭典', hint: `${GLOSSARY.length} 個名詞，用日常語言解釋`, icon: BookOpen, action: () => go('glossary') },
+        { title: '看懂檢驗數值', hint: `${LAB_METRICS.length} 項檢驗的意義、限制與追蹤`, icon: ClipboardList, action: () => go('checkup') },
+        { title: '互動試算工具', hint: '用操作理解數字，結果僅供衛教參考', icon: Calculator, action: () => openModal('simulators') },
+        { title: '我的收藏與計畫', hint: '儲存在這個瀏覽器，不需要帳號', icon: Bookmark, action: () => openModal('backpack') },
+      ].map(tool => <button key={tool.title} type="button" onClick={tool.action} className={`discovery-card flex items-center gap-4 p-5 text-left ${focusClass}`}><tool.icon className="h-6 w-6 shrink-0 text-emerald-700 dark:text-emerald-400" strokeWidth={1.5} aria-hidden="true" /><span className="flex-1"><span className="block text-sm font-semibold text-slate-900 dark:text-white">{tool.title}</span><span className="mt-1 block text-xs leading-6 text-slate-600 dark:text-slate-400">{tool.hint}</span></span><ArrowUpRight className="h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" /></button>)}</div></section>
+      <aside className="flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800"><p className="max-w-xl text-xs leading-7 text-slate-600 dark:text-slate-400">Salud 是健康教育平台。閱讀能幫助你理解身體、準備與醫療人員的討論；個人診斷、治療與用藥仍需專業評估。</p><button onClick={() => openModal('emergency')} className={`min-h-11 shrink-0 text-sm font-semibold text-rose-800 dark:text-rose-300 ${focusClass}`}>辨識需要立即就醫的警訊 →</button></aside>
     </div>
   );
 };
 
-/** 常見生活困擾與推薦課程速查導航表 */
-const SymptomToCourseGuide: React.FC<{ onNavigate: (hash: string) => void }> = ({ onNavigate }) => {
-  const guides = [
-    {
-      symptom: '健檢報告 LDL-C 或總膽固醇出現紅字',
-      mechanism: 'ApoB 顆粒滲入血管內膜形成動脈硬化斑塊',
-      lesson: '血脂異常最新指標與個人化 LDL 目標',
-      hash: 'learn/checkup/L-CHK-04',
-      action: '換掉油炸與飽和脂肪，改用初榨橄欖油，每週 150 分鐘 Zone 2 有氧',
-    },
-    {
-      symptom: '吃飽飯後嚴重昏睡 (Food Coma)、腰圍變粗',
-      mechanism: '高 GI 飲食引發血糖暴衝暴跌與胰島素阻抗',
-      lesson: '糖尿病前期：最好的逆轉窗口',
-      hash: 'learn/prevent/L-PRE-03',
-      action: '執行哈佛 2:1:1 餐盤「菜→肉→飯」順序，飯後快走 10 分鐘',
-    },
-    {
-      symptom: '翻來覆去超過 30 分鐘睡不著、夜間多夢易醒',
-      mechanism: '晝夜節律褪黑激素不足與交感神經高張亢奮',
-      lesson: '規律作息與失眠 CBT-I 刺激控制法',
-      hash: 'learn/rest/L-REST-04',
-      action: '清晨起床照戶外光 15 分鐘，睡前 1 小時停用 3C 藍光，練習史丹佛生理嘆氣',
-    },
-    {
-      symptom: '很久沒運動，想開始但怕膝蓋痛或受傷',
-      mechanism: '關節活動度與肌力流失，心肺未經漸進適應',
-      lesson: '每週 150 分鐘與 Zone 2 粒線體有氧',
-      hash: 'learn/move/L-MOVE-01',
-      action: '從每天 10 分鐘輕鬆散步開始，執行 4 週無痛啟動計畫',
-    },
-    {
-      symptom: '腹部超音波照出脂肪肝、肝指數 ALT 微升',
-      mechanism: '肝臟新生脂肪 (DNL) 累積與脂毒性微發炎',
-      lesson: '肝指數與脂肪肝：FIB-4 纖維化風險評估',
-      hash: 'learn/checkup/L-CHK-06',
-      action: '戒除含糖手搖飲與果糖，體重只要減輕 5% 即可大幅排空肝臟脂肪',
-    },
-    {
-      symptom: '40 歲後常覺無力、擔心父母跌倒臥床',
-      mechanism: '骨骼肌每十年自然流失 8%，亞洲肌少症 (AWGS)',
-      lesson: '肌少症與骨質疏鬆：幾歲開始練都不嫌晚',
-      hash: 'learn/prevent/L-PRE-06',
-      action: '每餐補足 2.5g 白胺酸蛋白質 (約 1 顆蛋+1 份豆/魚)，每週 2 次居家椅子深蹲',
-    },
-    {
-      symptom: '經常胃脹、火燒心、胸骨後灼熱或噯氣泛酸',
-      mechanism: '下食道括約肌一過性鬆弛、裂孔疝氣或胃酸過度刺激',
-      lesson: '胃食道逆流與消化性潰瘍深度防護',
-      hash: 'gastro/GERD_ULCER',
-      action: '睡前 3 小時禁食，戒除含糖飲與高脂宵夜，胃藥 PPI 於早餐前 30 分鐘空腹服用',
-    },
-    {
-      symptom: '想為自己與父母規劃真正救命的防癌健檢',
-      mechanism: '早期原位癌無症狀，抽血腫瘤標記偽陽性高，需依致病路徑專科早篩',
-      lesson: '台灣公費六大癌症篩檢與腫瘤標記解讀',
-      hash: 'oncology/SCREENING_TW',
-      action: '用試算器核對年齡與家族史，預約 LDCT 低劑量肺斷層、乳房攝影、糞便潛血或抹片',
-    },
-    {
-      symptom: '手指常麻（甩手稍緩）、或膝蓋上下樓梯無力痠軟',
-      mechanism: '腕隧道正中神經壓迫，或股四頭肌力量衰退導致髕股關節過載',
-      lesson: '周邊神經卡壓與退化性關節炎照護',
-      hash: 'spine/PERIPHERAL_NERVE',
-      action: '直立坐姿避免手腕過屈，減重 1 公斤即減少膝蓋 4 公斤負擔，每日練習直抬腿與臀橋',
-    },
-    {
-      symptom: '想減脂但怕流失肌肉、或體重卡在高原期',
-      mechanism: '極端節食引發代謝適應（BMR 下降）與骨骼肌分解',
-      lesson: '科學增肌減脂：熱量赤字與體組成重塑',
-      hash: 'obesity',
-      action: '每日蛋白質攝取達 1.6–2.2 g/kg，每週 3 次漸進阻力重訓，優先保留瘦體組織',
-    },
-    {
-      symptom: '想延緩細胞老化衰退、降低慢性發炎與退化風險',
-      mechanism: '細胞老化分泌表型（SASP）、粒線體功能障礙與表觀遺傳時鐘失調',
-      lesson: '抗老延壽：12 大細胞衰老標誌與激效反應',
-      hash: 'longevity',
-      action: '實踐 12:12 晝夜限時進食啟動細胞自噬，維持每週 150 分鐘 Zone 2 有氧改善粒線體',
-    },
-  ];
+function SectionHeading({ id, eyebrow, title, description, action }: { id: string; eyebrow: string; title: string; description?: string; action?: React.ReactNode }) {
+  return <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="discovery-eyebrow">{eyebrow}</p><h2 id={id} className="mt-2 text-xl font-bold leading-snug tracking-tight text-slate-900 dark:text-white sm:text-2xl">{title}</h2>{description && <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">{description}</p>}</div>{action}</div>;
+}
 
-  return (
-    <section aria-labelledby="symptom-table-h" className="space-y-3">
-      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2.5">
-        <TableIcon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-        <div>
-          <h2 id="symptom-table-h" className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-            對症導航：從常見生活困擾到推薦課程速查表
-          </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400">點擊任一推薦課程即可直接進入閱讀專屬白話解析與實踐指南。</p>
-        </div>
-      </div>
+function LearningChallenge() {
+  const [answer, setAnswer] = useState<number | null>(null);
+  const quiz = quizLesson.quiz!;
+  return <section className="discovery-card p-6 sm:p-7" aria-labelledby="challenge-title"><p className="discovery-eyebrow flex items-center gap-2"><Sparkles className="h-3.5 w-3.5" aria-hidden="true" />A MOMENT OF DISCOVERY</p><h2 id="challenge-title" className="mt-2 text-xl font-bold text-slate-900 dark:text-white">用一個問題，認識身體</h2><p className="mt-3 text-base font-medium leading-8 text-slate-700 dark:text-slate-200">{quiz.question_zh}</p><div className="mt-4 grid gap-2" role="group" aria-label={quiz.question_zh}>{quiz.options_zh.map((option, i) => <button key={option} type="button" aria-pressed={answer === i} onClick={() => setAnswer(i)} className={`flex min-h-12 items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${focusClass} ${answer === i ? 'border-emerald-700 bg-emerald-50 text-emerald-900 dark:border-emerald-500 dark:bg-emerald-950 dark:text-emerald-200' : 'border-slate-200 text-slate-700 hover:border-emerald-500 dark:border-slate-700 dark:text-slate-300'}`}><span className="font-mono text-xs text-slate-500 dark:text-slate-400">{String.fromCharCode(65 + i)}</span>{option}{answer === i && <CheckCircle2 className="ml-auto h-4 w-4 shrink-0" aria-hidden="true" />}</button>)}</div>{answer !== null && <div role="status" className="mt-4 rounded-xl bg-emerald-50 p-4 text-sm leading-7 text-emerald-950 dark:bg-emerald-950/60 dark:text-emerald-100"><p className="font-semibold">{answer === quiz.answer ? '答對了！你已經掌握一個實用方法。' : '差一點！一起看看更合適的判斷方式。'}</p><p className="mt-1">正確答案：{quiz.options_zh[quiz.answer]}。{quiz.explain_zh}</p><a href={`#learn/move/${quizLesson.id}`} className="mt-3 inline-flex min-h-11 items-center gap-1 font-semibold underline underline-offset-4">看完整解釋與運動建議<ArrowRight className="h-4 w-4" aria-hidden="true" /></a><button onClick={() => setAnswer(null)} className="mt-2 flex min-h-11 items-center gap-1 text-xs"><RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />再想一次</button></div>}<p className="mt-3 text-xs leading-6 text-slate-600 dark:text-slate-400">小測驗只幫助理解，不評估體能或健康風險。</p></section>;
+}
 
-      <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs bg-white dark:bg-slate-900/60">
-        <table className="w-full text-left border-collapse text-xs sm:text-sm">
-          <thead>
-            <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300">
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[170px]">常見困擾 / 徵象</th>
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[160px]">背後生理機轉</th>
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[160px]">推薦小課</th>
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[200px]">今日第一步行動</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
-            {guides.map((g, idx) => (
-              <tr key={idx} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
-                <td className="py-3 px-3.5 font-bold text-slate-900 dark:text-white align-top">
-                  {g.symptom}
-                </td>
-                <td className="py-3 px-3.5 text-slate-600 dark:text-slate-300 align-top leading-relaxed">
-                  {g.mechanism}
-                </td>
-                <td className="py-3 px-3.5 align-top">
-                  <button
-                    onClick={() => onNavigate(g.hash)}
-                    className="font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1 text-left"
-                  >
-                    <span>{g.lesson}</span>
-                    <ArrowRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                  </button>
-                </td>
-                <td className="py-3 px-3.5 text-slate-700 dark:text-slate-300 align-top leading-relaxed font-medium">
-                  {g.action}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  );
-};
+/** Editorial vector art stays crisp at large text sizes and needs no remote image request. */
+function DailyBalance() {
+  return <div className="discovery-balance relative mx-auto hidden w-full max-w-[310px] xl:block" aria-hidden="true"><svg viewBox="0 0 320 310" fill="none" className="w-full"><path d="M42 135C22 52 104 10 176 27c82 19 136 85 111 169-22 73-108 98-176 68C56 240 54 184 42 135Z" fill="currentColor" opacity=".07" /><circle cx="162" cy="150" r="102" stroke="currentColor" strokeOpacity=".16" /><circle cx="162" cy="150" r="76" stroke="currentColor" strokeOpacity=".12" strokeDasharray="3 7" /><path d="M159 217v-94m0 58c-42-3-56-29-51-55 32 1 51 20 51 55Zm1-28c-3-41 17-67 48-70 5 34-10 58-48 70Z" fill="currentColor" fillOpacity=".13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><path d="m114 134 44 47m45-89-42 60" stroke="currentColor" strokeWidth="1.5" /><circle cx="162" cy="48" r="22" fill="var(--surface)" stroke="currentColor" strokeOpacity=".2" /><circle cx="64" cy="178" r="22" fill="var(--surface)" stroke="currentColor" strokeOpacity=".2" /><circle cx="256" cy="178" r="22" fill="var(--surface)" stroke="currentColor" strokeOpacity=".2" /></svg><Sun className="absolute left-[46%] top-[11%] h-7 w-7" strokeWidth={1.3} /><Utensils className="absolute left-[16%] top-[53%] h-7 w-7" strokeWidth={1.3} /><Moon className="absolute left-[76%] top-[53%] h-7 w-7" strokeWidth={1.3} /><p className="absolute inset-x-0 bottom-2 text-center text-xs tracking-[0.2em]">好好吃・自在動・安心睡</p></div>;
+}
 
-/** 全站學習體系與長壽支柱架構總表 */
-const HealthMasteryFrameworkTable: React.FC<{ onNavigate: (hash: string) => void }> = ({ onNavigate }) => {
-  const frameworks = [
-    {
-      pillar: '1. 基礎素養與就醫防線',
-      tracks: '健康素養入門 (L-BAS-01 ~ 06)',
-      focus: '五大生命徵象基準、辨識假醫學資訊、急診紅旗警訊、門診 Ask Me 3 與用藥安全',
-      time: '約 36 分鐘',
-      link: 'learn/basics',
-    },
-    {
-      pillar: '2. 認識身體器官生理',
-      tracks: '認識你的身體 (L-BODY-01 ~ 08)',
-      focus: '心血管硬化、呼吸換氣、腸道微生態、肝臟代謝、腎絲球過濾、關節鏈、大腦自律神經與發炎',
-      time: '約 47 分鐘',
-      link: 'learn/body',
-    },
-    {
-      pillar: '3. 飲食營養與腸胃健康',
-      tracks: '吃得對 (L-EAT-01 ~ 09)、水油酒專科',
-      focus: '哈佛 2:1:1 餐盤、NOVA 超加工防線、蛋白質劑量、烹調油發煙點、得舒飲食與酒精代謝',
-      time: '約 55 分鐘',
-      link: 'learn/eat',
-    },
-    {
-      pillar: '4. 骨骼肌力與心肺有氧',
-      tracks: '動得好 (L-MOVE-01 ~ 07)、運動 9 大專項',
-      focus: '每週 150 分鐘、長壽步數曲線、六大抗阻模式、活動度、Zone 2 心率、PEACE&LOVE 防傷與破除久坐',
-      time: '約 46 分鐘',
-      link: 'learn/move',
-    },
-    {
-      pillar: '5. 晝夜節律與身心修復',
-      tracks: '睡好與心理 (L-REST-01 ~ 07)',
-      focus: '睡眠架構週期、光照褪黑激素、咖啡因半衰期、CBT-I 刺激控制法、OSA 打呼篩檢、皮質醇與嘆氣呼吸法',
-      time: '約 46 分鐘',
-      link: 'learn/rest',
-    },
-    {
-      pillar: '6. 看懂健檢與預防醫學',
-      tracks: '看懂健檢 (L-CHK-01 ~ 08) 與預防 (L-PRE-01 ~ 09)',
-      focus: '成人預防保健、722 血壓、血糖三指標、LDL 風險階梯、KDIGO 腎病、FIB-4、代謝症候群、公費六癌與疫苗',
-      time: '約 1.7 小時',
-      link: 'learn/checkup',
-    },
-    {
-      pillar: '7. 專科臨床：肝膽腸胃消化醫學',
-      tracks: '肝膽腸胃科專區（5 單元 12 課）',
-      focus: '胃食道逆流 LA 分級、幽門桿菌除菌、低 FODMAP 腸躁飲食、大腸息肉腺瘤癌變、MASLD 脂肪肝逆轉、B/C 肝根治與膽胰急症',
-      time: '約 1.8 小時',
-      link: 'gastro',
-    },
-    {
-      pillar: '8. 專科臨床：癌症防治與精準醫療',
-      tracks: '所有主要癌症防治專區（5 單元 12 課）',
-      focus: '台灣公費六大癌症篩檢、肺/大腸/乳/肝膽胰/頭頸/婦泌/血癌、標靶藥物、PD-1 免疫、ADC 導彈、質子放療、抗癌高蛋白營養與緩和醫療',
-      time: '約 2.0 小時',
-      link: 'oncology',
-    },
-    {
-      pillar: '9. 專科臨床：神經骨科與脊椎關節',
-      tracks: '神經骨科與脊椎專區（7 單元 20 課）',
-      focus: '頸腰椎神經根、DXA 骨密度 T 值、FRAX 骨折風險、微創雙通道 UBE、腕/肘隧道神經卡壓、退化性膝髖關節炎、五十肩與步態防跌',
-      time: '約 2.5 小時',
-      link: 'spine',
-    },
-    {
-      pillar: '10. 代謝抗衰：增肌減脂與健康延壽',
-      tracks: '體組成重塑 (Obesity) 與長壽醫學 (Longevity)',
-      focus: '能量赤字與蛋白質槓桿、GLP-1 腸泌素利弊、12 大細胞衰老標誌、表觀遺傳生物年齡時鐘、激效反應與壓縮疾病假說',
-      time: '約 1.6 小時',
-      link: 'obesity',
-    },
-  ];
-
-  return (
-    <section aria-labelledby="framework-table-h" className="space-y-3">
-      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2.5">
-        <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-        <div>
-          <h2 id="framework-table-h" className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-            循證全景：Salud 健康學習體系與長壽支柱總覽表
-          </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400">橫跨六大臨床支柱，帶領讀者完整掌握自身健康數據與生活介入方法。</p>
-        </div>
-      </div>
-
-      <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs bg-white dark:bg-slate-900/60">
-        <table className="w-full text-left border-collapse text-xs sm:text-sm">
-          <thead>
-            <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300">
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[150px]">臨床核心支柱</th>
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[160px]">對應學習路徑</th>
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[220px]">核心學習模組與關鍵技能</th>
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[90px]">修讀時長</th>
-              <th scope="col" className="py-3 px-3.5 font-bold min-w-[80px]">前往</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
-            {frameworks.map((f, idx) => (
-              <tr key={idx} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
-                <td className="py-3 px-3.5 font-bold text-slate-900 dark:text-white align-top">{f.pillar}</td>
-                <td className="py-3 px-3.5 text-slate-700 dark:text-slate-300 align-top font-medium">{f.tracks}</td>
-                <td className="py-3 px-3.5 text-slate-600 dark:text-slate-300 align-top leading-relaxed">{f.focus}</td>
-                <td className="py-3 px-3.5 text-slate-500 dark:text-slate-400 align-top tabular-nums">{f.time}</td>
-                <td className="py-3 px-3.5 align-top">
-                  <button
-                    onClick={() => onNavigate(f.link)}
-                    className="font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-0.5 text-xs"
-                  >
-                    進入 <ArrowRight className="w-3 h-3" aria-hidden="true" />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  );
-};
-
+function LessonArt({ type }: { type: number }) {
+  if (type === 0) return <svg viewBox="0 0 300 160" fill="none" aria-hidden="true"><ellipse cx="150" cy="139" rx="70" ry="7" fill="currentColor" opacity=".08" /><circle cx="150" cy="78" r="62" fill="var(--surface)" stroke="currentColor" strokeOpacity=".25" /><circle cx="150" cy="78" r="48" stroke="currentColor" strokeOpacity=".3" /><path d="M150 32a46 46 0 0 0 0 92V32Z" fill="currentColor" opacity=".17" /><path d="M153 34a44 44 0 0 1 42 42h-42V34Z" fill="#E4BE80" opacity=".6" /><path d="M153 80h42a44 44 0 0 1-42 42V80Z" fill="#B1CBCD" opacity=".7" /><path d="M124 59c-15-8-20 13-8 18-6 12 15 22 20 9 17-2 9-22-1-19 4-11-6-14-11-8Z" stroke="currentColor" strokeWidth="2" /><path d="M89 38v80m-7-80v18c0 12 14 12 14 0V38m119 0v80m0-80c-13 10-14 32 0 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>;
+  if (type === 1) return <svg viewBox="0 0 300 160" fill="none" aria-hidden="true"><circle cx="170" cy="72" r="57" stroke="currentColor" strokeOpacity=".17" /><path d="M67 133h170m-157-9 13-16m8 16 13-16m8 16 13-16" stroke="currentColor" strokeOpacity=".3" strokeWidth="2" strokeLinecap="round" /><path d="m94 95 19-43 32 19 17-9 15 30 34 12c10 3 13 15 5 21H93c-13-3-15-15-9-21l10-9Z" fill="var(--surface)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /><path d="m113 52 8 43 42 18h58m-88-38 22 6m-18 6 22 6m-39 14-5 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><path d="m69 56 8-9 8 9m-8-9v28m128-34h24m-12-12v24" stroke="currentColor" strokeOpacity=".5" strokeWidth="2" strokeLinecap="round" /></svg>;
+  return <svg viewBox="0 0 300 160" fill="none" aria-hidden="true"><circle cx="151" cy="79" r="59" stroke="currentColor" strokeOpacity=".17" /><path d="M177 32c-48-11-78 47-46 80 19 21 50 17 64-4-44 11-69-40-18-76Z" fill="var(--surface)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /><path d="m100 34 3 7 8 2-8 3-3 7-3-7-8-3 8-2 3-7Zm99 26 3 9 9 3-9 3-3 9-3-9-9-3 9-3 3-9Z" fill="currentColor" fillOpacity=".25" /><path d="M77 125h146m-133 9h120m-18-101 9-9m20 80 9 9" stroke="currentColor" strokeOpacity=".4" strokeWidth="2" strokeLinecap="round" /></svg>;
+}

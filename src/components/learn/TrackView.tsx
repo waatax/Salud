@@ -88,13 +88,11 @@ const Catalogue: React.FC = () => {
         </div>
       </PageHeader>
 
-      <QuickTips sectionKey="learn:basics" />
-
-      {/* 7 大主線課程橫向架構地圖 */}
-      <CurriculumFrameworkMap />
-
-      {/* 學習路徑比較表格 */}
-      <TrackComparisonTable />
+      <details className="discovery-card p-5 space-y-5">
+        <summary className="cursor-pointer min-h-11 font-semibold text-slate-800 dark:text-slate-200">想先比較路徑？查看課程地圖與學習目標</summary>
+        <CurriculumFrameworkMap />
+        <TrackComparisonTable />
+      </details>
 
       <ol className="space-y-6">
         {LEARNING_TRACKS.map((t, i) => (
@@ -121,16 +119,10 @@ const Catalogue: React.FC = () => {
 
 /** 8 大主線全景學習架構地圖 */
 const CurriculumFrameworkMap: React.FC = () => {
-  const steps = [
-    { num: '01', title: '素養入門', hint: '看懂體徵、辨識真假資訊', tone: 'bg-emerald-500 text-white' },
-    { num: '02', title: '認識身體', hint: '心臟/肝臟/腎臟運作機轉', tone: 'bg-teal-500 text-white' },
-    { num: '03', title: '吃得對', hint: '餐盤比例、油脂與減糖', tone: 'bg-sky-500 text-white' },
-    { num: '04', title: '動得好', hint: 'Zone 2 心率與核心肌力', tone: 'bg-indigo-500 text-white' },
-    { num: '05', title: '睡好減壓', hint: '晝夜節律與自律神經', tone: 'bg-purple-500 text-white' },
-    { num: '06', title: '看懂健檢', hint: '報告紅字與數值分區', tone: 'bg-rose-500 text-white' },
-    { num: '07', title: '預防老化', hint: '三高預防與阻斷肌少症', tone: 'bg-amber-600 text-white' },
-    { num: '08', title: '脊椎神經', hint: '椎間盤/骨刺/坐骨神經痛與核心穩定', tone: 'bg-rose-600 text-white' },
-  ];
+  const steps = LEARNING_TRACKS.map((track, index) => ({
+    num: String(index + 1).padStart(2, '0'), title: track.title_zh,
+    hint: track.subtitle_zh, tone: TONE[track.tone].chip,
+  }));
 
   return (
     <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 space-y-4 shadow-xs" aria-label="8大健康學習主線架構流程">
@@ -138,11 +130,11 @@ const CurriculumFrameworkMap: React.FC = () => {
         <div className="flex items-center gap-2">
           <Layers className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
           <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            學習架構地圖：從基礎素養到長壽老化的八階遞進
+            學習架構地圖：從基礎開始，也可以依興趣選讀
           </figcaption>
         </div>
         <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium">
-          循證漸進模型
+          照自己的步調
         </span>
       </div>
 
@@ -165,23 +157,19 @@ const CurriculumFrameworkMap: React.FC = () => {
 
 /** 學習路徑橫向對比總表 */
 const TrackComparisonTable: React.FC = () => {
-  const data = [
-    { name: '健康素養入門', lessons: '6 課 · 36 分鐘', difficulty: '入門 ★☆☆', outcome: '掌握生命徵象基線，辨識假醫學新聞，掌握急診分流與用藥安全', audience: '完全零醫學背景新手' },
-    { name: '認識你的身體', lessons: '8 課 · 47 分鐘', difficulty: '進階 ★★☆', outcome: '看懂心血管硬化、呼吸換氣、肝腎微血管、關節鏈與發炎機轉', audience: '想搞懂器官原理者' },
-    { name: '吃得對', lessons: '9 課 · 55 分鐘', difficulty: '核心 ★★☆', outcome: '掌握 2:1:1 餐盤、NOVA 超加工、蛋白質劑量、油脂與得舒飲食', audience: '想調整飲食與控制體態者' },
-    { name: '動得好', lessons: '7 課 · 46 分鐘', difficulty: '核心 ★★☆', outcome: '學會 Zone 2 心率、長壽步數曲線、抗阻動作模式與防傷急救', audience: '想建立運動規律者' },
-    { name: '睡好與心理', lessons: '7 課 · 46 分鐘', difficulty: '實用 ★★☆', outcome: '校準 24H 生物鐘、學會史丹佛生理嘆氣、突破失眠 CBT-I 與 OSA 篩檢', audience: '受失眠與壓力困擾者' },
-    { name: '看懂健檢報告', lessons: '8 課 · 47 分鐘', difficulty: '實用 ★★☆', outcome: '血壓血糖血脂紅字解讀、eGFR/UACR 腎病熱圖、FIB-4 與公費癌篩', audience: '剛拿到體檢紅字者' },
-    { name: '慢性病預防與老化', lessons: '10 課 · 65 分鐘', difficulty: '整合 ★★★', outcome: '阻斷動脈粥狀硬化、DPP 逆轉糖尿病前期、GLP-1、肌少症、次世代疫苗與衰弱防跌', audience: '照顧全家長輩與想健康長壽者' },
-    { name: '脊椎與神經保養', lessons: '8 課 · 57 分鐘', difficulty: '專科 ★★☆', outcome: '破解骨刺與椎間盤迷思、急性發作 72 小時照護、麥吉爾核心大三、家屬翻身移位防壓瘡與紅旗急診', audience: '久坐上班族、腰痛背痛、手腳發麻者與照顧家人的家屬' },
-  ];
+  const data = LEARNING_TRACKS.map(track => ({
+    name: track.title_zh,
+    lessons: `${track.lessons.length} 課 · ${track.lessons.reduce((sum, lesson) => sum + lesson.minutes, 0)} 分鐘`,
+    difficulty: track.id === 'basics' ? '從這裡入門' : '可依興趣選讀',
+    outcome: track.subtitle_zh, audience: track.audience_zh,
+  }));
 
   return (
     <section aria-labelledby="track-table-h" className="space-y-3">
       <div className="flex items-center gap-2">
         <Table className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
         <h2 id="track-table-h" className="text-base font-bold text-slate-900 dark:text-white">
-          八大主線課程規劃與學習目標對照表
+          {LEARNING_TRACKS.length} 條學習路徑與目標對照表
         </h2>
       </div>
 
@@ -191,7 +179,7 @@ const TrackComparisonTable: React.FC = () => {
             <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300">
               <th scope="col" className="py-3 px-3.5 font-bold">學習路徑</th>
               <th scope="col" className="py-3 px-3.5 font-bold">課程時長</th>
-              <th scope="col" className="py-3 px-3.5 font-bold">難度位階</th>
+              <th scope="col" className="py-3 px-3.5 font-bold">閱讀方式</th>
               <th scope="col" className="py-3 px-3.5 font-bold">核心掌握能力</th>
               <th scope="col" className="py-3 px-3.5 font-bold">最推薦族群</th>
             </tr>
@@ -275,11 +263,11 @@ const TrackOverview: React.FC<{ track: LearningTrack }> = ({ track }) => {
         </button>
       </div>
 
-      {/* 路徑學習階段里程碑圖 */}
-      <TrackRoadmapSection track={track} />
-
-      {/* 課堂能力矩陣表 */}
-      <TrackCompetencyTable track={track} />
+      <details className="discovery-card p-5 space-y-5">
+        <summary className="cursor-pointer min-h-11 font-semibold text-slate-800 dark:text-slate-200">查看這條路徑的學習目標與實踐對照</summary>
+        <TrackRoadmapSection track={track} />
+        <TrackCompetencyTable track={track} />
+      </details>
 
       {/* 課程列表 */}
       <div className="space-y-3">
@@ -320,7 +308,7 @@ const TrackRoadmapSection: React.FC<{ track: LearningTrack }> = ({ track }) => {
         </div>
         <div className="p-3 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-1">
           <span className="font-bold text-emerald-900 dark:text-emerald-300 block text-sm">第 2 階段：核心數值</span>
-          <p className="text-slate-600 dark:text-slate-300">熟記個人化理想臨床範圍與黃金劑量標準。</p>
+          <p className="text-slate-600 dark:text-slate-300">了解參考數值的適用對象，以及個人目標為何可能不同。</p>
         </div>
         <div className="p-3 rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50/50 dark:bg-sky-950/20 space-y-1">
           <span className="font-bold text-sky-900 dark:text-sky-300 block text-sm">第 3 階段：生活微步</span>
@@ -399,7 +387,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
   );
 
   return (
-    <article className="max-w-3xl mx-auto space-y-8 animate-fade-in" aria-labelledby="lesson-title">
+    <article className="lesson-reader max-w-3xl mx-auto space-y-8 animate-fade-in" aria-labelledby="lesson-title">
       {/* Header */}
       <div className="space-y-4">
         <nav className="flex flex-wrap items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400" aria-label="課程位置">
@@ -437,8 +425,17 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </div>
       </div>
 
+      <nav aria-label="本課閱讀導覽" className="flex flex-wrap gap-2 border-y border-slate-200 py-3 dark:border-slate-800">
+        {[['lesson-summary', '一句話重點'], ['lesson-visual', '圖解與知識'], ['do-h', '今天就能做'], ['deep-h', '深入閱讀']].map(([id, label]) => (
+          <button key={id} type="button" onClick={() => {
+            const target = document.getElementById(id);
+            target?.scrollIntoView({ block: 'start' });
+            target?.focus({ preventScroll: true });
+          }} className="min-h-11 rounded-full border border-slate-200 px-4 text-sm text-slate-700 hover:border-emerald-600 dark:border-slate-700 dark:text-slate-300">{label}</button>
+        ))}
+      </nav>
       {/* Big idea */}
-      <div className={`rounded-2xl border border-slate-200 dark:border-slate-800 ${TONE[track.tone].soft} p-5`}>
+      <div id="lesson-summary" tabIndex={-1} className={`scroll-mt-24 rounded-2xl border border-slate-200 dark:border-slate-800 ${TONE[track.tone].soft} p-5`}>
         <p className={`text-xs font-semibold mb-1.5 ${TONE[track.tone].text}`}>一句話重點</p>
         <p className="text-lg sm:text-xl font-semibold leading-8 text-slate-900 dark:text-white">{lesson.big_idea_zh}</p>
         {lesson.analogy_zh && (
@@ -453,7 +450,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       </div>
 
       {/* Visual Mechanism & Clinical Diagram */}
-      <LessonVisualGraphic track={track} lesson={lesson} />
+      <div id="lesson-visual" tabIndex={-1} className="scroll-mt-24"><LessonVisualGraphic track={track} lesson={lesson} /></div>
 
       {/* Key points */}
       <section aria-labelledby="kp-h" className="space-y-3">
@@ -478,7 +475,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
 
       {/* Do today */}
       <section aria-labelledby="do-h" className="rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/60 dark:bg-emerald-950/20 p-5 space-y-2">
-        <h2 id="do-h" className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-2">
+        <h2 id="do-h" tabIndex={-1} className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-2">
           <ListChecks className="w-5 h-5" aria-hidden="true" />
           今天就能做
         </h2>
@@ -544,9 +541,9 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       )}
 
       {/* Four Pillars Clinical Matrix (飲食 · 運動 · 預防 · 治療) */}
-      <FourPillarsClinicalMatrix
+      <details className="discovery-card p-5 space-y-4"><summary className="cursor-pointer min-h-11 font-semibold text-slate-800 dark:text-slate-200">延伸整理：飲食、運動、預防與治療如何連結？</summary><FourPillarsClinicalMatrix
         pageIdOrTopic={TRACK_PILLAR_TOPIC[track.id] || 'cardiometabolic'}
-      />
+      /></details>
 
       {/* Quiz */}
       {lesson.quiz && <LessonQuizCard lessonId={lesson.id} quiz={lesson.quiz} onAnswer={recordQuiz} />}
@@ -573,9 +570,16 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </section>
       )}
 
+      {lesson.sources && lesson.sources.length > 0 && <section aria-labelledby="source-h" className="space-y-3 border-t border-slate-200 pt-5 dark:border-slate-800">
+        <h2 id="source-h" className="font-bold text-slate-800 dark:text-slate-200">本課參考來源與適用限制</h2>
+        <ul className="space-y-3">{lesson.sources.map(source => <li key={source.url} className="text-sm leading-7">
+          <a href={source.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-semibold text-emerald-800 underline underline-offset-4 dark:text-emerald-300">{source.title}<ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" /><span className="sr-only">（另開視窗）</span></a>
+          {source.note && <p className="text-slate-600 dark:text-slate-400">{source.note}</p>}
+        </li>)}</ul>
+      </section>}
       {/* Go deeper */}
       <section aria-labelledby="deep-h" className="space-y-2">
-        <h2 id="deep-h" className="text-sm font-bold text-slate-700 dark:text-slate-300">想看完整機制與圖解</h2>
+        <h2 id="deep-h" tabIndex={-1} className="text-sm font-bold text-slate-700 dark:text-slate-300">想看完整機制與圖解</h2>
         <div className="flex flex-wrap gap-2">
           {lesson.deep_links.map((d) => (
             <button

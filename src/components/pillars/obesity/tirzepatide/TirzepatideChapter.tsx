@@ -96,7 +96,7 @@ export const TirzepatideChapter: React.FC = () => {
               { k: '15–21%', v: '72 週平均減重（5–15 mg，SURMOUNT-1）' },
               { k: '每週 1 針', v: '由 2.5 mg 起步，每階至少 4 週' },
               { k: '約 3:1', v: '減掉的重量中，脂肪與去脂組織的比例' },
-              { k: '82%', v: '停藥一年內回升至少四分之一的減重量' },
+              { k: '82%', v: 'SURMOUNT-4 停藥後分析族群：一年內回升至少四分之一減重量' },
             ].map((s) => (
               <div key={s.k} className="rounded-xl bg-white/80 p-3 dark:bg-slate-900/60">
                 <dt className="font-display text-xl font-extrabold tabular-nums text-emerald-800 dark:text-emerald-300 sm:text-2xl">{s.k}</dt>
@@ -239,14 +239,14 @@ export const TirzepatideChapter: React.FC = () => {
         </Panel>
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           <Callout tone="tip" title="多等幾週沒關係">
-            有腸胃症狀時可以把這階延長 2–4 週。專家共識也建議若某一階持續不舒服，可以回到前一階，或把維持劑量訂在較低的那一階。
+            有腸胃症狀時，醫師可評估延後加量、回到前一階或選擇較低維持劑量；請先聯絡處方團隊，不要自行改劑量。持續嘔吐或無法補水時，應先就醫。
           </Callout>
           <Callout tone="warn" title="不要這樣做">
-            不要自行提早升、一次跳兩階、一週打兩次，或超過 15 mg。不會比較快瘦，只會增加脫水與急性腎損傷的風險。
+            不要自行提早升、一次跳兩階、一週打兩次，或超過 15 mg。這些做法缺乏安全有效的依據，且可能加重腸胃症狀、脫水與急性腎損傷風險。
           </Callout>
         </div>
         <Callout tone="info" title="什麼時候算「效果不好」？">
-          英國 NICE 建議：用藥 6 個月減重未達 5% 時，可以考慮停藥並重新評估。這時也要檢查是否漏打、保存方式、其他藥物與飲食，或討論換藥與手術。
+          英國 NICE 建議：在最高耐受劑量使用滿 6 個月後，若較起始體重減輕未達 5%，應依整體好處與風險共同決定是否繼續，不是從第一針起算，也不是一律停藥。這時也要核對漏打、保存、營養與其他藥物，必要時討論其他治療。
         </Callout>
         <Refs ids={['label', 'gi', 'nice', 's1']} />
       </Section>
@@ -352,6 +352,9 @@ export const TirzepatideChapter: React.FC = () => {
 
       {/* 8 */}
       <Section id="meds" n={8} title="我有三高，用藥要怎麼調？" answer="血壓和血糖會跟著下降，原本的藥可能變得太強，需要醫師調整；LDL 改善不多，statin 通常要繼續。不要自行停藥。">
+        <Callout tone="info" title="同時使用降糖藥：先約好生病日計畫">
+          食慾下降、嘔吐或進食不足時，請和醫療團隊確認血糖監測及原有藥物的處理方式。使用 SGLT2 抑制劑者，脫水、長時間禁食或極低醣飲食會增加酮酸中毒風險，即使血糖沒有很高也可能發生；噁心合併腹痛、呼吸急促或明顯虛弱時，應立即就醫。不要自行停胰島素。
+        </Callout>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {THREE_HIGH_MEDS.map((m) => (
             <Panel key={m.id} title={m.title}>
@@ -371,7 +374,7 @@ export const TirzepatideChapter: React.FC = () => {
         <Panel title="追蹤時間表" hint="這是整理自仿單與聯合共識的實務建議，實際安排請依醫師指示。">
           <DataTable caption="用藥追蹤時間表" head={['時間', '要看什麼']} rows={MONITORING.map((m) => [m.when, m.items])} />
         </Panel>
-        <Refs ids={['label', 'abpm', 'advisory', 'periop', 'nice']} />
+        <Refs ids={['label', 'abpm', 'advisory', 'periop', 'nice', 'sglt2']} />
       </Section>
 
       {/* 9 */}
@@ -434,7 +437,7 @@ export const TirzepatideChapter: React.FC = () => {
           </ul>
         </Panel>
         <Callout tone="tip" title="如果決定要停">
-          和醫師先約好：下一次量體重與抽血的時間、體重回升多少就回診。分析顯示，回升不到四分之一的人，腰圍、非 HDL 膽固醇與空腹胰島素沒有明顯惡化；回升越多，三高惡化越明顯。及早處理很重要，這不是意志力不足。
+          和醫師先約好：下一次量體重與抽血的時間、體重回升多少就回診。停藥後的事後分析顯示，回升越多，代謝指標通常惡化越多；分組關聯不能證明個人回升不到四分之一就沒有風險，也不能當作安全門檻。及早追蹤，不必等到體重全部回升。
         </Callout>
         <Refs ids={['s4', 's4-regain', 'maintain', 'label', 'step1']} />
       </Section>

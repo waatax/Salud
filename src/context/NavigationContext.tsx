@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { HealthPillar, SportsDiscipline } from '../types';
-import { CHAPTERS, getChapterPages } from '../data/chapters';
+import { CHAPTER_CATALOG } from '../data/chapterCatalog';
 import { parseHash, Route, ChapterId } from '../config/routes';
 
 export type MetaView = 'about' | 'evidence' | 'explore' | null;
@@ -51,7 +51,9 @@ export interface NavigationContextProps {
    */
   highlightedPillar: HealthPillar | null;
 
-  currentChapter: typeof CHAPTERS[number];
+  currentChapter: typeof CHAPTER_CATALOG[number];
+  chaptersLoading: boolean;
+  chapterLoadError: boolean;
   pagesForCurrent: any[];
   currentPage: any;
 }
@@ -72,6 +74,18 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
   const [learnTrackId, setLearnTrackId] = useState<string | undefined>();
   const [learnLessonId, setLearnLessonId] = useState<string | undefined>();
+
+  const [chapterData, setChapterData] = useState<typeof import('../data/chapters') | null>(null);
+  const [chapterLoadError, setChapterLoadError] = useState(false);
+  useEffect(() => {
+    if (activePillar !== 'diet' || chapterData) return;
+    let cancelled = false;
+    setChapterLoadError(false);
+    import('../data/chapters').then(data => {
+      if (!cancelled) setChapterData(data);
+    }).catch(() => { if (!cancelled) setChapterLoadError(true); });
+    return () => { cancelled = true; };
+  }, [activePillar, chapterData]);
 
   /** Apply a parsed route to view state. Unknown hashes leave the current view untouched. */
   const applyRoute = (route: Route | null) => {
@@ -156,8 +170,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   };
 
   const selectChapter = (chId: string) => {
-    const pages = getChapterPages(chId);
-    if (pages.length > 0 || CHAPTERS.some((c) => c.id === chId)) {
+    if (CHAPTER_CATALOG.some((c) => c.id === chId)) {
       applyRoute({ kind: 'chapter', chapterId: chId as ChapterId });
       go(chId);
     }
@@ -179,8 +192,9 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const highlightedPillar: HealthPillar | null =
     metaView || isSynergyView || isCouncilEvidenceView ? null : activePillar;
 
-  const currentChapter = CHAPTERS.find((c) => c.id === currentChapterId) || CHAPTERS[0];
-  const pagesForCurrent = getChapterPages(currentChapterId);
+  const chapters = chapterData?.CHAPTERS ?? CHAPTER_CATALOG;
+  const currentChapter = chapters.find((c) => c.id === currentChapterId) || chapters[0];
+  const pagesForCurrent = chapterData?.getChapterPages(currentChapterId) ?? [];
   const currentPage = pagesForCurrent.find((p) => p.id === activePageId) || pagesForCurrent[0];
 
   const value: NavigationContextProps = {
@@ -221,6 +235,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
 
     highlightedPillar,
     currentChapter,
+    chaptersLoading: !chapterData,
+    chapterLoadError,
     pagesForCurrent,
     currentPage,
   };

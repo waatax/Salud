@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
+import { useDialogFocus } from '../../hooks/useDialogFocus';
 
 interface Props {
   isOpen: boolean;
@@ -19,6 +20,7 @@ export const Modal: React.FC<Props> = ({
   maxWidth = '2xl',
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  useDialogFocus(modalRef, isOpen);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -57,6 +59,7 @@ export const Modal: React.FC<Props> = ({
 
       <div
         ref={modalRef}
+        tabIndex={-1}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"

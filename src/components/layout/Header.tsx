@@ -46,14 +46,14 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
       <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center gap-2 sm:gap-4">
         <button
           onClick={onToggleMobileSidebar}
-          className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 lg:hidden"
+          className="min-h-11 min-w-11 p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 lg:hidden"
           aria-label={t('nav.open_menu')}
         >
           <Menu className="w-5 h-5" />
         </button>
 
         <button
-          className="flex items-center gap-2.5 select-none text-left shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="min-h-11 flex items-center gap-2.5 select-none text-left shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
           onClick={() => onSelectPillar('home')}
           aria-label={zh ? 'Salud 首頁' : 'Salud home'}
         >
@@ -69,7 +69,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
         {/* Search: the fastest way in for a first-time reader */}
         <button
           onClick={() => openModal('search')}
-          className="flex-1 min-w-0 max-w-md ml-auto md:ml-4 flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-left text-sm text-slate-500 dark:text-slate-400 hover:border-emerald-400 dark:hover:border-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors"
+          className="min-h-11 flex-1 min-w-0 max-w-md ml-auto md:ml-4 flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-left text-sm text-slate-500 dark:text-slate-400 hover:border-emerald-400 dark:hover:border-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors"
           aria-label={zh ? '搜尋（快捷鍵 Ctrl K）' : 'Search (Ctrl K)'}
         >
           <Search className="w-4 h-4 shrink-0" aria-hidden="true" />
@@ -105,7 +105,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
         <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
           <button
             onClick={() => openModal('simulators')}
-            className="p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-400 bg-white dark:bg-slate-900 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            className="hidden sm:flex p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-400 bg-white dark:bg-slate-900 text-xs font-semibold items-center gap-1.5 transition-colors"
             title={zh ? '互動健康試算工具箱 (18+ 模擬器)' : 'Health Calculators'}
             aria-label={zh ? '健康試算工具箱' : 'Calculators'}
           >
@@ -115,7 +115,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
 
           <button
             onClick={() => openModal('backpack')}
-            className="relative p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 bg-white dark:bg-slate-900 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            className="hidden sm:flex relative p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 bg-white dark:bg-slate-900 text-xs font-semibold items-center gap-1.5 transition-colors"
             title={zh ? '我的健康背包與收藏' : 'Backpack & Bookmarks'}
             aria-label={zh ? '我的健康背包' : 'Backpack'}
           >

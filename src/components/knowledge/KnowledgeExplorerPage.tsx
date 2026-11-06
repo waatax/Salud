@@ -170,7 +170,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-400 text-slate-200 hover:text-white transition-all shadow-sm"
               >
                 <Download className="w-3.5 h-3.5 text-emerald-400" />
-                <span>a11y-audit.json (WCAG 2.2 AA)</span>
+                <span>a11y-audit.json（無障礙原始碼盤點）</span>
               </a>
               <button
                 onClick={() => setIsGovModalOpen(true)}

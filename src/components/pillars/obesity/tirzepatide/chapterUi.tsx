@@ -32,14 +32,16 @@ export const SectionNav: React.FC<{ sections: SectionDef[]; ariaLabel: string }>
 
   useEffect(() => {
     // Only the rail scrolls sideways: scrollIntoView would also drag the page down to this bar on load.
-    const el = document.getElementById(`nav-${active}`);
     const box = rail.current;
+    const el = box?.querySelector<HTMLElement>('[aria-current="true"]');
     if (el && box && box.scrollWidth > box.clientWidth) box.scrollLeft = el.offsetLeft - (box.clientWidth - el.offsetWidth) / 2;
   }, [active]);
 
   const go = (id: string) => {
     const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    document.getElementById(`sec-${id}`)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    const section = document.getElementById(`sec-${id}`);
+    section?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    section?.focus({ preventScroll: true });
     setActive(id);
   };
 
@@ -57,7 +59,7 @@ export const SectionNav: React.FC<{ sections: SectionDef[]; ariaLabel: string }>
                 type="button"
                 onClick={() => go(s.id)}
                 aria-current={on ? 'true' : undefined}
-                className={`inline-flex min-h-[36px] items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-1 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 ${
+                className={`inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-1 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 ${
                   on
                     ? 'bg-emerald-700 font-semibold text-white dark:bg-emerald-600'
                     : 'text-slate-600 hover:bg-emerald-50 hover:text-emerald-900 dark:text-slate-300 dark:hover:bg-slate-800'
@@ -85,7 +87,7 @@ export const Section: React.FC<{
   answer: string;
   children: React.ReactNode;
 }> = ({ id, n, title, answer, children }) => (
-  <section id={`sec-${id}`} aria-labelledby={`h-${id}`} className="scroll-mt-32 space-y-4">
+  <section id={`sec-${id}`} tabIndex={-1} aria-labelledby={`h-${id}`} className="scroll-mt-32 space-y-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600">
     <header className="space-y-2">
       <p className="text-sm font-semibold text-emerald-700 dark:text-emerald-400">第 {n} 節</p>
       <h2 id={`h-${id}`} className="font-display text-xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-2xl">

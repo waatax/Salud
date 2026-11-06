@@ -13,7 +13,11 @@ export const TRACK_EAT: LearningTrack = {
       id: 'L-EAT-01',
       title_zh: '我的餐盤：一餐怎麼配',
       minutes: 6,
-      big_idea_zh: '不需要背熱量表：半盤蔬果、四分之一全穀、四分之一蛋白質，就是一份及格的餐。',
+      big_idea_zh: '可以先用半盤蔬果、四分之一全穀、四分之一蛋白質食物理解餐盤，再依個人需求調整份量與其他食物。',
+      sources: [
+        { title: '國健署：我的餐盤六句口訣', url: 'https://www.mohw.gov.tw/fp-4251-50222-1.html', note: '台灣的六大類食物口訣，與哈佛餐盤的圖像分配方式不同。' },
+        { title: 'Harvard：Healthy Eating Plate', url: 'https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/', note: '餐盤比例是視覺起點，不是固定熱量、每人份數或疾病飲食處方。' },
+      ],
       key_points_zh: [
         '國健署「我的餐盤」六句口訣：每天早晚一杯奶、每餐水果拳頭大、菜比水果多一點、飯跟蔬菜一樣多、豆魚蛋肉一掌心、堅果種子一茶匙。',
         '主食優先選全穀雜糧（糙米、燕麥、地瓜、雜糧），至少三分之一是未精製的。',
@@ -30,7 +34,7 @@ export const TRACK_EAT: LearningTrack = {
         question_zh: '「我的餐盤」中，豆魚蛋肉類每餐的份量大約是？',
         options_zh: ['一個拳頭', '一個掌心', '一茶匙', '半碗'],
         answer: 1,
-        explain_zh: '一掌心（不含手指）約是一份蛋白質；依體型與需求，一天通常需要 3–8 份。',
+        explain_zh: '一掌心是便於目測的餐次份量，不等於營養代換表中的一份；實際份量依體型、活動量與健康狀況調整。',
       },
       deep_links: [
         { label_zh: '飲食營養總覽', hash: 'diet' },

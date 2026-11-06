@@ -25,7 +25,7 @@ export const FontSizeToggle: React.FC<Props> = ({ variant = 'compact', className
     return (
       <button
         onClick={cycleFontSize}
-        className={`btn-tactile flex items-center justify-center gap-1 px-2.5 py-1.5 min-h-[36px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all font-mono text-xs shadow-sm ${className}`}
+        className={`btn-tactile flex items-center justify-center gap-1 px-2.5 py-1.5 min-h-11 min-w-11 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all font-mono text-xs shadow-sm ${className}`}
         title={`當前字級：${fontSizeLabel}，點擊切換`}
         aria-label={`切換字型大小，當前：${fontSizeLabel}`}
       >

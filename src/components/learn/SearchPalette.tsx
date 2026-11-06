@@ -3,6 +3,7 @@ import { Search, CornerDownLeft, X } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal, ModalId } from '../../context/ModalContext';
 import type { SearchDoc, SearchGroup } from '../../data/learning/searchIndex';
+import { useDialogFocus } from '../../hooks/useDialogFocus';
 
 type SearchModule = typeof import('../../data/learning/searchIndex');
 
@@ -26,6 +27,8 @@ export const SearchPalette: React.FC = () => {
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useDialogFocus(dialogRef, open);
   const listRef = useRef<HTMLDivElement>(null);
   const docsRef = useRef<SearchDoc[] | null>(null);
   const modRef = useRef<SearchModule | null>(null);
@@ -123,7 +126,7 @@ export const SearchPalette: React.FC = () => {
   let idx = -1;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-start justify-center px-3 pt-[8vh] sm:pt-[12vh]" role="dialog" aria-modal="true" aria-label="搜尋 Salud">
+    <div ref={dialogRef} tabIndex={-1} className="fixed inset-0 z-[60] flex items-start justify-center px-3 pt-[8vh] sm:pt-[12vh]" role="dialog" aria-modal="true" aria-label="搜尋 Salud">
       <div className="absolute inset-0 bg-slate-950/50 backdrop-blur-sm animate-fade-in" onClick={() => closeModal('search')} />
       <div className="relative w-full max-w-2xl rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden animate-fade-in" onKeyDown={onKeyDown}>
         <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 px-4">
@@ -135,6 +138,7 @@ export const SearchPalette: React.FC = () => {
             placeholder="搜尋症狀、檢驗數值、疾病或課程…"
             className="flex-1 min-w-0 bg-transparent py-4 text-base text-slate-900 dark:text-white placeholder:text-slate-400 outline-none"
             role="combobox"
+            aria-label="搜尋健康知識"
             aria-expanded={flat.length > 0}
             aria-controls="search-results"
             aria-activedescendant={flat[active] ? `sr-${flat[active].id}` : undefined}

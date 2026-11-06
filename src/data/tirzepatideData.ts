@@ -42,7 +42,8 @@ export const TZP_SOURCES: TzpSource[] = [
   { id: 'gi', label: '腸胃副作用處理專家共識', detail: 'Gorgojo-Martínez et al. J Clin Med 2023', url: 'https://doi.org/10.3390/jcm12010145' },
   { id: 'nice', label: 'NICE TA1026', detail: '英國 tirzepatide 使用與停用評估', url: 'https://www.nice.org.uk/guidance/ta1026' },
   { id: 'who', label: 'WHO GLP-1 肥胖用藥指引', detail: '2025-12', url: 'https://www.who.int/news/item/01-12-2025-who-issues-global-guideline-on-the-use-of-glp-1-medicines-in-treating-obesity' },
-  { id: 'periop', label: '手術前後多學會指引', detail: 'ASMBS／ASA／AGA／ISPCOP／SAGES 2024', url: 'https://www.eurekalert.org/news-releases/1063110' },
+  { id: 'periop', label: '手術前後多學會指引', detail: 'ASMBS／ASA／AGA／ISPCOP／SAGES 2024', url: 'https://gastro.org/press-releases/most-patients-can-continue-glp-1-anti-obesity-drugs-before-surgery-2/' },
+  { id: 'sglt2', label: 'SGLT2 抑制劑與酮酸中毒', detail: '紐西蘭 Medsafe 藥品安全公告，2024-12', url: 'https://www.medsafe.govt.nz/profs/PUArticles/December2024/Reminder-risk-factors-for-ketoacidosis-with-SGLT-2-inhibitors.html' },
   { id: 'fda-si', label: 'FDA 要求移除自殺意念警語', detail: '2026-01-13 藥品安全通訊', url: 'https://www.fda.gov/drugs/drug-safety-communications/fda-requests-removal-suicidal-behavior-and-ideation-warning-glucagon-peptide-1-receptor-agonist-glp' },
   { id: 'prime', label: 'KwikPen 排氣說明', detail: 'Eli Lilly 用藥問答', url: 'https://www.lilly.com/en-ca/medicines/medicine-faqs/mounjaro-kwikpen/important-prime' },
   { id: 'step1', label: 'STEP 1 延伸研究', detail: 'Wilding et al. Diabetes Obes Metab 2022', url: 'https://doi.org/10.1111/dom.14725' },
@@ -555,7 +556,7 @@ export const MONITORING = [
   { when: '開始前', items: '體重、腰圍、722 血壓、空腹血糖或 HbA1c、血脂、肝腎功能；糖尿病者加眼底檢查；肌力基準；用藥清單與避孕計畫' },
   { when: '每次升劑量', items: '副作用、飲水與進食量、體重；有用降壓或降血糖藥者加測血壓與血糖' },
   { when: '約 3 個月', items: '血脂、血糖或 HbA1c；有腸胃症狀者加驗腎功能；檢視蛋白質與肌力訓練是否落實' },
-  { when: '約 6 個月', items: '檢討效果：減重未達 5% 時，重新評估是否繼續（NICE 建議的評估點）' },
+  { when: '最高耐受劑量滿 6 個月', items: '若較起始體重減輕未達 5%，依整體效益與風險共同決定是否繼續；這是 NICE 的評估點，不是從第一針起算，也不是自動停藥規則' },
   { when: '每年', items: '抽血與尿液檢查、三高目標、用藥是否可減；停經後或骨鬆高風險者評估骨密度' },
 ] as const;
 

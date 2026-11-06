@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Salud's reading-first discovery layer. Existing palettes remain user-selectable. */
+.discovery-home { line-height: 1.75; }
+.discovery-hero { background: linear-gradient(120deg, var(--surface) 5%, var(--card) 100%); }
+.discovery-balance { color: rgb(var(--emerald-800)); }
+.dark .discovery-balance { color: rgb(var(--emerald-300)); }
+.discovery-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1.15rem; transition: border-color .2s ease, box-shadow .2s ease; }
+a.discovery-card:hover, button.discovery-card:hover { border-color: rgb(var(--emerald-600)); box-shadow: 0 5px 20px -12px rgb(var(--emerald-800) / .22); }
+.discovery-eyebrow { font-size: .65rem; font-weight: 600; letter-spacing: .14em; color: rgb(var(--emerald-800)); }
+.dark .discovery-eyebrow { color: rgb(var(--emerald-300)); }
+.discovery-primary, .discovery-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px; padding: .75rem 1.1rem; border-radius: .8rem; font-size: .875rem; font-weight: 600; transition: background .2s ease; }
+.discovery-primary { background: rgb(var(--emerald-800)); color: white; border: 1px solid rgb(var(--emerald-800)); }
+.discovery-primary:hover { background: rgb(var(--emerald-900)); }
+.dark .discovery-primary { background: rgb(var(--emerald-300)); color: rgb(var(--emerald-950)); border-color: rgb(var(--emerald-300)); }
+.dark .discovery-primary:hover { background: rgb(var(--emerald-200)); }
+.discovery-secondary { border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+.discovery-secondary:hover { background: var(--card); }
+.discovery-text-link { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .875rem; font-weight: 600; color: rgb(var(--emerald-800)); }
+.dark .discovery-text-link { color: rgb(var(--emerald-300)); }
+.discovery-text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.discovery-lesson-art { position: relative; height: 10rem; overflow: hidden; }
+.discovery-lesson-art svg { height: 100%; width: 100%; }
+.discovery-lesson-art-0 { background: #edf2e8; color: #416648; }
+.discovery-lesson-art-1 { background: #eaf1f3; color: #3e6777; }
+.discovery-lesson-art-2 { background: #efedf5; color: #75608a; }
+.dark .discovery-lesson-art-0 { background: #182b23; color: #9dbca5; }
+.dark .discovery-lesson-art-1 { background: #182b33; color: #9dbecb; }
+.dark .discovery-lesson-art-2 { background: #292436; color: #b9a7cc; }
+.discovery-practice { background: var(--card); }
+@layer base {
+  :where(a, button, input, select, textarea, summary):focus-visible { outline: 2px solid rgb(var(--emerald-600)); outline-offset: 3px; }
+  .dark :where(a, button, input, select, textarea, summary):focus-visible { outline-color: rgb(var(--emerald-300)); }
+  :where(h1, h2, h3, section[id], [id$="-h"]) { scroll-margin-top: 6rem; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+}
+
 @layer base {
   /* Dynamic font scaling root */
   html {

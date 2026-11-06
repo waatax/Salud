@@ -120,12 +120,12 @@ export const EvidenceLibraryPage: React.FC = () => {
           {zh ? '實證來源與分級' : 'Evidence base & grading'}
         </span>
         <h1 className="text-2xl sm:text-3xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white">
-          {zh ? '本站引用的原始文獻' : 'Every source this site cites'}
+          {zh ? '指引與研究來源索引' : 'Guideline and research source index'}
         </h1>
         <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 max-w-3xl">
           {zh
-            ? `共 ${entries.length} 筆國際指引與原始研究，最新收錄至 ${newestYear} 年。每一筆都可點擊連往出版者或 DOI 原文，請自行查證。`
-            : `${entries.length} guidelines and primary studies, current through ${newestYear}. Every entry links to the publisher or its DOI so you can check it yourself.`}
+            ? `此索引整理 ${entries.length} 筆指引與研究，最新出版年份為 ${newestYear} 年。附有網址的項目可連往出版者或 DOI；其他專科引用也可在各課程內查閱。`
+            : `This index contains ${entries.length} guidelines and studies, with publication years through ${newestYear}. Linked entries lead to publishers or DOIs; additional specialty citations appear within courses.`}
         </p>
 
         {/* Grade legend — explains what the badges on content pages mean */}
@@ -139,6 +139,7 @@ export const EvidenceLibraryPage: React.FC = () => {
             </span>
           ))}
         </div>
+        <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">{zh ? 'A–E 是本站簡化閱讀標籤，不是正式 GRADE 評定或治療建議強度。請連同研究品質、限制與適用對象閱讀。' : 'A–E are editorial reading labels, not formal GRADE ratings or recommendation strength. Read them with study limitations and applicability.'} <a href="#about" className="underline underline-offset-4 text-emerald-800 dark:text-emerald-300">{zh ? '了解標籤與編輯原則' : 'About labels and editorial principles'}</a></p>
       </header>
 
       {/* Controls */}
@@ -146,6 +147,7 @@ export const EvidenceLibraryPage: React.FC = () => {
         <div className="relative flex-1 min-w-[220px]">
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
+            aria-label={zh ? '搜尋研究與指引來源' : 'Search research and guideline sources'}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={zh ? '搜尋標題、期刊、結論…' : 'Search title, journal, finding…'}
@@ -161,6 +163,7 @@ export const EvidenceLibraryPage: React.FC = () => {
         ).map((f) => (
           <button
             key={f.id}
+            aria-pressed={kindFilter === f.id}
             onClick={() => setKindFilter(f.id)}
             className={`btn-tactile px-3.5 py-2 rounded-2xl text-xs font-mono border transition-all ${
               kindFilter === f.id

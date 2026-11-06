@@ -14,6 +14,7 @@ import { ALL_CHAPTER_PAGES } from '../../data/chapters';
 import { getDepartment } from '../../data/clinical/full';
 import { SYMPTOMS } from '../../data/clinical/symptoms';
 import { classifyBP, classifyBMI, classifyWHtR, classifyEGFR, classifyA1c, classifyFPG, countMetSyn } from '../../utils/labBands';
+import { DISCOVERY_TOPICS, DISCOVERY_CATEGORIES, filterDiscoveryTopics } from '../../data/learning/discovery';
 
 const PAGE_IDS = new Set(ALL_CHAPTER_PAGES.map((p) => p.id));
 const SYSTEM_IDS = new Set(HUMAN_SYSTEMS.map((s) => s.id as string));
@@ -101,15 +102,33 @@ test('learning: no dead links from lessons, goals, updates, labs, glossary or se
     if (why) dead.push(`${from} → #${hash} (${why})`);
   };
   for (const l of ALL_LESSONS) {
+    for (const source of l.sources ?? []) {
+      assert.match(source.url, /^https:\/\//, `${l.id} reference URL`);
+      assert.ok(source.title.trim().length > 0, `${l.id} reference title`);
+    }
     l.deep_links.forEach((d) => check(l.id, d.hash));
     (l.update_ids ?? []).forEach((u) => assert.ok(getUpdate(u), `${l.id} cites missing update ${u}`));
   }
   for (const g of LEARNING_GOALS) check(g.id, `learn/${g.track_id}${g.lesson_id ? `/${g.lesson_id}` : ''}`);
+  for (const topic of DISCOVERY_TOPICS) check(`home topic ${topic.id}`, topic.hash);
   for (const u of EVIDENCE_UPDATES) if (u.related_hash) check(u.id, u.related_hash);
   for (const m of LAB_METRICS) if (m.related_hash) check(m.id, m.related_hash);
   for (const g of GLOSSARY) if (g.related_hash) check(g.term, g.related_hash);
   for (const d of buildSearchIndex()) if (!d.target.startsWith('modal:')) check(d.id, d.target);
   assert.deepEqual(dead, []);
+});
+
+test('home discovery: every topic remains reachable through category filters and expansion', () => {
+  assert.equal(new Set(DISCOVERY_TOPICS.map(t => t.id)).size, DISCOVERY_TOPICS.length);
+  const seen = new Set<string>();
+  for (const category of DISCOVERY_CATEGORIES.filter(c => c.id !== 'all')) {
+    const result = filterDiscoveryTopics(category.id, true);
+    assert.ok(result.topics.length > 0, category.label);
+    assert.ok(result.topics.every(t => t.category === category.id), category.label);
+    result.topics.forEach(t => seen.add(t.id));
+  }
+  assert.equal(seen.size, DISCOVERY_TOPICS.length);
+  assert.equal(filterDiscoveryTopics('all', true).topics.length, DISCOVERY_TOPICS.length);
 });
 
 test('learning: evidence updates carry a source and a plain-language meaning', () => {

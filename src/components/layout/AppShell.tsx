@@ -13,11 +13,11 @@ import { FloatingReadingDock } from '../common/FloatingReadingDock';
 import { Modal } from '../common/Modal';
 import { LearnHome } from '../learn/LearnHome';
 import { QuickTips } from '../learn/QuickTips';
-import { TrackView } from '../learn/TrackView';
+const TrackView = lazy(() => import('../learn/TrackView').then(m => ({ default: m.TrackView })));
 import { SearchPalette } from '../learn/SearchPalette';
 import { SiteFooter } from './SiteFooter';
-import { CHAPTERS } from '../../data/chapters';
-import { FourPillarsClinicalMatrix } from '../knowledge/FourPillarsClinicalMatrix';
+const FourPillarsClinicalMatrix = lazy(() => import('../knowledge/FourPillarsClinicalMatrix').then(m => ({ default: m.FourPillarsClinicalMatrix })));
+import { useDialogFocus } from '../../hooks/useDialogFocus';
 
 // v4.0: every topic hub is lazy-loaded. The learning home is the entry point, so a
 // first visit should not download all nine specialist hubs and their data up front.
@@ -85,6 +85,8 @@ export function AppShell() {
     exerciseSubTab,
     isMobileSidebarOpen,
     currentChapter,
+    chaptersLoading,
+    chapterLoadError,
     pagesForCurrent,
     currentPage,
     selectPillar,
@@ -98,6 +100,8 @@ export function AppShell() {
   const { isDark, toggleTheme } = useTheme();
   const { openModal, closeModal, isOpen } = useModal();
   const mainRef = useRef<HTMLElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  useDialogFocus(drawerRef, isMobileSidebarOpen);
 
   // 「立即上手」tips for the section on screen, rendered after the hub content. Body systems
   // render their own card (it follows the selected system); learner pages place it inside
@@ -164,7 +168,7 @@ export function AppShell() {
 
         {/* Mobile drawer */}
         {isMobileSidebarOpen && (
-          <div className="fixed inset-0 z-50 flex lg:hidden" role="dialog" aria-modal="true" aria-label="全部主題">
+          <div ref={drawerRef} tabIndex={-1} className="fixed inset-0 z-50 flex lg:hidden" role="dialog" aria-modal="true" aria-label="全部主題">
             <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm animate-fade-in" onClick={() => toggleMobileSidebar()} />
             <div className="relative w-[85vw] max-w-xs h-full bg-white dark:bg-salud-dark-surface overflow-y-auto border-r border-slate-200 dark:border-slate-800 px-3 pb-8 animate-slide-in-left">
               <div className="sticky top-0 z-10 -mx-3 px-4 py-3 flex justify-between items-center bg-white/95 dark:bg-salud-dark-surface/95 backdrop-blur border-b border-slate-200 dark:border-slate-800">
@@ -229,8 +233,10 @@ export function AppShell() {
                 {activePillar === 'cardiometabolic' && <CardiometabolicHub />}
                 {activePillar === 'diet' && (
                   <>
-                    {dietView === 'patterns' ? (
-                      <DietaryPatternsHub chapters={CHAPTERS} onSelectChapter={selectChapter} />
+                    {chapterLoadError ? (
+                      <div role="alert" className="py-12 text-center space-y-4"><p>章節暫時無法載入，請檢查連線後再試一次。</p><button type="button" className="discovery-primary" onClick={() => window.location.reload()}>重新載入</button></div>
+                    ) : chaptersLoading ? <Loading /> : dietView === 'patterns' ? (
+                      <DietaryPatternsHub onSelectChapter={selectChapter} />
                     ) : viewMode === 'landing' && currentChapter ? (
                       <ChapterLanding chapter={currentChapter} pages={pagesForCurrent} onStartReading={selectPage} onSelectPage={selectPage} />
                     ) : currentPage ? (
@@ -256,6 +262,7 @@ export function AppShell() {
               with the「四大維度臨床處方矩陣」and「立即上手」actions. */}
           {onHealthPage && !(activePillar === 'diet' && dietView === 'chapter' && viewMode === 'page') && (
             <div className="max-w-5xl mx-auto mt-10">
+              <Suspense fallback={<Loading />}>
               {activePillar === 'diet' ? (
                 <FourPillarsClinicalMatrix
                   key={`fp-${currentChapterId || 'O'}`}
@@ -266,6 +273,7 @@ export function AppShell() {
                   activePillar
                 ) && <FourPillarsClinicalMatrix key={`fp-${activePillar}`} pageIdOrTopic={activePillar} />
               )}
+              </Suspense>
             </div>
           )}
           {tipKey && (

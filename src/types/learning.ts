@@ -66,6 +66,8 @@ export interface Lesson {
   deep_links: LessonLink[];
   /** EvidenceUpdate ids this lesson relies on, rendered as "based on" chips. */
   update_ids?: string[];
+  /** Primary references; citing a source is not a claim of independent medical review. */
+  sources?: { title: string; url: string; note?: string }[];
 }
 
 export interface LearningTrack {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SimDietPatterns } from '../simulators/SimDietPatterns';
 import { DietaryNutrientsView } from './DietaryNutrientsView';
 import { SimSupplementChecker } from '../simulators/SimSupplementChecker';
-import { Chapter } from '../../types';
+import { CHAPTERS as chapters } from '../../data/chapters';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
 import { PillarHubTemplate } from '../common/PillarHubTemplate';
@@ -23,11 +23,10 @@ import {
 } from 'lucide-react';
 
 interface Props {
-  chapters: Chapter[];
   onSelectChapter: (chapterId: string) => void;
 }
 
-export const DietaryPatternsHub: React.FC<Props> = ({ chapters, onSelectChapter }) => {
+export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
   const { language } = useLanguage();
   const nav = useNavigation();
   const [activeSubTab, setActiveSubTab] = useState<'nutrients' | 'supplements' | 'simulator' | 'chapters'>('nutrients');

@@ -60,7 +60,7 @@ export const ThemePicker: React.FC<{ className?: string }> = ({ className = '' }
         aria-expanded={open}
         aria-label={`切換配色主題（目前：${current.label}）`}
         title="切換配色主題"
-        className="flex items-center gap-1.5 p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-emerald-400 dark:hover:border-emerald-700 text-xs font-semibold transition-colors"
+        className="min-h-11 min-w-11 flex items-center justify-center gap-1.5 p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-emerald-400 dark:hover:border-emerald-700 text-xs font-semibold transition-colors"
       >
         <span className="relative w-4 h-4" aria-hidden="true">
           <Palette className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
