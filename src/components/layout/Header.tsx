@@ -79,7 +79,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
           </kbd>
         </button>
 
-        <nav className="hidden xl:flex items-center gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
+        <nav className="hidden lg:flex items-center gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
           {QUICK_LINKS.map((l) => {
             const active = activePillar === l.id;
             const Icon = l.icon;

@@ -149,9 +149,9 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
         {/* Red Flag Alert for Treatment or Safety */}
         {detail.caution && (
           <div className="p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-300 dark:border-red-900/60 text-xs text-red-900 dark:text-red-200 space-y-1">
-            <div className="flex items-center gap-1.5 font-bold text-red-700 dark:text-red-400 font-mono text-[0.75rem]">
-              <AlertOctagon className="w-3.5 h-3.5 animate-pulse" />
-              <span>臨床警訊與急診紅線 (Clinical Warning Boundary)</span>
+            <div className="flex items-center gap-1.5 font-bold text-red-700 dark:text-red-400 text-[0.75rem]">
+              <AlertOctagon className="w-3.5 h-3.5" />
+              <span>需要注意的就醫警訊</span>
             </div>
             <p className="leading-relaxed">{detail.caution}</p>
           </div>
@@ -160,10 +160,11 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
         {/* Action Button & Evidence Source */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200/60 dark:border-slate-800/60 text-xs">
           <div className="text-[0.75rem] text-slate-500 font-mono truncate max-w-xs" title={detail.evidence_source}>
-            實證來源：{detail.evidence_source}
+            參考來源：{detail.evidence_source}
           </div>
 
           <button
+            type="button"
             onClick={() => (isAdded ? removeAction(planId) : addAction(planId))}
             className={`btn-tactile px-3.5 py-1.5 rounded-xl text-xs font-semibold border flex items-center gap-1.5 transition-all ${
               isAdded
@@ -172,7 +173,7 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
             }`}
           >
             {isAdded ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
-            <span>{isAdded ? '已在今日計畫' : '加入個人行動處方'}</span>
+            <span>{isAdded ? '已在今日計畫' : '加入我的行動計畫'}</span>
           </button>
         </div>
       </div>
@@ -185,15 +186,15 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
       <div className="p-5 rounded-3xl border border-emerald-200 dark:border-emerald-900/60 bg-gradient-to-br from-emerald-50/60 via-white to-sky-50/40 dark:from-slate-900 dark:via-salud-dark-card dark:to-slate-950 shadow-sm space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 dark:border-slate-800 pb-3">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 dark:text-emerald-300 font-mono">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 dark:text-emerald-300">
               <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>全人醫療與生活實證 · 四大健康處方導圖</span>
+              <span>生活整合 · 飲食、運動、預防與就醫</span>
             </div>
             <h3 className="text-lg sm:text-xl font-display font-extrabold text-slate-900 dark:text-white">
-              {pageTitle ? `${pageTitle} 的四大全景臨床對策` : `${profile.title_zh} 四大臨床處方`}
+              {pageTitle ? `${pageTitle}：四個面向怎麼配合` : `${profile.title_zh}：四個面向怎麼配合`}
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400">
-              整合【飲食營養】、【運動體能】、【預防監測】與【正規醫療治療】，讓你能自主實踐、精準防護與掌握就醫時機。
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              把飲食營養、運動體能、定期追蹤與正規醫療放在一起看，幫助你找到日常能做的事與就醫時機。
             </p>
           </div>
 

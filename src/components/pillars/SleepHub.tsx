@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { SLEEP_TABS } from '../../config/routes';
 import { HubHero } from '../common/HubHero';
+import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
 import { HUB_PRIMERS } from '../../data/hubPrimers';
 import {
   SLEEP_STAGES,
@@ -37,6 +38,25 @@ import {
   Droplets,
   Eye,
 } from 'lucide-react';
+
+const SLEEP_TAB_GROUPS: HubTabGroup<SleepSubTab>[] = [
+  {
+    label: '睡眠原理',
+    tabs: [
+      { id: 'OVERVIEW', label: '總覽：睡眠四階段', icon: Layers },
+      { id: 'GLYMPHATIC', label: '深睡與大腦清理', icon: Droplets },
+      { id: 'CIRCADIAN', label: '生理時鐘與光照', icon: Clock },
+    ],
+  },
+  {
+    label: '自我檢測與試算',
+    tabs: [
+      { id: 'CAFFEINE_SIM', label: '咖啡因代謝試算', icon: Coffee, featured: true },
+      { id: 'CBTI_CALC', label: '失眠：睡眠效率試算', icon: Calculator },
+      { id: 'OSA_SCREEN', label: '打呼與呼吸中止自評', icon: AlertOctagon },
+    ],
+  },
+];
 
 export const SleepHub: React.FC = () => {
   const { language } = useLanguage();
@@ -87,91 +107,18 @@ export const SleepHub: React.FC = () => {
       <MindBodyBridge from="sleep" />
       <HubHero primer={HUB_PRIMERS.sleep} compact={activeTab !== 'OVERVIEW'} />
 
-      {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-purple-200/80 dark:border-slate-800 pb-2 text-sm">
-        <button
-          onClick={() => setActiveTab('OVERVIEW')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'OVERVIEW'
-              ? 'bg-purple-600 text-white font-extrabold border-purple-500 shadow-md ring-2 ring-purple-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-purple-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-purple-400 hover:bg-purple-50/40'
-          }`}
-        >
-          <Layers className="w-4 h-4" />
-          <span>總覽：睡眠的四個階段</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('GLYMPHATIC')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'GLYMPHATIC'
-              ? 'bg-teal-600 text-white font-bold border-teal-500 shadow-md ring-2 ring-teal-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-purple-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-teal-400 hover:bg-teal-50/40'
-          }`}
-        >
-          <Droplets className="w-4 h-4" />
-          <span>深睡時大腦怎麼清理</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('CAFFEINE_SIM')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'CAFFEINE_SIM'
-              ? 'bg-amber-600 text-white font-bold border-amber-500 shadow-md ring-2 ring-amber-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-purple-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-amber-400 hover:bg-amber-50/40'
-          }`}
-        >
-          <Coffee className="w-4 h-4" />
-          <span>咖啡因試算：幾點前喝</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('CBTI_CALC')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'CBTI_CALC'
-              ? 'bg-emerald-600 text-white font-bold border-emerald-500 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-purple-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/40'
-          }`}
-        >
-          <Calculator className="w-4 h-4" />
-          <span>失眠：睡眠效率試算</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('OSA_SCREEN')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'OSA_SCREEN'
-              ? 'bg-rose-600 text-white font-bold border-rose-500 shadow-md ring-2 ring-rose-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-purple-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-rose-400 hover:bg-rose-50/40'
-          }`}
-        >
-          <AlertOctagon className="w-4 h-4" />
-          <span>打呼與呼吸中止自我檢查</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('CIRCADIAN')}
-          className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
-            activeTab === 'CIRCADIAN'
-              ? 'bg-indigo-600 text-white font-bold border-indigo-500 shadow-md ring-2 ring-indigo-500/20'
-              : 'bg-white/90 dark:bg-slate-900 border-purple-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-indigo-400 hover:bg-indigo-50/40'
-          }`}
-        >
-          <Clock className="w-4 h-4" />
-          <span>生理時鐘與光照</span>
-        </button>
-      </div>
+      <HubTabBar groups={SLEEP_TAB_GROUPS} active={activeTab} onChange={setActiveTab} ariaLabel="睡眠專區分頁" />
 
       {/* ── Sub-Tab 1: OVERVIEW & PSG STAGES ── */}
       {activeTab === 'OVERVIEW' && (
         <div className="space-y-6">
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
             <div className="flex items-center gap-2 text-base font-bold text-slate-900 dark:text-white font-display">
-              <Brain className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-              <span>多導睡眠圖 (Polysomnography, PSG) 四階段臨床分期金標準</span>
+              <Brain className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              <span>整夜睡眠不是一覺到底：四個睡眠階段怎麼分工？（多導睡眠圖 PSG 分期）</span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              整夜睡眠並非均勻恆定，而是由 4–6 個約 90–110 分鐘的超晝夜週期（Ultradian Cycles）精密交織而成。前半夜是慢波深睡（N3 SWS）重兵部署期，主導骨骼肌生長激素合成與大腦排毒；後半夜則轉向快速動眼期（REM）主導，負責情緒去敏化與複雜記憶突觸重組。
+            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              睡著後，大腦會以約 90–110 分鐘為一個週期，整晚重複 4–6 次。<strong>上半夜以「慢波深睡（N3）」比例較高</strong>，負責身體修復、分泌生長激素與清理大腦代謝廢物；<strong>下半夜到天亮前則是「快速動眼期（REM）」較長</strong>，負責做夢、撫平情緒與整合白天的記憶。如果太晚睡或早起被切掉後半夜，最常損失的就是處理情緒與記憶的 REM 睡眠。
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">

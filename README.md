@@ -1,14 +1,16 @@
+> **v6.5 全站白話深化・運動專項導讀與互動學習升級（2026-11-10）**：10 個核心專區全面統一白話開場（新增三高與心血管、增肌減脂、八大人體系統）與無障礙分頁列（`HubTabBar`）；運動專區（`#exercise`）新增「依目標挑運動」互動推薦器與 9 大運動專項白話入門卡；首頁（`#home`）小挑戰升級為 8 題跨領域題庫，課程總表（`#learn`）支援關鍵字搜尋、完成度篩選、路徑收合與一鍵複製課堂重點筆記。詳見 [CHANGELOG](CHANGELOG.md) 與 [改善紀錄](docs/discovery-experience-review.md)。
+
 > **v6.4 白話導讀與閱讀字級（2026-11-10）**：七個專區改以白話開場與「先知道這三件事」帶入深度內容；校正 17 堂課錯置的圖解與對照表；小字改為可縮放並提高下限；每頁有獨立分頁標題。詳見 [CHANGELOG](CHANGELOG.md) 與 [改善紀錄](docs/discovery-experience-review.md)。
 
 > **v6.3 閱讀體驗更新（2026-11-06）**：重新整理首頁探索動線、24 個分類主題入口、短課與即時小挑戰；改善手機、鍵盤焦點與章內閱讀導覽。完整章節按需載入，並釐清本站 A–E 閱讀標籤與正式 GRADE 的差異。實作、來源與驗證限制見 [改善紀錄](docs/discovery-experience-review.md)。
 
 # Salud｜給每個人的健康學習平台 (Health Learning for Everyone)
 
-> **Salud 用 7 條學習路徑、54 堂白話小課，帶一般人看懂身體、吃對食物、讀懂健檢報告；每一句都標示證據等級，並依據 2024–2026 年最新醫學指引。**
+> **Salud 用 8 條學習路徑、64 堂白話小課，帶一般人看懂身體、吃對食物、快樂運動、讀懂健檢報告；每一句都標示證據等級，並依據 2024–2026 年最新醫學指引。**
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.4.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.5.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

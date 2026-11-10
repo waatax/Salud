@@ -16,7 +16,17 @@ import { QuickTips } from './QuickTips';
 const MetabolicJourney = lazy(() => import('./MetabolicJourney').then(m => ({ default: m.MetabolicJourney })));
 const FIRST_LESSON = LEARNING_TRACKS[0].lessons[0];
 const featureTracks = ['eat', 'move', 'rest'].map(id => getTrack(id)!);
-const quizLesson = findLesson('L-MOVE-01')!;
+const CHALLENGE_LESSON_IDS = [
+  'L-MOVE-01',
+  'L-EAT-01',
+  'L-REST-01',
+  'L-PRE-01',
+  'L-BODY-01',
+  'L-CHK-01',
+  'L-MOVE-03',
+  'L-EAT-04',
+];
+const CHALLENGE_LESSONS = CHALLENGE_LESSON_IDS.map(id => findLesson(id)!).filter(Boolean);
 const focusClass = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600 dark:focus-visible:outline-emerald-400';
 
 /** The home page offers one short route into the existing, much deeper library. */
@@ -140,9 +150,135 @@ function SectionHeading({ id, eyebrow, title, description, action }: { id: strin
 }
 
 function LearningChallenge() {
+  const [questionIdx, setQuestionIdx] = useState<number>(0);
   const [answer, setAnswer] = useState<number | null>(null);
-  const quiz = quizLesson.quiz!;
-  return <section className="discovery-card p-6 sm:p-7" aria-labelledby="challenge-title"><p className="discovery-eyebrow flex items-center gap-2"><Sparkles className="h-3.5 w-3.5" aria-hidden="true" />A MOMENT OF DISCOVERY</p><h2 id="challenge-title" className="mt-2 text-xl font-bold text-slate-900 dark:text-white">用一個問題，認識身體</h2><p className="mt-3 text-base font-medium leading-8 text-slate-700 dark:text-slate-200">{quiz.question_zh}</p><div className="mt-4 grid gap-2" role="group" aria-label={quiz.question_zh}>{quiz.options_zh.map((option, i) => <button key={option} type="button" aria-pressed={answer === i} onClick={() => setAnswer(i)} className={`flex min-h-12 items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${focusClass} ${answer === i ? 'border-emerald-700 bg-emerald-50 text-emerald-900 dark:border-emerald-500 dark:bg-emerald-950 dark:text-emerald-200' : 'border-slate-200 text-slate-700 hover:border-emerald-500 dark:border-slate-700 dark:text-slate-300'}`}><span className="font-mono text-xs text-slate-500 dark:text-slate-400">{String.fromCharCode(65 + i)}</span>{option}{answer === i && <CheckCircle2 className="ml-auto h-4 w-4 shrink-0" aria-hidden="true" />}</button>)}</div>{answer !== null && <div role="status" className="mt-4 rounded-xl bg-emerald-50 p-4 text-sm leading-7 text-emerald-950 dark:bg-emerald-950/60 dark:text-emerald-100"><p className="font-semibold">{answer === quiz.answer ? '答對了！你已經掌握一個實用方法。' : '差一點！一起看看更合適的判斷方式。'}</p><p className="mt-1">正確答案：{quiz.options_zh[quiz.answer]}。{quiz.explain_zh}</p><a href={`#learn/move/${quizLesson.id}`} className="mt-3 inline-flex min-h-11 items-center gap-1 font-semibold underline underline-offset-4">看完整解釋與運動建議<ArrowRight className="h-4 w-4" aria-hidden="true" /></a><button onClick={() => setAnswer(null)} className="mt-2 flex min-h-11 items-center gap-1 text-xs"><RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />再想一次</button></div>}<p className="mt-3 text-xs leading-6 text-slate-600 dark:text-slate-400">小測驗只幫助理解，不評估體能或健康風險。</p></section>;
+  const [correctIds, setCorrectIds] = useState<string[]>([]);
+
+  const currentLesson = CHALLENGE_LESSONS[questionIdx] || CHALLENGE_LESSONS[0];
+  const currentTrack = getTrack(currentLesson.track_id);
+  const quiz = currentLesson.quiz!;
+
+  const handleSelectOption = (idx: number) => {
+    setAnswer(idx);
+    if (idx === quiz.answer && !correctIds.includes(currentLesson.id)) {
+      setCorrectIds((prev) => [...prev, currentLesson.id]);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    setAnswer(null);
+    setQuestionIdx((prev) => (prev + 1) % CHALLENGE_LESSONS.length);
+  };
+
+  return (
+    <section className="discovery-card p-6 sm:p-7" aria-labelledby="challenge-title">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="discovery-eyebrow flex items-center gap-2">
+          <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+          A MOMENT OF DISCOVERY
+        </p>
+        <div className="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400">
+          {currentTrack && (
+            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
+              {currentTrack.title_zh}
+            </span>
+          )}
+          <span className="font-mono">
+            第 {questionIdx + 1} / {CHALLENGE_LESSONS.length} 題
+          </span>
+          {correctIds.length > 0 && (
+            <span className="rounded-full bg-amber-50 px-2 py-0.5 font-semibold text-amber-800 dark:bg-amber-950/50 dark:text-amber-300">
+              答對 {correctIds.length} 題
+            </span>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-2 flex items-center justify-between gap-2">
+        <h2 id="challenge-title" className="text-xl font-bold text-slate-900 dark:text-white">
+          用一個問題，認識身體
+        </h2>
+        <button
+          type="button"
+          onClick={handleNextQuestion}
+          className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold text-emerald-800 hover:bg-emerald-50 dark:text-emerald-300 dark:hover:bg-emerald-950/40 ${focusClass}`}
+        >
+          <span>換一題</span>
+          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </button>
+      </div>
+
+      <p className="mt-3 text-base font-medium leading-8 text-slate-700 dark:text-slate-200">
+        {quiz.question_zh}
+      </p>
+
+      <div className="mt-4 grid gap-2" role="group" aria-label={quiz.question_zh}>
+        {quiz.options_zh.map((option, i) => (
+          <button
+            key={option}
+            type="button"
+            aria-pressed={answer === i}
+            onClick={() => handleSelectOption(i)}
+            className={`flex min-h-12 items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${focusClass} ${
+              answer === i
+                ? 'border-emerald-700 bg-emerald-50 text-emerald-900 dark:border-emerald-500 dark:bg-emerald-950 dark:text-emerald-200'
+                : 'border-slate-200 text-slate-700 hover:border-emerald-500 dark:border-slate-700 dark:text-slate-300'
+            }`}
+          >
+            <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
+              {String.fromCharCode(65 + i)}
+            </span>
+            {option}
+            {answer === i && <CheckCircle2 className="ml-auto h-4 w-4 shrink-0" aria-hidden="true" />}
+          </button>
+        ))}
+      </div>
+
+      {answer !== null && (
+        <div
+          role="status"
+          className="mt-4 rounded-xl bg-emerald-50 p-4 text-sm leading-7 text-emerald-950 dark:bg-emerald-950/60 dark:text-emerald-100"
+        >
+          <p className="font-semibold">
+            {answer === quiz.answer ? '答對了！你已經掌握一個實用觀念。' : '差一點！一起看看背後的原理。'}
+          </p>
+          <p className="mt-1">
+            正確答案：{quiz.options_zh[quiz.answer]}。{quiz.explain_zh}
+          </p>
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+            <a
+              href={`#learn/${currentLesson.track_id}/${currentLesson.id}`}
+              className="inline-flex min-h-11 items-center gap-1 font-semibold underline underline-offset-4"
+            >
+              閱讀完整小課：{currentLesson.title_zh}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setAnswer(null)}
+                className="inline-flex min-h-10 items-center gap-1 rounded-lg px-2.5 py-1 text-xs hover:bg-emerald-100/70 dark:hover:bg-emerald-900/40"
+              >
+                <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
+                重答本題
+              </button>
+              <button
+                type="button"
+                onClick={handleNextQuestion}
+                className="inline-flex min-h-10 items-center gap-1 rounded-xl bg-emerald-800 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-emerald-900 dark:bg-emerald-400 dark:text-slate-950"
+              >
+                <span>下一題挑戰</span>
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      <p className="mt-3 text-xs leading-6 text-slate-600 dark:text-slate-400">
+        小測驗只幫助理解，不評估體能或健康風險。
+      </p>
+    </section>
+  );
 }
 
 /** Editorial vector art stays crisp at large text sizes and needs no remote image request. */

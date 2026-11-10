@@ -68,3 +68,25 @@
 - 78 項測試、治理檢查、TypeScript 與正式建置通過。
 - 依專案擁有者指示，本版**未做瀏覽器逐頁目視驗證**。字級放大可能讓個別窄卡片多換一行，尚未逐頁確認。
 - 專區內部的深度段落（各分頁內容）仍保留原本的專科寫法，本版只改開場、分頁標籤與導覽；逐段白話改寫與醫學內容複核不在本次範圍。
+
+---
+
+# Salud 6.5：全站白話深化、運動專項導讀與互動學習升級
+
+日期：2026-11-10。
+
+## 盤點與優化目標
+
+延續 6.4 的白話導讀原則，進一步消除進入各專區與運動分頁後的「術語斷崖（Jargon Cliff）」與介面不一致：
+
+1. **三高、體重與人體系統專區補齊白話導讀**：`CardiometabolicHub`、`ObesityHub`、`HumanSystemsHub` 納入 `HUB_PRIMERS` 與 `HubHero`，並將總覽頁的驚悚口吻（「隱匿殺傷力」「殭屍細胞發炎風暴源！」）改寫為清楚、可行動的日常語言。
+2. **運動專區（`#exercise`）全面升級為快樂學習體驗**：新增 `src/data/sportPrimers.ts`，提供「依目標挑運動」5 大情境推薦器，以及全部 9 大運動專項（運動生理、肌力重訓、伸展與活動度、跑步、自行車、登山健行、羽球、桌球、匹克球）的白話導讀卡（適合對象、3 個核心觀念、新手第一步、防傷提醒、配對 5 分鐘入門課）。
+3. **統一全站分頁列與網址深連結**：`SleepHub`、`LongevityHub`、`MentalHealthHub`、`UltraHealthHub`、`DietaryPatternsHub`、`DisciplineTabBar` 統一改用支援鍵盤方向鍵與分組的 `HubTabBar`；修正 `#exercise/strength`、`#exercise/mobility`、`#ultrahealth/*`、`#diet/patterns` 的網址同步。
+4. **首頁與課程總表互動升級**：首頁 `LearningChallenge` 擴充為 8 題跨領域題庫；`#learn` 課程總表新增上次閱讀續讀卡、關鍵字搜尋、完成狀態篩選、路徑收合與課堂重點筆記複製功能。
+5. **無障礙與頁面收尾精簡**：`DietaryNutrientsView` 彈出視窗補齊 `useDialogFocus` 與 Escape 關閉；移除 `CourseShell` 臨床專區底部重複堆疊的 `FourPillarsClinicalMatrix`。
+
+## 驗證紀錄
+
+- 79 項單元／路由／內容完整性測試通過（含 10 個 `HUB_PRIMERS` 與 9 個 `SPORT_PRIMERS` 驗證）。
+- 29 項治理規則通過（0 errors、0 warnings）。
+- TypeScript 與正式 Vite 建置通過。

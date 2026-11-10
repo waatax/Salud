@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { DIETARY_NUTRIENTS } from '../../data/dietaryNutrientsData';
 import { DietaryNutrient, DietaryNutrientId } from '../../types';
 import { useNavigation } from '../../context/NavigationContext';
 import { useModal } from '../../context/ModalContext';
+import { useDialogFocus } from '../../hooks/useDialogFocus';
 import {
   Wheat,
   Leaf,
@@ -27,6 +28,18 @@ export const DietaryNutrientsView: React.FC = () => {
   const nav = useNavigation();
   const modal = useModal();
   const [selectedNutrient, setSelectedNutrient] = useState<DietaryNutrient | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  useDialogFocus(dialogRef, selectedNutrient !== null);
+
+  useEffect(() => {
+    if (!selectedNutrient) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedNutrient(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedNutrient]);
 
   const getNutrientIcon = (id: DietaryNutrientId) => {
     switch (id) {
@@ -62,14 +75,14 @@ export const DietaryNutrientsView: React.FC = () => {
         <div>
           <h3 className="text-base sm:text-lg font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Wheat className="w-5 h-5 text-nature-amber-600 dark:text-nature-amber-400" />
-            <span>各式飲食核心重點與營養深研矩陣 (Dietary Components Spectrum)</span>
+            <span>六大營養素與日常飲食重點</span>
           </h3>
-          <p className="text-xs font-mono text-slate-500 dark:text-slate-400">
-            從巨量物質到微量催化輔酶，嚴謹取材自《The Lancet》、《NEJM》、《Cell》等權威醫學期刊
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            點選任一卡片查看每日建議攝取量、食物來源、常見迷思與研究引用
           </p>
         </div>
         <span className="self-start sm:self-auto px-2.5 py-1 rounded-full font-mono text-[0.75rem] font-bold bg-nature-amber-100 dark:bg-nature-amber-950/60 text-nature-amber-800 dark:text-nature-amber-300 border border-nature-amber-200 dark:border-nature-amber-800/60">
-          9 大板塊（酒精排至末端）
+          共 9 項主題
         </span>
       </div>
 
@@ -80,10 +93,11 @@ export const DietaryNutrientsView: React.FC = () => {
           const isAlcohol = item.id === 'alcohol';
           const isSupplements = item.id === 'supplements';
           return (
-            <div
+            <button
               key={item.id}
+              type="button"
               onClick={() => setSelectedNutrient(item)}
-              className={`btn-tactile p-5 rounded-3xl border transition-all cursor-pointer flex flex-col justify-between space-y-4 group ${
+              className={`btn-tactile p-5 rounded-3xl border text-left transition-all cursor-pointer flex flex-col justify-between space-y-4 group ${
                 isAlcohol
                   ? 'border-purple-200 dark:border-purple-900/60 bg-gradient-to-br from-purple-50/40 via-white to-purple-50/20 dark:from-purple-950/20 dark:via-salud-dark-card dark:to-slate-950 hover:border-purple-400'
                   : isSupplements
@@ -91,7 +105,7 @@ export const DietaryNutrientsView: React.FC = () => {
                   : 'border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-amber-400 dark:hover:border-nature-amber-500 shadow-sm hover:shadow-md'
               }`}
             >
-              <div className="space-y-3">
+              <div className="space-y-3 w-full">
                 <div className="flex items-center justify-between">
                   <div
                     className={`w-10 h-10 rounded-2xl flex items-center justify-center ${
@@ -130,21 +144,32 @@ export const DietaryNutrientsView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between font-mono text-[0.75rem]">
-                <span className="text-slate-400">點擊閱讀完整深研</span>
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between font-mono text-[0.75rem] w-full">
+                <span className="text-slate-400">查看建議量與食材來源</span>
                 <span className="text-nature-amber-700 dark:text-nature-amber-400 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  進入專頁 →
+                  展開詳情 →
                 </span>
               </div>
-            </div>
+            </button>
           );
         })}
       </div>
 
       {/* In-depth Nutrient Modal / Full Screen Dossier */}
       {selectedNutrient && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-fade-in">
-          <div className="w-full max-w-4xl max-h-[90vh] bg-white dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-fade-in"
+          onClick={() => setSelectedNutrient(null)}
+        >
+          <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="nutrient-modal-title"
+            tabIndex={-1}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-4xl max-h-[90vh] bg-white dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col"
+          >
             {/* Modal Header */}
             <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/70 dark:bg-slate-900/60">
               <div className="flex items-center gap-3">
@@ -157,7 +182,7 @@ export const DietaryNutrientsView: React.FC = () => {
                       Part 0{selectedNutrient.order_index} · {selectedNutrient.badge}
                     </span>
                   </div>
-                  <h3 className="font-display font-extrabold text-xl text-slate-900 dark:text-white">
+                  <h3 id="nutrient-modal-title" className="font-display font-extrabold text-xl text-slate-900 dark:text-white">
                     {selectedNutrient.name_zh}
                   </h3>
                   <span className="text-xs font-mono text-slate-400">{selectedNutrient.name_en}</span>

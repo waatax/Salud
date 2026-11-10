@@ -22,7 +22,9 @@ import { FatLossMetabolismPanel } from './obesity/FatLossMetabolismPanel';
 import { BodyRecompositionCalculator } from './obesity/BodyRecompositionCalculator';
 import { TirzepatideChapter } from './obesity/tirzepatide/TirzepatideChapter';
 import { ThreeHighsEntry } from './cardiometabolic/ThreeHighsGuide';
+import { HubHero } from '../common/HubHero';
 import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
+import { HUB_PRIMERS } from '../../data/hubPrimers';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { ObesitySubTab } from '../../types';
@@ -99,27 +101,23 @@ export const ObesityHub: React.FC = () => {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
-      {/* Hero only on the overview, so every other tab starts with its own content */}
-      {activeTab === 'OVERVIEW' ? (
-        <header className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-5 dark:border-emerald-900 dark:from-emerald-950/40 dark:to-salud-dark-surface sm:p-7">
-          <h1 className="font-display text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">增肌減脂與體重管理</h1>
-          <p className="mt-2 max-w-3xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
-            不只看體重計，更要減掉脂肪、保住肌肉。從飲食、運動到藥物與手術，依你的狀況找到合適的做法。
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <button type="button" onClick={() => setActiveTab('TIRZEPATIDE_PROTOCOL')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-600">
-              <Syringe className="h-4 w-4" aria-hidden="true" />猛健樂完整指南
-            </button>
-            <button type="button" onClick={() => setActiveTab('RECOMP')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-emerald-500 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/40">
-              <Scale className="h-4 w-4" aria-hidden="true" />增肌減脂試算
-            </button>
-            <a href="#cardiometabolic/THREE_HIGHS" className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
-              <Heart className="h-4 w-4" aria-hidden="true" />體重與三高指南
-            </a>
-          </div>
-        </header>
-      ) : (
-        <h1 className="font-display text-lg font-bold text-slate-900 dark:text-white">增肌減脂與體重管理</h1>
+      <HubHero primer={HUB_PRIMERS.obesity} compact={activeTab !== 'OVERVIEW'} />
+
+      {activeTab === 'OVERVIEW' && (
+        <div className="flex flex-wrap gap-2">
+          <button type="button" onClick={() => setActiveTab('TIRZEPATIDE_PROTOCOL')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-600">
+            <Syringe className="h-4 w-4" aria-hidden="true" />猛健樂完整指南
+          </button>
+          <button type="button" onClick={() => setActiveTab('RECOMP')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-emerald-500 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/40">
+            <Scale className="h-4 w-4" aria-hidden="true" />增肌減脂試算
+          </button>
+          <button type="button" onClick={() => setActiveTab('DIETARY_REGIMENS')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+            <Utensils className="h-4 w-4" aria-hidden="true" />飲食法比較與外食技巧
+          </button>
+          <a href="#cardiometabolic/THREE_HIGHS" className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+            <Heart className="h-4 w-4" aria-hidden="true" />體重與三高指南
+          </a>
+        </div>
       )}
 
       <HubTabBar groups={OBESITY_TAB_GROUPS} active={activeTab} onChange={setActiveTab} ariaLabel="增肌減脂專區分頁" />
@@ -129,29 +127,6 @@ export const ObesityHub: React.FC = () => {
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'OVERVIEW' && (
         <div className="space-y-8 animate-fade-in">
-          {/* Cross-link to Longevity Hub */}
-          <div className="p-4 sm:p-5 rounded-2xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-r from-emerald-50 via-teal-50/70 to-emerald-100/40 dark:from-indigo-950/60 dark:via-slate-900 dark:to-cyan-950/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-800 dark:text-emerald-300">
-                <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
-                <span>全新旗艦跨支柱聯動：肥胖與加速衰老病理</span>
-              </div>
-              <div className="font-bold text-sm text-slate-900 dark:text-white">
-                內臟脂肪是人體最大的「殭屍細胞」發炎風暴源！深入抗老延壽專區
-              </div>
-              <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">
-                BMI 每增加 5，DNA 甲基化時鐘加速 1.2 年。立即檢視 12 大衰老標誌、DunedinPACE 老化步速與健康壽命模擬器。
-              </p>
-            </div>
-            <a
-              href="#longevity"
-              className="btn-tactile px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs font-mono shrink-0 flex items-center gap-1.5 shadow-md self-start sm:self-auto"
-            >
-              <span>前往抗老延壽專區</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
           <ThreeHighsEntry from="obesity" />
 
           {/* EOSS Interactive Staging Navigator */}
@@ -160,13 +135,13 @@ export const ObesityHub: React.FC = () => {
               <div>
                 <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-salud-cyan uppercase tracking-wider mb-1">
                   <Activity className="w-3.5 h-3.5" />
-                  <span>Clinical Staging Tool</span>
+                  <span>先看健康影響，不只看體重數字</span>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-display font-bold text-slate-900 dark:text-white">
-                  愛德蒙頓肥胖分級系統 (EOSS, 0~4 級)
+                  愛德蒙頓肥胖分級系統 (EOSS, 0–4 級)
                 </h2>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">
-                  國際醫學界公認比 BMI 更精準的臨床分級系統。不僅看體重計數字，更評估「代謝受損程度、器官損害與日常活動失能」。
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
+                  同樣的 BMI，每個人的健康風險可能不同。EOSS 分級除了看體重，也一起評估血壓、血糖、脂肪肝、關節負擔與日常活動能力，幫助你和醫師決定適合的介入強度。
                 </p>
               </div>
 

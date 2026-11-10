@@ -49,8 +49,10 @@ const EXERCISE_ALIASES: Record<string, SportsDiscipline> = {
   mountaineering: 'MOUNTAINEERING',
   hiking: 'MOUNTAINEERING',
   strength: 'STRENGTH_TRAINING',
+  'strength-training': 'STRENGTH_TRAINING',
   resistance: 'STRENGTH_TRAINING',
   mobility: 'MOBILITY_FASCIA',
+  'mobility-fascia': 'MOBILITY_FASCIA',
   fascia: 'MOBILITY_FASCIA',
   stretching: 'MOBILITY_FASCIA',
   badminton: 'BADMINTON',
@@ -204,6 +206,8 @@ export const CARDIO_TABS: readonly CardiometabolicSubTab[] = ['OVERVIEW', 'THREE
 export const SLEEP_TABS: readonly SleepSubTab[] = ['OVERVIEW', 'GLYMPHATIC', 'CAFFEINE_SIM', 'CBTI_CALC', 'OSA_SCREEN', 'CIRCADIAN'];
 export type MentalTab = 'SIMULATOR' | 'NEUROBIOLOGY' | 'PROTOCOLS' | 'VAGUS_HRV' | 'CAPNOMETRY' | 'TRIAGE';
 export const MENTAL_TABS: readonly MentalTab[] = ['SIMULATOR', 'NEUROBIOLOGY', 'PROTOCOLS', 'VAGUS_HRV', 'CAPNOMETRY', 'TRIAGE'];
+export type UltrahealthTab = 'BLUEPRINT' | 'PROTOCOL' | 'HABITS' | 'PHYSIO' | 'SKILL_TREE';
+export const ULTRAHEALTH_TABS: readonly UltrahealthTab[] = ['BLUEPRINT', 'PROTOCOL', 'HABITS', 'PHYSIO', 'SKILL_TREE'];
 export type CheckupTab = 'quick' | 'labs' | 'screening';
 export const CHECKUP_TABS: readonly CheckupTab[] = ['quick', 'labs', 'screening'];
 export type SpineTab =
@@ -365,6 +369,7 @@ export type SystemSection ='overview' | 'how' | 'charts' | 'conditions' | 'preve
 export const SYSTEM_SECTIONS: readonly SystemSection[] = ['overview', 'how', 'charts', 'conditions', 'prevent', 'flags'];
 
 export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
+  ultrahealth: ULTRAHEALTH_TABS,
   obesity: OBESITY_TABS,
   longevity: LONGEVITY_TABS,
   cardiometabolic: CARDIO_TABS,

@@ -61,11 +61,24 @@ export function TopicAccordion<T extends TopicItem = TopicItem>({
   const [expandedId, setExpandedId] = useState<string | null>(
     defaultExpanded || (topics.length > 0 ? topics[0].id : null)
   );
+  const [expandAll, setExpandAll] = useState<boolean>(false);
 
   return (
     <div className="space-y-3.5">
+      {topics.length > 1 && (
+        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+          <span>點擊任一卡片展開生理機轉與實作建議（共 {topics.length} 主題）</span>
+          <button
+            type="button"
+            onClick={() => setExpandAll((v) => !v)}
+            className="font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+          >
+            {expandAll ? '收合為單一卡片' : '展開全部主題'}
+          </button>
+        </div>
+      )}
       {topics.map((topic) => {
-        const isExpanded = expandedId === topic.id;
+        const isExpanded = expandAll || expandedId === topic.id;
         const sections = isExpanded ? getDetailSections(topic) : [];
 
         return (
@@ -73,7 +86,19 @@ export function TopicAccordion<T extends TopicItem = TopicItem>({
             key={topic.id}
             className={`p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-3 transition-all ${hoverBorderColor}`}
           >
-            <div className="flex items-start justify-between gap-3">
+            <button
+              type="button"
+              aria-expanded={isExpanded}
+              onClick={() => {
+                if (expandAll) {
+                  setExpandAll(false);
+                  setExpandedId(topic.id);
+                } else {
+                  setExpandedId(isExpanded ? null : topic.id);
+                }
+              }}
+              className="w-full flex items-start justify-between gap-3 text-left"
+            >
               <div className="space-y-1 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className={`font-mono text-xs font-bold ${idColor}`}>{topic.id}</span>
@@ -82,33 +107,33 @@ export function TopicAccordion<T extends TopicItem = TopicItem>({
                 <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                   {language === 'zh-TW' ? topic.title_zh : topic.title_en}
                 </h4>
-                <p className={`text-xs ${idColor} font-medium`}>
+                <p className={`text-xs sm:text-sm ${idColor} font-medium leading-relaxed`}>
                   💡 {language === 'zh-TW' ? topic.one_liner_zh : topic.one_liner_en}
                 </p>
               </div>
 
-              <button
-                onClick={() => setExpandedId(isExpanded ? null : topic.id)}
-                className="p-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500"
+              <span
+                className="p-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 shrink-0 mt-0.5"
+                aria-hidden="true"
               >
                 {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              </button>
-            </div>
+              </span>
+            </button>
 
             {isExpanded && sections.length > 0 && (
-              <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs">
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3 text-xs sm:text-sm leading-relaxed">
                 {sections.map((section, sIdx) => (
                   <div
                     key={sIdx}
-                    className={`p-3.5 rounded-xl ${section.accentBg} border ${section.accentBorder} space-y-1.5`}
+                    className={`p-3.5 sm:p-4 rounded-xl ${section.accentBg} border ${section.accentBorder} space-y-2`}
                   >
                     <strong className={`${section.accentText} font-bold block`}>
                       {language === 'zh-TW' ? section.label_zh : section.label_en}
                     </strong>
-                    <ul className="space-y-1 text-slate-700 dark:text-slate-300">
+                    <ul className="space-y-1.5 text-slate-700 dark:text-slate-300">
                       {(language === 'zh-TW' ? section.items_zh : section.items_en).map((item, i) => (
-                        <li key={i} className="flex items-start gap-1.5">
-                          <span className={`${section.bulletColor} font-bold`}>
+                        <li key={i} className="flex items-start gap-2">
+                          <span className={`${section.bulletColor} font-bold shrink-0`}>
                             {section.bulletSymbol || '•'}
                           </span>
                           <span>{item}</span>

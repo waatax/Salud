@@ -8,6 +8,8 @@ import { LatestEvidenceStrip } from '../meta/LatestEvidenceStrip';
 import { SystemDeepDiveView } from './SystemDeepDiveView';
 import { QuickTips } from '../learn/QuickTips';
 import { getDeepDive } from '../../data/systems';
+import { HubHero } from '../common/HubHero';
+import { HUB_PRIMERS } from '../../data/hubPrimers';
 import {
   Utensils,
   Wind,
@@ -72,78 +74,67 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
 
   return (
     <div className="space-y-8 animate-fade-in pb-12">
-      {/* ── Top Hero Banner: Human Organ Systems Overview ── */}
-      <div className="p-6 sm:p-8 rounded-3xl border border-emerald-200/80 dark:border-emerald-900/60 bg-gradient-to-br from-white via-emerald-50/40 to-teal-50/20 dark:from-slate-900/90 dark:via-salud-dark-card/70 dark:to-slate-950 shadow-sm relative overflow-hidden">
-        <div className="max-w-3xl space-y-3 relative z-10">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="px-3 py-1 rounded-full font-mono text-xs font-bold bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-              認識身體 · 8 大人體系統
-            </span>
-            <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-              每個知識點都附圖解與證據等級
-            </span>
-          </div>
-          <h1 className="text-2xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {language === 'zh-TW' ? '認識你的 8 大人體系統' : 'Your 8 Body Systems'}
-          </h1>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-            選一個系統開始：先看它在做什麼、再看常見疾病怎麼發生、最後是預防方法與「什麼時候該就醫」。每個系統都有白話問答、圖解、2025–2026 最新指引與危險警訊。
-          </p>
-        </div>
-
-        {/* Decorative Watermark */}
-        <div className="absolute right-[-20px] bottom-[-20px] opacity-5 pointer-events-none">
-          <Stethoscope className="w-64 h-64 text-slate-900 dark:text-white" />
-        </div>
-      </div>
+      <HubHero primer={HUB_PRIMERS.systems} />
 
       {/* ── Newest primary sources, ahead of the system picker ── */}
       <LatestEvidenceStrip />
 
       {/* ── 8 Systems Quick Switcher Grid ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
-        {HUMAN_SYSTEMS.map((sys) => {
-          const Icon = getSystemIcon(sys.id);
-          const isSelected = sys.id === selectedSystemId;
-          return (
-            <button
-              key={sys.id}
-              onClick={() => {
-                setSelectedSystemId(sys.id);
-                window.location.hash = `systems/${sys.id}`;
-              }}
-              className={`btn-tactile p-3 rounded-2xl border text-left transition-all flex flex-col justify-between space-y-2 ${
-                isSelected
-                  ? 'border-salud-cyan dark:border-salud-cyan bg-salud-cyan/10 dark:bg-salud-cyan/15 text-slate-900 dark:text-white shadow-sm ring-1 ring-salud-cyan/50'
-                  : 'border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900/60 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300'
-              }`}
-            >
-              <div className="flex items-center justify-between w-full">
-                <div
-                  className="w-7 h-7 rounded-lg flex items-center justify-center transition-transform"
-                  style={{
-                    backgroundColor: isSelected ? sys.theme_color : undefined,
-                    color: isSelected ? '#FFFFFF' : sys.theme_color,
-                    border: `1px solid ${sys.theme_color}40`
-                  }}
-                >
-                  <Icon className="w-4 h-4" />
+      <div className="space-y-2.5">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-bold text-slate-700 dark:text-slate-300 font-display">
+            選擇你想認識的人體系統
+          </h2>
+          <span className="text-xs text-slate-500 dark:text-slate-400">
+            目前顯示：{currentSystem.name_zh}
+          </span>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5" role="group" aria-label="八大人體系統切換">
+          {HUMAN_SYSTEMS.map((sys) => {
+            const Icon = getSystemIcon(sys.id);
+            const isSelected = sys.id === selectedSystemId;
+            return (
+              <button
+                key={sys.id}
+                type="button"
+                aria-pressed={isSelected}
+                onClick={() => {
+                  setSelectedSystemId(sys.id);
+                  window.location.hash = `systems/${sys.id}`;
+                }}
+                className={`btn-tactile p-3 rounded-2xl border text-left transition-all flex flex-col justify-between space-y-2 ${
+                  isSelected
+                    ? 'border-emerald-600 dark:border-emerald-400 bg-emerald-50/90 dark:bg-emerald-950/40 text-slate-900 dark:text-white shadow-sm ring-1 ring-emerald-600/40'
+                    : 'border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900/60 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300'
+                }`}
+              >
+                <div className="flex items-center justify-between w-full">
+                  <div
+                    className="w-7 h-7 rounded-lg flex items-center justify-center transition-transform"
+                    style={{
+                      backgroundColor: isSelected ? sys.theme_color : undefined,
+                      color: isSelected ? '#FFFFFF' : sys.theme_color,
+                      border: `1px solid ${sys.theme_color}40`
+                    }}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  {isSelected && (
+                    <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400" />
+                  )}
                 </div>
-                {isSelected && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-salud-cyan animate-pulse" />
-                )}
-              </div>
-              <div>
-                <h4 className="font-bold text-xs leading-snug line-clamp-1">
-                  {sys.name_zh.replace('系統', '')}
-                </h4>
-                <span className="text-[0.6875rem] font-mono text-slate-400 block truncate">
-                  {sys.name_en.split(' ')[0]}
-                </span>
-              </div>
-            </button>
-          );
-        })}
+                <div>
+                  <h4 className="font-bold text-xs leading-snug line-clamp-1">
+                    {sys.name_zh.replace('系統', '')}
+                  </h4>
+                  <span className="text-[0.6875rem] font-mono text-slate-500 dark:text-slate-400 block truncate">
+                    {sys.name_en.split(' ')[0]}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* ── System Detail Stage (Split 2-Column Responsive Layout) ── */}

@@ -1,5 +1,27 @@
 # Changelog
 
+## v6.5.0 — 2026-11-10 · 全站白話深化、運動專項導讀與互動學習升級 (Approachable Depth, Exercise Primers & Interactive Learning)
+
+### Added — 運動專項導讀與互動學習
+- **運動專區（`#exercise`）白話導讀與目標推薦器**（`src/data/sportPrimers.ts`、`src/components/pillars/exercise/ExerciseHub.tsx`）：
+  - 新增「不知道從哪項運動開始？點選你的主要目標」互動推薦器（久坐想開始動、提升心肺與燃脂、增肌強骨防肌少、關節友善低衝擊、雙人互動練反應），一鍵切換至對應運動專項。
+  - 為全部 9 大運動專項（運動生理、肌力重訓、伸展與活動度、跑步、自行車、登山健行、羽球、桌球、匹克球）建立結構化白話導讀卡：適合對象、3 個核心觀念、新手今天就能做的第一步、安全與防傷關鍵提醒，以及配對的 5 分鐘入門課連結。
+- **首頁互動問答題庫（`#home`）**：`LearnHome.tsx` 的「用一個問題，認識身體」由單一固定題目升級為涵蓋 8 條路徑的跨領域題庫，支援「換一題／下一題挑戰」、題號與答對題數統計，並附每題完整解析與對應小課連結。
+- **課程總表（`#learn`）搜尋、篩選與筆記複製**：`TrackView.tsx` 新增上次閱讀快速續讀卡、關鍵字即時篩選、完成狀態篩選（全部／尚未讀／已完成）、各路徑展開／收合控制，以及課堂閱讀頁一鍵「複製本課重點筆記」功能。
+
+### Changed — 專區架構、分頁導覽與平易近人介面
+- **擴充 `HubHero` 與 `HUB_PRIMERS` 至 10 個核心專區**：新增 `cardiometabolic`（三高與心血管）、`obesity`（體重與代謝）、`systems`（人體八大系統）三個專區的白話開場與三項核心原則，並移除原本總覽頁中的驚悚或誇大語句（如「殭屍細胞發炎風暴源！」「隱匿殺傷力」）。
+- **統一全站專區分頁列（`HubTabBar`）與網址同步**：
+  - `SleepHub`、`LongevityHub`、`MentalHealthHub`、`UltraHealthHub`、`DietaryPatternsHub` 與 `ExerciseHub`（`DisciplineTabBar`）全面改用無障礙 `HubTabBar`（支援分組標題、`role="tablist"`、方向鍵切換與一致的森林綠視覺）。
+  - `UltraHealthHub` 改用 `useHashTab` 同步網址（`#ultrahealth/<TAB>`），`DietaryPatternsHub` 支援 `#diet/patterns` 直接開啟飲食法比較分頁；修正 `ExerciseHub` 切換 `STRENGTH_TRAINING` 與 `MOBILITY_FASCIA` 時的網址別名與 `initialSubTab` 同步問題。
+- **無障礙與頁面收尾減負**：
+  - `DietaryNutrientsView` 營養素詳情視窗補齊 `useDialogFocus`、Escape 鍵關閉、背景點擊關閉與 `role="dialog"` / `aria-modal="true"`。
+  - `TopicAccordion` 改為整張標題列皆可點擊展開，並新增「展開全部主題／收合為單一卡片」切換與舒適閱讀字級（`text-sm`）。
+  - `Breadcrumb` 支援在所有非首頁顯示（含運動專項子分頁與學習路徑／課堂名稱）；`Header` 學習入口在 `lg`（1024px）以上即顯示；`AppShell` 移除在已有完整章節總結的 `CourseShell` 臨床專區重複堆疊底部 `FourPillarsClinicalMatrix`。
+
+### Verification
+- 79 項單元測試（新增 10 個 `HUB_PRIMERS` 與 9 個 `SPORT_PRIMERS` 結構與連結驗證）、29 條治理檢查、TypeScript 與 Vite 正式建置通過。
+
 ## v6.4.0 — 2026-11-10 · 白話導讀、課程圖表校正與閱讀字級 (Plain-Language Hubs & Readability)
 
 ### Fixed — 內容正確性

@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "referenceStandard": "WCAG 2.2 Level AA",
-  "timestamp": "2026-11-10T00:56:25.526Z",
+  "timestamp": "2026-11-10T01:45:09.477Z",
   "scope": "Static source inventory only. Not a WCAG conformance audit or certification.",
   "requiresManualReview": true,
   "summary": {
@@ -19,7 +19,7 @@
       "details": "需於實際頁面確認地標名稱、順序與標題階層。",
       "status": "WARN",
       "scannedCount": 210,
-      "candidateCount": 64
+      "candidateCount": 63
     },
     {
       "checkId": "A11Y-002-INTERACTIVE-LABELS",
@@ -29,7 +29,7 @@
       "details": "標籤屬性存在不代表每個控制項都有可用名稱；需檢查渲染後的無障礙樹。",
       "status": "WARN",
       "scannedCount": 210,
-      "candidateCount": 110
+      "candidateCount": 112
     },
     {
       "checkId": "A11Y-003-FOCUS-INDICATORS",
@@ -39,7 +39,7 @@
       "details": "全域 CSS 另提供焦點樣式；需實際鍵盤驗證可見焦點、順序及遮擋，不能由 class 推論通過。",
       "status": "WARN",
       "scannedCount": 210,
-      "candidateCount": 36
+      "candidateCount": 37
     },
     {
       "checkId": "A11Y-004-DUAL-ENCODING",
@@ -49,7 +49,7 @@
       "details": "需逐頁確認所有資訊都能在不依賴顏色時理解。",
       "status": "WARN",
       "scannedCount": 210,
-      "candidateCount": 41
+      "candidateCount": 43
     },
     {
       "checkId": "A11Y-005-CONTRAST-RATIO",
@@ -59,7 +59,7 @@
       "details": "本程式未量測渲染後的前景、背景對比，未涵蓋所有配色與互動狀態。",
       "status": "WARN",
       "scannedCount": 210,
-      "candidateCount": 193
+      "candidateCount": 191
     },
     {
       "checkId": "A11Y-006-SCREEN-READERS",
@@ -69,7 +69,7 @@
       "details": "ARIA 存在不代表報讀機可用；需真人使用報讀機確認閱讀順序與狀態通知。",
       "status": "WARN",
       "scannedCount": 210,
-      "candidateCount": 100
+      "candidateCount": 103
     }
   ],
   "scannedComponents": [

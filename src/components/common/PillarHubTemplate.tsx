@@ -5,6 +5,7 @@ import type { HubPrimer } from '../../data/hubPrimers';
 export interface PillarHubTemplateProps {
   /** Plain-language title, lead and three takeaways — see src/data/hubPrimers.ts. */
   primer: HubPrimer;
+  compact?: boolean;
   overviewSection?: React.ReactNode;
   simulatorSection?: React.ReactNode;
   topicsSection?: React.ReactNode;
@@ -25,6 +26,7 @@ export interface PillarHubTemplateProps {
  */
 export const PillarHubTemplate: React.FC<PillarHubTemplateProps> = ({
   primer,
+  compact = false,
   overviewSection,
   simulatorSection,
   topicsSection,
@@ -32,9 +34,9 @@ export const PillarHubTemplate: React.FC<PillarHubTemplateProps> = ({
   children,
 }) => {
   return (
-    <div className="space-y-8 max-w-4xl mx-auto font-sans text-sm pb-16">
+    <div className="space-y-8 max-w-5xl mx-auto font-sans text-sm pb-16 animate-fade-in">
       {/* ── ① Plain-language opening (v6.4: shared HubHero) ── */}
-      <HubHero primer={primer} />
+      <HubHero primer={primer} compact={compact} />
 
       {/* ── ② Quick Overview Dashboard ── */}
       {overviewSection && (

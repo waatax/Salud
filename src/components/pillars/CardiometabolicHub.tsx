@@ -15,7 +15,9 @@ import { CardiometabolicSubTab } from '../../types';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { ThreeHighsEntry, ThreeHighsGuide } from './cardiometabolic/ThreeHighsGuide';
+import { HubHero } from '../common/HubHero';
 import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
+import { HUB_PRIMERS } from '../../data/hubPrimers';
 import {
   HeartPulse,
   Activity,
@@ -107,27 +109,23 @@ export const CardiometabolicHub: React.FC = () => {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
-      {/* Hero only on the overview, so every other tab starts with its own content */}
-      {activeTab === 'OVERVIEW' ? (
-        <header className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-5 dark:border-emerald-900 dark:from-emerald-950/40 dark:to-salud-dark-surface sm:p-7">
-          <h1 className="font-display text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">三高與心血管健康</h1>
-          <p className="mt-2 max-w-3xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
-            心肌梗塞與中風往往是幾十年累積的結果。看懂血壓、血糖、血脂和體重，在症狀出現之前就開始處理。
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <button type="button" onClick={() => setActiveTab('THREE_HIGHS')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-600">
-              <ClipboardCheck className="h-4 w-4" aria-hidden="true" />看我的健檢數字
-            </button>
-            <button type="button" onClick={() => setActiveTab('BP_722')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-emerald-500 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/40">
-              <Activity className="h-4 w-4" aria-hidden="true" />722 居家血壓
-            </button>
-            <a href="#obesity/TIRZEPATIDE_PROTOCOL" className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
-              <Syringe className="h-4 w-4" aria-hidden="true" />猛健樂完整指南
-            </a>
-          </div>
-        </header>
-      ) : (
-        <h1 className="font-display text-lg font-bold text-slate-900 dark:text-white">三高與心血管健康</h1>
+      <HubHero primer={HUB_PRIMERS.cardiometabolic} compact={activeTab !== 'OVERVIEW'} />
+
+      {activeTab === 'OVERVIEW' && (
+        <div className="flex flex-wrap gap-2">
+          <button type="button" onClick={() => setActiveTab('THREE_HIGHS')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 dark:bg-emerald-600">
+            <ClipboardCheck className="h-4 w-4" aria-hidden="true" />看我的健檢數字
+          </button>
+          <button type="button" onClick={() => setActiveTab('BP_722')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-emerald-500 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/40">
+            <Activity className="h-4 w-4" aria-hidden="true" />722 居家血壓
+          </button>
+          <button type="button" onClick={() => setActiveTab('CALCULATORS')} className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+            <Calculator className="h-4 w-4" aria-hidden="true" />血脂與血壓試算工具
+          </button>
+          <a href="#obesity/TIRZEPATIDE_PROTOCOL" className="btn-tactile inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+            <Syringe className="h-4 w-4" aria-hidden="true" />猛健樂完整指南
+          </a>
+        </div>
       )}
 
       <HubTabBar groups={CARDIO_TAB_GROUPS} active={activeTab} onChange={setActiveTab} ariaLabel="三高與心血管專區分頁" />
@@ -141,31 +139,31 @@ export const CardiometabolicHub: React.FC = () => {
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
             <div className="flex items-center gap-2 text-base font-bold text-slate-900 dark:text-white font-display">
               <Stethoscope className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-              <span>心血管與代謝醫學實證核心指引 (Cardiometabolic Evidence Paradigm)</span>
+              <span>為什麼要同時看血壓、血脂、血糖與體重？</span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              心肌梗塞、中風並不是突如其來的意外，而是多年累積的結果。本專區依台灣心臟學會、糖尿病學會與 ACC/AHA、ESC 指引整理，幫助你在症狀出現前就開始處理。
+            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              心肌梗塞與中風很少是單一原因造成的，而是血壓、膽固醇、血糖與腹部脂肪長年交互影響的結果。本專區依台灣心臟學會、糖尿病學會與國際臨床指引整理三大核心觀念：
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 space-y-1.5">
-                <span className="font-mono text-xs font-bold text-emerald-800 dark:text-emerald-300 block">① 顆粒致病論 (Particle Count)</span>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  穿透內皮造成動脈硬化的是「顆粒個數（ApoB）」，而非膽固醇總重。重視小緻密低密度脂蛋白（sdLDL）的隱匿殺傷力。
+                <span className="font-mono text-xs font-bold text-emerald-800 dark:text-emerald-300 block">① 膽固醇不只看總重，也看顆粒數（ApoB）</span>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  當三酸甘油酯偏高或有腹部肥胖時，壞膽固醇（LDL）顆粒會變小變多；加測 ApoB 或看非高密度膽固醇（Non-HDL-C），更能完整評估血管斑塊風險。
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-teal-50/60 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800/60 space-y-1.5">
-                <span className="font-mono text-xs font-bold text-teal-800 dark:text-teal-300 block">② 居家血壓真標準 (722 Protocol)</span>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  摒除醫院診間緊張單次量測的白袍干擾，唯有晨起與就寢前連續一週的平均值，才能誠實反映大動脈真實硬化阻力。
+                <span className="font-mono text-xs font-bold text-teal-800 dark:text-teal-300 block">② 診間血壓常偏高，居家 722 才準確</span>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  在醫院量血壓容易因為緊張而偏高（白袍效應）。連續 7 天、早晚各量 2 次取平均，更能反映血管平時的真實壓力。
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/60 space-y-1.5">
-                <span className="font-mono text-xs font-bold text-indigo-800 dark:text-indigo-300 block">③ 心腎代謝共病體 (AHA CKM)</span>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  心臟、血管、腎臟與胰島素代謝為不可分割的一體。從早期腹部肥胖（Stage 1）即應啟動靶向防護，阻斷終末器官衰竭。
+                <span className="font-mono text-xs font-bold text-indigo-800 dark:text-indigo-300 block">③ 心臟、腎臟與代謝是一家人（CKM）</span>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  高血壓與高血糖會同時影響心臟血管與腎絲球過濾功能。從腰圍超標與血壓偏高的早期階段開始調整飲食與運動，能同時保護心與腎。
                 </p>
               </div>
             </div>
@@ -173,11 +171,11 @@ export const CardiometabolicHub: React.FC = () => {
 
           <ThreeHighsEntry from="cardio" />
 
-          {/* 迷思粉碎區 */}
+          {/* 常見迷思與實證解答 */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-base font-bold text-slate-900 dark:text-white font-display border-b border-slate-200 dark:border-slate-800 pb-2">
               <HelpCircle className="w-5 h-5 text-amber-500" />
-              <span>心血管與膽固醇常見醫學迷思粉碎機 (Myth Busters)</span>
+              <span>三高與膽固醇常見迷思解答</span>
             </div>
 
             <div className="space-y-3">

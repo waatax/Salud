@@ -22,12 +22,16 @@ import {
   Compass,
   GraduationCap,
   ShieldCheck,
+  Search,
+  ChevronDown,
+  ChevronUp,
+  Copy,
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { lessonActionId } from '../../data/learning/tipIndex';
-import { LEARNING_TRACKS, getTrack, TOTAL_LESSON_MINUTES, ALL_LESSONS } from '../../data/learning/tracks';
+import { LEARNING_TRACKS, getTrack, findLesson, TOTAL_LESSON_MINUTES, ALL_LESSONS } from '../../data/learning/tracks';
 import { getUpdate } from '../../data/learning/evidenceUpdates';
 import { LearningTrack, Lesson } from '../../types/learning';
 import { TONE, TrackIcon, ProgressBar, PageHeader, formatYM } from './learnUi';
@@ -60,15 +64,37 @@ export const TrackView: React.FC = () => {
 
 const Catalogue: React.FC = () => {
   const { go } = useNavigation();
-  const { progress, reset } = useLearningProgress();
+  const { progress, reset, isDone } = useLearningProgress();
   const done = progress.completed.filter((id) => ALL_LESSONS.some((l) => l.id === id)).length;
+  const [statusFilter, setStatusFilter] = useState<'all' | 'todo' | 'done'>('all');
+  const [query, setQuery] = useState<string>('');
+  const [expandedTracks, setExpandedTracks] = useState<Record<string, boolean>>(() => {
+    const initial: Record<string, boolean> = {};
+    const activeTrackId = progress.last?.trackId || LEARNING_TRACKS[0].id;
+    LEARNING_TRACKS.forEach((t, idx) => {
+      initial[t.id] = t.id === activeTrackId || idx < 2;
+    });
+    return initial;
+  });
+
+  const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
+  const lastTrack = lastLesson ? getTrack(lastLesson.track_id) : undefined;
+  const trimmedQuery = query.trim().toLowerCase();
+
+  const toggleAllTracks = (open: boolean) => {
+    const nextState: Record<string, boolean> = {};
+    LEARNING_TRACKS.forEach((t) => {
+      nextState[t.id] = open;
+    });
+    setExpandedTracks(nextState);
+  };
 
   return (
     <div className="space-y-8 animate-fade-in">
       <PageHeader
         eyebrow="學習路徑"
         title="課程總表"
-        lead={`${LEARNING_TRACKS.length} 條路徑、${ALL_LESSONS.length} 堂課，全部讀完約 ${Math.round(TOTAL_LESSON_MINUTES / 60 * 10) / 10} 小時。建議從「健康素養入門」開始，再依你的需要挑選。`}
+        lead={`${LEARNING_TRACKS.length} 條路徑、${ALL_LESSONS.length} 堂課，全部讀完約 ${Math.round((TOTAL_LESSON_MINUTES / 60) * 10) / 10} 小時。建議從「健康素養入門」開始，也可以直接搜尋你想了解的主題。`}
       >
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
           <span>
@@ -76,6 +102,7 @@ const Catalogue: React.FC = () => {
           </span>
           {done > 0 && (
             <button
+              type="button"
               onClick={() => {
                 if (window.confirm('確定要清除這個瀏覽器中的學習進度嗎？')) reset();
               }}
@@ -88,30 +115,160 @@ const Catalogue: React.FC = () => {
         </div>
       </PageHeader>
 
+      {lastLesson && lastTrack && (
+        <section
+          aria-label="繼續上次學習"
+          className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4 sm:p-5 dark:border-emerald-900/60 dark:bg-emerald-950/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} />
+            <div className="min-w-0">
+              <p className="text-xs font-medium text-emerald-800 dark:text-emerald-300">
+                上次讀到 · {lastTrack.title_zh}
+              </p>
+              <p className="font-bold text-slate-900 dark:text-white truncate">
+                {lastLesson.title_zh}
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => go(`learn/${lastTrack.id}/${lastLesson.id}`)}
+            className="btn-tactile inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2 text-xs sm:text-sm font-semibold text-white hover:bg-emerald-800 shrink-0"
+          >
+            <span>繼續閱讀</span>
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </button>
+        </section>
+      )}
+
+      {/* Search & Filter Controls */}
+      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 space-y-3 shadow-xs">
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="篩選課程關鍵字，例如：血壓、蛋白質、Zone 2、失眠、B 肝…"
+              aria-label="篩選課程關鍵字"
+              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-slate-950/60 pl-9 pr-3 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none"
+            />
+          </div>
+          <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="課程完成狀態篩選">
+            {(
+              [
+                ['all', `全部 (${ALL_LESSONS.length})`],
+                ['todo', `尚未讀 (${ALL_LESSONS.length - done})`],
+                ['done', `已完成 (${done})`],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                aria-pressed={statusFilter === id}
+                onClick={() => setStatusFilter(id)}
+                className={`rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                  statusFilter === id
+                    ? 'bg-emerald-800 text-white dark:bg-emerald-400 dark:text-slate-950'
+                    : 'border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-500'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-100 dark:border-slate-800/80">
+          <span>可點擊任一路徑展開課表，或直接點標題進入路徑專頁</span>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => toggleAllTracks(true)}
+              className="font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+            >
+              展開全部路徑
+            </button>
+            <span aria-hidden="true">·</span>
+            <button
+              type="button"
+              onClick={() => toggleAllTracks(false)}
+              className="font-semibold text-slate-600 hover:underline dark:text-slate-400"
+            >
+              收合全部
+            </button>
+          </div>
+        </div>
+      </div>
+
       <details className="discovery-card p-5 space-y-5">
         <summary className="cursor-pointer min-h-11 font-semibold text-slate-800 dark:text-slate-200">想先比較路徑？查看課程地圖與學習目標</summary>
         <CurriculumFrameworkMap />
         <TrackComparisonTable />
       </details>
 
-      <ol className="space-y-6">
-        {LEARNING_TRACKS.map((t, i) => (
-          <li key={t.id} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden shadow-xs">
-            <button
-              onClick={() => go(`learn/${t.id}`)}
-              className={`w-full flex items-start gap-3 p-4 sm:p-5 text-left ${TONE[t.tone].soft} border-b border-slate-200 dark:border-slate-800 hover:brightness-95 transition-all`}
-            >
-              <TrackIcon icon={t.icon} tone={t.tone} size="lg" />
-              <span className="flex-1 min-w-0">
-                <span className="block text-xs text-slate-500 dark:text-slate-400">路徑 {i + 1} · 適合：{t.audience_zh}</span>
-                <span className="block text-lg font-bold text-slate-900 dark:text-white">{t.title_zh}</span>
-                <span className="block text-sm text-slate-600 dark:text-slate-300">{t.subtitle_zh}</span>
-              </span>
-              <ArrowRight className="w-5 h-5 mt-1 text-slate-400" aria-hidden="true" />
-            </button>
-            <LessonList track={t} />
-          </li>
-        ))}
+      <ol className="space-y-4">
+        {LEARNING_TRACKS.map((t, i) => {
+          const filteredLessons = t.lessons.filter((l) => {
+            if (statusFilter === 'todo' && isDone(l.id)) return false;
+            if (statusFilter === 'done' && !isDone(l.id)) return false;
+            if (!trimmedQuery) return true;
+            return (
+              l.title_zh.toLowerCase().includes(trimmedQuery) ||
+              l.big_idea_zh.toLowerCase().includes(trimmedQuery) ||
+              l.key_points_zh.some((kp) => kp.toLowerCase().includes(trimmedQuery))
+            );
+          });
+
+          if ((trimmedQuery || statusFilter !== 'all') && filteredLessons.length === 0) {
+            return null;
+          }
+
+          const trackDoneCount = t.lessons.filter((l) => isDone(l.id)).length;
+          const isTrackOpen = Boolean(trimmedQuery) || statusFilter !== 'all' || expandedTracks[t.id];
+
+          return (
+            <li key={t.id} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden shadow-xs">
+              <div className={`w-full flex items-start justify-between gap-3 p-4 sm:p-5 ${TONE[t.tone].soft} ${isTrackOpen ? 'border-b border-slate-200 dark:border-slate-800' : ''}`}>
+                <button
+                  type="button"
+                  onClick={() => go(`learn/${t.id}`)}
+                  className="flex items-start gap-3 text-left flex-1 min-w-0 hover:opacity-90 transition-opacity"
+                >
+                  <TrackIcon icon={t.icon} tone={t.tone} size="lg" />
+                  <span className="flex-1 min-w-0">
+                    <span className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                      <span>路徑 {i + 1} · 適合：{t.audience_zh}</span>
+                      <span className="rounded-full bg-white/80 dark:bg-slate-900/80 px-2 py-0.5 font-mono text-[11px] font-semibold text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
+                        已完成 {trackDoneCount}/{t.lessons.length} 課
+                      </span>
+                    </span>
+                    <span className="block text-lg font-bold text-slate-900 dark:text-white mt-0.5">{t.title_zh}</span>
+                    <span className="block text-sm text-slate-600 dark:text-slate-300">{t.subtitle_zh}</span>
+                  </span>
+                </button>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <button
+                    type="button"
+                    aria-expanded={isTrackOpen}
+                    onClick={() =>
+                      setExpandedTracks((prev) => ({
+                        ...prev,
+                        [t.id]: !isTrackOpen,
+                      }))
+                    }
+                    className="inline-flex items-center gap-1 rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 px-2.5 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-white"
+                  >
+                    <span>{isTrackOpen ? '收合課表' : `展開 (${filteredLessons.length} 課)`}</span>
+                    {isTrackOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+              </div>
+              {isTrackOpen && <LessonList track={t} lessons={filteredLessons} />}
+            </li>
+          );
+        })}
       </ol>
     </div>
   );
@@ -201,31 +358,36 @@ const TrackComparisonTable: React.FC = () => {
   );
 };
 
-const LessonList: React.FC<{ track: LearningTrack }> = ({ track }) => {
+const LessonList: React.FC<{ track: LearningTrack; lessons?: Lesson[] }> = ({ track, lessons }) => {
   const { go } = useNavigation();
   const { isDone } = useLearningProgress();
+  const displayLessons = lessons ?? track.lessons;
   return (
     <ul className="divide-y divide-slate-100 dark:divide-slate-800/80">
-      {track.lessons.map((l, i) => (
-        <li key={l.id}>
-          <button
-            onClick={() => go(`learn/${track.id}/${l.id}`)}
-            className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
-          >
-            {isDone(l.id) ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" aria-label="已完成" />
-            ) : (
-              <Circle className="w-5 h-5 text-slate-300 dark:text-slate-600 shrink-0" aria-hidden="true" />
-            )}
-            <span className="text-xs tabular-nums text-slate-400 w-5 shrink-0 font-medium">{i + 1}</span>
-            <div className="flex-1 min-w-0">
-              <span className="block text-[15px] font-medium text-slate-800 dark:text-slate-200">{l.title_zh}</span>
-              <span className="block text-xs text-slate-500 dark:text-slate-400 truncate max-w-xl">{l.big_idea_zh}</span>
-            </div>
-            <span className="text-xs text-slate-400 shrink-0 tabular-nums">{l.minutes} 分</span>
-          </button>
-        </li>
-      ))}
+      {displayLessons.map((l) => {
+        const originalIdx = track.lessons.findIndex((item) => item.id === l.id);
+        return (
+          <li key={l.id}>
+            <button
+              type="button"
+              onClick={() => go(`learn/${track.id}/${l.id}`)}
+              className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
+            >
+              {isDone(l.id) ? (
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" aria-label="已完成" />
+              ) : (
+                <Circle className="w-5 h-5 text-slate-300 dark:text-slate-600 shrink-0" aria-hidden="true" />
+              )}
+              <span className="text-xs tabular-nums text-slate-400 w-5 shrink-0 font-medium">{originalIdx + 1}</span>
+              <div className="flex-1 min-w-0">
+                <span className="block text-[15px] font-medium text-slate-800 dark:text-slate-200">{l.title_zh}</span>
+                <span className="block text-xs text-slate-500 dark:text-slate-400 truncate max-w-xl">{l.big_idea_zh}</span>
+              </div>
+              <span className="text-xs text-slate-400 shrink-0 tabular-nums">{l.minutes} 分</span>
+            </button>
+          </li>
+        );
+      })}
     </ul>
   );
 };
@@ -376,6 +538,24 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
   const next = track.lessons[idx + 1];
   const nextTrack = LEARNING_TRACKS[LEARNING_TRACKS.findIndex((t) => t.id === track.id) + 1];
   const done = isDone(lesson.id);
+  const [copiedNotes, setCopiedNotes] = useState(false);
+
+  const handleCopyNotes = () => {
+    const text = [
+      `【Salud 健康學習筆記】${lesson.title_zh}`,
+      `一句話重點：${lesson.big_idea_zh}`,
+      '',
+      '核心重點：',
+      ...lesson.key_points_zh.map((kp, i) => `${i + 1}. ${kp}`),
+      '',
+      '今天就能做：',
+      ...lesson.do_today_zh.map((d) => `✓ ${d}`),
+    ].join('\n');
+    navigator.clipboard?.writeText(text).then(() => {
+      setCopiedNotes(true);
+      setTimeout(() => setCopiedNotes(false), 2500);
+    });
+  };
 
   useEffect(() => {
     visit(track.id, lesson.id);
@@ -596,18 +776,39 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
 
       {/* Complete + nav */}
       <div className="border-t border-slate-200 dark:border-slate-800 pt-6 space-y-4">
-        <button
-          onClick={() => markComplete(lesson.id, !done)}
-          className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition-colors ${
-            done
-              ? 'border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/30'
-              : 'bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-emerald-950'
-          }`}
-          aria-pressed={done}
-        >
-          <CheckCircle2 className="w-5 h-5" aria-hidden="true" />
-          {done ? '已標記完成（點擊取消）' : '我讀完了，標記完成'}
-        </button>
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => markComplete(lesson.id, !done)}
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition-colors ${
+              done
+                ? 'border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/30'
+                : 'bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-emerald-950'
+            }`}
+            aria-pressed={done}
+          >
+            <CheckCircle2 className="w-5 h-5" aria-hidden="true" />
+            {done ? '已標記完成（點擊取消）' : '我讀完了，標記完成'}
+          </button>
+
+          <button
+            type="button"
+            onClick={handleCopyNotes}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-800 dark:hover:text-emerald-300 transition-colors"
+          >
+            {copiedNotes ? (
+              <>
+                <Check className="w-4 h-4 text-emerald-600" aria-hidden="true" />
+                <span>已複製本課重點筆記</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4" aria-hidden="true" />
+                <span>複製本課重點筆記</span>
+              </>
+            )}
+          </button>
+        </div>
         <div className="grid grid-cols-2 gap-3">
           {prev ? (
             <button

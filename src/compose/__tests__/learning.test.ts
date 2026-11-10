@@ -227,13 +227,15 @@ test('action plan: ids never collide across tips, starter tasks and lesson actio
   assert.deepEqual(parseHash('home/plan'), { kind: 'pillar', pillar: 'home', sub: ['plan'] });
 });
 
-// ── v6.4: plain-language hub openings, page titles, lesson ↔ table pairing ──────────────
+// ── v6.4 & v6.5: plain-language hub openings, sport primers, page titles, lesson ↔ table pairing ──
 import { HUB_PRIMERS } from '../../data/hubPrimers';
+import { SPORT_PRIMERS, SPORT_GOALS } from '../../data/sportPrimers';
 import { PILLAR_NAV as PILLAR_NAV_FOR_TITLES } from '../../config/navigation';
 import { pageTitle, SITE_TITLE } from '../../config/pageTitle';
 import { LESSON_TABLE_KEY } from '../../components/learn/LessonReferenceTable';
 
-test('hub primers: three takeaways each, and every starter link resolves', () => {
+test('hub primers: all 10 hubs have three takeaways each, and every starter link resolves', () => {
+  assert.equal(Object.keys(HUB_PRIMERS).length, 10);
   for (const [key, primer] of Object.entries(HUB_PRIMERS)) {
     assert.equal(primer.takeaways.length, 3, key);
     for (const t of primer.takeaways) assert.ok(t.length >= 12 && t.length <= 90, `${key}: takeaway length (${t.length})`);
@@ -250,6 +252,33 @@ test('hub primers: three takeaways each, and every starter link resolves', () =>
       assert.equal(primer.starter.label, lesson.title_zh, `${key}: starter label matches the lesson title`);
     }
   }
+});
+
+test('sport primers: all 9 exercise disciplines have plain-language primers, beginner steps, safety tips and valid starter lessons', () => {
+  const disciplines = Object.keys(DISCIPLINE_HASH);
+  assert.equal(Object.keys(SPORT_PRIMERS).length, disciplines.length);
+  for (const d of disciplines) {
+    const primer = SPORT_PRIMERS[d as keyof typeof SPORT_PRIMERS];
+    assert.ok(primer, `missing sport primer for ${d}`);
+    assert.equal(primer.benefits_zh.length, 3, `${d}: needs 3 benefits`);
+    assert.ok(primer.beginner_step_zh.length >= 15, `${d}: needs beginner step`);
+    assert.ok(primer.injury_tip_zh.length >= 15, `${d}: needs injury tip`);
+    const route = parseHash(primer.starter_lesson.hash);
+    assert.ok(route && route.kind === 'learn', `${d}: starter lesson hash resolves`);
+    const lesson = ALL_LESSONS.find((l) => l.id === route.lessonId);
+    assert.ok(lesson, `${d}: starter lesson exists`);
+    assert.equal(primer.starter_lesson.label, lesson.title_zh, `${d}: starter label matches lesson title`);
+  }
+  assert.ok(SPORT_GOALS.length >= 5);
+  for (const g of SPORT_GOALS) {
+    assert.equal(g.recommended.length, 3, g.id);
+    for (const rec of g.recommended) {
+      assert.ok(SPORT_PRIMERS[rec], `${g.id} recommends valid discipline ${rec}`);
+    }
+  }
+  assert.deepEqual(parseHash('exercise/strength-training'), { kind: 'exercise', discipline: 'STRENGTH_TRAINING' });
+  assert.deepEqual(parseHash('exercise/mobility-fascia'), { kind: 'exercise', discipline: 'MOBILITY_FASCIA' });
+  assert.deepEqual(parseHash('ultrahealth/HABITS'), { kind: 'pillar', pillar: 'ultrahealth', sub: ['HABITS'] });
 });
 
 test('page titles name the page on screen', () => {

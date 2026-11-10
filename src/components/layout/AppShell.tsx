@@ -221,7 +221,11 @@ export function AppShell() {
           tabIndex={-1}
           className="flex-1 min-w-0 px-3.5 sm:px-8 pt-4 pb-28 sm:py-6 lg:pb-12 focus:outline-none"
         >
-          {!learnerPage && <Breadcrumb />}
+          {activePillar !== 'home' && (
+            <div className="max-w-5xl mx-auto">
+              <Breadcrumb />
+            </div>
+          )}
 
           <div className={learnerPage ? 'max-w-5xl mx-auto' : undefined}>
             {metaView ? (
@@ -276,8 +280,8 @@ export function AppShell() {
               </Suspense>
             )}
           </div>
-          {/* v4.4: learn first, then act — a hub opens with its own introduction and ends
-              with the「四大維度臨床處方矩陣」and「立即上手」actions. */}
+          {/* Lifestyle and system hubs conclude with the 4-pillar summary and quick tips;
+              CourseShell clinical hubs already include their own chapter synthesis and RelatedNext. */}
           {onHealthPage && !(activePillar === 'diet' && dietView === 'chapter' && viewMode === 'page') && (
             <div className="max-w-5xl mx-auto mt-10">
               <Suspense fallback={<Loading />}>
@@ -287,7 +291,7 @@ export function AppShell() {
                   pageIdOrTopic={dietView === 'chapter' && currentChapterId ? currentChapterId : 'O'}
                 />
               ) : (
-                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'gastro', 'oncology', 'hepb', 'mindbody', 'ltc', 'systems'].includes(
+                ['exercise', 'sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'systems'].includes(
                   activePillar
                 ) && <FourPillarsClinicalMatrix key={`fp-${activePillar}`} pageIdOrTopic={activePillar} />
               )}

@@ -2,19 +2,34 @@ import React from 'react';
 import { ChevronRight, House } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useLanguage } from '../../i18n';
-import { getPillarNav } from '../../config/navigation';
+import { getPillarNav, EXERCISE_SUB_NAV } from '../../config/navigation';
+import { DISCIPLINE_HASH } from '../../config/routes';
+import { findLesson, getTrack } from '../../data/learning/tracks';
 
 /**
- * Breadcrumb — v4.0. "Home" is the learning home, not the body-systems hub, and each
- * crumb is a real link. Learner pages render their own headings and skip this bar.
+ * Breadcrumb — v6.5. "Home" is the learning home, and each crumb is a clickable link
+ * showing the reader's current pillar, chapter, sport discipline, or learning track/lesson.
  */
 export function Breadcrumb() {
   const { language } = useLanguage();
   const zh = language === 'zh-TW';
-  const { activePillar, dietView, viewMode, currentChapter, currentPage, isCouncilEvidenceView, isSynergyView, metaView, go, selectPillar } =
-    useNavigation();
+  const {
+    activePillar,
+    dietView,
+    viewMode,
+    currentChapter,
+    currentPage,
+    exerciseSubTab,
+    learnTrackId,
+    learnLessonId,
+    isCouncilEvidenceView,
+    isSynergyView,
+    metaView,
+    go,
+    selectPillar,
+  } = useNavigation();
 
-  if (metaView) return null;
+  if (metaView || activePillar === 'home') return null;
 
   const crumbs: { label: string; onClick?: () => void }[] = [];
 
@@ -32,9 +47,34 @@ export function Breadcrumb() {
       crumbs.push({ label: zh ? '營養補充品' : 'Supplements' });
     }
     if (activePillar === 'diet' && dietView === 'chapter' && currentChapter) {
-      crumbs.push({ label: `${zh ? '第' : 'Chapter'} ${currentChapter.id} ${zh ? '章' : ''} ${zh ? currentChapter.title_zh : currentChapter.title_en}`, onClick: () => go(currentChapter.id) });
+      crumbs.push({
+        label: `${zh ? '第' : 'Chapter'} ${currentChapter.id} ${zh ? '章' : ''} ${zh ? currentChapter.title_zh : currentChapter.title_en}`,
+        onClick: () => go(currentChapter.id),
+      });
       if (viewMode === 'page' && currentPage) {
         crumbs.push({ label: zh ? currentPage.title_zh : currentPage.title_en });
+      }
+    }
+    if (activePillar === 'exercise' && exerciseSubTab && exerciseSubTab !== 'PHYSIOLOGY') {
+      const hash = DISCIPLINE_HASH[exerciseSubTab];
+      const sub = EXERCISE_SUB_NAV.find((s) => s.hash === hash);
+      if (sub) {
+        crumbs.push({ label: zh ? sub.label_zh : sub.label_en });
+      }
+    }
+    if (activePillar === 'learn' && learnTrackId) {
+      const track = getTrack(learnTrackId);
+      if (track) {
+        crumbs.push({
+          label: zh ? track.title_zh : track.title_en,
+          onClick: learnLessonId ? () => go(`learn/${track.id}`) : undefined,
+        });
+      }
+      if (learnLessonId) {
+        const lesson = findLesson(learnLessonId);
+        if (lesson) {
+          crumbs.push({ label: lesson.title_zh });
+        }
       }
     }
   }
@@ -43,7 +83,11 @@ export function Breadcrumb() {
     <nav aria-label={zh ? '目前位置' : 'Breadcrumb'} className="mb-5 text-sm text-slate-500 dark:text-slate-400">
       <ol className="flex flex-wrap items-center gap-1">
         <li>
-          <button onClick={() => selectPillar('home')} className="inline-flex items-center gap-1 hover:text-emerald-700 dark:hover:text-emerald-400">
+          <button
+            type="button"
+            onClick={() => selectPillar('home')}
+            className="inline-flex items-center gap-1 hover:text-emerald-700 dark:hover:text-emerald-400"
+          >
             <House className="w-3.5 h-3.5" aria-hidden="true" />
             {zh ? '首頁' : 'Home'}
           </button>
@@ -54,11 +98,18 @@ export function Breadcrumb() {
             <li key={i} className="inline-flex items-center gap-1 min-w-0">
               <ChevronRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
               {c.onClick && !last ? (
-                <button onClick={c.onClick} className="hover:text-emerald-700 dark:hover:text-emerald-400 truncate max-w-[16rem]">
+                <button
+                  type="button"
+                  onClick={c.onClick}
+                  className="hover:text-emerald-700 dark:hover:text-emerald-400 truncate max-w-[16rem]"
+                >
                   {c.label}
                 </button>
               ) : (
-                <span aria-current={last ? 'page' : undefined} className={`truncate max-w-[20rem] ${last ? 'text-slate-800 dark:text-slate-200 font-semibold' : ''}`}>
+                <span
+                  aria-current={last ? 'page' : undefined}
+                  className={`truncate max-w-[20rem] ${last ? 'text-slate-800 dark:text-slate-200 font-semibold' : ''}`}
+                >
                   {c.label}
                 </span>
               )}

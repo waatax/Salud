@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { MENTAL_TABS } from '../../config/routes';
 import { HubHero } from '../common/HubHero';
+import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
 import { HUB_PRIMERS } from '../../data/hubPrimers';
 import { BREATHWORK_PROTOCOLS, MENTAL_TOPICS, STRESS_MYTH_BUSTERS } from '../../data/mentalHealthData';
 import { SimBreathwork } from '../simulators/SimBreathwork';
@@ -36,6 +37,30 @@ import {
 
 export type MentalTab = 'SIMULATOR' | 'NEUROBIOLOGY' | 'PROTOCOLS' | 'VAGUS_HRV' | 'CAPNOMETRY' | 'TRIAGE';
 
+const MENTAL_TAB_GROUPS: HubTabGroup<MentalTab>[] = [
+  {
+    label: '立刻練習',
+    tabs: [
+      { id: 'SIMULATOR', label: '跟著練：呼吸引導', icon: Wind, featured: true },
+      { id: 'PROTOCOLS', label: '五種呼吸法怎麼做', icon: BookOpen },
+    ],
+  },
+  {
+    label: '生理原理',
+    tabs: [
+      { id: 'NEUROBIOLOGY', label: '壓力時身體的反應', icon: Brain },
+      { id: 'VAGUS_HRV', label: '迷走神經與心率變異', icon: Activity },
+      { id: 'CAPNOMETRY', label: '過度換氣與二氧化碳', icon: Compass },
+    ],
+  },
+  {
+    label: '安全求助',
+    tabs: [
+      { id: 'TRIAGE', label: '恐慌發作與何時求助', icon: AlertTriangle },
+    ],
+  },
+];
+
 export const MentalHealthHub: React.FC = () => {
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useHashTab<MentalTab>('mental', MENTAL_TABS, 'SIMULATOR');
@@ -46,80 +71,7 @@ export const MentalHealthHub: React.FC = () => {
       <MindBodyBridge from="mental" />
       <HubHero primer={HUB_PRIMERS.mental} compact={activeTab !== 'SIMULATOR'} />
 
-      {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2 text-sm">
-        <button
-          onClick={() => setActiveTab('SIMULATOR')}
-          className={`btn-tactile flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border transition-all ${
-            activeTab === 'SIMULATOR'
-              ? 'bg-cyan-500 text-white font-bold border-cyan-600 shadow-md ring-2 ring-cyan-500/20'
-              : 'bg-white/80 dark:bg-salud-dark-surface border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-cyan-400'
-          }`}
-        >
-          <Wind className="w-4 h-4" />
-          <span>跟著練：呼吸引導</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('PROTOCOLS')}
-          className={`btn-tactile flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border transition-all ${
-            activeTab === 'PROTOCOLS'
-              ? 'bg-emerald-500 text-white font-bold border-emerald-600 shadow-md ring-2 ring-emerald-500/20'
-              : 'bg-white/80 dark:bg-salud-dark-surface border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-400'
-          }`}
-        >
-          <BookOpen className="w-4 h-4" />
-          <span>五種呼吸法怎麼做</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('NEUROBIOLOGY')}
-          className={`btn-tactile flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border transition-all ${
-            activeTab === 'NEUROBIOLOGY'
-              ? 'bg-purple-500 text-white font-bold border-purple-600 shadow-md ring-2 ring-purple-500/20'
-              : 'bg-white/80 dark:bg-salud-dark-surface border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-purple-400'
-          }`}
-        >
-          <Brain className="w-4 h-4" />
-          <span>壓力時身體發生什麼事</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('VAGUS_HRV')}
-          className={`btn-tactile flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border transition-all ${
-            activeTab === 'VAGUS_HRV'
-              ? 'bg-indigo-500 text-white font-bold border-indigo-600 shadow-md ring-2 ring-indigo-500/20'
-              : 'bg-white/80 dark:bg-salud-dark-surface border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-indigo-400'
-          }`}
-        >
-          <Activity className="w-4 h-4" />
-          <span>慢呼吸與心率變異</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('CAPNOMETRY')}
-          className={`btn-tactile flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border transition-all ${
-            activeTab === 'CAPNOMETRY'
-              ? 'bg-pink-500 text-white font-bold border-pink-600 shadow-md ring-2 ring-pink-500/20'
-              : 'bg-white/80 dark:bg-salud-dark-surface border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-pink-400'
-          }`}
-        >
-          <Compass className="w-4 h-4" />
-          <span>過度換氣與二氧化碳</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('TRIAGE')}
-          className={`btn-tactile flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border transition-all ${
-            activeTab === 'TRIAGE'
-              ? 'bg-red-500 text-white font-bold border-red-600 shadow-md ring-2 ring-red-500/20'
-              : 'bg-white/80 dark:bg-salud-dark-surface border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-red-400'
-          }`}
-        >
-          <AlertTriangle className="w-4 h-4 text-red-400" />
-          <span>恐慌發作與何時求助</span>
-        </button>
-      </div>
+      <HubTabBar groups={MENTAL_TAB_GROUPS} active={activeTab} onChange={setActiveTab} ariaLabel="壓力與呼吸專區分頁" />
 
       {/* ── TAB 1: SIMULATOR (呼吸互動引導儀) ── */}
       {activeTab === 'SIMULATOR' && (
@@ -136,10 +88,10 @@ export const MentalHealthHub: React.FC = () => {
             <div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-emerald-500" />
-                <span>五大實證呼吸處方完全手冊 (Clinical Respiration Protocols)</span>
+                <span>五種常用呼吸練習手冊：秒數、原理與注意事項</span>
               </h3>
-              <p className="text-xs font-mono text-slate-500">
-                每一項協定皆標註精確時間參數、微觀生化受體、臨床適應症與反向安全邊界
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+                從最快平復緊張的「生理嘆息」到睡前放鬆的「4-7-8 呼吸」，列吸氣與吐氣秒數、適合情境與不建議使用的狀況
               </p>
             </div>
           </div>
