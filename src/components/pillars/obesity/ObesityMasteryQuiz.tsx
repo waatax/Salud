@@ -76,7 +76,7 @@ export const ObesityMasteryQuiz: React.FC<Props> = ({ onNavigateToTab }) => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30 text-xs font-mono font-bold mb-1.5">
             <Award className="w-3.5 h-3.5" />
-            <span>均一教育平台自適應學習哲學 · FORMATIVE MASTERY ASSESSMENT</span>
+            <span>精熟學習法 · FORMATIVE MASTERY ASSESSMENT</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 dark:text-white">
             增肌減脂與體組成精熟情境評量 (Mastery Quiz)
@@ -136,10 +136,10 @@ export const ObesityMasteryQuiz: React.FC<Props> = ({ onNavigateToTab }) => {
           {/* Question Box */}
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30">
+              <span className="text-[0.75rem] font-mono font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30">
                 {currentQ.category}
               </span>
-              <span className="text-[10px] font-mono text-slate-400">第 {currentIdx + 1} 題</span>
+              <span className="text-[0.75rem] font-mono text-slate-400">第 {currentIdx + 1} 題</span>
             </div>
 
             <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-relaxed">
@@ -174,7 +174,7 @@ export const ObesityMasteryQuiz: React.FC<Props> = ({ onNavigateToTab }) => {
                   className={`w-full p-3.5 rounded-2xl border text-left transition-all flex items-center justify-between text-xs ${btnStyle}`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center font-mono font-bold text-[11px] shrink-0">
+                    <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center font-mono font-bold text-[0.75rem] shrink-0">
                       {String.fromCharCode(65 + i)}
                     </span>
                     <span className="leading-snug">{opt}</span>
@@ -212,11 +212,11 @@ export const ObesityMasteryQuiz: React.FC<Props> = ({ onNavigateToTab }) => {
                   <BookOpen className="w-4 h-4 text-salud-cyan" />
                   <span>臨床生化機制詳解：</span>
                 </div>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-[11px]">
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-[0.75rem]">
                   {currentQ.biochemical_explanation_zh}
                 </p>
 
-                <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-800 dark:text-amber-300">
+                <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[0.75rem] text-amber-800 dark:text-amber-300">
                   <strong>臨床實證要點 (Clinical Pearl)：</strong> {currentQ.clinical_pearl_zh}
                 </div>
               </div>

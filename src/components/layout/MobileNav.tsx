@@ -42,7 +42,7 @@ export const MobileNav: React.FC<Props> = ({ activePillar, onSelectPillar, onOpe
             <button
               onClick={it.onClick}
               aria-current={it.active ? 'page' : undefined}
-              className={`btn-tactile relative w-full min-h-[56px] flex flex-col items-center justify-center gap-1 text-[11px] transition-all select-none ${
+              className={`btn-tactile relative w-full min-h-[56px] flex flex-col items-center justify-center gap-1 text-[0.75rem] transition-all select-none ${
                 it.active
                   ? 'text-emerald-700 dark:text-emerald-400 font-semibold'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'

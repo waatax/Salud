@@ -189,7 +189,7 @@ export const FourPillarsMasterCompass: React.FC = () => {
           </p>
         </div>
 
-        <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 shrink-0 self-start sm:self-auto">
+        <span className="text-[0.75rem] font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 shrink-0 self-start sm:self-auto">
           29 席臨床專家定審
         </span>
       </div>
@@ -220,7 +220,7 @@ export const FourPillarsMasterCompass: React.FC = () => {
                 <div className={`p-2 rounded-2xl ${isActive ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'text-slate-400'}`}>
                   <TabIcon className="w-5 h-5" />
                 </div>
-                <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${item.badgeTone}`}>
+                <span className={`text-[0.75rem] font-mono font-bold px-2 py-0.5 rounded-full border ${item.badgeTone}`}>
                   {dimKey === 'diet' ? '🥗 營養' : dimKey === 'exercise' ? '🏃 體能' : dimKey === 'prevention' ? '🛡️ 篩檢' : '🩺 臨床'}
                 </span>
               </div>
@@ -229,7 +229,7 @@ export const FourPillarsMasterCompass: React.FC = () => {
                 <h3 className="text-base font-bold text-slate-900 dark:text-white leading-tight">
                   {item.title_zh}
                 </h3>
-                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
                   {item.title_en}
                 </span>
               </div>
@@ -270,16 +270,16 @@ export const FourPillarsMasterCompass: React.FC = () => {
                 key={bm.label}
                 className="p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 space-y-1"
               >
-                <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block truncate">
+                <span className="text-[0.75rem] font-medium text-slate-500 dark:text-slate-400 block truncate">
                   {bm.label}
                 </span>
                 <div className="flex items-baseline gap-1">
                   <span className="text-lg sm:text-xl font-display font-extrabold text-slate-900 dark:text-white">
                     {bm.value}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">{bm.unit}</span>
+                  <span className="text-[0.75rem] font-mono text-slate-400">{bm.unit}</span>
                 </div>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
+                <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 leading-tight">
                   {bm.note}
                 </p>
               </div>
@@ -296,7 +296,7 @@ export const FourPillarsMasterCompass: React.FC = () => {
                 <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>推薦深度專科知識庫 ({current.title_zh})</span>
               </span>
-              <span className="text-[10px] text-slate-400">點擊直達</span>
+              <span className="text-[0.75rem] text-slate-400">點擊直達</span>
             </div>
 
             <div className="space-y-2.5">
@@ -335,7 +335,7 @@ export const FourPillarsMasterCompass: React.FC = () => {
                 <Calculator className="w-4 h-4 text-sky-600 dark:text-sky-400" />
                 <span>臨床互動試算與自檢工具 ({current.title_zh})</span>
               </span>
-              <span className="text-[10px] text-slate-400">即時推算</span>
+              <span className="text-[0.75rem] text-slate-400">即時推算</span>
             </div>
 
             <div className="space-y-2.5">
@@ -380,7 +380,7 @@ export const FourPillarsMasterCompass: React.FC = () => {
         <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-300/80 dark:border-amber-900/60 flex items-start gap-3 text-xs text-amber-900 dark:text-amber-200">
           <AlertOctagon className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
           <div className="space-y-1">
-            <span className="font-bold font-mono text-[11px] block">
+            <span className="font-bold font-mono text-[0.75rem] block">
               🛡️ 臨床安全邊界與專業醫療提醒：
             </span>
             <p className="leading-relaxed">

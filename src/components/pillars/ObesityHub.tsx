@@ -209,7 +209,7 @@ export const ObesityHub: React.FC = () => {
                     <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
                     <span>臨床病理指標定義</span>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[11px]">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[0.75rem]">
                     {activeEoss.medical_definition_zh}
                   </p>
                 </div>
@@ -219,7 +219,7 @@ export const ObesityHub: React.FC = () => {
                     <Brain className="w-3.5 h-3.5 text-purple-400" />
                     <span>身心功能與日常失能</span>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[11px]">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[0.75rem]">
                     {activeEoss.mental_functional_status_zh}
                   </p>
                 </div>
@@ -229,7 +229,7 @@ export const ObesityHub: React.FC = () => {
                     <Stethoscope className="w-3.5 h-3.5 text-emerald-400" />
                     <span>建議臨床治療指引</span>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[11px]">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[0.75rem]">
                     {activeEoss.recommended_clinical_action_zh}
                   </p>
                 </div>
@@ -250,11 +250,11 @@ export const ObesityHub: React.FC = () => {
                   key={`mdt-${idx}`}
                   className="p-3.5 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 space-y-1.5"
                 >
-                  <div className="flex items-center justify-between text-slate-500 text-[10px] font-mono">
+                  <div className="flex items-center justify-between text-slate-500 text-[0.75rem] font-mono">
                     <span className="font-bold text-salud-cyan">{item.expert_title}</span>
                     <span>Clinical Consensus</span>
                   </div>
-                  <p className="leading-relaxed text-[11px]">"{item.consensus_zh}"</p>
+                  <p className="leading-relaxed text-[0.75rem]">"{item.consensus_zh}"</p>
                 </div>
               ))}
             </div>
@@ -309,32 +309,32 @@ export const ObesityHub: React.FC = () => {
                   <Flame className="w-4 h-4 text-amber-500 animate-pulse" />
                   <span>【臨床生理微觀圖解】脂肪細胞褐變 (Browning) 與 UCP-1 粒線體生熱傳導鏈</span>
                 </span>
-                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">CEBM Level 1a 實證機轉</span>
+                <span className="text-[0.75rem] font-mono text-emerald-600 dark:text-emerald-400 font-bold">CEBM Level 1a 實證機轉</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5 text-xs text-center">
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <div className="text-[10px] font-mono text-amber-700 dark:text-amber-400 font-bold">Step 1 · 誘發刺激</div>
-                  <div className="font-bold text-slate-900 dark:text-white text-[11px]">低溫環境 / 運動肌動素</div>
-                  <div className="text-[10px] text-slate-400">交感神經去甲腎上腺素 + 肌肉釋放 Irisin 鳶尾素</div>
+                  <div className="text-[0.75rem] font-mono text-amber-700 dark:text-amber-400 font-bold">Step 1 · 誘發刺激</div>
+                  <div className="font-bold text-slate-900 dark:text-white text-[0.75rem]">低溫環境 / 運動肌動素</div>
+                  <div className="text-[0.75rem] text-slate-400">交感神經去甲腎上腺素 + 肌肉釋放 Irisin 鳶尾素</div>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <div className="text-[10px] font-mono text-purple-700 dark:text-purple-400 font-bold">Step 2 · 受體點火</div>
-                  <div className="font-bold text-slate-900 dark:text-white text-[11px]">β3-腎上腺素受體</div>
-                  <div className="text-[10px] text-slate-400">活化 Gs 蛋白 ➔ 激發腺苷酸環化酶 ➔ cAMP 暴增</div>
+                  <div className="text-[0.75rem] font-mono text-purple-700 dark:text-purple-400 font-bold">Step 2 · 受體點火</div>
+                  <div className="font-bold text-slate-900 dark:text-white text-[0.75rem]">β3-腎上腺素受體</div>
+                  <div className="text-[0.75rem] text-slate-400">活化 Gs 蛋白 ➔ 激發腺苷酸環化酶 ➔ cAMP 暴增</div>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <div className="text-[10px] font-mono text-cyan-700 dark:text-cyan-400 font-bold">Step 3 · 核基因轉錄</div>
-                  <div className="font-bold text-slate-900 dark:text-white text-[11px]">PGC-1α / PPAR-γ 軸線</div>
-                  <div className="text-[10px] text-slate-400">白色脂肪 WAT 轉化為高粒線體米色脂肪 (Beige)</div>
+                  <div className="text-[0.75rem] font-mono text-cyan-700 dark:text-cyan-400 font-bold">Step 3 · 核基因轉錄</div>
+                  <div className="font-bold text-slate-900 dark:text-white text-[0.75rem]">PGC-1α / PPAR-γ 軸線</div>
+                  <div className="text-[0.75rem] text-slate-400">白色脂肪 WAT 轉化為高粒線體米色脂肪 (Beige)</div>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <div className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-bold">Step 4 · 熱能燃燒</div>
-                  <div className="font-bold text-slate-900 dark:text-white text-[11px]">UCP-1 解偶聯生熱</div>
-                  <div className="text-[10px] text-slate-400">質子繞過 ATP 合成酶，直接燃燒脂肪轉化為熱量</div>
+                  <div className="text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-400 font-bold">Step 4 · 熱能燃燒</div>
+                  <div className="font-bold text-slate-900 dark:text-white text-[0.75rem]">UCP-1 解偶聯生熱</div>
+                  <div className="text-[0.75rem] text-slate-400">質子繞過 ATP 合成酶，直接燃燒脂肪轉化為熱量</div>
                 </div>
               </div>
             </div>
@@ -395,7 +395,7 @@ export const ObesityHub: React.FC = () => {
                               <CheckCircle2 className="w-3.5 h-3.5" />
                               <span>臨床意義與介入價值 (Clinical Relevance)</span>
                             </div>
-                            <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+                            <p className="text-slate-600 dark:text-slate-400 text-[0.75rem] leading-relaxed">
                               {mech.clinical_relevance_zh}
                             </p>
                           </div>
@@ -405,18 +405,18 @@ export const ObesityHub: React.FC = () => {
                               <AlertTriangle className="w-3.5 h-3.5" />
                               <span>大眾常見直覺迷思擊破 (Misconception)</span>
                             </div>
-                            <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+                            <p className="text-slate-600 dark:text-slate-400 text-[0.75rem] leading-relaxed">
                               {mech.common_misconception_zh}
                             </p>
                           </div>
                         </div>
 
                         <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                          <span className="text-[10px] font-mono text-slate-400">關鍵生化靶點：</span>
+                          <span className="text-[0.75rem] font-mono text-slate-400">關鍵生化靶點：</span>
                           {mech.molecular_targets.map((tgt, i) => (
                             <span
                               key={`target-${i}`}
-                              className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-purple-700 dark:text-purple-300 text-[10px] font-mono border border-slate-200 dark:border-slate-700"
+                              className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-purple-700 dark:text-purple-300 text-[0.75rem] font-mono border border-slate-200 dark:border-slate-700"
                             >
                               {tgt}
                             </span>
@@ -470,13 +470,13 @@ export const ObesityHub: React.FC = () => {
                     : 'border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
-                <div className="text-[10px] font-mono text-amber-700 dark:text-amber-300 font-bold truncate">
+                <div className="text-[0.75rem] font-mono text-amber-700 dark:text-amber-300 font-bold truncate">
                   {d.drug_class.split(' ')[0]}
                 </div>
                 <div className="font-bold text-xs truncate mt-0.5 text-slate-900 dark:text-white">
                   {d.generic_name_zh.split(' ')[0]}
                 </div>
-                <div className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 mt-1">
+                <div className="text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-400 mt-1">
                   平均 -{d.avg_weight_loss_pct}%
                 </div>
               </button>
@@ -505,11 +505,11 @@ export const ObesityHub: React.FC = () => {
 
               {/* Loss Metrics Pill */}
               <div className="p-3 rounded-2xl bg-amber-50 dark:bg-slate-950 border border-amber-200 dark:border-slate-800 text-center shrink-0">
-                <div className="text-[10px] font-mono text-slate-500">RCT 平均減重幅度</div>
+                <div className="text-[0.75rem] font-mono text-slate-500">RCT 平均減重幅度</div>
                 <div className="text-2xl font-mono font-extrabold text-amber-700 dark:text-amber-400">
                   -{selectedDrug.avg_weight_loss_pct}%
                 </div>
-                <div className="text-[10px] font-mono text-slate-400">
+                <div className="text-[0.75rem] font-mono text-slate-400">
                   (安慰劑組 -{selectedDrug.placebo_weight_loss_pct}%)
                 </div>
               </div>
@@ -518,27 +518,27 @@ export const ObesityHub: React.FC = () => {
             {/* Trial & Regulatory Badge Bar */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
               <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800">
-                <div className="text-[10px] text-slate-400">指標臨床三期試驗</div>
+                <div className="text-[0.75rem] text-slate-400">指標臨床三期試驗</div>
                 <div className="font-bold text-slate-800 dark:text-slate-200 truncate mt-0.5">
                   {selectedDrug.primary_trial_name}
                 </div>
-                <div className="text-[10px] text-slate-400 truncate mt-0.5">{selectedDrug.trial_citation}</div>
+                <div className="text-[0.75rem] text-slate-400 truncate mt-0.5">{selectedDrug.trial_citation}</div>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800">
-                <div className="text-[10px] text-slate-400">台灣 TFDA 核准狀態</div>
+                <div className="text-[0.75rem] text-slate-400">台灣 TFDA 核准狀態</div>
                 <div className={`font-bold mt-0.5 ${selectedDrug.tfda_approved ? 'text-emerald-700 dark:text-emerald-400' : 'text-amber-700 dark:text-amber-400'}`}>
                   {selectedDrug.tfda_approved ? '✓ 已正式核准處方' : '未上市 / 試驗階段'}
                 </div>
-                <div className="text-[10px] text-slate-400 truncate mt-0.5">{selectedDrug.tfda_status_note}</div>
+                <div className="text-[0.75rem] text-slate-400 truncate mt-0.5">{selectedDrug.tfda_status_note}</div>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800">
-                <div className="text-[10px] text-slate-400">用法用量與自費月成本</div>
+                <div className="text-[0.75rem] text-slate-400">用法用量與自費月成本</div>
                 <div className="font-bold text-slate-800 dark:text-slate-200 truncate mt-0.5">
                   {selectedDrug.typical_dose}
                 </div>
-                <div className="text-[10px] text-slate-400 truncate mt-0.5">{selectedDrug.approx_monthly_cost_twd}</div>
+                <div className="text-[0.75rem] text-slate-400 truncate mt-0.5">{selectedDrug.approx_monthly_cost_twd}</div>
               </div>
             </div>
 
@@ -548,11 +548,11 @@ export const ObesityHub: React.FC = () => {
                 <Zap className="w-4 h-4" />
                 <span>分子受體機轉 (Receptor Mechanisms)</span>
               </div>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
                 {selectedDrug.mechanism_detail_zh}
               </p>
               {selectedDrug.cardiovascular_benefit_zh && (
-                <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-[11px] mt-2">
+                <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-[0.75rem] mt-2">
                   <strong>心血管獲益終點：</strong> {selectedDrug.cardiovascular_benefit_zh}
                 </div>
               )}
@@ -565,7 +565,7 @@ export const ObesityHub: React.FC = () => {
                   <Dumbbell className="w-4 h-4" />
                   <span>骨骼肌 (去脂體重) 流失對策</span>
                 </div>
-                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
                   {selectedDrug.muscle_loss_mitigation_zh}
                 </p>
               </div>
@@ -575,7 +575,7 @@ export const ObesityHub: React.FC = () => {
                   <RefreshCw className="w-4 h-4" />
                   <span>停藥反彈率與終身維持考量</span>
                 </div>
-                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
                   {selectedDrug.cessation_rebound_data_zh}
                 </p>
               </div>
@@ -588,7 +588,7 @@ export const ObesityHub: React.FC = () => {
                   <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
                   <span>常見不良反應</span>
                 </div>
-                <ul className="space-y-1 text-[11px] text-slate-600 dark:text-slate-400 list-disc list-inside">
+                <ul className="space-y-1 text-[0.75rem] text-slate-600 dark:text-slate-400 list-disc list-inside">
                   {selectedDrug.common_adverse_effects.map((e, idx) => (
                     <li key={`adv-${idx}`}>{e}</li>
                   ))}
@@ -600,7 +600,7 @@ export const ObesityHub: React.FC = () => {
                   <ShieldAlert className="w-3.5 h-3.5 text-rose-500" />
                   <span>嚴重警告與監測</span>
                 </div>
-                <ul className="space-y-1 text-[11px] text-slate-600 dark:text-slate-400 list-disc list-inside">
+                <ul className="space-y-1 text-[0.75rem] text-slate-600 dark:text-slate-400 list-disc list-inside">
                   {selectedDrug.serious_warnings.map((w, idx) => (
                     <li key={`warn-${idx}`}>{w}</li>
                   ))}
@@ -612,7 +612,7 @@ export const ObesityHub: React.FC = () => {
                   <AlertTriangle className="w-3.5 h-3.5 text-red-600" />
                   <span>絕對禁忌族群</span>
                 </div>
-                <ul className="space-y-1 text-[11px] text-red-700 dark:text-red-400 list-disc list-inside">
+                <ul className="space-y-1 text-[0.75rem] text-red-700 dark:text-red-400 list-disc list-inside">
                   {selectedDrug.contraindications.map((c, idx) => (
                     <li key={`contra-${idx}`}>{c}</li>
                   ))}
@@ -627,7 +627,7 @@ export const ObesityHub: React.FC = () => {
                 <div className="font-bold text-emerald-700 dark:text-emerald-400">
                   臨床實證總結審定意見：
                 </div>
-                <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                   {selectedDrug.expert_review_summary}
                 </p>
               </div>
@@ -656,13 +656,13 @@ export const ObesityHub: React.FC = () => {
                     : 'border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
-                <div className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-bold truncate">
+                <div className="text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-400 font-bold truncate">
                   GRADE {diet.evidence_grade}
                 </div>
                 <div className="font-bold text-xs truncate mt-0.5 text-slate-900 dark:text-white">
                   {diet.name_zh.split(' ')[0]}
                 </div>
-                <div className="text-[10px] font-mono text-slate-400 truncate mt-1">
+                <div className="text-[0.75rem] font-mono text-slate-400 truncate mt-1">
                   碳水 {diet.macro_distribution.carbs_pct.split(' ')[0]}
                 </div>
               </button>
@@ -692,15 +692,15 @@ export const ObesityHub: React.FC = () => {
               {/* Macro Distribution Chips */}
               <div className="flex items-center gap-2 font-mono text-xs">
                 <div className="px-2.5 py-1.5 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-800 dark:text-blue-300 text-center">
-                  <div className="text-[9px] text-slate-400">碳水</div>
+                  <div className="text-[0.6875rem] text-slate-400">碳水</div>
                   <div className="font-bold">{selectedDiet.macro_distribution.carbs_pct}</div>
                 </div>
                 <div className="px-2.5 py-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-center">
-                  <div className="text-[9px] text-slate-400">蛋白質</div>
+                  <div className="text-[0.6875rem] text-slate-400">蛋白質</div>
                   <div className="font-bold">{selectedDiet.macro_distribution.protein_pct}</div>
                 </div>
                 <div className="px-2.5 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-center">
-                  <div className="text-[9px] text-slate-400">脂肪</div>
+                  <div className="text-[0.6875rem] text-slate-400">脂肪</div>
                   <div className="font-bold">{selectedDiet.macro_distribution.fat_pct}</div>
                 </div>
               </div>
@@ -713,7 +713,7 @@ export const ObesityHub: React.FC = () => {
                   <Activity className="w-4 h-4 text-emerald-500" />
                   <span>五維度臨床實證評分指標 (Clinical Radar Dimension)</span>
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">滿分 10 分</span>
+                <span className="text-[0.75rem] font-mono text-slate-400">滿分 10 分</span>
               </div>
 
               <div className="space-y-2 text-xs">
@@ -725,7 +725,7 @@ export const ObesityHub: React.FC = () => {
                   { label: '微量營養素安全性 (Micronutrient Safety)', score: selectedDiet.radar_scores.micronutrient_safety, color: 'bg-teal-400' },
                 ].map((item, idx) => (
                   <div key={`radar-${idx}`} className="space-y-1">
-                    <div className="flex justify-between text-[11px]">
+                    <div className="flex justify-between text-[0.75rem]">
                       <span className="text-slate-700 dark:text-slate-300">{item.label}</span>
                       <span className="font-mono font-bold text-slate-900 dark:text-white">{item.score} / 10</span>
                     </div>
@@ -746,7 +746,7 @@ export const ObesityHub: React.FC = () => {
                 <BookOpen className="w-4 h-4" />
                 <span>生化生理機轉 (Biochemical Mechanism)</span>
               </div>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
                 {selectedDiet.biochemical_mechanism_zh}
               </p>
             </div>
@@ -758,7 +758,7 @@ export const ObesityHub: React.FC = () => {
                   <CheckCircle2 className="w-4 h-4" />
                   <span>核心臨床優勢</span>
                 </div>
-                <ul className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300 list-disc list-inside">
+                <ul className="space-y-1 text-[0.75rem] text-slate-700 dark:text-slate-300 list-disc list-inside">
                   {selectedDiet.clinical_benefits.map((b, idx) => (
                     <li key={`ben-${idx}`}>{b}</li>
                   ))}
@@ -770,7 +770,7 @@ export const ObesityHub: React.FC = () => {
                   <AlertTriangle className="w-4 h-4" />
                   <span>潛在風險與常見踩坑</span>
                 </div>
-                <ul className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300 list-disc list-inside">
+                <ul className="space-y-1 text-[0.75rem] text-slate-700 dark:text-slate-300 list-disc list-inside">
                   {selectedDiet.risks_and_pitfalls.map((r, idx) => (
                     <li key={`risk-${idx}`}>{r}</li>
                   ))}
@@ -782,14 +782,14 @@ export const ObesityHub: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
                 <div className="font-bold text-slate-800 dark:text-slate-200">最適適用族群：</div>
-                <div className="text-[11px] text-slate-600 dark:text-slate-400">
+                <div className="text-[0.75rem] text-slate-600 dark:text-slate-400">
                   {selectedDiet.suitable_populations.join('、')}
                 </div>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
                 <div className="font-bold text-rose-700 dark:text-rose-400">不建議或禁忌族群：</div>
-                <div className="text-[11px] text-slate-600 dark:text-slate-400">
+                <div className="text-[0.75rem] text-slate-600 dark:text-slate-400">
                   {selectedDiet.contraindicated_populations.join('、')}
                 </div>
               </div>
@@ -802,7 +802,7 @@ export const ObesityHub: React.FC = () => {
                 <div className="font-bold text-emerald-700 dark:text-emerald-400">
                   臨床營養實證評審指引：
                 </div>
-                <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                   {selectedDiet.expert_verdict_zh}
                 </p>
               </div>
@@ -845,7 +845,7 @@ export const ObesityHub: React.FC = () => {
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-700 dark:text-rose-300 font-bold border border-rose-500/30">
+                      <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-700 dark:text-rose-300 font-bold border border-rose-500/30">
                         {surg.procedure_type === 'RESTRICTIVE' ? '容積限制型' : surg.procedure_type === 'COMBINED' ? '限制 + 吸收不良雙重' : '內視鏡暫時置放'}
                       </span>
                       <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">
@@ -856,13 +856,13 @@ export const ObesityHub: React.FC = () => {
                     <h3 className="font-display font-bold text-base text-slate-900 dark:text-white">
                       {surg.name_zh}
                     </h3>
-                    <div className="text-[10px] font-mono text-slate-400">{surg.name_en}</div>
+                    <div className="text-[0.75rem] font-mono text-slate-400">{surg.name_en}</div>
 
-                    <p className="text-xs text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <p className="text-xs text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed pt-2 border-t border-slate-100 dark:border-slate-800">
                       {surg.anatomical_mechanism_zh}
                     </p>
 
-                    <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px] space-y-1">
+                    <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[0.75rem] space-y-1">
                       <div className="font-bold text-rose-700 dark:text-rose-400">神經內分泌效應：</div>
                       <p className="text-slate-500 dark:text-slate-400 leading-normal">
                         {surg.neuroendocrine_impact_zh}
@@ -870,11 +870,11 @@ export const ObesityHub: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800 text-[11px]">
+                  <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800 text-[0.75rem]">
                     <div className="text-slate-500 dark:text-slate-400">
                       <strong>手術適應症：</strong> {surg.nih_indication_zh}
                     </div>
-                    <div className="p-2 rounded-lg bg-amber-500/10 text-amber-800 dark:text-amber-300 text-[10px] font-mono">
+                    <div className="p-2 rounded-lg bg-amber-500/10 text-amber-800 dark:text-amber-300 text-[0.75rem] font-mono">
                       <strong>終身警示：</strong> {surg.long_term_nutritional_deficits[0]}
                     </div>
                   </div>
@@ -901,7 +901,7 @@ export const ObesityHub: React.FC = () => {
                   className="p-3.5 rounded-xl bg-white/90 dark:bg-slate-950 border border-emerald-200/80 dark:border-slate-800 text-xs space-y-1 shadow-xs"
                 >
                   <div className="font-bold text-emerald-700 dark:text-amber-400">{item.role_zh}</div>
-                  <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">{item.detail_zh}</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-[0.75rem] leading-relaxed">{item.detail_zh}</p>
                 </div>
               ))}
             </div>
@@ -933,7 +933,7 @@ export const ObesityHub: React.FC = () => {
                       <AlertTriangle className="w-4 h-4" />
                       <span>迷思宣稱</span>
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-700 dark:text-rose-300 font-bold border border-rose-500/40 self-start">
+                    <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-700 dark:text-rose-300 font-bold border border-rose-500/40 self-start">
                       危險度: {m.danger_level}
                     </span>
                   </div>
@@ -946,10 +946,10 @@ export const ObesityHub: React.FC = () => {
                     <div className="font-bold text-emerald-600 dark:text-emerald-400">
                       ✓ 科學真相：{m.scientific_reality}
                     </div>
-                    <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                    <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                       <strong>生化原理：</strong> {m.biochemical_why}
                     </p>
-                    <div className="text-amber-800 dark:text-amber-300 text-[11px] bg-amber-500/10 p-2 rounded-lg">
+                    <div className="text-amber-800 dark:text-amber-300 text-[0.75rem] bg-amber-500/10 p-2 rounded-lg">
                       <strong>正確實踐策略：</strong> {m.actionable_correction}
                     </div>
                   </div>

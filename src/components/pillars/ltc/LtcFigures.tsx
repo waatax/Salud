@@ -61,7 +61,7 @@ export const CareSpectrumFigure: React.FC = () => (
   <ol className="grid gap-2 sm:grid-cols-5" aria-label="從健康到重度失能的照顧光譜">
     {SPECTRUM.map((s, i) => (
       <li key={s.stage} className={`relative rounded-xl border p-3 space-y-1 ${s.tone}`}>
-        <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400">階段 {i + 1} · 長照 {s.cms}</p>
+        <p className="text-[0.75rem] font-bold text-slate-500 dark:text-slate-400">階段 {i + 1} · 長照 {s.cms}</p>
         <p className="text-[14px] font-bold text-slate-900 dark:text-white">{s.stage}</p>
         <p className="text-[12.5px] leading-snug text-slate-700 dark:text-slate-300">{s.svc}</p>
       </li>

@@ -80,7 +80,7 @@ export const UniversalEvidenceFigure: React.FC<Props> = ({ figureId, meta, page 
     <div className="w-full max-w-3xl space-y-3.5 font-sans text-xs">
       {/* Interactive Node Selector Tabs */}
       <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
-        <span className="font-mono text-[11px] text-slate-300 flex items-center gap-1.5">
+        <span className="font-mono text-[0.75rem] text-slate-300 flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: chapterTheme.accent }} />
           {chapterTheme.badge} · 點擊節點檢視實證因果鏈：
         </span>
@@ -89,7 +89,7 @@ export const UniversalEvidenceFigure: React.FC<Props> = ({ figureId, meta, page 
             <button
               key={n.code}
               onClick={() => setActiveIdx(idx)}
-              className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all ${
+              className={`px-2.5 py-1 rounded-lg font-mono text-[0.75rem] transition-all ${
                 activeIdx === idx
                   ? 'bg-salud-cyan text-slate-950 font-bold shadow-sm'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'

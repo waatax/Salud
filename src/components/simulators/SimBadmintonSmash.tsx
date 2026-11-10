@@ -66,7 +66,7 @@ export const SimBadmintonSmash: React.FC = () => {
             onChange={(e) => setInitialSpeedKmh(Number(e.target.value))}
             className="w-full accent-amber-400 cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>業餘中階 220</span>
             <span>職業重殺 420+</span>
           </div>
@@ -87,7 +87,7 @@ export const SimBadmintonSmash: React.FC = () => {
             onChange={(e) => setReceiverDistanceM(Number(e.target.value))}
             className="w-full accent-salud-cyan cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>網前前場 4m</span>
             <span>中場 6.5m</span>
             <span>底線 10m</span>
@@ -109,7 +109,7 @@ export const SimBadmintonSmash: React.FC = () => {
             onChange={(e) => setSmashAngleDeg(Number(e.target.value))}
             className="w-full accent-emerald-400 cursor-pointer"
           />
-          <div className="text-[11px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             {smashAngleDeg >= 15 ? '高點尖銳點殺 (Steep Drop)' : '平快重殺 (Flat Power Smash)'}
           </div>
         </div>
@@ -124,7 +124,7 @@ export const SimBadmintonSmash: React.FC = () => {
             <span className="text-3xl font-extrabold text-white font-mono">{speedAtReceiverKmh}</span>
             <span className="text-xs text-slate-400 ml-1.5">km/h</span>
           </div>
-          <span className="text-[11px] text-amber-400 font-mono">
+          <span className="text-[0.75rem] text-amber-400 font-mono">
             {language === 'zh-TW' ? `空氣阻力已消耗 ${speedLossPct}% 動能` : `Drag dissipated ${speedLossPct}% velocity`}
           </span>
         </div>
@@ -136,7 +136,7 @@ export const SimBadmintonSmash: React.FC = () => {
             <span className="text-3xl font-extrabold text-salud-cyan font-mono">{flightTimeMs}</span>
             <span className="text-xs text-slate-400 ml-1.5">毫秒 (ms)</span>
           </div>
-          <span className="text-[11px] text-slate-300 font-mono">
+          <span className="text-[0.75rem] text-slate-300 font-mono">
             {language === 'zh-TW' ? `折合 ${(flightTimeMs / 1000).toFixed(2)} 秒` : `Equivalent to ${(flightTimeMs / 1000).toFixed(2)}s`}
           </span>
         </div>
@@ -149,7 +149,7 @@ export const SimBadmintonSmash: React.FC = () => {
               {language === 'zh-TW' ? evalInfo.labelZh.split(' (')[0] : evalInfo.labelEn.split(' (')[0]}
             </span>
           </div>
-          <p className="text-[10px] text-slate-400">
+          <p className="text-[0.75rem] text-slate-400">
             {language === 'zh-TW' ? evalInfo.labelZh : evalInfo.labelEn}
           </p>
         </div>

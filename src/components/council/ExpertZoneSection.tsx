@@ -234,7 +234,7 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedde
               >
                 <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
                 <span>{language === 'zh-TW' ? cat.name_zh : cat.name_en}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-white/30 text-white' : 'bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'}`}>
+                <span className={`text-[0.75rem] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-white/30 text-white' : 'bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'}`}>
                   {count}
                 </span>
               </button>
@@ -320,7 +320,7 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedde
                       <span className="font-mono text-xs font-extrabold px-2.5 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
                         {member.id}
                       </span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-[#182620] text-slate-600 dark:text-slate-300">
+                      <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-[#182620] text-slate-600 dark:text-slate-300">
                         {categoryName}
                       </span>
                     </div>
@@ -330,7 +330,7 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedde
                       <h4 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
                         {language === 'zh-TW' ? member.title_zh : member.title_en}
                       </h4>
-                      <div className="font-mono text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 truncate">
+                      <div className="font-mono text-[0.75rem] text-slate-400 dark:text-slate-500 mt-0.5 truncate">
                         {member.name_en}
                       </div>
                     </div>
@@ -341,19 +341,19 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedde
                     </p>
 
                     {/* 核心審定職責 (Core Duty) */}
-                    <div className="p-2.5 rounded-2xl bg-emerald-50/70 dark:bg-[#0F1714] border border-emerald-200/60 dark:border-emerald-900/40 text-[11px] text-emerald-950 dark:text-emerald-200 line-clamp-2 font-sans">
-                      <strong className="text-emerald-800 dark:text-emerald-400 font-bold block mb-0.5 font-mono text-[10px]">核心職責：</strong>
+                    <div className="p-2.5 rounded-2xl bg-emerald-50/70 dark:bg-[#0F1714] border border-emerald-200/60 dark:border-emerald-900/40 text-[0.75rem] text-emerald-950 dark:text-emerald-200 line-clamp-2 font-sans">
+                      <strong className="text-emerald-800 dark:text-emerald-400 font-bold block mb-0.5 font-mono text-[0.75rem]">核心職責：</strong>
                       <span>{member.core_duty}</span>
                     </div>
                   </div>
 
                   {/* 卡片底欄操作 */}
                   <div className="pt-2 border-t border-slate-100 dark:border-[#1C2E25] flex items-center justify-between text-xs font-mono text-slate-400">
-                    <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-bold">
+                    <span className="text-[0.75rem] text-emerald-700 dark:text-emerald-400 font-bold">
                       ✓ CEBM 1a 審簽
                     </span>
 
-                    <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform font-bold text-[11px]">
+                    <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform font-bold text-[0.75rem]">
                       <span>檢視檔案</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </div>
@@ -403,7 +403,7 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedde
                             e.stopPropagation();
                             handleOpenExpertPractice(member.id);
                           }}
-                          className="btn-tactile px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-[11px] font-bold hover:bg-emerald-100 flex items-center gap-1"
+                          className="btn-tactile px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-[0.75rem] font-bold hover:bg-emerald-100 flex items-center gap-1"
                         >
                           <BookOpen className="w-3 h-3" />
                           <span>實證專論</span>
@@ -478,23 +478,23 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedde
             {/* 專責詳細內容 */}
             <div className="space-y-4 text-xs font-sans">
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-[#0F1714] border border-slate-200 dark:border-[#1C2E25] space-y-1">
-                <span className="font-bold text-slate-500 font-mono text-[11px] block">臨床專科背景與必要性 (Why Needed)：</span>
+                <span className="font-bold text-slate-500 font-mono text-[0.75rem] block">臨床專科背景與必要性 (Why Needed)：</span>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{selectedMember.why_needed}</p>
                 {selectedMember.why_needed_en && (
-                  <p className="text-slate-400 text-[11px] italic mt-1">{selectedMember.why_needed_en}</p>
+                  <p className="text-slate-400 text-[0.75rem] italic mt-1">{selectedMember.why_needed_en}</p>
                 )}
               </div>
 
               <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/60 space-y-1">
-                <span className="font-bold text-emerald-800 dark:text-emerald-400 font-mono text-[11px] block">臨床治理與核心終局審定 (Core Duty)：</span>
+                <span className="font-bold text-emerald-800 dark:text-emerald-400 font-mono text-[0.75rem] block">臨床治理與核心終局審定 (Core Duty)：</span>
                 <p className="text-emerald-950 dark:text-emerald-100 leading-relaxed font-medium">{selectedMember.core_duty}</p>
                 {selectedMember.core_duty_en && (
-                  <p className="text-emerald-700/80 dark:text-emerald-300/70 text-[11px] italic mt-1">{selectedMember.core_duty_en}</p>
+                  <p className="text-emerald-700/80 dark:text-emerald-300/70 text-[0.75rem] italic mt-1">{selectedMember.core_duty_en}</p>
                 )}
               </div>
 
               {/* 實證基準標章 */}
-              <div className="grid grid-cols-2 gap-3 font-mono text-[11px]">
+              <div className="grid grid-cols-2 gap-3 font-mono text-[0.75rem]">
                 <div className="p-3 rounded-xl bg-slate-100 dark:bg-[#182620] border border-slate-200 dark:border-slate-800 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <span>Oxford CEBM Level 1a 審定</span>

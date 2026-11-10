@@ -16,7 +16,7 @@ export const GiTractPanoramaFigure: React.FC = () => (
       <div className="rounded-xl border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/30 dark:bg-emerald-950/20 p-3.5">
         <div className="flex items-center justify-between mb-2">
           <span className="text-[13px] font-bold text-emerald-950 dark:text-emerald-200">消化道全貌與肝膽胰匯流（壺腹）</span>
-          <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold">約 9 公尺消化產線</span>
+          <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold">約 9 公尺消化產線</span>
         </div>
         <svg viewBox="0 0 320 230" className="w-full h-auto" role="img" aria-label="消化道全貌與肝臟、膽囊、胰臟在十二指腸法特氏壺腹的匯流示意圖">
           <rect x="6" y="6" width="308" height="218" rx="12" fill="currentColor" className="text-white/80 dark:text-slate-900/70" />
@@ -62,7 +62,7 @@ export const GiTractPanoramaFigure: React.FC = () => (
       <div className="rounded-xl border border-sky-200 dark:border-sky-800/60 bg-sky-50/30 dark:bg-sky-950/20 p-3.5">
         <div className="flex items-center justify-between mb-2">
           <span className="text-[13px] font-bold text-sky-950 dark:text-sky-200">腦腸軸（Gut-Brain Axis）雙向高速公路</span>
-          <span className="text-[11px] px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-semibold">90% 血清素在腸道</span>
+          <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-semibold">90% 血清素在腸道</span>
         </div>
         <svg viewBox="0 0 320 230" className="w-full h-auto" role="img" aria-label="腦腸軸雙向訊號傳遞：大腦壓力與迷走神經、腸道神經系統與短鏈脂肪酸">
           <rect x="6" y="6" width="308" height="218" rx="12" fill="currentColor" className="text-white/80 dark:text-slate-900/70" />
@@ -166,7 +166,7 @@ export const GerdLesAndBarrettFigure: React.FC = () => (
     <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-3.5">
       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
         <span className="text-xs font-bold text-slate-800 dark:text-slate-200">胃鏡「洛杉磯食道炎分級（LA Grade A–D）」與巴瑞特氏食道演進</span>
-        <span className="text-[11px] text-rose-600 dark:text-rose-400 font-semibold">Grade C/D 與巴瑞特氏食道需規律內視鏡追蹤</span>
+        <span className="text-[0.75rem] text-rose-600 dark:text-rose-400 font-semibold">Grade C/D 與巴瑞特氏食道需規律內視鏡追蹤</span>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11.5px]">
         <div className="rounded-lg border border-emerald-200 dark:border-emerald-800 bg-white dark:bg-slate-900 p-2">
@@ -279,7 +279,7 @@ export const IbdUcVsCdFigure: React.FC = () => (
     <div className="rounded-xl border border-rose-200 dark:border-rose-800/60 bg-rose-50/30 dark:bg-rose-950/20 p-3.5">
       <div className="flex items-center justify-between mb-2">
         <span className="text-[13px] font-bold text-rose-950 dark:text-rose-200">潰瘍性結腸炎 (Ulcerative Colitis, UC)</span>
-        <span className="text-[11px] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200 font-semibold">直腸往上 · 連續表層</span>
+        <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200 font-semibold">直腸往上 · 連續表層</span>
       </div>
       <svg viewBox="0 0 280 160" className="w-full h-auto" role="img" aria-label="潰瘍性結腸炎：從直腸開始往上連續性侵犯大腸黏膜表層">
         <rect x="6" y="6" width="268" height="148" rx="10" fill="currentColor" className="text-white/80 dark:text-slate-900/70" />
@@ -304,7 +304,7 @@ export const IbdUcVsCdFigure: React.FC = () => (
     <div className="rounded-xl border border-amber-200 dark:border-amber-800/60 bg-amber-50/30 dark:bg-amber-950/20 p-3.5">
       <div className="flex items-center justify-between mb-2">
         <span className="text-[13px] font-bold text-amber-950 dark:text-amber-200">克隆氏症 (Crohn's Disease, CD)</span>
-        <span className="text-[11px] px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 font-semibold">跳躍病灶 · 全層侵犯</span>
+        <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 font-semibold">跳躍病灶 · 全層侵犯</span>
       </div>
       <svg viewBox="0 0 280 160" className="w-full h-auto" role="img" aria-label="克隆氏症：跳躍式病灶侵犯口腔至肛門且穿透腸壁全層">
         <rect x="6" y="6" width="268" height="148" rx="10" fill="currentColor" className="text-white/80 dark:text-slate-900/70" />
@@ -560,7 +560,7 @@ export const BristolStoolAndAbdominalGridFigure: React.FC = () => (
     <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-3.5">
       <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
         <span className="text-[13px] font-bold text-slate-900 dark:text-white">布里斯托大便分類法（Bristol Stool Scale 1–7 型）視覺對照</span>
-        <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 font-semibold">第 3–4 型為黃金健康便型</span>
+        <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 font-semibold">第 3–4 型為黃金健康便型</span>
       </div>
       <svg viewBox="0 0 680 125" className="w-full h-auto" role="img" aria-label="布里斯托大便分類法第1型至第7型視覺圖譜">
         {[

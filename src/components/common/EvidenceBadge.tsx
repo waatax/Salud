@@ -50,7 +50,7 @@ export const EvidenceBadge: React.FC<Props> = ({ grade, showText = true, classNa
     >
       <span className="w-1.5 h-1.5 rounded-full bg-current" />
       <span>實證 {grade}</span>
-      {showText && <span className="text-[11px] opacity-80 hidden sm:inline">· {'閱讀標籤'}</span>}
+      {showText && <span className="text-[0.75rem] opacity-80 hidden sm:inline">· {'閱讀標籤'}</span>}
     </span>
   );
 };

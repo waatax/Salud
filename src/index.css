@@ -30,6 +30,11 @@ a.discovery-card:hover, button.discovery-card:hover { border-color: rgb(var(--em
 .dark .discovery-lesson-art-1 { background: #182b33; color: #9dbecb; }
 .dark .discovery-lesson-art-2 { background: #292436; color: #b9a7cc; }
 .discovery-practice { background: var(--card); }
+/* v6.4: shared opening of the specialist hubs — same quiet surface as the home hero. */
+.hub-hero { background: linear-gradient(135deg, var(--surface) 0%, var(--card) 100%); }
+.hub-hero h1 { text-wrap: balance; }
+/* Long-form copy: keep CJK lines from ending on an orphaned character where supported. */
+main p { text-wrap: pretty; }
 @layer base {
   :where(a, button, input, select, textarea, summary):focus-visible { outline: 2px solid rgb(var(--emerald-600)); outline-offset: 3px; }
   .dark :where(a, button, input, select, textarea, summary):focus-visible { outline-color: rgb(var(--emerald-300)); }

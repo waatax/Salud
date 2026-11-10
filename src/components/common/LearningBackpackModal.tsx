@@ -127,7 +127,7 @@ export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => v
                       className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 flex items-center justify-between gap-4 hover:border-emerald-400 transition-colors"
                     >
                       <div className="space-y-1 flex-1 min-w-0">
-                        <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+                        <div className="flex items-center gap-2 text-[0.75rem] font-mono text-slate-400">
                           <span className="px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold">
                             Chapter {page.chapter_id}
                           </span>
@@ -213,7 +213,7 @@ export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => v
                           <p className={`text-xs sm:text-sm font-semibold leading-relaxed ${done ? 'text-slate-400 line-through decoration-emerald-500/60' : 'text-slate-900 dark:text-white'}`}>
                             {item.title_zh}
                           </p>
-                          <div className="flex flex-wrap items-center gap-2 text-[10px] text-slate-500">
+                          <div className="flex flex-wrap items-center gap-2 text-[0.75rem] text-slate-500">
                             <TipKindBadge kind={item.kind} />
                             <span className="inline-flex items-center gap-1 font-mono">
                               <Flame className={`w-3 h-3 ${week >= 5 ? 'text-orange-500' : ''}`} />
@@ -303,8 +303,8 @@ export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => v
                         <Award className="w-4 h-4" />
                       </div>
                       <div className="text-xs font-bold text-slate-900 dark:text-white">{b.name}</div>
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{b.desc}</div>
-                      <span className={`inline-block mt-2 text-[9px] font-mono px-2 py-0.5 rounded-full ${b.unlocked ? 'bg-amber-200 dark:bg-amber-900 text-amber-900 dark:text-amber-100 font-bold' : 'bg-slate-200 dark:bg-slate-800 text-slate-500'}`}>
+                      <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 mt-0.5">{b.desc}</div>
+                      <span className={`inline-block mt-2 text-[0.6875rem] font-mono px-2 py-0.5 rounded-full ${b.unlocked ? 'bg-amber-200 dark:bg-amber-900 text-amber-900 dark:text-amber-100 font-bold' : 'bg-slate-200 dark:bg-slate-800 text-slate-500'}`}>
                         {b.unlocked ? '已解鎖' : '未解鎖'}
                       </span>
                     </div>

@@ -226,3 +226,46 @@ test('action plan: ids never collide across tips, starter tasks and lesson actio
   assert.deepEqual(parseHash('start'), { kind: 'pillar', pillar: 'start', sub: undefined });
   assert.deepEqual(parseHash('home/plan'), { kind: 'pillar', pillar: 'home', sub: ['plan'] });
 });
+
+// ── v6.4: plain-language hub openings, page titles, lesson ↔ table pairing ──────────────
+import { HUB_PRIMERS } from '../../data/hubPrimers';
+import { PILLAR_NAV as PILLAR_NAV_FOR_TITLES } from '../../config/navigation';
+import { pageTitle, SITE_TITLE } from '../../config/pageTitle';
+import { LESSON_TABLE_KEY } from '../../components/learn/LessonReferenceTable';
+
+test('hub primers: three takeaways each, and every starter link resolves', () => {
+  for (const [key, primer] of Object.entries(HUB_PRIMERS)) {
+    assert.equal(primer.takeaways.length, 3, key);
+    for (const t of primer.takeaways) assert.ok(t.length >= 12 && t.length <= 90, `${key}: takeaway length (${t.length})`);
+    assert.ok(primer.lead.length <= 110, `${key}: lead is one short paragraph`);
+    for (const text of [primer.title, primer.lead, ...primer.takeaways]) {
+      assert.ok(!/旗艦|總樞紐|最強|100%|！/.test(text), `${key}: hype wording in "${text}"`);
+    }
+    if (!primer.starter) continue;
+    const route = parseHash(primer.starter.hash);
+    assert.ok(route, `${key}: starter hash ${primer.starter.hash}`);
+    if (route.kind === 'learn') {
+      const lesson = ALL_LESSONS.find((l) => l.id === route.lessonId);
+      assert.ok(lesson && lesson.track_id === route.trackId, `${key}: starter lesson exists in its track`);
+      assert.equal(primer.starter.label, lesson.title_zh, `${key}: starter label matches the lesson title`);
+    }
+  }
+});
+
+test('page titles name the page on screen', () => {
+  assert.equal(pageTitle({ activePillar: 'home' }), SITE_TITLE);
+  assert.ok(pageTitle({ activePillar: 'sleep' }).startsWith('睡眠｜'));
+  assert.ok(pageTitle({ activePillar: 'learn', learnTrackId: 'eat', learnLessonId: 'L-EAT-02' }).startsWith('蛋白質'));
+  assert.ok(pageTitle({ activePillar: 'exercise', exerciseSubTab: 'RUNNING' }).startsWith('跑步・運動'));
+  assert.ok(pageTitle({ activePillar: 'exercise', exerciseSubTab: 'PHYSIOLOGY' }).startsWith('運動｜'));
+  assert.ok(pageTitle({ activePillar: 'home', metaView: 'about' }).startsWith('關於 Salud'));
+  for (const p of PILLAR_NAV_FOR_TITLES) assert.notEqual(pageTitle({ activePillar: p.id }), '', p.id);
+});
+
+test('lesson tables: remapped lessons point at an existing table, never at themselves', () => {
+  const ids = new Set(ALL_LESSONS.map((l) => l.id));
+  for (const [lessonId, key] of Object.entries(LESSON_TABLE_KEY)) {
+    assert.ok(ids.has(lessonId), `${lessonId} is a real lesson`);
+    assert.notEqual(key, lessonId);
+  }
+});

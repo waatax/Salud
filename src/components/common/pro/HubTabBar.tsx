@@ -134,7 +134,7 @@ export function HubTabBar<T extends string>({
             >
               {numbered && (
                 <span
-                  className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[11px] font-bold tabular-nums ${
+                  className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[0.75rem] font-bold tabular-nums ${
                     selected ? 'bg-white/25 dark:bg-black/15' : finished ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-200' : 'bg-slate-100 dark:bg-slate-800'
                   }`}
                   aria-hidden="true"

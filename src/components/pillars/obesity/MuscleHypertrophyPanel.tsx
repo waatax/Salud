@@ -48,19 +48,19 @@ export const MuscleHypertrophyPanel: React.FC = () => {
           <div className="grid grid-cols-2 gap-2 shrink-0">
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-emerald-600 dark:text-emerald-400">10-20 組</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">每週最佳有效組數</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">每週最佳有效組數</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-teal-600 dark:text-cyan-400">RIR 1-3</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">保留次數最佳區間</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">保留次數最佳區間</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-emerald-600 dark:text-emerald-400">≥ 2.7g</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">每餐白胺酸觸發閾值</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">每餐白胺酸觸發閾值</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-cyan-600 dark:text-cyan-400">+35%</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">長肌拉伸增肌優勢</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">長肌拉伸增肌優勢</div>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@ export const MuscleHypertrophyPanel: React.FC = () => {
               >
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <span
-                    className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
+                    className={`text-[0.75rem] font-mono font-bold px-2 py-0.5 rounded-full ${
                       isSelected
                         ? 'bg-emerald-600 text-white'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
@@ -110,7 +110,7 @@ export const MuscleHypertrophyPanel: React.FC = () => {
                 <div className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1">
                   {m.name_zh.split('——')[0]}
                 </div>
-                <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
+                <div className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
                   {m.name_en}
                 </div>
               </button>
@@ -161,11 +161,11 @@ export const MuscleHypertrophyPanel: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <span className="text-[11px] font-mono text-slate-500 mr-2">靶向關鍵分子：</span>
+            <span className="text-[0.75rem] font-mono text-slate-500 mr-2">靶向關鍵分子：</span>
             {activeMechanism.key_molecules.map((mol, idx) => (
               <span
                 key={idx}
-                className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300"
+                className="text-[0.75rem] font-mono px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300"
               >
                 {mol}
               </span>
@@ -225,28 +225,28 @@ export const MuscleHypertrophyPanel: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
             <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
-              <span className="text-slate-500 font-mono text-[11px]">每週最高可恢復音量 (MRV)</span>
+              <span className="text-slate-500 font-mono text-[0.75rem]">每週最高可恢復音量 (MRV)</span>
               <div className="font-extrabold text-slate-900 dark:text-white text-sm">
                 {activeMuscle.weekly_mrv_sets}
               </div>
             </div>
 
             <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
-              <span className="text-slate-500 font-mono text-[11px]">最佳次數強度區間 (Reps)</span>
+              <span className="text-slate-500 font-mono text-[0.75rem]">最佳次數強度區間 (Reps)</span>
               <div className="font-extrabold text-teal-700 dark:text-teal-400 text-sm">
                 {activeMuscle.rep_range}
               </div>
             </div>
 
             <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
-              <span className="text-slate-500 font-mono text-[11px]">保留次數 (RIR 指導)</span>
+              <span className="text-slate-500 font-mono text-[0.75rem]">保留次數 (RIR 指導)</span>
               <div className="font-extrabold text-slate-900 dark:text-white text-sm">
                 {activeMuscle.rir_recommendation}
               </div>
             </div>
 
             <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
-              <span className="text-emerald-700 dark:text-emerald-400 font-mono text-[11px]">長肌拉伸負荷動作</span>
+              <span className="text-emerald-700 dark:text-emerald-400 font-mono text-[0.75rem]">長肌拉伸負荷動作</span>
               <div className="font-extrabold text-emerald-900 dark:text-emerald-200 text-sm">
                 {activeMuscle.stretch_loaded_exercise}
               </div>
@@ -321,7 +321,7 @@ export const MuscleHypertrophyPanel: React.FC = () => {
                 >
                   <div>
                     <div className="font-bold text-slate-900 dark:text-white text-xs">{item.food_zh}</div>
-                    <div className="text-[10px] text-slate-500">{item.note}</div>
+                    <div className="text-[0.75rem] text-slate-500">{item.note}</div>
                   </div>
                   <span className="font-mono font-bold text-xs text-emerald-700 dark:text-emerald-400 bg-emerald-100/80 dark:bg-emerald-950 px-2 py-0.5 rounded-lg border border-emerald-300/60 dark:border-emerald-800">
                     {item.leucine_g}

@@ -22,7 +22,7 @@ export const SiteFooter: React.FC = () => {
   return (
     <footer className="mt-16 border-t border-slate-200 dark:border-slate-800 pb-24 lg:pb-8 pt-8">
       <div className="space-y-6">
-        <div className="flex items-start gap-2.5 text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 max-w-3xl">
+        <div className="flex items-start gap-2.5 text-[0.75rem] leading-relaxed text-slate-500 dark:text-slate-400 max-w-3xl">
           <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-amber-500" />
           <p>
             {zh

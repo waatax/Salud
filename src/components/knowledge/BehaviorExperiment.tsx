@@ -22,7 +22,7 @@ export const BehaviorExperiment: React.FC = () => {
             <Calendar className="w-5 h-5" />
           </div>
           <div>
-            <span className="font-mono text-[10px] text-nature-sky-700 dark:text-nature-sky-400 uppercase tracking-wider font-bold">
+            <span className="font-mono text-[0.75rem] text-nature-sky-700 dark:text-nature-sky-400 uppercase tracking-wider font-bold">
               EXP-W-001 · 14-Day Micro-Experiment
             </span>
             <h4 className="text-base font-bold text-slate-900 dark:text-white font-display">
@@ -48,7 +48,7 @@ export const BehaviorExperiment: React.FC = () => {
 
       {/* 14 Days Checkin Grid */}
       <div className="space-y-2">
-        <div className="flex justify-between items-center text-slate-500 dark:text-slate-400 font-mono text-[11px]">
+        <div className="flex justify-between items-center text-slate-500 dark:text-slate-400 font-mono text-[0.75rem]">
           <span>點擊天數模擬紀錄打卡：</span>
           <span className="text-nature-green-700 dark:text-nature-green-400 font-bold">
             已累積省下 {accumulatedSugarSavedG}g 游離糖（約 {caloriesSaved} kcal）
@@ -70,7 +70,7 @@ export const BehaviorExperiment: React.FC = () => {
                     : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 text-slate-500 hover:border-nature-sky-300'
                 }`}
               >
-                <span className="text-[10px] text-slate-500 dark:text-slate-400">D{dayNum}</span>
+                <span className="text-[0.75rem] text-slate-500 dark:text-slate-400">D{dayNum}</span>
                 {isCompleted ? <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 text-nature-sky-600 dark:text-nature-sky-400" /> : <span className="text-slate-400">○</span>}
               </button>
             );

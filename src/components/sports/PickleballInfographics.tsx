@@ -28,7 +28,7 @@ export const PickleballInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-teal-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-teal-400 font-bold block">
                 {PICKLEBALL_INFOGRAPHICS[0].id} · {PICKLEBALL_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -119,7 +119,7 @@ export const PickleballInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-cyan-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-cyan-400 font-bold block">
                 {PICKLEBALL_INFOGRAPHICS[1].id} · {PICKLEBALL_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -137,14 +137,14 @@ export const PickleballInfographics: React.FC = () => {
           <div className="grid grid-cols-2 gap-2 text-xs">
             <div className="p-3 rounded-xl bg-nature-sky-50 dark:bg-cyan-950/30 border border-nature-sky-200 dark:border-cyan-500/40 text-nature-sky-950 dark:text-cyan-200 space-y-1.5">
               <strong className="text-cyan-300 block font-bold">✓ 推壓截擊 (Punch Volley)</strong>
-              <p className="text-[11px] text-slate-300 leading-relaxed">
+              <p className="text-[0.75rem] text-slate-300 leading-relaxed">
                 拍面固定在胸前 30cm，零後擺引拍。像出短拳般向前平推 10cm，鎖死手腕，0.25 秒內即時借力彈擊。
               </p>
             </div>
 
             <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-500/40 text-rose-950 dark:text-rose-200 space-y-1.5">
               <strong className="text-rose-300 block font-bold">✕ 傳統大引拍 (Big Wind-up)</strong>
-              <p className="text-[11px] text-slate-300 leading-relaxed">
+              <p className="text-[0.75rem] text-slate-300 leading-relaxed">
                 手肘向後拉開蓄力需耗時 0.22 秒，在 14ft 近身對峙中必然揮拍遲到，打在拍框或直接遭追身球擊中。
               </p>
             </div>
@@ -169,7 +169,7 @@ export const PickleballInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-amber-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-amber-400 font-bold block">
                 {PICKLEBALL_INFOGRAPHICS[2].id} · {PICKLEBALL_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -186,14 +186,14 @@ export const PickleballInfographics: React.FC = () => {
           <div className="grid grid-cols-2 gap-2 text-xs">
             <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-1">
               <strong className="text-amber-400 block font-bold">40 孔室外球 vs 26 孔室內球</strong>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[0.75rem] text-slate-400">
                 40 孔微孔抗風、飛行速度快；26 孔大孔氣阻高、飛行慢。穿孔使內部產生微亂流，阻力高於實心球 40%。
               </p>
             </div>
 
             <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-1">
               <strong className="text-teal-400 block font-bold">16mm 聚丙烯蜂巢厚芯 (PP Core)</strong>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[0.75rem] text-slate-400">
                 六角蜂巢結構吸收 100–300 Hz 有害共振，持球時間達 2.8ms，保護手腕與網球肘。
               </p>
             </div>
@@ -213,7 +213,7 @@ export const PickleballInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-emerald-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-emerald-400 font-bold block">
                 {PICKLEBALL_INFOGRAPHICS[3].id} · {PICKLEBALL_INFOGRAPHICS[3].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -232,7 +232,7 @@ export const PickleballInfographics: React.FC = () => {
               <AlertTriangle className="w-4 h-4" />
               <span>致命跌倒防範鐵律：嚴禁「臉朝前倒退跑 (Backpedaling)」</span>
             </div>
-            <p className="text-[11px] text-slate-300 leading-relaxed">
+            <p className="text-[0.75rem] text-slate-300 leading-relaxed">
               對手打出後場高挑球時，仰面後退會使重心落於腳後跟後方，極易失衡仰摔（撞擊力 80–120 G）或斷裂阿基里斯腱。
               <strong className="text-emerald-300 block mt-1">
                 唯一正確生還動作：持拍腳向後側向轉身 90° (Drop Step)，改以「側身交叉步」追球！寧可失球，絕不仰摔。

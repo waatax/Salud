@@ -49,7 +49,7 @@ export const LatestEvidenceStrip: React.FC<{ limit?: number }> = ({ limit = 3 })
         </h2>
         <button
           onClick={() => openMeta('evidence')}
-          className="btn-tactile inline-flex items-center gap-1 text-[11px] font-mono text-emerald-700 dark:text-emerald-300 hover:underline"
+          className="btn-tactile inline-flex items-center gap-1 text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-300 hover:underline"
         >
           {zh ? '查看全部來源' : 'All sources'}
           <ArrowRight className="w-3.5 h-3.5" />
@@ -62,7 +62,7 @@ export const LatestEvidenceStrip: React.FC<{ limit?: number }> = ({ limit = 3 })
             key={e.key}
             className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 space-y-2"
           >
-            <div className="flex items-center gap-2 font-mono text-[10px] text-slate-500 dark:text-slate-400">
+            <div className="flex items-center gap-2 font-mono text-[0.75rem] text-slate-500 dark:text-slate-400">
               <span className="px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold">
                 {e.year}
               </span>
@@ -76,7 +76,7 @@ export const LatestEvidenceStrip: React.FC<{ limit?: number }> = ({ limit = 3 })
                 href={e.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[10px] font-mono text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300"
+                className="inline-flex items-center gap-1 text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300"
               >
                 <span className="truncate max-w-[16rem]">{e.title}</span>
                 <ExternalLink className="w-3 h-3 shrink-0" />

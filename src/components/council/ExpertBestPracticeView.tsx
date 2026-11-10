@@ -87,7 +87,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <ShieldCheck className="w-3.5 h-3.5 text-nature-amber-600 dark:text-nature-amber-400" />
               24 席專家治理架構 · 臨床最佳實踐實證庫 (Clinical Best Practice Engine)
             </span>
-            <span className="px-2.5 py-0.5 rounded-full font-mono text-[11px] font-bold bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
+            <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
               50+ 篇期刊文獻 / 席
             </span>
           </div>
@@ -108,7 +108,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
           {/* Stat Pillars */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] font-mono text-slate-500 uppercase block font-bold">
+              <span className="text-[0.75rem] font-mono text-slate-500 uppercase block font-bold">
                 治理專科席位
               </span>
               <span className="text-lg font-mono font-extrabold text-nature-amber-700 dark:text-nature-amber-400">
@@ -116,7 +116,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               </span>
             </div>
             <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] font-mono text-slate-500 uppercase block font-bold">
+              <span className="text-[0.75rem] font-mono text-slate-500 uppercase block font-bold">
                 統合頂級期刊文獻
               </span>
               <span className="text-lg font-mono font-extrabold text-purple-700 dark:text-purple-400">
@@ -124,7 +124,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               </span>
             </div>
             <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] font-mono text-slate-500 uppercase block font-bold">
+              <span className="text-[0.75rem] font-mono text-slate-500 uppercase block font-bold">
                 GRADE 高強度實證
               </span>
               <span className="text-lg font-mono font-extrabold text-emerald-700 dark:text-emerald-400">
@@ -132,7 +132,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               </span>
             </div>
             <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] font-mono text-slate-500 uppercase block font-bold">
+              <span className="text-[0.75rem] font-mono text-slate-500 uppercase block font-bold">
                 醫療把關政策
               </span>
               <span className="text-lg font-mono font-extrabold text-nature-sky-700 dark:text-nature-sky-400">
@@ -154,12 +154,12 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <h3 className="text-base sm:text-lg font-display font-extrabold text-slate-900 dark:text-white">
                 全民白話通識篇 · 24 席專家共識的「4 大生活黃金習慣」
               </h3>
-              <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+              <p className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
                 1,400+ 篇期刊繁雜數據，化繁為簡歸納為每天最關鍵的 4 件事
               </p>
             </div>
           </div>
-          <span className="px-2.5 py-1 rounded-full font-mono text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
+          <span className="px-2.5 py-1 rounded-full font-mono text-[0.75rem] font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
             一般民眾 · 簡單好懂
           </span>
         </div>
@@ -172,7 +172,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <span className="p-2 rounded-xl bg-sky-500 text-white shadow-xs">
                 <Droplets className="w-4 h-4" />
               </span>
-              <span className="font-mono text-[10px] font-extrabold text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-950/80 px-2 py-0.5 rounded-md border border-sky-300 dark:border-sky-800">
+              <span className="font-mono text-[0.75rem] font-extrabold text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-950/80 px-2 py-0.5 rounded-md border border-sky-300 dark:border-sky-800">
                 01 喝水法則
               </span>
             </div>
@@ -182,7 +182,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
               短時間狂灌大水會讓腦部細胞水中毒。每次喝 250-350ml 慢飲，尿液呈「淡黃色」就是水分最剛好！
             </p>
-            <div className="text-[10px] font-mono text-sky-600 dark:text-sky-400 font-semibold">
+            <div className="text-[0.75rem] font-mono text-sky-600 dark:text-sky-400 font-semibold">
               💡 避開暴飲，保護腎臟大腦
             </div>
           </div>
@@ -193,7 +193,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <span className="p-2 rounded-xl bg-amber-500 text-black shadow-xs">
                 <Flame className="w-4 h-4" />
               </span>
-              <span className="font-mono text-[10px] font-extrabold text-amber-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/80 px-2 py-0.5 rounded-md border border-amber-300 dark:border-amber-800">
+              <span className="font-mono text-[0.75rem] font-extrabold text-amber-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/80 px-2 py-0.5 rounded-md border border-amber-300 dark:border-amber-800">
                 02 用油學問
               </span>
             </div>
@@ -203,7 +203,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
               炒菜熱鍋至冒白濃煙是在吸致癌氣膠。先放少量水再放菜淋好油；發黑起泡的回鍋油一口都別吃！
             </p>
-            <div className="text-[10px] font-mono text-amber-700 dark:text-amber-400 font-semibold">
+            <div className="text-[0.75rem] font-mono text-amber-700 dark:text-amber-400 font-semibold">
               💡 水炒法低溫護血管
             </div>
           </div>
@@ -214,7 +214,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <span className="p-2 rounded-xl bg-rose-500 text-white shadow-xs">
                 <Wine className="w-4 h-4" />
               </span>
-              <span className="font-mono text-[10px] font-extrabold text-rose-800 dark:text-rose-300 bg-rose-100 dark:bg-rose-950/80 px-2 py-0.5 rounded-md border border-rose-300 dark:border-rose-800">
+              <span className="font-mono text-[0.75rem] font-extrabold text-rose-800 dark:text-rose-300 bg-rose-100 dark:bg-rose-950/80 px-2 py-0.5 rounded-md border border-rose-300 dark:border-rose-800">
                 03 酒精防線
               </span>
             </div>
@@ -224,7 +224,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
               喝酒臉紅是天生缺乏解毒酵素的火警警報；睡前小酌看似好睡，實則徹底癱瘓深睡期，越睡越累！
             </p>
-            <div className="text-[10px] font-mono text-rose-600 dark:text-rose-400 font-semibold">
+            <div className="text-[0.75rem] font-mono text-rose-600 dark:text-rose-400 font-semibold">
               💡 聚會用無糖氣泡水乾杯
             </div>
           </div>
@@ -235,7 +235,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <span className="p-2 rounded-xl bg-emerald-500 text-white shadow-xs">
                 <Activity className="w-4 h-4" />
               </span>
-              <span className="font-mono text-[10px] font-extrabold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-300 dark:border-emerald-800">
+              <span className="font-mono text-[0.75rem] font-extrabold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-300 dark:border-emerald-800">
                 04 肌肉長壽
               </span>
             </div>
@@ -245,7 +245,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
               肌肉是全身體質最好的降糖蓄水池。每天走路 30 分鐘，每週兩次深蹲練大腿，老了穩健不跌倒！
             </p>
-            <div className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+            <div className="text-[0.75rem] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
               💡 肌肉就是你的長壽存摺
             </div>
           </div>
@@ -343,7 +343,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
 
       {/* ── Horizontal Expert Selector Ribbon ── */}
       <div className="space-y-1.5">
-        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block font-bold px-1">
+        <span className="text-[0.75rem] font-mono text-slate-500 uppercase tracking-wider block font-bold px-1">
           點選專家席位切換深度實證專題 (Select Expert Seat)
         </span>
         <div className="flex gap-2.5 overflow-x-auto pb-2 scrollbar-thin">
@@ -360,15 +360,15 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
                 }`}
               >
                 <div className="flex items-center gap-1.5 mb-1">
-                  <span className="font-mono text-[10px] px-1.5 py-0.2 rounded bg-slate-200 dark:bg-slate-800 font-bold">
+                  <span className="font-mono text-[0.75rem] px-1.5 py-0.2 rounded bg-slate-200 dark:bg-slate-800 font-bold">
                     {expert.expertId}
                   </span>
                   <span className="font-bold text-xs">{expert.title_zh}</span>
                 </div>
-                <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate max-w-[160px]">
+                <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 truncate max-w-[160px]">
                   {expert.primaryIssue_zh}
                 </div>
-                <div className="mt-1 text-[9px] font-mono text-purple-600 dark:text-purple-400 font-semibold">
+                <div className="mt-1 text-[0.6875rem] font-mono text-purple-600 dark:text-purple-400 font-semibold">
                   {expert.paperSynthesisScope.totalPapersReviewed} 篇期刊統合
                 </div>
               </button>
@@ -397,13 +397,13 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => setSelectedMonographExpertId(currentBestPractice.expertId)}
-                className="btn-tactile px-3 py-1 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-sm transition-all"
+                className="btn-tactile px-3 py-1 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-[0.75rem] font-mono font-bold flex items-center gap-1.5 shadow-sm transition-all"
                 title="點擊開啟該席位 50+ 篇深度研究臨床專論全文與完整文獻庫"
               >
                 <BookOpen className="w-3.5 h-3.5 text-purple-200" />
                 <span>50+ 篇獨立臨床專論 (Monograph Dossier)</span>
               </button>
-              <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-bold flex items-center gap-1">
+              <span className="text-[0.75rem] font-mono px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" />
                 GRADE High-Confidence Vetted
               </span>
@@ -467,7 +467,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               📑 研讀 50+ 篇專論全文
             </button>
           </div>
-          <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 pr-2">
+          <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 pr-2">
             {viewPerspective === 'layperson'
               ? '✨ 適合大眾：醫師真心話、生活比喻、3 步行動卡、破除迷思'
               : viewPerspective === 'clinical'
@@ -516,7 +516,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
                     {currentBestPractice.paperSynthesisScope.synthesisSummary_zh}
                   </p>
                   <div className="p-3 rounded-xl bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200/60 dark:border-purple-800/40 space-y-1">
-                    <span className="font-mono text-[10px] text-purple-700 dark:text-purple-300 font-bold uppercase block">
+                    <span className="font-mono text-[0.75rem] text-purple-700 dark:text-purple-300 font-bold uppercase block">
                       病理生理學機制解構 (Pathophysiological Mechanism)
                     </span>
                     <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -527,20 +527,20 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
 
                 {/* Journal Badges Box */}
                 <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-2.5">
-                  <span className="font-mono text-[10px] text-slate-500 uppercase tracking-wider block font-bold">
+                  <span className="font-mono text-[0.75rem] text-slate-500 uppercase tracking-wider block font-bold">
                     代表性指標期刊庫 ({currentBestPractice.paperSynthesisScope.totalPapersReviewed} 篇)
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {currentBestPractice.paperSynthesisScope.landmarkJournals.map((journal, i) => (
                       <span
                         key={i}
-                        className="px-2 py-0.5 rounded-md font-mono text-[10px] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold"
+                        className="px-2 py-0.5 rounded-md font-mono text-[0.75rem] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold"
                       >
                         {journal}
                       </span>
                     ))}
                   </div>
-                  <div className="pt-2 border-t border-slate-200 dark:border-slate-800/80 font-mono text-[10px] text-slate-500 space-y-1">
+                  <div className="pt-2 border-t border-slate-200 dark:border-slate-800/80 font-mono text-[0.75rem] text-slate-500 space-y-1">
                     <div>統合分析 (Meta-Analyses)：{currentBestPractice.paperSynthesisScope.metaAnalysisCount} 篇</div>
                     <div>隨機對照試驗 (RCTs)：{currentBestPractice.paperSynthesisScope.rctCount} 篇</div>
                   </div>
@@ -560,7 +560,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
                 <table className="w-full text-left font-sans text-xs border-collapse">
                   <thead>
-                    <tr className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-mono text-[11px] border-b border-slate-200 dark:border-slate-800">
+                    <tr className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-mono text-[0.75rem] border-b border-slate-200 dark:border-slate-800">
                       {currentBestPractice.table1_gradeEvidence.headers_zh.map((h, i) => (
                         <th key={i} className="p-3 font-bold whitespace-nowrap">
                           {h}
@@ -577,21 +577,21 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
                         <td className="p-3 font-semibold text-slate-900 dark:text-slate-100 max-w-[220px]">
                           {row.endpoint}
                         </td>
-                        <td className="p-3 font-mono text-[11px] text-purple-700 dark:text-purple-300">
+                        <td className="p-3 font-mono text-[0.75rem] text-purple-700 dark:text-purple-300">
                           {row.representativeStudies}
                         </td>
-                        <td className="p-3 font-mono text-[11px] text-slate-600 dark:text-slate-300 whitespace-nowrap">
+                        <td className="p-3 font-mono text-[0.75rem] text-slate-600 dark:text-slate-300 whitespace-nowrap">
                           {row.sampleSize}
                         </td>
                         <td className="p-3 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400 whitespace-nowrap">
                           {row.effectSize}
                         </td>
                         <td className="p-3">
-                          <span className="px-2 py-0.5 rounded font-mono text-[10px] font-extrabold bg-nature-amber-100 dark:bg-nature-amber-950/80 text-nature-amber-900 dark:text-nature-amber-300 border border-nature-amber-300 dark:border-nature-amber-700">
+                          <span className="px-2 py-0.5 rounded font-mono text-[0.75rem] font-extrabold bg-nature-amber-100 dark:bg-nature-amber-950/80 text-nature-amber-900 dark:text-nature-amber-300 border border-nature-amber-300 dark:border-nature-amber-700">
                             Grade {row.grade}
                           </span>
                         </td>
-                        <td className="p-3 font-mono text-[11px] text-slate-700 dark:text-slate-300">
+                        <td className="p-3 font-mono text-[0.75rem] text-slate-700 dark:text-slate-300">
                           {row.consensusStrength}
                         </td>
                       </tr>
@@ -613,7 +613,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
               <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
                 <table className="w-full text-left font-sans text-xs border-collapse">
                   <thead>
-                    <tr className="bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 font-mono text-[11px] border-b border-emerald-200 dark:border-emerald-800">
+                    <tr className="bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 font-mono text-[0.75rem] border-b border-emerald-200 dark:border-emerald-800">
                       {currentBestPractice.table2_bestPractice.headers_zh.map((h, i) => (
                         <th key={i} className="p-3 font-bold whitespace-nowrap">
                           {h}
@@ -633,7 +633,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
                         <td className="p-3 text-slate-700 dark:text-slate-300 leading-relaxed max-w-[280px]">
                           {row.interventionProtocol}
                         </td>
-                        <td className="p-3 font-mono text-[11px] font-bold text-nature-sky-700 dark:text-nature-sky-300 max-w-[180px]">
+                        <td className="p-3 font-mono text-[0.75rem] font-bold text-nature-sky-700 dark:text-nature-sky-300 max-w-[180px]">
                           {row.biomarkerGoal}
                         </td>
                         <td className="p-3 text-rose-700 dark:text-rose-300 font-medium bg-rose-50/30 dark:bg-rose-950/10 max-w-[240px]">
@@ -673,7 +673,7 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1.5">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 flex items-center gap-1">
+                <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 flex items-center gap-1">
                   <Sparkles className="w-3 h-3" />
                   50+ 篇同行評審深度專論 (Independent Clinical Monograph)
                 </span>

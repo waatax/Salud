@@ -508,7 +508,7 @@ export const SystemDiagram: React.FC<{ diagram: Diagram; className?: string }> =
     >
       {/* Capped so a wide viewport does not scale the SVG text up out of proportion. */}
       <div className="min-w-[320px] max-w-[760px] mx-auto">{body}</div>
-      <figcaption className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+      <figcaption className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 text-[0.75rem] leading-relaxed text-slate-600 dark:text-slate-400">
         {diagram.caption}
       </figcaption>
     </figure>

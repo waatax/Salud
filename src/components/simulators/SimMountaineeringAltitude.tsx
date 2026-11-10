@@ -82,7 +82,7 @@ export const SimMountaineeringAltitude: React.FC = () => {
 
         {/* Quick Landmark Jump Buttons */}
         <div className="flex flex-wrap gap-1.5 pt-1">
-          <span className="text-[11px] text-slate-400">地標快速錨定：</span>
+          <span className="text-[0.75rem] text-slate-400">地標快速錨定：</span>
           {[
             { alt: 0, name_zh: '海平面 (0m)', name_en: 'Sea Level (0m)' },
             { alt: 2200, name_zh: '阿里山 (2,200m)', name_en: 'Alishan (2,200m)' },
@@ -94,7 +94,7 @@ export const SimMountaineeringAltitude: React.FC = () => {
             <button
               key={l.alt}
               onClick={() => setAltitudeM(l.alt)}
-              className={`px-2 py-0.5 rounded-lg text-[10px] border transition-all ${
+              className={`px-2 py-0.5 rounded-lg text-[0.75rem] border transition-all ${
                 altitudeM === l.alt
                   ? 'bg-salud-amber text-black font-bold border-salud-amber shadow-warm-glow'
                   : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
@@ -109,31 +109,31 @@ export const SimMountaineeringAltitude: React.FC = () => {
       {/* Atmospheric Physics Metrics Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
         <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-1">
-          <span className="text-[11px] text-slate-400 block">{language === 'zh-TW' ? '環境大氣壓 (P_bar)' : 'Barometric Pressure'}</span>
+          <span className="text-[0.75rem] text-slate-400 block">{language === 'zh-TW' ? '環境大氣壓 (P_bar)' : 'Barometric Pressure'}</span>
           <strong className="text-lg sm:text-xl font-display font-extrabold text-white">{pressureKpa} kPa</strong>
-          <span className="text-[10px] text-slate-500 block">({pressureMmhg} mmHg)</span>
+          <span className="text-[0.75rem] text-slate-500 block">({pressureMmhg} mmHg)</span>
         </div>
 
         <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-1">
-          <span className="text-[11px] text-slate-400 block">{language === 'zh-TW' ? '吸入氧分壓 (PiO2)' : 'Inspired O2 (PiO2)'}</span>
+          <span className="text-[0.75rem] text-slate-400 block">{language === 'zh-TW' ? '吸入氧分壓 (PiO2)' : 'Inspired O2 (PiO2)'}</span>
           <strong className="text-lg sm:text-xl font-display font-extrabold text-salud-cyan">{pio2Mmhg} mmHg</strong>
-          <span className="text-[10px] text-cyan-400 block">海平面僅存 {effectiveOxygenPct}%</span>
+          <span className="text-[0.75rem] text-cyan-400 block">海平面僅存 {effectiveOxygenPct}%</span>
         </div>
 
         <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-1">
-          <span className="text-[11px] text-slate-400 block">{language === 'zh-TW' ? '估算動脈血氧 (SpO2)' : 'Estimated SpO2'}</span>
+          <span className="text-[0.75rem] text-slate-400 block">{language === 'zh-TW' ? '估算動脈血氧 (SpO2)' : 'Estimated SpO2'}</span>
           <strong className="text-lg sm:text-xl font-display font-extrabold text-salud-amber">
             {estSpo2Acute}–{estSpo2Acclimatized}%
           </strong>
-          <span className="text-[10px] text-slate-500 block">急性抵達 vs 適應後</span>
+          <span className="text-[0.75rem] text-slate-500 block">急性抵達 vs 適應後</span>
         </div>
 
         <div className={`p-3.5 rounded-2xl border text-center space-y-1 ${riskCategory.color}`}>
-          <span className="text-[11px] opacity-80 block">{language === 'zh-TW' ? '高度風險評級' : 'Altitude Hazard'}</span>
+          <span className="text-[0.75rem] opacity-80 block">{language === 'zh-TW' ? '高度風險評級' : 'Altitude Hazard'}</span>
           <strong className="text-sm sm:text-base font-bold block">
             {language === 'zh-TW' ? riskCategory.text_zh.split(' (')[0] : riskCategory.text_en}
           </strong>
-          <span className="text-[10px] opacity-75 block">
+          <span className="text-[0.75rem] opacity-75 block">
             {altitudeM >= 3000 ? '強制嚴防肺水腫' : '適應良好可安全健行'}
           </span>
         </div>
@@ -161,7 +161,7 @@ export const SimMountaineeringAltitude: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Headache */}
           <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-            <label className="text-slate-300 font-bold block text-[11px]">
+            <label className="text-slate-300 font-bold block text-[0.75rem]">
               1. 頭痛程度 (Headache, 確診必備核心症狀)：
             </label>
             <select
@@ -178,7 +178,7 @@ export const SimMountaineeringAltitude: React.FC = () => {
 
           {/* GI Symptoms */}
           <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-            <label className="text-slate-300 font-bold block text-[11px]">
+            <label className="text-slate-300 font-bold block text-[0.75rem]">
               2. 腸胃道反應 (Gastrointestinal Symptoms)：
             </label>
             <select
@@ -195,7 +195,7 @@ export const SimMountaineeringAltitude: React.FC = () => {
 
           {/* Fatigue */}
           <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-            <label className="text-slate-300 font-bold block text-[11px]">
+            <label className="text-slate-300 font-bold block text-[0.75rem]">
               3. 疲勞與虛弱 (Fatigue / Weakness)：
             </label>
             <select
@@ -212,7 +212,7 @@ export const SimMountaineeringAltitude: React.FC = () => {
 
           {/* Dizziness */}
           <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-            <label className="text-slate-300 font-bold block text-[11px]">
+            <label className="text-slate-300 font-bold block text-[0.75rem]">
               4. 頭暈目眩感 (Dizziness / Lightheadedness)：
             </label>
             <select
@@ -253,7 +253,7 @@ export const SimMountaineeringAltitude: React.FC = () => {
             </span>
           </div>
 
-          <p className="leading-relaxed text-[11px] opacity-90">
+          <p className="leading-relaxed text-[0.75rem] opacity-90">
             {isSevereAms
               ? 'LLS 總分達 6 分以上或伴隨重度嘔吐/劇烈頭痛。此階段極易在數小時內惡化為致死性高海拔腦水腫 (HACE) 或肺水腫 (HAPE)。應立刻使用攜帶型氧氣、給予 Dexamethasone 8mg，並火速下撤至少 500–1,000 公尺！'
               : isAmsDiagnosed

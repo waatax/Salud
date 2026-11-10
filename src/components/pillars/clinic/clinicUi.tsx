@@ -34,7 +34,7 @@ export const Chip: React.FC<{ children: React.ReactNode; tone?: 'slate' | 'emera
     amber: 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-900',
     rose: 'bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-300 border border-rose-200 dark:border-rose-900',
   };
-  return <span className={`inline-flex items-center gap-1 text-[11px] rounded-full px-2 py-0.5 ${tones[tone]}`}>{children}</span>;
+  return <span className={`inline-flex items-center gap-1 text-[0.75rem] rounded-full px-2 py-0.5 ${tones[tone]}`}>{children}</span>;
 };
 
 export const HospitalBadges: React.FC<{ dept: Pick<Department, 'hospitals'> }> = ({ dept }) => (
@@ -43,7 +43,7 @@ export const HospitalBadges: React.FC<{ dept: Pick<Department, 'hospitals'> }> =
       <span
         key={h}
         title={dept.hospitals[h] ?? '未單獨設科（併入其他科）'}
-        className={`text-[10px] px-1.5 py-0.5 rounded-md border ${
+        className={`text-[0.75rem] px-1.5 py-0.5 rounded-md border ${
           dept.hospitals[h]
             ? 'border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300'
             : 'border-slate-200 dark:border-slate-800 text-slate-400'
@@ -72,7 +72,7 @@ export const KeyNumbers: React.FC<{ items: KeyNumber[]; dark?: boolean }> = ({ i
     <dl className="grid grid-cols-2 sm:grid-cols-3 gap-2">
       {items.map((k) => (
         <div key={k.label_zh} className={`rounded-xl px-3 py-2 ${dark ? 'bg-white/10' : 'bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/60'}`}>
-          <dt className={`text-[11px] leading-snug ${dark ? 'text-emerald-100/80' : 'text-slate-500 dark:text-slate-400'}`}>{k.label_zh}</dt>
+          <dt className={`text-[0.75rem] leading-snug ${dark ? 'text-emerald-100/80' : 'text-slate-500 dark:text-slate-400'}`}>{k.label_zh}</dt>
           <dd className={`text-lg font-bold leading-tight ${dark ? 'text-white' : 'text-emerald-800 dark:text-emerald-300'}`}>{k.value}</dd>
         </div>
       ))}
@@ -130,15 +130,15 @@ export const EvidenceList: React.FC<{ items: Evidence[] }> = ({ items }) => (
             <span className="ml-1 inline-flex flex-wrap gap-1 align-middle">
               {e.level && <Chip tone={LEVEL_LABEL[e.level].tone}>{LEVEL_LABEL[e.level].zh}</Chip>}
               {e.url ? (
-                <a href={e.url} target="_blank" rel="noreferrer" className="text-[11px] text-emerald-700 dark:text-emerald-400 underline decoration-dotted">
+                <a href={e.url} target="_blank" rel="noreferrer" className="text-[0.75rem] text-emerald-700 dark:text-emerald-400 underline decoration-dotted">
                   原文
                 </a>
               ) : e.level === 'official' ? null : (
                 <>
-                  <a href={pubmedSearch(e.label)} target="_blank" rel="noreferrer" className="text-[11px] text-emerald-700 dark:text-emerald-400 underline decoration-dotted">
+                  <a href={pubmedSearch(e.label)} target="_blank" rel="noreferrer" className="text-[0.75rem] text-emerald-700 dark:text-emerald-400 underline decoration-dotted">
                     PubMed
                   </a>
-                  <a href={scholarSearch(e.label)} target="_blank" rel="noreferrer" className="text-[11px] text-emerald-700 dark:text-emerald-400 underline decoration-dotted">
+                  <a href={scholarSearch(e.label)} target="_blank" rel="noreferrer" className="text-[0.75rem] text-emerald-700 dark:text-emerald-400 underline decoration-dotted">
                     Scholar
                   </a>
                 </>

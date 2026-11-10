@@ -336,7 +336,7 @@ export const SimulatorsModal: React.FC<{ isOpen: boolean; onClose: () => void }>
                       </span>
                       <div className="flex items-center gap-1 flex-wrap justify-end">
                         {item.badges.slice(0, 2).map((b) => (
-                          <span key={b} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                          <span key={b} className="text-[0.75rem] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                             {b}
                           </span>
                         ))}

@@ -132,7 +132,7 @@ export const EvidenceUpdatesPage: React.FC = () => {
               <dl className="flex flex-wrap gap-2">
                 {u.numbers.map((n) => (
                   <div key={n.label_zh} className="rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-1.5 bg-slate-50/50 dark:bg-slate-800/40">
-                    <dt className="text-[11px] text-slate-500 dark:text-slate-400">{n.label_zh}</dt>
+                    <dt className="text-[0.75rem] text-slate-500 dark:text-slate-400">{n.label_zh}</dt>
                     <dd className="text-base font-bold text-slate-900 dark:text-white tabular-nums">{n.value}</dd>
                   </div>
                 ))}

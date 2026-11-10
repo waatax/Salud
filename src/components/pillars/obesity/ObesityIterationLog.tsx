@@ -70,11 +70,11 @@ export const ObesityIterationLog: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400">
+                <span className="text-[0.75rem] font-mono font-bold text-amber-600 dark:text-amber-400">
                   R{r.round}
                 </span>
                 {r.round === 7 && (
-                  <span className="text-[9px] px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold">
+                  <span className="text-[0.6875rem] px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold">
                     終審
                   </span>
                 )}
@@ -124,7 +124,7 @@ export const ObesityIterationLog: React.FC = () => {
               <AlertTriangle className="w-4 h-4" />
               <span>會議衝突與激辯焦點 (Debate & Conflict)</span>
             </div>
-            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
               {currentRoundData.conflict_point_zh}
             </p>
           </div>
@@ -135,7 +135,7 @@ export const ObesityIterationLog: React.FC = () => {
               <CheckCircle2 className="w-4 h-4" />
               <span>突破性共識與轉折 (Breakthrough Consensus)</span>
             </div>
-            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
               {currentRoundData.breakthrough_consensus_zh}
             </p>
           </div>

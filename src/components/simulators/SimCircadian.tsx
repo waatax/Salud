@@ -54,7 +54,7 @@ export const SimCircadian: React.FC = () => {
 
       {/* Scenario Presets */}
       <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-        <span className="text-slate-500 dark:text-slate-400 text-[11px]">生活情境快選：</span>
+        <span className="text-slate-500 dark:text-slate-400 text-[0.75rem]">生活情境快選：</span>
         {[
           {
             name_zh: '☀️ 晨型生理鐘 (黃金標準)',
@@ -89,7 +89,7 @@ export const SimCircadian: React.FC = () => {
               setLastCaffeineHour(sc.caff);
               setBedHour(sc.bed);
             }}
-            className="btn-tactile px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all text-[11px]"
+            className="btn-tactile px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-all text-[0.75rem]"
           >
             {language === 'zh-TW' ? sc.name_zh : sc.name_en}
           </button>
@@ -186,7 +186,7 @@ export const SimCircadian: React.FC = () => {
             <Clock className="w-4 h-4 text-nature-sky-600 dark:text-salud-cyan" />
             24 小時晝夜激素時序與膠淋巴排毒高潮帶
           </span>
-          <div className="flex items-center gap-4 text-[11px]">
+          <div className="flex items-center gap-4 text-[0.75rem]">
             <span className="flex items-center gap-1 text-nature-amber-700 dark:text-amber-400">
               <span className="w-3 h-0.5 bg-nature-amber-500" /> 皮質醇 (清醒)
             </span>
@@ -255,7 +255,7 @@ export const SimCircadian: React.FC = () => {
             <strong className="block font-bold">
               {isCaffeineDisruptive ? '⚠ 咖啡因距離就寢不足 9 小時 (高干擾風險)' : '✓ 咖啡因截斷時間符合代謝標準'}
             </strong>
-            <p className="text-[11px] opacity-90 leading-relaxed font-sans">
+            <p className="text-[0.75rem] opacity-90 leading-relaxed font-sans">
               {isCaffeineDisruptive
                 ? `最後攝取距離就寢僅 ${caffeineToBedHours} 小時。殘存的腺苷受體阻斷效應會使前半夜 N3 慢波深睡減少 20%–40%，大腦膠淋巴排毒被大幅壓制！`
                 : `距離就寢間隔 ${caffeineToBedHours} 小時，已渡過咖啡因四分之一衰期，腺苷 (Adenosine) 能自然與大腦受體結合引發沉重睡意。`}
@@ -278,7 +278,7 @@ export const SimCircadian: React.FC = () => {
             <strong className="block font-bold">
               {isSunlightOptimized ? '✓ 晨間藍綠光黃金錨定成功' : '⚠ 戶外光照延遲過久 (生物鐘漂移)'}
             </strong>
-            <p className="text-[11px] opacity-90 leading-relaxed font-sans">
+            <p className="text-[0.75rem] opacity-90 leading-relaxed font-sans">
               {isSunlightOptimized
                 ? `起床 ${sunlightDelayMinutes} 分鐘內接觸光線，成功激發皮質醇晨峰 (CAR)，並精準設定了今晚約 ${bedHour - 2}:00 開始分泌褪黑激素的生理鬧鐘。`
                 : `光照延遲達 ${sunlightDelayMinutes} 分鐘，視交叉上核 (SCN) 主時鐘容易發生「相位延遲」，使今晚預期入睡時間往後推遲造成難以入眠。`}

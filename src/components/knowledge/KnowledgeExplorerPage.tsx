@@ -228,7 +228,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
           {/* Topic Facet */}
           <div className="space-y-1">
-            <label className="text-[11px] text-slate-500 dark:text-slate-400 font-mono block">主題 (Topic)</label>
+            <label className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono block">主題 (Topic)</label>
             <select
               value={selectedTopic}
               onChange={(e) => setSelectedTopic(e.target.value)}
@@ -245,7 +245,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
 
           {/* Risk Class Facet */}
           <div className="space-y-1">
-            <label className="text-[11px] text-slate-500 dark:text-slate-400 font-mono block">風險分級 (Risk)</label>
+            <label className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono block">風險分級 (Risk)</label>
             <select
               value={selectedRisk}
               onChange={(e) => setSelectedRisk(e.target.value)}
@@ -260,7 +260,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
 
           {/* Assertion Kind Facet */}
           <div className="space-y-1">
-            <label className="text-[11px] text-slate-500 dark:text-slate-400 font-mono block">斷言類型 (Kind)</label>
+            <label className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono block">斷言類型 (Kind)</label>
             <select
               value={selectedKind}
               onChange={(e) => setSelectedKind(e.target.value)}
@@ -281,7 +281,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
 
           {/* Certainty Facet */}
           <div className="space-y-1">
-            <label className="text-[11px] text-slate-500 dark:text-slate-400 font-mono block">確定度 (Certainty)</label>
+            <label className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono block">確定度 (Certainty)</label>
             <select
               value={selectedCertainty}
               onChange={(e) => setSelectedCertainty(e.target.value)}
@@ -296,7 +296,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
 
           {/* Provenance Facet */}
           <div className="space-y-1">
-            <label className="text-[11px] text-slate-500 dark:text-slate-400 font-mono block">出處審核 (Provenance)</label>
+            <label className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono block">出處審核 (Provenance)</label>
             <select
               value={selectedProvenance}
               onChange={(e) => setSelectedProvenance(e.target.value)}
@@ -342,7 +342,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                     : 'border-slate-200 dark:border-slate-800 bg-salud-light-surface dark:bg-salud-dark-surface hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
-                <div className="flex items-center justify-between gap-2 mb-1.5 font-mono text-[10px]">
+                <div className="flex items-center justify-between gap-2 mb-1.5 font-mono text-[0.75rem]">
                   <span className="font-bold text-salud-cyan-700 dark:text-salud-cyan">{atom.id}</span>
                   <div className="flex items-center gap-1.5">
                     <span
@@ -378,7 +378,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                 </p>
 
                 {atom.status === 'needs-provenance-review' && (
-                  <div className="mt-2 text-[10px] text-amber-600 dark:text-amber-400 font-mono flex items-center gap-1">
+                  <div className="mt-2 text-[0.75rem] text-amber-600 dark:text-amber-400 font-mono flex items-center gap-1">
                     <span>⚑ 待原始出處查核 (VAL-016 阻擋上線中)</span>
                   </div>
                 )}
@@ -405,7 +405,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                       {selectedAtom.assertion_kind}
                     </span>
                   </div>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                  <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">
                     適用族群：{selectedAtom.applies_to.population}（{selectedAtom.applies_to.region}）· 審查日：{selectedAtom.last_reviewed}
                   </span>
                 </div>
@@ -460,7 +460,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
               {activeViewMode === 'summary' && (
                 <div className="space-y-5 animate-fade-in">
                   <div className="space-y-2">
-                    <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
+                    <span className="text-[0.75rem] font-mono text-slate-400 uppercase tracking-wider block">
                       核心陳述 (Statement)
                     </span>
                     <p className="text-sm sm:text-base font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
@@ -498,13 +498,13 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               {firstEv.title}
                             </h5>
                           )}
-                          <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 font-mono">
+                          <div className="flex flex-wrap items-center gap-2 text-[0.75rem] text-slate-500 font-mono">
                             {firstEv.authors && <span>{firstEv.authors}</span>}
                             {firstEv.journal && <span>· {firstEv.journal}</span>}
                             {firstEv.year && <span>({firstEv.year})</span>}
                           </div>
 
-                          <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[10px]">
+                          <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[0.75rem]">
                             {urls.doiUrl && (
                               <a
                                 href={urls.doiUrl}
@@ -561,7 +561,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                           <Activity className="w-3.5 h-3.5 text-indigo-500" />
                           臨床診斷閥值與指引邊界 (Clinical Thresholds)
                         </span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/80">
+                        <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/80">
                           {selectedAtom.threshold_ids.length} 項登錄
                         </span>
                       </div>
@@ -574,11 +574,11 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               key={tid}
                               className="p-2.5 rounded-xl border border-indigo-200 dark:border-indigo-900/50 bg-white/80 dark:bg-slate-900/80 space-y-1"
                             >
-                              <div className="flex items-center justify-between text-[11px]">
+                              <div className="flex items-center justify-between text-[0.75rem]">
                                 <span className="font-bold text-slate-800 dark:text-slate-200">
                                   {th.metric_name_zh}
                                 </span>
-                                <span className="px-1.5 py-0.2 rounded bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-[10px] font-bold">
+                                <span className="px-1.5 py-0.2 rounded bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-[0.75rem] font-bold">
                                   {th.guideline_authority}
                                 </span>
                               </div>
@@ -587,7 +587,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                                   ? `${th.value} – ${th.value_upper} ${th.unit}`
                                   : `${th.operator} ${th.value} ${th.unit}`}
                               </div>
-                              <p className="text-[10px] text-slate-600 dark:text-slate-400 font-sans line-clamp-2">
+                              <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 font-sans line-clamp-2">
                                 {th.actionable_implication_zh}
                               </p>
                             </div>
@@ -600,16 +600,16 @@ export const KnowledgeExplorerPage: React.FC = () => {
                   {/* Clinical Ontology Mapping (MeSH / ICD-11 / SNOMED CT) */}
                   {selectedAtom.ontology && (
                     <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 text-xs font-mono space-y-2">
-                      <span className="text-slate-500 block text-[11px] font-bold">
+                      <span className="text-slate-500 block text-[0.75rem] font-bold">
                         國際臨床本體代碼對應 (Clinical Ontologies)：
                       </span>
-                      <div className="flex flex-wrap gap-2 text-[11px]">
+                      <div className="flex flex-wrap gap-2 text-[0.75rem]">
                         {selectedAtom.ontology.mesh_id && (
                           <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300">
                             <span className="font-bold">MeSH:</span>
                             <span>{selectedAtom.ontology.mesh_id}</span>
                             {selectedAtom.ontology.mesh_term && (
-                              <span className="text-[10px] text-emerald-600/80">({selectedAtom.ontology.mesh_term})</span>
+                              <span className="text-[0.75rem] text-emerald-600/80">({selectedAtom.ontology.mesh_term})</span>
                             )}
                           </div>
                         )}
@@ -618,7 +618,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                             <span className="font-bold">ICD-11:</span>
                             <span>{selectedAtom.ontology.icd11_code}</span>
                             {selectedAtom.ontology.icd11_title && (
-                              <span className="text-[10px] text-blue-600/80">({selectedAtom.ontology.icd11_title})</span>
+                              <span className="text-[0.75rem] text-blue-600/80">({selectedAtom.ontology.icd11_title})</span>
                             )}
                           </div>
                         )}
@@ -627,7 +627,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                             <span className="font-bold">SNOMED CT:</span>
                             <span>{selectedAtom.ontology.snomed_ct}</span>
                             {selectedAtom.ontology.snomed_term && (
-                              <span className="text-[10px] text-purple-600/80">({selectedAtom.ontology.snomed_term})</span>
+                              <span className="text-[0.75rem] text-purple-600/80">({selectedAtom.ontology.snomed_term})</span>
                             )}
                           </div>
                         )}
@@ -647,7 +647,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                         <GraduationCap className="w-4 h-4 text-amber-500" />
                         <span>雙軌臨床精通架構 (Clinical Mastery Framework)</span>
                       </div>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-700 dark:text-amber-300 font-bold">
+                      <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-700 dark:text-amber-300 font-bold">
                         6 維全息醫學畫布
                       </span>
                     </div>
@@ -707,7 +707,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               <Lightbulb className="w-4 h-4 text-amber-500 shrink-0" />
                               <span>💡 通俗核心與心智模型</span>
                             </div>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 font-semibold">
+                            <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 font-semibold">
                               大眾 10 秒掌握 · 直覺譬喻
                             </span>
                           </div>
@@ -725,7 +725,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               <Dna className="w-4 h-4 text-indigo-500 shrink-0" />
                               <span>🔬 病理生理與生化機轉</span>
                             </div>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 font-semibold">
+                            <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 font-semibold">
                               專科醫師 · 分子受體路徑
                             </span>
                           </div>
@@ -743,7 +743,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               <Activity className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
                               <span>📊 臨床數據判讀與檢驗標準</span>
                             </div>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 font-semibold">
+                            <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 font-semibold">
                               檢驗醫學 · 診斷臨界值
                             </span>
                           </div>
@@ -761,7 +761,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               <Utensils className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                               <span>🥗 精準營養處方與生活型態</span>
                             </div>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 font-semibold">
+                            <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 font-semibold">
                               臨床營養師 · 劑量與搭配
                             </span>
                           </div>
@@ -779,7 +779,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               <AlertOctagon className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
                               <span>⚠️ 用藥交互、禁忌與警訊紅線</span>
                             </div>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 font-semibold">
+                            <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 font-semibold">
                               藥師與急診 · 剛性禁忌
                             </span>
                           </div>
@@ -797,7 +797,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
                               <span>💎 臨床珍珠與常見迷思闢謠</span>
                             </div>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 font-semibold">
+                            <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 font-semibold">
                               實證闢謠 · 臨床錦囊
                             </span>
                           </div>
@@ -838,7 +838,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="space-y-1 pt-2 border-t border-cyan-500/20 font-mono text-[11px] text-slate-700 dark:text-slate-300">
+                    <div className="space-y-1 pt-2 border-t border-cyan-500/20 font-mono text-[0.75rem] text-slate-700 dark:text-slate-300">
                       {derivationAudit?.rationaleSteps.map((step, idx) => (
                         <div key={idx} className="flex items-start gap-2">
                           <span className="text-salud-cyan-600 dark:text-salud-cyan font-bold">{idx + 1}.</span>
@@ -850,7 +850,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
 
                   {/* Evidence Records List */}
                   <div className="space-y-3">
-                    <span className="font-mono text-[11px] text-slate-500 block font-bold">
+                    <span className="font-mono text-[0.75rem] text-slate-500 block font-bold">
                       登錄之實證紀錄 (Evidence Records)：
                     </span>
                     {selectedAtom.evidence_records.map((ev) => {
@@ -860,7 +860,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                           key={ev.id}
                           className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 space-y-2.5 font-mono text-xs"
                         >
-                          <div className="flex justify-between items-center text-[11px]">
+                          <div className="flex justify-between items-center text-[0.75rem]">
                             <strong className="text-salud-cyan-700 dark:text-salud-cyan font-bold">{ev.id}</strong>
                             <div className="flex items-center gap-1.5">
                               <span className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
@@ -878,7 +878,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                               <h5 className="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm leading-snug">
                                 {ev.title}
                               </h5>
-                              <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 font-mono">
+                              <div className="flex flex-wrap items-center gap-2 text-[0.75rem] text-slate-500 font-mono">
                                 {ev.authors && <span>{ev.authors}</span>}
                                 {ev.journal && <span>· <strong className="text-slate-700 dark:text-slate-300">{ev.journal}</strong></span>}
                                 {ev.year && <span>({ev.year})</span>}
@@ -890,7 +890,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
 
                           {/* Effect Size if present */}
                           {ev.effect && (
-                            <div className="p-2.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/80 text-[11px] space-y-1">
+                            <div className="p-2.5 rounded-lg bg-slate-200/70 dark:bg-slate-800/80 text-[0.75rem] space-y-1">
                               <div>
                                 效應值：<strong>{ev.effect.measure} = {ev.effect.estimate}</strong>
                               </div>
@@ -902,7 +902,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                           )}
 
                           {/* External Academic Links Row */}
-                          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200 dark:border-slate-800 font-mono text-[10px]">
+                          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200 dark:border-slate-800 font-mono text-[0.75rem]">
                             {urls.doiUrl && (
                               <a
                                 href={urls.doiUrl}
@@ -958,7 +958,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                 <div className="space-y-5 animate-fade-in text-xs">
                   {/* Safety Predicates */}
                   <div className="space-y-2">
-                    <span className="font-mono text-[11px] text-slate-500 block font-bold">
+                    <span className="font-mono text-[0.75rem] text-slate-500 block font-bold">
                       安全圖譜關聯謂詞 (Safety Predicates)：
                     </span>
                     {selectedAtom.safety_predicate_ids && selectedAtom.safety_predicate_ids.length > 0 ? (
@@ -991,7 +991,7 @@ export const KnowledgeExplorerPage: React.FC = () => {
                   {/* Policy Ref if applicable */}
                   {selectedAtom.policy_ref_id && (
                     <div className="space-y-2">
-                      <span className="font-mono text-[11px] text-slate-500 block font-bold">
+                      <span className="font-mono text-[0.75rem] text-slate-500 block font-bold">
                         關聯公衛法規政策 (Taiwan Policy Object)：
                       </span>
                       {(() => {
@@ -1001,11 +1001,11 @@ export const KnowledgeExplorerPage: React.FC = () => {
                           <div className="p-3.5 rounded-xl border border-blue-300 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/20 space-y-2 font-mono text-xs">
                             <div className="flex justify-between items-center">
                               <strong className="text-blue-700 dark:text-blue-300 font-sans">{pol.title_zh}</strong>
-                              <span className="px-1.5 py-0.5 rounded bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-[10px]">
+                              <span className="px-1.5 py-0.5 rounded bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-[0.75rem]">
                                 生效日：{pol.effective_from}
                               </span>
                             </div>
-                            <div className="space-y-1 text-slate-700 dark:text-slate-300 text-[11px]">
+                            <div className="space-y-1 text-slate-700 dark:text-slate-300 text-[0.75rem]">
                               <div>篩檢模式：{pol.modality_zh}</div>
                               <div>週期：{pol.screening_interval_zh}</div>
                               <div>版本：{pol.policy_version}</div>

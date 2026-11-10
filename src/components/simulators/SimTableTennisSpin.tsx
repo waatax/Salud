@@ -72,7 +72,7 @@ export const SimTableTennisSpin: React.FC = () => {
               {language === 'zh-TW' ? '下旋 (削球)' : 'Backspin'}
             </button>
           </div>
-          <span className="text-[10px] text-slate-400 block pt-1">
+          <span className="text-[0.75rem] text-slate-400 block pt-1">
             {spinType === 'TOPSPIN' ? '氣流向下壓，急劇下墜' : '氣流向上托，空中飄行'}
           </span>
         </div>
@@ -92,7 +92,7 @@ export const SimTableTennisSpin: React.FC = () => {
             onChange={(e) => setSpinRpm(Number(e.target.value))}
             className="w-full accent-rose-400 cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>過度下旋 3000</span>
             <span>國手暴衝 9000+</span>
           </div>
@@ -113,7 +113,7 @@ export const SimTableTennisSpin: React.FC = () => {
             onChange={(e) => setSpeedKmh(Number(e.target.value))}
             className="w-full accent-cyan-400 cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>慢速相持 60</span>
             <span>極速前衝 110</span>
           </div>
@@ -129,7 +129,7 @@ export const SimTableTennisSpin: React.FC = () => {
             <span className="text-3xl font-extrabold text-white font-mono">{(magnusForceN * 1000).toFixed(1)}</span>
             <span className="text-xs text-slate-400 ml-1.5">mN (毫牛頓)</span>
           </div>
-          <span className="text-[11px] text-rose-400 font-mono">
+          <span className="text-[0.75rem] text-rose-400 font-mono">
             {language === 'zh-TW'
               ? `約等於球體自身重力的 ${(magnusForceN / (0.0027 * 9.81)).toFixed(1)} 倍！`
               : `${(magnusForceN / (0.0027 * 9.81)).toFixed(1)}x ball weight!`}
@@ -143,7 +143,7 @@ export const SimTableTennisSpin: React.FC = () => {
             <span className="text-3xl font-extrabold text-cyan-400 font-mono">{flightTimeMs}</span>
             <span className="text-xs text-slate-400 ml-1.5">毫秒 (ms)</span>
           </div>
-          <span className="text-[11px] text-slate-400">
+          <span className="text-[0.75rem] text-slate-400">
             {language === 'zh-TW' ? '容錯觸球窗口僅約 20ms' : 'Touch tolerance window ~20ms'}
           </span>
         </div>
@@ -155,7 +155,7 @@ export const SimTableTennisSpin: React.FC = () => {
             <span className="text-3xl font-extrabold text-amber-400 font-mono">{recommendedBladeAngle}°</span>
             <span className="text-xs text-slate-400 ml-1.5">拍面夾角</span>
           </div>
-          <span className="text-[11px] text-slate-300">
+          <span className="text-[0.75rem] text-slate-300">
             {spinType === 'TOPSPIN'
               ? (language === 'zh-TW' ? '壓低拍面前傾快撕，防止飛出底線' : 'Close paddle face to prevent pop-up long')
               : (language === 'zh-TW' ? '立拍稍仰迎前撞摩，防止直接下網' : 'Open paddle face to avoid netting')}

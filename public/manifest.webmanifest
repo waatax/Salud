@@ -1,0 +1,12 @@
+{
+  "name": "Salud｜給每個人的健康學習平台",
+  "short_name": "Salud",
+  "description": "用白話小課、圖解與研究來源，認識飲食、運動、睡眠、健檢與疾病照護。",
+  "lang": "zh-TW",
+  "start_url": "/Salud/",
+  "scope": "/Salud/",
+  "display": "standalone",
+  "background_color": "#F8FAF8",
+  "theme_color": "#065F46",
+  "icons": [{ "src": "/Salud/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

@@ -75,7 +75,7 @@ export const SimStrength1RM: React.FC = () => {
             onChange={(e) => setLiftWeightKg(Number(e.target.value))}
             className="w-full accent-salud-cyan cursor-pointer"
           />
-          <div className="text-[11px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             {language === 'zh-TW' ? '輸入當前能完成該次數之重量' : 'Weight lifted for current repetition set'}
           </div>
         </div>
@@ -95,7 +95,7 @@ export const SimStrength1RM: React.FC = () => {
             onChange={(e) => setRepsDone(Number(e.target.value))}
             className="w-full accent-amber-400 cursor-pointer"
           />
-          <div className="text-[11px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             {language === 'zh-TW' ? '建議在 RIR 0–2 (接近力竭) 準確度最高' : 'Most accurate when performed at RIR 0-2'}
           </div>
         </div>
@@ -110,7 +110,7 @@ export const SimStrength1RM: React.FC = () => {
             <span className="text-4xl font-extrabold text-white font-mono">{estimated1RM}</span>
             <span className="text-xs text-salud-cyan ml-1.5 font-bold">kg</span>
           </div>
-          <p className="text-[10px] text-slate-400 text-center">
+          <p className="text-[0.75rem] text-slate-400 text-center">
             Epley: {Math.round(epley1RM)}kg | Brzycki: {Math.round(brzycki1RM)}kg
           </p>
         </div>
@@ -126,11 +126,11 @@ export const SimStrength1RM: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-xs font-mono">
           {repPercentages.slice(1, 5).map((item) => (
             <div key={item.reps} className="p-3 rounded-xl bg-slate-800/70 border border-slate-700/60 flex flex-col justify-between">
-              <div className="flex justify-between items-center text-slate-400 text-[11px]">
+              <div className="flex justify-between items-center text-slate-400 text-[0.75rem]">
                 <span>{item.reps}</span>
                 <span className="font-bold text-salud-cyan">{item.weight} kg</span>
               </div>
-              <p className="text-[10px] text-slate-300 mt-2 line-clamp-2">
+              <p className="text-[0.75rem] text-slate-300 mt-2 line-clamp-2">
                 {language === 'zh-TW' ? item.goalZh : item.goalEn}
               </p>
             </div>
@@ -174,17 +174,17 @@ export const SimStrength1RM: React.FC = () => {
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
             <div className="text-slate-300 font-bold flex items-center justify-between">
               <span>{language === 'zh-TW' ? activeMuscle.name_zh : activeMuscle.name_en}</span>
-              <span className="text-[11px] text-cyan-400 font-mono">{activeMuscle.weekly_effective_sets}</span>
+              <span className="text-[0.75rem] text-cyan-400 font-mono">{activeMuscle.weekly_effective_sets}</span>
             </div>
-            <div className="text-slate-400 text-[11px] leading-relaxed">
+            <div className="text-slate-400 text-[0.75rem] leading-relaxed">
               <strong>{language === 'zh-TW' ? '肌電圖最佳化發力要訣：' : 'EMG Activation Cue: '}</strong>
               {language === 'zh-TW' ? activeMuscle.emg_activation_tip_zh : activeMuscle.emg_activation_tip_en}
             </div>
-            <div className="text-slate-400 text-[11px]">
+            <div className="text-slate-400 text-[0.75rem]">
               <strong>{language === 'zh-TW' ? '核心主項訓練：' : 'Key Exercises: '}</strong>
               <div className="flex flex-wrap gap-1 mt-1">
                 {activeMuscle.key_exercises.map((ex, i) => (
-                  <span key={i} className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px] border border-slate-700">
+                  <span key={i} className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-[0.75rem] border border-slate-700">
                     {ex}
                   </span>
                 ))}
@@ -218,14 +218,14 @@ export const SimStrength1RM: React.FC = () => {
                 <div className="w-[15%] bg-amber-500/70 h-full" title="MRV (19-22 sets)" />
                 <div className="w-[20%] bg-rose-500/70 h-full" title="Overtraining (>22 sets)" />
               </div>
-              <div className="flex justify-between text-[9px] font-mono text-slate-500">
+              <div className="flex justify-between text-[0.6875rem] font-mono text-slate-500">
                 <span>6 (MEV)</span>
                 <span>10–18 (MAV 甜蜜點)</span>
                 <span>22 (MRV 極限)</span>
               </div>
             </div>
 
-            <p className="text-[10px] text-slate-400">
+            <p className="text-[0.75rem] text-slate-400">
               {language === 'zh-TW'
                 ? '提示：每組必須落在 RIR 1–2 (離力竭剩1–2下) 才算「有效組數」。每組保留 4 下以上的組數大多屬於垃圾容量 (Junk Volume)。'
                 : 'Note: Only sets taken to RIR 1-2 qualify as effective volume. Sets with >4 reps in reserve are mostly junk volume.'}

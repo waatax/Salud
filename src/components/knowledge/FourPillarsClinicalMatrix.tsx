@@ -108,7 +108,7 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
               <Icon className="w-5 h-5" />
             </div>
             <div>
-              <span className={`text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded-full border ${cfg.badgeTone}`}>
+              <span className={`text-[0.75rem] font-mono uppercase font-bold px-2 py-0.5 rounded-full border ${cfg.badgeTone}`}>
                 {cfg.label_zh}
               </span>
               <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white pt-1">
@@ -149,7 +149,7 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
         {/* Red Flag Alert for Treatment or Safety */}
         {detail.caution && (
           <div className="p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-300 dark:border-red-900/60 text-xs text-red-900 dark:text-red-200 space-y-1">
-            <div className="flex items-center gap-1.5 font-bold text-red-700 dark:text-red-400 font-mono text-[11px]">
+            <div className="flex items-center gap-1.5 font-bold text-red-700 dark:text-red-400 font-mono text-[0.75rem]">
               <AlertOctagon className="w-3.5 h-3.5 animate-pulse" />
               <span>臨床警訊與急診紅線 (Clinical Warning Boundary)</span>
             </div>
@@ -159,7 +159,7 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
 
         {/* Action Button & Evidence Source */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200/60 dark:border-slate-800/60 text-xs">
-          <div className="text-[10px] text-slate-500 font-mono truncate max-w-xs" title={detail.evidence_source}>
+          <div className="text-[0.75rem] text-slate-500 font-mono truncate max-w-xs" title={detail.evidence_source}>
             實證來源：{detail.evidence_source}
           </div>
 
@@ -244,7 +244,7 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
                 >
                   <div className="flex items-center justify-between w-full">
                     <Icon className="w-4 h-4 shrink-0" />
-                    <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded-md ${active ? 'bg-white/20' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                    <span className={`text-[0.75rem] font-mono px-1.5 py-0.2 rounded-md ${active ? 'bg-white/20' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
                       {profile[cfg.key].evidence_grade} 級實證
                     </span>
                   </div>
@@ -252,7 +252,7 @@ export const FourPillarsClinicalMatrix: React.FC<Props> = ({ pageIdOrTopic, page
                     <span className="text-xs sm:text-sm font-bold block leading-tight">
                       {cfg.label_zh}
                     </span>
-                    <span className={`text-[10px] line-clamp-1 opacity-80 ${active ? 'text-white' : 'text-slate-500'}`}>
+                    <span className={`text-[0.75rem] line-clamp-1 opacity-80 ${active ? 'text-white' : 'text-slate-500'}`}>
                       {cfg.sublabel}
                     </span>
                   </div>

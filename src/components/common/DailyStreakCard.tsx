@@ -74,7 +74,7 @@ export const DailyStreakCard: React.FC<{ className?: string }> = ({ className = 
       {/* Today's Micro-Habit Recommendation */}
       <div className="mt-4 pt-4 border-t border-emerald-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
         <div className="flex items-start sm:items-center gap-2.5">
-          <span className="px-2 py-0.5 rounded-md bg-emerald-600 text-white font-mono text-[10px] font-bold shrink-0 mt-0.5 sm:mt-0">
+          <span className="px-2 py-0.5 rounded-md bg-emerald-600 text-white font-mono text-[0.75rem] font-bold shrink-0 mt-0.5 sm:mt-0">
             今日微習慣
           </span>
           <span className="font-bold text-slate-900 dark:text-white">

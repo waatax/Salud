@@ -117,7 +117,7 @@ export const SimCyclingPower: React.FC = () => {
             onChange={(e) => setFtpWatts(Number(e.target.value))}
             className="w-full accent-salud-cyan cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>{language === 'zh-TW' ? '功重比' : 'W/kg'}: <strong className="text-emerald-400">{ftpWkg} W/kg</strong></span>
             <span className={ftpLevel.color}>{language === 'zh-TW' ? ftpLevel.labelZh.split(' ')[0] : ftpLevel.labelEn.split(' ')[0]}</span>
           </div>
@@ -138,7 +138,7 @@ export const SimCyclingPower: React.FC = () => {
             onChange={(e) => setBodyWeightKg(Number(e.target.value))}
             className="w-full accent-salud-cyan cursor-pointer"
           />
-          <div className="text-[11px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             {language === 'zh-TW' ? '單車+裝備重' : 'Bike + Gear'}: <span className="text-slate-300">{bikeWeightKg} kg</span> (總重 {totalMassKg} kg)
           </div>
         </div>
@@ -154,7 +154,7 @@ export const SimCyclingPower: React.FC = () => {
               <button
                 key={grade}
                 onClick={() => setSlopeGradient(grade)}
-                className={`py-1 rounded-lg text-center font-bold text-[11px] transition-all ${
+                className={`py-1 rounded-lg text-center font-bold text-[0.75rem] transition-all ${
                   slopeGradient === grade
                     ? 'bg-cyan-600 text-white shadow'
                     : 'bg-slate-700/60 text-slate-300 hover:bg-slate-700'
@@ -164,7 +164,7 @@ export const SimCyclingPower: React.FC = () => {
               </button>
             ))}
           </div>
-          <div className="text-[10px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             {slopeGradient === 0 && (language === 'zh-TW' ? '空氣阻力佔 85% 以上' : 'Aero drag dominates >85%')}
             {slopeGradient === 3 && (language === 'zh-TW' ? '丘陵滾動地形 (Rolling hills)' : 'Rolling hills profile')}
             {slopeGradient === 7 && (language === 'zh-TW' ? '經典大山坡度 (阿里山/塔塔加)' : 'Classic alpine grade (7%)')}
@@ -187,7 +187,7 @@ export const SimCyclingPower: React.FC = () => {
             onChange={(e) => setTargetPctFtp(Number(e.target.value))}
             className="w-full accent-amber-400 cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>{targetWatts} W</span>
             <span className="text-amber-300 font-bold">{targetWkg} W/kg</span>
           </div>
@@ -206,7 +206,7 @@ export const SimCyclingPower: React.FC = () => {
             <span className="text-3xl font-extrabold text-white font-mono">{speedKmh}</span>
             <span className="text-xs text-slate-400 ml-1.5">km/h</span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">
+          <p className="text-[0.75rem] text-slate-400 leading-relaxed">
             {slopeGradient === 0
               ? (language === 'zh-TW' ? `平路輸出 ${targetWatts}W 下維持巡航。風阻隨速度三次方劇增。` : `Flat cruising at ${targetWatts}W. Aero drag scales with V³.`)
               : (language === 'zh-TW' ? `${slopeGradient}% 坡道對抗重力。體重每少 1kg 在此坡度可省約 3–4 瓦。` : `Climbing ${slopeGradient}%. Losing 1kg saves ~3-4W on this slope.`)}
@@ -223,7 +223,7 @@ export const SimCyclingPower: React.FC = () => {
             <span className="text-3xl font-extrabold text-emerald-400 font-mono">{vamMph}</span>
             <span className="text-xs text-slate-400 ml-1.5">m / hr</span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">
+          <p className="text-[0.75rem] text-slate-400 leading-relaxed">
             {vamMph > 0 ? (
               language === 'zh-TW'
                 ? `爬升 1,000 公尺高度約需 ${minutesFor1000m} 分鐘 (${(minutesFor1000m / 60).toFixed(1)} 小時)。`
@@ -244,7 +244,7 @@ export const SimCyclingPower: React.FC = () => {
             <span className="text-3xl font-extrabold text-amber-400 font-mono">{carbInfo.gPerHour}</span>
             <span className="text-xs text-slate-400 ml-1.5">carbs / hr</span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">
+          <p className="text-[0.75rem] text-slate-400 leading-relaxed">
             {language === 'zh-TW' ? carbInfo.fuelSourceZh : carbInfo.fuelSourceEn}
           </p>
         </div>
@@ -257,7 +257,7 @@ export const SimCyclingPower: React.FC = () => {
             <Info className="w-3.5 h-3.5 text-salud-cyan" />
             {language === 'zh-TW' ? '個人化 Coggan 7 區功率盤 (基於 FTP 換算)' : 'Personalized Coggan 7-Zone Chart (Calculated from FTP)'}
           </h4>
-          <span className="text-[11px] font-mono text-cyan-400">
+          <span className="text-[0.75rem] font-mono text-cyan-400">
             {language === 'zh-TW' ? `當前選取：${activeZone.name_zh}` : `Current: ${activeZone.name_en}`}
           </span>
         </div>
@@ -265,7 +265,7 @@ export const SimCyclingPower: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs font-mono">
             <thead>
-              <tr className="border-b border-slate-800 text-slate-400 text-[11px]">
+              <tr className="border-b border-slate-800 text-slate-400 text-[0.75rem]">
                 <th className="py-2 px-2">區間</th>
                 <th className="py-2 px-2">名稱</th>
                 <th className="py-2 px-2">瓦數範圍</th>
@@ -306,7 +306,7 @@ export const SimCyclingPower: React.FC = () => {
                       {idx === 6 && `> ${minW} W`}
                     </td>
                     <td className="py-2 px-2 hidden sm:table-cell text-slate-400">{z.ftp_pct_range}</td>
-                    <td className="py-2 px-2 hidden md:table-cell text-[11px] text-slate-400">
+                    <td className="py-2 px-2 hidden md:table-cell text-[0.75rem] text-slate-400">
                       {language === 'zh-TW' ? z.physiological_adaptation_zh : z.physiological_adaptation_en}
                     </td>
                   </tr>

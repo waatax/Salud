@@ -56,7 +56,7 @@ export const RunningInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-amber-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-amber-500 font-bold block">
                 {RUNNING_INFOGRAPHICS[0].id} · {RUNNING_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -95,21 +95,21 @@ export const RunningInfographics: React.FC = () => {
           </div>
 
           {/* Biomechanical Data Spotlight */}
-          <div className="grid grid-cols-3 gap-2 text-center font-mono text-[11px]">
+          <div className="grid grid-cols-3 gap-2 text-center font-mono text-[0.75rem]">
             <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] text-slate-400 block">垂直振幅 (Oscillation)</span>
+              <span className="text-[0.75rem] text-slate-400 block">垂直振幅 (Oscillation)</span>
               <span className={`font-bold ${cadenceMode === '180' ? 'text-nature-green-600 dark:text-nature-green-400' : 'text-rose-500'}`}>
                 {cadenceMode === '180' ? '6.2 cm (省力)' : '10.8 cm (起伏大)'}
               </span>
             </div>
             <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] text-slate-400 block">觸地時間 (GCT)</span>
+              <span className="text-[0.75rem] text-slate-400 block">觸地時間 (GCT)</span>
               <span className={`font-bold ${cadenceMode === '180' ? 'text-nature-green-600 dark:text-nature-green-400' : 'text-rose-500'}`}>
                 {cadenceMode === '180' ? '198 ms (彈簧)' : '285 ms (黏地)'}
               </span>
             </div>
             <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <span className="text-[10px] text-slate-400 block">髕骨壓力 (PFJRF)</span>
+              <span className="text-[0.75rem] text-slate-400 block">髕骨壓力 (PFJRF)</span>
               <span className={`font-bold ${cadenceMode === '180' ? 'text-nature-green-600 dark:text-nature-green-400' : 'text-rose-500'}`}>
                 {cadenceMode === '180' ? '5.1x 體重' : '6.6x 體重 (+25%)'}
               </span>
@@ -184,7 +184,7 @@ export const RunningInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-nature-sky-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-nature-sky-500 font-bold block">
                 {RUNNING_INFOGRAPHICS[1].id} · {RUNNING_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -277,7 +277,7 @@ export const RunningInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-emerald-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-emerald-500 font-bold block">
                 {RUNNING_INFOGRAPHICS[2].id} · {RUNNING_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -314,7 +314,7 @@ export const RunningInfographics: React.FC = () => {
               <span className="font-bold text-emerald-800 dark:text-emerald-300 text-xs">
                 {sscPhases[sscPhase].titleZh}
               </span>
-              <span className="text-[10px] font-mono bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded font-bold">
+              <span className="text-[0.75rem] font-mono bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded font-bold">
                 {sscPhases[sscPhase].energyZh}
               </span>
             </div>
@@ -379,7 +379,7 @@ export const RunningInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-nature-green-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-nature-green-500 font-bold block">
                 {RUNNING_INFOGRAPHICS[3].id} · {RUNNING_INFOGRAPHICS[3].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -410,15 +410,15 @@ export const RunningInfographics: React.FC = () => {
               onChange={(e) => setCarbIntake(Number(e.target.value))}
               className="w-full accent-nature-green-500 cursor-pointer"
             />
-            <div className="grid grid-cols-2 gap-2 pt-1 font-mono text-[11px]">
+            <div className="grid grid-cols-2 gap-2 pt-1 font-mono text-[0.75rem]">
               <div className="p-2 rounded-lg bg-rose-500/10 border border-rose-500/30">
-                <span className="text-[10px] text-slate-400 block">單一葡萄糖吸收上限 (SGLT1)</span>
+                <span className="text-[0.75rem] text-slate-400 block">單一葡萄糖吸收上限 (SGLT1)</span>
                 <span className="font-extrabold text-xs text-rose-600 dark:text-rose-400">
                   {carbData.singleGlucose} g/h (溢流發酵)
                 </span>
               </div>
               <div className="p-2 rounded-lg bg-nature-green-500/10 border border-nature-green-500/30">
-                <span className="text-[10px] text-slate-400 block">雙通道配方吸收量 (SGLT1+GLUT5)</span>
+                <span className="text-[0.75rem] text-slate-400 block">雙通道配方吸收量 (SGLT1+GLUT5)</span>
                 <span className="font-extrabold text-xs text-nature-green-600 dark:text-nature-green-400">
                   {carbData.dualTotal} g/h (突破上限)
                 </span>

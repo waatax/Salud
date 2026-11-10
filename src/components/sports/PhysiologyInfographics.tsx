@@ -88,7 +88,7 @@ export const PhysiologyInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-salud-cyan font-bold block">
+              <span className="text-[0.75rem] font-mono text-salud-cyan font-bold block">
                 {PHYSIOLOGY_INFOGRAPHICS[0].id} · {PHYSIOLOGY_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -119,17 +119,17 @@ export const PhysiologyInfographics: React.FC = () => {
               onChange={(e) => setSelectedHrPct(Number(e.target.value))}
               className="w-full accent-salud-cyan cursor-pointer"
             />
-            <div className="grid grid-cols-3 gap-2 pt-1 text-center font-mono text-[11px]">
+            <div className="grid grid-cols-3 gap-2 pt-1 text-center font-mono text-[0.75rem]">
               <div className="p-1.5 rounded-lg bg-nature-green-500/10 border border-nature-green-500/30 text-nature-green-700 dark:text-nature-green-400">
-                <div className="text-[9px] text-slate-400">脂肪氧化 (Fat)</div>
+                <div className="text-[0.6875rem] text-slate-400">脂肪氧化 (Fat)</div>
                 <div className="font-extrabold text-xs">{currentSubstrate.fatPct}%</div>
               </div>
               <div className="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400">
-                <div className="text-[9px] text-slate-400">碳水酵解 (Carb)</div>
+                <div className="text-[0.6875rem] text-slate-400">碳水酵解 (Carb)</div>
                 <div className="font-extrabold text-xs">{currentSubstrate.carbPct}%</div>
               </div>
               <div className="p-1.5 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-400">
-                <div className="text-[9px] text-slate-400">血乳酸 (Lactate)</div>
+                <div className="text-[0.6875rem] text-slate-400">血乳酸 (Lactate)</div>
                 <div className="font-extrabold text-xs">{currentSubstrate.lactate} mmol/L</div>
               </div>
             </div>
@@ -228,7 +228,7 @@ export const PhysiologyInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-nature-amber-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-nature-amber-500 font-bold block">
                 {PHYSIOLOGY_INFOGRAPHICS[1].id} · {PHYSIOLOGY_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -243,7 +243,7 @@ export const PhysiologyInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Tier Switcher */}
-          <div className="grid grid-cols-5 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[10px] font-mono font-bold">
+          <div className="grid grid-cols-5 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[0.75rem] font-mono font-bold">
             {fitnessTiers.map((tier, idx) => (
               <button
                 key={idx}
@@ -265,15 +265,15 @@ export const PhysiologyInfographics: React.FC = () => {
               <div className="text-xs font-bold text-nature-amber-800 dark:text-nature-amber-300">
                 {fitnessTiers[selectedFitnessTier].nameZh}
               </div>
-              <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
+              <div className="text-[0.75rem] text-slate-600 dark:text-slate-400 mt-0.5">
                 VO2 max 門檻：{fitnessTiers[selectedFitnessTier].vo2}
               </div>
-              <div className="text-[10px] text-slate-500 mt-0.5">
+              <div className="text-[0.75rem] text-slate-500 mt-0.5">
                 {fitnessTiers[selectedFitnessTier].descZh}
               </div>
             </div>
             <div className="text-right shrink-0">
-              <span className="text-[10px] font-mono text-slate-400 block">死亡風險比 (HR)</span>
+              <span className="text-[0.75rem] font-mono text-slate-400 block">死亡風險比 (HR)</span>
               <span className="text-base font-extrabold font-mono text-nature-amber-600 dark:text-nature-amber-400">
                 {fitnessTiers[selectedFitnessTier].hrVal}
               </span>
@@ -334,7 +334,7 @@ export const PhysiologyInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-purple-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-purple-500 font-bold block">
                 {PHYSIOLOGY_INFOGRAPHICS[2].id} · {PHYSIOLOGY_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -371,7 +371,7 @@ export const PhysiologyInfographics: React.FC = () => {
               <span className="font-bold text-purple-800 dark:text-purple-300 text-xs">
                 {organDetails[selectedOrgan].nameZh}
               </span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-purple-500/20 text-purple-700 dark:text-purple-300 font-bold">
+              <span className="px-2 py-0.5 rounded text-[0.75rem] font-mono bg-purple-500/20 text-purple-700 dark:text-purple-300 font-bold">
                 {organDetails[selectedOrgan].myokine}
               </span>
             </div>
@@ -431,7 +431,7 @@ export const PhysiologyInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-salud-cyan font-bold block">
+              <span className="text-[0.75rem] font-mono text-salud-cyan font-bold block">
                 {PHYSIOLOGY_INFOGRAPHICS[3].id} · {PHYSIOLOGY_INFOGRAPHICS[3].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">

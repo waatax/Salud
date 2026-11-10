@@ -135,7 +135,7 @@ export const GerdUlcerChapter: React.FC = () => (
           header: '臨床意義與治療策略',
           render: (r) => (
             <div className="space-y-1">
-              <span className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[11px] font-semibold ${r.tone === 'good' ? 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-200 dark:border-emerald-800' : r.tone === 'warn' ? 'bg-amber-50 text-amber-900 border-amber-300 dark:bg-amber-950/50 dark:text-amber-200 dark:border-amber-800' : 'bg-rose-50 text-rose-800 border-rose-300 dark:bg-rose-950/50 dark:text-rose-200 dark:border-rose-800'}`}>{r.grade.split('（')[0]}</span>
+              <span className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[0.75rem] font-semibold ${r.tone === 'good' ? 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-200 dark:border-emerald-800' : r.tone === 'warn' ? 'bg-amber-50 text-amber-900 border-amber-300 dark:bg-amber-950/50 dark:text-amber-200 dark:border-amber-800' : 'bg-rose-50 text-rose-800 border-rose-300 dark:bg-rose-950/50 dark:text-rose-200 dark:border-rose-800'}`}>{r.grade.split('（')[0]}</span>
               <p className="text-[13px]">{r.meaning}</p>
             </div>
           ),
@@ -571,7 +571,7 @@ export const EndoscopyTriageChapter: React.FC = () => (
           header: '臨床解讀',
           render: (r) => (
             <div className="flex flex-wrap items-center gap-2">
-              <span className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[11px] font-semibold ${r.tone === 'good' ? 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-200 dark:border-emerald-800' : r.tone === 'warn' ? 'bg-amber-50 text-amber-900 border-amber-300 dark:bg-amber-950/50 dark:text-amber-200 dark:border-amber-800' : 'bg-slate-50 text-slate-700 border-slate-300 dark:bg-slate-800/60 dark:text-slate-300 dark:border-slate-700'}`}>{r.type}</span>
+              <span className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[0.75rem] font-semibold ${r.tone === 'good' ? 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-200 dark:border-emerald-800' : r.tone === 'warn' ? 'bg-amber-50 text-amber-900 border-amber-300 dark:bg-amber-950/50 dark:text-amber-200 dark:border-amber-800' : 'bg-slate-50 text-slate-700 border-slate-300 dark:bg-slate-800/60 dark:text-slate-300 dark:border-slate-700'}`}>{r.type}</span>
               <span>{r.meaning}</span>
             </div>
           ),

@@ -54,7 +54,7 @@ export const FigureContainer: React.FC<Props> = ({ meta, children, className = '
             >
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
-            <span className="px-1.5 text-[10px] font-mono font-bold select-none">{Math.round(zoomLevel * 100)}%</span>
+            <span className="px-1.5 text-[0.75rem] font-mono font-bold select-none">{Math.round(zoomLevel * 100)}%</span>
             <button
               onClick={handleZoomIn}
               disabled={zoomLevel >= 2.5}
@@ -146,7 +146,7 @@ export const FigureContainer: React.FC<Props> = ({ meta, children, className = '
               <Table className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               無障礙等價資料表 (TBL-{meta.id.replace('FIG-', '')})
             </h5>
-            <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">
               與圖解數值完全同步
             </span>
           </div>
@@ -202,13 +202,13 @@ export const FigureContainer: React.FC<Props> = ({ meta, children, className = '
         </p>
 
         {meta.scale_disclaimer && (
-          <div className="text-[11px] text-salud-amber-700 dark:text-salud-amber-400/90 font-mono bg-salud-amber-500/10 px-2.5 py-1 rounded inline-block">
+          <div className="text-[0.75rem] text-salud-amber-700 dark:text-salud-amber-400/90 font-mono bg-salud-amber-500/10 px-2.5 py-1 rounded inline-block">
             ⚠ 示意圖，非真實細胞等比例縮放
           </div>
         )}
 
         {/* Source and Review Governance Badge */}
-        <div className="pt-2 border-t border-salud-light-border/60 dark:border-salud-dark-border/40 flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 gap-2">
+        <div className="pt-2 border-t border-salud-light-border/60 dark:border-salud-dark-border/40 flex flex-wrap items-center justify-between text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 gap-2">
           <div className="flex flex-wrap items-center gap-2">
             <span>來源：{meta.data_source_ids.join(', ')}</span>
             <span>·</span>

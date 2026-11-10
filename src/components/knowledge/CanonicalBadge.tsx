@@ -32,15 +32,15 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
         title={`檢視規範知識錨點 ${atom.id} 及防誤用指引`}
         className={`inline-flex items-center gap-1.5 transition-all text-left font-mono ${
           variant === 'pill'
-            ? 'px-2 py-0.5 rounded-full text-[11px] bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-900/60 hover:border-emerald-400'
+            ? 'px-2 py-0.5 rounded-full text-[0.75rem] bg-emerald-950/70 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-900/60 hover:border-emerald-400'
             : variant === 'compact'
-            ? 'px-1.5 py-0.2 rounded text-[10px] bg-[#14221b] border border-emerald-800/60 text-emerald-400 hover:text-white'
+            ? 'px-1.5 py-0.2 rounded text-[0.75rem] bg-[#14221b] border border-emerald-800/60 text-emerald-400 hover:text-white'
             : 'text-xs text-emerald-400 underline underline-offset-2 hover:text-emerald-300'
         } ${className}`}
       >
         <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
         <span className="font-semibold">{atom.id}</span>
-        <span className="text-[9px] uppercase px-1 py-0.2 rounded bg-emerald-900/60 text-emerald-200">
+        <span className="text-[0.6875rem] uppercase px-1 py-0.2 rounded bg-emerald-900/60 text-emerald-200">
           {atom.derived_certainty}
         </span>
       </button>
@@ -63,7 +63,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                 </span>
                 <div>
                   <div className="font-mono text-xs font-bold text-emerald-300">{atom.id}</div>
-                  <div className="text-[11px] text-slate-400">
+                  <div className="text-[0.75rem] text-slate-400">
                     規範知識錨點 (Canonical Evidence Atom)
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
             {/* Content Body */}
             <div className="mt-4 space-y-3">
               <div>
-                <div className="text-[11px] text-slate-400 font-semibold mb-1">醫學斷言陳述</div>
+                <div className="text-[0.75rem] text-slate-400 font-semibold mb-1">醫學斷言陳述</div>
                 <p className="text-xs text-slate-200 leading-relaxed font-medium">
                   {atom.statement_zh}
                 </p>
@@ -91,13 +91,13 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                   <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
                   防誤用防線 (Misuse Guard)
                 </div>
-                <p className="text-[11px] text-slate-300 leading-relaxed">
+                <p className="text-[0.75rem] text-slate-300 leading-relaxed">
                   {atom.misuse_guard}
                 </p>
               </div>
 
               {/* Meta details */}
-              <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-400 pt-2 border-t border-emerald-900/40">
+              <div className="grid grid-cols-2 gap-2 text-[0.75rem] text-slate-400 pt-2 border-t border-emerald-900/40">
                 <div>
                   適用族群：<span className="text-slate-200">{atom.applies_to.population}</span>
                 </div>
@@ -117,7 +117,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                 const firstEv = atom.evidence_records[0];
                 const urls = buildPaperUrls(firstEv);
                 return (
-                  <div className="p-3 rounded-xl bg-black/40 border border-emerald-900/60 space-y-1.5 font-mono text-[11px]">
+                  <div className="p-3 rounded-xl bg-black/40 border border-emerald-900/60 space-y-1.5 font-mono text-[0.75rem]">
                     <div className="flex items-center justify-between text-slate-400">
                       <span className="font-bold flex items-center gap-1 text-emerald-400">
                         <BookOpen className="w-3 h-3" />
@@ -128,7 +128,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                           href={urls.doiUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-400 hover:underline flex items-center gap-0.5 text-[10px]"
+                          className="text-blue-400 hover:underline flex items-center gap-0.5 text-[0.75rem]"
                         >
                           <span>DOI: {firstEv.doi}</span>
                           <ExternalLink className="w-2.5 h-2.5" />
@@ -142,7 +142,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                     ) : (
                       <div className="text-slate-300 font-sans">{firstEv.citation}</div>
                     )}
-                    <div className="text-[10px] text-slate-500">
+                    <div className="text-[0.75rem] text-slate-500">
                       {firstEv.journal} {firstEv.year ? `(${firstEv.year})` : ''} {firstEv.authors ? `· ${firstEv.authors}` : ''}
                     </div>
 
@@ -151,7 +151,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                         href={urls.scholarUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[10px] bg-amber-950/70 hover:bg-amber-900/70 border border-amber-600/40 text-amber-300 px-2 py-0.5 rounded transition-colors font-bold"
+                        className="inline-flex items-center gap-1 text-[0.75rem] bg-amber-950/70 hover:bg-amber-900/70 border border-amber-600/40 text-amber-300 px-2 py-0.5 rounded transition-colors font-bold"
                       >
                         <span>Google Scholar 檢索</span>
                         <ExternalLink className="w-2.5 h-2.5" />
@@ -161,7 +161,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
                           href={urls.pubmedUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[10px] bg-emerald-950/70 hover:bg-emerald-900/70 border border-emerald-600/40 text-emerald-300 px-2 py-0.5 rounded transition-colors"
+                          className="inline-flex items-center gap-1 text-[0.75rem] bg-emerald-950/70 hover:bg-emerald-900/70 border border-emerald-600/40 text-emerald-300 px-2 py-0.5 rounded transition-colors"
                         >
                           <span>PubMed 原文</span>
                           <ExternalLink className="w-2.5 h-2.5" />
@@ -175,7 +175,7 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
 
             {/* Jump to Explorer */}
             <div className="mt-4 pt-3 border-t border-emerald-900/40 flex items-center justify-between">
-              <span className="text-[10px] text-slate-500 font-mono">
+              <span className="text-[0.75rem] text-slate-500 font-mono">
                 Salud Layer 1 Canonical Pack
               </span>
               <a

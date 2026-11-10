@@ -42,19 +42,19 @@ export const FatLossMetabolismPanel: React.FC = () => {
           <div className="grid grid-cols-2 gap-2 shrink-0">
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-rose-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-rose-600 dark:text-rose-400">84%</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">經呼吸吐出 (CO2)</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">經呼吸吐出 (CO2)</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-rose-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-amber-600 dark:text-amber-400">&gt; 90%</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">胰島素抑制脂解率</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">胰島素抑制脂解率</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-rose-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-emerald-600 dark:text-emerald-400">15-20%</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">安全熱量赤字區間</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">安全熱量赤字區間</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-rose-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-blue-600 dark:text-blue-400">10,000 步</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">NEAT 產熱防線</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">NEAT 產熱防線</div>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ export const FatLossMetabolismPanel: React.FC = () => {
                 }`}
               >
                 <div className="font-mono text-xs font-extrabold">0{s.step_number}</div>
-                <div className="text-[11px] font-bold mt-1 truncate hidden sm:block">
+                <div className="text-[0.75rem] font-bold mt-1 truncate hidden sm:block">
                   {s.stage_name_zh.split('：')[0]}
                 </div>
               </button>
@@ -148,11 +148,11 @@ export const FatLossMetabolismPanel: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-200/60 dark:border-slate-800">
-            <span className="text-[11px] font-mono text-slate-500">相關參與關鍵酵素：</span>
+            <span className="text-[0.75rem] font-mono text-slate-500">相關參與關鍵酵素：</span>
             {activeStep.biochemical_enzymes.map((enz, idx) => (
               <span
                 key={idx}
-                className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950 border border-rose-200 dark:border-rose-900/60 text-rose-800 dark:text-rose-300 font-bold"
+                className="text-[0.75rem] font-mono px-2 py-0.5 rounded-md bg-rose-50 dark:bg-rose-950 border border-rose-200 dark:border-rose-900/60 text-rose-800 dark:text-rose-300 font-bold"
               >
                 {enz}
               </span>

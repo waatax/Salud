@@ -72,7 +72,7 @@ export const MobilityPhysioGuide: React.FC = () => {
             {/* Title & Badge */}
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[10px] font-mono font-bold text-rose-500 uppercase tracking-wider">
+                <span className="text-[0.75rem] font-mono font-bold text-rose-500 uppercase tracking-wider">
                   目標肌群：{ex.target_area_zh}
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-0.5">
@@ -98,7 +98,7 @@ export const MobilityPhysioGuide: React.FC = () => {
               <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-200">
                 {ex.step_by_step_zh.map((step, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center font-mono text-[10px] shrink-0 mt-0.5">
+                    <span className="w-4 h-4 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center font-mono text-[0.75rem] shrink-0 mt-0.5">
                       {idx + 1}
                     </span>
                     <span>{step}</span>

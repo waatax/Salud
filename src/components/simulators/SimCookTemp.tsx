@@ -69,7 +69,7 @@ export const SimCookTemp: React.FC = () => {
             <Flame className="w-5 h-5" />
           </div>
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
+            <span className="font-mono text-[0.75rem] uppercase tracking-wider px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
               SIM-COOK-TEMP · v0.1
             </span>
             <h3 className="text-base sm:text-lg font-display font-bold text-salud-light-text dark:text-salud-dark-text">
@@ -97,7 +97,7 @@ export const SimCookTemp: React.FC = () => {
                 }`}
               >
                 <div className="text-xs text-slate-800 dark:text-slate-200 font-semibold">{m.name}</div>
-                <div className="text-[10px] text-slate-500 font-mono mt-0.5">預設 ~{m.defaultTemp}°C</div>
+                <div className="text-[0.75rem] text-slate-500 font-mono mt-0.5">預設 ~{m.defaultTemp}°C</div>
               </button>
             ))}
           </div>
@@ -127,7 +127,7 @@ export const SimCookTemp: React.FC = () => {
               <RotateCcw className="w-4 h-4 text-orange-600 dark:text-orange-400" />
               <div>
                 <span className="font-semibold text-slate-800 dark:text-slate-200">油炸油回鍋重複使用次數：</span>
-                <span className="text-slate-500 dark:text-slate-400 block text-[11px]">台灣法規監測總極性化合物 (TPC)</span>
+                <span className="text-slate-500 dark:text-slate-400 block text-[0.75rem]">台灣法規監測總極性化合物 (TPC)</span>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -179,11 +179,11 @@ export const SimCookTemp: React.FC = () => {
               >
                 <div>
                   <span className="font-bold text-slate-800 dark:text-slate-200">{oil.name_zh}</span>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
+                  <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 block">
                     {oil.is_local_tw ? '在地優選 · ' : ''}發煙點 ~{oil.smoke_point_c}°C
                   </span>
                 </div>
-                <span className="font-mono text-emerald-700 dark:text-emerald-400 font-semibold text-[11px]">
+                <span className="font-mono text-emerald-700 dark:text-emerald-400 font-semibold text-[0.75rem]">
                   MUFA {oil.mufa_pct}%
                 </span>
               </div>
@@ -209,9 +209,9 @@ export const SimCookTemp: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-red-900 dark:text-red-200">{oil.name_zh}</span>
-                    <span className="font-mono text-[10px] text-red-600 dark:text-red-400">發煙點 ~{oil.smoke_point_c}°C</span>
+                    <span className="font-mono text-[0.75rem] text-red-600 dark:text-red-400">發煙點 ~{oil.smoke_point_c}°C</span>
                   </div>
-                  <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-tight">{reason}</p>
+                  <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 leading-tight">{reason}</p>
                 </div>
               ))
             )}

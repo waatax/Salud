@@ -40,11 +40,11 @@ export const LongevityIterationLog: React.FC = () => {
         <div className="flex items-center gap-2 shrink-0">
           <div className="p-3 rounded-2xl bg-white/90 dark:bg-white/5 border border-emerald-200 dark:border-white/10 text-center shadow-xs">
             <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-salud-cyan">7 輪</div>
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">閉門專題會議</div>
+            <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-medium">閉門專題會議</div>
           </div>
           <div className="p-3 rounded-2xl bg-white/90 dark:bg-white/5 border border-amber-200 dark:border-white/10 text-center shadow-xs">
             <div className="text-xl font-mono font-extrabold text-amber-700 dark:text-amber-400">49 焦點</div>
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">7×7 配對 INFOGRAPH</div>
+            <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-medium">7×7 配對 INFOGRAPH</div>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ export const LongevityIterationLog: React.FC = () => {
                   : 'bg-white/90 dark:bg-slate-900/60 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/50'
               }`}
             >
-              <div className={`text-[10px] font-mono font-bold ${isActive ? 'text-emerald-100' : 'text-emerald-700 dark:text-salud-cyan'}`}>
+              <div className={`text-[0.75rem] font-mono font-bold ${isActive ? 'text-emerald-100' : 'text-emerald-700 dark:text-salud-cyan'}`}>
                 Round 0{r.round}
               </div>
               <div className={`font-bold text-xs mt-0.5 truncate ${isActive ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
@@ -94,7 +94,7 @@ export const LongevityIterationLog: React.FC = () => {
           </div>
 
           <div className="px-3.5 py-2 rounded-2xl bg-emerald-50/80 dark:bg-slate-950 border border-emerald-200 dark:border-salud-cyan/30 text-center shrink-0 shadow-xs">
-            <div className="text-[9px] font-mono text-slate-500 dark:text-slate-400">配對視覺資訊圖</div>
+            <div className="text-[0.6875rem] font-mono text-slate-500 dark:text-slate-400">配對視覺資訊圖</div>
             <div className="text-xs font-mono font-bold text-emerald-800 dark:text-salud-cyan mt-0.5">
               {activeRound.infograph_paired}
             </div>
@@ -108,7 +108,7 @@ export const LongevityIterationLog: React.FC = () => {
               <MessageSquare className="w-4 h-4 text-amber-600 dark:text-amber-400" />
               <span>專家激烈交鋒與爭論焦點 (The Debate)</span>
             </div>
-            <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
               {activeRound.key_debate_zh}
             </p>
           </div>
@@ -118,7 +118,7 @@ export const LongevityIterationLog: React.FC = () => {
               <FileCheck className="w-4 h-4 text-teal-600 dark:text-salud-cyan" />
               <span>重大修訂與體系升級 (Major Revision)</span>
             </div>
-            <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
               {activeRound.major_revision_zh}
             </p>
           </div>
@@ -131,7 +131,7 @@ export const LongevityIterationLog: React.FC = () => {
               <Eye className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>閱讀性與互動體驗提升 (Readability)</span>
             </div>
-            <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
               {activeRound.readability_enhancement_zh}
             </p>
           </div>
@@ -141,7 +141,7 @@ export const LongevityIterationLog: React.FC = () => {
               <BookOpen className="w-4 h-4 text-purple-600 dark:text-purple-400" />
               <span>生化機制與知識深度進化 (Knowledge Depth)</span>
             </div>
-            <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
               {activeRound.knowledge_depth_zh}
             </p>
           </div>
@@ -152,7 +152,7 @@ export const LongevityIterationLog: React.FC = () => {
           <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div className="space-y-1">
             <span className="font-bold text-emerald-800 dark:text-emerald-300">本輪專家多學科裁決共識：</span>
-            <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed italic">
+            <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed italic">
               「{activeRound.consensus_statement_zh}」
             </p>
           </div>

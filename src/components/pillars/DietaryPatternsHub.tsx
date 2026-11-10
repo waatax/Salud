@@ -6,6 +6,7 @@ import { CHAPTERS as chapters } from '../../data/chapters';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
 import { PillarHubTemplate } from '../common/PillarHubTemplate';
+import { HUB_PRIMERS } from '../../data/hubPrimers';
 import {
   Wheat,
   Droplets,
@@ -38,11 +39,7 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
 
   return (
     <PillarHubTemplate
-      pillarTag="Health Pillar 01 · 飲食與全營養保健總樞紐"
-      title={language === 'zh-TW' ? '飲食模式、核心營養素與生化代謝' : 'Dietary Patterns, Core Nutrients & Metabolism'}
-      description="人體能量與結構物質的根本來源。本支柱涵蓋「各式飲食核心重點（碳水、纖維、蛋白質、維生素、微量元素、脂肪、水、營養保健，酒精排後）」、「營養保健品 GRADE A-E 實證防火牆」、「五大主流飲食法深度生化機制對照」與核心旗艦專章。"
-      gradientClass="border-nature-amber-200/90 dark:border-nature-amber-800/40 bg-gradient-to-br from-nature-amber-100/70 via-white to-nature-green-50/50 dark:from-nature-amber-950/40 dark:via-salud-dark-card/60 dark:to-slate-950"
-      tagClass="border-nature-amber-300/80 bg-nature-amber-100/80 text-nature-amber-800 dark:border-nature-amber-700/60 dark:bg-nature-amber-950/60 dark:text-nature-amber-300"
+      primer={HUB_PRIMERS.diet}
       overviewSection={
         <div className="space-y-4">
           {/* Sub-Tab Switcher Bar */}
@@ -115,28 +112,28 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-center text-xs">
                   <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-0.5 shadow-sm">
-                    <span className="text-slate-400 text-[10px] block">Level 1</span>
+                    <span className="text-slate-400 text-[0.75rem] block">Level 1</span>
                     <strong className="text-slate-800 dark:text-slate-300">一般食品</strong>
-                    <span className="text-[10px] text-slate-500 block">嚴禁任何療效或生理調節宣稱</span>
+                    <span className="text-[0.75rem] text-slate-500 block">嚴禁任何療效或生理調節宣稱</span>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-0.5 shadow-sm">
-                    <span className="text-slate-400 text-[10px] block">Level 2</span>
+                    <span className="text-slate-400 text-[0.75rem] block">Level 2</span>
                     <strong className="text-nature-sky-700 dark:text-nature-sky-400 font-bold">膳食營養補充劑</strong>
-                    <span className="text-[10px] text-slate-500 block">補充日常飲食微量營養素不足</span>
+                    <span className="text-[0.75rem] text-slate-500 block">補充日常飲食微量營養素不足</span>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-0.5 shadow-sm">
-                    <span className="text-slate-400 text-[10px] block">Level 3</span>
+                    <span className="text-slate-400 text-[0.75rem] block">Level 3</span>
                     <strong className="text-nature-green-700 dark:text-nature-green-400 font-bold">健康食品 (小綠人標章)</strong>
-                    <span className="text-[10px] text-slate-500 block">具許可證特定保健功效審核</span>
+                    <span className="text-[0.75rem] text-slate-500 block">具許可證特定保健功效審核</span>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-0.5 shadow-sm">
-                    <span className="text-slate-400 text-[10px] block">Level 4</span>
+                    <span className="text-slate-400 text-[0.75rem] block">Level 4</span>
                     <strong className="text-purple-700 dark:text-purple-400 font-bold">指示/處方藥品</strong>
-                    <span className="text-[10px] text-slate-500 block">具明確治療疾病之大規模臨床驗證</span>
+                    <span className="text-[0.75rem] text-slate-500 block">具明確治療疾病之大規模臨床驗證</span>
                   </div>
                 </div>
 
-                <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed font-mono pt-1">
+                <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 leading-relaxed font-mono pt-1">
                   ※ 法律紅線提醒：任何宣稱可「治療、治癒、速效解毒、替代降血壓/降血脂處方藥物」之市售保健食品，皆屬重大違規違法廣告。所有此類宣稱一律列為 E 級無效且高風險。
                 </p>
               </div>
@@ -168,7 +165,7 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
                     點擊進入專屬專章閱讀原子化知識頁與臨床模擬器（酒精排在最後）
                   </p>
                 </div>
-                <span className="hidden sm:inline-block px-2.5 py-1 rounded-full font-mono text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
+                <span className="hidden sm:inline-block px-2.5 py-1 rounded-full font-mono text-[0.75rem] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
                   185+ KPs 已上線
                 </span>
               </div>
@@ -190,11 +187,11 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
                       <h4 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-nature-sky-700 dark:group-hover:text-nature-sky-300 transition-colors">
                         {language === 'zh-TW' ? chapterW.title_zh : chapterW.title_en}
                       </h4>
-                      <p className="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2 pt-1 font-sans leading-relaxed">
+                      <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 line-clamp-2 pt-1 font-sans leading-relaxed">
                         {chapterW.summary}
                       </p>
                     </div>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-nature-sky-700 dark:text-nature-sky-400 font-medium">
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[0.75rem] text-nature-sky-700 dark:text-nature-sky-400 font-medium">
                       <span>{chapterW.page_count} 頁 · {chapterW.kp_count} KPs</span>
                       <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform font-bold">
                         進入水專章 →
@@ -219,11 +216,11 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
                       <h4 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-nature-amber-700 dark:group-hover:text-nature-amber-300 transition-colors">
                         {language === 'zh-TW' ? chapterO.title_zh : chapterO.title_en}
                       </h4>
-                      <p className="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2 pt-1 font-sans leading-relaxed">
+                      <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 line-clamp-2 pt-1 font-sans leading-relaxed">
                         {chapterO.summary}
                       </p>
                     </div>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-nature-amber-700 dark:text-nature-amber-400 font-medium">
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[0.75rem] text-nature-amber-700 dark:text-nature-amber-400 font-medium">
                       <span>{chapterO.page_count} 頁 · {chapterO.kp_count} KPs</span>
                       <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform font-bold">
                         進入油專章 →
@@ -248,11 +245,11 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
                       <h4 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
                         {language === 'zh-TW' ? chapterA.title_zh : chapterA.title_en}
                       </h4>
-                      <p className="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2 pt-1 font-sans leading-relaxed">
+                      <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 line-clamp-2 pt-1 font-sans leading-relaxed">
                         {chapterA.summary}
                       </p>
                     </div>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[11px] text-purple-700 dark:text-purple-400 font-medium">
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 font-mono text-[0.75rem] text-purple-700 dark:text-purple-400 font-medium">
                       <span>{chapterA.page_count} 頁 · {chapterA.kp_count} KPs</span>
                       <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform font-bold">
                         進入酒專章 →
@@ -305,7 +302,7 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
                           : 'border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-950/40 opacity-85 hover:opacity-100'
                       }`}
                     >
-                      <div className="flex items-center justify-between font-mono text-[10px] mb-1">
+                      <div className="flex items-center justify-between font-mono text-[0.75rem] mb-1">
                         <span className="font-bold text-slate-700 dark:text-slate-300">Chapter {ch.id}</span>
                         <span
                           className={`px-1.5 py-0.2 rounded font-bold border ${
@@ -322,10 +319,10 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
                       <h5 className="font-bold text-xs text-slate-900 dark:text-white truncate">
                         {language === 'zh-TW' ? ch.title_zh : ch.title_en}
                       </h5>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight pt-1 font-sans">
+                      <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight pt-1 font-sans">
                         {ch.summary}
                       </p>
-                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between font-mono text-[10px] text-slate-400">
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between font-mono text-[0.75rem] text-slate-400">
                         <span>預估 {ch.page_count} 頁 · {ch.kp_count} KPs</span>
                         <span className="text-salud-cyan font-bold">查看課綱 →</span>
                       </div>
@@ -339,7 +336,7 @@ export const DietaryPatternsHub: React.FC<Props> = ({ onSelectChapter }) => {
           {/* Cross-Pillar Synergy Invitation Banner */}
           <div className="p-5 sm:p-6 rounded-3xl border border-salud-cyan/50 bg-gradient-to-br from-salud-cyan/15 via-white to-nature-green-50/40 dark:from-slate-900 dark:via-salud-dark-card dark:to-slate-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
             <div className="space-y-1 max-w-xl">
-              <span className="px-2 py-0.5 rounded-full font-mono text-[10px] font-bold bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40">
+              <span className="px-2 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40">
                 Holistic Lifestyle Synergy
               </span>
               <h4 className="font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white">

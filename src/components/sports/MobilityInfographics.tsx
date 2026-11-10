@@ -58,7 +58,7 @@ export const MobilityInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-teal-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-teal-500 font-bold block">
                 {MOBILITY_INFOGRAPHICS[0].id} · {MOBILITY_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -113,7 +113,7 @@ export const MobilityInfographics: React.FC = () => {
                 >
                   <span className="font-bold text-slate-900 dark:text-white">{j.nameZh}</span>
                   <span
-                    className={`font-mono text-[10px] px-2 py-0.5 rounded font-bold ${
+                    className={`font-mono text-[0.75rem] px-2 py-0.5 rounded font-bold ${
                       isMobility ? 'bg-cyan-500/20 text-cyan-600 dark:text-cyan-400' : 'bg-amber-500/20 text-amber-600 dark:text-amber-400'
                     }`}
                   >
@@ -148,7 +148,7 @@ export const MobilityInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-cyan-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-cyan-500 font-bold block">
                 {MOBILITY_INFOGRAPHICS[1].id} · {MOBILITY_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -176,10 +176,10 @@ export const MobilityInfographics: React.FC = () => {
               >
                 <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-slate-900 dark:text-white">{s.stationZh}</span>
-                  <span className="text-[10px] font-mono text-slate-400">{s.keyZh}</span>
+                  <span className="text-[0.75rem] font-mono text-slate-400">{s.keyZh}</span>
                 </div>
                 {selectedSblPoint === idx && (
-                  <p className="text-[11px] text-cyan-700 dark:text-cyan-300 mt-1.5 font-mono">
+                  <p className="text-[0.75rem] text-cyan-700 dark:text-cyan-300 mt-1.5 font-mono">
                     💡 {s.pearlZh}
                   </p>
                 )}
@@ -233,7 +233,7 @@ export const MobilityInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm lg:col-span-2">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-emerald-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-emerald-500 font-bold block">
                 {MOBILITY_INFOGRAPHICS[2].id} · {MOBILITY_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -260,7 +260,7 @@ export const MobilityInfographics: React.FC = () => {
                 }`}
               >
                 <div className="font-bold text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
-                  <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 flex items-center justify-center text-[10px] font-mono">
+                  <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 flex items-center justify-center text-[0.75rem] font-mono">
                     {idx + 1}
                   </span>
                   {s.stepZh}

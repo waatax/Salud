@@ -205,7 +205,7 @@ export const SimBreathwork: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800">
+            <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800">
               SIM-BREATHWORK · 生理回饋互動呼吸引導儀
             </span>
             <span className="text-xs font-mono text-slate-500">GRADE {currentProtocol.evidence_grade} 實證</span>
@@ -267,7 +267,7 @@ export const SimBreathwork: React.FC = () => {
               }`}
             >
               <div className="font-bold text-xs truncate">{p.name_zh.split(' (')[0]}</div>
-              <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+              <div className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
                 {p.total_cycle_sec}秒/循環
               </div>
             </button>
@@ -307,7 +307,7 @@ export const SimBreathwork: React.FC = () => {
               <span className="text-cyan-500 font-bold">💡 動作指引：</span>
               <span>{phaseMeta.action}</span>
             </p>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+            <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
               微觀機轉：{phaseMeta.mechanism}
             </p>
           </div>
@@ -385,7 +385,7 @@ export const SimBreathwork: React.FC = () => {
         <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
         <div className="space-y-0.5">
           <span className="font-bold">臨床安全警示 (Clinical Safety Gate)：</span>
-          <p className="text-[11px] leading-relaxed">
+          <p className="text-[0.75rem] leading-relaxed">
             初學者或高感度體質者在長呼氣時若感覺輕微頭暈、手指尖發麻，為短暫二氧化碳波動現象。請隨時按下暫停，閉上嘴巴恢復輕鬆的自然鼻呼吸即可在 30 秒內復原。嚴禁在開車或操作重型機械時練習。
           </p>
         </div>

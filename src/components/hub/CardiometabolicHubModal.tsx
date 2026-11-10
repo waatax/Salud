@@ -98,19 +98,19 @@ export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) =>
               <div className="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center space-y-1">
                 <span className="text-3xl font-display font-extrabold text-salud-cyan block">7</span>
                 <strong className="text-slate-900 dark:text-slate-100 block">連續 7 天量測</strong>
-                <span className="text-[11px] text-slate-500">取得連續一週穩定基準值</span>
+                <span className="text-[0.75rem] text-slate-500">取得連續一週穩定基準值</span>
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center space-y-1">
                 <span className="text-3xl font-display font-extrabold text-salud-amber block">2</span>
                 <strong className="text-slate-900 dark:text-slate-100 block">每天 2 個時段</strong>
-                <span className="text-[11px] text-slate-500">早晨起床後 ＋ 晚間就寢前</span>
+                <span className="text-[0.75rem] text-slate-500">早晨起床後 ＋ 晚間就寢前</span>
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center space-y-1">
                 <span className="text-3xl font-display font-extrabold text-purple-400 block">2</span>
                 <strong className="text-slate-900 dark:text-slate-100 block">每次量 2 遍</strong>
-                <span className="text-[11px] text-slate-500">間隔 1 分鐘取平均值</span>
+                <span className="text-[0.75rem] text-slate-500">間隔 1 分鐘取平均值</span>
               </div>
             </div>
 
@@ -136,11 +136,11 @@ export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) =>
                 <div key={crit.id} className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
                   <div className="flex flex-wrap items-center justify-between gap-1">
                     <strong className="text-slate-900 dark:text-slate-100 font-bold">{crit.name_zh}</strong>
-                    <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-[11px]">
+                    <span className="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-[0.75rem]">
                       標準：{crit.threshold_zh}
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-relaxed font-sans">
+                  <p className="text-[0.75rem] text-slate-500 leading-relaxed font-sans">
                     {crit.biological_link_zh}
                   </p>
                 </div>
@@ -168,19 +168,19 @@ export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) =>
               </span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 <div className="p-2 rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
-                  <span className="text-slate-500 text-[10px] block">低密度膽固醇</span>
+                  <span className="text-slate-500 text-[0.75rem] block">低密度膽固醇</span>
                   <strong className="text-slate-800 dark:text-slate-200">LDL-C</strong>
                 </div>
                 <div className="p-2 rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
-                  <span className="text-slate-500 text-[10px] block">載脂蛋白 B</span>
+                  <span className="text-slate-500 text-[0.75rem] block">載脂蛋白 B</span>
                   <strong className="text-salud-amber">ApoB (顆粒數)</strong>
                 </div>
                 <div className="p-2 rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
-                  <span className="text-slate-500 text-[10px] block">非高密度膽固醇</span>
+                  <span className="text-slate-500 text-[0.75rem] block">非高密度膽固醇</span>
                   <strong className="text-slate-800 dark:text-slate-200">Non-HDL-C</strong>
                 </div>
               </div>
-              <p className="text-[10px] text-slate-500 pt-1">
+              <p className="text-[0.75rem] text-slate-500 pt-1">
                 ※ 遵循產品原則：風險方程僅在使用者主動點入時呈現，不得常駐於首頁造成不必要的健康焦慮。
               </p>
             </div>

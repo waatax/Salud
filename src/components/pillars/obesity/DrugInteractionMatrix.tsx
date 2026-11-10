@@ -138,7 +138,7 @@ export const DrugInteractionMatrix: React.FC = () => {
                   <span className="font-mono font-bold px-2.5 py-0.5 rounded-md bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
                     {tr.trial_code}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">
+                  <span className="text-[0.75rem] font-mono text-slate-400">
                     {tr.sample_size.toLocaleString()} 位受試者 · {tr.duration_weeks} 週
                   </span>
                 </div>
@@ -147,35 +147,35 @@ export const DrugInteractionMatrix: React.FC = () => {
                   <div className="font-display font-bold text-sm text-slate-900 dark:text-white">
                     {tr.drug_name}
                   </div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                  <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 mt-0.5">
                     {tr.population_description}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center font-mono">
                   <div>
-                    <div className="text-[9px] text-slate-400">用藥組平均減重</div>
+                    <div className="text-[0.6875rem] text-slate-400">用藥組平均減重</div>
                     <div className="text-base font-extrabold text-amber-600 dark:text-amber-400">
                       -{tr.mean_weight_loss_pct}%
                     </div>
                   </div>
                   <div>
-                    <div className="text-[9px] text-slate-400">安慰劑對照組</div>
+                    <div className="text-[0.6875rem] text-slate-400">安慰劑對照組</div>
                     <div className="text-base font-extrabold text-slate-500">
                       -{tr.placebo_loss_pct}%
                     </div>
                   </div>
                 </div>
 
-                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 leading-relaxed">
                   <strong>主要終點成效：</strong> {tr.primary_endpoints}
                 </p>
 
-                <div className="text-[10px] text-emerald-700 dark:text-emerald-400/90 font-mono bg-emerald-500/10 p-2 rounded-lg">
+                <div className="text-[0.75rem] text-emerald-700 dark:text-emerald-400/90 font-mono bg-emerald-500/10 p-2 rounded-lg">
                   {tr.cardiovascular_metabolic_notes}
                 </div>
 
-                <div className="text-[9px] font-mono text-slate-400 truncate pt-1 border-t border-slate-100 dark:border-slate-800">
+                <div className="text-[0.6875rem] font-mono text-slate-400 truncate pt-1 border-t border-slate-100 dark:border-slate-800">
                   引用文獻: {tr.source_citation}
                 </div>
               </div>
@@ -191,7 +191,7 @@ export const DrugInteractionMatrix: React.FC = () => {
             <ShieldAlert className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
             <div className="space-y-0.5">
               <div className="font-bold">臨床紅旗警告 · 處方交互作用防禦網</div>
-              <p className="text-[11px] leading-relaxed">
+              <p className="text-[0.75rem] leading-relaxed">
                 抗肥胖藥物對消化道排空速率及中樞神經系統具高度影響，開立前務必主動檢視患者現行慢性病處方，嚴格阻絕低血糖與藥物中毒。
               </p>
             </div>
@@ -216,7 +216,7 @@ export const DrugInteractionMatrix: React.FC = () => {
                   </div>
 
                   <span
-                    className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold self-start sm:self-auto ${
+                    className={`text-[0.75rem] font-mono px-2 py-0.5 rounded-full font-bold self-start sm:self-auto ${
                       item.risk_level === 'HIGH_RISK'
                         ? 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/40'
                         : item.risk_level === 'CAUTION'
@@ -228,15 +228,15 @@ export const DrugInteractionMatrix: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="text-[11px] font-semibold text-rose-700 dark:text-rose-400">
+                <div className="text-[0.75rem] font-semibold text-rose-700 dark:text-rose-400">
                   {item.clinical_consequence_zh}
                 </div>
 
-                <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 leading-relaxed">
                   <strong>藥理學機轉：</strong> {item.pharmacological_mechanism_zh}
                 </p>
 
-                <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-700 dark:text-slate-300">
+                <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[0.75rem] text-slate-700 dark:text-slate-300">
                   <strong>處方管理指引：</strong> {item.management_protocol_zh}
                 </div>
               </div>

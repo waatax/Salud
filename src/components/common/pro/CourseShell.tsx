@@ -241,7 +241,7 @@ export function CourseShell<T extends string>({
                   <span className="min-w-0">
                     <span className="block text-[14px] font-bold text-slate-900 dark:text-white leading-snug">{p.label}</span>
                     <span className="block text-[12px] text-slate-600 dark:text-slate-400 leading-snug mt-0.5">{p.hint}</span>
-                    <span className="block text-[11px] text-emerald-700 dark:text-emerald-400 mt-1">
+                    <span className="block text-[0.75rem] text-emerald-700 dark:text-emerald-400 mt-1">
                       {p.chapters.map((c) => `${numberOf(c)}.${labelOf(c)}`).join(' → ')}
                     </span>
                   </span>
@@ -268,7 +268,7 @@ export function CourseShell<T extends string>({
                     <span className="text-[14px] font-bold text-slate-900 dark:text-white">
                       單元 {ui + 1}　{u.title}
                     </span>
-                    <span className="text-[11px] tabular-nums text-slate-500 dark:text-slate-400">
+                    <span className="text-[0.75rem] tabular-nums text-slate-500 dark:text-slate-400">
                       {unitDone}/{u.chapters.length}
                     </span>
                   </div>

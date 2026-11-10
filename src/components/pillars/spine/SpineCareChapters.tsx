@@ -48,7 +48,7 @@ const ToolCard: React.FC<{ icon: typeof Gauge; title: string; id: string; childr
       <h3 id={id} className="text-base font-bold text-slate-900 dark:text-white">
         {title}
       </h3>
-      <span className="ml-auto text-[11px] font-semibold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800 rounded-md px-1.5 py-0.5">互動工具</span>
+      <span className="ml-auto text-[0.75rem] font-semibold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800 rounded-md px-1.5 py-0.5">互動工具</span>
     </div>
     {children}
   </section>
@@ -156,9 +156,9 @@ export const PacingPlanner: React.FC = () => {
       <ol className="grid grid-cols-3 sm:grid-cols-6 gap-2" aria-label="六週計畫">
         {weeks.map((m, i) => (
           <li key={i} className="rounded-xl border border-sky-200 dark:border-sky-900 bg-sky-50/60 dark:bg-sky-950/30 p-2 text-center">
-            <div className="text-[11px] text-slate-600 dark:text-slate-400">第 {i + 1} 週</div>
+            <div className="text-[0.75rem] text-slate-600 dark:text-slate-400">第 {i + 1} 週</div>
             <div className="text-lg font-bold tabular-nums text-sky-800 dark:text-sky-200">{m}</div>
-            <div className="text-[11px] text-slate-500">分鐘/天</div>
+            <div className="text-[0.75rem] text-slate-500">分鐘/天</div>
           </li>
         ))}
       </ol>

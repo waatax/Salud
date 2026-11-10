@@ -149,7 +149,7 @@ const ResultRow: React.FC<{ name: string; value?: string; result: BandResult | n
           <div className={`h-full transition-opacity ${result.tone === 'warn' ? 'bg-amber-500 opacity-100 ring-2 ring-amber-600' : 'bg-amber-300 dark:bg-amber-800 opacity-30'}`} />
           <div className={`h-full rounded-r-full transition-opacity ${result.tone === 'bad' ? 'bg-rose-500 opacity-100 ring-2 ring-rose-600' : 'bg-rose-300 dark:bg-rose-800 opacity-30'}`} />
         </div>
-        <div className="flex justify-between text-[11px] opacity-75 font-medium px-0.5" aria-hidden="true">
+        <div className="flex justify-between text-[0.75rem] opacity-75 font-medium px-0.5" aria-hidden="true">
           <span>理想</span>
           <span>臨界標準</span>
           <span>注意追蹤</span>

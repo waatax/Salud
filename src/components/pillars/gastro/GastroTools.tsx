@@ -275,7 +275,7 @@ export const AbdominalPainTriageTool: React.FC = () => {
             >
               <div className="flex items-center justify-between gap-1">
                 <span className="text-[13px] font-bold text-slate-900 dark:text-white">{s.color}</span>
-                <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700">
+                <span className="text-[0.75rem] font-bold px-2 py-0.5 rounded-full bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700">
                   {s.badge}
                 </span>
               </div>

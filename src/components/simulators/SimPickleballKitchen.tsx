@@ -78,7 +78,7 @@ export const SimPickleballKitchen: React.FC = () => {
             onChange={(e) => setLaunchVelocityKmh(Number(e.target.value))}
             className="w-full accent-teal-400 cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>軟球 Dink 22</span>
             <span>第三板 Drop 34</span>
           </div>
@@ -99,7 +99,7 @@ export const SimPickleballKitchen: React.FC = () => {
             onChange={(e) => setLaunchAngleDeg(Number(e.target.value))}
             className="w-full accent-amber-400 cursor-pointer"
           />
-          <div className="text-[11px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             {launchAngleDeg < 22 ? '平推易下網' : launchAngleDeg > 35 ? '高拋易挨殺' : '黃金 25°–30°'}
           </div>
         </div>
@@ -125,7 +125,7 @@ export const SimPickleballKitchen: React.FC = () => {
               16 mm (厚芯控球)
             </button>
           </div>
-          <span className="text-[10px] text-slate-400 block pt-1">
+          <span className="text-[0.75rem] text-slate-400 block pt-1">
             {paddleCoreMm === 16 ? '持球 2.8ms，吸震防網球肘' : '出球清脆，回彈速度快'}
           </span>
         </div>
@@ -142,7 +142,7 @@ export const SimPickleballKitchen: React.FC = () => {
             </span>
             <span className="text-xs text-slate-400 ml-1.5">公分 (cm)</span>
           </div>
-          <span className={`text-[11px] font-bold ${statusInfo.color}`}>
+          <span className={`text-[0.75rem] font-bold ${statusInfo.color}`}>
             {statusInfo.labelZh}
           </span>
         </div>
@@ -154,11 +154,11 @@ export const SimPickleballKitchen: React.FC = () => {
             <span className={`text-sm font-bold block ${statusInfo.color}`}>
               {statusInfo.labelZh}
             </span>
-            <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">
+            <p className="text-[0.75rem] text-slate-300 mt-1 leading-relaxed">
               {statusInfo.descZh}
             </p>
           </div>
-          <div className="text-[10px] text-slate-500 font-mono">
+          <div className="text-[0.75rem] text-slate-500 font-mono">
             網帶基準：34 吋 (86.4 cm)
           </div>
         </div>
@@ -170,7 +170,7 @@ export const SimPickleballKitchen: React.FC = () => {
             <span className="text-3xl font-extrabold text-amber-400 font-mono">{firefightReactionMs}</span>
             <span className="text-xs text-slate-400 ml-1.5">毫秒 (ms)</span>
           </div>
-          <span className="text-[11px] text-slate-300">
+          <span className="text-[0.75rem] text-slate-300">
             {language === 'zh-TW' ? '必須採用「推壓截擊 (Punch Volley)」，嚴禁大引拍' : 'Zero backswing; compact punch volley mandatory'}
           </span>
         </div>

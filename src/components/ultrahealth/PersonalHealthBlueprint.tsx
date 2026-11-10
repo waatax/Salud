@@ -307,7 +307,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-xs">
           {/* Dimension 1: Chronotype */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-2.5">
-            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[11px] font-mono">
+            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[0.75rem] font-mono">
               <Sun className="w-3.5 h-3.5 text-amber-500" />
               <span>1. 晝夜時型 (Chronotype)</span>
             </div>
@@ -321,7 +321,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setProfile({ ...profile, chronotype: opt.id as any })}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[11px] ${
+                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[0.75rem] ${
                     profile.chronotype === opt.id
                       ? 'bg-amber-500/20 border-amber-500 font-bold text-amber-900 dark:text-amber-200'
                       : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400'
@@ -335,7 +335,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
 
           {/* Dimension 2: Metabolic */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-2.5">
-            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[11px] font-mono">
+            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[0.75rem] font-mono">
               <HeartPulse className="w-3.5 h-3.5 text-rose-500" />
               <span>2. 代謝與體態狀態</span>
             </div>
@@ -349,7 +349,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setProfile({ ...profile, metabolic: opt.id as any })}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[11px] ${
+                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[0.75rem] ${
                     profile.metabolic === opt.id
                       ? 'bg-rose-500/20 border-rose-500 font-bold text-rose-900 dark:text-rose-200'
                       : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400'
@@ -363,7 +363,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
 
           {/* Dimension 3: Stress & Autonomic */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-2.5">
-            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[11px] font-mono">
+            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[0.75rem] font-mono">
               <Brain className="w-3.5 h-3.5 text-purple-500" />
               <span>3. 自律神經與壓力負荷</span>
             </div>
@@ -377,7 +377,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setProfile({ ...profile, stress: opt.id as any })}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[11px] ${
+                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[0.75rem] ${
                     profile.stress === opt.id
                       ? 'bg-purple-500/20 border-purple-500 font-bold text-purple-900 dark:text-purple-200'
                       : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400'
@@ -391,7 +391,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
 
           {/* Dimension 4: Posture */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-2.5">
-            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[11px] font-mono">
+            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[0.75rem] font-mono">
               <Activity className="w-3.5 h-3.5 text-cyan-500" />
               <span>4. 日常活動與動力鏈</span>
             </div>
@@ -405,7 +405,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setProfile({ ...profile, posture: opt.id as any })}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[11px] ${
+                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[0.75rem] ${
                     profile.posture === opt.id
                       ? 'bg-cyan-500/20 border-cyan-500 font-bold text-cyan-900 dark:text-cyan-200'
                       : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400'
@@ -419,7 +419,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
 
           {/* Dimension 5: Goal */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-2.5">
-            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[11px] font-mono">
+            <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-[0.75rem] font-mono">
               <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
               <span>5. 個人首要核心目標</span>
             </div>
@@ -433,7 +433,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setProfile({ ...profile, goal: opt.id as any })}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[11px] ${
+                  className={`w-full text-left px-2.5 py-1.5 rounded-xl border transition-all text-[0.75rem] ${
                     profile.goal === opt.id
                       ? 'bg-emerald-500/20 border-emerald-500 font-bold text-emerald-900 dark:text-emerald-200'
                       : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400'
@@ -463,7 +463,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 個人專屬 24H 晝夜作息時序 (Circadian Timing Protocol)
               </h3>
             </div>
-            <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 font-bold">
+            <span className="text-[0.75rem] font-mono px-2.5 py-1 rounded-full bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 font-bold">
               目標起床：{schedule.wakeTime} ｜ 入睡：{schedule.sleepTime}
             </span>
           </div>
@@ -474,7 +474,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <Sun className="w-4 h-4" />
                 <span>晨間光照喚醒視窗</span>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 {schedule.sunlightWindow}
               </p>
             </div>
@@ -484,7 +484,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <Coffee className="w-4 h-4" />
                 <span>咖啡因安全截斷臨界點</span>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 {schedule.caffeineCutoff}
               </p>
             </div>
@@ -494,7 +494,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <Dumbbell className="w-4 h-4" />
                 <span>最佳運動訓練黃金時段</span>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 {schedule.workoutWindow}
               </p>
             </div>
@@ -504,7 +504,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <Flame className="w-4 h-4" />
                 <span>晚餐進食視窗截止點</span>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 {schedule.dinnerEnd}
               </p>
             </div>
@@ -514,7 +514,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <Moon className="w-4 h-4" />
                 <span>藍光阻斷與褪黑激素激發</span>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 {schedule.screenOff}
               </p>
             </div>
@@ -524,7 +524,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <Brain className="w-4 h-4" />
                 <span>深層慢波睡眠鞏固</span>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 {schedule.sleepTime}
               </p>
             </div>
@@ -540,7 +540,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 個人專屬 3 大高槓桿原子微習慣 (Habit Stacking Matrix)
               </h3>
             </div>
-            <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">
+            <span className="text-[0.75rem] font-mono text-emerald-600 dark:text-emerald-400 font-bold">
               無痛阻力 · 立即堆疊
             </span>
           </div>
@@ -560,7 +560,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 <h4 className="font-bold text-slate-900 dark:text-white text-sm">
                   {habit.name}
                 </h4>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 space-y-1">
+                <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 space-y-1">
                   <div>
                     <span className="text-amber-500 font-bold">觸發錨點：</span>
                     {habit.trigger}
@@ -570,7 +570,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                     {habit.action}
                   </div>
                 </div>
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-medium">
                   ★ 生理回饋：{habit.benefit}
                 </div>
               </div>
@@ -587,7 +587,7 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 物理治療動力鏈弱點急救處方箋 (Kinetic Chain Rehabilitation)
               </h3>
             </div>
-            <span className="text-[11px] font-mono text-rose-600 dark:text-rose-400 font-bold">
+            <span className="text-[0.75rem] font-mono text-rose-600 dark:text-rose-400 font-bold">
               EC-02 / EC-05 審定
             </span>
           </div>
@@ -608,9 +608,9 @@ export const PersonalHealthBlueprint: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-slate-900 dark:text-white">{move.name}</span>
-                    <span className="text-[10px] font-mono text-rose-500 font-bold">{move.sets}</span>
+                    <span className="text-[0.75rem] font-mono text-rose-500 font-bold">{move.sets}</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 leading-relaxed">
                     💡 實務要領：{move.tip}
                   </p>
                 </div>

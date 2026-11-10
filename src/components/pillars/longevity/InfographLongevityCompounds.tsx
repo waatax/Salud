@@ -55,13 +55,13 @@ export const InfographLongevityCompounds: React.FC = () => {
                   : 'bg-white/90 dark:bg-slate-900/60 border-emerald-200/70 dark:border-slate-800 text-slate-700 dark:text-slate-400 hover:border-emerald-400 hover:bg-emerald-50/50'
               }`}
             >
-              <div className={`text-[10px] font-mono font-bold truncate ${isActive ? 'text-emerald-100' : 'text-emerald-700 dark:text-amber-400'}`}>
+              <div className={`text-[0.75rem] font-mono font-bold truncate ${isActive ? 'text-emerald-100' : 'text-emerald-700 dark:text-amber-400'}`}>
                 {c.name_en.split(' ')[0]}
               </div>
               <div className={`font-bold text-xs truncate mt-0.5 ${isActive ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
                 {c.name_zh.split(' ')[0]}
               </div>
-              <div className={`text-[9px] font-mono mt-1 truncate ${isActive ? 'text-emerald-100/90' : 'text-slate-500'}`}>
+              <div className={`text-[0.6875rem] font-mono mt-1 truncate ${isActive ? 'text-emerald-100/90' : 'text-slate-500'}`}>
                 ITP {c.itp_max_lifespan_extension_pct.includes('+') ? c.itp_max_lifespan_extension_pct.split(' ')[0] : '臨床'}
               </div>
             </button>
@@ -92,7 +92,7 @@ export const InfographLongevityCompounds: React.FC = () => {
 
           {/* ITP Max Metric Pill */}
           <div className="p-3.5 rounded-2xl bg-emerald-50/80 dark:bg-amber-500/10 border border-emerald-200 dark:border-amber-500/30 text-center shrink-0 shadow-xs">
-            <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400">ITP 最大壽命延長效益</div>
+            <div className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">ITP 最大壽命延長效益</div>
             <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-amber-400">
               {selectedCompound.itp_max_lifespan_extension_pct.split('(')[0]}
             </div>
@@ -106,7 +106,7 @@ export const InfographLongevityCompounds: React.FC = () => {
               <Activity className="w-4 h-4 text-emerald-600 dark:text-amber-400" />
               <span>五維度長壽潛力與安全性評分指標 (Clinical Longevity Radar)</span>
             </span>
-            <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">滿分 10 分</span>
+            <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">滿分 10 分</span>
           </div>
 
           <div className="space-y-2 text-xs">
@@ -118,7 +118,7 @@ export const InfographLongevityCompounds: React.FC = () => {
               { label: '器官衰老生物標記影響 (Biomarker Impact)', score: selectedCompound.radar_scores.biomarker_impact, color: 'bg-emerald-600' },
             ].map((item, idx) => (
               <div key={`comp-radar-${idx}`} className="space-y-1">
-                <div className="flex justify-between text-[11px]">
+                <div className="flex justify-between text-[0.75rem]">
                   <span className="text-slate-700 dark:text-slate-300">{item.label}</span>
                   <span className="font-mono font-bold text-slate-900 dark:text-white">{item.score} / 10</span>
                 </div>
@@ -139,7 +139,7 @@ export const InfographLongevityCompounds: React.FC = () => {
             <Zap className="w-4 h-4 text-emerald-600 dark:text-amber-400" />
             <span>核心分子機轉 (Molecular Mechanism)</span>
           </div>
-          <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+          <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
             {selectedCompound.primary_mechanism_zh}
           </p>
         </div>
@@ -151,7 +151,7 @@ export const InfographLongevityCompounds: React.FC = () => {
               <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>最佳建議給藥邏輯 (Optimal Protocol)</span>
             </div>
-            <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
               {selectedCompound.optimal_dosing_protocol}
             </p>
           </div>
@@ -161,7 +161,7 @@ export const InfographLongevityCompounds: React.FC = () => {
               <AlertTriangle className="w-4 h-4 text-rose-600 dark:text-rose-400" />
               <span>臨床禁忌與主要風險 (Contraindications & Risks)</span>
             </div>
-            <ul className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300 list-disc list-inside">
+            <ul className="space-y-1 text-[0.75rem] text-slate-700 dark:text-slate-300 list-disc list-inside">
               {selectedCompound.contraindications_and_risks.map((risk, idx) => (
                 <li key={`risk-${idx}`}>{risk}</li>
               ))}

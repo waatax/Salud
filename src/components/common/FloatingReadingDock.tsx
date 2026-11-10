@@ -55,7 +55,7 @@ export const FloatingReadingDock: React.FC<Props> = () => {
       >
         <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" aria-hidden="true" />
         {bookmarks.length > 0 && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-500 text-white font-mono text-[9px] flex items-center justify-center font-bold">
+          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-500 text-white font-mono text-[0.6875rem] flex items-center justify-center font-bold">
             {bookmarks.length > 9 ? '9+' : bookmarks.length}
           </span>
         )}

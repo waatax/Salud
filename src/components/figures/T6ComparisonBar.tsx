@@ -121,7 +121,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
             </div>
             {intakes.map((item) => (
               <div key={item.label} className="space-y-1">
-                <div className="flex justify-between text-[11px] text-slate-300">
+                <div className="flex justify-between text-[0.75rem] text-slate-300">
                   <span>{item.label}</span>
                   <span className="font-mono font-bold">{item.ml} mL ({item.pct}%)</span>
                 </div>
@@ -140,7 +140,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
             </div>
             {losses.map((item) => (
               <div key={item.label} className="space-y-1">
-                <div className="flex justify-between text-[11px] text-slate-300">
+                <div className="flex justify-between text-[0.75rem] text-slate-300">
                   <span>{item.label}</span>
                   <span className="font-mono font-bold">{item.ml} mL ({item.pct}%)</span>
                 </div>
@@ -152,7 +152,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
           </div>
         </div>
 
-        <div className="p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-[11px] text-slate-300 font-mono flex items-center justify-between">
+        <div className="p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-[0.75rem] text-slate-300 font-mono flex items-center justify-between">
           <span>⚖️ 體液動態守恆定律：每日總輸入量 ({totalMl} mL) === 每日總排出量 ({totalMl} mL)</span>
           <span className="text-salud-cyan">EFSA / IOM 實證基準</span>
         </div>
@@ -178,8 +178,8 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
               style={{ backgroundColor: st.bg, borderColor: st.color }}
             >
               <div className="font-mono text-sm font-extrabold text-white">失水 {st.pct}</div>
-              <div className="text-[10px] font-mono text-slate-200 mt-0.5">70kg 約 {st.loss70kg}</div>
-              <div className="text-[11px] font-bold mt-1" style={{ color: st.color }}>
+              <div className="text-[0.75rem] font-mono text-slate-200 mt-0.5">70kg 約 {st.loss70kg}</div>
+              <div className="text-[0.75rem] font-bold mt-1" style={{ color: st.color }}>
                 {st.stage.split('：')[1]}
               </div>
             </button>
@@ -197,15 +197,15 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-              <div className="text-[10px] font-mono font-bold text-sky-400">🧠 中樞神經與認知</div>
+              <div className="text-[0.75rem] font-mono font-bold text-sky-400">🧠 中樞神經與認知</div>
               <p className="text-slate-200 leading-relaxed">{activeStage.neuro}</p>
             </div>
             <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-              <div className="text-[10px] font-mono font-bold text-amber-400">❤️ 心血管與腎臟代償</div>
+              <div className="text-[0.75rem] font-mono font-bold text-amber-400">❤️ 心血管與腎臟代償</div>
               <p className="text-slate-200 leading-relaxed">{activeStage.cardio}</p>
             </div>
             <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-              <div className="text-[10px] font-mono font-bold text-rose-400">🌡️ 體溫調節與排汗</div>
+              <div className="text-[0.75rem] font-mono font-bold text-rose-400">🌡️ 體溫調節與排汗</div>
               <p className="text-slate-200 leading-relaxed">{activeStage.thermo}</p>
             </div>
           </div>
@@ -407,7 +407,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap items-center justify-between px-2 text-slate-300 font-mono text-[11px]">
+      <div className="flex flex-wrap items-center justify-between px-2 text-slate-300 font-mono text-[0.75rem]">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-sm bg-salud-cyan shadow-cyan-glow" />
@@ -436,11 +436,11 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-sm text-slate-100">{oil.name_zh}</span>
-                <span className="text-[11px] text-slate-400 font-mono hidden sm:inline">
+                <span className="text-[0.75rem] text-slate-400 font-mono hidden sm:inline">
                   {oil.name_en}
                 </span>
                 {oil.is_local_tw && (
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-salud-amber/20 text-salud-amber-300 border border-salud-amber/40">
+                  <span className="text-[0.75rem] px-1.5 py-0.5 rounded bg-salud-amber/20 text-salud-amber-300 border border-salud-amber/40">
                     在地
                   </span>
                 )}
@@ -458,7 +458,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
               {/* MUFA Segment */}
               <div
                 style={{ width: `${oil.mufa_pct}%` }}
-                className="bg-salud-cyan hover:opacity-90 flex items-center justify-center text-[10px] font-bold text-black transition-all"
+                className="bg-salud-cyan hover:opacity-90 flex items-center justify-center text-[0.75rem] font-bold text-black transition-all"
                 title={`單元不飽和 MUFA: ${oil.mufa_pct}%`}
               >
                 {oil.mufa_pct >= 14 ? `${oil.mufa_pct}%` : ''}
@@ -467,7 +467,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
               {/* PUFA Segment */}
               <div
                 style={{ width: `${oil.pufa_pct}%` }}
-                className="bg-emerald-500 hover:opacity-90 flex items-center justify-center text-[10px] font-bold text-black transition-all"
+                className="bg-emerald-500 hover:opacity-90 flex items-center justify-center text-[0.75rem] font-bold text-black transition-all"
                 title={`多元不飽和 PUFA: ${oil.pufa_pct}%`}
               >
                 {oil.pufa_pct >= 14 ? `${oil.pufa_pct}%` : ''}
@@ -476,7 +476,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
               {/* SFA Segment */}
               <div
                 style={{ width: `${oil.sfa_pct}%` }}
-                className="bg-salud-amber hover:opacity-90 flex items-center justify-center text-[10px] font-bold text-black transition-all"
+                className="bg-salud-amber hover:opacity-90 flex items-center justify-center text-[0.75rem] font-bold text-black transition-all"
                 title={`飽和脂肪酸 SFA: ${oil.sfa_pct}%`}
               >
                 {oil.sfa_pct >= 12 ? `${oil.sfa_pct}%` : ''}
@@ -484,7 +484,7 @@ export const T6ComparisonBar: React.FC<Props> = ({ figureId }) => {
             </div>
 
             {/* Sub description */}
-            <div className="mt-1.5 flex items-center justify-between text-[11px] text-slate-400">
+            <div className="mt-1.5 flex items-center justify-between text-[0.75rem] text-slate-400">
               <span>{oil.recommended_uses}</span>
               <span className="font-mono text-slate-500 hidden sm:inline">{oil.main_fa}</span>
             </div>

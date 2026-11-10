@@ -18,7 +18,7 @@ export const OsteoporosisMicrostructureFigure: React.FC = () => {
         <div className="rounded-xl border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/40 dark:bg-emerald-950/20 p-3.5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[13px] font-bold text-emerald-900 dark:text-emerald-300">正常健康骨骼 (T ≥ -1.0)</span>
-            <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold">骨小梁緻密互聯</span>
+            <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold">骨小梁緻密互聯</span>
           </div>
           <svg viewBox="0 0 240 140" className="w-full h-auto" role="img" aria-label="正常骨骼骨小梁微結構：連續且粗厚的蜂巢狀支架">
             {/* Background mesh background */}
@@ -56,14 +56,14 @@ export const OsteoporosisMicrostructureFigure: React.FC = () => {
               <line x1="165" y1="72" x2="205" y2="40" strokeWidth="4" />
             </g>
           </svg>
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 mt-2">垂直主樑粗壯、水平橫樑交織完整，具備強大抗壓彈性與承重力。</p>
+          <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 mt-2">垂直主樑粗壯、水平橫樑交織完整，具備強大抗壓彈性與承重力。</p>
         </div>
 
         {/* Osteoporotic Bone Microstructure */}
         <div className="rounded-xl border border-rose-200 dark:border-rose-800/60 bg-rose-50/40 dark:bg-rose-950/20 p-3.5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[13px] font-bold text-rose-900 dark:text-rose-300">骨質疏鬆骨骼 (T ≤ -2.5)</span>
-            <span className="text-[11px] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-300 font-semibold">微結構穿孔斷裂</span>
+            <span className="text-[0.75rem] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-300 font-semibold">微結構穿孔斷裂</span>
           </div>
           <svg viewBox="0 0 240 140" className="w-full h-auto" role="img" aria-label="骨質疏鬆骨骼骨小梁微結構：橫樑消失、主樑變細且多處穿孔孔洞">
             {/* Background mesh */}
@@ -94,7 +94,7 @@ export const OsteoporosisMicrostructureFigure: React.FC = () => {
               <ellipse cx="145" cy="78" rx="20" ry="14" fill="none" stroke="#f43f5e" strokeWidth="1" strokeDasharray="3 3" />
             </g>
           </svg>
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 mt-2">水平支架穿孔斷損、主樑變細孤立，輕微外力或彎腰即發生連鎖塌陷。</p>
+          <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 mt-2">水平支架穿孔斷損、主樑變細孤立，輕微外力或彎腰即發生連鎖塌陷。</p>
         </div>
       </div>
 
@@ -106,7 +106,7 @@ export const OsteoporosisMicrostructureFigure: React.FC = () => {
         </div>
         <div className="relative pt-6 pb-2">
           {/* Spectrum Bar */}
-          <div className="h-6 w-full rounded-lg overflow-hidden flex shadow-inner text-[10px] font-bold text-white text-center leading-6">
+          <div className="h-6 w-full rounded-lg overflow-hidden flex shadow-inner text-[0.75rem] font-bold text-white text-center leading-6">
             <div
               className="bg-emerald-600 cursor-pointer transition-opacity hover:opacity-90 flex-1"
               onMouseEnter={() => setHoveredZone('正常骨質 (T ≥ -1.0)：低骨折風險，維持日常鈣 1000mg、D3 800IU 與規律運動。')}
@@ -137,7 +137,7 @@ export const OsteoporosisMicrostructureFigure: React.FC = () => {
             </div>
           </div>
           {/* Threshold Pin Indicators */}
-          <div className="flex justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 px-1 mt-1.5">
+          <div className="flex justify-between text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 px-1 mt-1.5">
             <span>+1.0</span>
             <span className="font-bold text-emerald-700 dark:text-emerald-400">-1.0 (正常界限)</span>
             <span className="font-bold text-rose-600 dark:text-rose-400">-2.5 (骨鬆門檻)</span>
@@ -170,7 +170,7 @@ export const VertebralWedgeFractureFigure: React.FC = () => {
             {/* Bottom disc */}
             <ellipse cx="80" cy="88" rx="55" ry="10" fill="#38bdf8" opacity="0.6" />
           </svg>
-          <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">前高 = 後高 (100%)</span>
+          <span className="text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-semibold">前高 = 後高 (100%)</span>
         </div>
 
         {/* Genant Grade 1-2 Wedge Collapse */}
@@ -186,7 +186,7 @@ export const VertebralWedgeFractureFigure: React.FC = () => {
             <text x="50" y="78" fontSize="10" fontWeight="700" fill="#b45309">前壁塌陷</text>
             <text x="120" y="55" fontSize="10" fontWeight="700" fill="#475569">後壁完好</text>
           </svg>
-          <span className="text-[11px] text-amber-700 dark:text-amber-400 font-semibold">前壁高度流失 20–35%</span>
+          <span className="text-[0.75rem] text-amber-700 dark:text-amber-400 font-semibold">前壁高度流失 20–35%</span>
         </div>
 
         {/* Genant Grade 3 Severe Collapse & Kümmell Disease */}
@@ -198,7 +198,7 @@ export const VertebralWedgeFractureFigure: React.FC = () => {
             <ellipse cx="65" cy="70" rx="22" ry="7" fill="#1e293b" />
             <text x="65" y="73" fontSize="9" fontWeight="700" fill="#f8fafc" textAnchor="middle">真空壞死裂隙</text>
           </svg>
-          <span className="text-[11px] text-rose-700 dark:text-rose-400 font-semibold">高度流失 &gt; 40%，駝背劇烈</span>
+          <span className="text-[0.75rem] text-rose-700 dark:text-rose-400 font-semibold">高度流失 &gt; 40%，駝背劇烈</span>
         </div>
       </div>
 
@@ -232,13 +232,13 @@ export const BoneCementProcedureFigure: React.FC = () => {
       <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-4">
         <div className="flex items-center justify-between mb-3">
           <h4 className="text-[14px] font-bold text-slate-900 dark:text-white">微創氣球擴張椎體成形術（PKP 骨泥手術）四步流程圖解</h4>
-          <span className="text-[11px] px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-300 font-semibold">局部麻醉 · C-arm 透視引導</span>
+          <span className="text-[0.75rem] px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-300 font-semibold">局部麻醉 · C-arm 透視引導</span>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {/* Step 1 */}
           <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/40 p-2.5 text-center flex flex-col justify-between">
             <div>
-              <span className="inline-block px-1.5 py-0.5 text-[10px] font-extrabold bg-sky-600 text-white rounded mb-1.5">步驟 1</span>
+              <span className="inline-block px-1.5 py-0.5 text-[0.75rem] font-extrabold bg-sky-600 text-white rounded mb-1.5">步驟 1</span>
               <p className="text-[12px] font-bold text-slate-900 dark:text-white">經椎弓根穿刺穿透</p>
               <svg viewBox="0 0 120 90" className="w-full h-auto my-2" role="img" aria-label="穿刺針穿入椎體">
                 <path d="M15 35 L15 75 L95 75 L95 30 Z" fill="#e2e8f0" stroke="#64748b" strokeWidth="1.5" />
@@ -247,13 +247,13 @@ export const BoneCementProcedureFigure: React.FC = () => {
                 <circle cx="45" cy="55" r="3" fill="#dc2626" />
               </svg>
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400">穿刺針經皮安全穿過椎弓根，直達塌陷椎體中心。</p>
+            <p className="text-[0.75rem] text-slate-600 dark:text-slate-400">穿刺針經皮安全穿過椎弓根，直達塌陷椎體中心。</p>
           </div>
 
           {/* Step 2 */}
           <div className="rounded-xl border border-sky-200 dark:border-sky-800/60 bg-sky-50/30 dark:bg-sky-950/30 p-2.5 text-center flex flex-col justify-between">
             <div>
-              <span className="inline-block px-1.5 py-0.5 text-[10px] font-extrabold bg-sky-600 text-white rounded mb-1.5">步驟 2</span>
+              <span className="inline-block px-1.5 py-0.5 text-[0.75rem] font-extrabold bg-sky-600 text-white rounded mb-1.5">步驟 2</span>
               <p className="text-[12px] font-bold text-sky-950 dark:text-sky-300">氣球充氣撐開復位</p>
               <svg viewBox="0 0 120 90" className="w-full h-auto my-2" role="img" aria-label="氣球充氣撐開椎體高度">
                 <path d="M15 25 L15 75 L95 75 L95 25 Z" fill="#e2e8f0" stroke="#0284c7" strokeWidth="1.5" />
@@ -262,13 +262,13 @@ export const BoneCementProcedureFigure: React.FC = () => {
                 <text x="50" y="54" fontSize="10" fontWeight="700" fill="#0369a1" textAnchor="middle">高度復位</text>
               </svg>
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400">置入氣球充氣，機械性撐起塌陷骨壁並擠壓周邊骨質。</p>
+            <p className="text-[0.75rem] text-slate-600 dark:text-slate-400">置入氣球充氣，機械性撐起塌陷骨壁並擠壓周邊骨質。</p>
           </div>
 
           {/* Step 3 */}
           <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/40 p-2.5 text-center flex flex-col justify-between">
             <div>
-              <span className="inline-block px-1.5 py-0.5 text-[10px] font-extrabold bg-sky-600 text-white rounded mb-1.5">步驟 3</span>
+              <span className="inline-block px-1.5 py-0.5 text-[0.75rem] font-extrabold bg-sky-600 text-white rounded mb-1.5">步驟 3</span>
               <p className="text-[12px] font-bold text-slate-900 dark:text-white">洩氣抽出形成空腔</p>
               <svg viewBox="0 0 120 90" className="w-full h-auto my-2" role="img" aria-label="氣球退出留下受控低壓空腔">
                 <path d="M15 25 L15 75 L95 75 L95 25 Z" fill="#e2e8f0" stroke="#64748b" strokeWidth="1.5" />
@@ -277,13 +277,13 @@ export const BoneCementProcedureFigure: React.FC = () => {
                 <text x="50" y="53" fontSize="9" fontWeight="700" fill="#64748b" textAnchor="middle">受控低壓空腔</text>
               </svg>
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400">氣球洩氣抽出，在椎體內部留下受控的人工封閉低壓腔。</p>
+            <p className="text-[0.75rem] text-slate-600 dark:text-slate-400">氣球洩氣抽出，在椎體內部留下受控的人工封閉低壓腔。</p>
           </div>
 
           {/* Step 4 */}
           <div className="rounded-xl border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/30 dark:bg-emerald-950/30 p-2.5 text-center flex flex-col justify-between">
             <div>
-              <span className="inline-block px-1.5 py-0.5 text-[10px] font-extrabold bg-emerald-600 text-white rounded mb-1.5">步驟 4</span>
+              <span className="inline-block px-1.5 py-0.5 text-[0.75rem] font-extrabold bg-emerald-600 text-white rounded mb-1.5">步驟 4</span>
               <p className="text-[12px] font-bold text-emerald-950 dark:text-emerald-300">低壓灌注骨泥固化</p>
               <svg viewBox="0 0 120 90" className="w-full h-auto my-2" role="img" aria-label="低壓推注高黏度骨泥填充完工">
                 <path d="M15 25 L15 75 L95 75 L95 25 Z" fill="#e2e8f0" stroke="#059669" strokeWidth="2" />
@@ -292,7 +292,7 @@ export const BoneCementProcedureFigure: React.FC = () => {
                 <text x="50" y="54" fontSize="10" fontWeight="700" fill="#ffffff" textAnchor="middle">骨泥固化</text>
               </svg>
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400">低壓注入牙膏狀高黏度 PMMA 骨泥，數分鐘內凝固堅固耐壓。</p>
+            <p className="text-[0.75rem] text-slate-600 dark:text-slate-400">低壓注入牙膏狀高黏度 PMMA 骨泥，數分鐘內凝固堅固耐壓。</p>
           </div>
         </div>
       </div>
@@ -325,7 +325,7 @@ export const MissVsOpenFigure: React.FC = () => {
         <div className="rounded-xl border border-rose-200 dark:border-rose-900 bg-rose-50/30 dark:bg-rose-950/20 p-3.5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[13px] font-bold text-rose-900 dark:text-rose-300">傳統開放式脊椎手術</span>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-rose-200 dark:bg-rose-900 text-rose-900 dark:text-rose-200 font-semibold">傷口 8–15 cm</span>
+            <span className="text-[0.75rem] px-2 py-0.5 rounded bg-rose-200 dark:bg-rose-900 text-rose-900 dark:text-rose-200 font-semibold">傷口 8–15 cm</span>
           </div>
           <svg viewBox="0 0 240 130" className="w-full h-auto" role="img" aria-label="傳統大開刀：肌肉自骨骼大面積剝離撕扯">
             {/* Skin layer cut wide open */}
@@ -338,7 +338,7 @@ export const MissVsOpenFigure: React.FC = () => {
             {/* Spine bone deep inside */}
             <rect x="105" y="85" width="30" height="25" rx="3" fill="#cbd5e1" stroke="#64748b" strokeWidth="2" />
           </svg>
-          <ul className="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 mt-2">
+          <ul className="text-[0.75rem] text-slate-600 dark:text-slate-300 space-y-1 mt-2">
             <li>• 多裂肌完全從棘突剝離，術後永久失去動態抗剪力</li>
             <li>• 失血量約 300–800 ml，需留置傷口引流管</li>
             <li>• 住院 5–7 天，術後常見難纏的背部肌筋膜纖維化疼痛</li>
@@ -349,7 +349,7 @@ export const MissVsOpenFigure: React.FC = () => {
         <div className="rounded-xl border border-emerald-200 dark:border-emerald-900 bg-emerald-50/30 dark:bg-emerald-950/20 p-3.5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[13px] font-bold text-emerald-900 dark:text-emerald-300">雙通道內視鏡微創 (UBE)</span>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-emerald-200 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-200 font-semibold">雙孔各 0.5–0.7 cm</span>
+            <span className="text-[0.75rem] px-2 py-0.5 rounded bg-emerald-200 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-200 font-semibold">雙孔各 0.5–0.7 cm</span>
           </div>
           <svg viewBox="0 0 240 130" className="w-full h-auto" role="img" aria-label="微創雙通道內視鏡：經自然肌纖維間隙穿透，完整保留多裂肌">
             {/* Intact skin line with two tiny stab portals */}
@@ -372,7 +372,7 @@ export const MissVsOpenFigure: React.FC = () => {
             {/* Target spinal lamina lesion */}
             <rect x="105" y="85" width="30" height="25" rx="3" fill="#cbd5e1" stroke="#059669" strokeWidth="2" />
           </svg>
-          <ul className="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 mt-2">
+          <ul className="text-[0.75rem] text-slate-600 dark:text-slate-300 space-y-1 mt-2">
             <li>• 透過天然肌肉束間隙穿透，完全保留肌肉與神經完整性</li>
             <li>• 連續水流沖刷止血，失血極少 (&lt; 30–50 ml)</li>
             <li>• 術後當天即可下床，多數 1–2 天即可出院回歸生活</li>
@@ -393,7 +393,7 @@ export const McgillBigThreeFigure: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[13px] font-bold text-slate-900 dark:text-white">1. 改良式捲腹</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold">腰椎零剪切力</span>
+              <span className="text-[0.75rem] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold">腰椎零剪切力</span>
             </div>
             <svg viewBox="0 0 160 80" className="w-full h-auto my-2" role="img" aria-label="改良式捲腹動作姿勢">
               {/* Floor */}
@@ -407,11 +407,11 @@ export const McgillBigThreeFigure: React.FC = () => {
               <path d="M95 70 L115 50 L125 72" stroke="#3b82f6" strokeWidth="3.5" strokeLinecap="round" fill="none" />
               <path d="M95 70 L145 72" stroke="#93c5fd" strokeWidth="3" strokeLinecap="round" fill="none" />
             </svg>
-            <p className="text-[11px] text-slate-600 dark:text-slate-300">
+            <p className="text-[0.75rem] text-slate-600 dark:text-slate-300">
               <strong>關鍵口訣：</strong>雙手墊於腰後維持弧度，單膝屈曲鎖定骨盆，僅頭胸微離地 2 公分，絕不彎曲腰椎。
             </p>
           </div>
-          <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold mt-2">維持 7–8 秒 × 每邊 4–5 次</span>
+          <span className="text-[0.75rem] font-mono text-emerald-600 dark:text-emerald-400 font-bold mt-2">維持 7–8 秒 × 每邊 4–5 次</span>
         </div>
 
         {/* 2. Side Bridge */}
@@ -419,7 +419,7 @@ export const McgillBigThreeFigure: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[13px] font-bold text-slate-900 dark:text-white">2. 側棒式 (Side Bridge)</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-bold">腰方肌側向鋼纜</span>
+              <span className="text-[0.75rem] px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-bold">腰方肌側向鋼纜</span>
             </div>
             <svg viewBox="0 0 160 80" className="w-full h-auto my-2" role="img" aria-label="側棒式動作姿勢">
               <line x1="10" y1="72" x2="150" y2="72" stroke="#cbd5e1" strokeWidth="2" />
@@ -429,11 +429,11 @@ export const McgillBigThreeFigure: React.FC = () => {
               <circle cx="35" cy="42" r="7" fill="#0284c7" />
               <path d="M42 45 L80 55 L135 72" stroke="#0284c7" strokeWidth="4" strokeLinecap="round" fill="none" />
             </svg>
-            <p className="text-[11px] text-slate-600 dark:text-slate-300">
+            <p className="text-[0.75rem] text-slate-600 dark:text-slate-300">
               <strong>關鍵口訣：</strong>手肘置於肩下，肩、臀、膝呈一直線推起，以最低壓縮力鍛鍊腰椎最強側向穩定肌「腰方肌」。
             </p>
           </div>
-          <span className="text-[10px] font-mono text-sky-600 dark:text-sky-400 font-bold mt-2">維持 8–10 秒 × 每邊 3–4 組</span>
+          <span className="text-[0.75rem] font-mono text-sky-600 dark:text-sky-400 font-bold mt-2">維持 8–10 秒 × 每邊 3–4 組</span>
         </div>
 
         {/* 3. Bird-Dog */}
@@ -441,7 +441,7 @@ export const McgillBigThreeFigure: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[13px] font-bold text-slate-900 dark:text-white">3. 鳥狗式 (Bird-Dog)</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 font-bold">多裂肌抗旋轉</span>
+              <span className="text-[0.75rem] px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 font-bold">多裂肌抗旋轉</span>
             </div>
             <svg viewBox="0 0 160 80" className="w-full h-auto my-2" role="img" aria-label="四足跪姿鳥狗式動作姿勢">
               <line x1="10" y1="72" x2="150" y2="72" stroke="#cbd5e1" strokeWidth="2" />
@@ -455,11 +455,11 @@ export const McgillBigThreeFigure: React.FC = () => {
               <line x1="95" y1="48" x2="95" y2="72" stroke="#7e22ce" strokeWidth="3" strokeLinecap="round" />
               <line x1="105" y1="48" x2="148" y2="48" stroke="#a855f7" strokeWidth="3" strokeLinecap="round" />
             </svg>
-            <p className="text-[11px] text-slate-600 dark:text-slate-300">
+            <p className="text-[0.75rem] text-slate-600 dark:text-slate-300">
               <strong>關鍵口訣：</strong>四足跪姿背平如桌面，對角手腳「向遠處延伸」而非向上挑腰，避免腰椎過度前伸擠壓。
             </p>
           </div>
-          <span className="text-[10px] font-mono text-purple-600 dark:text-purple-400 font-bold mt-2">延伸 8 秒 × 每邊 5 次 × 3 組</span>
+          <span className="text-[0.75rem] font-mono text-purple-600 dark:text-purple-400 font-bold mt-2">延伸 8 秒 × 每邊 5 次 × 3 組</span>
         </div>
       </div>
     </div>
@@ -475,7 +475,7 @@ export const SpineSpringBiomechanicsFigure: React.FC = () => {
         <div className="rounded-xl border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/30 dark:bg-emerald-950/20 p-3.5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[13px] font-bold text-emerald-900 dark:text-emerald-300">理想脊柱彈簧：四段生理彎曲</span>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold">重力自然消散</span>
+            <span className="text-[0.75rem] px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-semibold">重力自然消散</span>
           </div>
           <svg viewBox="0 0 220 200" className="w-full h-auto" role="img" aria-label="健康的 S 型脊柱曲線如同彈簧">
             {/* Plumb line (C7 to S1) */}
@@ -503,7 +503,7 @@ export const SpineSpringBiomechanicsFigure: React.FC = () => {
             <circle cx="110" cy="185" r="5" fill="#047857" />
             <text x="118" y="188" fontSize="9" fill="#047857">薦骨底 (S1)</text>
           </svg>
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 mt-2">
+          <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 mt-2">
             四段交互彎曲構成天然彈簧，走路奔跑時能將衝擊分散十倍以上，重力鉛垂線剛好落在骨盆中央。
           </p>
         </div>
@@ -512,7 +512,7 @@ export const SpineSpringBiomechanicsFigure: React.FC = () => {
         <div className="rounded-xl border border-rose-200 dark:border-rose-800/60 bg-rose-50/30 dark:bg-rose-950/20 p-3.5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[13px] font-bold text-rose-900 dark:text-rose-300">失衡曲線：直頸平背與駝背</span>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-300 font-semibold">應力集中破壞</span>
+            <span className="text-[0.75rem] px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-300 font-semibold">應力集中破壞</span>
           </div>
           <svg viewBox="0 0 220 200" className="w-full h-auto" role="img" aria-label="平背或駝背失衡：重力失衡造成椎間盤與小面關節加速磨損">
             {/* Plumb line */}
@@ -535,7 +535,7 @@ export const SpineSpringBiomechanicsFigure: React.FC = () => {
 
             <text x="125" y="165" fontSize="10" fontWeight="700" fill="#be123c">腰椎弧度變平</text>
           </svg>
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 mt-2">
+          <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 mt-2">
             頭部前傾每增加 2.5 公分，頸椎負荷加重一倍；平背與駝背使彈簧避震失效，所有撞擊直衝椎間盤。
           </p>
         </div>
@@ -553,7 +553,7 @@ export const PostOpLogRollAndBraceFigure: React.FC = () => {
           <h4 className="text-[14px] font-bold text-slate-900 dark:text-white">
             脊椎骨折與微創術後：「先穿再坐、先躺再脫」＋圓滾木上下床四部曲
           </h4>
-          <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 font-bold">
+          <span className="text-[0.75rem] px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 font-bold">
             台灣醫學中心標準臨床護理規範
           </span>
         </div>
@@ -563,8 +563,8 @@ export const PostOpLogRollAndBraceFigure: React.FC = () => {
           <div className="rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/30 dark:bg-emerald-950/20 p-3 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-emerald-600 text-white rounded">步驟 1 · 平躺穿背架</span>
-                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400">先穿再坐</span>
+                <span className="px-2 py-0.5 text-[0.75rem] font-extrabold bg-emerald-600 text-white rounded">步驟 1 · 平躺穿背架</span>
+                <span className="text-[0.75rem] font-bold text-emerald-700 dark:text-emerald-400">先穿再坐</span>
               </div>
               <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="平躺於床上先穿妥背架">
                 {/* Bed */}
@@ -590,8 +590,8 @@ export const PostOpLogRollAndBraceFigure: React.FC = () => {
           <div className="rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50/30 dark:bg-sky-950/20 p-3 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-sky-600 text-white rounded">步驟 2 · 圓滾木側翻</span>
-                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400">肩臀一直線</span>
+                <span className="px-2 py-0.5 text-[0.75rem] font-extrabold bg-sky-600 text-white rounded">步驟 2 · 圓滾木側翻</span>
+                <span className="text-[0.75rem] font-bold text-sky-700 dark:text-sky-400">肩臀一直線</span>
               </div>
               <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="圓滾木翻身法：肩與骨盆同步側轉">
                 <rect x="10" y="65" width="130" height="8" rx="3" fill="#cbd5e1" />
@@ -615,8 +615,8 @@ export const PostOpLogRollAndBraceFigure: React.FC = () => {
           <div className="rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/30 dark:bg-indigo-950/20 p-3 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-indigo-600 text-white rounded">步驟 3 · 垂腿手推床</span>
-                <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-400">免用腰力</span>
+                <span className="px-2 py-0.5 text-[0.75rem] font-extrabold bg-indigo-600 text-white rounded">步驟 3 · 垂腿手推床</span>
+                <span className="text-[0.75rem] font-bold text-indigo-700 dark:text-indigo-400">免用腰力</span>
               </div>
               <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="雙腿垂出床外，雙手推床面將軀幹直立撐起">
                 <rect x="15" y="55" width="120" height="8" rx="3" fill="#cbd5e1" />
@@ -640,8 +640,8 @@ export const PostOpLogRollAndBraceFigure: React.FC = () => {
           <div className="rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/30 dark:bg-amber-950/20 p-3 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="px-2 py-0.5 text-[10px] font-extrabold bg-amber-600 text-white rounded">步驟 4 · 靜坐防頭暈</span>
-                <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400">扶穩再站</span>
+                <span className="px-2 py-0.5 text-[0.75rem] font-extrabold bg-amber-600 text-white rounded">步驟 4 · 靜坐防頭暈</span>
+                <span className="text-[0.75rem] font-bold text-amber-700 dark:text-amber-400">扶穩再站</span>
               </div>
               <svg viewBox="0 0 150 90" className="w-full h-auto my-2" role="img" aria-label="於床緣直立靜坐3至5分鐘確認無頭暈再扶助行器站起">
                 <rect x="15" y="55" width="90" height="8" rx="3" fill="#cbd5e1" />
@@ -674,7 +674,7 @@ export const NavigationOlifAndEndoscopyFigure: React.FC = () => {
         <h4 className="text-[14px] font-bold text-slate-900 dark:text-white">
           微創脊椎中心三大精準核心：3D 電腦導航 (O-arm) × OLIF 側開融合 × UBE 內視鏡
         </h4>
-        <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-200 font-bold">
+        <span className="text-[0.75rem] px-2.5 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-200 font-bold">
           SNQ 國家品質標章微創技術體系
         </span>
       </div>
@@ -698,7 +698,7 @@ export const NavigationOlifAndEndoscopyFigure: React.FC = () => {
             <line x1="135" y1="30" x2="104" y2="68" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />
             <text x="90" y="74" fontSize="8" fontWeight="700" fill="#1e293b" textAnchor="middle">精準度 &gt; 99%</text>
           </svg>
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 leading-relaxed">
             術中即時 3D 影像定位，不須剝離大範圍肌肉或牽拉神經，安全完成微創置釘、翻修與側彎駝背矯形。
           </p>
         </div>
@@ -721,7 +721,7 @@ export const NavigationOlifAndEndoscopyFigure: React.FC = () => {
             <text x="32" y="42" fontSize="8" fontWeight="700" fill="#047857" textAnchor="middle">側前天然間隙</text>
             <text x="150" y="53" fontSize="8" fontWeight="700" fill="#059669" textAnchor="middle">背肌零破壞</text>
           </svg>
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 leading-relaxed">
             經腹部側前方天然間隙置入大支架，直接撐高椎間盤與神經孔（間接減壓），<strong>完全不傷背後肌肉與神經</strong>。
           </p>
         </div>
@@ -742,7 +742,7 @@ export const NavigationOlifAndEndoscopyFigure: React.FC = () => {
             <text x="45" y="13" fontSize="8" fontWeight="700" fill="#4f46e5">0.5cm 鏡頭</text>
             <text x="132" y="13" fontSize="8" fontWeight="700" fill="#d97706">0.7cm 器械</text>
           </svg>
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 leading-relaxed">
             小於 1 公分微孔穿透肌間隙，水壓止血、視野放大 30 倍清除突出椎間盤與肥厚黃韌帶，當天下床、隔天出院。
           </p>
         </div>

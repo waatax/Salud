@@ -132,7 +132,7 @@ export const StrengthInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-nature-green-600 dark:text-nature-green-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-nature-green-600 dark:text-nature-green-400 font-bold block">
                 {STRENGTH_INFOGRAPHICS[0].id} · {STRENGTH_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -188,7 +188,7 @@ export const StrengthInfographics: React.FC = () => {
             <p className="text-xs text-slate-700 dark:text-slate-300">
               {triadDetails[activeTriad].mechanismZh}
             </p>
-            <p className="text-[11px] font-mono text-salud-cyan">
+            <p className="text-[0.75rem] font-mono text-salud-cyan">
               💡 {triadDetails[activeTriad].guidelineZh}
             </p>
           </div>
@@ -275,7 +275,7 @@ export const StrengthInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-salud-cyan font-bold block">
+              <span className="text-[0.75rem] font-mono text-salud-cyan font-bold block">
                 {STRENGTH_INFOGRAPHICS[1].id} · {STRENGTH_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -290,7 +290,7 @@ export const StrengthInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Pattern Buttons */}
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[11px] font-mono font-bold">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[0.75rem] font-mono font-bold">
             {(['SQUAT', 'HINGE', 'PUSH', 'PULL', 'LUNGE', 'ANTI_ROTATION'] as const).map((key) => (
               <button
                 key={key}
@@ -312,7 +312,7 @@ export const StrengthInfographics: React.FC = () => {
               <span className="font-bold text-xs text-salud-cyan">
                 {patternDetails[selectedPattern].nameZh}
               </span>
-              <span className="text-[10px] font-mono text-slate-500">
+              <span className="text-[0.75rem] font-mono text-slate-500">
                 {patternDetails[selectedPattern].jointZh}
               </span>
             </div>
@@ -322,7 +322,7 @@ export const StrengthInfographics: React.FC = () => {
             <div className="text-xs text-slate-700 dark:text-slate-300">
               <span className="text-slate-400">經典動作：</span>{patternDetails[selectedPattern].exercises}
             </div>
-            <p className="text-[11px] font-mono text-nature-amber-800 dark:text-nature-amber-300">
+            <p className="text-[0.75rem] font-mono text-nature-amber-800 dark:text-nature-amber-300">
               💡 {patternDetails[selectedPattern].pearlZh}
             </p>
           </div>
@@ -361,7 +361,7 @@ export const StrengthInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-nature-amber-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-nature-amber-500 font-bold block">
                 {STRENGTH_INFOGRAPHICS[2].id} · {STRENGTH_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -392,7 +392,7 @@ export const StrengthInfographics: React.FC = () => {
               onChange={(e) => setLoadPct(Number(e.target.value))}
               className="w-full accent-nature-amber-500 cursor-pointer"
             />
-            <div className="flex justify-between text-[10px] font-mono text-slate-400">
+            <div className="flex justify-between text-[0.75rem] font-mono text-slate-400">
               <span>30% (輕度日常)</span>
               <span>65% (一般肌耐力)</span>
               <span>85%+ (大重量或 0-2 RIR)</span>
@@ -460,7 +460,7 @@ export const StrengthInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-nature-green-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-nature-green-500 font-bold block">
                 {STRENGTH_INFOGRAPHICS[3].id} · {STRENGTH_INFOGRAPHICS[3].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">

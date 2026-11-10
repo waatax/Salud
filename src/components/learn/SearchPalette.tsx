@@ -225,7 +225,7 @@ export const SearchPalette: React.FC = () => {
           )}
         </div>
 
-        <div className="hidden sm:flex items-center gap-4 border-t border-slate-200 dark:border-slate-800 px-4 py-2 text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="hidden sm:flex items-center gap-4 border-t border-slate-200 dark:border-slate-800 px-4 py-2 text-[0.75rem] text-slate-500 dark:text-slate-400">
           <span><kbd className="font-mono">↑↓</kbd> 選擇</span>
           <span><kbd className="font-mono">Enter</kbd> 開啟</span>
           <span><kbd className="font-mono">Esc</kbd> 關閉</span>

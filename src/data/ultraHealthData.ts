@@ -9,7 +9,7 @@ import {
 /**
  * ── 個人超健康 Project (Personal Ultra-Health Project) 核心資料庫 ──
  * 整合 29 席跨領域專家委員會：
- * - 均一教育平台核心團隊 (技術長、知識長、平台規劃長、教育專家)
+ * - 學習設計角色 (技術長、知識長、平台規劃長、教育專家)
  * - 醫療專家群 (內科、心臟、新陳代謝、腎臟、成癮毒理、預防醫學)
  * - 醫療知識型網紅 (科普轉譯、白話神比喻、迷思粉碎)
  * - 頂級肌力與體能教練 (漸進超負荷、5大核心動作模式)
@@ -22,8 +22,8 @@ export const EXPERT_ROUNDS: ExpertRound[] = [
     round: 1,
     title_zh: 'Round 1：底層教育架構與知識圖譜拓撲重構',
     title_en: 'Round 1: Educational Architecture & Knowledge Graph Topology',
-    theme_zh: '打破「衛教看了就忘」的詛咒，導入均一精熟學習 (Mastery Learning) 與原子化知識點 (Atomic KPs)',
-    lead_experts: ['均一教育平台技術長', '均一教育平台知識長', '均一教育平台規劃長', '均一教育專家'],
+    theme_zh: '打破「衛教看了就忘」的詛咒，導入精熟學習 (Mastery Learning) 與原子化知識點 (Atomic KPs)',
+    lead_experts: ['學習設計角色', '學習設計角色', '學習設計角色', '教育設計角色'],
     core_debates_zh: [
       '傳統健康衛教為何大眾無法吸收？核心在於資訊一次拋出太多（認知超載），且缺乏先備知識鏈與診斷反饋。',
       '如何確保使用者不跳級嘗試危險養生法？必須像學微積分前先學代數一樣，建立知識依賴拓撲（Prerequisite Graph）。',
@@ -31,7 +31,7 @@ export const EXPERT_ROUNDS: ExpertRound[] = [
     ],
     breakthrough_consensus_zh: [
       '確立「原子化知識單元 (KP)」為核心基準，每單元閱讀時間 ≤ 2 分鐘，只講透 1 個關鍵生理機制。',
-      '架設「均一精熟學習技能樹 (Mastery Skill Tree)」，分層為 L1 基礎認知、L2 核心機轉、L3 生活實踐、SAFETY 臨床安全閘。',
+      '架設「精熟學習技能樹 (Mastery Skill Tree)」，分層為 L1 基礎認知、L2 核心機轉、L3 生活實踐、SAFETY 臨床安全閘。',
       '使用者每掌握一個模組，即時點亮技能節點並計算掌握度星星，打造教育科技等級的正向學習反饋閉環。'
     ],
     methodology_outputs_zh: [
@@ -155,7 +155,7 @@ export const EXPERT_ROUNDS: ExpertRound[] = [
     title_zh: 'Round 7：終審整合、遊戲化沉浸式體驗與平台全體發布',
     title_en: 'Round 7: Final Synthesis, Gamified Immersion & Universal Launch',
     theme_zh: '29 席專家全體終審簽核，將 7 次迭代精華全面落地至 Salud 頂層架構，發布上線',
-    lead_experts: ['均一平台規劃長', '遊戲化 UX 專家', '醫療總監', '全體 29 席專家委員會'],
+    lead_experts: ['學習設計角色', '遊戲化 UX 專家', '醫療總監', '全體 29 席專家委員會'],
     core_debates_zh: [
       '如何把以上 6 輪會議產生的大量方法論，無縫整合成一個流暢、美麗、不擁擠、高互動性的旗艦產品？',
       '使用者進入 Salud 後，如何在一分鐘內找到專屬自己的超健康起步點？',
@@ -168,7 +168,7 @@ export const EXPERT_ROUNDS: ExpertRound[] = [
         '  2. ⏰ 24H 個人超健康日常作息協議 (Daily Protocol Matrix)\n' +
         '  3. 🎯 14 天原子微習慣養成器 (Atomic Habit Tracker with Confetti)\n' +
         '  4. 🧘 物理治療與肌力體能實戰動作庫 (Physio & Movement Guide)\n' +
-        '  5. 🌳 均一式自適應精熟技能樹 (Junyi Mastery Skill Tree)',
+        '  5. 🌳 自適應精熟技能樹 (Mastery Skill Tree)',
       '全體 29 位專家正式具名簽核，確立「實證嚴謹、直覺好懂、極致實用、有手就能做」為 Salud 不可動搖之產品靈魂！'
     ],
     methodology_outputs_zh: [

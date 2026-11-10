@@ -125,19 +125,19 @@ export const BodyRecompositionCalculator: React.FC = () => {
           <div className="grid grid-cols-2 gap-2 shrink-0">
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-cyan-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-cyan-600 dark:text-cyan-400">2.0-2.4g</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">防禦蛋白質/kg</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">防禦蛋白質/kg</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-cyan-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-emerald-600 dark:text-emerald-400">7,700 kcal</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">每公斤內源脂肪供能</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">每公斤內源脂肪供能</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-cyan-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-teal-600 dark:text-cyan-400">Katch-McArdle</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">精準去脂體重代謝</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">精準去脂體重代謝</div>
             </div>
             <div className="p-3 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-cyan-200 dark:border-white/10 text-center shadow-xs">
               <div className="text-lg font-mono font-extrabold text-indigo-600 dark:text-indigo-400">Diet Break</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400">瘦素重置週期化</div>
+              <div className="text-[0.75rem] text-slate-500 dark:text-slate-400">瘦素重置週期化</div>
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ export const BodyRecompositionCalculator: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                  <span className="text-[0.75rem] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                     {mode.badge}
                   </span>
                   {isSelected && <ShieldCheck className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />}
@@ -291,28 +291,28 @@ export const BodyRecompositionCalculator: React.FC = () => {
           {/* Top Row: Metabolic Benchmarks */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-              <div className="text-[11px] font-mono text-slate-500">去脂體重 (LBM)</div>
+              <div className="text-[0.75rem] font-mono text-slate-500">去脂體重 (LBM)</div>
               <div className="text-base font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
                 {calculations.lbmKg} <span className="text-xs">kg</span>
               </div>
             </div>
 
             <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-              <div className="text-[11px] font-mono text-slate-500">脂肪質量 (Fat Mass)</div>
+              <div className="text-[0.75rem] font-mono text-slate-500">脂肪質量 (Fat Mass)</div>
               <div className="text-base font-mono font-extrabold text-rose-600 dark:text-rose-400 mt-0.5">
                 {calculations.fatKg} <span className="text-xs">kg</span>
               </div>
             </div>
 
             <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-              <div className="text-[11px] font-mono text-slate-500">基礎代謝 (BMR)</div>
+              <div className="text-[0.75rem] font-mono text-slate-500">基礎代謝 (BMR)</div>
               <div className="text-base font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
                 {calculations.bmr} <span className="text-xs">kcal</span>
               </div>
             </div>
 
             <div className="p-3 rounded-xl bg-cyan-100/70 dark:bg-cyan-950/70 border border-cyan-300 dark:border-cyan-800">
-              <div className="text-[11px] font-mono text-cyan-800 dark:text-cyan-300 font-bold">每日熱量目標</div>
+              <div className="text-[0.75rem] font-mono text-cyan-800 dark:text-cyan-300 font-bold">每日熱量目標</div>
               <div className="text-base font-mono font-extrabold text-cyan-950 dark:text-cyan-200 mt-0.5">
                 {calculations.calorieTarget} <span className="text-xs">kcal</span>
               </div>
@@ -330,12 +330,12 @@ export const BodyRecompositionCalculator: React.FC = () => {
               <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300/80 dark:border-emerald-800 space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-emerald-900 dark:text-emerald-300">蛋白質 (Protein)</span>
-                  <span className="font-mono text-[10px] text-emerald-700 dark:text-emerald-400">4 kcal/g</span>
+                  <span className="font-mono text-[0.75rem] text-emerald-700 dark:text-emerald-400">4 kcal/g</span>
                 </div>
                 <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">
                   {calculations.proteinGrams} <span className="text-xs">g / 日</span>
                 </div>
-                <p className="text-[11px] text-emerald-800 dark:text-emerald-300">
+                <p className="text-[0.75rem] text-emerald-800 dark:text-emerald-300">
                   約 {(calculations.proteinGrams / weightKg).toFixed(1)} g/kg，防禦肌肉流失與驅動 MPS。
                 </p>
               </div>
@@ -343,12 +343,12 @@ export const BodyRecompositionCalculator: React.FC = () => {
               <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300/80 dark:border-amber-800 space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-amber-900 dark:text-amber-300">碳水化合物 (Carbs)</span>
-                  <span className="font-mono text-[10px] text-amber-700 dark:text-amber-400">4 kcal/g</span>
+                  <span className="font-mono text-[0.75rem] text-amber-700 dark:text-amber-400">4 kcal/g</span>
                 </div>
                 <div className="text-xl font-mono font-extrabold text-amber-700 dark:text-amber-400">
                   {calculations.carbGrams} <span className="text-xs">g / 日</span>
                 </div>
-                <p className="text-[11px] text-amber-800 dark:text-amber-300">
+                <p className="text-[0.75rem] text-amber-800 dark:text-amber-300">
                   訓練日蓄滿肌肝醣、提升訓練爆發力與阻抗中樞疲勞。
                 </p>
               </div>
@@ -356,12 +356,12 @@ export const BodyRecompositionCalculator: React.FC = () => {
               <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-300/80 dark:border-blue-800 space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-blue-900 dark:text-blue-300">必需脂肪 (Fats)</span>
-                  <span className="font-mono text-[10px] text-blue-700 dark:text-blue-400">9 kcal/g</span>
+                  <span className="font-mono text-[0.75rem] text-blue-700 dark:text-blue-400">9 kcal/g</span>
                 </div>
                 <div className="text-xl font-mono font-extrabold text-blue-700 dark:text-blue-400">
                   {calculations.fatGrams} <span className="text-xs">g / 日</span>
                 </div>
-                <p className="text-[11px] text-blue-800 dark:text-blue-300">
+                <p className="text-[0.75rem] text-blue-800 dark:text-blue-300">
                   守護睪固酮與雌激素荷爾蒙合成底線，維持細胞膜穩定。
                 </p>
               </div>
@@ -392,11 +392,11 @@ export const BodyRecompositionCalculator: React.FC = () => {
               </span>
               <div className="grid grid-cols-2 gap-2 text-center font-mono">
                 <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800">
-                  <span className="text-[10px] text-emerald-800 dark:text-emerald-300 font-sans block">去脂肌肉預期</span>
+                  <span className="text-[0.75rem] text-emerald-800 dark:text-emerald-300 font-sans block">去脂肌肉預期</span>
                   <span className="font-bold text-emerald-600 text-sm">+{calculations.estMuscleChangeKg} kg</span>
                 </div>
                 <div className="p-2.5 rounded-lg bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800">
-                  <span className="text-[10px] text-rose-800 dark:text-rose-300 font-sans block">純脂肪質量預期</span>
+                  <span className="text-[0.75rem] text-rose-800 dark:text-rose-300 font-sans block">純脂肪質量預期</span>
                   <span className="font-bold text-rose-600 text-sm">{calculations.estFatChangeKg} kg</span>
                 </div>
               </div>
@@ -437,7 +437,7 @@ export const BodyRecompositionCalculator: React.FC = () => {
                 <div className="font-bold text-xs text-slate-900 dark:text-white line-clamp-1">
                   {cand.phenotype_zh.split('/')[0]}
                 </div>
-                <div className="text-[10px] font-mono text-slate-500 mt-1 line-clamp-1">
+                <div className="text-[0.75rem] font-mono text-slate-500 mt-1 line-clamp-1">
                   {cand.phenotype_en}
                 </div>
               </button>
@@ -461,22 +461,22 @@ export const BodyRecompositionCalculator: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <span className="text-[10px] font-mono text-slate-500">熱量策略</span>
+                  <span className="text-[0.75rem] font-mono text-slate-500">熱量策略</span>
                   <div className="font-bold text-slate-900 dark:text-white">{c.calorie_strategy_zh}</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <span className="text-[10px] font-mono text-emerald-600">蛋白質需求</span>
+                  <span className="text-[0.75rem] font-mono text-emerald-600">蛋白質需求</span>
                   <div className="font-bold text-emerald-700 dark:text-emerald-400">{c.protein_requirement_zh}</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <span className="text-[10px] font-mono text-teal-600">訓練處方重心</span>
+                  <span className="text-[0.75rem] font-mono text-teal-600">訓練處方重心</span>
                   <div className="font-bold text-slate-900 dark:text-white">{c.training_focus_zh}</div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
-                  <span className="text-[10px] font-mono text-cyan-600">預期時程轉變</span>
+                  <span className="text-[0.75rem] font-mono text-cyan-600">預期時程轉變</span>
                   <div className="font-bold text-cyan-700 dark:text-cyan-400">{c.expected_timeline_zh}</div>
                 </div>
               </div>

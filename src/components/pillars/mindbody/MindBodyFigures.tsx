@@ -23,7 +23,7 @@ const BASE = 'var(--viz-baseline)';
 export const Wide: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div>
     <div className="overflow-x-auto overscroll-x-contain -mx-1 px-1 print:overflow-visible">{children}</div>
-    <p className="sm:hidden mt-1 text-center text-[11px] text-slate-400 dark:text-slate-500" aria-hidden="true">
+    <p className="sm:hidden mt-1 text-center text-[0.75rem] text-slate-400 dark:text-slate-500" aria-hidden="true">
       ← 左右滑動看完整圖 →
     </p>
   </div>
@@ -846,7 +846,7 @@ export const LiuZiJueWheel: React.FC = () => {
           {cur.modern}
         </p>
         <p className="text-[13px] text-slate-500 dark:text-slate-400">
-          <span className="inline-block rounded bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 text-[11px] font-bold mr-1">傳統理論</span>
+          <span className="inline-block rounded bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 text-[0.75rem] font-bold mr-1">傳統理論</span>
           對應：{cur.organ}・{cur.element}（古籍說法，非現代醫學證據）
         </p>
         <p className="text-[12px] text-slate-500 dark:text-slate-400">練法：鼻吸 → 口型就位 → 輕聲或默念字音，緩慢吐氣 6–10 秒 → 自然吸氣。每字 6 次，依序練完六字約 10 分鐘。</p>

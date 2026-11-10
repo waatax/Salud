@@ -2,6 +2,8 @@ import { MindBodyBridge } from './mindbody/MindBodyBridge';
 import React, { useState } from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { MENTAL_TABS } from '../../config/routes';
+import { HubHero } from '../common/HubHero';
+import { HUB_PRIMERS } from '../../data/hubPrimers';
 import { BREATHWORK_PROTOCOLS, MENTAL_TOPICS, STRESS_MYTH_BUSTERS } from '../../data/mentalHealthData';
 import { SimBreathwork } from '../simulators/SimBreathwork';
 import {
@@ -42,52 +44,10 @@ export const MentalHealthHub: React.FC = () => {
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
       <MindBodyBridge from="mental" />
-      {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-emerald-300/80 dark:border-cyan-500/30 bg-gradient-to-br from-emerald-50 via-teal-50/70 to-emerald-100/50 dark:from-slate-950 dark:via-[#141F1A] dark:to-slate-950 p-6 sm:p-10 shadow-sm backdrop-blur-md">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-cyan-500/20 text-emerald-800 dark:text-cyan-300 border border-emerald-300/80 dark:border-cyan-500/40 text-xs font-mono font-bold shadow-xs">
-              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-cyan-400 animate-pulse" />
-              <span>Salud 旗艦支柱 · 心理健康、情緒壓力與實證呼吸總樞紐</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white">
-              {language === 'zh-TW'
-                ? '身心神經調控、迷走神經張力與呼吸科學'
-                : 'Mental Health, Autonomic Vagal Dynamics & Respiration Science'}
-            </h1>
-
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              拒絕「你想太多」的空泛說教，回歸神經生理與生物化學本質。結合臨床心理學、胸腔神經生理與生物回饋最新實證。整合史丹佛大學 2023 年{' '}
-              <span className="font-mono text-teal-800 dark:text-cyan-300 font-bold">Cell Reports Medicine</span> 循環生理嘆氣臨床試驗、0.1 Hz 自律神經共振與波耳效應，
-              為你的自律神經系統提供秒級啟動的「迷走神經煞車」！
-            </p>
-          </div>
-
-          {/* Quick Metrics Badges */}
-          <div className="grid grid-cols-2 gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-cyan-400">5 大</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">實證呼吸協定</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
-              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-emerald-400">0.1 Hz</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">黃金共振頻率</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
-              <div className="text-xl font-mono font-extrabold text-indigo-700 dark:text-purple-400">100%</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">同行評審文獻</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200/80 dark:border-white/10 text-center shadow-xs">
-              <div className="text-xl font-mono font-extrabold text-emerald-800 dark:text-amber-400">Grade A</div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">最高臨床推薦</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HubHero primer={HUB_PRIMERS.mental} compact={activeTab !== 'SIMULATOR'} />
 
       {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2 text-xs font-mono">
+      <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2 text-sm">
         <button
           onClick={() => setActiveTab('SIMULATOR')}
           className={`btn-tactile flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border transition-all ${
@@ -97,7 +57,7 @@ export const MentalHealthHub: React.FC = () => {
           }`}
         >
           <Wind className="w-4 h-4" />
-          <span>呼吸引導儀 (Simulator)</span>
+          <span>跟著練：呼吸引導</span>
         </button>
 
         <button
@@ -109,7 +69,7 @@ export const MentalHealthHub: React.FC = () => {
           }`}
         >
           <BookOpen className="w-4 h-4" />
-          <span>五大實證呼吸手冊</span>
+          <span>五種呼吸法怎麼做</span>
         </button>
 
         <button
@@ -121,7 +81,7 @@ export const MentalHealthHub: React.FC = () => {
           }`}
         >
           <Brain className="w-4 h-4" />
-          <span>HPA 軸與壓力機轉</span>
+          <span>壓力時身體發生什麼事</span>
         </button>
 
         <button
@@ -133,7 +93,7 @@ export const MentalHealthHub: React.FC = () => {
           }`}
         >
           <Activity className="w-4 h-4" />
-          <span>迷走神經與 HRV 共振</span>
+          <span>慢呼吸與心率變異</span>
         </button>
 
         <button
@@ -145,7 +105,7 @@ export const MentalHealthHub: React.FC = () => {
           }`}
         >
           <Compass className="w-4 h-4" />
-          <span>波耳效應與血氣平衡</span>
+          <span>過度換氣與二氧化碳</span>
         </button>
 
         <button
@@ -157,7 +117,7 @@ export const MentalHealthHub: React.FC = () => {
           }`}
         >
           <AlertTriangle className="w-4 h-4 text-red-400" />
-          <span>恐慌分流與紅旗安全閘</span>
+          <span>恐慌發作與何時求助</span>
         </button>
       </div>
 
@@ -197,7 +157,7 @@ export const MentalHealthHub: React.FC = () => {
                         {protocol.id}
                       </span>
                       <EvidenceBadge grade={protocol.evidence_grade} />
-                      <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 font-mono text-[10px] text-slate-600 dark:text-slate-300">
+                      <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 font-mono text-[0.75rem] text-slate-600 dark:text-slate-300">
                         循環時間：{protocol.total_cycle_sec} 秒
                       </span>
                     </div>
@@ -242,11 +202,11 @@ export const MentalHealthHub: React.FC = () => {
 
                 {/* Biomolecules tags */}
                 <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="text-[11px] font-mono text-slate-500 font-bold">調控靶點：</span>
+                  <span className="text-[0.75rem] font-mono text-slate-500 font-bold">調控靶點：</span>
                   {protocol.biochemical_targets.map((tgt, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-[10px] text-slate-700 dark:text-slate-300"
+                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 font-mono text-[0.75rem] text-slate-700 dark:text-slate-300"
                     >
                       {tgt}
                     </span>
@@ -260,7 +220,7 @@ export const MentalHealthHub: React.FC = () => {
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       <span>臨床適應時機</span>
                     </span>
-                    <ul className="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                    <ul className="text-[0.75rem] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
                       {protocol.clinical_indications_zh.map((ind, idx) => (
                         <li key={idx}>{ind}</li>
                       ))}
@@ -272,7 +232,7 @@ export const MentalHealthHub: React.FC = () => {
                       <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
                       <span>適用邊界與禁忌</span>
                     </span>
-                    <ul className="text-[11px] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                    <ul className="text-[0.75rem] text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
                       {protocol.contraindications_zh.map((c, idx) => (
                         <li key={idx}>{c}</li>
                       ))}
@@ -285,7 +245,7 @@ export const MentalHealthHub: React.FC = () => {
                   <div className="text-slate-700 dark:text-slate-300 italic">
                     {protocol.clinical_pearl_zh}
                   </div>
-                  <span className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400 shrink-0">
+                  <span className="text-[0.75rem] font-mono text-cyan-600 dark:text-cyan-400 shrink-0">
                     📜 {protocol.research_citation.journal} ({protocol.research_citation.year})
                   </span>
                 </div>
@@ -497,7 +457,7 @@ export const MentalHealthHub: React.FC = () => {
                     <span className="text-emerald-500 font-bold shrink-0">✓ 真相：</span>
                     <span>{m.reality}</span>
                   </div>
-                  <div className="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-950/30 text-[11px] text-cyan-800 dark:text-cyan-300">
+                  <div className="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-950/30 text-[0.75rem] text-cyan-800 dark:text-cyan-300">
                     <strong>正確應對：</strong> {m.solution}
                   </div>
                 </div>

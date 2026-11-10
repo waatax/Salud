@@ -248,7 +248,7 @@ export const CardiometabolicHub: React.FC = () => {
                     <span className="font-mono text-xs font-bold text-teal-700 dark:text-teal-400">{lipid.id}</span>
                     <EvidenceBadge grade={lipid.evidence_grade} />
                   </div>
-                  <span className="text-[10px] font-mono text-slate-400">{lipid.unit}</span>
+                  <span className="text-[0.75rem] font-mono text-slate-400">{lipid.unit}</span>
                 </div>
 
                 <div>
@@ -258,11 +258,11 @@ export const CardiometabolicHub: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono p-3 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200/80 dark:border-slate-800">
                   <div>
-                    <span className="text-slate-400 text-[10px] block">臨床最佳達標</span>
+                    <span className="text-slate-400 text-[0.75rem] block">臨床最佳達標</span>
                     <strong className="text-emerald-700 dark:text-emerald-400 text-xs">{lipid.optimal_target_zh}</strong>
                   </div>
                   <div>
-                    <span className="text-slate-400 text-[10px] block">高風險臨界點</span>
+                    <span className="text-slate-400 text-[0.75rem] block">高風險臨界點</span>
                     <strong className="text-rose-700 dark:text-rose-400 text-xs">{lipid.high_risk_threshold_zh}</strong>
                   </div>
                 </div>
@@ -335,8 +335,8 @@ export const CardiometabolicHub: React.FC = () => {
                 <div key={cat.category} className={`p-4 rounded-2xl border ${cat.color_class} space-y-1.5`}>
                   <strong className="text-sm block">{cat.name_zh}</strong>
                   <div className="text-xs font-extrabold">{cat.systolic_range}</div>
-                  <div className="text-[11px] opacity-80">{cat.diastolic_range}</div>
-                  <p className="text-[11px] font-sans pt-1 leading-relaxed opacity-90">{cat.clinical_directive_zh}</p>
+                  <div className="text-[0.75rem] opacity-80">{cat.diastolic_range}</div>
+                  <p className="text-[0.75rem] font-sans pt-1 leading-relaxed opacity-90">{cat.clinical_directive_zh}</p>
                 </div>
               ))}
             </div>
@@ -437,13 +437,13 @@ export const CardiometabolicHub: React.FC = () => {
                     <strong className="text-sm font-bold text-indigo-800 dark:text-indigo-300 font-mono">
                       {cac.agatston_score_range}
                     </strong>
-                    <span className="px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 text-[10px] font-bold">
+                    <span className="px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 text-[0.75rem] font-bold">
                       {cac.risk_category_zh}
                     </span>
                   </div>
                   <p className="text-slate-600 dark:text-slate-300"><strong>10 年風險：</strong>{cac.ten_year_ascvd_risk_zh}</p>
                   <p className="text-slate-700 dark:text-slate-200"><strong>💊 藥物介入：</strong>{cac.statin_recommendation_zh}</p>
-                  <p className="text-indigo-900 dark:text-indigo-300 font-medium text-[11px] pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
+                  <p className="text-indigo-900 dark:text-indigo-300 font-medium text-[0.75rem] pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
                     💡 臨床珍珠：{cac.clinical_pearl_zh}
                   </p>
                 </div>
@@ -479,13 +479,13 @@ export const CardiometabolicHub: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-indigo-700 dark:text-indigo-400">{met.id}</span>
-                    <span className="text-[10px] text-slate-400 font-mono">{met.unit}</span>
+                    <span className="text-[0.75rem] text-slate-400 font-mono">{met.unit}</span>
                   </div>
                   <strong className="text-sm font-bold text-slate-900 dark:text-white block">{met.name_zh}</strong>
                   <div className="p-2 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 font-mono font-bold text-indigo-900 dark:text-indigo-300 text-xs">
                     {met.threshold_zh}
                   </div>
-                  <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed pt-1">
+                  <p className="text-slate-600 dark:text-slate-300 text-[0.75rem] leading-relaxed pt-1">
                     {met.biological_link_zh}
                   </p>
                 </div>
@@ -625,33 +625,33 @@ export const CardiometabolicHub: React.FC = () => {
             <div className="p-5 rounded-2xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/80 space-y-4 font-sans text-xs">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-center">
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-teal-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">非-HDL 膽固醇</span>
+                  <span className="text-slate-400 text-[0.75rem] block">非-HDL 膽固醇</span>
                   <strong className="text-base text-slate-900 dark:text-white font-extrabold">{nonHdl}</strong>
-                  <span className="text-[10px] text-slate-500 block">目標 &lt; 100 mg/dL</span>
+                  <span className="text-[0.75rem] text-slate-500 block">目標 &lt; 100 mg/dL</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-teal-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">殘餘膽固醇 (Remnant)</span>
+                  <span className="text-slate-400 text-[0.75rem] block">殘餘膽固醇 (Remnant)</span>
                   <strong className={`text-base font-extrabold ${isHighRemnant ? 'text-rose-600' : 'text-emerald-600'}`}>
                     {remnantChol}
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">理想 &lt; 20-25 mg/dL</span>
+                  <span className="text-[0.75rem] text-slate-500 block">理想 &lt; 20-25 mg/dL</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-teal-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">TG / HDL 比值</span>
+                  <span className="text-slate-400 text-[0.75rem] block">TG / HDL 比值</span>
                   <strong className={`text-base font-extrabold ${tgHdlRatio > 3.0 ? 'text-rose-600' : 'text-emerald-600'}`}>
                     {tgHdlRatio}
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">理想 &lt; 2.0 (＞3提示阻抗)</span>
+                  <span className="text-[0.75rem] text-slate-500 block">理想 &lt; 2.0 (＞3提示阻抗)</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-teal-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">ApoB 顆粒警報</span>
+                  <span className="text-slate-400 text-[0.75rem] block">ApoB 顆粒警報</span>
                   <strong className={`text-base font-extrabold ${calcApob > 100 ? 'text-rose-600' : 'text-emerald-600'}`}>
                     {calcApob > 100 ? '高致病顆粒' : '達標控制'}
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">高危險 &gt; 100 mg/dL</span>
+                  <span className="text-[0.75rem] text-slate-500 block">高危險 &gt; 100 mg/dL</span>
                 </div>
               </div>
 
@@ -694,7 +694,7 @@ export const CardiometabolicHub: React.FC = () => {
                 <span className="font-bold text-emerald-800 dark:text-emerald-300 block">晨起時段平均 (Morning BP)</span>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="text-slate-500 block text-[10px]">收縮壓 (SBP, mmHg)</label>
+                    <label className="text-slate-500 block text-[0.75rem]">收縮壓 (SBP, mmHg)</label>
                     <input
                       type="number"
                       value={sbpMorning}
@@ -703,7 +703,7 @@ export const CardiometabolicHub: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-slate-500 block text-[10px]">舒張壓 (DBP, mmHg)</label>
+                    <label className="text-slate-500 block text-[0.75rem]">舒張壓 (DBP, mmHg)</label>
                     <input
                       type="number"
                       value={dbpMorning}
@@ -718,7 +718,7 @@ export const CardiometabolicHub: React.FC = () => {
                 <span className="font-bold text-teal-800 dark:text-teal-300 block">就寢前時段平均 (Evening BP)</span>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="text-slate-500 block text-[10px]">收縮壓 (SBP, mmHg)</label>
+                    <label className="text-slate-500 block text-[0.75rem]">收縮壓 (SBP, mmHg)</label>
                     <input
                       type="number"
                       value={sbpEvening}
@@ -727,7 +727,7 @@ export const CardiometabolicHub: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-slate-500 block text-[10px]">舒張壓 (DBP, mmHg)</label>
+                    <label className="text-slate-500 block text-[0.75rem]">舒張壓 (DBP, mmHg)</label>
                     <input
                       type="number"
                       value={dbpEvening}
@@ -743,35 +743,35 @@ export const CardiometabolicHub: React.FC = () => {
             <div className="p-5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 space-y-3 font-sans text-xs">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-center">
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">綜合 722 平均</span>
+                  <span className="text-slate-400 text-[0.75rem] block">綜合 722 平均</span>
                   <strong className="text-base font-extrabold text-slate-900 dark:text-white">
                     {meanSbp} / {meanDbp}
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">mmHg</span>
+                  <span className="text-[0.75rem] text-slate-500 block">mmHg</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">平均動脈壓 (MAP)</span>
+                  <span className="text-slate-400 text-[0.75rem] block">平均動脈壓 (MAP)</span>
                   <strong className="text-base font-extrabold text-emerald-700 dark:text-emerald-400">
                     {meanArterialPressure}
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">正常 70–100 mmHg</span>
+                  <span className="text-[0.75rem] text-slate-500 block">正常 70–100 mmHg</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">脈搏壓 (Pulse Pressure)</span>
+                  <span className="text-slate-400 text-[0.75rem] block">脈搏壓 (Pulse Pressure)</span>
                   <strong className={`text-base font-extrabold ${pulsePressure > 60 ? 'text-rose-600' : 'text-slate-900 dark:text-white'}`}>
                     {pulsePressure}
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">＞60 mmHg提示血管硬化</span>
+                  <span className="text-[0.75rem] text-slate-500 block">＞60 mmHg提示血管硬化</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <span className="text-slate-400 text-[10px] block">TSOC 分期診斷</span>
+                  <span className="text-slate-400 text-[0.75rem] block">TSOC 分期診斷</span>
                   <strong className="text-xs font-extrabold text-slate-900 dark:text-white block truncate">
                     {bpCategory.name_zh.split(' ')[0]}
                   </strong>
-                  <span className="text-[10px] text-slate-500 block">2022 最新指引</span>
+                  <span className="text-[0.75rem] text-slate-500 block">2022 最新指引</span>
                 </div>
               </div>
 

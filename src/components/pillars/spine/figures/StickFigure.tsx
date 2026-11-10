@@ -213,7 +213,7 @@ export const PosePanel: React.FC<{
     <div className="mt-1.5 flex items-start gap-1.5">
       {verdict !== 'info' && (
         <span
-          className={`shrink-0 mt-0.5 inline-flex items-center justify-center w-5 h-5 rounded-full text-[11px] font-bold ${
+          className={`shrink-0 mt-0.5 inline-flex items-center justify-center w-5 h-5 rounded-full text-[0.75rem] font-bold ${
             verdict === 'good' ? 'bg-emerald-600 text-white dark:bg-emerald-500 dark:text-emerald-950' : 'bg-rose-600 text-white dark:bg-rose-500 dark:text-rose-950'
           }`}
           aria-label={verdict === 'good' ? '建議' : '避免'}

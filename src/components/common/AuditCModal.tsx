@@ -200,24 +200,24 @@ export const AuditCModal: React.FC<Props> = ({ isOpen, onClose }) => {
                   <HeartHandshake className="w-4 h-4 text-salud-cyan" />
                   台灣在地求助與醫療諮詢資源 (依 §16.4 查證確認)
                 </span>
-                <span className="text-[10px] font-mono text-emerald-500">撥測查證日：2026-09-03</span>
+                <span className="text-[0.75rem] font-mono text-emerald-500">撥測查證日：2026-09-03</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
                 <div className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-0.5">
-                  <span className="text-slate-400 text-[10px] block">衛福部安心專線 (24 小時免付費)</span>
+                  <span className="text-slate-400 text-[0.75rem] block">衛福部安心專線 (24 小時免付費)</span>
                   <a href="tel:1925" className="text-salud-cyan hover:underline font-bold text-sm block">
                     📞 1925
                   </a>
-                  <span className="text-slate-500 text-[10px]">提供情緒支持與心理諮詢轉介</span>
+                  <span className="text-slate-500 text-[0.75rem]">提供情緒支持與心理諮詢轉介</span>
                 </div>
 
                 <div className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-0.5">
-                  <span className="text-slate-400 text-[10px] block">緊急醫療救護</span>
+                  <span className="text-slate-400 text-[0.75rem] block">緊急醫療救護</span>
                   <a href="tel:119" className="text-red-400 hover:underline font-bold text-sm block">
                     🚑 119
                   </a>
-                  <span className="text-slate-500 text-[10px]">急性中毒昏迷、嘔吐窒息或抽搐</span>
+                  <span className="text-slate-500 text-[0.75rem]">急性中毒昏迷、嘔吐窒息或抽搐</span>
                 </div>
               </div>
             </div>

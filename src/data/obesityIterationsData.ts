@@ -82,16 +82,16 @@ export const OBESITY_ITERATION_ROUNDS: ObesityIterationRound[] = [
   },
   {
     round: 6,
-    title_zh: '第 6 輪迭代：均一精熟自適應形成性評量與多巴胺回饋',
+    title_zh: '第 6 輪迭代：精熟自適應形成性評量與多巴胺回饋',
     title_en: 'Round 6: Mastery Adaptive Assessment & Neuro-Feedback Gamification',
-    theme_zh: '導入均一教育平台自適應學習哲學，讓知識轉化為深刻認知抗體',
-    lead_experts: ['EC-19 學習體驗架構師', '均一教育平台核心研發團隊'],
+    theme_zh: '導入精熟學習法，讓知識轉化為深刻認知抗體',
+    lead_experts: ['EC-19 學習體驗架構師', '學習設計角色'],
     conflict_point_zh:
       '單向閱讀醫學文獻容易產生「看過就以為自己懂了」的假性精熟，一旦回到現實社交聚餐或體重停滯期，依然重蹈覆轍。',
     breakthrough_consensus_zh:
       '設計 12 道臨床實戰情境自適應測驗題，融入即時多巴胺煙火慶祝（canvas-confetti）反饋；若答錯，系統精準錨定並導流至對應的生化機轉與藥物段落進行補救閱讀。',
     actionable_outcome_zh:
-      '完成均一精熟自適應測驗系統、四維臨床珍珠解析庫與動態多巴胺獎勵機制。',
+      '完成精熟自適應測驗系統、四維臨床珍珠解析庫與動態多巴胺獎勵機制。',
   },
   {
     round: 7,
@@ -384,7 +384,7 @@ export const TAIWAN_DINING_GUIDE: TaiwanDiningCategory[] = [
 ];
 
 /**
- * 均一精熟自適應評量測驗題庫 (12 道情境題)
+ * 精熟自適應評量測驗題庫 (12 道情境題)
  */
 export interface MasteryQuizQuestion {
   id: string;

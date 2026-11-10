@@ -415,7 +415,7 @@ export const CrossPillarSynergy: React.FC = () => {
           <span className="px-2.5 py-1 rounded-full font-mono text-xs font-bold border border-salud-cyan bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300">
             Holistic Synergy · 全人多支柱跨領域臨床綜效
           </span>
-          <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+          <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
             信達雅 · 整全資訊 · 深入淺出
           </span>
         </div>
@@ -445,7 +445,7 @@ export const CrossPillarSynergy: React.FC = () => {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-lg">{goal.icon}</span>
-                  <span className="px-1.5 py-0.2 rounded font-mono text-[9px] font-bold border border-salud-cyan/40 text-salud-cyan">
+                  <span className="px-1.5 py-0.2 rounded font-mono text-[0.6875rem] font-bold border border-salud-cyan/40 text-salud-cyan">
                     GRADE {goal.evidenceGrade}
                   </span>
                 </div>
@@ -463,7 +463,7 @@ export const CrossPillarSynergy: React.FC = () => {
         {/* Header Badge & Title */}
         <div className="space-y-2 border-b border-slate-100 dark:border-slate-800 pb-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full font-mono text-[11px] font-bold bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40">
+            <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-salud-cyan/20 text-salud-cyan-800 dark:text-salud-cyan-300 border border-salud-cyan/40">
               {activeGoal.badge}
             </span>
             <span className="text-slate-400 font-mono text-xs">·</span>
@@ -593,7 +593,7 @@ export const CrossPillarSynergy: React.FC = () => {
               <Activity className="w-4 h-4 text-salud-cyan" />
               <span>核心追蹤生理標記 (Key Biological Markers)</span>
             </strong>
-            <p className="text-[11px] text-slate-500 leading-relaxed font-sans">
+            <p className="text-[0.75rem] text-slate-500 leading-relaxed font-sans">
               定期於健檢中追蹤以下數值變化，驗證跨支柱干預的客觀生理反饋：
             </p>
             <div className="flex flex-wrap gap-2 pt-1">

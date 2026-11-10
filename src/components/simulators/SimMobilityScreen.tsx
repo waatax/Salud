@@ -76,7 +76,7 @@ export const SimMobilityScreen: React.FC = () => {
           <p className="text-xs text-slate-300 leading-relaxed my-2">
             {language === 'zh-TW' ? gradeInfo.riskZh : gradeInfo.riskEn}
           </p>
-          <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
+          <div className="text-[0.75rem] text-slate-400 flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-salud-cyan" />
             <span>
               {language === 'zh-TW'
@@ -104,7 +104,7 @@ export const SimMobilityScreen: React.FC = () => {
             >
               <div className="flex items-start justify-between gap-2">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-salud-cyan block">
+                  <span className="text-[0.75rem] font-mono uppercase tracking-wider text-salud-cyan block">
                     {test.target_joint}
                   </span>
                   <h4 className="text-sm font-bold text-white mt-0.5">
@@ -133,19 +133,19 @@ export const SimMobilityScreen: React.FC = () => {
               </div>
 
               {/* Passing Standard */}
-              <div className="mt-2.5 p-2 rounded-xl bg-slate-900/60 text-[11px] text-slate-300">
+              <div className="mt-2.5 p-2 rounded-xl bg-slate-900/60 text-[0.75rem] text-slate-300">
                 <span className="font-semibold text-slate-400">{language === 'zh-TW' ? '合格標準：' : 'Standard: '}</span>
                 {language === 'zh-TW' ? test.passing_standard_zh : test.passing_standard_en}
               </div>
 
               {/* Clinical Rationale & Compensations */}
-              <p className="mt-2 text-[11px] text-slate-400 leading-relaxed">
+              <p className="mt-2 text-[0.75rem] text-slate-400 leading-relaxed">
                 {language === 'zh-TW' ? test.clinical_rationale_zh : test.clinical_rationale_en}
               </p>
 
               {/* Corrective Action highlight if restricted */}
               {!isPassed && (
-                <div className="mt-3 p-2.5 rounded-xl bg-amber-950/40 border border-amber-500/40 text-[11px] text-amber-200 flex items-start gap-2">
+                <div className="mt-3 p-2.5 rounded-xl bg-amber-950/40 border border-amber-500/40 text-[0.75rem] text-amber-200 flex items-start gap-2">
                   <Sparkles className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="block text-amber-300 font-bold">
@@ -170,7 +170,7 @@ export const SimMobilityScreen: React.FC = () => {
           <div className="space-y-2 text-xs text-slate-300">
             {MOBILITY_SCREEN_TESTS.filter((t) => !testResults[t.id]).map((item, idx) => (
               <div key={item.id} className="flex items-start gap-2 p-2 rounded-lg bg-slate-900/80 border border-slate-800">
-                <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] font-bold">
+                <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[0.75rem] font-bold">
                   {idx + 1}
                 </span>
                 <div>

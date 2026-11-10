@@ -119,7 +119,7 @@ export const T5ScaleSpectrum: React.FC<Props> = ({ figureId }) => {
                   : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:text-slate-200'
               }`}
             >
-              <div className="font-mono text-[10px] text-slate-400">體脂率 {item.bf}</div>
+              <div className="font-mono text-[0.75rem] text-slate-400">體脂率 {item.bf}</div>
               <div className="font-bold text-xs mt-0.5 line-clamp-1">{item.label.split(' ')[0]}</div>
               <div className="font-mono font-extrabold text-sm mt-1" style={{ color: item.color }}>
                 {item.range} 水分
@@ -144,7 +144,7 @@ export const T5ScaleSpectrum: React.FC<Props> = ({ figureId }) => {
             >
               總體水 TBW ~{profile.tbwPct}%
             </div>
-            <div className="flex-1 h-full flex items-center justify-center font-mono text-[11px] text-slate-400">
+            <div className="flex-1 h-full flex items-center justify-center font-mono text-[0.75rem] text-slate-400">
               固體與脂肪乾重 ~{100 - profile.tbwPct}%
             </div>
           </div>
@@ -153,7 +153,7 @@ export const T5ScaleSpectrum: React.FC<Props> = ({ figureId }) => {
             {profile.note}
           </p>
 
-          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80 font-mono text-[11px]">
+          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80 font-mono text-[0.75rem]">
             <div className="p-2 rounded-lg bg-cyan-950/40 border border-cyan-800/50 text-cyan-300">
               💪 骨骼肌組織含水量：<strong>約 73%</strong>
             </div>
@@ -213,7 +213,7 @@ export const T5ScaleSpectrum: React.FC<Props> = ({ figureId }) => {
             ].map((oil) => {
               const isSafe = oil.sp >= zone.tempNum + 10;
               return (
-                <div key={oil.name} className="flex items-center gap-2 text-[11px]">
+                <div key={oil.name} className="flex items-center gap-2 text-[0.75rem]">
                   <span className="w-36 sm:w-44 truncate text-slate-300 font-medium">{oil.name}</span>
                   <div className="flex-1 h-4 bg-slate-900 rounded-md overflow-hidden relative border border-slate-800">
                     <div
@@ -241,7 +241,7 @@ export const T5ScaleSpectrum: React.FC<Props> = ({ figureId }) => {
             <div className="text-emerald-400 font-bold">
               ✓ 推薦安全用油：{zone.safeOils.join('、')}
             </div>
-            <div className="text-amber-300/90 text-[11px]">
+            <div className="text-amber-300/90 text-[0.75rem]">
               💡 科學提醒：{zone.avoidOils}
             </div>
           </div>
@@ -270,7 +270,7 @@ export const T5ScaleSpectrum: React.FC<Props> = ({ figureId }) => {
             <span className="font-mono text-xs font-bold" style={{ color: tier.textColor }}>
               {tier.level}
             </span>
-            <span className="text-[10px] font-semibold text-center line-clamp-1" style={{ color: tier.textColor }}>
+            <span className="text-[0.75rem] font-semibold text-center line-clamp-1" style={{ color: tier.textColor }}>
               {tier.name.split(' ')[0]}
             </span>
           </button>
@@ -301,7 +301,7 @@ export const T5ScaleSpectrum: React.FC<Props> = ({ figureId }) => {
           {current.desc}
         </p>
 
-        <div className="pt-2 border-t border-slate-800 text-[11px] text-slate-400 font-mono flex items-center justify-between">
+        <div className="pt-2 border-t border-slate-800 text-[0.75rem] text-slate-400 font-mono flex items-center justify-between">
           <span>干擾排除：維生素 B2（核黃素）會產生亮螢光黃，非本表缺水反應。</span>
           <span>Armstrong Scale</span>
         </div>

@@ -43,7 +43,7 @@ export const InfographEpigeneticClocks: React.FC = () => {
         </div>
 
         <div className="px-3.5 py-2 rounded-xl bg-white/90 dark:bg-indigo-500/10 border border-emerald-200 dark:border-indigo-500/30 text-center shrink-0 shadow-xs">
-          <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400 font-bold">當前黃金標準</div>
+          <div className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 font-bold">當前黃金標準</div>
           <div className="text-sm font-mono font-bold text-emerald-700 dark:text-indigo-300">DunedinPACE 3.0</div>
         </div>
       </div>
@@ -97,29 +97,29 @@ export const InfographEpigeneticClocks: React.FC = () => {
         {/* Real-time Biological Impact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
           <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-slate-950/80 border border-emerald-200/80 dark:border-slate-800 space-y-1 text-center shadow-xs">
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-mono">每歷經 1 日曆年</div>
+            <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">每歷經 1 日曆年</div>
             <div className="text-xl font-mono font-bold text-slate-900 dark:text-white">
               相當於生理消耗 <span className="text-emerald-700 dark:text-indigo-400">{dunedinPace.toFixed(2)}</span> 歲
             </div>
-            <div className="text-[10px] text-slate-600 dark:text-slate-400">
+            <div className="text-[0.75rem] text-slate-600 dark:text-slate-400">
               {pacePercentage > 0 ? `慢速老化 ${pacePercentage}%` : `加速老化 ${Math.abs(pacePercentage)}%`}
             </div>
           </div>
 
           <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-slate-950/80 border border-emerald-200/80 dark:border-slate-800 space-y-1 text-center shadow-xs">
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-mono">全因死亡率相對風險</div>
+            <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">全因死亡率相對風險</div>
             <div className={`text-xl font-mono font-bold ${mortalityDelta <= 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-rose-700 dark:text-rose-400'}`}>
               {mortalityDelta <= 0 ? `${mortalityDelta}%` : `+${mortalityDelta}%`}
             </div>
-            <div className="text-[10px] text-slate-600 dark:text-slate-400">相較於人口標準值 1.0x</div>
+            <div className="text-[0.75rem] text-slate-600 dark:text-slate-400">相較於人口標準值 1.0x</div>
           </div>
 
           <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-slate-950/80 border border-emerald-200/80 dark:border-slate-800 space-y-1 text-center shadow-xs">
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-mono">20 年健康壽命差距預期</div>
+            <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">20 年健康壽命差距預期</div>
             <div className="text-xl font-mono font-bold text-emerald-700 dark:text-salud-cyan">
               {dunedinPace < 1.0 ? `+${((1 - dunedinPace) * 20).toFixed(1)} 年` : `-${((dunedinPace - 1) * 20).toFixed(1)} 年`}
             </div>
-            <div className="text-[10px] text-slate-600 dark:text-slate-400">免於重大失能之健康年限</div>
+            <div className="text-[0.75rem] text-slate-600 dark:text-slate-400">免於重大失能之健康年限</div>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ export const InfographEpigeneticClocks: React.FC = () => {
             <Activity className="w-4 h-4 text-emerald-600 dark:text-salud-cyan" />
             <span>三代 DNA 甲基化表觀遺傳時鐘演進對比</span>
           </div>
-          <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-bold">CEBM Level 1a 實證標準</span>
+          <span className="text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-400 font-bold">CEBM Level 1a 實證標準</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -145,13 +145,13 @@ export const InfographEpigeneticClocks: React.FC = () => {
                   : 'border-emerald-200/70 dark:border-slate-800 bg-white/80 dark:bg-slate-950/60 text-slate-700 dark:text-slate-400 hover:border-emerald-400'
               }`}
             >
-              <div className="text-[9px] font-mono font-bold text-emerald-800 dark:text-indigo-400">
+              <div className="text-[0.6875rem] font-mono font-bold text-emerald-800 dark:text-indigo-400">
                 {clock.generation === '1ST_GEN' ? '第一代' : clock.generation === '2ND_GEN' ? '第二代' : '第三代'}
               </div>
               <div className="font-bold text-xs truncate mt-0.5 text-slate-900 dark:text-white">
                 {clock.name_zh.split(' ')[0]}
               </div>
-              <div className="text-[10px] font-mono text-slate-500 mt-1">
+              <div className="text-[0.75rem] font-mono text-slate-500 mt-1">
                 {clock.developer} ({clock.year})
               </div>
             </button>
@@ -163,20 +163,20 @@ export const InfographEpigeneticClocks: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-200/60 dark:border-slate-850 pb-2.5">
             <div>
               <div className="font-bold text-base text-slate-900 dark:text-white">{selectedClock.name_zh}</div>
-              <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+              <div className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
                 訓練目標：{selectedClock.training_target} · CpG 點位數：{selectedClock.cpg_sites_count}
               </div>
             </div>
             <EvidenceBadge grade={selectedClock.evidence_grade} />
           </div>
 
-          <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
+          <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[0.75rem]">
             {selectedClock.clinical_utility_zh}
           </p>
 
           <div className="flex flex-wrap gap-1.5 pt-1">
             {selectedClock.key_biomarkers.map((bm, idx) => (
-              <span key={`bm-${idx}`} className="px-2 py-0.5 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-[10px] font-mono text-indigo-300">
+              <span key={`bm-${idx}`} className="px-2 py-0.5 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-[0.75rem] font-mono text-indigo-300">
                 {bm}
               </span>
             ))}
@@ -199,15 +199,15 @@ export const InfographEpigeneticClocks: React.FC = () => {
             <div key={`pheno-${idx}`} className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs space-y-1">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-white">{item.name}</span>
-                <span className="text-[10px] font-mono text-slate-400">{item.unit}</span>
+                <span className="text-[0.75rem] font-mono text-slate-400">{item.unit}</span>
               </div>
-              <div className="text-[11px] font-mono text-emerald-400">
+              <div className="text-[0.75rem] font-mono text-emerald-400">
                 黃金長壽區間: {item.optimal_range}
               </div>
-              <div className="text-[10px] text-amber-400/90 font-mono">
+              <div className="text-[0.75rem] text-amber-400/90 font-mono">
                 {item.aging_direction}
               </div>
-              <p className="text-[10px] text-slate-400 pt-1 border-t border-slate-850 leading-relaxed">
+              <p className="text-[0.75rem] text-slate-400 pt-1 border-t border-slate-850 leading-relaxed">
                 {item.role}
               </p>
             </div>

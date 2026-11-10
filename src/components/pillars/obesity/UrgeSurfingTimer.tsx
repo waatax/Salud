@@ -146,7 +146,7 @@ export const UrgeSurfingTimer: React.FC = () => {
               <div className="text-3xl font-mono font-extrabold text-white tracking-wider">
                 {formatTime(timeLeft)}
               </div>
-              <div className="text-[10px] font-mono text-slate-400 mt-1">
+              <div className="text-[0.75rem] font-mono text-slate-400 mt-1">
                 {isRunning ? (
                   <span className="font-bold text-salud-cyan">
                     {breathPhase === 'INHALE' ? '吸氣 (Inhale)' : breathPhase === 'HOLD' ? '閉氣 (Hold)' : '吐氣 (Exhale)'} · {breathCount}s
@@ -190,7 +190,7 @@ export const UrgeSurfingTimer: React.FC = () => {
               className="w-full accent-amber-400 cursor-pointer"
             />
 
-            <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-300">
+            <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[0.75rem] text-slate-300">
               {hungerScore === 1 && (
                 <span>Level 1 · 完全心理誘發：剛吃飽不久，純粹看到甜點或聞到香味產生多巴胺渴望。<strong>【喝水即可解決】</strong></span>
               )}
@@ -216,7 +216,7 @@ export const UrgeSurfingTimer: React.FC = () => {
                 <Sparkles className="w-4 h-4" />
                 <span>15 分鐘多巴胺替代微行動 (打勾執行)</span>
               </span>
-              <span className="text-[10px] font-mono text-slate-400">
+              <span className="text-[0.75rem] font-mono text-slate-400">
                 已完成 {completedActions.length} / 4
               </span>
             </div>
@@ -234,7 +234,7 @@ export const UrgeSurfingTimer: React.FC = () => {
                   <button
                     key={act.id}
                     onClick={() => toggleAction(act.id)}
-                    className={`w-full p-2 rounded-xl text-left border transition-all flex items-center gap-2.5 text-[11px] ${
+                    className={`w-full p-2 rounded-xl text-left border transition-all flex items-center gap-2.5 text-[0.75rem] ${
                       isChecked
                         ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300 font-bold'
                         : 'border-slate-700 bg-slate-900/60 text-slate-400 hover:border-slate-600'

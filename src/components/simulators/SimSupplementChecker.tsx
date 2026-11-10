@@ -94,7 +94,7 @@ export const SimSupplementChecker: React.FC = () => {
               <span className="font-bold text-sm text-red-800 dark:text-red-300">
                 ⚠ 嚴禁併服之保健成分：{activeDrugInteraction.supplement_name_zh}
               </span>
-              <span className="px-2 py-0.5 rounded bg-red-700 text-white font-mono text-[10px] font-bold">
+              <span className="px-2 py-0.5 rounded bg-red-700 text-white font-mono text-[0.75rem] font-bold">
                 {activeDrugInteraction.severity} HAZARD
               </span>
             </div>
@@ -153,12 +153,12 @@ export const SimSupplementChecker: React.FC = () => {
         {/* Grade Filter Pills & Count */}
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs font-mono">
           <div className="flex flex-wrap items-center gap-1">
-            <span className="text-slate-500 dark:text-slate-400 text-[11px]">GRADE 實證分級：</span>
+            <span className="text-slate-500 dark:text-slate-400 text-[0.75rem]">GRADE 實證分級：</span>
             {['ALL', 'A', 'B', 'C', 'D', 'E'].map((gr) => (
               <button
                 key={gr}
                 onClick={() => setSelectedGrade(gr)}
-                className={`btn-tactile px-2.5 py-1 rounded-xl text-[10px] font-bold border transition-all ${
+                className={`btn-tactile px-2.5 py-1 rounded-xl text-[0.75rem] font-bold border transition-all ${
                   selectedGrade === gr
                     ? gr === 'E'
                       ? 'bg-red-700 text-white border-red-600 shadow-sm'
@@ -173,7 +173,7 @@ export const SimSupplementChecker: React.FC = () => {
             ))}
           </div>
 
-          <span className="text-[11px] text-slate-500 dark:text-slate-400">
+          <span className="text-[0.75rem] text-slate-500 dark:text-slate-400">
             符合條件：<strong className="text-nature-sky-700 dark:text-salud-cyan font-bold">{filteredSupplements.length}</strong> 項成分
           </span>
         </div>
@@ -227,7 +227,7 @@ export const SimSupplementChecker: React.FC = () => {
               {isExpanded && (
                 <div className="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-xs">
                   <div className="p-3 rounded-xl bg-nature-sky-50/90 dark:bg-slate-900 border border-nature-sky-200/90 dark:border-slate-800 space-y-0.5">
-                    <span className="text-nature-sky-800 dark:text-salud-cyan font-mono text-[11px] font-bold block">
+                    <span className="text-nature-sky-800 dark:text-salud-cyan font-mono text-[0.75rem] font-bold block">
                       {t('supplements.optimal_form')}：
                     </span>
                     <p className="text-slate-800 dark:text-slate-300">
@@ -237,7 +237,7 @@ export const SimSupplementChecker: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <div className="p-3 rounded-xl bg-purple-50/90 dark:bg-slate-900 border border-purple-200/90 dark:border-slate-800 space-y-0.5">
-                      <span className="text-purple-800 dark:text-purple-300 font-mono text-[11px] font-bold block">
+                      <span className="text-purple-800 dark:text-purple-300 font-mono text-[0.75rem] font-bold block">
                         臨床文獻有效劑量：
                       </span>
                       <p className="text-slate-800 dark:text-slate-300">
@@ -246,16 +246,16 @@ export const SimSupplementChecker: React.FC = () => {
                     </div>
 
                     <div className="p-3 rounded-xl bg-nature-amber-50/90 dark:bg-amber-950/40 border border-nature-amber-200/90 dark:border-amber-800/60 space-y-0.5 text-nature-amber-900 dark:text-amber-200">
-                      <span className="font-mono text-[11px] font-bold block">
+                      <span className="font-mono text-[0.75rem] font-bold block">
                         {t('supplements.caution')}：
                       </span>
-                      <p className="text-[11px]">
+                      <p className="text-[0.75rem]">
                         {language === 'zh-TW' ? item.caution_and_risks_zh : item.caution_and_risks_en}
                       </p>
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-red-50/90 dark:bg-red-950/20 border border-red-200/90 dark:border-red-800/40 text-[11px] text-red-900 dark:text-red-200">
+                  <div className="p-3 rounded-xl bg-red-50/90 dark:bg-red-950/20 border border-red-200/90 dark:border-red-800/40 text-[0.75rem] text-red-900 dark:text-red-200">
                     <strong className="font-bold">{t('supplements.myths')}：</strong>
                     <span>{language === 'zh-TW' ? item.common_myths_zh : item.common_myths_en}</span>
                   </div>

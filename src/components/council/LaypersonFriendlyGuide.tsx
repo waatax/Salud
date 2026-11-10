@@ -1058,7 +1058,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
               <Stethoscope className="w-4 h-4" />
             </span>
             <div>
-              <span className="font-mono text-[10px] text-nature-amber-800 dark:text-nature-amber-400 font-extrabold uppercase tracking-wider block">
+              <span className="font-mono text-[0.75rem] text-nature-amber-800 dark:text-nature-amber-400 font-extrabold uppercase tracking-wider block">
                 一般民眾通俗白話專欄 · 一分鐘聽懂
               </span>
               <h3 className="text-base sm:text-lg font-display font-extrabold text-slate-900 dark:text-white">
@@ -1067,7 +1067,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
             </div>
           </div>
 
-          <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-nature-amber-100 dark:bg-nature-amber-900/60 text-nature-amber-900 dark:text-nature-amber-300 border border-nature-amber-300 dark:border-nature-amber-700">
+          <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-nature-amber-100 dark:bg-nature-amber-900/60 text-nature-amber-900 dark:text-nature-amber-300 border border-nature-amber-300 dark:border-nature-amber-700">
             不用醫學術語 · 人人都懂
           </span>
         </div>
@@ -1103,7 +1103,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
             <Zap className="w-4 h-4 text-nature-amber-600 dark:text-nature-amber-400" />
             日常生活 3 步極簡行動卡 (Action Cards)
           </h4>
-          <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+          <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
             今天就能立刻動手做
           </span>
         </div>
@@ -1118,7 +1118,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
                 <span className="w-6 h-6 rounded-full bg-nature-amber-500 text-black font-mono font-extrabold text-xs flex items-center justify-center shadow-xs">
                   {step.number}
                 </span>
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                <span className="text-[0.75rem] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                   {step.badge}
                 </span>
               </div>
@@ -1132,7 +1132,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[0.75rem] font-mono text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" />
                 科學證實有效
               </div>
@@ -1148,7 +1148,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
             <HelpCircle className="w-4 h-4 text-purple-600 dark:text-purple-400" />
             常見民間迷思 vs 醫師實證真相 (Mythbusters)
           </h4>
-          <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+          <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
             別再被長輩圖或網路謠言誤導
           </span>
         </div>
@@ -1163,7 +1163,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
               <div className="p-2.5 rounded-xl bg-rose-50/80 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/40 flex items-start gap-2">
                 <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-rose-700 dark:text-rose-400 uppercase block">
+                  <span className="text-[0.75rem] font-mono font-bold text-rose-700 dark:text-rose-400 uppercase block">
                     常見迷思
                   </span>
                   <p className="text-xs text-rose-900 dark:text-rose-200 font-semibold leading-relaxed">
@@ -1176,7 +1176,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
               <div className="p-2.5 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase block">
+                  <span className="text-[0.75rem] font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase block">
                     實證真相
                   </span>
                   <p className="text-xs text-emerald-900 dark:text-emerald-200 font-bold leading-relaxed">
@@ -1186,7 +1186,7 @@ export const LaypersonFriendlyGuide: React.FC<Props> = ({ expert }) => {
               </div>
 
               {/* Explanation */}
-              <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed font-sans px-1">
+              <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 leading-relaxed font-sans px-1">
                 💡 {item.explanation}
               </p>
             </div>

@@ -75,7 +75,7 @@ export const ClinicDept: React.FC<{ dept: Department; go: (h: string) => void }>
               ))}
             </tbody>
           </table>
-          <p className="mt-2 text-[11px] text-slate-500">
+          <p className="mt-2 text-[0.75rem] text-slate-500">
             來源：{HOSP_ORDER.map((h) => `${HOSPITALS[h].short_zh} ${HOSPITAL_SOURCES[h].label}（${HOSPITAL_SOURCES[h].date}）`).join('；')}。
           </p>
         </Card>
@@ -91,7 +91,7 @@ export const ClinicDept: React.FC<{ dept: Department; go: (h: string) => void }>
           >
             <div className="flex items-start justify-between gap-2">
               <span className="font-bold text-slate-900 dark:text-white">{c.name_zh}</span>
-              {c.icd10 && <span className="text-[10px] text-slate-400 whitespace-nowrap mt-1">ICD-10 {c.icd10}</span>}
+              {c.icd10 && <span className="text-[0.75rem] text-slate-400 whitespace-nowrap mt-1">ICD-10 {c.icd10}</span>}
             </div>
             <div className="text-xs text-slate-400">{c.name_en}</div>
             <p className="mt-2 text-xs text-slate-600 dark:text-slate-400 line-clamp-3">{c.summary_zh}</p>

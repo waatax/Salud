@@ -147,7 +147,7 @@ export const LongevityMasteryQuiz: React.FC<LongevityMasteryQuizProps> = ({ onNa
                   onClick={() => handleSelectOption(idx)}
                   className={`w-full p-3.5 rounded-2xl border text-left transition-all flex items-start gap-3 text-xs leading-relaxed shadow-xs ${btnStyle}`}
                 >
-                  <span className="w-5 h-5 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center font-mono text-[10px] shrink-0 mt-0.5">
+                  <span className="w-5 h-5 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center font-mono text-[0.75rem] shrink-0 mt-0.5">
                     {String.fromCharCode(65 + idx)}
                   </span>
                   <span className="flex-1">{opt}</span>
@@ -168,7 +168,7 @@ export const LongevityMasteryQuiz: React.FC<LongevityMasteryQuizProps> = ({ onNa
                 </span>
                 <button
                   onClick={() => onNavigateToTab(currentQ.remedy_tab)}
-                  className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-700 dark:text-salud-cyan hover:underline font-bold"
+                  className="inline-flex items-center gap-1 text-[0.75rem] font-mono text-emerald-700 dark:text-salud-cyan hover:underline font-bold"
                 >
                   <BookOpen className="w-3.5 h-3.5" />
                   <span>跳轉專區複習</span>
@@ -176,7 +176,7 @@ export const LongevityMasteryQuiz: React.FC<LongevityMasteryQuizProps> = ({ onNa
                 </button>
               </div>
 
-              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 {currentQ.clinical_pearl_zh}
               </p>
 

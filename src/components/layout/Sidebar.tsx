@@ -159,7 +159,7 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
               <span className={`truncate text-sm ${isActive ? 'font-semibold' : ''}`}>{zh ? item.label_zh : item.label_en}</span>
             )}
             {!collapsed && !hasSubNav(item.id) && (
-              <span className="ml-auto pl-1 text-[11px] text-slate-400 dark:text-slate-500 shrink-0">
+              <span className="ml-auto pl-1 text-[0.75rem] text-slate-400 dark:text-slate-500 shrink-0">
                 {item.id === 'learn' && lessonsDone > 0 ? `${lessonsDone}/${ALL_LESSONS.length}` : zh ? item.blurb_zh : item.blurb_en}
               </span>
             )}
@@ -217,7 +217,7 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
           <ul className="ml-5 pl-3 border-l border-slate-200 dark:border-slate-800 py-1 space-y-1.5">
             {CLINIC_NAV.map((grp) => (
               <li key={grp.division_zh}>
-                <p className="px-2 text-[11px] font-semibold text-slate-400">{grp.division_zh}</p>
+                <p className="px-2 text-[0.75rem] font-semibold text-slate-400">{grp.division_zh}</p>
                 <ul className="space-y-0.5">
                   {grp.depts.map((d) => {
                     const isActive = nav.activePillar === 'clinic' && clinicDept[0] === 'clinic' && clinicDept[1] === d.id;
@@ -322,7 +322,7 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
                     <span className="flex items-center gap-1 shrink-0">
                       {completedPages.includes(p.id) && <Check className="w-3 h-3 text-emerald-600" aria-label="已讀" />}
                       {p.safety_gated && <AlertOctagon className="w-3 h-3 text-red-500" aria-label="安全提醒" />}
-                      <span className="text-[11px] text-slate-400">{p.estimated_minutes}′</span>
+                      <span className="text-[0.75rem] text-slate-400">{p.estimated_minutes}′</span>
                     </span>
                   </button>
                 </li>

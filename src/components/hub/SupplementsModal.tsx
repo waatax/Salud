@@ -31,28 +31,28 @@ export const SupplementsModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-center text-xs">
             <div className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <span className="text-slate-400 text-[10px] block">Level 1</span>
+              <span className="text-slate-400 text-[0.75rem] block">Level 1</span>
               <strong className="text-slate-700 dark:text-slate-300">一般食品</strong>
-              <span className="text-[10px] text-slate-500 block">無任何療效宣稱</span>
+              <span className="text-[0.75rem] text-slate-500 block">無任何療效宣稱</span>
             </div>
             <div className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <span className="text-slate-400 text-[10px] block">Level 2</span>
+              <span className="text-slate-400 text-[0.75rem] block">Level 2</span>
               <strong className="text-salud-cyan">膳食營養補充品</strong>
-              <span className="text-[10px] text-slate-500 block">補足微量營養素</span>
+              <span className="text-[0.75rem] text-slate-500 block">補足微量營養素</span>
             </div>
             <div className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <span className="text-slate-400 text-[10px] block">Level 3</span>
+              <span className="text-slate-400 text-[0.75rem] block">Level 3</span>
               <strong className="text-salud-amber">健康食品 (小綠人)</strong>
-              <span className="text-[10px] text-slate-500 block">具許可證特定功效</span>
+              <span className="text-[0.75rem] text-slate-500 block">具許可證特定功效</span>
             </div>
             <div className="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <span className="text-slate-400 text-[10px] block">Level 4</span>
+              <span className="text-slate-400 text-[0.75rem] block">Level 4</span>
               <strong className="text-purple-400">藥品 (OTC / 處方)</strong>
-              <span className="text-[10px] text-slate-500 block">具治療疾病實證</span>
+              <span className="text-[0.75rem] text-slate-500 block">具治療疾病實證</span>
             </div>
           </div>
 
-          <div className="text-[11px] text-slate-500 leading-relaxed font-mono">
+          <div className="text-[0.75rem] text-slate-500 leading-relaxed font-mono">
             ※ 依據法規：任何宣稱可「解酒、解毒、迅速醒酒、預防酒駕」之市售產品皆屬違法廣告。所有解酒宣稱一律列為 E 級無效或違規。
           </div>
         </div>
@@ -63,7 +63,7 @@ export const SupplementsModal: React.FC<Props> = ({ isOpen, onClose }) => {
             <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100">
               市售常見「解酒／護肝」保健成分科學實證評級
             </h3>
-            <span className="font-mono text-[11px] text-slate-400">
+            <span className="font-mono text-[0.75rem] text-slate-400">
               實證標準：GRADE 臨床指引與藥理毒理資料庫
             </span>
           </div>
@@ -86,20 +86,20 @@ export const SupplementsModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                   <div>
-                    <span className="text-slate-500 font-mono block text-[11px]">商業宣稱機制：</span>
+                    <span className="text-slate-500 font-mono block text-[0.75rem]">商業宣稱機制：</span>
                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                       {item.claimed_mechanism_zh}
                     </p>
                   </div>
                   <div>
-                    <span className="text-salud-cyan font-mono block text-[11px]">臨床實證真相：</span>
+                    <span className="text-salud-cyan font-mono block text-[0.75rem]">臨床實證真相：</span>
                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                       {item.evidence_reality_zh}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-start gap-2 text-[11px] text-amber-600 dark:text-amber-400">
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-start gap-2 text-[0.75rem] text-amber-600 dark:text-amber-400">
                   <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                   <span>{item.caution_zh}</span>
                 </div>

@@ -53,7 +53,7 @@ export const OstaCalculator: React.FC = () => {
           <span className="h-full flex-1 bg-emerald-300 dark:bg-emerald-600" />
           {idx != null && <span className="absolute top-[-3px] w-1.5 h-[22px] rounded bg-slate-900 dark:bg-white" style={{ left: `calc(${pos}% - 3px)` }} />}
         </div>
-        <div className="relative h-4 text-[11px] tabular-nums text-slate-500 dark:text-slate-400">
+        <div className="relative h-4 text-[0.75rem] tabular-nums text-slate-500 dark:text-slate-400">
           {[-10, -4, -1, 4].map((t) => (
             <span key={t} className="absolute -translate-x-1/2 first:translate-x-0 last:-translate-x-full" style={{ left: `${((t + 10) / 14) * 100}%` }}>
               {t > 0 ? `+${t}` : t}
@@ -135,7 +135,7 @@ export const CalciumCalculator: React.FC = () => {
           <span className="absolute top-0 bottom-0 w-0.5 bg-slate-900 dark:bg-white" style={{ left: pct(CALCIUM_TARGET) }} />
         </div>
         {parts.length > 0 && (
-          <ul className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-600 dark:text-slate-400">
+          <ul className="flex flex-wrap gap-x-3 gap-y-1 text-[0.75rem] text-slate-600 dark:text-slate-400">
             {parts.map((p) => (
               <li key={p.id} className="inline-flex items-center gap-1">
                 <span className={`w-2.5 h-2.5 rounded-sm ${p.color}`} aria-hidden="true" />
@@ -177,7 +177,7 @@ export const CalciumCalculator: React.FC = () => {
         })}
       </ul>
 
-      <p className="text-[11px] text-slate-500 dark:text-slate-400">數值為台灣食品成分資料庫約略值，品牌與做法不同會有差異。</p>
+      <p className="text-[0.75rem] text-slate-500 dark:text-slate-400">數值為台灣食品成分資料庫約略值，品牌與做法不同會有差異。</p>
     </div>
   );
 };

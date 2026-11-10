@@ -22,7 +22,7 @@ export const ExpertIterationLog: React.FC = () => {
               打造最優質、實用、有手就能做的「健康生活方法論」
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
-              匯聚 <span className="font-semibold text-amber-600 dark:text-amber-400">均一教育平台核心團隊</span>、
+              匯聚 <span className="font-semibold text-amber-600 dark:text-amber-400">學習設計角色</span>、
               <span className="font-semibold text-cyan-600 dark:text-cyan-400">各專科醫學專家</span>、
               <span className="font-semibold text-rose-500">百萬醫療知識型網紅</span>、
               <span className="font-semibold text-emerald-500">頂級健身教練與物理治療大師</span>，及 5 位戰略權威，
@@ -57,11 +57,11 @@ export const ExpertIterationLog: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400">
+                <span className="text-[0.75rem] font-mono font-bold text-amber-600 dark:text-amber-400">
                   R{r.round}
                 </span>
                 {r.round === 7 && (
-                  <span className="text-[9px] px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold">
+                  <span className="text-[0.6875rem] px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold">
                     終審
                   </span>
                 )}
@@ -159,7 +159,7 @@ export const ExpertIterationLog: React.FC = () => {
       <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-mono font-bold text-rose-500 uppercase">
+            <span className="text-[0.75rem] font-mono font-bold text-rose-500 uppercase">
               Round 4 特別企劃 · 醫療知識型網紅直擊
             </span>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0.5">
@@ -186,7 +186,7 @@ export const ExpertIterationLog: React.FC = () => {
                   <div className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">
                     {myth.myth_zh}
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-600 dark:text-rose-400 font-mono text-[10px] font-extrabold shrink-0">
+                  <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-600 dark:text-rose-400 font-mono text-[0.75rem] font-extrabold shrink-0">
                     {myth.verdict}
                   </span>
                 </div>

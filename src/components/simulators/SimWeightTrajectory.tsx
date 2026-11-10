@@ -247,7 +247,7 @@ export const SimWeightTrajectory: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-[11px] font-mono text-slate-400 mb-1">生理性別</label>
+              <label className="block text-[0.75rem] font-mono text-slate-400 mb-1">生理性別</label>
               <div className="flex rounded-lg border border-slate-700 overflow-hidden text-xs">
                 <button
                   onClick={() => setGender('M')}
@@ -269,7 +269,7 @@ export const SimWeightTrajectory: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-slate-400 mb-1">年齡: {age} 歲</label>
+              <label className="block text-[0.75rem] font-mono text-slate-400 mb-1">年齡: {age} 歲</label>
               <input
                 type="range"
                 min={18}
@@ -283,7 +283,7 @@ export const SimWeightTrajectory: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-[11px] font-mono text-slate-400 mb-1">
+              <label className="block text-[0.75rem] font-mono text-slate-400 mb-1">
                 起始體重: <span className="text-white font-bold">{initialWeightKg} kg</span>
               </label>
               <input
@@ -297,7 +297,7 @@ export const SimWeightTrajectory: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-slate-400 mb-1">
+              <label className="block text-[0.75rem] font-mono text-slate-400 mb-1">
                 起始體脂率: <span className="text-amber-400 font-bold">{initialFatPct}%</span>
               </label>
               <input
@@ -311,7 +311,7 @@ export const SimWeightTrajectory: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] font-mono flex justify-between text-slate-400">
+          <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[0.75rem] font-mono flex justify-between text-slate-400">
             <span>初始脂肪重: <strong className="text-slate-200">{simulationData.initialFatMass} kg</strong></span>
             <span>去脂肌肉重: <strong className="text-emerald-300">{simulationData.initialLeanMass} kg</strong></span>
           </div>
@@ -342,7 +342,7 @@ export const SimWeightTrajectory: React.FC = () => {
                 }`}
               >
                 <span>{opt.label}</span>
-                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-amber-300 font-bold border border-slate-700">
+                <span className="text-[0.75rem] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-amber-300 font-bold border border-slate-700">
                   {opt.tag}
                 </span>
               </button>
@@ -358,8 +358,8 @@ export const SimWeightTrajectory: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-[11px] font-mono text-slate-400 mb-1">每日蛋白質攝取強度</label>
-            <div className="grid grid-cols-3 gap-1.5 text-[11px]">
+            <label className="block text-[0.75rem] font-mono text-slate-400 mb-1">每日蛋白質攝取強度</label>
+            <div className="grid grid-cols-3 gap-1.5 text-[0.75rem]">
               <button
                 onClick={() => setProteinLevel('LOW')}
                 className={`p-1.5 rounded-lg border text-center font-mono ${
@@ -394,8 +394,8 @@ export const SimWeightTrajectory: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-[11px] font-mono text-slate-400 mb-1">漸進阻抗重訓頻率</label>
-            <div className="grid grid-cols-3 gap-1.5 text-[11px]">
+            <label className="block text-[0.75rem] font-mono text-slate-400 mb-1">漸進阻抗重訓頻率</label>
+            <div className="grid grid-cols-3 gap-1.5 text-[0.75rem]">
               <button
                 onClick={() => setResistanceLevel('NONE')}
                 className={`p-1.5 rounded-lg border text-center font-mono ${
@@ -453,7 +453,7 @@ export const SimWeightTrajectory: React.FC = () => {
                   onChange={(e) => setCessationWeek(parseInt(e.target.value, 10))}
                   className="w-full accent-rose-400 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] font-mono text-slate-400">
+                <div className="flex justify-between text-[0.75rem] font-mono text-slate-400">
                   <span>第 12 週停藥</span>
                   <span className="text-rose-300 font-bold">第 {cessationWeek} 週中斷</span>
                   <span>第 40 週停藥</span>
@@ -484,7 +484,7 @@ export const SimWeightTrajectory: React.FC = () => {
             )}
           </div>
 
-          <div className="font-mono text-slate-400 text-[11px]">
+          <div className="font-mono text-slate-400 text-[0.75rem]">
             滑鼠懸停折線節點可檢視各週細節
           </div>
         </div>
@@ -635,43 +635,43 @@ export const SimWeightTrajectory: React.FC = () => {
         {/* Selected Week Detailed Breakdown Card */}
         <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
           <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800/80">
-            <div className="text-[10px] font-mono text-slate-400">第 {activePoint.week} 週體重</div>
+            <div className="text-[0.75rem] font-mono text-slate-400">第 {activePoint.week} 週體重</div>
             <div className="text-xl font-mono font-extrabold text-white mt-0.5">
               {activePoint.weight} <span className="text-xs font-normal text-slate-400">kg</span>
             </div>
-            <div className="text-[10px] font-mono text-cyan-400 mt-0.5">
+            <div className="text-[0.75rem] font-mono text-cyan-400 mt-0.5">
               累計減重 -{(initialWeightKg - activePoint.weight).toFixed(1)} kg
             </div>
           </div>
 
           <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800/80">
-            <div className="text-[10px] font-mono text-slate-400">純脂肪流失量</div>
+            <div className="text-[0.75rem] font-mono text-slate-400">純脂肪流失量</div>
             <div className="text-xl font-mono font-extrabold text-amber-400 mt-0.5">
               -{activePoint.fatLost} <span className="text-xs font-normal text-slate-400">kg</span>
             </div>
-            <div className="text-[10px] font-mono text-amber-300/80 mt-0.5">
+            <div className="text-[0.75rem] font-mono text-amber-300/80 mt-0.5">
               體脂率降至 {activePoint.currentFatPct}%
             </div>
           </div>
 
           <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800/80">
-            <div className="text-[10px] font-mono text-slate-400">骨骼肌/去脂流失</div>
+            <div className="text-[0.75rem] font-mono text-slate-400">骨骼肌/去脂流失</div>
             <div className={`text-xl font-mono font-extrabold mt-0.5 ${
               simulationData.leanLossRatioPct > 28 ? 'text-red-400' : 'text-emerald-400'
             }`}>
               -{activePoint.leanLost} <span className="text-xs font-normal text-slate-400">kg</span>
             </div>
-            <div className="text-[10px] font-mono text-slate-400 mt-0.5">
+            <div className="text-[0.75rem] font-mono text-slate-400 mt-0.5">
               佔總減重 {simulationData.leanLossRatioPct}%
             </div>
           </div>
 
           <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800/80">
-            <div className="text-[10px] font-mono text-slate-400">動態基礎代謝 (BMR)</div>
+            <div className="text-[0.75rem] font-mono text-slate-400">動態基礎代謝 (BMR)</div>
             <div className="text-xl font-mono font-extrabold text-purple-300 mt-0.5">
               {activePoint.currentBMR} <span className="text-xs font-normal text-slate-400">kcal</span>
             </div>
-            <div className="text-[10px] font-mono text-slate-400 mt-0.5">
+            <div className="text-[0.75rem] font-mono text-slate-400 mt-0.5">
               代謝適應 -{simulationData.initialBMR - activePoint.currentBMR} kcal
             </div>
           </div>
@@ -708,7 +708,7 @@ export const SimWeightTrajectory: React.FC = () => {
 
         {/* 100% Stacked Horizontal Ratio Bar */}
         <div className="space-y-1.5">
-          <div className="h-5 w-full rounded-xl bg-slate-900 border border-slate-700 overflow-hidden flex font-mono text-[10px] font-bold text-slate-950">
+          <div className="h-5 w-full rounded-xl bg-slate-900 border border-slate-700 overflow-hidden flex font-mono text-[0.75rem] font-bold text-slate-950">
             <div
               style={{ width: `${simulationData.fatLossRatioPct}%` }}
               className="bg-gradient-to-r from-amber-400 to-amber-500 flex items-center justify-center transition-all duration-300"
@@ -726,7 +726,7 @@ export const SimWeightTrajectory: React.FC = () => {
               肌肉流失 {simulationData.leanLossRatioPct}%
             </div>
           </div>
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>
               純脂肪流失: <strong className="text-amber-400">{(100 - simulationData.leanLossRatioPct)}%</strong>
             </span>
@@ -741,7 +741,7 @@ export const SimWeightTrajectory: React.FC = () => {
           <Info className="w-4 h-4 text-salud-cyan shrink-0 mt-0.5" />
           <div className="space-y-1">
             <div className="font-bold text-salud-cyan">EC-33 體組成運動生理學家 & EC-29 減重營養師 臨床備註：</div>
-            <p className="text-slate-400 text-[11px] leading-relaxed">
+            <p className="text-slate-400 text-[0.75rem] leading-relaxed">
               在缺乏肌力抗阻刺激與低蛋白質飲食下，身體會優先水解骨骼肌供應胺基酸進行糖質新生，導致減重中高達 35-40% 都是肌肉！
               這會造成「基礎代謝率崩塌」，一旦停藥食慾恢復，熱量會以 2 倍速度以純脂肪型態反彈，形成體脂率比減重前更高的惡性循環。
               維持 <strong>1.8g/kg 蛋白質 + 每週 3 次重訓</strong>，是守護骨骼肌、徹底終結溜溜球效應的唯一科學防線。

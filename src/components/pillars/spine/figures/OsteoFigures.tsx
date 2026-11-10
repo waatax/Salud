@@ -171,7 +171,7 @@ export const RiskFactorBoard: React.FC = () => (
       <div key={g.group} className={`rounded-xl border p-3.5 ${g.changeable ? TONE_BOX.good : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60'}`}>
         <p className={`text-[13px] font-bold mb-2 ${g.changeable ? TONE_TEXT.good : 'text-slate-800 dark:text-slate-100'}`}>
           {g.group}
-          {g.changeable && <span className="ml-1.5 text-[11px] font-semibold rounded-full bg-emerald-600 text-white dark:bg-emerald-400 dark:text-emerald-950 px-1.5 py-0.5">你能改</span>}
+          {g.changeable && <span className="ml-1.5 text-[0.75rem] font-semibold rounded-full bg-emerald-600 text-white dark:bg-emerald-400 dark:text-emerald-950 px-1.5 py-0.5">你能改</span>}
         </p>
         <ul className="space-y-1.5">
           {g.items.map((it) => (
@@ -236,7 +236,7 @@ export const RiskTierStaircase: React.FC = () => (
     {OSTEO_RISK_TIERS.map((t, i) => (
       <li key={t.key} className={`relative rounded-xl border-2 p-3.5 flex flex-col gap-2 ${TONE_BOX[t.tone]}`}>
         <div className="flex items-center gap-2">
-          <span className={`text-[11px] font-mono font-bold ${TONE_TEXT[t.tone]}`}>第 {i + 1} 級</span>
+          <span className={`text-[0.75rem] font-mono font-bold ${TONE_TEXT[t.tone]}`}>第 {i + 1} 級</span>
           <span className="flex gap-0.5" aria-hidden="true">
             {Array.from({ length: 4 }).map((_, k) => (
               <span key={k} className={`w-2 h-3 rounded-sm ${k <= i ? 'bg-current ' + TONE_TEXT[t.tone] : 'bg-slate-200 dark:bg-slate-700'}`} />
@@ -281,11 +281,11 @@ export const DrugEfficacyChart: React.FC = () => (
                   <span className="text-[12px] font-bold tabular-nums text-amber-800 dark:text-amber-300">{d.hip}%</span>
                 </>
               ) : (
-                <span className="text-[11px] text-slate-400 dark:text-slate-500">髖部：試驗未證實或未單獨報告</span>
+                <span className="text-[0.75rem] text-slate-400 dark:text-slate-500">髖部：試驗未證實或未單獨報告</span>
               )}
             </div>
           </div>
-          <span className="col-start-2 sm:col-start-auto text-[11px] text-slate-500 dark:text-slate-400">{d.trial}</span>
+          <span className="col-start-2 sm:col-start-auto text-[0.75rem] text-slate-500 dark:text-slate-400">{d.trial}</span>
         </div>
       ))}
     </div>
@@ -357,7 +357,7 @@ export const BenefitHarmPictogram: React.FC = () => {
         <p className="text-[12px] text-slate-500 dark:text-slate-400">每 {population.toLocaleString()} 人治療 {years} 年</p>
         <p className="text-2xl font-display font-bold text-slate-900 dark:text-white tabular-nums">≈ 75 : 1</p>
         <p className="text-[12px] text-slate-500 dark:text-slate-400">效益比風險</p>
-        <p className="text-[10px] text-slate-400 mt-1 max-w-[12rem]">{source}</p>
+        <p className="text-[0.75rem] text-slate-400 mt-1 max-w-[12rem]">{source}</p>
       </div>
     </div>
   );
@@ -379,10 +379,10 @@ export const ExercisePyramidFigure: React.FC = () => {
       <ol className="flex flex-col items-center gap-1.5" aria-label="骨鬆運動金字塔，由上到下">
         {order.map((r, i) => (
           <li key={r.title} className={`rounded-xl border px-3 py-2.5 text-center ${tones[i]}`} style={{ width: widths[i] }}>
-            <p className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">{r.level}</p>
+            <p className="text-[0.75rem] font-semibold text-slate-600 dark:text-slate-300">{r.level}</p>
             <p className="text-[14px] font-bold text-slate-900 dark:text-white">{r.title}</p>
             <p className="text-[12px] text-slate-700 dark:text-slate-300">{r.examples}</p>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{r.dose}</p>
+            <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 mt-0.5">{r.dose}</p>
           </li>
         ))}
       </ol>
@@ -433,7 +433,7 @@ export const PostFractureTimeline: React.FC = () => (
   <ol className="grid gap-3 md:grid-cols-4">
     {POST_FRACTURE_STEPS.map((s, i) => (
       <li key={s.when} className="relative rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-3.5">
-        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
+        <span className="inline-flex items-center gap-1.5 text-[0.75rem] font-bold text-emerald-700 dark:text-emerald-400">
           <span className="w-5 h-5 rounded-full bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 inline-flex items-center justify-center tabular-nums">{i + 1}</span>
           {s.when}
         </span>

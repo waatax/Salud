@@ -73,11 +73,11 @@ export const ClinicOverview: React.FC<{ view: OverviewView; symptomId?: string; 
   return (
     <div className="space-y-6">
       <header className="rounded-3xl bg-gradient-to-br from-emerald-700 via-teal-700 to-sky-800 text-white p-6 sm:p-8">
-        <p className="text-xs tracking-widest text-emerald-100/90 font-semibold">CLINICAL DEPARTMENTS · 臨床科別知識庫 v6.1</p>
-        <h1 className="mt-2 text-2xl sm:text-3xl font-display font-bold">依醫學中心分科 × 醫學系課程 × 生命階段，重建的全人健康知識樹</h1>
+        <p className="text-xs tracking-widest text-emerald-100/90 font-semibold">臨床科別・疾病照護</p>
+        <h1 className="mt-2 text-2xl sm:text-3xl font-display font-bold">生病了，該看哪一科？</h1>
         <p className="mt-3 text-sm sm:text-base text-emerald-50/90 max-w-3xl leading-relaxed">
-          以臺大、成大、臺北榮總、彰基實際公布的部科為骨架，對應臺大、陽明交大、成大醫學系的器官系統課程。每個疾病都是完整照護路徑：
-          重點數字 → 原因 → 症狀 → 診斷 → 治療 → 術後與復原時間軸 → 飲食 → 運動 → 復健與物理治療 → 自我照護 → 預防 → 預後 → 看診問醫師 → 台灣資源 → 危險警訊 → 實證。
+          從症狀、科別、身體系統或人生階段，找到對應的疾病說明。每個疾病都用同一個順序整理：原因、症狀、怎麼診斷、怎麼治療、回家後的照護與飲食運動、看診時可以問的問題，以及需要立刻就醫的警訊。
+          科別架構參考臺大、成大、臺北榮總與彰基公開的分科資料，並對照醫學系的器官系統課程。
         </p>
         <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
           {[
@@ -160,7 +160,7 @@ export const ClinicOverview: React.FC<{ view: OverviewView; symptomId?: string; 
               }`}
             >
               <span className="block text-sm font-bold">{v.label}</span>
-              <span className={`block text-[11px] ${view === v.id ? 'text-emerald-50' : 'text-slate-400'}`}>{v.hint}</span>
+              <span className={`block text-[0.75rem] ${view === v.id ? 'text-emerald-50' : 'text-slate-400'}`}>{v.hint}</span>
             </button>
           ))}
         </div>
@@ -257,7 +257,7 @@ const BySystem: React.FC<{ go: (h: string) => void }> = ({ go }) => (
                   </button>
                   <div className="mt-1 flex flex-wrap gap-1">
                     {d.conditions.map((c) => (
-                      <button key={c.id} onClick={() => go(`clinic/${d.id}/${c.id}`)} {...prefetch(d.id)} className="text-[11px] rounded-full bg-slate-100 dark:bg-slate-800 px-2 py-0.5 text-slate-700 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-950">
+                      <button key={c.id} onClick={() => go(`clinic/${d.id}/${c.id}`)} {...prefetch(d.id)} className="text-[0.75rem] rounded-full bg-slate-100 dark:bg-slate-800 px-2 py-0.5 text-slate-700 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-950">
                         {c.name_zh.split('：')[0].split('（')[0]}
                       </button>
                     ))}
@@ -282,7 +282,7 @@ const MedSchoolCard: React.FC = () => (
       {MED_SCHOOLS.map((s) => (
         <div key={s.id} className="rounded-xl border border-slate-200 dark:border-slate-800 p-3">
           <p className="text-sm font-bold text-slate-800 dark:text-slate-200">{s.name_zh}</p>
-          <p className="text-[11px] text-slate-400">{s.hospital_zh}</p>
+          <p className="text-[0.75rem] text-slate-400">{s.hospital_zh}</p>
           <ol className="mt-2 ml-4 list-decimal text-xs text-slate-600 dark:text-slate-400 space-y-1">
             {s.stages_zh.map((t) => (
               <li key={t}>{t}</li>
@@ -291,7 +291,7 @@ const MedSchoolCard: React.FC = () => (
         </div>
       ))}
     </div>
-    <p className="mt-3 text-[11px] text-slate-500">各校模組名稱與學期安排每年微調，以各校課程地圖為準；Salud 以三校共通的器官系統與核心見實習科別作為分類依據。</p>
+    <p className="mt-3 text-[0.75rem] text-slate-500">各校模組名稱與學期安排每年微調，以各校課程地圖為準；Salud 以三校共通的器官系統與核心見實習科別作為分類依據。</p>
   </Card>
 );
 

@@ -58,7 +58,7 @@ export const CyclingInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-blue-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-blue-500 font-bold block">
                 {CYCLING_INFOGRAPHICS[0].id} · {CYCLING_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -73,7 +73,7 @@ export const CyclingInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Zone Buttons */}
-          <div className="grid grid-cols-7 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[10px] font-mono font-bold">
+          <div className="grid grid-cols-7 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[0.75rem] font-mono font-bold">
             {COGGAN_POWER_ZONES.map((z, idx) => (
               <button
                 key={z.zone}
@@ -95,14 +95,14 @@ export const CyclingInfographics: React.FC = () => {
               <span className="font-bold text-xs text-blue-800 dark:text-blue-300">
                 {language === 'zh-TW' ? COGGAN_POWER_ZONES[selectedZoneIdx].name_zh : COGGAN_POWER_ZONES[selectedZoneIdx].name_en}
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-700 dark:text-blue-300 font-bold">
+              <span className="text-[0.75rem] font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-700 dark:text-blue-300 font-bold">
                 {COGGAN_POWER_ZONES[selectedZoneIdx].ftp_pct_range}
               </span>
             </div>
             <p className="text-xs text-slate-700 dark:text-slate-300">
               {language === 'zh-TW' ? COGGAN_POWER_ZONES[selectedZoneIdx].physiological_adaptation_zh : COGGAN_POWER_ZONES[selectedZoneIdx].physiological_adaptation_en}
             </p>
-            <div className="text-[11px] font-mono text-slate-500 pt-0.5">
+            <div className="text-[0.75rem] font-mono text-slate-500 pt-0.5">
               主導能量系統：{COGGAN_POWER_ZONES[selectedZoneIdx].target_metabolic_system}
             </div>
           </div>
@@ -156,7 +156,7 @@ export const CyclingInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-cyan-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-cyan-500 font-bold block">
                 {CYCLING_INFOGRAPHICS[1].id} · {CYCLING_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -171,7 +171,7 @@ export const CyclingInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Riding Posture Toggle */}
-          <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[11px] font-mono font-bold">
+          <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[0.75rem] font-mono font-bold">
             <button
               onClick={() => setRidingPosition('UPRIGHT')}
               className={`py-1.5 rounded-lg transition-all ${
@@ -221,13 +221,13 @@ export const CyclingInfographics: React.FC = () => {
               onChange={(e) => setSpeedKmh(Number(e.target.value))}
               className="w-full accent-cyan-500 cursor-pointer"
             />
-            <div className="grid grid-cols-2 gap-2 text-center font-mono text-[11px] pt-1">
+            <div className="grid grid-cols-2 gap-2 text-center font-mono text-[0.75rem] pt-1">
               <div className="p-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-700 dark:text-cyan-300">
-                <span className="text-[9px] text-slate-400 block">空氣阻力功耗</span>
+                <span className="text-[0.6875rem] text-slate-400 block">空氣阻力功耗</span>
                 <span className="font-extrabold text-xs">{aeroData.aeroWatts} W ({aeroData.aeroPct}%)</span>
               </div>
               <div className="p-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">
-                <span className="text-[9px] text-slate-400 block">滾動摩擦功耗</span>
+                <span className="text-[0.6875rem] text-slate-400 block">滾動摩擦功耗</span>
                 <span className="font-extrabold text-xs">{aeroData.rollingWatts} W</span>
               </div>
             </div>
@@ -294,7 +294,7 @@ export const CyclingInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm lg:col-span-2">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-nature-amber-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-nature-amber-500 font-bold block">
                 {CYCLING_INFOGRAPHICS[2].id} · {CYCLING_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">

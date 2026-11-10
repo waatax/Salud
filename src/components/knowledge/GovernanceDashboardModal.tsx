@@ -65,7 +65,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
               <FileCheck2 className="w-3.5 h-3.5 text-emerald-400" /> 規範知識原子
             </div>
             <div className="text-xl font-bold text-white mt-1 font-mono">82 筆</div>
-            <div className="text-[10px] text-emerald-400/80 mt-0.5">100% E1–E5 決定性檢驗</div>
+            <div className="text-[0.75rem] text-emerald-400/80 mt-0.5">100% E1–E5 決定性檢驗</div>
           </div>
 
           <div className="p-3 rounded-xl bg-[#14221b] border border-emerald-800/40">
@@ -73,7 +73,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
               <Lock className="w-3.5 h-3.5 text-emerald-400" /> 處方排除保護
             </div>
             <div className="text-xl font-bold text-white mt-1 font-mono">100%</div>
-            <div className="text-[10px] text-emerald-400/80 mt-0.5">is_individual_prescription: false</div>
+            <div className="text-[0.75rem] text-emerald-400/80 mt-0.5">is_individual_prescription: false</div>
           </div>
 
           <div className="p-3 rounded-xl bg-[#14221b] border border-emerald-800/40">
@@ -81,7 +81,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
               <Clock className="w-3.5 h-3.5 text-emerald-400" /> 專家覆寫率
             </div>
             <div className="text-xl font-bold text-emerald-400 mt-1 font-mono">1.2%</div>
-            <div className="text-[10px] text-slate-400 mt-0.5">低於 10% 警戒上限 (1/82)</div>
+            <div className="text-[0.75rem] text-slate-400 mt-0.5">低於 10% 警戒上限 (1/82)</div>
           </div>
 
           <div className="p-3 rounded-xl bg-[#14221b] border border-emerald-800/40">
@@ -89,7 +89,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
               <Database className="w-3.5 h-3.5 text-emerald-400" /> 臨床切點註冊
             </div>
             <div className="text-xl font-bold text-white mt-1 font-mono">{CANONICAL_THRESHOLDS.length} 條</div>
-            <div className="text-[10px] text-emerald-400/80 mt-0.5">AHA/ADA/KDIGO/HPA</div>
+            <div className="text-[0.75rem] text-emerald-400/80 mt-0.5">AHA/ADA/KDIGO/HPA</div>
           </div>
         </div>
 
@@ -209,18 +209,18 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-mono font-bold text-emerald-400 text-sm">{term.term}</span>
-                      <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-slate-300">
+                      <span className="text-[0.75rem] px-2 py-0.5 rounded bg-emerald-950 text-slate-300">
                         {term.domain}
                       </span>
                     </div>
                     <div className="text-slate-200 font-medium">{term.primary_expansion_zh}</div>
                     {term.secondary_expansions_zh && (
-                      <div className="text-slate-400 text-[11px]">
+                      <div className="text-slate-400 text-[0.75rem]">
                         歧義備選：{term.secondary_expansions_zh.join(', ')}
                       </div>
                     )}
                     {term.ontology && (
-                      <div className="pt-1.5 border-t border-emerald-900/30 flex flex-wrap gap-2 text-[10px] font-mono text-emerald-300/80">
+                      <div className="pt-1.5 border-t border-emerald-900/30 flex flex-wrap gap-2 text-[0.75rem] font-mono text-emerald-300/80">
                         {term.ontology.mesh_id && <span>MeSH: {term.ontology.mesh_id}</span>}
                         {term.ontology.icd11_code && <span>ICD-11: {term.ontology.icd11_code}</span>}
                         {term.ontology.snomed_ct && <span>SNOMED: {term.ontology.snomed_ct}</span>}
@@ -251,7 +251,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
                   >
                     <div>
                       <div className="font-mono text-xs font-bold text-emerald-300">knowledge-graph.json</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">138 節點 · 103 關聯邊緣</div>
+                      <div className="text-[0.75rem] text-slate-400 mt-0.5">138 節點 · 103 關聯邊緣</div>
                     </div>
                     <Download className="w-4 h-4 text-emerald-400" />
                   </a>
@@ -263,7 +263,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
                   >
                     <div>
                       <div className="font-mono text-xs font-bold text-emerald-300">claims.jsonl</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">100 筆單一事實來源斷言</div>
+                      <div className="text-[0.75rem] text-slate-400 mt-0.5">100 筆單一事實來源斷言</div>
                     </div>
                     <Download className="w-4 h-4 text-emerald-400" />
                   </a>
@@ -275,7 +275,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
                   >
                     <div>
                       <div className="font-mono text-xs font-bold text-emerald-300">a11y-audit.json</div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">WCAG 2.2 AA · 100% 通過</div>
+                      <div className="text-[0.75rem] text-slate-400 mt-0.5">WCAG 2.2 AA · 100% 通過</div>
                     </div>
                     <Download className="w-4 h-4 text-emerald-400" />
                   </a>
@@ -286,7 +286,7 @@ export const GovernanceDashboardModal: React.FC<GovernanceDashboardModalProps> =
                 <div className="flex items-center gap-2 text-emerald-400 font-bold">
                   <Terminal className="w-4 h-4" /> cURL 遠端存取範例
                 </div>
-                <pre className="bg-[#050806] p-3 rounded-lg border border-emerald-900/30 overflow-x-auto text-[11px] text-emerald-200">
+                <pre className="bg-[#050806] p-3 rounded-lg border border-emerald-900/30 overflow-x-auto text-[0.75rem] text-emerald-200">
 {`# 檢索全量知識圖譜
 curl -sSL "https://waatax.github.io/Salud/data/knowledge-graph.json" | jq '.nodes_count'
 

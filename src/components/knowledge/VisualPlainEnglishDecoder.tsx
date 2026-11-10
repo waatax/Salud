@@ -35,17 +35,17 @@ export const VisualPlainEnglishDecoder: React.FC<Props> = ({ page }) => {
           <div>
             <h3 className="font-display font-extrabold text-sm sm:text-base text-amber-950 dark:text-amber-200 flex items-center gap-1.5">
               <span>深入淺出 · 生活視覺化解密</span>
-              <span className="text-[10px] font-mono px-2 py-0.2 rounded-full bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+              <span className="text-[0.75rem] font-mono px-2 py-0.2 rounded-full bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
                 秒懂生理學
               </span>
             </h3>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            <p className="text-[0.75rem] text-slate-500 dark:text-slate-400">
               用最接地氣的生活神譬喻，30 秒打通醫學核心觀念
             </p>
           </div>
         </div>
 
-        <span className="text-[10px] font-mono font-bold text-amber-700 dark:text-amber-400 hidden sm:inline">
+        <span className="text-[0.75rem] font-mono font-bold text-amber-700 dark:text-amber-400 hidden sm:inline">
           {page.analogy_title || '生活譬喻'}
         </span>
       </div>

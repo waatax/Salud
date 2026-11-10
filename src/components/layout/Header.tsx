@@ -62,7 +62,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
           </span>
           <span className="hidden sm:block leading-tight">
             <span className="block text-base font-display font-bold tracking-tight text-slate-900 dark:text-white">Salud</span>
-            <span className="block text-[11px] text-slate-500 dark:text-slate-400">{zh ? '給每個人的健康學習平台' : 'Health learning for everyone'}</span>
+            <span className="block text-[0.75rem] text-slate-500 dark:text-slate-400">{zh ? '給每個人的健康學習平台' : 'Health learning for everyone'}</span>
           </span>
         </button>
 
@@ -74,7 +74,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
         >
           <Search className="w-4 h-4 shrink-0" aria-hidden="true" />
           <span className="flex-1 truncate">{zh ? '搜尋症狀、數值、主題' : 'Search topics, labs, symptoms'}</span>
-          <kbd className="hidden md:inline text-[10px] font-mono border border-slate-300 dark:border-slate-700 rounded px-1.5 py-0.5">
+          <kbd className="hidden md:inline text-[0.75rem] font-mono border border-slate-300 dark:border-slate-700 rounded px-1.5 py-0.5">
             {isMac ? '⌘' : 'Ctrl'} K
           </kbd>
         </button>
@@ -122,7 +122,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
             <Bookmark className="w-4 h-4 text-amber-500" />
             <span className="hidden md:inline">{zh ? '背包收藏' : 'Saved'}</span>
             {backpackCount > 0 && (
-              <span className="w-4 h-4 rounded-full bg-amber-500 text-white font-mono text-[10px] flex items-center justify-center font-bold">
+              <span className="w-4 h-4 rounded-full bg-amber-500 text-white font-mono text-[0.75rem] flex items-center justify-center font-bold">
                 {backpackCount > 9 ? '9+' : backpackCount}
               </span>
             )}

@@ -44,7 +44,7 @@ export const FigureFrame: React.FC<{
   >
     <div className="flex items-baseline gap-2">
       {number && (
-        <span className="shrink-0 text-[11px] font-bold tracking-wide text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900 rounded-md px-1.5 py-0.5">
+        <span className="shrink-0 text-[0.75rem] font-bold tracking-wide text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900 rounded-md px-1.5 py-0.5">
           {number}
         </span>
       )}
@@ -54,7 +54,7 @@ export const FigureFrame: React.FC<{
     {(caption || source || note !== false) && (
       <figcaption className="space-y-1 text-[13px] leading-relaxed text-slate-600 dark:text-slate-300 border-t border-slate-100 dark:border-slate-800 pt-2.5">
         {caption && <p>{caption}</p>}
-        <p className="text-[11px] text-slate-500 dark:text-slate-400">
+        <p className="text-[0.75rem] text-slate-500 dark:text-slate-400">
           {note !== false && <span>{note ?? '示意圖，比例經簡化以利理解。'}</span>}
           {source && <span>{note !== false ? ' ' : ''}依據：{source}</span>}
         </p>
@@ -206,7 +206,7 @@ export const ChapterPager: React.FC<{
       >
         <ChevronLeft className="w-5 h-5 shrink-0 text-slate-400" aria-hidden="true" />
         <span className="min-w-0">
-          <span className="block text-[11px] text-slate-500 dark:text-slate-400">上一章</span>
+          <span className="block text-[0.75rem] text-slate-500 dark:text-slate-400">上一章</span>
           <span className="block font-semibold text-slate-900 dark:text-white truncate">{prev.label}</span>
         </span>
       </button>
@@ -223,7 +223,7 @@ export const ChapterPager: React.FC<{
         className="flex-1 inline-flex items-center justify-end gap-2 rounded-2xl bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-emerald-950 px-4 py-3 text-right transition-colors"
       >
         <span className="min-w-0">
-          <span className="block text-[11px] opacity-90">{completed ? '下一章' : '完成本章，前往下一章'}</span>
+          <span className="block text-[0.75rem] opacity-90">{completed ? '下一章' : '完成本章，前往下一章'}</span>
           <span className="block font-semibold truncate">{next.label}</span>
         </span>
         <ChevronRight className="w-5 h-5 shrink-0" aria-hidden="true" />
@@ -314,7 +314,7 @@ const GRADE_LABEL: Record<string, string> = {
 
 export const GradePill: React.FC<{ grade: 'A' | 'B' | 'C' | 'D' | 'E'; withLabel?: boolean }> = ({ grade, withLabel = true }) => (
   <span
-    className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-semibold whitespace-nowrap ${GRADE_TONE[grade]}`}
+    className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[0.75rem] font-semibold whitespace-nowrap ${GRADE_TONE[grade]}`}
     title={`證據等級 ${grade}：${GRADE_LABEL[grade]}`}
   >
     <span className="font-mono">{grade}</span>
@@ -364,7 +364,7 @@ export const KnowledgeMap: React.FC<{ groups: KpMapGroup[]; title?: string; id?:
         {groups.map((g, gi) => (
           <li key={g.label} className="rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 p-3 space-y-2">
             <p className="flex items-center gap-2 text-[13px] font-bold text-emerald-800 dark:text-emerald-300">
-              <span className="w-5 h-5 rounded-md bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 text-[11px] inline-flex items-center justify-center tabular-nums">{gi + 1}</span>
+              <span className="w-5 h-5 rounded-md bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 text-[0.75rem] inline-flex items-center justify-center tabular-nums">{gi + 1}</span>
               {g.label}
             </p>
             <p className="text-[12px] text-slate-500 dark:text-slate-400">{g.hint}</p>
@@ -381,7 +381,7 @@ export const KnowledgeMap: React.FC<{ groups: KpMapGroup[]; title?: string; id?:
                       }}
                       className="group flex gap-2 rounded-lg px-2 py-1.5 hover:bg-white dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                     >
-                      <span className="shrink-0 text-[11px] font-mono font-bold text-emerald-700 dark:text-emerald-400 mt-0.5">KP{n}</span>
+                      <span className="shrink-0 text-[0.75rem] font-mono font-bold text-emerald-700 dark:text-emerald-400 mt-0.5">KP{n}</span>
                       <span className="min-w-0">
                         <span className="block text-[13px] font-semibold text-slate-800 dark:text-slate-100 group-hover:underline">{it.title}</span>
                         <span className="block text-[12px] text-slate-500 dark:text-slate-400 leading-snug">{it.oneLine}</span>
@@ -417,7 +417,7 @@ export const KnowledgePoint: React.FC<{
   <section id={id} tabIndex={-1} aria-labelledby={`${id}-h`} className="scroll-mt-32 space-y-4 focus:outline-none">
     <header className="space-y-2.5 border-l-4 border-emerald-500 dark:border-emerald-400 pl-3.5">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-[11px] font-bold tracking-wide font-mono text-white dark:text-emerald-950 bg-emerald-600 dark:bg-emerald-400 rounded-md px-1.5 py-0.5">知識點 {index}</span>
+        <span className="text-[0.75rem] font-bold tracking-wide font-mono text-white dark:text-emerald-950 bg-emerald-600 dark:bg-emerald-400 rounded-md px-1.5 py-0.5">知識點 {index}</span>
         {grade && <GradePill grade={grade} />}
       </div>
       <h3 id={`${id}-h`} className="text-lg sm:text-xl font-display font-bold text-slate-900 dark:text-white text-balance">{title}</h3>

@@ -74,7 +74,7 @@ export const HandMapsFigure: React.FC = () => {
     <div className="grid grid-cols-2 gap-3">
       <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/30 p-2.5">
         <p className="text-[13px] font-semibold text-slate-900 dark:text-white">A. 頸椎神經根（皮節）</p>
-        <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-1">右手・掌心朝前（拇指在左）</p>
+        <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 mb-1">右手・掌心朝前（拇指在左）</p>
         <svg viewBox="20 20 160 180" role="img" aria-label="右手掌心面的頸椎神經根分布：C6 拇指與食指、C7 中指、C8 無名指與小指" className="w-full h-auto">
           <HandOutline
             fills={{ thumb: S1, index: S1, middle: S2, ringL: S3, ringR: S3, little: S3, palmL: S1, palmM: S2, palmR: S3, splitAt: 106 }}
@@ -88,7 +88,7 @@ export const HandMapsFigure: React.FC = () => {
       </div>
       <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/30 p-2.5">
         <p className="text-[13px] font-semibold text-slate-900 dark:text-white">B. 手腕的周邊神經（掌側）</p>
-        <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-1">右手・掌心朝前（拇指在左）</p>
+        <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 mb-1">右手・掌心朝前（拇指在左）</p>
         <svg viewBox="20 20 160 180" role="img" aria-label="右手掌心面的周邊神經分布：正中神經負責拇指到無名指半邊，尺神經負責無名指半邊與小指" className="w-full h-auto">
           <HandOutline
             fills={{ thumb: S1, index: S1, middle: S1, ringL: S1, ringR: S2, little: S2, palmL: S1, palmM: S1, palmR: S2, splitAt: ringSplit }}
@@ -242,8 +242,8 @@ export const NumbPatternFigure: React.FC = () => (
           <Body zones={p.zones} light={p.light} />
         </svg>
         <p className="text-[12px] font-semibold text-slate-900 dark:text-white leading-tight mt-1">{p.title}</p>
-        <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-tight">{p.sub}</p>
-        {p.urgent && <p className="text-[10px] font-bold text-rose-700 dark:text-rose-300 mt-0.5">需盡快就醫</p>}
+        <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 leading-tight">{p.sub}</p>
+        {p.urgent && <p className="text-[0.75rem] font-bold text-rose-700 dark:text-rose-300 mt-0.5">需盡快就醫</p>}
       </div>
     ))}
   </div>

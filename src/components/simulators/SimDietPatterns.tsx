@@ -105,7 +105,7 @@ export const SimDietPatterns: React.FC = () => {
 
         {/* Quick Calorie Presets */}
         <div className="flex flex-wrap items-center gap-1.5 pt-1">
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">
             {language === 'zh-TW' ? '熱量情境預設：' : 'Caloric Presets:'}
           </span>
           {[
@@ -116,7 +116,7 @@ export const SimDietPatterns: React.FC = () => {
             <button
               key={preset.cal}
               onClick={() => setDailyCalories(preset.cal)}
-              className={`btn-tactile px-2.5 py-1 rounded-lg text-[10px] font-mono border transition-all ${
+              className={`btn-tactile px-2.5 py-1 rounded-lg text-[0.75rem] font-mono border transition-all ${
                 dailyCalories === preset.cal
                   ? 'bg-nature-amber-500 text-white font-bold border-nature-amber-600 shadow-sm'
                   : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white'
@@ -129,7 +129,7 @@ export const SimDietPatterns: React.FC = () => {
 
         {/* Visual Macro Ratio Bar */}
         <div className="space-y-1.5 font-mono text-xs">
-          <div className="flex justify-between text-[11px] text-slate-500 dark:text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-500 dark:text-slate-400">
             <span>{t('diet.macro_ratio')}</span>
             <span>碳水 : 蛋白 : 脂肪</span>
           </div>
@@ -137,21 +137,21 @@ export const SimDietPatterns: React.FC = () => {
           <div className="h-6 w-full rounded-xl overflow-hidden flex shadow-inner bg-slate-200 dark:bg-slate-950 border border-slate-300 dark:border-slate-700">
             <div
               style={{ width: `${currentPattern.macro_distribution.carbs_pct}%` }}
-              className="bg-nature-sky-500 flex items-center justify-center text-[11px] font-bold text-white transition-all"
+              className="bg-nature-sky-500 flex items-center justify-center text-[0.75rem] font-bold text-white transition-all"
               title={`碳水化合物 ${currentPattern.macro_distribution.carbs_pct}%`}
             >
               {currentPattern.macro_distribution.carbs_pct > 8 && `${currentPattern.macro_distribution.carbs_pct}%`}
             </div>
             <div
               style={{ width: `${currentPattern.macro_distribution.protein_pct}%` }}
-              className="bg-purple-500 flex items-center justify-center text-[11px] font-bold text-white transition-all"
+              className="bg-purple-500 flex items-center justify-center text-[0.75rem] font-bold text-white transition-all"
               title={`蛋白質 ${currentPattern.macro_distribution.protein_pct}%`}
             >
               {currentPattern.macro_distribution.protein_pct > 8 && `${currentPattern.macro_distribution.protein_pct}%`}
             </div>
             <div
               style={{ width: `${currentPattern.macro_distribution.fat_pct}%` }}
-              className="bg-nature-amber-500 flex items-center justify-center text-[11px] font-bold text-white transition-all"
+              className="bg-nature-amber-500 flex items-center justify-center text-[0.75rem] font-bold text-white transition-all"
               title={`脂肪 ${currentPattern.macro_distribution.fat_pct}%`}
             >
               {currentPattern.macro_distribution.fat_pct > 8 && `${currentPattern.macro_distribution.fat_pct}%`}
@@ -161,19 +161,19 @@ export const SimDietPatterns: React.FC = () => {
           {/* Daily Gram Breakdown */}
           <div className="grid grid-cols-3 gap-2 pt-2 text-center text-xs">
             <div className="p-2.5 rounded-xl bg-nature-sky-50 dark:bg-nature-sky-950/50 border border-nature-sky-200 dark:border-nature-sky-800/60 text-nature-sky-900 dark:text-nature-sky-200">
-              <span className="text-[10px] text-nature-sky-700 dark:text-nature-sky-400 block font-bold">碳水化合物 (4 kcal/g)</span>
+              <span className="text-[0.75rem] text-nature-sky-700 dark:text-nature-sky-400 block font-bold">碳水化合物 (4 kcal/g)</span>
               <strong className="text-base font-bold">{carbGrams} g</strong>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 block">({carbCalories} kcal)</span>
+              <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 block">({carbCalories} kcal)</span>
             </div>
             <div className="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/60 text-purple-900 dark:text-purple-200">
-              <span className="text-[10px] text-purple-700 dark:text-purple-400 block font-bold">優質蛋白質 (4 kcal/g)</span>
+              <span className="text-[0.75rem] text-purple-700 dark:text-purple-400 block font-bold">優質蛋白質 (4 kcal/g)</span>
               <strong className="text-base font-bold">{proteinGrams} g</strong>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 block">({proteinCalories} kcal)</span>
+              <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 block">({proteinCalories} kcal)</span>
             </div>
             <div className="p-2.5 rounded-xl bg-nature-amber-50 dark:bg-nature-amber-950/50 border border-nature-amber-200 dark:border-nature-amber-800/60 text-nature-amber-900 dark:text-nature-amber-200">
-              <span className="text-[10px] text-nature-amber-700 dark:text-nature-amber-400 block font-bold">健康脂質 (9 kcal/g)</span>
+              <span className="text-[0.75rem] text-nature-amber-700 dark:text-nature-amber-400 block font-bold">健康脂質 (9 kcal/g)</span>
               <strong className="text-base font-bold">{fatGrams} g</strong>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 block">({fatCalories} kcal)</span>
+              <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 block">({fatCalories} kcal)</span>
             </div>
           </div>
         </div>
@@ -264,13 +264,13 @@ export const SimDietPatterns: React.FC = () => {
                   <strong className="text-red-900 dark:text-red-200 font-bold">
                     {language === 'zh-TW' ? item.nutrient_zh : item.nutrient_en}
                   </strong>
-                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded font-bold ${
+                  <span className={`text-[0.75rem] font-mono px-1.5 py-0.5 rounded font-bold ${
                     item.risk_level === 'HIGH' ? 'bg-red-100 text-red-800 border border-red-300 dark:bg-red-900 dark:text-red-200' : 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200'
                   }`}>
                     {item.risk_level} RISK
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                <p className="text-[0.75rem] text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
                   💡 {language === 'zh-TW' ? item.solution_zh : item.solution_en}
                 </p>
               </div>

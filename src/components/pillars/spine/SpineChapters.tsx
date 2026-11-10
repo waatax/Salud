@@ -648,7 +648,7 @@ export const ExerciseChapter: React.FC = () => {
             <article key={e.id} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 flex flex-col gap-3 print-avoid-break">
               <div className="flex items-start justify-between gap-2">
                 <div>
-                  <p className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">{EXERCISE_TARGET_META[e.target]}</p>
+                  <p className="text-[0.75rem] font-semibold text-emerald-700 dark:text-emerald-400">{EXERCISE_TARGET_META[e.target]}</p>
                   <h4 className="font-bold text-[16px] text-slate-900 dark:text-white leading-snug">{e.name}</h4>
                 </div>
                 <GradePill grade={e.grade} withLabel={false} />

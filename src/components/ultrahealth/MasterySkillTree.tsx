@@ -77,13 +77,13 @@ export const MasterySkillTree: React.FC = () => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 border border-indigo-500/40 text-xs font-mono font-bold mb-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>均一教育平台核心架構 · 自適應精熟學習 (Mastery Learning)</span>
+              <span>自適應精熟學習 (Mastery Learning)</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 dark:text-white tracking-tight">
               健康生活知識圖譜與技能樹
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-              拒絕「填鴨式死記硬背」。比照均一精熟教學法，將生化機轉原子化（KPs），透過先備知識拓撲依賴，
+              拒絕「填鴨式死記硬背」。採用精熟學習法，將生化機轉原子化（KPs），透過先備知識拓撲依賴，
               配合 30 秒形成性即時自測診斷，真正建立「知其所以然」的底層健康認知護城河！
             </p>
           </div>
@@ -126,15 +126,15 @@ export const MasterySkillTree: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono font-bold text-slate-500">
+                <span className="text-[0.75rem] font-mono font-bold text-slate-500">
                   {node.code}
                 </span>
                 {isNodeMastered ? (
-                  <span className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold">
+                  <span className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[0.75rem] font-bold">
                     ✓
                   </span>
                 ) : (
-                  <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center text-[10px] font-mono">
+                  <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center text-[0.75rem] font-mono">
                     ○
                   </span>
                 )}
@@ -143,10 +143,10 @@ export const MasterySkillTree: React.FC = () => {
                 {node.title_zh}
               </div>
               <div className="mt-2 flex items-center gap-1.5">
-                <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 font-mono font-bold">
+                <span className="text-[0.6875rem] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 font-mono font-bold">
                   {node.level}
                 </span>
-                <span className="text-[9px] font-mono text-slate-400">
+                <span className="text-[0.6875rem] font-mono text-slate-400">
                   {node.branch}
                 </span>
               </div>
@@ -200,7 +200,7 @@ export const MasterySkillTree: React.FC = () => {
         <div className="bg-white/90 dark:bg-salud-dark-surface rounded-3xl border border-indigo-500/30 p-6 sm:p-8 space-y-6 shadow-sm">
           <div>
             <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">
-              均一形成性自測 · 驗證掌握度
+              形成性自測 · 驗證掌握度
             </span>
             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mt-1 leading-snug">
               {activeNode.quiz.question_zh}

@@ -23,7 +23,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="137" y="97" textAnchor="middle" className="fill-white font-mono text-[9px] font-bold">安全閘門鎖定</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/40">
                 🚨 EC-01 臨床急症分流插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -55,7 +55,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="111" textAnchor="middle" className="fill-amber-300 font-mono text-[8px] font-bold">黃金 90 天逆轉期</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
                 ⚖️ EC-02 三高前期平衡圖解
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -87,7 +87,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-purple-200 font-mono text-[8px] font-bold">血液暢通 · 心臟零負擔</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/40">
                 🫀 EC-03 血管保養插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -117,7 +117,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-emerald-200 font-mono text-[8px] font-bold">進食順序：菜 ➜ 肉 ➜ 飯</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
                 📉 EC-04 血糖穩定插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -150,7 +150,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <rect x="171" y="45" width="4" height="40" rx="2" className="fill-slate-400" />
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-lime-500/20 text-lime-700 dark:text-lime-300 border border-lime-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-lime-500/20 text-lime-700 dark:text-lime-300 border border-lime-500/40">
                 🥗 EC-05 地中海黃金餐盤
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -182,7 +182,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="111" textAnchor="middle" className="fill-sky-200 font-mono text-[8px] font-bold">天天 30 分鐘微喘快走</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/40">
                 🏃 EC-06 肌肉活化插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -212,7 +212,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="137" y="102" textAnchor="middle" className="fill-white font-mono text-[8px] font-bold">嚴禁酒精助眠</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40">
                 🌙 EC-07 睡眠修復插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -240,7 +240,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="107" textAnchor="middle" className="fill-pink-200 font-mono text-[8px] font-bold">80% 優質營養 + 20% 彈性享受</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-pink-500/20 text-pink-700 dark:text-pink-300 border border-pink-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-pink-500/20 text-pink-700 dark:text-pink-300 border border-pink-500/40">
                 🧘 EC-08 直覺飲食插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -270,7 +270,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="107" textAnchor="middle" className="fill-rose-200 font-mono text-[8px] font-bold">服藥前後 48 小時嚴禁酒精！</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
                 💊 EC-09 用藥安全防線
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -299,7 +299,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-purple-200 font-mono text-[8px] font-bold">WHO 證實：最安全的飲酒量是 0</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/40">
                 🧭 EC-10 實證醫學破解
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -327,7 +327,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <circle cx="100" cy="98" r="4" className="fill-slate-500" />
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/40">
                 👁️ EC-11 無障礙人因插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -355,7 +355,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="107" textAnchor="middle" className="fill-sky-200 font-mono text-[8px] font-bold">資料只存在你的手機 · 廣告商看不到</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/40">
                 🛡️ EC-12 隱私金庫插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -387,7 +387,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="107" textAnchor="middle" className="fill-cyan-200 font-mono text-[8px] font-bold">小口慢喝 250ml · 絕不一口氣暴飲</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/40">
                 💧 EC-13 體液平衡插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -416,7 +416,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-amber-200 font-mono text-[8px] font-bold">廚房不冒煙 · 涼拌用橄欖</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
                 🥑 EC-14 用油科學插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -445,7 +445,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-orange-200 font-mono text-[8px] font-bold">水炒法保留 40% 更多植化素</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
                 🍳 EC-15 廚房水炒示範
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -476,7 +476,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-rose-200 font-mono text-[8px] font-bold">高溫頭暈意識不清 ➜ 淋水送醫</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-red-500/20 text-red-700 dark:text-red-300 border border-red-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-red-500/20 text-red-700 dark:text-red-300 border border-red-500/40">
                 🌡️ EC-16 熱傷害急救插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -506,7 +506,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-violet-200 font-mono text-[8px] font-bold">0 容忍黑盒 AI 幻覺假圖</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/40">
                 🎨 EC-17 醫學精準插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -537,7 +537,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-emerald-200 font-mono text-[8px] font-bold">不截斷 Y 軸 · 不製造健康焦慮</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
                 📊 EC-18 誠實圖表插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -568,7 +568,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="111" textAnchor="middle" className="fill-amber-200 font-mono text-[8px] font-bold">按需深入 · 絕不資訊超載</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
                 🪜 EC-19 認知階梯插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -597,7 +597,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-nature-amber-200 font-mono text-[8px] font-bold">生活比喻 · 無痛轉化新習慣</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-nature-amber-500/20 text-nature-amber-800 dark:text-nature-amber-300 border border-nature-amber-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-nature-amber-500/20 text-nature-amber-800 dark:text-nature-amber-300 border border-nature-amber-500/40">
                 🗣️ EC-20 溫暖科普對話
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -629,7 +629,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-emerald-200 font-mono text-[8px] font-bold">門檻小於 2 分鐘 · 輕鬆贏下長壽</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
                 🎯 EC-21 微習慣飛輪插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -659,7 +659,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-blue-200 font-mono text-[8px] font-bold">拆穿神油神藥 · 守護民眾荷包與生命</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/40">
                 🏛️ EC-22 法律合規防火牆
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -690,7 +690,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-rose-200 font-mono text-[8px] font-bold">脂肪肝 ➜ 肝炎 ➜ 肝硬化 · 及早止步</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-rose-500/20 text-rose-700 dark:text-rose-300 border border-rose-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-rose-500/20 text-rose-700 dark:text-rose-300 border border-rose-500/40">
                 🍷 EC-23 酒精毒理插圖
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
@@ -725,7 +725,7 @@ export const ExpertSeatIllustration: React.FC<Props> = ({ expertId, className = 
               <text x="100" y="109" textAnchor="middle" className="fill-rose-200 font-mono text-[8px] font-bold">近半台灣人帶有變異 · 終生滴酒不沾</text>
             </svg>
             <div className="space-y-1 text-center sm:text-left">
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-rose-500/20 text-rose-700 dark:text-rose-300 border border-rose-500/40">
+              <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-rose-500/20 text-rose-700 dark:text-rose-300 border border-rose-500/40">
                 🧬 EC-24 基因臉紅警報
               </span>
               <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">

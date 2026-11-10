@@ -287,11 +287,11 @@ export const DegenCascadeFigure: React.FC = () => (
   <ol className="grid gap-2 sm:grid-cols-3 lg:grid-cols-6">
     {DEGEN_CASCADE.map((s, i) => (
       <li key={s.step} className={`relative rounded-xl border p-3 ${TONE_BOX[s.tone]}`}>
-        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 tabular-nums">STEP {i + 1}</span>
+        <span className="text-[0.75rem] font-bold text-slate-500 dark:text-slate-400 tabular-nums">STEP {i + 1}</span>
         <p className="font-semibold text-[14px] text-slate-900 dark:text-white leading-snug">{s.step}</p>
         <p className="text-[12px] leading-relaxed text-slate-600 dark:text-slate-300 mt-1">{s.detail}</p>
         {i < DEGEN_CASCADE.length - 1 && (
-          <span aria-hidden="true" className="hidden lg:flex absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 items-center justify-center text-[11px] text-slate-500">
+          <span aria-hidden="true" className="hidden lg:flex absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 items-center justify-center text-[0.75rem] text-slate-500">
             →
           </span>
         )}
@@ -309,9 +309,9 @@ export const TreatmentLadderFigure: React.FC = () => (
             s.step === 1 ? 'bg-emerald-700' : s.step === 2 ? 'bg-emerald-600' : s.step === 3 ? 'bg-sky-700' : s.step === 4 ? 'bg-amber-600' : 'bg-rose-700'
           }`}
         >
-          <span className="text-[10px] opacity-90">第</span>
+          <span className="text-[0.75rem] opacity-90">第</span>
           <span className="text-lg leading-none tabular-nums">{s.step}</span>
-          <span className="text-[10px] opacity-90">階</span>
+          <span className="text-[0.75rem] opacity-90">階</span>
         </div>
         <div className="flex-1 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-3">
           <div className="flex flex-wrap items-center gap-2">

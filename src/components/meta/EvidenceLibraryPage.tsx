@@ -115,7 +115,7 @@ export const EvidenceLibraryPage: React.FC = () => {
       </button>
 
       <header className="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 space-y-4">
-        <span className="inline-flex items-center gap-2 text-[11px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+        <span className="inline-flex items-center gap-2 text-[0.75rem] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
           <Library className="w-3.5 h-3.5" />
           {zh ? '實證來源與分級' : 'Evidence base & grading'}
         </span>
@@ -133,7 +133,7 @@ export const EvidenceLibraryPage: React.FC = () => {
           {(['A', 'B', 'C', 'D', 'E'] as const).map((g) => (
             <span
               key={g}
-              className={`text-[10px] font-mono px-2 py-1 rounded-lg border ${GRADE_STYLE[g]}`}
+              className={`text-[0.75rem] font-mono px-2 py-1 rounded-lg border ${GRADE_STYLE[g]}`}
             >
               <strong>{g}</strong> · {zh ? GRADE_MEANING_ZH[g] : GRADE_MEANING_EN[g]}
             </span>
@@ -187,18 +187,18 @@ export const EvidenceLibraryPage: React.FC = () => {
             >
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 <Icon className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                <span className="font-mono text-[0.75rem] text-slate-500 dark:text-slate-400">
                   {e.year}
                 </span>
                 {e.grade && (
                   <span
-                    className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded border ${GRADE_STYLE[e.grade]}`}
+                    className={`text-[0.75rem] font-mono font-bold px-1.5 py-0.5 rounded border ${GRADE_STYLE[e.grade]}`}
                   >
                     {e.grade}
                   </span>
                 )}
                 {e.topic && (
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                  <span className="text-[0.75rem] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                     {e.topic}
                   </span>
                 )}
@@ -219,7 +219,7 @@ export const EvidenceLibraryPage: React.FC = () => {
                   e.title
                 )}
               </h2>
-              <p className="font-mono text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+              <p className="font-mono text-[0.75rem] text-slate-500 dark:text-slate-400 mt-1">
                 {e.source}
               </p>
               <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed mt-2">

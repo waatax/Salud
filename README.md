@@ -1,3 +1,5 @@
+> **v6.4 白話導讀與閱讀字級（2026-11-10）**：七個專區改以白話開場與「先知道這三件事」帶入深度內容；校正 17 堂課錯置的圖解與對照表；小字改為可縮放並提高下限；每頁有獨立分頁標題。詳見 [CHANGELOG](CHANGELOG.md) 與 [改善紀錄](docs/discovery-experience-review.md)。
+
 > **v6.3 閱讀體驗更新（2026-11-06）**：重新整理首頁探索動線、24 個分類主題入口、短課與即時小挑戰；改善手機、鍵盤焦點與章內閱讀導覽。完整章節按需載入，並釐清本站 A–E 閱讀標籤與正式 GRADE 的差異。實作、來源與驗證限制見 [改善紀錄](docs/discovery-experience-review.md)。
 
 # Salud｜給每個人的健康學習平台 (Health Learning for Everyone)
@@ -6,7 +8,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.2.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.4.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

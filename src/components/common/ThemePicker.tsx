@@ -74,7 +74,7 @@ export const ThemePicker: React.FC<{ className?: string }> = ({ className = '' }
           onKeyDown={onMenuKey}
           className="absolute right-0 mt-2 w-64 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-salud-dark-card shadow-xl p-1.5 z-50 animate-fade-in"
         >
-          <p className="px-2.5 pt-1.5 pb-1 text-[11px] font-bold tracking-wide text-slate-500 dark:text-slate-400">配色主題</p>
+          <p className="px-2.5 pt-1.5 pb-1 text-[0.75rem] font-bold tracking-wide text-slate-500 dark:text-slate-400">配色主題</p>
           {THEME_OPTIONS.map((t) => {
             const active = isExplicit && theme === t.id;
             return (

@@ -206,15 +206,15 @@ export const ChapterLanding: React.FC<Props> = ({
           {/* Quick Metrics */}
           <div className="grid grid-cols-3 gap-3 pt-2 font-mono text-xs">
             <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <span className="text-slate-500 dark:text-slate-400 block text-[11px]">{t('landing.metric_pages')}</span>
+              <span className="text-slate-500 dark:text-slate-400 block text-[0.75rem]">{t('landing.metric_pages')}</span>
               <strong className="text-lg text-slate-900 dark:text-slate-100 font-display">{chapter.page_count} 頁</strong>
             </div>
             <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <span className="text-slate-500 dark:text-slate-400 block text-[11px]">{t('landing.metric_kps')}</span>
+              <span className="text-slate-500 dark:text-slate-400 block text-[0.75rem]">{t('landing.metric_kps')}</span>
               <strong className="text-lg text-nature-amber-700 dark:text-nature-amber-400 font-display">{chapter.kp_count} 點</strong>
             </div>
             <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <span className="text-slate-500 dark:text-slate-400 block text-[11px]">{t('landing.metric_figs')}</span>
+              <span className="text-slate-500 dark:text-slate-400 block text-[0.75rem]">{t('landing.metric_figs')}</span>
               <strong className="text-lg text-nature-sky-700 dark:text-salud-cyan font-display">{chapter.figure_count} 張</strong>
             </div>
           </div>

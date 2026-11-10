@@ -44,7 +44,7 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-salud-cyan animate-pulse" />
                 <span>Salud {GRAND_COUNCIL_MANIFESTO.version}</span>
               </span>
-              <span className="px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-500/30 text-[11px] font-mono font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-500/30 text-[0.75rem] font-mono font-bold">
                 40 席跨學科專家理事會簽署
               </span>
             </div>
@@ -94,8 +94,8 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
                 >
                   <div>
                     <div className="font-bold text-slate-900 dark:text-slate-200 text-xs">{c.title_zh}</div>
-                    <div className="text-[10px] font-mono text-emerald-700 dark:text-salud-cyan font-bold mt-0.5">{c.seats}</div>
-                    <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed mt-2 pt-2 border-t border-emerald-200/60 dark:border-slate-850">
+                    <div className="text-[0.75rem] font-mono text-emerald-700 dark:text-salud-cyan font-bold mt-0.5">{c.seats}</div>
+                    <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 leading-relaxed mt-2 pt-2 border-t border-emerald-200/60 dark:border-slate-850">
                       {c.focus_zh}
                     </p>
                   </div>
@@ -112,7 +112,7 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
                   <RotateCcw className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                   <span>七十個七次 RPDCA 閉環質量迭代體系</span>
                 </div>
-                <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">
+                <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 font-medium">
                   堅持 Research ➔ Plan ➔ Do ➔ Check ➔ Act 臨床品質工程，全站知識與工具經過極致校準。
                 </p>
               </div>
@@ -144,7 +144,7 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
                   </span>
                   <span className="font-bold text-slate-900 dark:text-white text-sm">{currentStep.name_zh}</span>
                 </div>
-                <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">{currentStep.tagline_zh}</span>
+                <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">{currentStep.tagline_zh}</span>
               </div>
 
               <div className="space-y-1.5 pt-1">
@@ -156,7 +156,7 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
                 </ul>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-800 dark:text-amber-300 text-[11px] font-mono">
+              <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-800 dark:text-amber-300 text-[0.75rem] font-mono">
                 <strong>臨床實證標準：</strong> {currentStep.clinical_standard_zh}
               </div>
             </div>
@@ -173,11 +173,11 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
               {EXPERT_COUNCIL.map((exp) => (
                 <div
                   key={exp.id}
-                  className="p-2.5 rounded-xl bg-emerald-50/40 dark:bg-slate-950 border border-emerald-200/70 dark:border-slate-800 text-[11px] space-y-0.5 truncate shadow-xs"
+                  className="p-2.5 rounded-xl bg-emerald-50/40 dark:bg-slate-950 border border-emerald-200/70 dark:border-slate-800 text-[0.75rem] space-y-0.5 truncate shadow-xs"
                 >
-                  <div className="font-mono font-bold text-emerald-700 dark:text-salud-cyan text-[10px]">{exp.id}</div>
+                  <div className="font-mono font-bold text-emerald-700 dark:text-salud-cyan text-[0.75rem]">{exp.id}</div>
                   <div className="font-bold text-slate-900 dark:text-slate-200 truncate">{exp.title_zh}</div>
-                  <div className="text-[9px] text-slate-500 truncate">{exp.name_en}</div>
+                  <div className="text-[0.6875rem] text-slate-500 truncate">{exp.name_en}</div>
                 </div>
               ))}
             </div>
@@ -186,7 +186,7 @@ export const GrandCouncilManifestoModal: React.FC<Props> = ({ isOpen, onClose })
 
         {/* Modal Bottom Footer */}
         <div className="p-4 sm:p-6 bg-emerald-50/50 dark:bg-slate-950 border-t border-emerald-200/80 dark:border-slate-800 flex items-center justify-between shrink-0">
-          <div className="text-[11px] font-mono text-slate-600 dark:text-slate-400 font-medium">
+          <div className="text-[0.75rem] font-mono text-slate-600 dark:text-slate-400 font-medium">
             Salud v1.2.0 · Released under Evidence-Based Open Medical Charter
           </div>
           <button

@@ -78,7 +78,7 @@ export const SbxALDH2: React.FC = () => {
               }`}
             >
               <span>{t('aldh2.normal')}</span>
-              <span className="text-[10px] opacity-75">歐美多數 / 台灣 ~53%</span>
+              <span className="text-[0.75rem] opacity-75">歐美多數 / 台灣 ~53%</span>
             </button>
 
             <button
@@ -90,7 +90,7 @@ export const SbxALDH2: React.FC = () => {
               }`}
             >
               <span>{t('aldh2.hetero')}</span>
-              <span className="text-[10px] opacity-75">台灣約 40–42%</span>
+              <span className="text-[0.75rem] opacity-75">台灣約 40–42%</span>
             </button>
 
             <button
@@ -102,7 +102,7 @@ export const SbxALDH2: React.FC = () => {
               }`}
             >
               <span>{t('aldh2.homo')}</span>
-              <span className="text-[10px] opacity-75">台灣約 5–6%</span>
+              <span className="text-[0.75rem] opacity-75">台灣約 5–6%</span>
             </button>
           </div>
         </div>
@@ -114,7 +114,7 @@ export const SbxALDH2: React.FC = () => {
               <label htmlFor={`${formId}-drinks`} className="font-bold">{t('aldh2.drinks_label')}</label>
               <strong className="text-salud-amber font-mono text-base">{drinks} 杯</strong>
             </div>
-            <p className="text-[11px] text-slate-400 pb-3">
+            <p className="text-[0.75rem] text-slate-400 pb-3">
               1 標準杯 = 10g 純酒精（≈ 250mL 啤酒 / 100mL 紅酒 / 30mL 烈酒）
             </p>
             <input
@@ -152,9 +152,9 @@ export const SbxALDH2: React.FC = () => {
             <strong className="text-3xl font-display font-extrabold text-salud-coral">
               {exposureMultiplier}
             </strong>
-            <span className="text-[11px] text-slate-500 font-mono">相對基準倍率</span>
+            <span className="text-[0.75rem] text-slate-500 font-mono">相對基準倍率</span>
           </div>
-          <p className="text-[11px] text-slate-400 pt-1">
+          <p className="text-[0.75rem] text-slate-400 pt-1">
             指體內細胞直接接觸一級致癌物「乙醛」的相對暴露濃度曲線面積（AUC）。
           </p>
         </div>
@@ -169,9 +169,9 @@ export const SbxALDH2: React.FC = () => {
             <strong className="text-3xl font-display font-extrabold text-salud-cyan">
               {flushProbability}
             </strong>
-            <span className="text-[11px] text-slate-500 font-mono">外顯生理表型</span>
+            <span className="text-[0.75rem] text-slate-500 font-mono">外顯生理表型</span>
           </div>
-          <p className="text-[11px] text-slate-400 pt-1">
+          <p className="text-[0.75rem] text-slate-400 pt-1">
             乙醛刺激血管平滑肌與肥大細胞釋放組織胺，造成強烈臉部發燙潮紅與心悸。
           </p>
         </div>
@@ -191,7 +191,7 @@ export const SbxALDH2: React.FC = () => {
         </p>
 
         {/* Anti-fatalism callout */}
-        <div className="pt-2 border-t border-slate-700/60 flex items-start gap-2 text-[11px] text-slate-400">
+        <div className="pt-2 border-t border-slate-700/60 flex items-start gap-2 text-[0.75rem] text-slate-400">
           <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
           <span>
             <strong>科學反基因宿命論</strong>：突變基因改變的是相同飲酒量下的「風險斜率」，並不決定個人結局。只要選擇不飲酒，體內便不會產生額外乙醛蓄積，食道癌風險拉回與無突變常人完全一致。

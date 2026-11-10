@@ -131,7 +131,7 @@ export const LiverProgressionFigure: React.FC = () => (
         <p className="font-semibold text-[14px] text-slate-900 dark:text-white mt-1">{p.stage}</p>
         <p className="text-[12px] leading-snug text-slate-600 dark:text-slate-400 mt-0.5">{p.detail}</p>
         {i < PROGRESSION.length - 1 && (
-          <span aria-hidden="true" className="hidden sm:flex absolute -right-2.5 top-8 z-10 w-5 h-5 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 items-center justify-center text-[11px] text-slate-500">
+          <span aria-hidden="true" className="hidden sm:flex absolute -right-2.5 top-8 z-10 w-5 h-5 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 items-center justify-center text-[0.75rem] text-slate-500">
             →
           </span>
         )}
@@ -210,7 +210,7 @@ export const MtctTimeline: React.FC = () => (
   <ol className="relative border-l-2 border-emerald-300 dark:border-emerald-800 ml-3 space-y-4">
     {MTCT_STEPS.map((s, i) => (
       <li key={s.when} className="pl-5 relative">
-        <span className="absolute -left-[13px] top-0.5 w-6 h-6 rounded-full bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 text-[11px] font-bold inline-flex items-center justify-center tabular-nums">
+        <span className="absolute -left-[13px] top-0.5 w-6 h-6 rounded-full bg-emerald-600 dark:bg-emerald-500 text-white dark:text-emerald-950 text-[0.75rem] font-bold inline-flex items-center justify-center tabular-nums">
           {i + 1}
         </span>
         <p className="font-semibold text-[14px] text-slate-900 dark:text-white">{s.when}</p>
@@ -224,7 +224,7 @@ export const MtctTimeline: React.FC = () => (
 
 const Meter: React.FC<{ value: number; label: string; color: string }> = ({ value, label, color }) => (
   <div className="space-y-0.5">
-    <div className="flex justify-between text-[11px] text-slate-500 dark:text-slate-400">
+    <div className="flex justify-between text-[0.75rem] text-slate-500 dark:text-slate-400">
       <span>{label}</span>
     </div>
     <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden" aria-hidden="true">
@@ -237,9 +237,9 @@ export const PhasesFigure: React.FC = () => (
   <ol className="grid gap-2 sm:grid-cols-5">
     {HBV_PHASES.map((p, i) => (
       <li key={p.name} className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-3 space-y-2">
-        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 tabular-nums">階段 {i + 1}</span>
+        <span className="text-[0.75rem] font-bold text-slate-500 dark:text-slate-400 tabular-nums">階段 {i + 1}</span>
         <p className="font-bold text-[14px] leading-snug text-slate-900 dark:text-white">{p.name}</p>
-        <p className="text-[11px] text-slate-500 dark:text-slate-400">{p.old}</p>
+        <p className="text-[0.75rem] text-slate-500 dark:text-slate-400">{p.old}</p>
         <Meter value={p.level.dna} label="病毒量（示意）" color="var(--viz-series-1)" />
         <Meter value={p.level.alt} label="肝發炎 ALT（示意）" color="var(--viz-series-2)" />
         <p className="text-[12px] leading-snug text-slate-700 dark:text-slate-300 pt-1 border-t border-slate-100 dark:border-slate-800">{p.plan}</p>
@@ -260,7 +260,7 @@ const TONE_BOX = {
 const Toggle: React.FC<{ label: string; sub: string; value: Tri; onChange: (v: Tri) => void }> = ({ label, sub, value, onChange }) => (
   <fieldset className="rounded-xl border border-slate-200 dark:border-slate-700 p-3">
     <legend className="px-1 text-[13px] font-bold text-slate-900 dark:text-white">{label}</legend>
-    <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-2">{sub}</p>
+    <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 mb-2">{sub}</p>
     <div className="grid grid-cols-2 gap-1.5" role="radiogroup" aria-label={label}>
       {(['neg', 'pos'] as Tri[]).map((v) => (
         <button

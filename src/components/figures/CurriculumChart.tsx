@@ -79,7 +79,7 @@ const Bars: React.FC<{ spec: Extract<ChartSpec, { kind: 'bars' }> }> = ({ spec }
                   />
                 )}
               </div>
-              <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 text-[11px] sm:text-xs">
+              <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 text-[0.75rem] sm:text-xs">
                 <span className={`font-bold tabular-nums ${t.text}`}>{shown(i, spec.unit)}</span>
                 {i.note && <span className="text-slate-500 dark:text-slate-400">{i.note}</span>}
               </div>
@@ -88,7 +88,7 @@ const Bars: React.FC<{ spec: Extract<ChartSpec, { kind: 'bars' }> }> = ({ spec }
         );
       })}
       {spec.ref && (
-        <p className="text-[11px] text-slate-600 dark:text-slate-400 flex items-center gap-1.5 pt-1">
+        <p className="text-[0.75rem] text-slate-600 dark:text-slate-400 flex items-center gap-1.5 pt-1">
           <span className="inline-block w-4 border-t-2 border-dashed border-slate-900/70 dark:border-white/80" aria-hidden />
           參考線：{spec.ref.label}
         </p>
@@ -107,7 +107,7 @@ const Legend: React.FC<{ items: ChartItem[]; unit?: string; total: number }> = (
           <span className="leading-snug">
             {i.icon && <span className="mr-1" aria-hidden>{i.icon}</span>}
             <strong>{i.label}</strong> <span className={`tabular-nums font-semibold ${t.text}`}>{i.display ?? `${Math.round((i.value / total) * 100)}%`}</span>
-            {i.note && <span className="block text-[11px] text-slate-500 dark:text-slate-400">{i.note}</span>}
+            {i.note && <span className="block text-[0.75rem] text-slate-500 dark:text-slate-400">{i.note}</span>}
           </span>
         </li>
       );
@@ -124,7 +124,7 @@ const Stack: React.FC<{ spec: Extract<ChartSpec, { kind: 'stack' }> }> = ({ spec
         {spec.items.map((i, idx) => (
           <div
             key={i.label}
-            className={`${TONE[toneOf(i, idx)].bar} flex items-center justify-center text-[11px] font-bold text-white overflow-hidden`}
+            className={`${TONE[toneOf(i, idx)].bar} flex items-center justify-center text-[0.75rem] font-bold text-white overflow-hidden`}
             style={{ width: `${(i.value / total) * 100}%` }}
             title={`${i.label} ${shown(i, spec.unit)}`}
           >
@@ -192,12 +192,12 @@ const Flow: React.FC<{ spec: Extract<ChartSpec, { kind: 'flow' }> }> = ({ spec }
       return (
         <li key={s.label} className={`relative rounded-xl border p-3 ${t.soft}`}>
           <div className={`flex items-start gap-1.5 text-xs sm:text-sm font-bold ${t.text}`}>
-            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/80 dark:bg-slate-900/70 text-[10px] font-mono shrink-0">{idx + 1}</span>
+            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/80 dark:bg-slate-900/70 text-[0.75rem] font-mono shrink-0">{idx + 1}</span>
             {s.icon && <span aria-hidden>{s.icon}</span>}
             <span className="leading-snug">{s.label}</span>
             {!last && <span className="ml-auto pl-1 text-slate-400 dark:text-slate-500" aria-hidden>➜</span>}
           </div>
-          {s.detail && <p className="mt-1 text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{s.detail}</p>}
+          {s.detail && <p className="mt-1 text-[0.75rem] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{s.detail}</p>}
         </li>
       );
     })}
@@ -210,7 +210,7 @@ const Ladder: React.FC<{ spec: Extract<ChartSpec, { kind: 'ladder' }> }> = ({ sp
       const t = TONE[s.tone];
       return (
         <li key={s.range + s.label} className={`grid grid-cols-[5.5rem_1fr] sm:grid-cols-[8rem_1fr] gap-2 sm:gap-3 rounded-xl border p-2.5 ${t.soft}`}>
-          <div className={`flex items-center gap-1.5 font-mono text-[11px] sm:text-xs font-bold tabular-nums ${t.text}`}>
+          <div className={`flex items-center gap-1.5 font-mono text-[0.75rem] sm:text-xs font-bold tabular-nums ${t.text}`}>
             <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${t.bar}`} aria-hidden />
             {s.range}
           </div>
@@ -219,7 +219,7 @@ const Ladder: React.FC<{ spec: Extract<ChartSpec, { kind: 'ladder' }> }> = ({ sp
               {s.icon && <span className="mr-1" aria-hidden>{s.icon}</span>}
               {s.label}
             </div>
-            {s.detail && <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{s.detail}</p>}
+            {s.detail && <p className="text-[0.75rem] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{s.detail}</p>}
           </div>
         </li>
       );
@@ -240,7 +240,7 @@ const Compare: React.FC<{ spec: Extract<ChartSpec, { kind: 'compare' }> }> = ({ 
             </div>
             <ul className="space-y-1">
               {c.points.map((p) => (
-                <li key={p} className="flex gap-1.5 text-[11px] sm:text-xs text-slate-800 dark:text-slate-200 leading-relaxed">
+                <li key={p} className="flex gap-1.5 text-[0.75rem] sm:text-xs text-slate-800 dark:text-slate-200 leading-relaxed">
                   <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${t.bar}`} aria-hidden />
                   <span>{p}</span>
                 </li>
@@ -260,7 +260,7 @@ const Compare: React.FC<{ spec: Extract<ChartSpec, { kind: 'compare' }> }> = ({ 
 
 const Matrix: React.FC<{ spec: Extract<ChartSpec, { kind: 'matrix' }> }> = ({ spec }) => (
   <div className="overflow-x-auto -mx-1 px-1">
-    <table className="w-full min-w-[30rem] border-separate border-spacing-1 text-[11px] sm:text-xs">
+    <table className="w-full min-w-[30rem] border-separate border-spacing-1 text-[0.75rem] sm:text-xs">
       <thead>
         <tr>
           <th className="sr-only">項目</th>
@@ -302,13 +302,13 @@ const Timeline: React.FC<{ spec: Extract<ChartSpec, { kind: 'timeline' }> }> = (
         <li key={s.t + s.label} className="pl-4 relative">
           <span className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full ring-4 ring-white dark:ring-slate-950 ${t.bar}`} aria-hidden />
           <div className="flex flex-wrap items-baseline gap-x-2">
-            <span className={`font-mono text-[11px] sm:text-xs font-bold ${t.text}`}>{s.t}</span>
+            <span className={`font-mono text-[0.75rem] sm:text-xs font-bold ${t.text}`}>{s.t}</span>
             <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100">
               {s.icon && <span className="mr-1" aria-hidden>{s.icon}</span>}
               {s.label}
             </span>
           </div>
-          {s.detail && <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{s.detail}</p>}
+          {s.detail && <p className="text-[0.75rem] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{s.detail}</p>}
         </li>
       );
     })}

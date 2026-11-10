@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { LONGEVITY_MASTERY_QUIZZES } from '../../data/longevityData';
 import { useHashTab } from '../../hooks/useHashTab';
 import { LONGEVITY_TABS } from '../../config/routes';
+import { HubHero } from '../common/HubHero';
+import { HUB_PRIMERS } from '../../data/hubPrimers';
 import { LongevitySubTab } from '../../types';
 import { InfographHallmarksWheel } from './longevity/InfographHallmarksWheel';
 import { InfographEpigeneticClocks } from './longevity/InfographEpigeneticClocks';
@@ -35,48 +37,10 @@ export const LongevityHub: React.FC = () => {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
-      {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-emerald-300/80 dark:border-emerald-800/60 bg-gradient-to-br from-emerald-50 via-teal-50/70 to-emerald-100/50 dark:from-emerald-950/80 dark:via-slate-900/95 dark:to-teal-950/40 p-6 sm:p-10 shadow-sm dark:shadow-2xl backdrop-blur-md">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/90 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 text-xs font-mono font-bold">
-              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 animate-pulse" />
-              <span>Salud 旗艦支柱 · 抗老延壽醫學專科總樞紐</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
-              <span>抗老延壽醫學、12大衰老標誌、表觀遺傳時鐘與疾病壓縮</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              破解「衰老是不可抗拒之宿命」的傳統認知，將衰老定義為一組可被測量、靶向並延緩的分子生物學病理進程。深入 Cell 12 大衰老分子標誌、表觀遺傳時鐘 DunedinPACE 速率儀表、NIH ITP 干預測試計畫與長壽生活醫學動態模擬！
-            </p>
-          </div>
-
-          {/* Quick Stat Badges */}
-          <div className="grid grid-cols-2 gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">CEBM 1a</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">實證醫學等級</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-teal-400">12 大</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">Cell 衰老標誌</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-cyan-700 dark:text-cyan-400">ITP</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">NIH 金標準實證</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-emerald-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">0.8x</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">DunedinPACE 減速</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HubHero primer={HUB_PRIMERS.longevity} compact={activeTab !== 'OVERVIEW'} />
 
       {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-emerald-200/80 dark:border-slate-800 pb-2 text-xs font-mono">
+      <div className="flex flex-wrap items-center gap-2 border-b border-emerald-200/80 dark:border-slate-800 pb-2 text-sm">
         <button
           onClick={() => setActiveTab('OVERVIEW')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
@@ -86,7 +50,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Hourglass className="w-4 h-4" />
-          <span>專區綜覽與長壽理事會</span>
+          <span>總覽：從哪裡開始</span>
         </button>
 
         <button
@@ -98,7 +62,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Layers className="w-4 h-4" />
-          <span>12大衰老標誌 (INFOGRAPH 1)</span>
+          <span>身體為什麼會老：12 個標誌</span>
         </button>
 
         <button
@@ -110,7 +74,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Clock className="w-4 h-4" />
-          <span>表觀時鐘與生物年齡 (INFOGRAPH 2)</span>
+          <span>生物年齡檢測可信嗎</span>
         </button>
 
         <button
@@ -122,7 +86,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Pill className="w-4 h-4" />
-          <span>ITP 長壽化合物與殭屍細胞 (INFOGRAPH 3+4)</span>
+          <span>抗老藥物與補充品的證據</span>
         </button>
 
         <button
@@ -134,7 +98,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Flame className="w-4 h-4" />
-          <span>激效適應與桑拿冷水 (INFOGRAPH 5)</span>
+          <span>桑拿、冷水與適度壓力</span>
         </button>
 
         <button
@@ -146,7 +110,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Sliders className="w-4 h-4" />
-          <span>健康壽命模擬器 (INFOGRAPH 6)</span>
+          <span>生活習慣與健康壽命試算</span>
         </button>
 
         <button
@@ -158,7 +122,7 @@ export const LongevityHub: React.FC = () => {
           }`}
         >
           <Award className="w-4 h-4" />
-          <span>長壽精熟認知測驗 ({LONGEVITY_MASTERY_QUIZZES.length} 題交互評量)</span>
+          <span>小測驗（{LONGEVITY_MASTERY_QUIZZES.length} 題）</span>
         </button>
       </div>
 
@@ -187,19 +151,19 @@ export const LongevityHub: React.FC = () => {
               <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-slate-950 border border-emerald-200/80 dark:border-slate-800 space-y-1">
                 <div className="font-bold text-emerald-800 dark:text-indigo-400 text-xs">平均壽命 (Lifespan)</div>
                 <div className="text-sm font-bold text-slate-900 dark:text-white">客觀生存總年數</div>
-                <p className="text-[11px] text-slate-600 dark:text-slate-400">目前已開發國家平均約 80~84 歲</p>
+                <p className="text-[0.75rem] text-slate-600 dark:text-slate-400">目前已開發國家平均約 80~84 歲</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-slate-950 border border-emerald-200/80 dark:border-slate-800 space-y-1">
                 <div className="font-bold text-teal-800 dark:text-salud-cyan text-xs">健康壽命 (Healthspan)</div>
                 <div className="text-sm font-bold text-slate-900 dark:text-white">無重大失能之自主歲月</div>
-                <p className="text-[11px] text-slate-600 dark:text-slate-400">目前平均僅 66~68 歲（存在 14 年失能鴻溝）</p>
+                <p className="text-[0.75rem] text-slate-600 dark:text-slate-400">目前平均僅 66~68 歲（存在 14 年失能鴻溝）</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-emerald-100/60 dark:bg-emerald-950/20 border border-emerald-300/80 dark:border-emerald-500/30 space-y-1">
                 <div className="font-bold text-emerald-900 dark:text-emerald-400 text-xs">疾病壓縮 (Morbidity Compression)</div>
                 <div className="text-sm font-bold text-slate-900 dark:text-white">長壽醫學終極追求</div>
-                <p className="text-[11px] text-slate-700 dark:text-slate-300">活至 90+ 歲高齡，失能期壓縮至最後 1~2 年</p>
+                <p className="text-[0.75rem] text-slate-700 dark:text-slate-300">活至 90+ 歲高齡，失能期壓縮至最後 1~2 年</p>
               </div>
             </div>
           </div>

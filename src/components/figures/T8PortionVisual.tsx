@@ -74,7 +74,7 @@ export const T8PortionVisual: React.FC<Props> = ({ figureId }) => {
                 1 標準杯（Standard Drink）= 嚴格定義 10 公克純乙醇
               </h5>
             </div>
-            <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 font-mono text-[11px]">
+            <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 font-mono text-[0.75rem]">
               乙醇密度 0.789 g/mL
             </span>
           </div>
@@ -91,7 +91,7 @@ export const T8PortionVisual: React.FC<Props> = ({ figureId }) => {
                     : 'bg-slate-900/70 border-slate-800 opacity-80 hover:opacity-100'
                 }`}
               >
-                <span className="font-mono text-[10px] text-slate-400">ABV {d.abv}%</span>
+                <span className="font-mono text-[0.75rem] text-slate-400">ABV {d.abv}%</span>
                 {/* Visual Cup */}
                 <div className="w-10 h-20 rounded-b-lg border-2 border-slate-600 bg-slate-950/90 flex flex-col justify-end overflow-hidden p-0.5">
                   <div
@@ -100,8 +100,8 @@ export const T8PortionVisual: React.FC<Props> = ({ figureId }) => {
                   />
                 </div>
                 <span className="font-mono font-extrabold text-xs text-white">{d.ml} mL</span>
-                <span className="text-[10px] text-slate-300 font-bold line-clamp-1">{d.name.split(' ')[0]}</span>
-                <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[9px] font-bold">
+                <span className="text-[0.75rem] text-slate-300 font-bold line-clamp-1">{d.name.split(' ')[0]}</span>
+                <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[0.6875rem] font-bold">
                   = 10g 乙醇
                 </span>
               </button>
@@ -173,7 +173,7 @@ export const T8PortionVisual: React.FC<Props> = ({ figureId }) => {
             <span className="font-mono text-slate-300">
               游離糖總量：<strong className="text-salud-amber-300 text-sm">{sugarGrams} g</strong>（約 {sugarCubes} 顆方糖）
             </span>
-            <span className="text-[11px] font-mono text-red-400">
+            <span className="text-[0.75rem] font-mono text-red-400">
               {sugarGrams > 50 ? '⚠ 已突破 WHO 成人一日建議上限 (50g)' : '在安全上限範圍內'}
             </span>
           </div>
@@ -187,7 +187,7 @@ export const T8PortionVisual: React.FC<Props> = ({ figureId }) => {
               Array.from({ length: sugarCubes }).map((_, i) => (
                 <div
                   key={i}
-                  className="w-6 h-6 rounded-md bg-white border border-slate-300 shadow-sm flex items-center justify-center text-[10px] font-bold text-slate-800 font-mono"
+                  className="w-6 h-6 rounded-md bg-white border border-slate-300 shadow-sm flex items-center justify-center text-[0.75rem] font-bold text-slate-800 font-mono"
                   title="方糖 1 顆 (約 4.5g 蔗糖/果糖)"
                 >
                   🍬

@@ -19,14 +19,14 @@ export const FigAlveolarSigh: React.FC = () => {
     <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
         <div>
-          <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800">
+          <span className="font-mono text-[0.75rem] font-bold px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800">
             FIG-M-01-01 · 肺泡微力學機制圖
           </span>
           <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1">
             生理嘆氣 (Cyclic Sighing) 肺泡表面活性劑重整與復張動態
           </h4>
         </div>
-        <div className="flex gap-1.5 font-mono text-[11px]">
+        <div className="flex gap-1.5 font-mono text-[0.75rem]">
           <button
             onClick={() => setPhase('collapsed')}
             className={`px-2.5 py-1 rounded-lg border transition-all ${
@@ -158,7 +158,7 @@ export const FigAutonomicBalance: React.FC = () => {
     <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
         <div>
-          <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-800">
+          <span className="font-mono text-[0.75rem] font-bold px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-800">
             FIG-M-02-01 · 自律神經動力學模型
           </span>
           <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -259,7 +259,7 @@ export const FigResonanceCoherence: React.FC = () => {
   return (
     <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-4">
       <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
-        <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800">
+        <span className="font-mono text-[0.75rem] font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800">
           FIG-M-03-01 · 0.1 Hz 生理共振譜
         </span>
         <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -329,7 +329,7 @@ export const FigBohrEffectLoop: React.FC = () => {
   return (
     <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-4">
       <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
-        <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-800">
+        <span className="font-mono text-[0.75rem] font-bold px-2 py-0.5 rounded bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-800">
           FIG-M-04-01 · 血氣病理機轉圖
         </span>
         <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -414,7 +414,7 @@ export const FigPanicTriageTree: React.FC = () => {
   return (
     <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-sm space-y-4">
       <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
-        <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300 border border-red-300 dark:border-red-800">
+        <span className="font-mono text-[0.75rem] font-bold px-2 py-0.5 rounded bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300 border border-red-300 dark:border-red-800">
           FIG-M-05-01 · 臨床安全紅旗分流樹
         </span>
         <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mt-1">
@@ -447,7 +447,7 @@ export const FigPanicTriageTree: React.FC = () => {
               <span><strong>神經徵象：</strong>單側手腳無力、嘴歪眼斜、口齒不清 (FAST 中風)。</span>
             </li>
           </ul>
-          <div className="p-2.5 rounded-lg bg-red-100 dark:bg-red-900/40 text-[11px] text-red-900 dark:text-red-200 font-bold">
+          <div className="p-2.5 rounded-lg bg-red-100 dark:bg-red-900/40 text-[0.75rem] text-red-900 dark:text-red-200 font-bold">
             🚨 嚴禁自行駕駛就醫，嚴禁用紙袋套口鼻（若為心肌梗塞，紙袋缺氧可能直接致命）。
           </div>
         </div>
@@ -476,7 +476,7 @@ export const FigPanicTriageTree: React.FC = () => {
               <span><strong>科學保證：</strong>「這是一場腎上腺素潮水，它會在 10 分鐘內登頂並自然退潮，你絕對是安全的。」</span>
             </li>
           </ul>
-          <div className="p-2.5 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-[11px] text-emerald-900 dark:text-emerald-200 font-bold">
+          <div className="p-2.5 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-[0.75rem] text-emerald-900 dark:text-emerald-200 font-bold">
             💡 驚恐發作雖極度痛苦但非致命；首次發作無法排除心血管問題者，永遠優先撥打 119。
           </div>
         </div>

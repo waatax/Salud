@@ -149,37 +149,37 @@ export const SimLongevityTrajectory: React.FC = () => {
       {/* Primary Results Display Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-1">
-          <div className="text-[10px] font-mono text-slate-400">當前歷法年齡</div>
+          <div className="text-[0.75rem] font-mono text-slate-400">當前歷法年齡</div>
           <div className="text-2xl font-mono font-extrabold text-white">{chronologicalAge} 歲</div>
-          <div className="text-[10px] text-slate-500">身份證客觀歲數</div>
+          <div className="text-[0.75rem] text-slate-500">身份證客觀歲數</div>
         </div>
 
         <div className="p-4 rounded-2xl bg-salud-cyan/10 border border-salud-cyan/30 text-center space-y-1">
-          <div className="text-[10px] font-mono text-salud-cyan">估算生理年齡 (Biological Age)</div>
+          <div className="text-[0.75rem] font-mono text-salud-cyan">估算生理年齡 (Biological Age)</div>
           <div className="text-2xl font-mono font-extrabold text-salud-cyan">
             {biologicalAge} 歲
           </div>
-          <div className="text-[10px] font-mono text-emerald-400">
+          <div className="text-[0.75rem] font-mono text-emerald-400">
             {biologicalAge < chronologicalAge ? `逆轉 -${chronologicalAge - biologicalAge} 歲` : `加速 +${biologicalAge - chronologicalAge} 歲`}
           </div>
         </div>
 
         <div className="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-center space-y-1">
-          <div className="text-[10px] font-mono text-indigo-300">DunedinPACE 衰老速率</div>
+          <div className="text-[0.75rem] font-mono text-indigo-300">DunedinPACE 衰老速率</div>
           <div className="text-2xl font-mono font-extrabold text-indigo-400">
             {pace.toFixed(2)}x
           </div>
-          <div className="text-[10px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             {pace < 1.0 ? `老化放慢 ${Math.round((1 - pace) * 100)}%` : `老化加快 ${Math.round((pace - 1) * 100)}%`}
           </div>
         </div>
 
         <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-1">
-          <div className="text-[10px] font-mono text-emerald-400">失能期壓縮預測 (Morbidity)</div>
+          <div className="text-[0.75rem] font-mono text-emerald-400">失能期壓縮預測 (Morbidity)</div>
           <div className="text-2xl font-mono font-extrabold text-emerald-400">
             僅 {disabilityYears} 年
           </div>
-          <div className="text-[10px] text-slate-400">
+          <div className="text-[0.75rem] text-slate-400">
             健康壽命預期至 {projectedHealthspan} 歲
           </div>
         </div>

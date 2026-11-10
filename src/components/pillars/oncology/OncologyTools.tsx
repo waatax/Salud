@@ -193,7 +193,7 @@ export const TaiwanCancerScreeningChecker: React.FC = () => {
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-[13.5px] font-bold text-slate-900 dark:text-white">{rec.title}</span>
-              <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-emerald-700 dark:text-emerald-300">
+              <span className="text-[0.75rem] font-bold px-2.5 py-0.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-emerald-700 dark:text-emerald-300">
                 {rec.badge}
               </span>
             </div>

@@ -72,7 +72,7 @@ export function DataTable<R>({ title: rawTitle, caption, source, columns, rows, 
             </h3>
           )}
           {source && (
-            <span className="text-[11px] text-slate-500 dark:text-slate-400 sm:text-right">資料來源：{source}</span>
+            <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 sm:text-right">資料來源：{source}</span>
           )}
         </div>
       )}

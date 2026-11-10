@@ -34,7 +34,7 @@ export const TableTennisInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-rose-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-rose-400 font-bold block">
                 {TABLE_TENNIS_INFOGRAPHICS[0].id} · {TABLE_TENNIS_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -141,7 +141,7 @@ export const TableTennisInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-cyan-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-cyan-400 font-bold block">
                 {TABLE_TENNIS_INFOGRAPHICS[1].id} · {TABLE_TENNIS_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -177,18 +177,18 @@ export const TableTennisInfographics: React.FC = () => {
 
             {/* Microsecond Timeline Bar */}
             <div className="space-y-1 pt-2">
-              <div className="text-[10px] text-slate-400 flex justify-between font-mono">
+              <div className="text-[0.75rem] text-slate-400 flex justify-between font-mono">
                 <span>視覺感知 (80ms)</span>
                 <span>大腦決策 (70ms)</span>
                 <span>神經肌肉啟動 (90ms)</span>
               </div>
-              <div className="h-5 rounded-lg overflow-hidden flex text-[9px] font-mono text-white text-center font-bold">
+              <div className="h-5 rounded-lg overflow-hidden flex text-[0.6875rem] font-mono text-white text-center font-bold">
                 <div className="bg-blue-600/80 w-[30%] flex items-center justify-center">80ms</div>
                 <div className="bg-purple-600/80 w-[28%] flex items-center justify-center">70ms</div>
                 <div className="bg-emerald-600/80 w-[32%] flex items-center justify-center">90ms</div>
                 <div className="bg-rose-600 w-[10%] flex items-center justify-center" title="容錯窗口 20ms">20ms</div>
               </div>
-              <div className="text-[10px] text-rose-400 text-right font-mono">
+              <div className="text-[0.75rem] text-rose-400 text-right font-mono">
                 擊球容錯窗口僅 20ms (0.02秒)！
               </div>
             </div>
@@ -208,7 +208,7 @@ export const TableTennisInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-amber-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-amber-400 font-bold block">
                 {TABLE_TENNIS_INFOGRAPHICS[2].id} · {TABLE_TENNIS_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -255,7 +255,7 @@ export const TableTennisInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-purple-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-purple-400 font-bold block">
                 {TABLE_TENNIS_INFOGRAPHICS[3].id} · {TABLE_TENNIS_INFOGRAPHICS[3].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -273,25 +273,25 @@ export const TableTennisInfographics: React.FC = () => {
             <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
               <div>
                 <strong className="text-rose-400 block font-bold mb-1">黏性膠皮 (Tacky)</strong>
-                <p className="text-[11px] text-slate-400">高分子樹脂微黏，摩擦力超強，高出球角，二跳強烈下沉。</p>
+                <p className="text-[0.75rem] text-slate-400">高分子樹脂微黏，摩擦力超強，高出球角，二跳強烈下沉。</p>
               </div>
-              <span className="text-[10px] font-mono text-slate-500 mt-2">狂飆 3 代表</span>
+              <span className="text-[0.75rem] font-mono text-slate-500 mt-2">狂飆 3 代表</span>
             </div>
 
             <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
               <div>
                 <strong className="text-blue-400 block font-bold mb-1">澀性外套 (Tensor)</strong>
-                <p className="text-[11px] text-slate-400">大氣孔蛋糕海綿，高彈性張力，出球時速極快，低平出球角。</p>
+                <p className="text-[0.75rem] text-slate-400">大氣孔蛋糕海綿，高彈性張力，出球時速極快，低平出球角。</p>
               </div>
-              <span className="text-[10px] font-mono text-slate-500 mt-2">蝴蝶 Tenergy 代表</span>
+              <span className="text-[0.75rem] font-mono text-slate-500 mt-2">蝴蝶 Tenergy 代表</span>
             </div>
 
             <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
               <div>
                 <strong className="text-amber-400 block font-bold mb-1">長膠顆粒 (Pips)</strong>
-                <p className="text-[11px] text-slate-400">細長顆粒撞擊傾倒彎折，不吃旋轉，反向借力將上旋變下旋。</p>
+                <p className="text-[0.75rem] text-slate-400">細長顆粒撞擊傾倒彎折，不吃旋轉，反向借力將上旋變下旋。</p>
               </div>
-              <span className="text-[10px] font-mono text-slate-500 mt-2">防守型削球首選</span>
+              <span className="text-[0.75rem] font-mono text-slate-500 mt-2">防守型削球首選</span>
             </div>
           </div>
 

@@ -738,7 +738,7 @@ export const SafetyChapter: React.FC = () => (
                     <span className="sr-only">
                       {PRACTICE_COLUMNS[i]}：{LEVEL[lv].label}
                     </span>
-                    <span className="ml-1 text-[11px] font-semibold">{LEVEL[lv].label}</span>
+                    <span className="ml-1 text-[0.75rem] font-semibold">{LEVEL[lv].label}</span>
                   </td>
                 ))}
                 <td className="text-slate-600 dark:text-slate-400 px-1">{r.note}</td>

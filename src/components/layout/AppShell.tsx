@@ -18,6 +18,7 @@ import { SearchPalette } from '../learn/SearchPalette';
 import { SiteFooter } from './SiteFooter';
 const FourPillarsClinicalMatrix = lazy(() => import('../knowledge/FourPillarsClinicalMatrix').then(m => ({ default: m.FourPillarsClinicalMatrix })));
 import { useDialogFocus } from '../../hooks/useDialogFocus';
+import { pageTitle } from '../../config/pageTitle';
 
 // v4.0: every topic hub is lazy-loaded. The learning home is the entry point, so a
 // first visit should not download all nine specialist hubs and their data up front.
@@ -124,6 +125,23 @@ export function AppShell() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, [activePillar, learnTrackId, learnLessonId, dietView, viewMode, activePageId, metaView, isSynergyView, isCouncilEvidenceView, exerciseSubTab]);
+
+  // v6.4: each page names itself in the tab, history and bookmarks.
+  const chapterReading = activePillar === 'diet' && dietView === 'chapter';
+  const title = pageTitle({
+    activePillar,
+    metaView,
+    isSynergyView,
+    isEvidenceView: isCouncilEvidenceView,
+    learnTrackId,
+    learnLessonId,
+    exerciseSubTab,
+    chapterTitle: chapterReading ? currentChapter?.title_zh : undefined,
+    chapterPageTitle: chapterReading && viewMode === 'page' ? currentPage?.title_zh : undefined,
+  });
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
 
   // Close the drawer with Escape and lock background scroll while it is open.
   useEffect(() => {

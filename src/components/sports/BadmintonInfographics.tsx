@@ -49,7 +49,7 @@ export const BadmintonInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-salud-cyan font-bold block">
+              <span className="text-[0.75rem] font-mono text-salud-cyan font-bold block">
                 {BADMINTON_INFOGRAPHICS[0].id} · {BADMINTON_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -151,7 +151,7 @@ export const BadmintonInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-salud-amber font-bold block">
+              <span className="text-[0.75rem] font-mono text-salud-amber font-bold block">
                 {BADMINTON_INFOGRAPHICS[1].id} · {BADMINTON_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -178,14 +178,14 @@ export const BadmintonInfographics: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <span className={`w-5 h-5 rounded-full flex items-center justify-center font-mono text-[10px] font-bold ${
+                  <span className={`w-5 h-5 rounded-full flex items-center justify-center font-mono text-[0.75rem] font-bold ${
                     activeKineticPhase === idx ? 'bg-salud-amber text-black' : 'bg-slate-800 text-slate-400'
                   }`}>
                     {idx + 1}
                   </span>
                   <span className="font-bold">{language === 'zh-TW' ? phase.nameZh : phase.nameEn}</span>
                 </div>
-                <span className="font-mono text-salud-amber font-bold text-[11px]">{phase.angle}</span>
+                <span className="font-mono text-salud-amber font-bold text-[0.75rem]">{phase.angle}</span>
               </div>
             ))}
           </div>
@@ -205,7 +205,7 @@ export const BadmintonInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-emerald-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-emerald-400 font-bold block">
                 {BADMINTON_INFOGRAPHICS[2].id} · {BADMINTON_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -221,12 +221,12 @@ export const BadmintonInfographics: React.FC = () => {
 
           {/* SVG Visual: Timing Timeline & Knee Alignment */}
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-3">
-            <div className="text-[11px] font-bold text-emerald-400 flex items-center justify-between">
+            <div className="text-[0.75rem] font-bold text-emerald-400 flex items-center justify-between">
               <span>啟動預跳步時序軸 (Pre-activation Timeline)</span>
               <span className="font-mono text-slate-400">Total 0.25s</span>
             </div>
 
-            <div className="relative h-9 bg-slate-900 rounded-lg overflow-hidden flex items-center border border-slate-800 text-[10px] font-mono">
+            <div className="relative h-9 bg-slate-900 rounded-lg overflow-hidden flex items-center border border-slate-800 text-[0.75rem] font-mono">
               <div className="w-[30%] bg-blue-900/60 h-full flex items-center justify-center text-blue-300 border-r border-slate-700">
                 預跳起跳 (-0.10s)
               </div>
@@ -238,7 +238,7 @@ export const BadmintonInfographics: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
+            <div className="grid grid-cols-2 gap-2 text-[0.75rem] pt-1">
               <div className="p-2 rounded-lg bg-nature-green-50 dark:bg-emerald-950/30 border border-nature-green-200 dark:border-emerald-500/40 text-nature-green-950 dark:text-emerald-200">
                 <strong className="block text-emerald-400 font-bold mb-0.5">✓ 正確煞車力線</strong>
                 腳跟先著地向前滾動，膝蓋屈曲 105°，髕骨切齊第二腳趾。
@@ -264,7 +264,7 @@ export const BadmintonInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-slate-200">
           <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-purple-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-purple-400 font-bold block">
                 {BADMINTON_INFOGRAPHICS[3].id} · {BADMINTON_INFOGRAPHICS[3].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-white mt-0.5">
@@ -325,7 +325,7 @@ export const BadmintonInfographics: React.FC = () => {
                 <text x="95" y="122" fill="#06b6d4" fontSize="9" textAnchor="middle" fontWeight="bold">角平分線回位</text>
               </svg>
             </div>
-            <div className="text-[10px] text-slate-400 flex items-center justify-between pt-1">
+            <div className="text-[0.75rem] text-slate-400 flex items-center justify-between pt-1">
               <span>紅色：網前控球點</span>
               <span>黃色：中場搶攻點</span>
               <span>紫色：後場壓制點</span>

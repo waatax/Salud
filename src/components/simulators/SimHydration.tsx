@@ -100,10 +100,10 @@ export const SimHydration: React.FC = () => {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-salud-cyan/20 text-salud-cyan-700 dark:text-salud-cyan-300 border border-salud-cyan/40">
+              <span className="font-mono text-[0.75rem] uppercase tracking-wider px-2 py-0.5 rounded bg-salud-cyan/20 text-salud-cyan-700 dark:text-salud-cyan-300 border border-salud-cyan/40">
                 SIM-HYDRATION · v0.1
               </span>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">Chapter W 專屬模擬器</span>
+              <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">Chapter W 專屬模擬器</span>
             </div>
             <h3 className="text-base sm:text-lg font-display font-bold text-salud-light-text dark:text-salud-dark-text">
               水分平衡動態模擬器 (Hydration Balance)
@@ -235,7 +235,7 @@ export const SimHydration: React.FC = () => {
 
           {/* Gated Population Switches (Spec §6.0 Safety Gate) */}
           <div className="p-3 rounded-xl border border-red-300 dark:border-red-500/30 bg-red-100/70 dark:bg-red-950/20 space-y-2">
-            <span className="text-[11px] font-mono text-red-800 dark:text-red-300 font-bold flex items-center gap-1">
+            <span className="text-[0.75rem] font-mono text-red-800 dark:text-red-300 font-bold flex items-center gap-1">
               <ShieldAlert className="w-3.5 h-3.5 text-red-500 dark:text-red-400" />
               限水族群安全閘 (Safety Gate)
             </span>
@@ -339,31 +339,31 @@ export const SimHydration: React.FC = () => {
                 {/* Balance Visual Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
                   <div className="p-3.5 rounded-xl border border-salud-cyan/40 bg-cyan-100/70 dark:bg-salud-cyan-950/20">
-                    <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 block">估算輸入端 (Intake)</span>
+                    <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 block">估算輸入端 (Intake)</span>
                     <strong className="text-xl font-display text-salud-cyan-700 dark:text-salud-cyan-300 block my-0.5">
                       +{simulationResult.intake} L
                     </strong>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400">飲品 + 食物 + 代謝水</span>
+                    <span className="text-[0.75rem] text-slate-500 dark:text-slate-400">飲品 + 食物 + 代謝水</span>
                   </div>
 
                   <div className="p-3.5 rounded-xl border border-orange-500/40 bg-orange-100/70 dark:bg-orange-950/20">
-                    <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 block">估算排出端 (Loss)</span>
+                    <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 block">估算排出端 (Loss)</span>
                     <strong className="text-xl font-display text-orange-700 dark:text-orange-300 block my-0.5">
                       -{simulationResult.loss} L
                     </strong>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400">
+                    <span className="text-[0.75rem] text-slate-500 dark:text-slate-400">
                       尿液 + 不感蒸發 + 汗 ({simulationResult.sweatLoss}L)
                     </span>
                   </div>
 
                   <div className="p-3.5 rounded-xl border border-salud-amber/50 bg-amber-100/70 dark:bg-salud-amber-950/30 shadow-warm-glow">
-                    <span className="text-[11px] font-mono text-salud-amber-700 dark:text-salud-amber-400 block font-bold">
+                    <span className="text-[0.75rem] font-mono text-salud-amber-700 dark:text-salud-amber-400 block font-bold">
                       淨收支 (Net Balance)
                     </span>
                     <strong className="text-xl font-display text-salud-amber-700 dark:text-salud-amber-300 block my-0.5">
                       {simulationResult.net > 0 ? `+${simulationResult.net}` : simulationResult.net} L
                     </strong>
-                    <span className="text-[11px] text-slate-700 dark:text-slate-300 font-mono">
+                    <span className="text-[0.75rem] text-slate-700 dark:text-slate-300 font-mono">
                       區間：{simulationResult.netLow} ~ {simulationResult.netHigh} L
                     </span>
                   </div>
@@ -373,19 +373,19 @@ export const SimHydration: React.FC = () => {
                 <div className="p-3.5 rounded-xl border border-dashed border-slate-400 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
                   <div className="space-y-0.5">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700 uppercase">
+                      <span className="font-mono text-[0.75rem] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700 uppercase">
                         經驗法則參考線 (Heuristic Only)
                       </span>
                       <strong className="text-slate-700 dark:text-slate-300 font-mono">
                         體重乘數估算：{heuristicRef.formattedRange}
                       </strong>
                     </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                    <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 leading-relaxed">
                       {heuristicRef.disclaimer}
                     </p>
                   </div>
                   {heuristicRef.isOutlier && (
-                    <span className="shrink-0 font-mono text-[10px] px-2 py-1 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
+                    <span className="shrink-0 font-mono text-[0.75rem] px-2 py-1 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/40">
                       ⚠ 極端體重防護中
                     </span>
                   )}
@@ -393,7 +393,7 @@ export const SimHydration: React.FC = () => {
 
                 {/* Dominant Input Factor (Spec S-02) */}
                 <div className="p-3.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5">
-                  <div className="p-1 rounded bg-slate-200 dark:bg-slate-800 text-salud-amber-600 dark:text-salud-amber-400 shrink-0 font-mono text-[10px]">
+                  <div className="p-1 rounded bg-slate-200 dark:bg-slate-800 text-salud-amber-600 dark:text-salud-amber-400 shrink-0 font-mono text-[0.75rem]">
                     S-02
                   </div>
                   <div>
@@ -410,7 +410,7 @@ export const SimHydration: React.FC = () => {
                 <div className="p-4 rounded-xl border border-emerald-500/40 bg-emerald-100/70 dark:bg-emerald-950/20 flex items-start gap-3 text-emerald-900 dark:text-emerald-200">
                   <ArrowRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-bold block">
+                    <span className="text-[0.75rem] font-mono uppercase tracking-wider text-emerald-400 font-bold block">
                       今天最值得改的一件事 (Action)
                     </span>
                     <p className="text-xs sm:text-sm text-emerald-100 font-medium mt-0.5 leading-relaxed">
@@ -422,7 +422,7 @@ export const SimHydration: React.FC = () => {
             )}
 
             {/* Model Assumptions & Governance (Spec S-03 & S-07) */}
-            <div className="pt-3 border-t border-salud-dark-border/60 flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-400 gap-2">
+            <div className="pt-3 border-t border-salud-dark-border/60 flex flex-wrap items-center justify-between text-[0.75rem] font-mono text-slate-400 gap-2">
               <div>
                 模型假設：族群平均估算 · 溫濕度熱指數修正係數 · 未實測出汗率
               </div>

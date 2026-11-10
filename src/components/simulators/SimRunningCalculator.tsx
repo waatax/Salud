@@ -72,7 +72,7 @@ export const SimRunningCalculator: React.FC = () => {
           </div>
           <div className="flex items-center gap-2 pt-1">
             <div className="flex-1">
-              <span className="text-[10px] text-slate-500">分鐘：{paceMinutes}</span>
+              <span className="text-[0.75rem] text-slate-500">分鐘：{paceMinutes}</span>
               <input
                 type="range"
                 min="3"
@@ -83,7 +83,7 @@ export const SimRunningCalculator: React.FC = () => {
               />
             </div>
             <div className="flex-1">
-              <span className="text-[10px] text-slate-500">秒數：{paceSeconds}</span>
+              <span className="text-[0.75rem] text-slate-500">秒數：{paceSeconds}</span>
               <input
                 type="range"
                 min="0"
@@ -95,7 +95,7 @@ export const SimRunningCalculator: React.FC = () => {
               />
             </div>
           </div>
-          <span className="text-[10px] text-slate-400 block pt-0.5">時速折算：{speedKmh} km/h</span>
+          <span className="text-[0.75rem] text-slate-400 block pt-0.5">時速折算：{speedKmh} km/h</span>
         </div>
 
         {/* Cadence Input */}
@@ -114,7 +114,7 @@ export const SimRunningCalculator: React.FC = () => {
             onChange={(e) => setCadence(Number(e.target.value))}
             className="w-full accent-salud-amber cursor-pointer"
           />
-          <div className="flex justify-between text-[10px] text-slate-500">
+          <div className="flex justify-between text-[0.75rem] text-slate-500">
             <span>150 煞車過度</span>
             <span className="text-emerald-400 font-bold">170–185 黃金區</span>
             <span>200+ 極速</span>
@@ -135,30 +135,30 @@ export const SimRunningCalculator: React.FC = () => {
             onChange={(e) => setHeightCm(Number(e.target.value))}
             className="w-full accent-purple-400 cursor-pointer"
           />
-          <span className="text-[10px] text-slate-400 block pt-0.5">用於計算步長與身高之黃金比例</span>
+          <span className="text-[0.75rem] text-slate-400 block pt-0.5">用於計算步長與身高之黃金比例</span>
         </div>
       </div>
 
       {/* Output Metrics Dashboard */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
         <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-1">
-          <span className="text-[11px] text-slate-400 block">{language === 'zh-TW' ? '計算單步步長' : 'Stride Length'}</span>
+          <span className="text-[0.75rem] text-slate-400 block">{language === 'zh-TW' ? '計算單步步長' : 'Stride Length'}</span>
           <strong className="text-lg sm:text-xl font-display font-extrabold text-white">{strideLengthCm} cm</strong>
-          <span className="text-[10px] text-salud-cyan block">身高佔比 {strideRatioToHeight}%</span>
+          <span className="text-[0.75rem] text-salud-cyan block">身高佔比 {strideRatioToHeight}%</span>
         </div>
 
         <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-1">
-          <span className="text-[11px] text-slate-400 block">{language === 'zh-TW' ? '估算觸地時間 (GCT)' : 'Est. Ground Contact'}</span>
+          <span className="text-[0.75rem] text-slate-400 block">{language === 'zh-TW' ? '估算觸地時間 (GCT)' : 'Est. Ground Contact'}</span>
           <strong className="text-lg sm:text-xl font-display font-extrabold text-salud-amber">{estimatedGctMs} ms</strong>
-          <span className="text-[10px] text-slate-500 block">精英跑者 &lt; 200 ms</span>
+          <span className="text-[0.75rem] text-slate-500 block">精英跑者 &lt; 200 ms</span>
         </div>
 
         <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-1">
-          <span className="text-[11px] text-slate-400 block">{language === 'zh-TW' ? '垂直振幅預估' : 'Vertical Oscillation'}</span>
+          <span className="text-[0.75rem] text-slate-400 block">{language === 'zh-TW' ? '垂直振幅預估' : 'Vertical Oscillation'}</span>
           <strong className="text-lg sm:text-xl font-display font-extrabold text-purple-300">
             {isCadenceOptimal ? '6.8 – 7.5 cm' : '8.5 – 9.8 cm'}
           </strong>
-          <span className="text-[10px] text-slate-500 block">
+          <span className="text-[0.75rem] text-slate-500 block">
             {isCadenceOptimal ? '低起伏高效率' : '起伏過大損耗能量'}
           </span>
         </div>
@@ -170,7 +170,7 @@ export const SimRunningCalculator: React.FC = () => {
             ? 'bg-amber-950/30 border-amber-600/50 text-amber-200'
             : 'bg-cyan-950/30 border-cyan-600/50 text-cyan-200'
         }`}>
-          <span className="text-[11px] opacity-80 block">{language === 'zh-TW' ? '步頻評級診斷' : 'Cadence Diagnosis'}</span>
+          <span className="text-[0.75rem] opacity-80 block">{language === 'zh-TW' ? '步頻評級診斷' : 'Cadence Diagnosis'}</span>
           <strong className="text-sm sm:text-base font-bold block">
             {isCadenceOptimal
               ? (language === 'zh-TW' ? '✓ 黃金高彈性區' : 'Optimal Elastic')
@@ -178,7 +178,7 @@ export const SimRunningCalculator: React.FC = () => {
               ? (language === 'zh-TW' ? '⚠ 跨步煞車偏大' : 'Overstriding Risk')
               : (language === 'zh-TW' ? '高步頻快速轉換' : 'High Turnover')}
           </strong>
-          <span className="text-[10px] opacity-75 block">
+          <span className="text-[0.75rem] opacity-75 block">
             {isCadenceTooLow ? '建議遞增 5% 步頻' : '膝關節剪力最小化'}
           </span>
         </div>
@@ -211,28 +211,28 @@ export const SimRunningCalculator: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
           <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-            <span className="text-slate-400 text-[11px] block">{language === 'zh-TW' ? '預計完賽總時間' : 'Projected Finish Time'}</span>
+            <span className="text-slate-400 text-[0.75rem] block">{language === 'zh-TW' ? '預計完賽總時間' : 'Projected Finish Time'}</span>
             <strong className="text-lg font-display text-salud-amber font-extrabold">
               {finishHours > 0 ? `${finishHours} 小時 ${finishMins} 分` : `${finishMins} 分鐘`}
             </strong>
           </div>
 
           <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-            <span className="text-slate-400 text-[11px] block">{language === 'zh-TW' ? '建議能量膠數量 (每包~25g碳水)' : 'Energy Gels Required'}</span>
+            <span className="text-slate-400 text-[0.75rem] block">{language === 'zh-TW' ? '建議能量膠數量 (每包~25g碳水)' : 'Energy Gels Required'}</span>
             <strong className="text-lg font-display text-emerald-400 font-extrabold">
               {recommendedGels} 包 (每 35 分鐘 1 包)
             </strong>
           </div>
 
           <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
-            <span className="text-slate-400 text-[11px] block">{language === 'zh-TW' ? '賽程建議總補水量' : 'Recommended Hydration'}</span>
+            <span className="text-slate-400 text-[0.75rem] block">{language === 'zh-TW' ? '賽程建議總補水量' : 'Recommended Hydration'}</span>
             <strong className="text-lg font-display text-cyan-400 font-extrabold">
               約 {totalFluidL} 公升 ({hourlyFluidMl} mL/hr)
             </strong>
           </div>
         </div>
 
-        <p className="text-[11px] text-slate-400 leading-relaxed">
+        <p className="text-[0.75rem] text-slate-400 leading-relaxed">
           ※ 臨床生化提醒：每包能量膠必須配飲 100–150 mL 白開水，避免胃中滲透壓過高阻礙吸收；全馬切勿只喝純水不補鈉，以防發生運動相關低血鈉症 (EAH)。
         </p>
       </div>

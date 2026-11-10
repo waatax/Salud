@@ -68,7 +68,7 @@ export const DietaryNutrientsView: React.FC = () => {
             從巨量物質到微量催化輔酶，嚴謹取材自《The Lancet》、《NEJM》、《Cell》等權威醫學期刊
           </p>
         </div>
-        <span className="self-start sm:self-auto px-2.5 py-1 rounded-full font-mono text-[10px] font-bold bg-nature-amber-100 dark:bg-nature-amber-950/60 text-nature-amber-800 dark:text-nature-amber-300 border border-nature-amber-200 dark:border-nature-amber-800/60">
+        <span className="self-start sm:self-auto px-2.5 py-1 rounded-full font-mono text-[0.75rem] font-bold bg-nature-amber-100 dark:bg-nature-amber-950/60 text-nature-amber-800 dark:text-nature-amber-300 border border-nature-amber-200 dark:border-nature-amber-800/60">
           9 大板塊（酒精排至末端）
         </span>
       </div>
@@ -105,7 +105,7 @@ export const DietaryNutrientsView: React.FC = () => {
                     <Icon className="w-5 h-5" />
                   </div>
                   <span
-                    className={`font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                    className={`font-mono text-[0.75rem] font-bold px-2 py-0.5 rounded-full border ${
                       isAlcohol
                         ? 'bg-purple-50 text-purple-700 dark:bg-purple-950/60 dark:text-purple-300 border-purple-200 dark:border-purple-800'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
@@ -116,7 +116,7 @@ export const DietaryNutrientsView: React.FC = () => {
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] text-slate-400 mb-0.5">
+                  <div className="flex items-center gap-1.5 font-mono text-[0.75rem] text-slate-400 mb-0.5">
                     <span>Part 0{item.order_index}</span>
                     <span>•</span>
                     <span className="truncate">{item.name_en}</span>
@@ -130,7 +130,7 @@ export const DietaryNutrientsView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between font-mono text-[11px]">
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between font-mono text-[0.75rem]">
                 <span className="text-slate-400">點擊閱讀完整深研</span>
                 <span className="text-nature-amber-700 dark:text-nature-amber-400 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   進入專頁 →
@@ -153,7 +153,7 @@ export const DietaryNutrientsView: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[10px] text-nature-amber-600 dark:text-nature-amber-400 font-bold uppercase">
+                    <span className="font-mono text-[0.75rem] text-nature-amber-600 dark:text-nature-amber-400 font-bold uppercase">
                       Part 0{selectedNutrient.order_index} · {selectedNutrient.badge}
                     </span>
                   </div>
@@ -192,7 +192,7 @@ export const DietaryNutrientsView: React.FC = () => {
                       key={mIdx}
                       className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 space-y-1"
                     >
-                      <div className="w-5 h-5 rounded-full bg-nature-amber-100 dark:bg-nature-amber-950 font-mono text-[10px] text-nature-amber-800 dark:text-nature-amber-300 font-bold flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-nature-amber-100 dark:bg-nature-amber-950 font-mono text-[0.75rem] text-nature-amber-800 dark:text-nature-amber-300 font-bold flex items-center justify-center">
                         {mIdx + 1}
                       </div>
                       <p className="text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
@@ -213,11 +213,11 @@ export const DietaryNutrientsView: React.FC = () => {
                   <p className="font-bold text-xs text-slate-800 dark:text-slate-200">
                     {selectedNutrient.daily_intake_targets.target_zh}
                   </p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  <p className="text-[0.75rem] text-slate-500 dark:text-slate-400">
                     {selectedNutrient.daily_intake_targets.note_zh}
                   </p>
                   {selectedNutrient.daily_intake_targets.upper_limit_zh && (
-                    <p className="text-[11px] font-mono text-red-600 dark:text-red-400 pt-1 border-t border-emerald-200/50 dark:border-emerald-900/30">
+                    <p className="text-[0.75rem] font-mono text-red-600 dark:text-red-400 pt-1 border-t border-emerald-200/50 dark:border-emerald-900/30">
                       ⚠️ 安全攝取上限：{selectedNutrient.daily_intake_targets.upper_limit_zh}
                     </p>
                   )}
@@ -228,7 +228,7 @@ export const DietaryNutrientsView: React.FC = () => {
                     <Leaf className="w-4 h-4 text-nature-green-600" />
                     <span>原態食材推薦來源 (Rich Sources)</span>
                   </h5>
-                  <ul className="space-y-1 text-[11px] text-slate-600 dark:text-slate-300">
+                  <ul className="space-y-1 text-[0.75rem] text-slate-600 dark:text-slate-300">
                     {selectedNutrient.rich_food_sources_zh.map((src, sIdx) => (
                       <li key={sIdx} className="flex items-start gap-1.5">
                         <span className="text-nature-amber-600">•</span>
@@ -252,7 +252,7 @@ export const DietaryNutrientsView: React.FC = () => {
                           <span>❌ 迷思：</span>
                           <span>{myth.myth}</span>
                         </div>
-                        <div className="text-emerald-700 dark:text-emerald-300 pt-1 text-[11px] leading-relaxed">
+                        <div className="text-emerald-700 dark:text-emerald-300 pt-1 text-[0.75rem] leading-relaxed">
                           <strong className="font-bold font-mono">✅ 醫學實證真理：</strong>
                           {myth.reality}
                         </div>
@@ -284,13 +284,13 @@ export const DietaryNutrientsView: React.FC = () => {
                 </h5>
                 <div className="space-y-2">
                   {selectedNutrient.research_citations.map((cite, cIdx) => (
-                    <div key={cIdx} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-[11px] space-y-0.5">
+                    <div key={cIdx} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800 text-[0.75rem] space-y-0.5">
                       <div className="flex items-center justify-between font-mono text-salud-cyan">
                         <span>{cite.journal} ({cite.year})</span>
                         {cite.doi && <span>DOI: {cite.doi}</span>}
                       </div>
                       <p className="font-bold text-slate-800 dark:text-slate-200">{cite.title}</p>
-                      <p className="text-slate-400 font-mono text-[10px]">{cite.authors}</p>
+                      <p className="text-slate-400 font-mono text-[0.75rem]">{cite.authors}</p>
                       <p className="text-slate-600 dark:text-slate-400 pt-1">
                         <strong>核心發現：</strong>{cite.key_takeaway_zh}
                       </p>

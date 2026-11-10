@@ -79,7 +79,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
             <span className="px-3 py-1 rounded-full font-mono text-xs font-bold bg-emerald-100/80 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
               認識身體 · 8 大人體系統
             </span>
-            <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
               每個知識點都附圖解與證據等級
             </span>
           </div>
@@ -137,7 +137,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                 <h4 className="font-bold text-xs leading-snug line-clamp-1">
                   {sys.name_zh.replace('系統', '')}
                 </h4>
-                <span className="text-[9px] font-mono text-slate-400 block truncate">
+                <span className="text-[0.6875rem] font-mono text-slate-400 block truncate">
                   {sys.name_en.split(' ')[0]}
                 </span>
               </div>
@@ -169,7 +169,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                 </h3>
                 <p className="text-xs font-mono text-slate-400">{currentSystem.name_en}</p>
               </div>
-              <span className="px-2 py-0.5 rounded-full font-mono text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+              <span className="px-2 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                 {currentSystem.major_organs.length} 大核心器官
               </span>
             </div>
@@ -183,7 +183,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
 
             {/* Organs Quick Peek Chips */}
             <div className="space-y-2 pt-2">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
+              <span className="text-[0.75rem] font-mono uppercase tracking-wider text-slate-400 font-bold block">
                 主要解剖結構 (Major Anatomical Organs) · 點擊連動標記
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -211,7 +211,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           {/* Evidence callout — what backs this system, not who signed it off */}
           <div className="p-4 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/40 bg-emerald-50/60 dark:bg-emerald-950/20 flex items-center justify-between gap-3">
             <div className="space-y-0.5 min-w-0">
-              <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-bold block">
+              <span className="text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-400 font-bold block">
                 {language === 'zh-TW' ? '本系統的實證基礎' : 'Evidence behind this system'}
               </span>
               <p className="text-xs text-slate-600 dark:text-slate-300">
@@ -222,7 +222,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
             </div>
             <button
               onClick={() => setActiveTab('citations')}
-              className="btn-tactile px-2.5 py-1.5 rounded-xl text-[11px] font-mono font-bold bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300 flex items-center gap-1 shrink-0"
+              className="btn-tactile px-2.5 py-1.5 rounded-xl text-[0.75rem] font-mono font-bold bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300 flex items-center gap-1 shrink-0"
             >
               <span>{language === 'zh-TW' ? '看文獻' : 'Sources'}</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -260,7 +260,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           {activeTab === 'mechanisms' && (
             <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-5 animate-fade-in shadow-sm">
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-salud-cyan font-bold block">
+                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-salud-cyan font-bold block">
                   Physiological Mechanisms & Biochemical Cascades
                 </span>
                 <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
@@ -289,11 +289,11 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                       {mech.detail_zh}
                     </p>
                     <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                      <span className="text-[10px] font-mono text-slate-400">關鍵生化分子：</span>
+                      <span className="text-[0.75rem] font-mono text-slate-400">關鍵生化分子：</span>
                       {mech.biomolecules.map((bio, bIdx) => (
                         <span
                           key={bIdx}
-                          className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                          className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                         >
                           {bio}
                         </span>
@@ -313,10 +313,10 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                     <div key={oIdx} className="p-3 rounded-xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-slate-950 text-xs space-y-1">
                       <div className="flex items-center justify-between font-mono">
                         <strong className="text-slate-800 dark:text-slate-200 font-bold text-xs">{org.name_zh}</strong>
-                        <span className="text-[10px] text-slate-400">{org.name_en}</span>
+                        <span className="text-[0.75rem] text-slate-400">{org.name_en}</span>
                       </div>
                       <p className="text-slate-600 dark:text-slate-300 font-sans leading-relaxed">{org.role_zh}</p>
-                      <p className="text-nature-amber-700 dark:text-nature-amber-400 font-mono text-[11px] bg-nature-amber-50/50 dark:bg-nature-amber-950/20 p-1.5 rounded-lg border border-nature-amber-200/40 dark:border-nature-amber-800/30">
+                      <p className="text-nature-amber-700 dark:text-nature-amber-400 font-mono text-[0.75rem] bg-nature-amber-50/50 dark:bg-nature-amber-950/20 p-1.5 rounded-lg border border-nature-amber-200/40 dark:border-nature-amber-800/30">
                         ※ 臨床洞察：{org.clinical_note_zh}
                       </p>
                     </div>
@@ -330,7 +330,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           {activeTab === 'kps' && (
             <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-nature-amber-600 dark:text-nature-amber-400 font-bold block">
+                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-nature-amber-600 dark:text-nature-amber-400 font-bold block">
                   High-Yield Evidence Knowledge Points
                 </span>
                 <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
@@ -349,14 +349,14 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                         <span className="font-mono text-xs font-bold text-salud-cyan">{kp.id}</span>
                         <h4 className="font-bold text-sm text-slate-900 dark:text-white">{kp.title_zh}</h4>
                       </div>
-                      <span className="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
+                      <span className="px-2 py-0.5 rounded font-mono text-[0.75rem] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
                         Grade {kp.evidence_grade} 實證
                       </span>
                     </div>
                     <p className="text-xs text-slate-700 dark:text-slate-300 font-sans leading-relaxed">
                       {kp.statement_zh}
                     </p>
-                    <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-400 font-sans">
+                    <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-[0.75rem] text-slate-600 dark:text-slate-400 font-sans">
                       <strong className="text-salud-cyan font-mono font-bold">為什麼重要：</strong>
                       {kp.why_matters_zh}
                     </div>
@@ -370,7 +370,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           {activeTab === 'pathologies' && (
             <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-red-600 dark:text-red-400 font-bold block">
+                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-red-600 dark:text-red-400 font-bold block">
                   Pathologies, Risk Factors & Prevention
                 </span>
                 <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
@@ -392,7 +392,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                       <strong className="font-mono text-slate-700 dark:text-slate-200">致病機轉：</strong>
                       {path.mechanism_zh}
                     </p>
-                    <div className="flex flex-wrap items-center gap-1 text-[11px] font-mono">
+                    <div className="flex flex-wrap items-center gap-1 text-[0.75rem] font-mono">
                       <span className="text-slate-400">危險因子：</span>
                       {path.risk_factors_zh.map((rf, rIdx) => (
                         <span
@@ -403,7 +403,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                         </span>
                       ))}
                     </div>
-                    <p className="text-[11px] font-sans text-emerald-700 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20 p-2 rounded-xl border border-emerald-200/50 dark:border-emerald-800/40">
+                    <p className="text-[0.75rem] font-sans text-emerald-700 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20 p-2 rounded-xl border border-emerald-200/50 dark:border-emerald-800/40">
                       <strong>實證預防：</strong>{path.prevention_zh}
                     </p>
                   </div>
@@ -439,7 +439,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                         <span>{rf.flag_zh}</span>
                       </span>
                       <span
-                        className={`px-2 py-0.5 rounded font-mono text-[10px] font-bold ${
+                        className={`px-2 py-0.5 rounded font-mono text-[0.75rem] font-bold ${
                           rf.urgency === 'EMERGENT'
                             ? 'bg-red-600 text-white animate-pulse'
                             : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300'
@@ -461,7 +461,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           {activeTab === 'best_practices' && (
             <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold block">
+                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold block">
                   Evidence-Based Lifestyle Protocols
                 </span>
                 <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
@@ -476,7 +476,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                     className="p-4 rounded-2xl border border-emerald-100 dark:border-emerald-950/60 bg-emerald-50/40 dark:bg-emerald-950/20 space-y-2"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="px-2 py-0.5 rounded-md font-mono text-[10px] font-bold bg-emerald-200/80 dark:bg-emerald-900/80 text-emerald-900 dark:text-emerald-200">
+                      <span className="px-2 py-0.5 rounded-md font-mono text-[0.75rem] font-bold bg-emerald-200/80 dark:bg-emerald-900/80 text-emerald-900 dark:text-emerald-200">
                         {bp.category}
                       </span>
                       <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 font-display">
@@ -501,7 +501,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
           {activeTab === 'citations' && (
             <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-salud-cyan font-bold block">
+                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-salud-cyan font-bold block">
                   Peer-Reviewed Citations & High-Impact Literature
                 </span>
                 <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
@@ -515,7 +515,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                     key={idx}
                     className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 space-y-1.5"
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px]">
+                    <div className="flex items-center justify-between font-mono text-[0.75rem]">
                       <span className="font-bold text-salud-cyan">{cite.journal} ({cite.year})</span>
                       {cite.doi && (
                         <a
@@ -532,7 +532,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                     <h4 className="font-bold text-xs text-slate-900 dark:text-white font-sans">
                       {cite.title}
                     </h4>
-                    <p className="text-[11px] text-slate-500 font-mono">
+                    <p className="text-[0.75rem] text-slate-500 font-mono">
                       {cite.authors}
                     </p>
                     <p className="text-xs text-slate-600 dark:text-slate-300 font-sans pt-1 border-t border-slate-100 dark:border-slate-800">
@@ -552,7 +552,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
       {/* ── Action Footprint: Link into Diet, Exercise & Synergy ── */}
       <div className="p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-r from-slate-100 via-white to-salud-cyan/10 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-1 max-w-xl">
-          <span className="font-mono text-[10px] uppercase tracking-wider text-salud-cyan font-bold block">
+          <span className="font-mono text-[0.75rem] uppercase tracking-wider text-salud-cyan font-bold block">
             Integrated Lifestyle Medicine
           </span>
           <h4 className="font-display font-bold text-sm sm:text-base text-slate-900 dark:text-white">

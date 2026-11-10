@@ -290,7 +290,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
               <Sparkles className="w-4 h-4 text-nature-sky-600 dark:text-salud-cyan" />
               <span>今日學習任務 (+120 XP 可領取)</span>
             </div>
-            <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
+            <p className="text-slate-500 dark:text-slate-400 text-[0.75rem] leading-relaxed">
               完成任 1 篇文庫精讀 (+40XP)、答對下方每日挑戰 (+50XP)、調整水合計算機 (+30XP) 即可升階！
             </p>
           </div>
@@ -311,7 +311,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
                   30 秒直覺快問快答挑戰 · 題 {quizIndex + 1}/{RAPID_QUIZZES.length}
                 </h3>
               </div>
-              <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
+              <span className="text-[0.75rem] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
                 +50 XP 獎勵
               </span>
             </div>
@@ -342,7 +342,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
                   onClick={() => handleAnswerQuiz(i)}
                   className={`btn-tactile w-full p-3 rounded-2xl border text-left text-xs transition-all flex items-start gap-2.5 ${btnStyle}`}
                 >
-                  <span className="w-5 h-5 rounded-full bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 flex items-center justify-center font-mono font-bold text-[10px] shrink-0 mt-0.5">
+                  <span className="w-5 h-5 rounded-full bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 flex items-center justify-center font-mono font-bold text-[0.75rem] shrink-0 mt-0.5">
                     {String.fromCharCode(65 + i)}
                   </span>
                   <span className="leading-relaxed">{opt.text}</span>
@@ -395,11 +395,11 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
                   個人動態水合收支體檢儀 (Hydration Vibe Meter)
                 </h3>
               </div>
-              <span className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full ${hydrationVibe.statusClass}`}>
+              <span className={`text-[0.75rem] font-mono font-bold px-2.5 py-0.5 rounded-full ${hydrationVibe.statusClass}`}>
                 {hydrationVibe.status} ({hydrationVibe.ratio}%)
               </span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            <p className="text-[0.75rem] text-slate-500 dark:text-slate-400">
               拖動滑桿即刻動態計算每日水分需求與收支恆定狀態
             </p>
           </div>
@@ -408,7 +408,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
           <div className="space-y-3 font-mono text-xs">
             {/* 體重滑桿 */}
             <div className="space-y-1">
-              <div className="flex justify-between text-slate-600 dark:text-slate-400 text-[11px]">
+              <div className="flex justify-between text-slate-600 dark:text-slate-400 text-[0.75rem]">
                 <span>體重：<strong className="text-slate-900 dark:text-white font-sans">{weightKg} kg</strong></span>
                 <span className="text-slate-400 font-sans">基礎需求 ~{Math.round(weightKg * 32)} mL</span>
               </div>
@@ -424,7 +424,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
 
             {/* 今日飲水滑桿 */}
             <div className="space-y-1">
-              <div className="flex justify-between text-slate-600 dark:text-slate-400 text-[11px]">
+              <div className="flex justify-between text-slate-600 dark:text-slate-400 text-[0.75rem]">
                 <span>今日飲水量：<strong className="text-nature-sky-600 dark:text-salud-cyan font-sans">{intakeMl} mL</strong></span>
                 <span className="text-slate-400 font-sans">約 {Math.round(intakeMl / 250)} 杯水</span>
               </div>
@@ -442,13 +442,13 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
             {/* 戶外流汗度與咖啡杯數 */}
             <div className="grid grid-cols-2 gap-3 pt-1">
               <div className="space-y-1">
-                <span className="text-[11px] text-slate-500 block">流汗強度：</span>
+                <span className="text-[0.75rem] text-slate-500 block">流汗強度：</span>
                 <div className="flex gap-1">
                   {(['low', 'med', 'high'] as const).map((lvl) => (
                     <button
                       key={lvl}
                       onClick={() => setSweatIntensity(lvl)}
-                      className={`btn-tactile flex-1 py-1 rounded-lg text-[10px] border transition-all ${
+                      className={`btn-tactile flex-1 py-1 rounded-lg text-[0.75rem] border transition-all ${
                         sweatIntensity === lvl
                           ? 'bg-emerald-500 text-white font-bold border-emerald-600'
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'
@@ -461,7 +461,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
               </div>
 
               <div className="space-y-1">
-                <span className="text-[11px] text-slate-500 block">咖啡/茶/酒：</span>
+                <span className="text-[0.75rem] text-slate-500 block">咖啡/茶/酒：</span>
                 <div className="flex items-center justify-between p-1 px-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                   <button
                     onClick={() => setCaffeineAlcoholCups(Math.max(0, caffeineAlcoholCups - 1))}
@@ -487,11 +487,11 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
               <span className="font-bold text-emerald-900 dark:text-emerald-300">
                 目標需水量：~{hydrationVibe.baseDemand} mL
               </span>
-              <span className="font-mono text-[11px] text-slate-500">
+              <span className="font-mono text-[0.75rem] text-slate-500">
                 收支差額：{hydrationVibe.diff >= 0 ? `+${hydrationVibe.diff}` : hydrationVibe.diff} mL
               </span>
             </div>
-            <p className="text-[11px] text-emerald-800 dark:text-emerald-200 leading-relaxed font-sans">
+            <p className="text-[0.75rem] text-emerald-800 dark:text-emerald-200 leading-relaxed font-sans">
               💡 {hydrationVibe.advice}
             </p>
           </div>
@@ -507,7 +507,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
               水與體液平衡 · 六大醫學成就勳章 (Achievement Showcase)
             </h4>
           </div>
-          <span className="text-[11px] font-mono text-slate-400">
+          <span className="text-[0.75rem] font-mono text-slate-400">
             已解鎖 {MEDALS.filter((m) => m.requiredPage ? completedPages.includes(m.requiredPage) : completedPages.length >= (m.requiredCount || 12)).length} / 6 枚
           </span>
         </div>
@@ -533,11 +533,11 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
                 <div className="font-bold text-xs text-slate-900 dark:text-white truncate">
                   {medal.title}
                 </div>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight font-sans">
+                <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight font-sans">
                   {medal.desc}
                 </p>
                 <div className="pt-1">
-                  <span className={`text-[9px] font-mono px-1.5 py-0.2 rounded-full ${
+                  <span className={`text-[0.6875rem] font-mono px-1.5 py-0.2 rounded-full ${
                     isUnlocked ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-bold' : 'bg-slate-200 text-slate-500'
                   }`}>
                     {isUnlocked ? '✓ 已解鎖' : '🔒 待挑戰'}

@@ -35,7 +35,7 @@ export const RedFlagAlert: React.FC<Props> = ({
           <div className="flex items-center justify-between">
             <h4 className="font-display font-bold text-base text-red-200 tracking-wide flex items-center gap-2">
               <span>{title}</span>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-red-500/30 text-red-200 font-mono uppercase tracking-wider">
+              <span className="text-[0.75rem] px-2 py-0.5 rounded bg-red-500/30 text-red-200 font-mono uppercase tracking-wider">
                 Medical Alert
               </span>
             </h4>

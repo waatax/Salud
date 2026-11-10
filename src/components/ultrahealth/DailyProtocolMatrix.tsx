@@ -66,7 +66,7 @@ export const DailyProtocolMatrix: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono font-bold text-cyan-600 dark:text-cyan-400">
+                  <span className="text-[0.75rem] font-mono font-bold text-cyan-600 dark:text-cyan-400">
                     {slot.time_range}
                   </span>
                   <div className="p-1 rounded-lg bg-slate-100 dark:bg-slate-800">
@@ -99,7 +99,7 @@ export const DailyProtocolMatrix: React.FC = () => {
               {activeSlot.target_systems.map((sys, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-1 rounded-xl bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 font-mono text-[11px] font-semibold"
+                  className="px-2.5 py-1 rounded-xl bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 font-mono text-[0.75rem] font-semibold"
                 >
                   {sys}
                 </span>

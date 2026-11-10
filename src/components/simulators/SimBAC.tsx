@@ -152,7 +152,7 @@ export const SimBAC: React.FC = () => {
           <span>{t('bac.driving_ban_alert')}</span>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-red-800/80 text-xs">
-          <span className="px-2 py-0.5 rounded bg-red-900/90 text-red-200 font-mono text-[11px] font-bold border border-red-700">
+          <span className="px-2 py-0.5 rounded bg-red-900/90 text-red-200 font-mono text-[0.75rem] font-bold border border-red-700">
             {t('bac.driving_statement_badge')}
           </span>
           <a
@@ -274,7 +274,7 @@ export const SimBAC: React.FC = () => {
           <div className="flex gap-2 pt-0.5">
             <button
               onClick={() => setBiologicalSex('MALE')}
-              className={`flex-1 py-1 rounded-lg border text-center font-mono text-[11px] transition-all ${
+              className={`flex-1 py-1 rounded-lg border text-center font-mono text-[0.75rem] transition-all ${
                 biologicalSex === 'MALE'
                   ? 'border-cyan-400 bg-cyan-950/60 text-cyan-300 font-bold'
                   : 'border-slate-700 bg-slate-800 text-slate-400'
@@ -284,7 +284,7 @@ export const SimBAC: React.FC = () => {
             </button>
             <button
               onClick={() => setBiologicalSex('FEMALE')}
-              className={`flex-1 py-1 rounded-lg border text-center font-mono text-[11px] transition-all ${
+              className={`flex-1 py-1 rounded-lg border text-center font-mono text-[0.75rem] transition-all ${
                 biologicalSex === 'FEMALE'
                   ? 'border-purple-400 bg-purple-950/60 text-purple-300 font-bold'
                   : 'border-slate-700 bg-slate-800 text-slate-400'
@@ -314,7 +314,7 @@ export const SimBAC: React.FC = () => {
         <div className="space-y-1.5 p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 sm:col-span-2 flex items-center justify-between">
           <div>
             <label htmlFor={`${formId}-carbonation`} className="text-slate-300 block font-medium cursor-pointer">{t('bac.carbonation')}</label>
-            <span className="text-[10px] text-slate-500 block">促使胃幽門開啟加速湧入小腸</span>
+            <span className="text-[0.75rem] text-slate-500 block">促使胃幽門開啟加速湧入小腸</span>
           </div>
           <input
             id={`${formId}-carbonation`}
@@ -332,7 +332,7 @@ export const SimBAC: React.FC = () => {
               <ShieldAlert className="w-3.5 h-3.5 text-salud-amber" />
               ALDH2 酵素基因型 (rs671) · 安全圖譜邊界
             </span>
-            <span className="text-[10px] text-slate-400 font-mono">台灣約 47% 帶因</span>
+            <span className="text-[0.75rem] text-slate-400 font-mono">台灣約 47% 帶因</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <button
@@ -386,7 +386,7 @@ export const SimBAC: React.FC = () => {
             <div className="space-y-1">
               <div className="flex items-center gap-2 font-bold font-mono text-xs">
                 <span>【安全圖譜警示 PRED-ALDH2-DEFICIENT】</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-black/40 border border-current">
+                <span className="text-[0.75rem] px-1.5 py-0.5 rounded bg-black/40 border border-current">
                   模型邊界阻擋
                 </span>
               </div>
@@ -401,33 +401,33 @@ export const SimBAC: React.FC = () => {
       {/* ── Key Mathematical Projections (Uncertainty Bands) ── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
         <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-1">
-          <span className="text-slate-400 text-[11px] block">{t('bac.pure_ethanol')}</span>
+          <span className="text-slate-400 text-[0.75rem] block">{t('bac.pure_ethanol')}</span>
           <strong className="text-lg text-white font-bold">{pureEthanolGrams} g</strong>
-          <span className="text-[10px] text-slate-500 block">≈ {standardDrinks} 標準杯</span>
+          <span className="text-[0.75rem] text-slate-500 block">≈ {standardDrinks} 標準杯</span>
         </div>
 
         <div className="p-3.5 rounded-2xl bg-purple-950/40 border border-purple-800/60 space-y-1">
-          <span className="text-purple-300 text-[11px] block">{t('bac.peak_bac')}</span>
+          <span className="text-purple-300 text-[0.75rem] block">{t('bac.peak_bac')}</span>
           <strong className="text-lg text-purple-300 font-bold">
             {maxBacLow.toFixed(3)}% – {maxBacHigh.toFixed(3)}%
           </strong>
-          <span className="text-[10px] text-purple-400 block">帶預測區間 (g/dL)</span>
+          <span className="text-[0.75rem] text-purple-400 block">帶預測區間 (g/dL)</span>
         </div>
 
         <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-1">
-          <span className="text-slate-400 text-[11px] block">{t('bac.peak_window')}</span>
+          <span className="text-slate-400 text-[0.75rem] block">{t('bac.peak_window')}</span>
           <strong className="text-lg text-salud-cyan font-bold">
             約 {Math.round(peakHourLow * 60)}–{Math.round(peakHourHigh * 60)} 分
           </strong>
-          <span className="text-[10px] text-slate-500 block">受胃排空控制</span>
+          <span className="text-[0.75rem] text-slate-500 block">受胃排空控制</span>
         </div>
 
         <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-1">
-          <span className="text-slate-400 text-[11px] block">{t('bac.clearance_window')}</span>
+          <span className="text-slate-400 text-[0.75rem] block">{t('bac.clearance_window')}</span>
           <strong className="text-lg text-salud-amber font-bold">
             約 {zeroHourLow}–{zeroHourHigh} 小時
           </strong>
-          <span className="text-[10px] text-slate-500 block">零階消除速率</span>
+          <span className="text-[0.75rem] text-slate-500 block">零階消除速率</span>
         </div>
       </div>
 
@@ -438,7 +438,7 @@ export const SimBAC: React.FC = () => {
             <Clock className="w-4 h-4 text-salud-cyan" />
             動態血中濃度時間推估曲線 (帶不確定性預測區間帶)
           </span>
-          <span className="text-[11px] font-mono text-slate-500">
+          <span className="text-[0.75rem] font-mono text-slate-500">
             模型誤差 ±30–40% · 僅供生理形狀觀察
           </span>
         </div>
@@ -507,7 +507,7 @@ export const SimBAC: React.FC = () => {
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-400 pt-1 border-t border-slate-800">
+        <div className="flex flex-wrap items-center justify-between text-[0.75rem] font-mono text-slate-400 pt-1 border-t border-slate-800">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
               <span className="w-3 h-0.5 bg-cyan-400" /> 下界估計 (代謝較快)
@@ -531,7 +531,7 @@ export const SimBAC: React.FC = () => {
         {/* Equivalent Data Table (Spec §10.6 S-09) */}
         {showDataTable && (
           <div className="overflow-x-auto pt-2">
-            <table className="w-full text-left font-mono text-[10px] text-slate-300 border border-slate-800">
+            <table className="w-full text-left font-mono text-[0.75rem] text-slate-300 border border-slate-800">
               <caption className="text-left font-bold text-slate-400 py-1">
                 BAC 動態時間濃度等價資料表 (g/dL)
               </caption>

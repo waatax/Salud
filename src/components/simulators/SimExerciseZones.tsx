@@ -96,7 +96,7 @@ export const SimExerciseZones: React.FC = () => {
             onChange={(e) => setAge(Number(e.target.value))}
             className="w-full accent-salud-cyan cursor-pointer"
           />
-          <span className="text-[10px] text-slate-500 block">預估最大心率 HRmax = 220 - 年齡 = {hrMax} bpm</span>
+          <span className="text-[0.75rem] text-slate-500 block">預估最大心率 HRmax = 220 - 年齡 = {hrMax} bpm</span>
         </div>
 
         <div className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-2">
@@ -112,7 +112,7 @@ export const SimExerciseZones: React.FC = () => {
             onChange={(e) => setRestingHr(Number(e.target.value))}
             className="w-full accent-salud-amber cursor-pointer"
           />
-          <span className="text-[10px] text-slate-500 block">儲備心率 HRR = HRmax - HRrest = {hrr} bpm</span>
+          <span className="text-[0.75rem] text-slate-500 block">儲備心率 HRR = HRmax - HRrest = {hrr} bpm</span>
         </div>
       </div>
 
@@ -130,11 +130,11 @@ export const SimExerciseZones: React.FC = () => {
               className={`p-3.5 rounded-2xl border transition-all space-y-2 ${zone.color}`}
             >
               <div className="flex items-center justify-between">
-                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded font-bold ${zone.badgeColor}`}>
+                <span className={`text-[0.75rem] font-mono px-1.5 py-0.5 rounded font-bold ${zone.badgeColor}`}>
                   {zone.zone.replace('_', ' ')}
                 </span>
                 {zone.zone === 'ZONE_2' && (
-                  <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-cyan-400 text-black font-bold">
+                  <span className="text-[0.6875rem] font-mono px-1 py-0.2 rounded bg-cyan-400 text-black font-bold">
                     核心長壽
                   </span>
                 )}
@@ -146,11 +146,11 @@ export const SimExerciseZones: React.FC = () => {
                 </strong>
                 <div className="pt-1 flex items-baseline gap-1">
                   <span className="text-lg font-display font-extrabold">{zone.minHr}–{zone.maxHr}</span>
-                  <span className="text-[10px] font-mono opacity-75">bpm</span>
+                  <span className="text-[0.75rem] font-mono opacity-75">bpm</span>
                 </div>
               </div>
 
-              <div className="pt-1 border-t border-slate-700/60 text-[10px] space-y-1">
+              <div className="pt-1 border-t border-slate-700/60 text-[0.75rem] space-y-1">
                 <span className="opacity-85 block truncate" title={language === 'zh-TW' ? zone.metabolic_fuel_zh : zone.metabolic_fuel_en}>
                   {language === 'zh-TW' ? `燃料：${zone.metabolic_fuel_zh}` : `Fuel: ${zone.metabolic_fuel_en}`}
                 </span>
@@ -213,7 +213,7 @@ export const SimExerciseZones: React.FC = () => {
 
         {/* Progress Bar */}
         <div className="space-y-1 pt-1">
-          <div className="flex justify-between text-[11px] text-slate-400">
+          <div className="flex justify-between text-[0.75rem] text-slate-400">
             <span>等效有氧量：{totalEquivalentMinutes} / 150 分鐘</span>
             <span className="font-bold text-salud-cyan">{progressPct}%</span>
           </div>

@@ -69,7 +69,8 @@ export const LessonVisualGraphic: React.FC<LessonVisualGraphicProps> = ({ track,
       </Suspense>
     );
   }
-  // Select tailored infographic based on lesson ID (covering every lesson in tracks 1–7)
+  // Select the infographic that matches each lesson's own topic. v6.4 re-checked every pairing
+  // against the lesson titles: 17 lessons had drifted onto a neighbouring lesson's figure.
   switch (lesson.id) {
     // ── Track 1: Basics (6 課) ──────────────────────────────────────────
     case 'L-BAS-01':
@@ -93,35 +94,35 @@ export const LessonVisualGraphic: React.FC<LessonVisualGraphicProps> = ({ track,
     case 'L-BODY-03':
       return <GutMicrobiomeGraphic />;
     case 'L-BODY-04':
-      return <LiverFibrosisGraphic />;
-    case 'L-BODY-05':
-      return <KidneyFiltrationGraphic />;
-    case 'L-BODY-06':
-      return <JointByJointGraphic />;
-    case 'L-BODY-07':
       return <BrainGlymphaticGraphic />;
-    case 'L-BODY-08':
+    case 'L-BODY-05':
+      return <InsulinResistanceGraphic />;
+    case 'L-BODY-06':
       return <ImmuneInflammationGraphic />;
+    case 'L-BODY-07':
+      return <JointByJointGraphic />;
+    case 'L-BODY-08':
+      return <KidneyFiltrationGraphic />;
 
     // ── Track 3: Eat (9 課) ────────────────────────────────────────────
     case 'L-EAT-01':
       return <HealthyPlateGraphic />;
     case 'L-EAT-02':
-      return <NovaUPFGraphic />;
-    case 'L-EAT-03':
       return <ProteinDoseGraphic />;
+    case 'L-EAT-03':
+      return <GlycemicCurveGraphic />;
     case 'L-EAT-04':
       return <FatsSmokePointGraphic />;
     case 'L-EAT-05':
-      return <GlycemicCurveGraphic />;
-    case 'L-EAT-06':
       return <DashSodiumPotassiumGraphic />;
+    case 'L-EAT-06':
+      return <NovaUPFGraphic />;
     case 'L-EAT-07':
       return <HydrationScaleGraphic />;
     case 'L-EAT-08':
       return <AlcoholMetabolismGraphic />;
     case 'L-EAT-09':
-      return <SupplementsGradeGraphic />;
+      return <EnergyDeficitGraphic />;
 
     // ── Track 4: Move (7 課) ───────────────────────────────────────────
     case 'L-MOVE-01':
@@ -131,29 +132,29 @@ export const LessonVisualGraphic: React.FC<LessonVisualGraphicProps> = ({ track,
     case 'L-MOVE-03':
       return <StrengthPatternsGraphic />;
     case 'L-MOVE-04':
-      return <JointByJointGraphic />;
+      return <SedentaryBreakGraphic />;
     case 'L-MOVE-05':
       return <HeartRateZonesMatrixGraphic />;
     case 'L-MOVE-06':
-      return <PeaceAndLoveGraphic />;
+      return <FallPreventionGraphic />;
     case 'L-MOVE-07':
-      return <SedentaryBreakGraphic />;
+      return <PeaceAndLoveGraphic />;
 
     // ── Track 5: Rest (7 課) ───────────────────────────────────────────
     case 'L-REST-01':
       return <SleepArchitectureGraphic />;
     case 'L-REST-02':
-      return <SleepEnvironmentGraphic />;
+      return <CbtiStimulusControlGraphic />;
     case 'L-REST-03':
       return <CaffeineAdenosineGraphic />;
     case 'L-REST-04':
-      return <CbtiStimulusControlGraphic />;
-    case 'L-REST-05':
       return <OsaScreeningGraphic />;
+    case 'L-REST-05':
+      return <PhysiologicalSighGraphic />;
     case 'L-REST-06':
       return <HpaAxisStressGraphic />;
     case 'L-REST-07':
-      return <PhysiologicalSighGraphic />;
+      return <SocialConnectionGraphic />;
 
     // ── Track 6: Checkup (8 課) ────────────────────────────────────────
     case 'L-CHK-01':
@@ -1211,7 +1212,7 @@ const HydrationScaleGraphic: React.FC = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-4 sm:grid-cols-8 gap-1.5 text-center text-[11px] font-bold">
+      <div className="grid grid-cols-4 sm:grid-cols-8 gap-1.5 text-center text-[0.75rem] font-bold">
         {[
           { level: '1', name: '透明水清', color: 'bg-emerald-50 border-emerald-300 text-emerald-900', hint: '水份略微過多' },
           { level: '2', name: '淡檸檬黃', color: 'bg-emerald-100 border-emerald-400 text-emerald-900', hint: '黃金理想水合 ★' },
@@ -1225,7 +1226,7 @@ const HydrationScaleGraphic: React.FC = () => {
           <div key={c.level} className={`p-2 rounded-lg border ${c.color} flex flex-col justify-between space-y-1`}>
             <span>{c.level}階</span>
             <span>{c.name}</span>
-            <span className="text-[10px] font-normal opacity-90">{c.hint}</span>
+            <span className="text-[0.75rem] font-normal opacity-90">{c.hint}</span>
           </div>
         ))}
       </div>
@@ -1365,7 +1366,7 @@ const Zone2MitochondriaGraphic: React.FC = () => {
         <div className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
           <span className="font-bold text-slate-800 dark:text-slate-200 block">Zone 1</span>
           <span className="text-slate-500 block">&lt; 60% HRmax</span>
-          <p className="mt-1 text-[11px] text-slate-600 dark:text-slate-400">極輕鬆散步、恢復血流</p>
+          <p className="mt-1 text-[0.75rem] text-slate-600 dark:text-slate-400">極輕鬆散步、恢復血流</p>
         </div>
 
         <div className="p-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100 shadow-xs">
@@ -1373,7 +1374,7 @@ const Zone2MitochondriaGraphic: React.FC = () => {
             Zone 2 ★
           </span>
           <span className="text-emerald-800 dark:text-emerald-400 block font-semibold">60 – 70% HRmax</span>
-          <p className="mt-1 text-[11px] leading-4 text-emerald-900 dark:text-emerald-200">
+          <p className="mt-1 text-[0.75rem] leading-4 text-emerald-900 dark:text-emerald-200">
             <strong>脂肪氧化率頂峰</strong>，促進粒線體新生、乳酸 1.5–2.0 mmol/L
           </p>
         </div>
@@ -1381,19 +1382,19 @@ const Zone2MitochondriaGraphic: React.FC = () => {
         <div className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
           <span className="font-bold text-slate-800 dark:text-slate-200 block">Zone 3</span>
           <span className="text-slate-500 block">70 – 80% HRmax</span>
-          <p className="mt-1 text-[11px] text-slate-600 dark:text-slate-400">步速加快、脂肪與碳水混合燃燒</p>
+          <p className="mt-1 text-[0.75rem] text-slate-600 dark:text-slate-400">步速加快、脂肪與碳水混合燃燒</p>
         </div>
 
         <div className="p-2.5 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/20">
           <span className="font-bold text-amber-800 dark:text-amber-300 block">Zone 4 (乳酸閾值)</span>
           <span className="text-amber-700 dark:text-amber-400 block">80 – 90% HRmax</span>
-          <p className="mt-1 text-[11px] text-amber-900 dark:text-amber-200">乳酸迅速累積、主要燃燒肝醣</p>
+          <p className="mt-1 text-[0.75rem] text-amber-900 dark:text-amber-200">乳酸迅速累積、主要燃燒肝醣</p>
         </div>
 
         <div className="col-span-2 sm:col-span-1 p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/20">
           <span className="font-bold text-rose-800 dark:text-rose-300 block">Zone 5 (VO2 Max)</span>
           <span className="text-rose-700 dark:text-rose-400 block">&gt; 90% HRmax</span>
-          <p className="mt-1 text-[11px] text-rose-900 dark:text-rose-200">力竭衝刺、提升最大心肺耐力極限</p>
+          <p className="mt-1 text-[0.75rem] text-rose-900 dark:text-rose-200">力竭衝刺、提升最大心肺耐力極限</p>
         </div>
       </div>
 
@@ -1636,23 +1637,23 @@ const JointByJointGraphic: React.FC = () => {
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs text-center font-medium">
         <div className="p-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 text-teal-950 dark:text-teal-200">
           <span className="font-bold block">腳踝關節</span>
-          <span className="text-[11px] text-teal-700 dark:text-teal-300">需要活動度 🔄</span>
+          <span className="text-[0.75rem] text-teal-700 dark:text-teal-300">需要活動度 🔄</span>
         </div>
         <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 text-slate-800 dark:text-slate-200">
           <span className="font-bold block">膝蓋關節</span>
-          <span className="text-[11px] text-slate-500">需要穩定度 🔒</span>
+          <span className="text-[0.75rem] text-slate-500">需要穩定度 🔒</span>
         </div>
         <div className="p-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 text-teal-950 dark:text-teal-200">
           <span className="font-bold block">髖關節</span>
-          <span className="text-[11px] text-teal-700 dark:text-teal-300">需要活動度 🔄</span>
+          <span className="text-[0.75rem] text-teal-700 dark:text-teal-300">需要活動度 🔄</span>
         </div>
         <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 text-slate-800 dark:text-slate-200">
           <span className="font-bold block">腰椎脊柱</span>
-          <span className="text-[11px] text-slate-500">需要穩定度 🔒</span>
+          <span className="text-[0.75rem] text-slate-500">需要穩定度 🔒</span>
         </div>
         <div className="col-span-2 sm:col-span-1 p-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 text-teal-950 dark:text-teal-200">
           <span className="font-bold block">胸椎段</span>
-          <span className="text-[11px] text-teal-700 dark:text-teal-300">需要活動度 🔄</span>
+          <span className="text-[0.75rem] text-teal-700 dark:text-teal-300">需要活動度 🔄</span>
         </div>
       </div>
       <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -2068,7 +2069,7 @@ const MetabolicSyndromeGraphic: React.FC = () => {
               <span>{c.label}</span>
             </div>
             <div className="font-semibold text-rose-600 dark:text-rose-400 tabular-nums">{c.cutoff}</div>
-            <p className="text-slate-500 dark:text-slate-400 text-[11px]">{c.hint}</p>
+            <p className="text-slate-500 dark:text-slate-400 text-[0.75rem]">{c.hint}</p>
           </div>
         ))}
       </div>
@@ -2726,7 +2727,7 @@ const LifestyleBpReductionGraphic: React.FC = () => {
             <div className="h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
               <div className={`h-full ${item.tone} rounded-full`} style={{ width: `${item.pct}%` }} />
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">{item.note}</p>
+            <p className="text-[0.75rem] text-slate-500 dark:text-slate-400">{item.note}</p>
           </div>
         ))}
       </div>

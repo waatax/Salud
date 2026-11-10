@@ -159,6 +159,14 @@ export default {
           }
         }
       },
+      // v6.4 readability floor. Chinese glyphs are denser than Latin ones, so the two small
+      // steps are one pixel larger than Tailwind's defaults (12 → 13 px, 14 → 15 px at the
+      // standard reading size). Labels that used fixed 9–11 px sizes now use rem values
+      // (text-[0.6875rem] / text-[0.75rem]) so they follow the reader's font-size setting.
+      fontSize: {
+        xs: ['0.8125rem', { lineHeight: '1.3rem' }],
+        sm: ['0.9375rem', { lineHeight: '1.6rem' }],
+      },
       // v4.0: every stack falls back to a CJK sans face. Before this, Chinese glyphs in
       // `font-mono` / `font-display` fell through to the OS default (a Ming serif on
       // Windows), so labels rendered in two unrelated typefaces.

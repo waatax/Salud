@@ -228,7 +228,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
             <TrendingUp className="w-3.5 h-3.5 text-nature-sky-600 dark:text-salud-cyan" />
             <span>{chapterConfig.constantsHeader}</span>
           </span>
-          <span className="text-[11px] font-sans text-slate-400">點選指標直達專章</span>
+          <span className="text-[0.75rem] font-sans text-slate-400">點選指標直達專章</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
@@ -238,15 +238,15 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
               onClick={() => onSelectPage(c.targetPage)}
               className="btn-tactile p-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/70 hover:border-nature-sky-400 dark:hover:border-nature-sky-600 cursor-pointer transition-all shadow-xs space-y-1 group"
             >
-              <div className="flex items-center justify-between font-mono text-[10px] text-slate-400">
+              <div className="flex items-center justify-between font-mono text-[0.75rem] text-slate-400">
                 <span>{c.label}</span>
                 <ChevronRight className="w-3 h-3 text-slate-300 group-hover:text-nature-sky-500 group-hover:translate-x-0.5 transition-all" />
               </div>
               <div className="flex items-baseline gap-1">
                 <span className={`text-xl font-display font-extrabold ${c.color}`}>{c.value}</span>
-                <span className="text-[10px] font-mono text-slate-500">{c.unit}</span>
+                <span className="text-[0.75rem] font-mono text-slate-500">{c.unit}</span>
               </div>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans truncate">{c.sub}</p>
+              <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-sans truncate">{c.sub}</p>
             </div>
           ))}
         </div>
@@ -276,7 +276,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
             {/* 個人研讀進度 */}
             <div className="p-2.5 px-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex items-center gap-3 font-mono text-xs">
               <div className="space-y-1">
-                <div className="flex items-center justify-between gap-2 text-[10px] text-slate-500 dark:text-slate-400">
+                <div className="flex items-center justify-between gap-2 text-[0.75rem] text-slate-500 dark:text-slate-400">
                   <span>研讀進度</span>
                   <strong className="text-nature-sky-600 dark:text-salud-cyan">{completedCount} / {pages.length} 篇 ({progressPct}%)</strong>
                 </div>
@@ -344,7 +344,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                   <div className={`p-1.5 rounded-xl ${isSelected ? 'bg-nature-sky-500 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
                     <Icon className="w-4 h-4" />
                   </div>
-                  <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${cat.badgeClass}`}>
+                  <span className={`text-[0.75rem] font-mono font-bold px-2 py-0.5 rounded-full ${cat.badgeClass}`}>
                     {count} 篇
                   </span>
                 </div>
@@ -352,7 +352,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                   <div className="text-xs font-bold truncate">
                     {language === 'zh-TW' ? cat.name_zh : cat.name_en}
                   </div>
-                  <div className="text-[10px] text-slate-400 line-clamp-1 mt-0.5 font-normal">
+                  <div className="text-[0.75rem] text-slate-400 line-clamp-1 mt-0.5 font-normal">
                     {cat.desc}
                   </div>
                 </div>
@@ -386,7 +386,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
 
             {/* 排序方式選單 */}
             <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono shrink-0">
-              <span className="text-slate-400 px-2 text-[11px] flex items-center gap-1">
+              <span className="text-slate-400 px-2 text-[0.75rem] flex items-center gap-1">
                 <SlidersHorizontal className="w-3 h-3" />
                 排序:
               </span>
@@ -458,7 +458,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                     }`}
                   >
                     <span>#{tag}</span>
-                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isTagSelected ? 'bg-white/30 text-white' : 'bg-slate-200/70 dark:bg-slate-700/70 text-slate-600 dark:text-slate-300'}`}>
+                    <span className={`text-[0.75rem] px-1.5 py-0.2 rounded-full ${isTagSelected ? 'bg-white/30 text-white' : 'bg-slate-200/70 dark:bg-slate-700/70 text-slate-600 dark:text-slate-300'}`}>
                       {count}
                     </span>
                   </button>
@@ -475,7 +475,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
               <Compass className="w-4 h-4 text-nature-sky-600 dark:text-salud-cyan" />
               <span>四階循序學習階梯 (Pedagogical Learning Pathway)</span>
             </span>
-            <span className="text-[11px] text-slate-400">點擊階梯切換對應學習主題</span>
+            <span className="text-[0.75rem] text-slate-400">點擊階梯切換對應學習主題</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
@@ -495,17 +495,17 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md font-bold ${step.badgeClass}`}>
+                    <span className={`text-[0.75rem] font-mono px-2 py-0.5 rounded-md font-bold ${step.badgeClass}`}>
                       階梯 {step.step}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-400">
+                    <span className="text-[0.75rem] font-mono text-slate-400">
                       {step.targetPages.length} 篇
                     </span>
                   </div>
                   <h4 className="font-bold text-xs text-slate-900 dark:text-white">
                     {step.title}
                   </h4>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight font-sans">
+                  <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight font-sans">
                     {step.objective}
                   </p>
                 </div>
@@ -537,7 +537,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                 >
                   {/* 卡片頂部：分類徽章 + 難易度 + 閱讀時間 + 安全閘 + 已讀書籤操作 */}
                   <div className="space-y-3.5">
-                    <div className="flex flex-wrap items-center justify-between gap-1.5 font-mono text-[10px]">
+                    <div className="flex flex-wrap items-center justify-between gap-1.5 font-mono text-[0.75rem]">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold border border-slate-200 dark:border-slate-700">
                           {page.id}
@@ -576,7 +576,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                         {/* 已精讀切換按鈕 */}
                         <button
                           onClick={(e) => toggleComplete(page.id, e)}
-                          className={`px-2 py-0.5 rounded-lg transition-all flex items-center gap-1 text-[10px] font-mono ${
+                          className={`px-2 py-0.5 rounded-lg transition-all flex items-center gap-1 text-[0.75rem] font-mono ${
                             isCompleted
                               ? 'bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 font-bold'
                               : 'bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-600'
@@ -611,7 +611,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                       <div className="flex items-center gap-2 p-2.5 rounded-2xl bg-sky-50/70 dark:bg-sky-950/40 border border-sky-200/60 dark:border-sky-900/50 text-sky-900 dark:text-sky-300 text-xs">
                         <span className="text-sm shrink-0">💡</span>
                         <div className="min-w-0">
-                          <span className="font-bold text-[10px] text-sky-600 dark:text-salud-cyan block font-mono">生活神譬喻 · 秒懂機轉</span>
+                          <span className="font-bold text-[0.75rem] text-sky-600 dark:text-salud-cyan block font-mono">生活神譬喻 · 秒懂機轉</span>
                           <span className="font-medium text-xs truncate block text-slate-700 dark:text-slate-200">{page.analogy_title}</span>
                         </div>
                       </div>
@@ -620,7 +620,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                     {/* 臨床教學珍珠 (Clinical Pearl) */}
                     {page.clinical_pearl && (
                       <div className="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/60 space-y-1.5 shadow-xs">
-                        <div className="flex items-center justify-between font-mono text-[10px]">
+                        <div className="flex items-center justify-between font-mono text-[0.75rem]">
                           <span className="font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
                             <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                             <span>臨床教學珍珠 (Clinical Pearl)</span>
@@ -643,7 +643,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                               setSelectedTag(tag);
                               setSelectedPathwayStep(null);
                             }}
-                            className={`text-[10px] font-mono px-2.5 py-0.5 rounded-xl border transition-all ${getTagColor(
+                            className={`text-[0.75rem] font-mono px-2.5 py-0.5 rounded-xl border transition-all ${getTagColor(
                               tag
                             )}`}
                             title={`點擊篩選 #${tag}`}
@@ -703,7 +703,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                       </button>
 
                       <div className="space-y-1 min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap text-[10px] font-mono">
+                        <div className="flex items-center gap-2 flex-wrap text-[0.75rem] font-mono">
                           <span className="font-bold text-nature-sky-700 dark:text-salud-cyan">{page.id}</span>
                           <span className="text-slate-300 dark:text-slate-700">·</span>
                           <span className={`px-2 py-0.2 rounded-md border ${getDifficultyBadge(page.difficulty)}`}>
@@ -722,7 +722,7 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
                         </h4>
 
                         {page.analogy_title && (
-                          <div className="text-[11px] font-medium text-sky-700 dark:text-salud-cyan flex items-center gap-1 font-mono">
+                          <div className="text-[0.75rem] font-medium text-sky-700 dark:text-salud-cyan flex items-center gap-1 font-mono">
                             <span className="shrink-0">💡</span>
                             <span className="truncate">秒懂：{page.analogy_title}</span>
                           </div>

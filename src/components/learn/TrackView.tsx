@@ -142,12 +142,12 @@ const CurriculumFrameworkMap: React.FC = () => {
         {steps.map((s, idx) => (
           <div key={s.num} className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 space-y-1.5 flex flex-col justify-between">
             <div>
-              <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-bold ${s.tone}`}>
+              <span className={`inline-block px-1.5 py-0.5 rounded text-[0.75rem] font-bold ${s.tone}`}>
                 階段 {s.num}
               </span>
               <div className="font-bold text-slate-900 dark:text-white text-sm mt-1">{s.title}</div>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug">{s.hint}</p>
+            <p className="text-[0.75rem] text-slate-500 dark:text-slate-400 leading-snug">{s.hint}</p>
           </div>
         ))}
       </div>

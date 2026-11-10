@@ -163,11 +163,11 @@ export const SchedulePlanner: React.FC = () => {
             <span className="flex-1 min-w-0">
               <span className="block text-[14px] font-semibold text-slate-900 dark:text-white">
                 {it.label}
-                <span className="ml-1.5 text-[11px] font-medium text-slate-500 dark:text-slate-400">［{KIND_LABEL[it.kind]}］</span>
+                <span className="ml-1.5 text-[0.75rem] font-medium text-slate-500 dark:text-slate-400">［{KIND_LABEL[it.kind]}］</span>
               </span>
               <span className="block text-[13px] text-slate-600 dark:text-slate-400">{it.detail}</span>
             </span>
-            <span className="hidden sm:block shrink-0 text-[11px] text-slate-400 dark:text-slate-500 self-center">{it.source}</span>
+            <span className="hidden sm:block shrink-0 text-[0.75rem] text-slate-400 dark:text-slate-500 self-center">{it.source}</span>
           </li>
         ))}
       </ol>

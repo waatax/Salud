@@ -102,23 +102,23 @@ export const InfographHallmarksWheel: React.FC = () => {
             >
               <div className="space-y-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-extrabold text-emerald-700 dark:text-salud-cyan">
+                  <span className="text-[0.75rem] font-mono font-extrabold text-emerald-700 dark:text-salud-cyan">
                     #{h.number < 10 ? `0${h.number}` : h.number}
                   </span>
-                  <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded border ${meta.badgeBg}`}>
+                  <span className={`text-[0.6875rem] font-mono px-1.5 py-0.5 rounded border ${meta.badgeBg}`}>
                     {h.category === 'PRIMARY' ? '起因' : h.category === 'ANTAGONISTIC' ? '拮抗' : '表型'}
                   </span>
                 </div>
                 <div className="font-bold text-xs text-slate-900 dark:text-white line-clamp-1">
                   {h.title_zh.split(' ')[0]}
                 </div>
-                <div className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1 font-mono">
+                <div className="text-[0.75rem] text-slate-500 dark:text-slate-400 line-clamp-1 font-mono">
                   {h.title_en}
                 </div>
               </div>
 
-              <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">
-                <span className="text-[9px] font-mono text-emerald-700 dark:text-emerald-400 font-bold">Grade A 實證</span>
+              <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[0.75rem] text-slate-500 dark:text-slate-400">
+                <span className="text-[0.6875rem] font-mono text-emerald-700 dark:text-emerald-400 font-bold">Grade A 實證</span>
                 <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'rotate-90 text-emerald-600 dark:text-salud-cyan' : ''}`} />
               </div>
             </button>
@@ -134,7 +134,7 @@ export const InfographHallmarksWheel: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
           <div className="space-y-2">
             <div className="flex items-center gap-2 flex-wrap text-xs font-mono">
-              <span className={`px-2.5 py-0.5 rounded-full border text-[11px] font-bold ${getCategoryMeta(selectedHallmark.category).badgeBg}`}>
+              <span className={`px-2.5 py-0.5 rounded-full border text-[0.75rem] font-bold ${getCategoryMeta(selectedHallmark.category).badgeBg}`}>
                 {getCategoryMeta(selectedHallmark.category).label}
               </span>
               <EvidenceBadge grade={selectedHallmark.evidence_grade} />

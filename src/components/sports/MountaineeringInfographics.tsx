@@ -79,7 +79,7 @@ export const MountaineeringInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-purple-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-purple-500 font-bold block">
                 {MOUNTAINEERING_INFOGRAPHICS[0].id} · {MOUNTAINEERING_INFOGRAPHICS[0].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -94,7 +94,7 @@ export const MountaineeringInfographics: React.FC = () => {
           </p>
 
           {/* Interactive Altitude Presets */}
-          <div className="grid grid-cols-4 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[10px] font-mono font-bold">
+          <div className="grid grid-cols-4 gap-1 p-1 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-[0.75rem] font-mono font-bold">
             {[
               { label: '海平面 (0m)', m: 0 },
               { label: '合歡山 (3150m)', m: 3150 },
@@ -116,17 +116,17 @@ export const MountaineeringInfographics: React.FC = () => {
           </div>
 
           {/* Live Physiological Metrics */}
-          <div className="grid grid-cols-3 gap-2 text-center font-mono text-[11px]">
+          <div className="grid grid-cols-3 gap-2 text-center font-mono text-[0.75rem]">
             <div className="p-2 rounded-xl bg-purple-500/10 border border-purple-500/30">
-              <span className="text-[9px] text-slate-400 block">大氣氣壓 (Pressure)</span>
+              <span className="text-[0.6875rem] text-slate-400 block">大氣氣壓 (Pressure)</span>
               <span className="font-extrabold text-xs text-purple-700 dark:text-purple-300">{altData.pressureHpa} hPa</span>
             </div>
             <div className="p-2 rounded-xl bg-purple-500/10 border border-purple-500/30">
-              <span className="text-[9px] text-slate-400 block">有效氧分壓 (PO2)</span>
+              <span className="text-[0.6875rem] text-slate-400 block">有效氧分壓 (PO2)</span>
               <span className="font-extrabold text-xs text-purple-700 dark:text-purple-300">{altData.effectivePo2} mmHg</span>
             </div>
             <div className="p-2 rounded-xl bg-purple-500/10 border border-purple-500/30">
-              <span className="text-[9px] text-slate-400 block">預估未適應 SpO2</span>
+              <span className="text-[0.6875rem] text-slate-400 block">預估未適應 SpO2</span>
               <span className="font-extrabold text-xs text-rose-600 dark:text-rose-400">{altData.spo2}%</span>
             </div>
           </div>
@@ -194,7 +194,7 @@ export const MountaineeringInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-rose-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-rose-500 font-bold block">
                 {MOUNTAINEERING_INFOGRAPHICS[1].id} · {MOUNTAINEERING_INFOGRAPHICS[1].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -288,7 +288,7 @@ export const MountaineeringInfographics: React.FC = () => {
         <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm lg:col-span-2">
           <div className="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
-              <span className="text-[10px] font-mono text-cyan-500 font-bold block">
+              <span className="text-[0.75rem] font-mono text-cyan-500 font-bold block">
                 {MOUNTAINEERING_INFOGRAPHICS[2].id} · {MOUNTAINEERING_INFOGRAPHICS[2].metrics_badge}
               </span>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
@@ -341,7 +341,7 @@ export const MountaineeringInfographics: React.FC = () => {
               <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                 {layerInfo[selectedLayer].functionZh}
               </p>
-              <div className="text-[11px] font-mono text-rose-500 pt-1">
+              <div className="text-[0.75rem] font-mono text-rose-500 pt-1">
                 {layerInfo[selectedLayer].dangerZh}
               </div>
             </div>

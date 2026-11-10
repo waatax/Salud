@@ -41,7 +41,7 @@ export const TIP_KIND_CLASS: Record<TipKind, string> = {
 export const TipKindBadge: React.FC<{ kind: TipKind }> = ({ kind }) => {
   const Icon = TIP_KIND_ICON[kind];
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-semibold ${TIP_KIND_CLASS[kind]}`}>
+    <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[0.75rem] font-semibold ${TIP_KIND_CLASS[kind]}`}>
       <Icon className="w-3 h-3" aria-hidden="true" />
       {TIP_KIND_META[kind].label_zh}
     </span>
@@ -193,12 +193,12 @@ export const QuickTips: React.FC<{ sectionKey: string; className?: string }> = (
                   <div className="flex items-center gap-2 flex-wrap">
                     <TipKindBadge kind={tip.kind} />
                     {isFirstRecommended && (
-                      <span className="px-2 py-0.5 rounded-full font-mono text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                      <span className="px-2 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
                         🌟 今日第一步推薦
                       </span>
                     )}
                     {tip.minutes > 0 && (
-                      <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
+                      <span className="inline-flex items-center gap-1 text-[0.75rem] text-slate-500 dark:text-slate-400">
                         <Clock className="w-3 h-3" aria-hidden="true" />
                         {tip.minutes} 分鐘
                       </span>

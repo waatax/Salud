@@ -381,7 +381,7 @@ export const ShareableSpineCareGuide: React.FC<{ defaultScenario?: CareGuideScen
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-emerald-200/80 dark:border-slate-800 pb-4">
         <div className="space-y-1.5">
           <div className="inline-flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-700 text-white dark:bg-emerald-500 dark:text-emerald-950 px-3 py-1 text-[11px] font-extrabold tracking-wide">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-700 text-white dark:bg-emerald-500 dark:text-emerald-950 px-3 py-1 text-[0.75rem] font-extrabold tracking-wide">
               <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
               專業臨床照護可分享小卡
             </span>
@@ -481,10 +481,10 @@ export const ShareableSpineCareGuide: React.FC<{ defaultScenario?: CareGuideScen
             >
               <div>
                 <div className="flex items-center justify-between gap-1 mb-1">
-                  <span className="text-[11px] font-extrabold text-emerald-700 dark:text-emerald-400">
+                  <span className="text-[0.75rem] font-extrabold text-emerald-700 dark:text-emerald-400">
                     重點 0{idx + 1}
                   </span>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold">
+                  <span className="text-[0.75rem] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold">
                     點擊詳情
                   </span>
                 </div>

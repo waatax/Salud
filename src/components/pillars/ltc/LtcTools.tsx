@@ -161,7 +161,7 @@ export const BarthelCalculator: React.FC = () => {
           ))}
           <div className="absolute top-[-3px] h-[18px] w-1 rounded bg-slate-900 dark:bg-white" style={{ left: `calc(${(total / 100) * 100}% - 2px)` }} />
         </div>
-        <div className="flex justify-between text-[10px] opacity-80 tabular-nums" aria-hidden="true">
+        <div className="flex justify-between text-[0.75rem] opacity-80 tabular-nums" aria-hidden="true">
           <span>0</span><span>20</span><span>60</span><span>90</span><span>100</span>
         </div>
         <p className="text-[14px] leading-relaxed">{band.hint}</p>

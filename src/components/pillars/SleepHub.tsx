@@ -2,6 +2,8 @@ import { MindBodyBridge } from './mindbody/MindBodyBridge';
 import React, { useState } from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { SLEEP_TABS } from '../../config/routes';
+import { HubHero } from '../common/HubHero';
+import { HUB_PRIMERS } from '../../data/hubPrimers';
 import {
   SLEEP_STAGES,
   SLEEP_TOPICS,
@@ -83,53 +85,10 @@ export const SleepHub: React.FC = () => {
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">
       <MindBodyBridge from="sleep" />
-      {/* ── Grand Hero Header ── */}
-      <div className="relative overflow-hidden rounded-3xl border border-purple-300/80 dark:border-purple-800/60 bg-gradient-to-br from-purple-50 via-white to-nature-sky-50/50 dark:from-purple-950/80 dark:via-slate-900/95 dark:to-slate-950 p-6 sm:p-10 shadow-sm dark:shadow-2xl backdrop-blur-md">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100/90 dark:bg-purple-950/70 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-700/60 text-xs font-mono font-bold">
-              <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 animate-pulse" />
-              <span>Salud 旗艦支柱 · 睡眠神經修復專科總樞紐</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
-              <span>睡眠神經生理、超晝夜架構、膠淋巴大腦沖刷與 CBT-I</span>
-            </h1>
-
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              睡眠不是關機，而是一場大腦唯二進行結構性排毒與突觸重組的高代謝交響樂！全面整合{' '}
-              <span className="text-purple-800 dark:text-purple-300 font-bold">多導睡眠圖 (PSG) 4 階段超晝夜週期</span>、
-              <span className="text-teal-800 dark:text-cyan-400 font-bold">慢波深睡期 AQP4 膠淋巴腦排毒</span>、
-              <span className="text-amber-800 dark:text-amber-400 font-bold">腺苷-咖啡因受體競爭動態試算</span>、
-              <span className="text-indigo-800 dark:text-indigo-400 font-bold">第一線失眠 CBT-I 睡眠效率試算</span> 與{' '}
-              <span className="text-rose-800 dark:text-rose-400 font-bold">STOP-BANG 睡眠呼吸中止症篩檢</span>！
-            </p>
-          </div>
-
-          {/* Quick Metrics Badges */}
-          <div className="grid grid-cols-2 gap-3 shrink-0">
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-purple-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-purple-700 dark:text-purple-400">90 min</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">超晝夜週期循環</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-purple-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-teal-700 dark:text-teal-400">+60%</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">深睡細胞間隙擴張</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-purple-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-amber-700 dark:text-amber-400">5.5h</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">咖啡因平均半衰期</div>
-            </div>
-            <div className="p-3.5 rounded-2xl bg-white/95 dark:bg-slate-900/80 border border-purple-200 dark:border-white/10 shadow-xs text-center">
-              <div className="text-xl font-mono font-extrabold text-emerald-700 dark:text-emerald-400">&gt;85%</div>
-              <div className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">CBT-I 最佳睡眠效率</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HubHero primer={HUB_PRIMERS.sleep} compact={activeTab !== 'OVERVIEW'} />
 
       {/* Navigation Sub-Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-purple-200/80 dark:border-slate-800 pb-2 text-xs font-mono">
+      <div className="flex flex-wrap items-center gap-2 border-b border-purple-200/80 dark:border-slate-800 pb-2 text-sm">
         <button
           onClick={() => setActiveTab('OVERVIEW')}
           className={`btn-tactile flex items-center gap-1.5 px-3.5 py-2 rounded-2xl border transition-all ${
@@ -139,7 +98,7 @@ export const SleepHub: React.FC = () => {
           }`}
         >
           <Layers className="w-4 h-4" />
-          <span>專區綜覽與 PSG 臨床分期</span>
+          <span>總覽：睡眠的四個階段</span>
         </button>
 
         <button
@@ -151,7 +110,7 @@ export const SleepHub: React.FC = () => {
           }`}
         >
           <Droplets className="w-4 h-4" />
-          <span>膠淋巴系統大腦自潔</span>
+          <span>深睡時大腦怎麼清理</span>
         </button>
 
         <button
@@ -163,7 +122,7 @@ export const SleepHub: React.FC = () => {
           }`}
         >
           <Coffee className="w-4 h-4" />
-          <span>腺苷-咖啡因清除模擬器</span>
+          <span>咖啡因試算：幾點前喝</span>
         </button>
 
         <button
@@ -175,7 +134,7 @@ export const SleepHub: React.FC = () => {
           }`}
         >
           <Calculator className="w-4 h-4" />
-          <span>CBT-I 睡眠效率試算器</span>
+          <span>失眠：睡眠效率試算</span>
         </button>
 
         <button
@@ -187,7 +146,7 @@ export const SleepHub: React.FC = () => {
           }`}
         >
           <AlertOctagon className="w-4 h-4" />
-          <span>STOP-BANG 呼吸中止症快篩</span>
+          <span>打呼與呼吸中止自我檢查</span>
         </button>
 
         <button
@@ -199,7 +158,7 @@ export const SleepHub: React.FC = () => {
           }`}
         >
           <Clock className="w-4 h-4" />
-          <span>晝夜節律生物鐘模擬</span>
+          <span>生理時鐘與光照</span>
         </button>
       </div>
 
@@ -225,17 +184,17 @@ export const SleepHub: React.FC = () => {
                     <span className="font-mono text-xs font-bold text-purple-700 dark:text-purple-400">
                       {st.stage.replace('_', ' ')}
                     </span>
-                    <span className="px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 font-mono text-[10px] font-bold border border-purple-200 dark:border-purple-800/50">
+                    <span className="px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 font-mono text-[0.75rem] font-bold border border-purple-200 dark:border-purple-800/50">
                       {st.pct_of_night}
                     </span>
                   </div>
                   <strong className="text-xs font-bold text-slate-900 dark:text-white block">
                     {language === 'zh-TW' ? st.name_zh.split(' · ')[1] : st.name_en.split(' · ')[1]}
                   </strong>
-                  <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                  <p className="text-[0.75rem] text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                     {language === 'zh-TW' ? st.physiological_function_zh : st.physiological_function_en}
                   </p>
-                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[10px] text-slate-500 font-mono">
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[0.75rem] text-slate-500 font-mono">
                     腦波特徵：{st.brain_wave_pattern}
                   </div>
                 </div>
@@ -442,35 +401,35 @@ export const SleepHub: React.FC = () => {
           <div className="p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 space-y-4 font-sans text-xs">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-center">
               <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800">
-                <span className="text-slate-400 text-[10px] block">就寢時血液殘留量</span>
+                <span className="text-slate-400 text-[0.75rem] block">就寢時血液殘留量</span>
                 <strong className={`text-base font-extrabold ${residualCaffeine > 50 ? 'text-rose-600' : 'text-amber-600'}`}>
                   {residualCaffeine} mg
                 </strong>
-                <span className="text-[10px] text-slate-500 block">經過 {hoursElapsed} 小時消除</span>
+                <span className="text-[0.75rem] text-slate-500 block">經過 {hoursElapsed} 小時消除</span>
               </div>
 
               <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800">
-                <span className="text-slate-400 text-[10px] block">腺苷 A1/A2A 阻斷率</span>
+                <span className="text-slate-400 text-[0.75rem] block">腺苷 A1/A2A 阻斷率</span>
                 <strong className={`text-base font-extrabold ${receptorOccupancy > 40 ? 'text-rose-600' : 'text-emerald-600'}`}>
                   {receptorOccupancy}%
                 </strong>
-                <span className="text-[10px] text-slate-500 block">睡意神經訊號被遮蔽</span>
+                <span className="text-[0.75rem] text-slate-500 block">睡意神經訊號被遮蔽</span>
               </div>
 
               <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800">
-                <span className="text-slate-400 text-[10px] block">N3 慢波深睡預估縮減</span>
+                <span className="text-slate-400 text-[0.75rem] block">N3 慢波深睡預估縮減</span>
                 <strong className={`text-base font-extrabold ${swsDeficitMinutes > 15 ? 'text-rose-600' : 'text-slate-700 dark:text-slate-200'}`}>
                   約 -{swsDeficitMinutes} 分鐘
                 </strong>
-                <span className="text-[10px] text-slate-500 block">大腦排毒時間被剪除</span>
+                <span className="text-[0.75rem] text-slate-500 block">大腦排毒時間被剪除</span>
               </div>
 
               <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800">
-                <span className="text-slate-400 text-[10px] block">入睡延遲懲罰</span>
+                <span className="text-slate-400 text-[0.75rem] block">入睡延遲懲罰</span>
                 <strong className="text-base font-extrabold text-amber-700 dark:text-amber-400">
                   +{latencyDelayMinutes} 分鐘
                 </strong>
-                <span className="text-[10px] text-slate-500 block">腦波 Beta 頻段延長</span>
+                <span className="text-[0.75rem] text-slate-500 block">腦波 Beta 頻段延長</span>
               </div>
             </div>
 
@@ -573,25 +532,25 @@ export const SleepHub: React.FC = () => {
           <div className="p-5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 space-y-4 font-sans text-xs">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-center">
               <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200 dark:border-slate-800">
-                <span className="text-slate-400 text-[10px] block">臥床總時長 (TIB)</span>
+                <span className="text-slate-400 text-[0.75rem] block">臥床總時長 (TIB)</span>
                 <strong className="text-base font-extrabold text-slate-900 dark:text-white">
                   {(timeInBedMins / 60).toFixed(1)} 小時 ({timeInBedMins}分)
                 </strong>
               </div>
 
               <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200 dark:border-slate-800">
-                <span className="text-slate-400 text-[10px] block">實際入睡時長 (TST)</span>
+                <span className="text-slate-400 text-[0.75rem] block">實際入睡時長 (TST)</span>
                 <strong className="text-base font-extrabold text-slate-900 dark:text-white">
                   {(totalSleepMins / 60).toFixed(1)} 小時 ({totalSleepMins}分)
                 </strong>
               </div>
 
               <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200 dark:border-slate-800 col-span-2 sm:col-span-1">
-                <span className="text-slate-400 text-[10px] block">睡眠效率 (Sleep Efficiency)</span>
+                <span className="text-slate-400 text-[0.75rem] block">睡眠效率 (Sleep Efficiency)</span>
                 <strong className={`text-xl font-extrabold ${sleepEfficiency >= 85 ? 'text-emerald-600' : sleepEfficiency >= 80 ? 'text-amber-600' : 'text-rose-600'}`}>
                   {sleepEfficiency}%
                 </strong>
-                <span className="text-[10px] text-slate-500 block">黃金目標 ≥ 85%</span>
+                <span className="text-[0.75rem] text-slate-500 block">黃金目標 ≥ 85%</span>
               </div>
             </div>
 
@@ -651,7 +610,7 @@ export const SleepHub: React.FC = () => {
                     </span>
                     <div>
                       <strong className="text-xs sm:text-sm font-bold block">{q.title_zh}</strong>
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400">{q.description_zh}</span>
+                      <span className="text-[0.75rem] text-slate-500 dark:text-slate-400">{q.description_zh}</span>
                     </div>
                   </div>
                   <input

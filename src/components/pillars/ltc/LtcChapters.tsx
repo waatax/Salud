@@ -292,7 +292,7 @@ export const LtcAssess: React.FC<GoTo> = ({ goTo }) => (
         <article key={b.item} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-3.5 space-y-2">
           <div className="flex items-center justify-between">
             <h4 className="text-[14.5px] font-bold text-slate-900 dark:text-white">{b.item}</h4>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300">
+            <span className="text-[0.75rem] font-semibold px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-300">
               滿分 {b.maxScore} 分
             </span>
           </div>
@@ -303,7 +303,7 @@ export const LtcAssess: React.FC<GoTo> = ({ goTo }) => (
                   <span className="text-teal-700 dark:text-teal-400">{l.score} 分</span>
                 </div>
                 <p className="text-slate-700 dark:text-slate-300 leading-snug">{l.desc}</p>
-                <p className="text-[11px] text-amber-800 dark:text-amber-400 mt-1">💡 臨床評分關鍵：{l.clinicalTip}</p>
+                <p className="text-[0.75rem] text-amber-800 dark:text-amber-400 mt-1">💡 臨床評分關鍵：{l.clinicalTip}</p>
               </div>
             ))}
           </div>

@@ -40,9 +40,9 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
   };
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto font-sans text-xs pb-16">
+    <div className="space-y-8 max-w-4xl mx-auto font-sans text-sm pb-16">
       {/* Hero Header */}
-      <ExerciseHeroHeader />
+      <ExerciseHeroHeader compact={activeTab !== 'PHYSIOLOGY'} />
 
       {/* 9-Discipline Tab Switcher */}
       <DisciplineTabBar activeTab={activeTab} onSelectTab={handleSelectTab} />

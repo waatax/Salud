@@ -30,7 +30,7 @@ export const FontSizeToggle: React.FC<Props> = ({ variant = 'compact', className
         aria-label={`切換字型大小，當前：${fontSizeLabel}`}
       >
         <Type className="w-3.5 h-3.5 text-nature-sky-600 dark:text-nature-sky-400 shrink-0" aria-hidden="true" />
-        <span className="font-bold text-[11px] tabular-nums">{symbol}</span>
+        <span className="font-bold text-[0.75rem] tabular-nums">{symbol}</span>
       </button>
     );
   }
@@ -63,7 +63,7 @@ export const FontSizeToggle: React.FC<Props> = ({ variant = 'compact', className
           aria-pressed={fontSize === opt.id}
         >
           <span>{opt.label}</span>
-          <span className="text-[10px] opacity-80 ml-0.5">({opt.text})</span>
+          <span className="text-[0.75rem] opacity-80 ml-0.5">({opt.text})</span>
         </button>
       ))}
     </div>

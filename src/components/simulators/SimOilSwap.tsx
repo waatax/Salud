@@ -45,10 +45,10 @@ export const SimOilSwap: React.FC = () => {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-salud-amber/20 text-salud-amber-700 dark:text-salud-amber-300 border border-salud-amber/40">
+              <span className="font-mono text-[0.75rem] uppercase tracking-wider px-2 py-0.5 rounded bg-salud-amber/20 text-salud-amber-700 dark:text-salud-amber-300 border border-salud-amber/40">
                 SIM-OIL-SWAP · v0.1
               </span>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">Chapter O 專屬模擬器</span>
+              <span className="text-[0.75rem] text-slate-500 dark:text-slate-400 font-mono">Chapter O 專屬模擬器</span>
             </div>
             <h3 className="text-base sm:text-lg font-display font-bold text-salud-light-text dark:text-salud-dark-text">
               等熱量換油模擬器 (Isocaloric Oil Swap)
@@ -57,7 +57,7 @@ export const SimOilSwap: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
+          <span className="text-[0.75rem] font-mono px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
             等熱量前提（總熱量 0 變化）
           </span>
           <button
@@ -88,7 +88,7 @@ export const SimOilSwap: React.FC = () => {
               </option>
             ))}
           </select>
-          <span className="text-[10px] text-slate-500 font-mono mt-1 block">
+          <span className="text-[0.75rem] text-slate-500 font-mono mt-1 block">
             發煙點 ~{fromOil.smoke_point_c}°C
           </span>
         </div>
@@ -109,7 +109,7 @@ export const SimOilSwap: React.FC = () => {
               </option>
             ))}
           </select>
-          <span className="text-[10px] text-slate-500 font-mono mt-1 block">
+          <span className="text-[0.75rem] text-slate-500 font-mono mt-1 block">
             發煙點 ~{toOil.smoke_point_c}°C
           </span>
         </div>
@@ -130,7 +130,7 @@ export const SimOilSwap: React.FC = () => {
             onChange={(e) => setTeaspoons(Number(e.target.value))}
             className="w-full accent-salud-amber"
           />
-          <div className="flex justify-between text-[10px] text-slate-500 font-mono">
+          <div className="flex justify-between text-[0.75rem] text-slate-500 font-mono">
             <span>1 茶匙 (5g)</span>
             <span>4 茶匙 (家常平均)</span>
             <span>8 茶匙 (高外食)</span>
@@ -246,35 +246,35 @@ export const SimOilSwap: React.FC = () => {
             <div className={`p-4 rounded-xl border text-center ${
               sfaDeltaG <= 0 ? 'border-emerald-500/40 bg-emerald-100/70 dark:bg-emerald-950/20' : 'border-red-500/40 bg-red-100/70 dark:bg-red-950/20'
             }`}>
-              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 block">飽和脂肪變化 (SFA)</span>
+              <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 block">飽和脂肪變化 (SFA)</span>
               <strong className={`text-2xl font-display block my-1 ${
                 sfaDeltaG <= 0 ? 'text-emerald-700 dark:text-emerald-300' : 'text-red-700 dark:text-red-300'
               }`}>
                 {sfaDeltaG > 0 ? `+${sfaDeltaG}` : sfaDeltaG} g/日
               </strong>
-              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+              <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
                 {sfaFromG} g ➔ {sfaToG} g
               </span>
             </div>
 
             {/* MUFA Metric */}
             <div className="p-4 rounded-xl border border-salud-cyan/40 bg-cyan-100/70 dark:bg-salud-cyan-950/20 text-center">
-              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 block">單元不飽和變化 (MUFA)</span>
+              <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 block">單元不飽和變化 (MUFA)</span>
               <strong className="text-2xl font-display text-salud-cyan-700 dark:text-salud-cyan-300 block my-1">
                 {mufaDeltaG > 0 ? `+${mufaDeltaG}` : mufaDeltaG} g/日
               </strong>
-              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+              <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
                 {mufaFromG} g ➔ {mufaToG} g
               </span>
             </div>
 
             {/* PUFA Metric */}
             <div className="p-4 rounded-xl border border-slate-300 dark:border-slate-800 bg-slate-100/90 dark:bg-slate-900/60 text-center">
-              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 block">多元不飽和變化 (PUFA)</span>
+              <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400 block">多元不飽和變化 (PUFA)</span>
               <strong className="text-2xl font-display text-slate-800 dark:text-slate-200 block my-1">
                 {pufaDeltaG > 0 ? `+${pufaDeltaG}` : pufaDeltaG} g/日
               </strong>
-              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+              <span className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">
                 {pufaFromG} g ➔ {pufaToG} g
               </span>
             </div>
@@ -283,7 +283,7 @@ export const SimOilSwap: React.FC = () => {
 
         {/* WHO 10%E Reference Scale (Spec §7.4 UX) */}
         <div className="p-4 rounded-xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 space-y-2">
-          <div className="flex justify-between items-center text-[11px] font-mono text-slate-700 dark:text-slate-300">
+          <div className="flex justify-between items-center text-[0.75rem] font-mono text-slate-700 dark:text-slate-300">
             <span>WHO 飽和脂肪攝取上限：總熱量 10%E（2000 kcal 下約 22 g/日）</span>
             <span className="text-salud-amber-600 dark:text-salud-amber-400 font-bold">
               換油後佔比估算：{sfaToPctE}%E
@@ -304,7 +304,7 @@ export const SimOilSwap: React.FC = () => {
             />
           </div>
 
-          <div className="flex justify-between text-[10px] font-mono text-slate-500">
+          <div className="flex justify-between text-[0.75rem] font-mono text-slate-500">
             <span>0%E</span>
             <span className="text-red-500 dark:text-red-400 font-bold">10%E (WHO 警戒線)</span>
             <span>20%E</span>
@@ -328,7 +328,7 @@ export const SimOilSwap: React.FC = () => {
         </div>
 
         {/* Hard constraints disclaimer (Spec §7.4 & S-05) */}
-        <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-[11px] font-mono text-slate-500 leading-relaxed">
+        <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-[0.75rem] font-mono text-slate-500 leading-relaxed">
           ⓘ 這是族群平均的營養素等熱量替代估算，<strong>禁止作為個人心血管發病機率之臨床預測</strong>。實際油品組成因產地、壓榨方式而有 ±10% 變異。
         </div>
       </div>

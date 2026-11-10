@@ -1939,38 +1939,36 @@ const LESSON_TABLES: Record<string, LessonTableConfig> = {
   },
 };
 
-/** 通用備用教學結構表 (用於非課程或例外情境) */
-function createFallbackTable(lessonId: string, trackTitle: string): LessonTableConfig {
-  return {
-    title: `${trackTitle} · 實證核心執行指引對照表`,
-    source: 'Salud 醫學實證核心資料庫 · 2026 最新臨床指引',
-    columns: ['核心面向', '臨床建議標準', '生理機轉原理', '生活實踐要點'],
-    rows: [
-      {
-        item: '首要核心習慣',
-        standard: '依據循證指引建立日常基線',
-        mechanism: '透過穩定神經迴路與代謝恆定性改善器官負荷',
-        note: '從小步開始，連續記錄 7 天以建立習慣迴路',
-      },
-      {
-        item: '環境與安全邊界',
-        standard: '掌握個人耐受閾值與紅線指標',
-        mechanism: '避免急性代謝劇烈波動或運動性過度過載',
-        note: '出現急性疼痛、呼吸急促或異常頭暈應停止並諮詢醫師',
-      },
-      {
-        item: '長期健康效益',
-        standard: '累積微小原子習慣延長健康餘命',
-        mechanism: '抑制慢性全身性微發炎與血管內皮老化',
-        note: '配合 2:1:1 飲食與每週 150 分鐘中強度活動發揮最大協同效應',
-      },
-    ],
-    tip: '實證健康法的精髓在於「可持續性」：能長年堅持的 70 分習慣，遠勝過堅持兩天就放棄的 100 分計畫。',
-  };
-}
+/**
+ * v6.4: which table belongs to which lesson. The tables above keep their original keys; several
+ * lessons were reordered after the tables were written, so a lesson could show a neighbouring
+ * lesson's table (the protein lesson showed the NOVA table). `null` means no table fits the
+ * lesson — it then shows none instead of a generic filler table.
+ */
+export const LESSON_TABLE_KEY: Record<string, string | null> = {
+  'L-BODY-04': 'L-BODY-07',
+  'L-BODY-05': 'L-BODY-04',
+  'L-BODY-06': 'L-BODY-08',
+  'L-BODY-07': 'L-BODY-06',
+  'L-BODY-08': 'L-BODY-05',
+  'L-EAT-02': 'L-EAT-03',
+  'L-EAT-03': 'L-EAT-05',
+  'L-EAT-05': 'L-EAT-06',
+  'L-EAT-06': 'L-EAT-02',
+  'L-EAT-09': null,
+  'L-MOVE-04': 'L-MOVE-07',
+  'L-MOVE-06': 'L-MOVE-04',
+  'L-MOVE-07': 'L-MOVE-06',
+  'L-REST-02': 'L-REST-04',
+  'L-REST-04': 'L-REST-05',
+  'L-REST-05': 'L-REST-07',
+  'L-REST-07': null,
+};
 
 export const LessonReferenceTable: React.FC<{ lessonId: string; trackTitle: string }> = ({ lessonId, trackTitle }) => {
-  const config = LESSON_TABLES[lessonId] ?? createFallbackTable(lessonId, trackTitle);
+  const key = lessonId in LESSON_TABLE_KEY ? LESSON_TABLE_KEY[lessonId] : lessonId;
+  const config = key ? LESSON_TABLES[key] : undefined;
+  if (!config) return null;
 
   return (
     <section aria-labelledby={`table-h-${lessonId}`} className="space-y-3 pt-2">

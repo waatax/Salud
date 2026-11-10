@@ -33,7 +33,7 @@ export const InfographSenescenceSASP: React.FC = () => {
         </div>
 
         <div className="px-3.5 py-2 rounded-xl bg-white/90 dark:bg-rose-500/10 border border-emerald-200 dark:border-rose-500/30 text-center shrink-0 shadow-xs">
-          <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400">人體最大儲存庫</div>
+          <div className="text-[0.75rem] font-mono text-slate-500 dark:text-slate-400">人體最大儲存庫</div>
           <div className="text-xs font-mono font-bold text-emerald-800 dark:text-rose-300">肥胖內臟脂肪細胞</div>
         </div>
       </div>
@@ -58,8 +58,8 @@ export const InfographSenescenceSASP: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className={`text-[10px] font-mono font-bold ${isActive ? 'text-emerald-100' : 'text-slate-500'}`}>{s.step}</span>
-                <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${
+                <span className={`text-[0.75rem] font-mono font-bold ${isActive ? 'text-emerald-100' : 'text-slate-500'}`}>{s.step}</span>
+                <span className={`text-[0.6875rem] font-mono px-1.5 py-0.5 rounded ${
                   isActive ? 'bg-white/20 text-white border border-white/30' : 'bg-emerald-50 dark:bg-white/5 text-emerald-800 dark:text-slate-300 border border-emerald-200 dark:border-white/10'
                 }`}>
                   {s.badge}
@@ -122,18 +122,18 @@ export const InfographSenescenceSASP: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="p-3.5 rounded-xl bg-rose-50/70 dark:bg-slate-950 border border-rose-200 dark:border-slate-850 text-xs space-y-1">
                 <div className="font-bold text-rose-700 dark:text-rose-400">發炎細胞因子</div>
-                <div className="text-slate-800 dark:text-slate-300 font-mono text-[11px]">IL-6, IL-1β, TNF-α</div>
-                <div className="text-[10px] text-slate-600 dark:text-slate-500">驅動全身慢性低度發炎 (Inflammaging)</div>
+                <div className="text-slate-800 dark:text-slate-300 font-mono text-[0.75rem]">IL-6, IL-1β, TNF-α</div>
+                <div className="text-[0.75rem] text-slate-600 dark:text-slate-500">驅動全身慢性低度發炎 (Inflammaging)</div>
               </div>
               <div className="p-3.5 rounded-xl bg-amber-50/70 dark:bg-slate-950 border border-amber-200 dark:border-slate-850 text-xs space-y-1">
                 <div className="font-bold text-amber-700 dark:text-amber-400">基質金屬蛋白酶</div>
-                <div className="text-slate-800 dark:text-slate-300 font-mono text-[11px]">MMP-1, MMP-3, MMP-12</div>
-                <div className="text-[10px] text-slate-600 dark:text-slate-500">溶解結締組織、誘發動脈硬化與關節退化</div>
+                <div className="text-slate-800 dark:text-slate-300 font-mono text-[0.75rem]">MMP-1, MMP-3, MMP-12</div>
+                <div className="text-[0.75rem] text-slate-600 dark:text-slate-500">溶解結締組織、誘發動脈硬化與關節退化</div>
               </div>
               <div className="p-3.5 rounded-xl bg-purple-50/70 dark:bg-slate-950 border border-purple-200 dark:border-slate-850 text-xs space-y-1">
                 <div className="font-bold text-purple-700 dark:text-purple-400">血管與纖溶調節</div>
-                <div className="text-slate-800 dark:text-slate-300 font-mono text-[11px]">PAI-1, VEGF, GDF-15</div>
-                <div className="text-[10px] text-slate-600 dark:text-slate-500">促進微血管滲漏與血栓形成傾向</div>
+                <div className="text-slate-800 dark:text-slate-300 font-mono text-[0.75rem]">PAI-1, VEGF, GDF-15</div>
+                <div className="text-[0.75rem] text-slate-600 dark:text-slate-500">促進微血管滲漏與血栓形成傾向</div>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ export const InfographSenescenceSASP: React.FC = () => {
             </p>
             <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-500/30 text-xs text-slate-800 dark:text-slate-200 space-y-2">
               <div className="font-bold text-emerald-800 dark:text-emerald-400 font-mono">Mayo Clinic 臨床推薦「打帶跑」方案：</div>
-              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                 衰老細胞生成緩慢，清除一次後需數月才會再積聚。因此非每日長期服藥，而是「每個月或每季連續使用 2~3 天」，隨後徹底停藥。此方案兼具極高安全性與深層微環境淨化效果！
               </p>
             </div>
@@ -163,7 +163,7 @@ export const InfographSenescenceSASP: React.FC = () => {
         <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
         <div className="space-y-1">
           <span className="font-bold text-amber-800 dark:text-amber-300">跨專區連動警示：肥胖內臟脂肪是全身最大的 SASP 毒素製造工廠！</span>
-          <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-[0.75rem] leading-relaxed">
             大量臨床切片研究證實：肥胖者腹腔內網膜脂肪組織中的前驅脂肪細胞與巨噬細胞，大量處於 p16 陽性衰老狀態。這意味著肥胖直接等於「全身加速衰老」。積極控制體重與消除內臟脂肪，就是最有效的第一線抗衰老療法。
           </p>
         </div>

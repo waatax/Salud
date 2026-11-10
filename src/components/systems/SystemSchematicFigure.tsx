@@ -1377,11 +1377,11 @@ export const SystemSchematicFigure: React.FC<Props> = ({
       <div className="w-full flex items-center justify-between pb-2 border-b border-slate-200/60 dark:border-slate-800/60">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full animate-ping" style={{ backgroundColor: system.theme_color }} />
-          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-600 dark:text-slate-300 font-bold">
+          <span className="text-[0.75rem] font-mono uppercase tracking-wider text-slate-600 dark:text-slate-300 font-bold">
             {system.name_en} · Anatomical Model
           </span>
         </div>
-        <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
+        <span className="px-2.5 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
           Netter 醫學標準向量拓撲
         </span>
       </div>
@@ -1392,7 +1392,7 @@ export const SystemSchematicFigure: React.FC<Props> = ({
       </div>
 
       {/* Instruction Footnote */}
-      <p className="text-[11px] font-mono text-slate-400 text-center pb-2">
+      <p className="text-[0.75rem] font-mono text-slate-400 text-center pb-2">
         ※ 點擊圖中器官輪廓或動態脈衝熱點，即時解析解剖拓撲、生化機轉與臨床病理
       </p>
 
@@ -1408,7 +1408,7 @@ export const SystemSchematicFigure: React.FC<Props> = ({
               <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
                 {selectedOrganData.name_zh}
               </h4>
-              <span className="text-[10px] font-mono text-slate-400 block truncate">
+              <span className="text-[0.75rem] font-mono text-slate-400 block truncate">
                 {selectedOrganData.name_en}
               </span>
             </div>
@@ -1426,7 +1426,7 @@ export const SystemSchematicFigure: React.FC<Props> = ({
 
         {/* Physiological Function & Biochemical Mechanism */}
         <div className="space-y-1">
-          <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
+          <span className="text-[0.75rem] font-mono font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
             <Activity className="w-3 h-3" />
             <span>核心生理機轉 (Physiological Mechanism)</span>
           </span>
@@ -1437,11 +1437,11 @@ export const SystemSchematicFigure: React.FC<Props> = ({
 
         {/* Clinical Note & Pathology Warning */}
         <div className="rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900/40 p-2.5 space-y-0.5">
-          <span className="text-[10px] font-mono font-bold text-amber-800 dark:text-amber-300 flex items-center gap-1">
+          <span className="text-[0.75rem] font-mono font-bold text-amber-800 dark:text-amber-300 flex items-center gap-1">
             <Stethoscope className="w-3 h-3" />
             <span>臨床診斷與病理關聯 (Clinical Significance)</span>
           </span>
-          <p className="text-[11px] leading-relaxed text-slate-700 dark:text-slate-300">
+          <p className="text-[0.75rem] leading-relaxed text-slate-700 dark:text-slate-300">
             {selectedOrganData.clinical_note_zh}
           </p>
         </div>

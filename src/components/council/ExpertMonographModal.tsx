@@ -101,10 +101,10 @@ export const ExpertMonographModal: React.FC<Props> = ({
             </span>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 px-2 py-0.5 rounded-md border border-purple-200 dark:border-purple-800/50">
+                <span className="text-[0.75rem] font-mono font-bold uppercase tracking-wider text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 px-2 py-0.5 rounded-md border border-purple-200 dark:border-purple-800/50">
                   50+ 篇同行評審深度專論 (Peer-Reviewed Monograph)
                 </span>
-                <span className="hidden sm:inline-flex text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-semibold items-center gap-1">
+                <span className="hidden sm:inline-flex text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-400 font-semibold items-center gap-1">
                   <CheckCircle2 className="w-3 h-3" /> 臨床嚴謹簽核
                 </span>
               </div>
@@ -143,12 +143,12 @@ export const ExpertMonographModal: React.FC<Props> = ({
         {/* Expert Quick Switch Ribbon */}
         {onSelectExpert && (
           <div className="px-5 sm:px-8 py-2 bg-slate-100/80 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2 overflow-x-auto scrollbar-thin text-xs print:hidden">
-            <span className="text-[10px] font-mono text-slate-500 font-bold shrink-0">切換席位：</span>
+            <span className="text-[0.75rem] font-mono text-slate-500 font-bold shrink-0">切換席位：</span>
             {EXPERT_MONOGRAPHS.map((m) => (
               <button
                 key={m.expertId}
                 onClick={() => onSelectExpert(m.expertId)}
-                className={`px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold shrink-0 transition-colors ${
+                className={`px-2 py-0.5 rounded-lg text-[0.75rem] font-mono font-bold shrink-0 transition-colors ${
                   m.expertId === monograph.expertId
                     ? 'bg-nature-amber-500 text-black shadow-xs'
                     : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -316,7 +316,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
                 <p>{monograph.pathophysiologyDeepDive_zh}</p>
                 {bestPractice?.infograph && (
                   <div className="pt-2">
-                    <span className="font-mono text-[11px] font-bold text-purple-700 dark:text-purple-400 block mb-2">
+                    <span className="font-mono text-[0.75rem] font-bold text-purple-700 dark:text-purple-400 block mb-2">
                       生化機制向量與決策路徑 (Infographic Mechanism)：
                     </span>
                     <ExpertInfoGraph
@@ -360,7 +360,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
                     量化生理指標與安全閾值矩陣 (Quantitative Biomarker & Safety Thresholds)
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-slate-500">
+                <span className="text-[0.75rem] font-mono text-slate-500">
                   共 {monograph.quantitativeMetrics.length} 項核心監控變因
                 </span>
               </div>
@@ -410,7 +410,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
                     臨床介入標準作業程序與禁忌紅線 (Clinical Protocol SOP & Contraindications)
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1">
+                <span className="text-[0.75rem] font-mono text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1">
                   <AlertTriangle className="w-3 h-3" />
                   嚴禁越界
                 </span>
@@ -460,7 +460,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
                   <h3 className="font-display font-extrabold text-base sm:text-lg text-slate-900 dark:text-white">
                     完整同行評審參考文獻庫 (Peer-Reviewed References & Citations)
                   </h3>
-                  <span className="px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 font-mono text-[10px] font-bold">
+                  <span className="px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 font-mono text-[0.75rem] font-bold">
                     共 {monograph.references.length} 篇權威文獻
                   </span>
                 </div>
@@ -485,14 +485,14 @@ export const ExpertMonographModal: React.FC<Props> = ({
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded-md font-mono text-[11px] font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                        <span className="px-2 py-0.5 rounded-md font-mono text-[0.75rem] font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                           [{ref.id}]
                         </span>
-                        <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-purple-50 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
+                        <span className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono font-bold bg-purple-50 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
                           {ref.studyType}
                         </span>
                         {ref.pmidOrDoi && (
-                          <span className="font-mono text-[11px] font-bold text-sky-600 dark:text-sky-400">
+                          <span className="font-mono text-[0.75rem] font-bold text-sky-600 dark:text-sky-400">
                             {ref.pmidOrDoi}
                           </span>
                         )}
@@ -500,7 +500,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
 
                       <button
                         onClick={() => handleCopyCitation(ref)}
-                        className="px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-[10px] font-mono text-slate-600 dark:text-slate-300 flex items-center gap-1 transition-colors"
+                        className="px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-[0.75rem] font-mono text-slate-600 dark:text-slate-300 flex items-center gap-1 transition-colors"
                       >
                         {copiedRefId === ref.id ? (
                           <>
@@ -520,7 +520,7 @@ export const ExpertMonographModal: React.FC<Props> = ({
                       {ref.citation}
                     </p>
 
-                    <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300 flex items-start gap-1.5">
+                    <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 text-[0.75rem] text-slate-600 dark:text-slate-300 flex items-start gap-1.5">
                       <span className="font-mono font-bold text-slate-400 shrink-0">實證焦點：</span>
                       <span>{ref.keyFinding}</span>
                     </div>

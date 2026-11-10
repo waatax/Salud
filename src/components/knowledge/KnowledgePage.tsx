@@ -227,16 +227,16 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
               <span>醫學知識庫</span>
             </span>
             <span className="text-slate-300 dark:text-slate-700">/</span>
-            <span className="px-2 py-0.5 rounded-lg bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 font-mono text-[11px] font-bold border border-sky-200 dark:border-sky-800/60">
+            <span className="px-2 py-0.5 rounded-lg bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 font-mono text-[0.75rem] font-bold border border-sky-200 dark:border-sky-800/60">
               {page.category_zh || '臨床醫學專章'}
             </span>
             {page.difficulty && (
-              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-[11px] border border-slate-200 dark:border-slate-700">
+              <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-[0.75rem] border border-slate-200 dark:border-slate-700">
                 {page.difficulty}
               </span>
             )}
             {page.safety_gated && (
-              <span className="px-2 py-0.5 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-mono text-[11px] font-bold border border-rose-200 dark:border-rose-800 flex items-center gap-1">
+              <span className="px-2 py-0.5 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-mono text-[0.75rem] font-bold border border-rose-200 dark:border-rose-800 flex items-center gap-1">
                 <AlertTriangle className="w-3 h-3 text-rose-600 dark:text-rose-400" />
                 SAFETY GATED
               </span>
@@ -244,7 +244,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </div>
 
           {/* 研讀完成與書籤操作列 */}
-          <div className="flex items-center gap-2 font-mono text-[11px]">
+          <div className="flex items-center gap-2 font-mono text-[0.75rem]">
             <span className="text-slate-500 dark:text-slate-400 hidden sm:inline flex items-center gap-1">
               <Clock className="w-3 h-3 text-nature-sky-600 dark:text-nature-sky-400" /> {t('page.estimated_time', page.estimated_minutes)}
             </span>
@@ -330,14 +330,14 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         {/* Medical TAGs list */}
         {page.tags && page.tags.length > 0 && (
           <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
+            <span className="text-[0.75rem] font-mono text-slate-400 flex items-center gap-1">
               <Tag className="w-3 h-3 text-nature-sky-600 dark:text-nature-sky-400" />
               TAGs:
             </span>
             {page.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[11px] font-mono px-2.5 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-nature-sky-400 transition-colors"
+                className="text-[0.75rem] font-mono px-2.5 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-nature-sky-400 transition-colors"
               >
                 #{tag}
               </span>
@@ -347,8 +347,8 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       </header>
 
       {/* ── 📌 章節快速跳轉導航列 (Sticky In-Page TOC Quick Jump Bar) ── */}
-      <div className="sticky top-16 z-30 -mx-2 px-3 py-2.5 bg-white/95 dark:bg-salud-dark-bg/95 backdrop-blur-md border-y border-slate-200/80 dark:border-slate-800/80 overflow-x-auto scrollbar-none flex items-center gap-1.5 text-[11px] font-mono shadow-xs">
-        <span className="text-slate-400 font-sans text-[10px] uppercase font-bold shrink-0 mr-1 hidden sm:inline">章節導航:</span>
+      <div className="sticky top-16 z-30 -mx-2 px-3 py-2.5 bg-white/95 dark:bg-salud-dark-bg/95 backdrop-blur-md border-y border-slate-200/80 dark:border-slate-800/80 overflow-x-auto scrollbar-none flex items-center gap-1.5 text-[0.75rem] font-mono shadow-xs">
+        <span className="text-slate-400 font-sans text-[0.75rem] uppercase font-bold shrink-0 mr-1 hidden sm:inline">章節導航:</span>
         {inPageSections.map((sec) => (
           <button
             key={sec.id}
@@ -360,7 +360,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
         ))}
         <button
           onClick={handleCopySummary}
-          className="btn-tactile ml-auto px-2.5 py-1 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/80 shrink-0 whitespace-nowrap flex items-center gap-1 font-sans text-[11px] font-semibold"
+          className="btn-tactile ml-auto px-2.5 py-1 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/80 shrink-0 whitespace-nowrap flex items-center gap-1 font-sans text-[0.75rem] font-semibold"
           title="複製本篇 30 秒重點摘要"
         >
           {copiedToast ? <CheckCheck className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5 text-amber-600" />}
@@ -381,7 +381,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
               </span>
             </div>
             {leadExpert && (
-              <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 flex items-center gap-1">
+              <span className="text-[0.75rem] font-mono font-bold px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                 <span>{leadExpert.id} · {language === 'zh-TW' ? leadExpert.title_zh : leadExpert.title_en}</span>
               </span>
@@ -402,7 +402,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
             <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span>⚡ 30 秒快速精華卡片 (30-Sec Takeaway)</span>
           </span>
-          <span className="text-[10px] font-mono text-slate-500">
+          <span className="text-[0.75rem] font-mono text-slate-500">
             臨床精華 · 實踐導向
           </span>
         </div>
@@ -416,7 +416,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </div>
           <button
             onClick={handleCopySummary}
-            className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+            className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
           >
             {copiedToast ? <CheckCheck className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copiedToast ? '已複製重點！' : '複製精華卡片'}</span>
@@ -442,7 +442,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── 00 Hook ── */}
       <section id="sec-hook" className="p-5 rounded-2xl border border-nature-amber-200/90 dark:border-nature-amber-500/30 bg-nature-amber-50/70 dark:bg-nature-amber-950/20 shadow-sm">
-        <div className="font-mono text-[11px] text-nature-amber-800 dark:text-nature-amber-400 font-bold mb-1.5 uppercase tracking-wider">
+        <div className="font-mono text-[0.75rem] text-nature-amber-800 dark:text-nature-amber-400 font-bold mb-1.5 uppercase tracking-wider">
           {t('page.sec_00_hook')}
         </div>
         <p className="text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
@@ -461,7 +461,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
             {t('page.sec_01_kps')}
           </h3>
           <div className="flex items-center gap-2 sm:gap-3">
-            <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+            <span className="font-mono text-[0.75rem] text-slate-500 dark:text-slate-400">
               {page.kps.length} 個原子化知識點
             </span>
             <button
@@ -494,7 +494,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                       {(() => {
                         const meta = KP_TYPE_META[kp.kp_type] || { label: kp.kp_type, icon: '📌', tone: 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700' };
                         return (
-                          <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md font-semibold border flex items-center gap-1 ${meta.tone}`}>
+                          <span className={`text-[0.75rem] font-mono px-2 py-0.5 rounded-md font-semibold border flex items-center gap-1 ${meta.tone}`}>
                             <span>{meta.icon}</span>
                             <span>{meta.label}</span>
                           </span>
@@ -555,7 +555,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                     )}
 
                     {/* Metadata pill row */}
-                    <div className="flex flex-wrap items-center gap-2 pt-2 font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                    <div className="flex flex-wrap items-center gap-2 pt-2 font-mono text-[0.75rem] text-slate-500 dark:text-slate-400">
                       <span>適用：{kp.applies_population}</span>
                       <span>·</span>
                       <span>區域：{kp.applies_region}</span>
@@ -578,7 +578,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
                       return (
                         <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
-                          <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
+                          <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[0.75rem]">
                             <span className="font-bold text-salud-cyan-800 dark:text-salud-cyan flex items-center gap-1.5">
                               <BookOpen className="w-3.5 h-3.5" />
                               實證研究與論文出處 (Peer-Reviewed Papers)
@@ -587,7 +587,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                               href={`https://scholar.google.com/scholar?q=${encodeURIComponent(scholarSearchQuery)}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-[10px] text-amber-700 dark:text-amber-300 font-bold hover:underline"
+                              className="inline-flex items-center gap-1 text-[0.75rem] text-amber-700 dark:text-amber-300 font-bold hover:underline"
                             >
                               <span>在 Google Scholar 檢索</span>
                               <ExternalLink className="w-2.5 h-2.5" />
@@ -595,7 +595,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                           </div>
 
                           {hasPapers ? (
-                            <div className="space-y-2 pt-1 font-mono text-[11px]">
+                            <div className="space-y-2 pt-1 font-mono text-[0.75rem]">
                               {atom.evidence_records.map((ev) => {
                                 const urls = buildPaperUrls(ev);
                                 return (
@@ -604,17 +604,17 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                                     className="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 space-y-1"
                                   >
                                     {ev.title && (
-                                      <h6 className="font-bold text-slate-900 dark:text-slate-100 text-[11px] font-sans leading-snug">
+                                      <h6 className="font-bold text-slate-900 dark:text-slate-100 text-[0.75rem] font-sans leading-snug">
                                         {ev.title}
                                       </h6>
                                     )}
-                                    <div className="text-[10px] text-slate-500 flex flex-wrap items-center gap-1.5">
+                                    <div className="text-[0.75rem] text-slate-500 flex flex-wrap items-center gap-1.5">
                                       {ev.authors && <span>{ev.authors}</span>}
                                       {ev.journal && <span>· <strong>{ev.journal}</strong></span>}
                                       {ev.year && <span>({ev.year})</span>}
                                     </div>
 
-                                    <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[10px]">
+                                    <div className="flex flex-wrap items-center gap-1.5 pt-1 text-[0.75rem]">
                                       {urls.doiUrl && (
                                         <a
                                           href={urls.doiUrl}
@@ -652,7 +652,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                               })}
                             </div>
                           ) : (
-                            <div className="text-[11px] text-slate-500 font-mono">
+                            <div className="text-[0.75rem] text-slate-500 font-mono">
                               <span>登錄實證出處：{kp.claim_ids.join(', ') || '經專門小組定審'}</span>
                             </div>
                           )}
@@ -671,12 +671,12 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
                       return (
                         <div className="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-300/80 dark:border-amber-800/60 space-y-3 text-xs">
-                          <div className="flex items-center justify-between font-mono text-[11px] text-amber-800 dark:text-amber-300 font-bold border-b border-amber-200 dark:border-amber-900/60 pb-2">
+                          <div className="flex items-center justify-between font-mono text-[0.75rem] text-amber-800 dark:text-amber-300 font-bold border-b border-amber-200 dark:border-amber-900/60 pb-2">
                             <span className="flex items-center gap-1.5">
                               <GraduationCap className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                               🎓 專業醫護深度解析 (Clinical Mastery Profile)
                             </span>
-                            <span className="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 text-[10px]">
+                            <span className="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 text-[0.75rem]">
                               6 維臨床指引
                             </span>
                           </div>
@@ -684,60 +684,60 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
                             {/* 1. 通俗核心 */}
                             <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-amber-100 dark:border-amber-900/40 space-y-1">
-                              <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 block font-mono">
+                              <span className="text-[0.75rem] font-bold text-amber-700 dark:text-amber-400 block font-mono">
                                 💡 通俗核心與心智模型 (大眾)
                               </span>
-                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                                 {mastery.plain_core_zh}
                               </p>
                             </div>
 
                             {/* 2. 生化機轉 */}
                             <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-indigo-100 dark:border-indigo-900/40 space-y-1">
-                              <span className="text-[10px] font-bold text-indigo-700 dark:text-indigo-400 block font-mono">
+                              <span className="text-[0.75rem] font-bold text-indigo-700 dark:text-indigo-400 block font-mono">
                                 🔬 病理生理與生化機轉 (醫師)
                               </span>
-                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                                 {mastery.biochemical_mechanism_zh}
                               </p>
                             </div>
 
                             {/* 3. 臨床數據 */}
                             <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-cyan-100 dark:border-cyan-900/40 space-y-1">
-                              <span className="text-[10px] font-bold text-cyan-700 dark:text-cyan-400 block font-mono">
+                              <span className="text-[0.75rem] font-bold text-cyan-700 dark:text-cyan-400 block font-mono">
                                 📊 臨床數據與檢驗判讀 (診斷)
                               </span>
-                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                                 {mastery.diagnostic_cutoffs_zh}
                               </p>
                             </div>
 
                             {/* 4. 精準營養 */}
                             <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-emerald-100 dark:border-emerald-900/40 space-y-1">
-                              <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 block font-mono">
+                              <span className="text-[0.75rem] font-bold text-emerald-700 dark:text-emerald-400 block font-mono">
                                 🥗 精準營養與生活處方 (營養師)
                               </span>
-                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                                 {mastery.nutritional_protocol_zh}
                               </p>
                             </div>
 
                             {/* 5. 用藥交互 */}
                             <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-rose-100 dark:border-rose-900/40 space-y-1">
-                              <span className="text-[10px] font-bold text-rose-700 dark:text-rose-400 block font-mono">
+                              <span className="text-[0.75rem] font-bold text-rose-700 dark:text-rose-400 block font-mono">
                                 ⚠️ 用藥交互與警訊紅線 (藥師/急診)
                               </span>
-                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                                 {mastery.drug_interactions_red_flags_zh}
                               </p>
                             </div>
 
                             {/* 6. 臨床珍珠 */}
                             <div className="p-3 rounded-lg bg-white/90 dark:bg-slate-900/90 border border-purple-100 dark:border-purple-900/40 space-y-1">
-                              <span className="text-[10px] font-bold text-purple-700 dark:text-purple-400 block font-mono">
+                              <span className="text-[0.75rem] font-bold text-purple-700 dark:text-purple-400 block font-mono">
                                 💎 臨床珍珠與迷思闢謠 (實證)
                               </span>
-                              <p className="text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                              <p className="text-slate-700 dark:text-slate-300 text-[0.75rem] leading-relaxed">
                                 {mastery.clinical_pearls_myths_zh}
                               </p>
                             </div>
@@ -764,7 +764,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                       {expandedGraphs[kp.id] ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                     </button>
 
-                    <span className="hidden sm:inline-block text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                    <span className="hidden sm:inline-block text-[0.75rem] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
                       ✓ 臨床機轉文獻實證核實
                     </span>
                   </div>
@@ -891,7 +891,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="p-4 rounded-2xl border border-nature-green-200 dark:border-emerald-800/60 bg-nature-green-50/90 dark:bg-emerald-950/20 flex flex-col justify-between space-y-2 shadow-sm">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-nature-green-800 dark:text-nature-green-400 font-bold block">
+                  <span className="text-[0.75rem] font-mono uppercase tracking-wider text-nature-green-800 dark:text-nature-green-400 font-bold block">
                     {t('page.tier1_title')}
                   </span>
                   <p className="text-xs text-nature-green-950 dark:text-emerald-100 leading-relaxed font-medium mt-1">
@@ -900,7 +900,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                 </div>
                 <button
                   onClick={() => (t1In ? removeAction(t1Id) : addAction(t1Id))}
-                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[11px] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
+                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[0.75rem] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
                     t1In
                       ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
                       : 'bg-white/90 dark:bg-slate-900/90 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 hover:bg-emerald-50'
@@ -913,7 +913,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
               <div className="p-4 rounded-2xl border border-nature-sky-200 dark:border-sky-800/60 bg-nature-sky-50/90 dark:bg-sky-950/20 flex flex-col justify-between space-y-2 shadow-sm">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-nature-sky-800 dark:text-nature-sky-400 font-bold block">
+                  <span className="text-[0.75rem] font-mono uppercase tracking-wider text-nature-sky-800 dark:text-nature-sky-400 font-bold block">
                     {t('page.tier2_title')}
                   </span>
                   <p className="text-xs text-nature-sky-950 dark:text-sky-100 leading-relaxed font-medium mt-1">
@@ -922,7 +922,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                 </div>
                 <button
                   onClick={() => (t2In ? removeAction(t2Id) : addAction(t2Id))}
-                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[11px] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
+                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[0.75rem] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
                     t2In
                       ? 'bg-sky-600 text-white border-sky-600 shadow-xs'
                       : 'bg-white/90 dark:bg-slate-900/90 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800 hover:bg-sky-50'
@@ -935,7 +935,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
               <div className="p-4 rounded-2xl border border-nature-amber-200 dark:border-amber-800/60 bg-nature-amber-50/90 dark:bg-amber-950/20 flex flex-col justify-between space-y-2 shadow-sm">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-nature-amber-800 dark:text-nature-amber-400 font-bold block">
+                  <span className="text-[0.75rem] font-mono uppercase tracking-wider text-nature-amber-800 dark:text-nature-amber-400 font-bold block">
                     {t('page.tier3_title')}
                   </span>
                   <p className="text-xs text-nature-amber-950 dark:text-amber-100 leading-relaxed font-medium mt-1">
@@ -944,7 +944,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                 </div>
                 <button
                   onClick={() => (t3In ? removeAction(t3Id) : addAction(t3Id))}
-                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[11px] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
+                  className={`mt-2 btn-tactile w-full py-1.5 px-3 rounded-xl text-[0.75rem] font-semibold border flex items-center justify-center gap-1.5 transition-all ${
                     t3In
                       ? 'bg-amber-600 text-white border-amber-600 shadow-xs'
                       : 'bg-white/90 dark:bg-slate-900/90 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800 hover:bg-amber-50'
@@ -1007,7 +1007,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                   <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[10px] font-mono text-slate-400 block uppercase">上一篇 · Previous</span>
+                  <span className="text-[0.75rem] font-mono text-slate-400 block uppercase">上一篇 · Previous</span>
                   <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate block font-sans">
                     {prevPage ? `${prevPage.id.replace('PAGE-', '')} · ${language === 'zh-TW' ? prevPage.title_zh : prevPage.title_en}` : prevPageId}
                   </strong>
@@ -1023,7 +1023,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                 className="btn-tactile p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:border-nature-sky-400 dark:hover:border-nature-sky-600 text-right transition-all shadow-sm hover:shadow-md flex items-center justify-end gap-3 group"
               >
                 <div className="min-w-0 text-right">
-                  <span className="text-[10px] font-mono text-slate-400 block uppercase">下一篇 · Next</span>
+                  <span className="text-[0.75rem] font-mono text-slate-400 block uppercase">下一篇 · Next</span>
                   <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate block font-sans">
                     {nextPage ? `${nextPage.id.replace('PAGE-', '')} · ${language === 'zh-TW' ? nextPage.title_zh : nextPage.title_en}` : nextPageId}
                   </strong>
@@ -1038,7 +1038,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
       })()}
 
       {/* ── 11 Evidence Freshness & Governance Footer ── */}
-      <footer id="sec-gov" className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 space-y-3 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+      <footer id="sec-gov" className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 space-y-3 font-mono text-[0.75rem] text-slate-600 dark:text-slate-400">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
           <span className="font-bold text-slate-800 dark:text-slate-300">{t('page.sec_11_gov')}</span>
           <span className="text-nature-green-700 dark:text-nature-green-400 font-semibold">
@@ -1061,7 +1061,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
           </div>
         </div>
 
-        <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-[10px] text-slate-500 leading-relaxed">
+        <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-[0.75rem] text-slate-500 leading-relaxed">
           {t('page.disclaimer')}
         </div>
       </footer>
