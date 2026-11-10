@@ -374,6 +374,80 @@ export const STRENGTH_TOPICS: StrengthTopic[] = [
       'With osteoporosis or poor balance, start under physiotherapist supervision and avoid jumping.',
     ],
   },
+  {
+    id: 'STR-08',
+    title_zh: '肌耐力 (Muscular Endurance) 生理機轉與「先求最大肌力、再求肌耐力」抗老法則',
+    title_en: 'Muscular Endurance Physiology & The "Strength First" Principle: How Max Strength Elevates Relative Endurance',
+    category: 'PROGRESSIVE_OVERLOAD',
+    one_liner_zh: '最大肌力是體能的火車頭；當最大肌力天花板拉高，原本沈重的日常負荷變輕，相對肌耐力與工作容量自然倍增。',
+    one_liner_en: 'Maximal strength is the locomotive of fitness; raising your 1RM ceiling lowers relative daily load, multiplying relative muscular endurance.',
+    evidence_grade: 'A',
+    mechanisms_zh: [
+      '相對肌耐力 (Relative Endurance) vs 絕對肌耐力 (Absolute Endurance)：參考怪獸訓練（何立安博士）與運動生理實證，固定外在重量下的耐力表現高度取決於最大肌力（1RM）。若將深蹲 1RM 從 40 kg 提升至 80 kg，搬動 30 kg 重物的相對強度即由 75% 驟降至 37.5%，可連續反覆次數直接由數下躍升至數十下。',
+      '局部肌耐力微血管與粒線體適應：中高反覆次數（15–25+ RM，組間休息 30–90 秒）能顯著刺激血管內皮生長因子 (VEGF)，促進肌纖維周邊微血管增生 (Capillarization)，並提升粒線體氧化酶活性。',
+      '乳酸穿梭與酸鹼緩衝 (Lactate Shuttle & Buffering)：肌耐力訓練可增加骨骼肌細胞膜上的單羧酸轉運蛋白 (MCT1/MCT4) 與肌肽 (Carnosine) 緩衝容量，加速清除氫離子 (H+) 並將乳酸轉化為心肌與慢肌纖維的有氧燃料。',
+    ],
+    mechanisms_en: [
+      'Relative vs Absolute Muscular Endurance: Endurance against a fixed external load is governed by maximal strength (1RM). Doubling 1RM halves the relative intensity (%1RM) of daily tasks, exponentially increasing sustainable repetitions.',
+      'Capillarization & Mitochondrial Biogenesis: High-repetition sets (15–25+ RM, 30–90s rest) upregulate VEGF, expanding capillary density and mitochondrial oxidative enzymes.',
+      'Lactate Shuttle & Intracellular Buffering: Endurance loading increases MCT1/MCT4 transporters and intramuscular carnosine, buffering H+ accumulation and recycling lactate as oxidative fuel.',
+    ],
+    movement_analysis_zh: [
+      '破除「年長者只需練輕重量肌耐力」迷思：老化過程流失最快的是肌肉量、骨質密度與高閾值神經控制力。單純低阻力高次數運動僅徵召低閾值慢肌 (Type I)，無法給予骨骼足夠的壓電機械刺激。',
+      '負重行走与核心抗疲勞耐力：如「農夫走路 (Farmer’s Carry)」與分腿蹲，能同時鍛鍊握力、核心抗側屈等長肌耐力與下肢步態穩定，是最符合日常生活需求的全身功能性肌耐力動作。',
+    ],
+    movement_analysis_en: [
+      'Debunking the "light-weight only for seniors" myth: Aging rapidly erodes fast-twitch fibers, bone mineral density, and high-threshold motor units—none of which are adequately stimulated by low-load endurance work alone.',
+      'Loaded carries & postural endurance: Exercises like Farmer’s Walks build grip strength, isometric core anti-flexion endurance, and gait stability simultaneously.',
+    ],
+    action_protocols_zh: [
+      '訓練優先順序（「肌力優先 Strength First」）：主項先做多關節大重量訓練（如六角槓硬舉、深蹲、推拉，約 75–85% 1RM，每組 5–8 下）建立最大肌力底氣；輔助項再安排 12–20 下中高次數或農夫走路強化局部肌耐力。',
+      '週期化融合：避免在同一次訓練課表開頭先做高疲勞度的長距離耐力操，以免中樞神經與肝醣耗竭而降低主項肌力訓練的動作品質與安全性。',
+      '居家與無器材肌耐力實踐：若暫無大重量器材，可透過「單腳動作（保加利亞分腿蹲）＋ 慢速離心（3 秒下放）＋ 縮短組間休息（60 秒）」在安全負重下創造深度肌耐力與肌肥大刺激。',
+    ],
+    action_protocols_en: [
+      'Strength-First hierarchy: Perform multi-joint heavy compound lifts (5–8 reps at 75–85% 1RM) first while the CNS is fresh, followed by higher-repetition (12–20 reps) or loaded-carry endurance work.',
+      'Avoid pre-exhausting with high-fatigue cardio immediately before heavy structural lifts to protect spine stability and motor control.',
+      'Home endurance progression: Utilize unilateral variations (split squats), 3-second eccentric tempos, and 60-second rest intervals to maximize muscular endurance without heavy barbells.',
+    ],
+  },
+  {
+    id: 'STR-09',
+    title_zh: '人體自然動作原則、三大能量系統與「游刃有餘」彈性訓練法 (True / Daily / Easy Max)',
+    title_en: 'Human Natural Movement, Tri-Energy System Integration & Elastic Autoregulation (True / Daily / Easy Max)',
+    category: 'NEURAL_ADAPTATION',
+    one_liner_zh: '選對符合人體原廠設計的自然動作，並以「不練到力竭崩潰」的彈性訓練管理疲勞，才能讓訓練成為終身習慣。',
+    one_liner_en: 'Choose biomechanically natural human movements and manage fatigue via Daily/Easy Max autoregulation for lifelong strength.',
+    evidence_grade: 'A',
+    mechanisms_zh: [
+      '人體自然動作三大原則（怪獸訓練體系）：包含「人體自然動作原則（蹲、硬舉髖鉸鏈、推、拉、負重行走）」、「低風險原則（選擇力線居中、關節剪力小的動作如六角槓硬舉）」與「特殊變化度原則（依個人結構微調握法與行程）」。',
+      '三大能量系統協同（ATP-CP 磷化物系統 0–10 秒、快醣解乳酸系統 15 秒–2 分鐘、有氧氧化系統 >2 分鐘）：有氧系統不僅負責長距離耐力，更是重訓「組間休息時再合成磷酸肌酸 (CP)、清除代謝副產物」的恢復引擎。',
+      '三種極限指標與神經疲勞管理：區分 True Max（腎上腺素全開之絕對極限）、Daily Max（當日無技術變形之最高穩定重量）與 Easy Max（隨時能游刃有餘完成的輕鬆極限，約 RIR 2–3）。',
+    ],
+    mechanisms_en: [
+      'Three Movement Selection Principles: Human Natural Movement (squat, hinge, push, pull, carry), Low Risk Principle (joint-friendly force vectors like trap-bar deadlifts), and Specific Variation.',
+      'Tri-Energy System Synergy: The aerobic system not only powers long-duration work but drives inter-set phosphocreatine (CP) resynthesis and metabolite clearance during strength training.',
+      'Three Maxes Autoregulation: Distinguishing True Max (adrenaline peak), Daily Max (technical max without form breakdown), and Easy Max (smooth everyday capability at ~RIR 2–3).',
+    ],
+    movement_analysis_zh: [
+      '避免垃圾訓練量 (Junk Volume)：每次都練到力竭癱瘓會導致皮質醇長期偏高、結締組織微創無法修復。將平日 80% 以上的訓練建立在 Easy Max 至 Daily Max 之間，動作品質最高、長期進步最穩。',
+      '阻力式高強度間歇 (Resistance HIIT / ESD)：利用雪橇推拉、壺鈴擺盪、戰繩或風扇車進行間歇能量系統訓練，能減少傳統長跑數萬次落地衝擊，同時兼顧肌力保留與最大攝氧量 (VO₂max) 提升。',
+    ],
+    movement_analysis_en: [
+      'Eliminating Junk Volume: Training to complete failure every session spikes systemic fatigue. Anchoring >80% of sessions between Easy Max and Daily Max preserves movement quality and tendon health.',
+      'Low-impact Energy System Development (ESD): Sled pushes, kettlebell swings, and air-bike intervals build VO2max and glycolytic endurance without repetitive eccentric impact trauma.',
+    ],
+    action_protocols_zh: [
+      '游刃有餘課表法則：每次訓練結束離開時，身體應感覺「神清氣爽、還有一點餘力」，而非癱軟無力。',
+      '當日狀態彈性調節：若前一晚睡眠不足或工作壓力大，當天自動退回 Easy Max（減輕 10–15% 重量或減少 1–2 組），維持動作神經記憶而不透支身體。',
+      '肌力與能量系統黃金配比：每週 2–3 次自然動作肌力訓練（30–45 分鐘）＋ 每週 2–3 次 Zone 2 有氧或短間歇能量系統訓練，打造抗老防跌的完整防護網。',
+    ],
+    action_protocols_en: [
+      'Leave the gym feeling energized: Conclude sets with 2–3 reps in reserve (Easy/Daily Max) so training enhances daily vitality rather than draining it.',
+      'Autoregulate on high-stress days: When sleep-deprived, scale back to Easy Max (-10–15% load) to maintain neuromuscular groove without CNS burnout.',
+      'Balanced weekly blueprint: Combine 2–3 natural-movement strength sessions with 2–3 Zone 2 / interval conditioning bouts per week.',
+    ],
+  },
 ];
 
 export const STRENGTH_INFOGRAPHICS: SportInfographicMeta[] = [

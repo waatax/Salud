@@ -259,6 +259,14 @@ export function buildSearchIndex(): SearchDoc[] {
       subtitle: '為什麼三高常一起來、數字怎麼看、怎麼吃怎麼動怎麼治療，以及減重能改善多少',
       target: 'cardiometabolic/THREE_HIGHS',
       keywords: '三高 高血壓 高血糖 高血脂 體重 內臟脂肪 胰島素阻抗 糖尿病 ApoB 膽固醇 三酸甘油酯 722 血壓 血管硬化 CKM 心臟 腦中風',
+    },
+    {
+      id: 'topic:monster-strength-endurance',
+      group: '運動專項',
+      title: '最大肌力 × 肌耐力科學專題（怪獸訓練與何立安博士實證觀點）',
+      subtitle: '為什麼先求最大肌力再求肌耐力？天花板決定地板模擬器、訓練金字塔、人體自然動作、三大能量系統與彈性訓練法',
+      target: 'exercise/strength',
+      keywords: '肌耐力 最大肌力 怪獸訓練 Monster Training 何立安 SBD怪獸講堂 訓練金字塔 人體自然動作 三大能量系統 磷化物 乳酸 有氧 彈性訓練法 True Max Daily Max Easy Max 抗老化 常訓替代長照 1RM 深蹲 硬舉 農夫走路',
     }
   );
   for (const n of NUMB_CAUSES) {

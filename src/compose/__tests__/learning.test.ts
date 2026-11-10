@@ -233,6 +233,7 @@ import { SPORT_PRIMERS, SPORT_GOALS } from '../../data/sportPrimers';
 import { PILLAR_NAV as PILLAR_NAV_FOR_TITLES } from '../../config/navigation';
 import { pageTitle, SITE_TITLE } from '../../config/pageTitle';
 import { LESSON_TABLE_KEY } from '../../components/learn/LessonReferenceTable';
+import { STRENGTH_TOPICS } from '../../data/strengthData';
 
 test('hub primers: all 10 hubs have three takeaways each, and every starter link resolves', () => {
   assert.equal(Object.keys(HUB_PRIMERS).length, 10);
@@ -297,4 +298,26 @@ test('lesson tables: remapped lessons point at an existing table, never at thems
     assert.ok(ids.has(lessonId), `${lessonId} is a real lesson`);
     assert.notEqual(key, lessonId);
   }
+});
+
+test('muscular endurance & max strength: L-MOVE-08, STR-08/09, glossary and search queries resolve', () => {
+  const lesson = ALL_LESSONS.find((l) => l.id === 'L-MOVE-08');
+  assert.ok(lesson, 'L-MOVE-08 exists');
+  assert.match(lesson.title_zh, /最大肌力.*肌耐力/);
+  assert.ok(lesson.sources?.some((s) => s.url.includes('monstertraining.com.tw')), 'L-MOVE-08 cites monstertraining.com.tw');
+
+  const str08 = STRENGTH_TOPICS.find((t) => t.id === 'STR-08');
+  const str09 = STRENGTH_TOPICS.find((t) => t.id === 'STR-09');
+  assert.ok(str08 && str08.title_zh.includes('肌耐力'), 'STR-08 covers muscular endurance');
+  assert.ok(str09 && str09.title_zh.includes('人體自然動作'), 'STR-09 covers natural movement & energy systems');
+
+  assert.ok(GLOSSARY.some((g) => g.term === '肌耐力'), 'Glossary contains 肌耐力');
+  assert.ok(GLOSSARY.some((g) => g.term === '最大肌力'), 'Glossary contains 最大肌力');
+
+  const docs = buildSearchIndex();
+  const topTargets = (q: string) => searchDocs(docs, q, 6).map((d) => d.target).join(' | ');
+  assert.match(topTargets('肌耐力'), /learn\/move\/L-MOVE-08|exercise\/strength/);
+  assert.match(topTargets('最大肌力'), /learn\/move\/L-MOVE-08|exercise\/strength/);
+  assert.match(topTargets('怪獸訓練'), /exercise\/strength|learn\/move\/L-MOVE-08/);
+  assert.match(topTargets('何立安'), /exercise\/strength|learn\/move\/L-MOVE-08/);
 });

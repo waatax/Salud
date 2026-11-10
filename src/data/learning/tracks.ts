@@ -32,6 +32,7 @@ export const LEARNING_GOALS: LearningGoal[] = [
   { id: 'G-GLP1', label_zh: '我在考慮打瘦瘦針', hint_zh: '猛健樂的效果、副作用與停藥', icon: 'scale', track_id: 'prevent', lesson_id: 'L-PRE-11' },
   { id: 'G-EAT', label_zh: '我想吃得更健康', hint_zh: '從一個餐盤開始', icon: 'food', track_id: 'eat', lesson_id: 'L-EAT-01' },
   { id: 'G-MOVE', label_zh: '我想開始運動', hint_zh: '每週 150 分鐘、每天 7,000 步', icon: 'move', track_id: 'move', lesson_id: 'L-MOVE-01' },
+  { id: 'G-STRENGTH', label_zh: '我想練肌力與肌耐力、抗老防跌', hint_zh: '先求最大肌力再求肌耐力、不必練到力竭', icon: 'move', track_id: 'move', lesson_id: 'L-MOVE-08' },
   { id: 'G-SLEEP', label_zh: '我睡不好', hint_zh: '規律、失眠、咖啡因、打呼', icon: 'moon', track_id: 'rest', lesson_id: 'L-REST-01' },
   { id: 'G-STRESS', label_zh: '我壓力很大、心情低落', hint_zh: '呼吸法、何時求助', icon: 'brain', track_id: 'rest', lesson_id: 'L-REST-05' },
   { id: 'G-SPINE', label_zh: '我腰痠背痛、手腳發麻', hint_zh: '骨刺、椎間盤、姿勢、何時就醫', icon: 'spine', track_id: 'spine', lesson_id: 'L-SPN-03' },

@@ -17,6 +17,7 @@ const MetabolicJourney = lazy(() => import('./MetabolicJourney').then(m => ({ de
 const FIRST_LESSON = LEARNING_TRACKS[0].lessons[0];
 const featureTracks = ['eat', 'move', 'rest'].map(id => getTrack(id)!);
 const CHALLENGE_LESSON_IDS = [
+  'L-MOVE-08',
   'L-MOVE-01',
   'L-EAT-01',
   'L-REST-01',
@@ -100,6 +101,48 @@ export const LearnHome: React.FC = () => {
       </section>
 
       {lastLesson && lastTrack && <section className="discovery-card p-5 sm:p-6" aria-label="繼續上次學習"><div className="flex items-center gap-4"><TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} /><div className="min-w-0 flex-1"><p className="mb-1 text-xs text-slate-600 dark:text-slate-400">歡迎回來・已完成 {done} / {ALL_LESSONS.length} 課</p><a href={`#learn/${lastTrack.id}/${lastLesson.id}`} className={`inline-flex items-center gap-2 font-semibold text-slate-900 dark:text-white ${focusClass}`}>繼續閱讀：{lastLesson.title_zh}<ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></div></div></section>}
+
+      {/* Featured Spotlight: Maximum Strength x Muscular Endurance (Monster Training & Dr. Ho Li-An Insights) */}
+      <section
+        aria-labelledby="strength-spotlight-title"
+        className="rounded-3xl border border-emerald-200/90 bg-gradient-to-br from-emerald-50/70 via-white to-sky-50/40 p-6 sm:p-8 shadow-xs dark:border-emerald-900/60 dark:from-emerald-950/30 dark:via-slate-900 dark:to-slate-900"
+      >
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-white dark:bg-emerald-400 dark:text-slate-950">
+                <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+                運動抗老焦點專題
+              </span>
+              <span className="rounded-full border border-emerald-300/80 bg-white/80 px-3 py-1 text-xs font-medium text-emerald-900 dark:border-emerald-800 dark:bg-slate-900/80 dark:text-emerald-300">
+                最大肌力 × 肌耐力 × 怪獸訓練體系觀點
+              </span>
+            </div>
+            <h2 id="strength-spotlight-title" className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+              為什麼抗老與日常體力要「先求最大肌力，再求肌耐力」？
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              一般人常誤以為維持健康只要做輕重量多次數或散步。其實把「最大肌力」天花板拉高後，日常重物佔你力量的比例變小，你的「相對肌耐力」與關節防傷餘裕會自動倍增，而且不必練到力竭癱瘓。
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0">
+            <a
+              href="#exercise/strength"
+              className={`discovery-primary justify-center ${focusClass}`}
+            >
+              <span>體驗最大肌力 × 肌耐力互動專區</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href="#learn/move/L-MOVE-08"
+              className={`discovery-secondary justify-center ${focusClass}`}
+            >
+              <BookOpen className="h-4 w-4" aria-hidden="true" />
+              <span>讀 6 分鐘白話小課（L-MOVE-08）</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section aria-labelledby="featured-title">
         <SectionHeading id="featured-title" eyebrow="A LITTLE LEARNING, EVERY DAY" title="一點時間，學一件對自己好的事" description="先讀懂一個重點，再試著用在生活裡。" action={<a href="#learn" className="discovery-text-link">所有課程<ArrowRight className="h-4 w-4" aria-hidden="true" /></a>} />

@@ -23,7 +23,7 @@ export const EXERCISE_TAB_GROUPS: HubTabGroup<SportsDiscipline>[] = [
     label: '基礎與日常',
     tabs: [
       { id: 'PHYSIOLOGY', label: '運動生理與心率', icon: HeartPulse },
-      { id: 'STRENGTH_TRAINING', label: '肌力與重訓', icon: Dumbbell, featured: true },
+      { id: 'STRENGTH_TRAINING', label: '肌力與肌耐力', icon: Dumbbell, featured: true },
       { id: 'MOBILITY_FASCIA', label: '伸展與活動度', icon: Scale },
     ],
   },

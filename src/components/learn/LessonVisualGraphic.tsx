@@ -124,7 +124,7 @@ export const LessonVisualGraphic: React.FC<LessonVisualGraphicProps> = ({ track,
     case 'L-EAT-09':
       return <EnergyDeficitGraphic />;
 
-    // ── Track 4: Move (7 課) ───────────────────────────────────────────
+    // ── Track 4: Move (8 課) ───────────────────────────────────────────
     case 'L-MOVE-01':
       return <Zone2MitochondriaGraphic />;
     case 'L-MOVE-02':
@@ -139,6 +139,8 @@ export const LessonVisualGraphic: React.FC<LessonVisualGraphicProps> = ({ track,
       return <FallPreventionGraphic />;
     case 'L-MOVE-07':
       return <PeaceAndLoveGraphic />;
+    case 'L-MOVE-08':
+      return <StrengthEndurancePyramidGraphic />;
 
     // ── Track 5: Rest (7 課) ───────────────────────────────────────────
     case 'L-REST-01':
@@ -3008,7 +3010,68 @@ const SmokingCessationGraphic: React.FC = () => {
 };
 
 /* -------------------------------------------------------------------------- */
-/* 61. 通用路徑概念圖解 Fallback                                                  */
+/* 61. L-MOVE-08: 最大肌力火車頭與相對肌耐力訓練金字塔圖解                        */
+/* -------------------------------------------------------------------------- */
+const StrengthEndurancePyramidGraphic: React.FC = () => {
+  return (
+    <figure
+      className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs"
+      aria-label="最大肌力帶動相對肌耐力與訓練金字塔視覺圖解"
+    >
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <div className="flex items-center gap-2">
+          <Dumbbell className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
+            實證圖解：「天花板決定地板」最大肌力如何拉高日常肌耐力
+          </figcaption>
+        </div>
+        <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium">
+          怪獸訓練體系 · ACSM 2026
+        </span>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-4 text-xs">
+        <div className="p-4 rounded-xl border border-rose-200/80 dark:border-rose-900/50 bg-rose-50/40 dark:bg-rose-950/20 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="font-bold text-rose-900 dark:text-rose-300 text-sm">情境 A：未訓練者（最大肌力 40 kg）</span>
+            <span className="font-mono font-bold text-rose-700 dark:text-rose-400">相對強度 75%</span>
+          </div>
+          <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+            面對日常搬重物或抱小孩（30 kg）時，已用掉 75% 的極限力氣，<strong>連續搬 3–5 下就力竭發抖</strong>，且極易因核心失穩而閃到腰。
+          </p>
+        </div>
+
+        <div className="p-4 rounded-xl border border-emerald-200/80 dark:border-emerald-900/50 bg-emerald-50/50 dark:bg-emerald-950/25 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="font-bold text-emerald-900 dark:text-emerald-300 text-sm">情境 B：肌力訓練者（最大肌力 80 kg）</span>
+            <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400">相對強度 37.5%</span>
+          </div>
+          <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+            同樣面對 30 kg 重物，只佔最大力量的 37.5%，<strong>可輕鬆連續完成 20+ 下（相對肌耐力暴增）</strong>，關節與脊椎保有超過六成的安全防線。
+          </p>
+        </div>
+      </div>
+
+      <div className="grid sm:grid-cols-3 gap-2.5 text-xs pt-1">
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40">
+          <strong className="text-slate-900 dark:text-white block">1. 地基：人體自然動作</strong>
+          <span className="text-slate-600 dark:text-slate-400">蹲、髖鉸鏈、推、拉、負重行走，建立 360 度核心抗變形穩定</span>
+        </div>
+        <div className="p-3 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20">
+          <strong className="text-emerald-900 dark:text-emerald-300 block">2. 火車頭：最大肌力</strong>
+          <span className="text-slate-600 dark:text-slate-300">漸進超負荷刺激快縮肌、神經徵召與骨密度，最保值的抗老儲備</span>
+        </div>
+        <div className="p-3 rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50/40 dark:bg-sky-950/20">
+          <strong className="text-sky-900 dark:text-sky-300 block">3. 轉化：肌耐力與能量系統</strong>
+          <span className="text-slate-600 dark:text-slate-300">搭配中高次數與間歇/有氧訓練，強化微血管、粒線體與持久耐力</span>
+        </div>
+      </div>
+    </figure>
+  );
+};
+
+/* -------------------------------------------------------------------------- */
+/* 62. 通用路徑概念圖解 Fallback                                                  */
 /* -------------------------------------------------------------------------- */
 const TrackFallbackGraphic: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ track, lesson }) => {
   return (

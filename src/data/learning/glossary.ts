@@ -53,6 +53,8 @@ export const GLOSSARY: GlossaryEntry[] = [
   { term: '偽陽性', zh: 'False positive', plain_zh: '檢查說有問題，其實沒有；篩檢越多、越無差別，偽陽性越多。', category: '研究與證據' },
 
   // 運動與生活
+  { term: '最大肌力', zh: 'Maximum strength (1RM)', plain_zh: '在特定動作中盡全力只能標準完成 1 下的最大重量；是所有運動能力、爆發力與相對肌耐力的地板指標與火車頭。', category: '運動與生活', related_hash: 'learn/move/L-MOVE-08' },
+  { term: '肌耐力', zh: 'Muscular endurance', plain_zh: '肌肉在特定阻力下持續收縮或反覆多次而不力竭的抗疲勞能力；先把最大肌力練高，日常生活的相對肌耐力就會跟著倍增。', category: '運動與生活', related_hash: 'learn/move/L-MOVE-08' },
   { term: 'VO₂max', zh: '最大攝氧量', plain_zh: '全力運動時身體每分鐘能用掉多少氧氣，是心肺能力與長壽最強的預測指標之一。', category: '運動與生活' },
   { term: 'Zone 2', zh: '第二心率區間', plain_zh: '約最大心率 60–70%、還能完整說話的強度，用來累積有氧基礎。', category: '運動與生活', related_hash: 'learn/move/L-MOVE-05' },
   { term: 'RIR', zh: '保留次數', plain_zh: '一組做完時「還能再做幾下」。ACSM 2026 建議保留 2–3 下即可。', category: '運動與生活', related_hash: 'learn/move/L-MOVE-03' },

@@ -40,7 +40,7 @@ export const DISCOVERY_TOPICS: DiscoveryTopic[] = [
   { id: 'longevity', category: 'body', title: '健康老化的科學', description: '分清已知、未知與還在研究的可能性。', hash: 'longevity', icon: 'hourglass', tone: 'emerald' },
   { id: 'mindbody', category: 'daily', title: '正念、呼吸與身心練習', description: '在可行的小練習裡，找回生活節奏。', hash: 'mindbody', icon: 'brain', tone: 'violet' },
   { id: 'running', category: 'daily', title: '跑步與配速', description: '認識訓練節奏、恢復與常見傷害。', hash: 'exercise/running', icon: 'move', tone: 'sky' },
-  { id: 'strength', category: 'daily', title: '肌力與重量訓練', description: '從動作、負荷到進步，打好訓練基礎。', hash: 'exercise/strength', icon: 'move', tone: 'violet' },
+  { id: 'strength', category: 'daily', title: '肌力、最大肌力與肌耐力', description: '先求肌力再求耐力，從人體自然動作與彈性訓練打好抗老基礎。', hash: 'exercise/strength', icon: 'move', tone: 'violet' },
   { id: 'mobility', category: 'daily', title: '伸展與活動度', description: '認識熱身、活動範圍與身體的限制。', hash: 'exercise/mobility', icon: 'spine', tone: 'teal' },
   { id: 'living', category: 'daily', title: '把健康放進一天', description: '作息、微習慣與可以持續的生活選擇。', hash: 'ultrahealth', icon: 'heart', tone: 'emerald' },
 ];
