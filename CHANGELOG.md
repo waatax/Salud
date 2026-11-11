@@ -1,5 +1,21 @@
 # Changelog
 
+## v6.7.0 — 2026-11-11 · 新主題「肌力訓練」與 TSCA 丙級肌力及體能教練證照研究 (Strength Training Topic & TSCA Coach Exam Course)
+
+### Added
+- **新主題「肌力訓練」**（`#strength`，別名 `#tsca`；側欄「日常保健」群組，位於「運動」之後）：`src/components/pillars/StrengthHub.tsx`、`src/components/pillars/strength/StrengthChapters.tsx`、`src/data/strengthCoachData.ts`。
+- **專題一：TSCA 丙級肌力及體能教練證照研究**（CourseShell 6 章：證照總覽＋模組一至五），每個模組依「研究大綱 → 核心知識表 → AI 深度研究提示（可一鍵複製）→ 深度研究成果」呈現：
+  - 模組一：三大運動面、肌肉四種角色、9 條大肌群起止點、三類槓桿與力矩、三大能量系統（生化機轉／限制因子／恢復／W:R）、專項能量分析、生理適應；3 題高難度情境題。
+  - 模組二：需求分析、NSCA 四大訓練目標變數表、頻率、傳統週期化校正版、單次課結構；大專籃球員 4 週第一轉換期課表與編排邏輯。
+  - 模組三：深蹲深度不足篩檢、RAMP 熱身、10 個自由重量動作技術、爆發上膊分期、增強式訓練劑量；傳統硬舉教學講義與考官檢核表。
+  - 模組四：口令類型與原則、九大錯誤修正表、退階／進階階梯、保護技巧；三大錯誤對比修正表。
+  - 模組五：三大營養素、水分、肌酸／咖啡因／乳清實證劑量、禁藥提醒、10 分鐘術科流程；15 題模擬考卷與答案解析。
+- **研究大綱深度確認**：逐條比對 NSCA 4th ed.、ACSM、ISSN 立場聲明，列出 10 處校正（週期化分期、糖解系統用語、恢復時間、爆發上膊譯名、Valsalva 安全限制、錯字與遺失的模組五提示等）。
+- 全站搜尋（新群組「肌力訓練」）、立即上手小提示、頁面標題與 `src/compose/__tests__/strength.test.ts`（4 項測試）。
+
+### Verification
+- 84 項單元測試、Governance 檢查、TypeScript 與 Vite 建置通過。
+
 ## v6.6.0 — 2026-11-10 · 最大肌力 × 肌耐力抗老科學專區、怪獸訓練體系整合與高雅介面優化 (Muscular Endurance, Monster Training Integration & UI/UX Elegance)
 
 ### Added — 最大肌力 × 肌耐力深度專區（參考怪獸訓練與何立安博士訪談體系）

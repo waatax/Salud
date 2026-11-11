@@ -14,6 +14,7 @@ import { GASTRO_CHAPTERS } from '../gastroData';
 import { ONCOLOGY_COURSE_CHAPTERS } from '../oncologyData';
 import { HEPB_CHAPTERS, HBV_MARKERS, HBV_DRUGS } from '../hepbData';
 import { LTC_CHAPTERS, OTHER_SCALES, FACILITY_TYPES, SKILL_CARDS, OTHER_SUBSIDIES } from '../ltcData';
+import { STRENGTH_CHAPTERS } from '../strengthCoachData';
 import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
 import { CLINIC_SEARCH_DOCS } from '../clinical/searchLite.generated';
 import { expandLay, splitWho } from './layTerms';
@@ -37,6 +38,7 @@ export type SearchGroup =
   | '名詞'
   | '飲食章節'
   | '運動專項'
+  | '肌力訓練'
   | '工具';
 
 export interface SearchDoc {
@@ -299,6 +301,19 @@ export function buildSearchIndex(): SearchDoc[] {
   }
   for (const d of HBV_DRUGS) {
     docs.push({ id: `hbvdrug:${d.name}`, group: 'B 型肝炎', title: d.name, subtitle: `B 肝用藥 · ${d.brand}`, target: 'hepb/TREATMENT', keywords: `${d.how} ${d.pros} ${d.watch} 抗病毒 藥物` });
+  }
+
+  // 肌力訓練專區 (v6.7) — section 1: TSCA 丙級肌力及體能教練證照
+  const STRENGTH_KW: Partial<Record<string, string>> = {
+    OVERVIEW: 'TSCA 丙級 教練證照 肌力教練 體能教練 證照考試 學科 術科 考照 備考',
+    M1_SCIENCE: '能量系統 磷酸原 ATP-PC 糖解 有氧系統 運動休息比 W:R 槓桿 力矩 運動面 起止點 神經適應',
+    M2_PROGRAM: '需求分析 課表設計 週期化 第一轉換期 線性週期 %1RM RPE 組數 次數 組間休息 籃球課表',
+    M3_TECHNIQUE: 'RAMP 熱身 背蹲舉 前蹲舉 硬舉 相撲硬舉 RDL 臥推 推舉 划船 引體向上 爆發上膊 Power Clean 增強式 Plyometrics',
+    M4_COACHING: '口令 Cueing 外部提示 錯誤修正 膝蓋內夾 屁股眨眼 圓背 聳肩 退階 進階 保護 Spotting 棄槓',
+    M5_EXAM: '運動營養 蛋白質 肌酸 咖啡因 乳清蛋白 水分 術科流程 模擬考 考古題',
+  };
+  for (const c of STRENGTH_CHAPTERS) {
+    docs.push({ id: `strength:${c.id}`, group: '肌力訓練', title: c.title_zh, subtitle: `肌力訓練 · ${c.label_zh}`, target: `strength/${c.id}`, keywords: `${c.learn_zh.join(' ')} 肌力訓練 TSCA 教練 ${STRENGTH_KW[c.id] ?? ''}` });
   }
 
   // 失能照護與長照專區 (v5.0): chapters, scales, facility types, care skills, subsidies.

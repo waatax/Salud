@@ -21,6 +21,7 @@ import {
   Stethoscope,
   Ribbon,
   Hospital,
+  Dumbbell,
   LucideIcon,
 } from 'lucide-react';
 import { HealthPillar } from '../types';
@@ -272,6 +273,19 @@ export const PILLAR_NAV: PillarNavItem[] = [
     mobile: true,
     short_zh: '運動',
     short_en: 'Exercise',
+  },
+  {
+    id: 'strength',
+    hash: 'strength',
+    icon: Dumbbell,
+    label_zh: '肌力訓練',
+    label_en: 'Strength training',
+    blurb_zh: 'TSCA 丙級教練證照',
+    blurb_en: 'S&C coach exam',
+    group: 'daily',
+    mobile: true,
+    short_zh: '肌力',
+    short_en: 'Strength',
   },
   {
     id: 'sleep',

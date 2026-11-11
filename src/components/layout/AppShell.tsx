@@ -41,6 +41,7 @@ const MindBodyHub = lazy(() => import('../pillars/MindBodyHub').then((m) => ({ d
 const HepBHub = lazy(() => import('../pillars/HepBHub').then((m) => ({ default: m.HepBHub })));
 const ClinicHub = lazy(() => import('../pillars/ClinicHub').then((m) => ({ default: m.ClinicHub })));
 const LtcHub = lazy(() => import('../pillars/LtcHub').then((m) => ({ default: m.LtcHub })));
+const StrengthHub = lazy(() => import('../pillars/StrengthHub').then((m) => ({ default: m.StrengthHub })));
 
 // Lazy-loaded secondary pages and dialogs
 const EmergencyModal = lazy(() => import('../common/EmergencyModal').then((m) => ({ default: m.EmergencyModal })));
@@ -116,7 +117,7 @@ export function AppShell() {
       : 'diet'
     : activePillar === 'exercise'
     ? `exercise:${exerciseSubTab}`
-    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'gastro', 'oncology', 'hepb', 'mindbody', 'ltc'] as string[]).includes(activePillar)
+    : (['sleep', 'mental', 'cardiometabolic', 'obesity', 'longevity', 'ultrahealth', 'supplements', 'spine', 'gastro', 'oncology', 'hepb', 'mindbody', 'ltc', 'strength'] as string[]).includes(activePillar)
     ? activePillar
     : null;
 
@@ -276,6 +277,7 @@ export function AppShell() {
                 {activePillar === 'hepb' && <HepBHub />}
                 {activePillar === 'mindbody' && <MindBodyHub />}
                 {activePillar === 'ltc' && <LtcHub />}
+                {activePillar === 'strength' && <StrengthHub />}
                 {activePillar === 'clinic' && <ClinicHub />}
               </Suspense>
             )}

@@ -95,6 +95,7 @@ const SIMPLE_PILLARS: HealthPillar[] = [
   'mindbody',
   'ltc',
   'clinic',
+  'strength',
 ];
 
 const PILLAR_ALIASES: Record<string, HealthPillar> = {
@@ -162,6 +163,10 @@ const PILLAR_ALIASES: Record<string, HealthPillar> = {
   department: 'clinic',
   specialties: 'clinic',
   hospital: 'clinic',
+  tsca: 'strength',
+  'strength-coach': 'strength',
+  'sc-coach': 'strength',
+  coach: 'strength',
 };
 
 export function parseHash(rawHash: string): Route | null {
@@ -183,7 +188,7 @@ export function parseHash(rawHash: string): Route | null {
     const d = rest[0] ? EXERCISE_ALIASES[rest[0]] : 'PHYSIOLOGY';
     return d ? { kind: 'exercise', discipline: d } : { kind: 'exercise', discipline: 'PHYSIOLOGY' };
   }
-  if (EXERCISE_ALIASES[head] && head !== 'exercise') {
+  if (EXERCISE_ALIASES[head] && head !== 'exercise' && head !== 'strength') {
     return { kind: 'exercise', discipline: EXERCISE_ALIASES[head] };
   }
 
@@ -367,6 +372,9 @@ export const LTC_TABS: readonly LtcTab[] = [
 ];
 export type SystemSection ='overview' | 'how' | 'charts' | 'conditions' | 'prevent' | 'flags';
 export const SYSTEM_SECTIONS: readonly SystemSection[] = ['overview', 'how', 'charts', 'conditions', 'prevent', 'flags'];
+/** 肌力訓練專區 (v6.7). Section 1 = TSCA 丙級肌力及體能教練證照研究（總覽＋五大模組）. */
+export type StrengthTab = 'OVERVIEW' | 'M1_SCIENCE' | 'M2_PROGRAM' | 'M3_TECHNIQUE' | 'M4_COACHING' | 'M5_EXAM';
+export const STRENGTH_TABS: readonly StrengthTab[] = ['OVERVIEW', 'M1_SCIENCE', 'M2_PROGRAM', 'M3_TECHNIQUE', 'M4_COACHING', 'M5_EXAM'];
 
 export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
   ultrahealth: ULTRAHEALTH_TABS,
@@ -382,6 +390,7 @@ export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
   hepb: HEPB_TABS,
   mindbody: MINDBODY_TABS,
   ltc: LTC_TABS,
+  strength: STRENGTH_TABS,
 };
 
 /** Second hash segment when the current hash starts with `prefix/`, e.g. the tab id. */

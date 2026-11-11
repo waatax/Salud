@@ -282,6 +282,7 @@ export type HealthPillar =
   | 'hepb'
   | 'mindbody'
   | 'ltc'
+  | 'strength'
   | 'clinic';
 
 // ── Human Organ Systems Types (主頁人體系統總覽) ──

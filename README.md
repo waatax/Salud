@@ -1,3 +1,5 @@
+> **v6.7 新主題「肌力訓練」・TSCA 丙級肌力及體能教練證照研究（2026-11-11）**：新增 `#strength`（別名 `#tsca`）主題，專題一以 6 章課程整理 TSCA 丙級研究大綱五大模組（運動科學、課表與週期化、術科技術、執教與錯誤修正、營養與考試衝刺），每模組附可複製的 AI 深度研究提示與研究成果（3 題能量系統情境題、大專籃球員 4 週第一轉換期課表、傳統硬舉教學講義、三大錯誤對比修正表、15 題模擬考卷與解析），並列出大綱逐條比對 NSCA 4th ed. 後的 10 處校訂。詳見 [CHANGELOG](CHANGELOG.md)。
+
 > **v6.6 最大肌力 × 肌耐力抗老科學專區・怪獸訓練體系整合與高雅介面優化（2026-11-10）**：於運動專區（`#exercise/strength`）深度打造「最大肌力 × 肌耐力科學專題」（整合怪獸訓練 `monstertraining.com.tw` 與何立安博士訪談核心哲學：先求最大肌力再求肌耐力、天花板決定地板互動模擬器、訓練金字塔、人體自然動作三大原則、三大能量系統、True/Daily/Easy Max 游刃有餘彈性訓練法）；新增第 65 堂白話小課 `L-MOVE-08`、2 個深度科學主題（`STR-08`、`STR-09`），並將 `SimStrength1RM` 全面升級為日夜雙模高雅介面與章節快速跳轉導覽。詳見 [CHANGELOG](CHANGELOG.md) 與 [改善紀錄](docs/discovery-experience-review.md)。
 
 > **v6.5 全站白話深化・運動專項導讀與互動學習升級（2026-11-10）**：10 個核心專區全面統一白話開場（新增三高與心血管、增肌減脂、八大人體系統）與無障礙分頁列（`HubTabBar`）；運動專區（`#exercise`）新增「依目標挑運動」互動推薦器與 9 大運動專項白話入門卡；首頁（`#home`）小挑戰升級為跨領域題庫，課程總表（`#learn`）支援關鍵字搜尋、完成度篩選、路徑收合與一鍵複製課堂重點筆記。詳見 [CHANGELOG](CHANGELOG.md) 與 [改善紀錄](docs/discovery-experience-review.md)。
@@ -12,7 +14,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.6.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.7.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -35,6 +37,7 @@
 
 ## 🤝 v5.0.0：失能照護與長照專區 · 五色主題（2026-10）
 
+- **肌力訓練（`#strength`）**：專題一「TSCA 丙級肌力及體能教練證照研究」，6 章課程涵蓋五大模組研究大綱、大綱深度校訂、AI 深度研究提示與成果、情境題與 15 題模擬考卷。
 - **失能照護與長照（`#ltc`）**：14 章、5 單元，涵蓋失能與衰弱預防、巴氏量表與長照需要等級、1966 申請與「四包錢」、長照 3.0 與 2026 補助新制、居家／社區／外籍看護／住宿機構比較與申請、家庭照護技巧、失智照護、照顧者支持、監護信託與預立醫療決定；附巴氏量表計分器、四包錢試算、外看資格判斷、照顧者負荷自評與機構參訪檢核表。
 - **五色主題**：森林綠、暗色、藍青、棕色、粉色（另可跟隨系統），全站以 CSS 變數即時換色並符合 WCAG AA 對比。
 
