@@ -66,9 +66,9 @@ export const StrengthPanel: React.FC = () => {
         </span>
         <div className="flex flex-wrap gap-1.5">
           {[
-            { id: 'strength-endurance-flagship', label: '最大肌力 × 肌耐力專題（怪獸訓練觀點）', icon: Flame },
+            { id: 'strength-endurance-flagship', label: '最大肌力 × 肌耐力旗艦專題（怪獸訓練與醫學科學指南）', icon: Flame },
             { id: 'strength-1rm-sim', label: '1RM 與每週組數試算', icon: Calculator },
-            { id: 'strength-topics', label: `9 大核心科學主題`, icon: BookOpen },
+            { id: 'strength-topics', label: '11 大核心科學主題', icon: BookOpen },
             { id: 'strength-infographics', label: '四大視覺化機轉圖解', icon: BarChart3 },
           ].map((item) => {
             const Icon = item.icon;
@@ -100,10 +100,10 @@ export const StrengthPanel: React.FC = () => {
         <div className="border-b border-salud-light-border/60 dark:border-salud-dark-border/60 pb-2">
           <h3 className="text-base sm:text-lg font-display font-bold text-salud-light-text dark:text-salud-dark-text flex items-center gap-2">
             <Dumbbell className="w-4 h-4 text-nature-green-600 dark:text-nature-green-400" />
-            肌力、最大肌力與肌耐力九大科學主題 (Strength & Endurance Science)
+            肌力、最大肌力與肌耐力 11 大科學主題 (Strength & Endurance Science)
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            涵蓋肌肥大機轉、漸進式超負荷、六大自然動作模式、神經徵召、肌少症逆轉、ACSM 2026 指引、防跌爆發力、肌耐力生理與彈性訓練法
+            涵蓋肌肥大機轉、漸進式超負荷、六大自然動作、神經徵召、肌少症逆轉、ACSM 2026 指引、防跌爆發力、肌耐力生理、彈性訓練法、徒手進退階力學、修復與營養代謝全指南
           </p>
         </div>
 

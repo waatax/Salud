@@ -448,6 +448,80 @@ export const STRENGTH_TOPICS: StrengthTopic[] = [
       'Balanced weekly blueprint: Combine 2–3 natural-movement strength sessions with 2–3 Zone 2 / interval conditioning bouts per week.',
     ],
   },
+  {
+    id: 'STR-10',
+    title_zh: '徒手肌耐力訓練力學：六大自然動作模式之進階與退階階梯 (Bodyweight Calisthenics Mastery)',
+    title_en: 'Bodyweight Calisthenics Mechanics: Progression & Regression Ladders for 6 Master Patterns',
+    category: 'MOVEMENT_PATTERNS',
+    one_liner_zh: '徒手不是固定自重，而是透過支點、力臂與傾角槓桿調控負荷；六大模式完整階梯讓任何人皆能安全建立長效肌耐力。',
+    one_liner_en: 'Bodyweight is an adjustable lever: Modulating pivot points and angles scales resistance across 6 foundational movement ladders.',
+    evidence_grade: 'A',
+    mechanisms_zh: [
+      '生物力學力臂與傾角調節：自體重訓練可透過支點距離（如膝跪姿縮短阻力臂）、身體傾角（推牆 30% 體重 vs 地面 64% 體重 vs 腳墊高 74% 體重）即時調節 20%–80% 自體重負荷，創造適合 15–25 次局部肌耐力 (LME) 區間。',
+      '閉鏈動力鏈 (Closed Kinetic Chain, CKC) 本體感覺優勢：徒手深蹲、伏地挺身、引體向上等手足固定於支撐面的閉鏈動作，能誘發協同肌與對抗肌共同收縮 (Co-contraction)，增加關節囊本體感受器反饋，顯著降低單關節剪力。',
+      '核心抗變形耐力 (Core Anti-Movement Endurance)：McGill 生物力學證實，脊椎穩定取決於肌耐力而非瞬時最大爆發力。透過抗伸展 (死蟲/棒式)、抗側屈 (側棒式)、抗旋轉 (鳥狗式) 建立腹腔 360 度剛性，提供四肢發力之堅實地基。',
+    ],
+    mechanisms_en: [
+      'Biomechanical levers and angle modulation: Bodyweight loading scales between 20%-80% by manipulating pivot points and inclination angles to match the 15-25 rep LME hypertrophy zone.',
+      'Closed Kinetic Chain (CKC) proprioceptive advantage: Grounded distal segments promote joint co-contraction, reducing shear forces while heightening mechanoreceptor feedback.',
+      'Core Anti-Movement Endurance: McGill spine biomechanics demonstrates that endurance outranks peak force in lumbar stability; anti-extension, anti-lateral flexion, and anti-rotation secure the kinetic chain.',
+    ],
+    movement_analysis_zh: [
+      '六大模式天梯實踐：下肢推（椅子起站 ➔ 箱上深蹲 ➔ 徒手全蹲 ➔ 分腿蹲 ➔ 保加利亞單腿蹲 ➔ 手槍深蹲）；水平推（推牆 ➔ 桌面斜推 ➔ 跪姿 ➔ 標準地面 ➔ 腳墊高下斜）；水平/垂直拉（門框划船 ➔ 彈力帶 ➔ 桌面反向划船 ➔ 慢速離心引體 ➔ 完整引體）；鉸鏈（雙腿臀橋 ➔ 單腿臀橋 ➔ 單腿 RDL ➔ 北歐彎舉退階）。',
+      '張力時間 (TUT) 3-1-3 節奏控制：以 3 秒慢速離心下放、1 秒底端停頓消弭彈性能、3 秒穩定向心收縮，杜絕代償借力，每組累積 45–60 秒持續張力，迫使深層微血管新生與慢縮肌纖維完全動員。',
+    ],
+    movement_analysis_en: [
+      'Six-Pattern Ladder Execution: Systematically scale from chair squats and wall push-ups to Bulgarian split squats, inverted rows, single-leg bridges, and negative pull-ups.',
+      'Time Under Tension (TUT) 3-1-3 tempo: 3s eccentric, 1s isometric bottom, 3s concentric eliminator of momentum, achieving 45-60s per set for deep microvascular adaptation.',
+    ],
+    action_protocols_zh: [
+      '無器材居家 4 週循環執行法：採用周邊心臟循環 (PHA) 模式，將下肢推、上肢推、拉、鉸鏈與核心串聯為 6 動作循環，各做 15–20 次，組間休 30 秒，每次 3–4 輪（25–35 分鐘），兼顧心肺與局部耐力。',
+      '階梯進階門檻：某退階動作能以標準動作、無關節疼痛且維持 RIR 2（保留2下）連續完成 3 組 × 20 次時，即可進階至下一階段動作，杜絕跨級躁進。',
+    ],
+    action_protocols_en: [
+      'No-Equipment 4-Week Circuit Protocol: Apply Peripheral Heart Action (PHA) combining push, pull, squat, hinge, and core for 15-20 reps with 30s rest, 3-4 rounds per session.',
+      'Progression Criterion: Advance to the next ladder tier only when achieving 3 sets of 20 pristine reps at RIR 2 without joint discomfort.',
+    ],
+  },
+  {
+    id: 'STR-11',
+    title_zh: '肌耐力臨床醫學效益、肌肉修復與營養代謝全指南 (Clinical Muscular Endurance, Recovery & Nutrition)',
+    title_en: 'Clinical Muscular Endurance, Autonomic Recovery & Sarcopenia Nutrition Guidelines',
+    category: 'SARCOPENIA_MYOKINES',
+    one_liner_zh: '微血管新生與粒線體生化擴充有氧底氣，白胺酸閾值跨越合成阻抗，慢波睡眠與主動修復構築防傷抗老護城河。',
+    one_liner_en: 'Capillarization and mitochondrial biogenesis expand work capacity; leucine threshold and slow-wave sleep cement cellular repair.',
+    evidence_grade: 'A',
+    mechanisms_zh: [
+      '微血管新生 (Capillarization) 與動靜脈氧差：高反覆肌耐力訓練誘發組織局部低氧與剪切應力，刺激 VEGF 因子分泌，使肌纖維周邊毛細血管密度增加 20–40%，提高肌細胞對動脈血氧的攝取率 (a-vO2 diff)。',
+      '粒線體生物合成與 GLUT4 血糖轉運：活化 AMPK-PGC-1α 生化軸，促進粒線體分裂生長與脂肪氧化酵素活性；促使 GLUT4 葡萄糖載體移至細胞膜，在無胰島素參與下直接降血糖，逆轉胰島素阻抗。',
+      '關節軟骨滑液吸潤作用 (Cartilage Imbibition)：關節軟骨無血管神經，仰賴負重時軟骨受壓排出代謝物、減壓時吸入滑液養分的動態泵浦效應；閉鏈肌耐力能刺激滑膜分泌玻尿酸，為退化性關節炎 (OA) 最佳實證非藥物解方。',
+      'DOMS vs 橫紋肌溶解症 (Rhabdomyolysis) 鑑別診斷：DOMS 為運動後 24–72 小時良性微創修復；若出現「肌肉極度腫脹無力、可樂色/深茶色尿液、少尿 (<400mL/天)」三聯徵，提示肌細胞壞死與肌紅蛋白漏出，需緊急就醫驗血清 CK 與腎功能。',
+    ],
+    mechanisms_en: [
+      'Capillarization & a-vO2 difference: Hypoxia-induced VEGF upregulates capillary density by 20-40%, expanding muscular oxygen extraction capacity.',
+      'Mitochondrial biogenesis & GLUT4: AMPK-PGC-1a signaling stimulates mitochondrial density while driving insulin-independent GLUT4 translocation for glycemic control.',
+      'Cartilage Imbibition in Osteoarthritis: Compressive-decompressive fluid exchange nourishes avascular cartilage, promoting synovial hyaluronic acid synthesis.',
+      'DOMS vs Rhabdomyolysis Red Flags: Distinguish normal post-exercise soreness from rhabdo triad (severe swelling, cola-colored urine, oliguria) requiring urgent CK screening.',
+    ],
+    movement_analysis_zh: [
+      '修復神經內分泌：生長激素 (GH) 70% 於深度慢波睡眠 (SWS - NREM Stage 3) 釋放，促進蛋白質重組；睡眠不足 (<6 小時) 使皮質醇升高 30–50%，加速肌肉分解。訓練後「生理嘆息 (兩次快吸＋長吐氣)」能迅速興奮迷走神經切換至副交感修復。',
+      '主動修復 (Active Recovery) 優於完全靜臥：隔日進行 Zone 1 低強度活動 (20 分鐘快走/輕鬆踩踏，心率 <60% HRmax)，利用肌肉輕微收縮充當「靜脈泵」，加速微血管床沖刷發炎因子與淋巴回流。',
+    ],
+    movement_analysis_en: [
+      'Neuroendocrine Recovery: 70% of GH pulses occur during Stage 3 SWS; sleep debt raises cortisol by 30-50%. Post-workout physiological sighs activate vagal tone.',
+      'Active vs Passive Recovery: Zone 1 light bouts (<60% HRmax) act as a peripheral venous pump to clear inflammatory debris significantly faster than complete bed rest.',
+    ],
+    action_protocols_zh: [
+      '白胺酸閾值 (Leucine Trigger) 攝取準則：一般訓練者每日 1.6–2.0 g/kg 蛋白質；中高齡肌少症者具同化阻抗，單餐需達 0.4 g/kg 或 2.5–3.0 g 白胺酸（1 掌心雞胸肉、3 顆蛋或 1 匙乳清蛋白）方能啟動 mTORC1 合成。',
+      '肝醣黃金窗口與電解質平衡：訓練後 30–60 分鐘內補充「碳水：蛋白質 = 3:1 或 4:1」點心，肝醣再合成速度快 2 倍；運動每流失 1 kg 體重補充 1.25–1.5 L 水分並含適量鈉鉀，預防脫水造成耐力衰竭與抽筋。',
+      '關鍵微量元素處方：每日維生素 D3 (1000–2000 IU) + K2 鞏固骨本；鎂 (200–400 mg) 穩定 ATP 與肌漿網鈣回洗；Omega-3 (EPA/DHA 1–2g) 調控系統性慢性發炎。',
+    ],
+    action_protocols_en: [
+      'Leucine Trigger for Sarcopenia: Ingest 0.4 g/kg or 2.5-3.0g leucine per meal to surmount anabolic resistance and ignite mTORC1 muscle protein synthesis.',
+      'Glycogen Window & Electrolytes: Consume 3:1 carbohydrate-to-protein snacks within 60 mins post-exercise; replace 1.25-1.5L fluid per kg bodyweight lost with sodium.',
+      'Targeted Micronutrients: Combine D3+K2 for osteo-muscular synergy, Magnesium for ATP activation, and Omega-3s to modulate systemic inflammation.',
+    ],
+  },
 ];
 
 export const STRENGTH_INFOGRAPHICS: SportInfographicMeta[] = [

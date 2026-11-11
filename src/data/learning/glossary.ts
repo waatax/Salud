@@ -87,6 +87,11 @@ export const GLOSSARY: GlossaryEntry[] = [
   { term: 'OPLL', zh: '後縱韌帶骨化症', plain_zh: '頸椎椎體後方的韌帶慢慢變成骨頭、從前方壓迫脊髓；在東亞族群較常見。', category: '脊椎與神經', related_hash: 'spine/SPURS' },
   { term: '超加工食品', zh: 'Ultra-processed food', plain_zh: '主要以工業原料與添加物組成的食品，如泡麵、香腸、洋芋片、含糖飲料。', category: '運動與生活', related_hash: 'learn/eat/L-EAT-06' },
   { term: '睡眠規律度', zh: 'Sleep regularity', plain_zh: '每天入睡與起床時間的一致程度；與健康風險相關，但不能抵銷睡眠不足。', category: '運動與生活', related_hash: 'learn/rest/L-REST-01' },
+  { term: '橫紋肌溶解症', zh: 'Rhabdomyolysis', plain_zh: '骨骼肌細胞急性壞死破裂，釋放大量肌紅蛋白阻塞腎小管造成茶色尿與急性腎衰竭；是劇烈過勞運動的急診紅旗。', category: '疾病與狀態', related_hash: 'exercise/strength' },
+  { term: '延遲性肌肉痠痛', zh: 'DOMS', plain_zh: '高強度或不熟悉運動後 24–72 小時達到高峰的微小肌纖維發炎與修復現象；痠痛局限於肌肉中段且尿液顏色正常。', category: '運動與生活', related_hash: 'exercise/strength' },
+  { term: '徒手訓練', zh: 'Calisthenics', plain_zh: '以自體體重為主要阻力，透過調整槓桿支點、身體傾角與力臂進行進階或退階的科學力量訓練法。', category: '運動與生活', related_hash: 'exercise/strength' },
+  { term: '肌激素', zh: 'Myokines', plain_zh: '骨骼肌在規律收縮運動時主動分泌的細胞激素（如 IL-6、Irisin），能調節全身葡萄糖代謝、抗慢性發炎與提升心血管彈性。', category: '運動與生活', related_hash: 'exercise/strength' },
+  { term: '白胺酸閾值', zh: 'Leucine trigger', plain_zh: '刺激骨骼肌細胞內 mTORC1 訊號啟動肌肉蛋白質合成所必需的支鏈胺基酸劑量，成人每餐約需 2.5–3 克以克服年齡同化阻抗。', category: '運動與生活', related_hash: 'exercise/strength' },
 ];
 
 export const GLOSSARY_CATEGORIES = ['檢驗與數值', '疾病與狀態', '脊椎與神經', '治療與藥物', '研究與證據', '運動與生活'] as const;

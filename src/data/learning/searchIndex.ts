@@ -319,7 +319,31 @@ export function buildSearchIndex(): SearchDoc[] {
       title: '最大肌力 × 肌耐力科學專題（怪獸訓練與何立安博士實證觀點）',
       subtitle: '為什麼先求最大肌力再求肌耐力？天花板決定地板模擬器、訓練金字塔、人體自然動作、三大能量系統與彈性訓練法',
       target: 'exercise/strength',
-      keywords: '肌耐力 最大肌力 怪獸訓練 Monster Training 何立安 SBD怪獸講堂 訓練金字塔 人體自然動作 三大能量系統 磷化物 乳酸 有氧 彈性訓練法 True Max Daily Max Easy Max 抗老化 常訓替代長照 1RM 深蹲 硬舉 農夫走路',
+      keywords: '肌耐力 最大肌力 怪獸訓練 Monster Training 何立安 SBD怪獸講堂 訓練金字塔 人體自然動作 三大能量系統 磷化物 乳酸 有氧 彈性訓練法 True Max Daily Max Easy Max 抗老化 常訓替代長照 1RM 深蹲 硬舉 農夫走路 醫學知識 肌少症 骨骼肌內分泌 肌激素 橫紋肌溶解症 DOMS 局部肌耐力 LME TUT 張力時間 PHA 周邊心臟循環 EDT 漸進密度 徒手訓練 徒手深蹲 俯臥撐 引體向上 伏地挺身 週期化課表 白胺酸 肝醣超補 慢波睡眠 滾筒放鬆 SMR 生理嘆息',
+    },
+    {
+      id: 'topic:strength-calisthenics',
+      group: '肌力訓練',
+      title: '徒手肌耐力訓練力學：六大自然動作之進階與退階階梯',
+      subtitle: '免器材力學：以身體傾角、力臂、支點調整訓練強度，循序漸進解鎖伏地挺身與引體向上',
+      target: 'exercise/strength',
+      keywords: '徒手訓練 徒手肌力 自體體重 伏地挺身 俯臥撐 靠牆俯臥撐 跪姿俯臥撐 徒手深蹲 分腿蹲 手槍蹲 單腿深蹲 引體向上 澳式划船 棒式 懸垂舉腿 臀橋 槓桿力臂 傾角 STR-10',
+    },
+    {
+      id: 'topic:strength-medical-recovery',
+      group: '肌力訓練',
+      title: '肌耐力臨床醫學效益、肌肉修復與營養代謝全指南',
+      subtitle: '骨骼肌內分泌、微血管新生、粒線體生化、軟骨健康、DOMS vs 橫紋肌溶解、白胺酸門檻與慢波睡眠修復',
+      target: 'exercise/strength',
+      keywords: '肌耐力醫學 臨床醫學 肌少症 骨骼肌內分泌 肌激素 Myokines IL-6 粒線體 微血管新生 關節軟骨 滑液吸潤 橫紋肌溶解 茶色尿 DOMS 肌肉痠痛 急診紅旗 白胺酸閾值 mTOR 蛋白質 3:1超補 慢波睡眠 NREM3 SMR 滾筒 生理嘆息 STR-11',
+    },
+    {
+      id: 'topic:strength-endurance-programs',
+      group: '肌力訓練',
+      title: '肌耐力三大實戰週期化課表：居家無器材、中階 PHA 壺鈴循環、銀髮防肌少護膝',
+      subtitle: '科學配速與漸進超負荷：4 週零門檻自重循環、全身周邊心臟循環、年長者防跌抗老化課表',
+      target: 'exercise/strength',
+      keywords: '肌耐力課表 訓練課表 居家無器材 零門檻 4週課表 PHA 周邊心臟循環 EDT 壺鈴 啞鈴 銀髮族 長輩防肌少 椅子起立 登階 護膝 抗跌倒 週期化課表',
     }
   );
   for (const n of NUMB_CAUSES) {

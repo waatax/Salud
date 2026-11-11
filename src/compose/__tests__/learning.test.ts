@@ -313,7 +313,7 @@ test('lesson tables: remapped lessons point at an existing table, never at thems
   }
 });
 
-test('muscular endurance & max strength: L-MOVE-08, STR-08/09, glossary and search queries resolve', () => {
+test('muscular endurance & max strength: L-MOVE-08, STR-08/09/10/11, glossary and search queries resolve', () => {
   const lesson = ALL_LESSONS.find((l) => l.id === 'L-MOVE-08');
   assert.ok(lesson, 'L-MOVE-08 exists');
   assert.match(lesson.title_zh, /最大肌力.*肌耐力/);
@@ -321,11 +321,18 @@ test('muscular endurance & max strength: L-MOVE-08, STR-08/09, glossary and sear
 
   const str08 = STRENGTH_TOPICS.find((t) => t.id === 'STR-08');
   const str09 = STRENGTH_TOPICS.find((t) => t.id === 'STR-09');
+  const str10 = STRENGTH_TOPICS.find((t) => t.id === 'STR-10');
+  const str11 = STRENGTH_TOPICS.find((t) => t.id === 'STR-11');
   assert.ok(str08 && str08.title_zh.includes('肌耐力'), 'STR-08 covers muscular endurance');
   assert.ok(str09 && str09.title_zh.includes('人體自然動作'), 'STR-09 covers natural movement & energy systems');
+  assert.ok(str10 && str10.title_zh.includes('徒手肌耐力訓練力學'), 'STR-10 covers calisthenics progression ladder');
+  assert.ok(str11 && str11.title_zh.includes('肌耐力臨床醫學效益'), 'STR-11 covers medical adaptations & recovery');
 
   assert.ok(GLOSSARY.some((g) => g.term === '肌耐力'), 'Glossary contains 肌耐力');
   assert.ok(GLOSSARY.some((g) => g.term === '最大肌力'), 'Glossary contains 最大肌力');
+  assert.ok(GLOSSARY.some((g) => g.term === '橫紋肌溶解症'), 'Glossary contains 橫紋肌溶解症');
+  assert.ok(GLOSSARY.some((g) => g.term === '徒手訓練'), 'Glossary contains 徒手訓練');
+  assert.ok(GLOSSARY.some((g) => g.term === '肌激素'), 'Glossary contains 肌激素');
 
   const docs = buildSearchIndex();
   const topTargets = (q: string) => searchDocs(docs, q, 6).map((d) => d.target).join(' | ');
@@ -333,6 +340,8 @@ test('muscular endurance & max strength: L-MOVE-08, STR-08/09, glossary and sear
   assert.match(topTargets('最大肌力'), /learn\/move\/L-MOVE-08|exercise\/strength/);
   assert.match(topTargets('怪獸訓練'), /exercise\/strength|learn\/move\/L-MOVE-08/);
   assert.match(topTargets('何立安'), /exercise\/strength|learn\/move\/L-MOVE-08/);
+  assert.match(topTargets('徒手訓練'), /exercise\/strength/);
+  assert.match(topTargets('橫紋肌溶解'), /exercise\/strength/);
 });
 
 test('masteryAcademy (v6.8): learner growth progression, 8 medical disciplines, 12 practice scenarios, 16 myth cards and 13 skill tree nodes', () => {
