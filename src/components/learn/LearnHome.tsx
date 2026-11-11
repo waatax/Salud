@@ -5,6 +5,7 @@ import { useModal } from '../../context/ModalContext';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { ALL_LESSONS, LEARNING_TRACKS, LEARNING_GOALS, findLesson, getTrack } from '../../data/learning/tracks';
+import { calculateLearnerGrowth } from '../../data/learning/masteryAcademy';
 import { EVIDENCE_UPDATES, UPDATE_CATEGORY_META } from '../../data/learning/evidenceUpdates';
 import { DISCOVERY_CATEGORIES, filterDiscoveryTopics, type DiscoveryCategory } from '../../data/learning/discovery';
 import { LAB_METRICS } from '../../data/learning/checkup';
@@ -47,6 +48,7 @@ export const LearnHome: React.FC = () => {
   const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
   const lastTrack = lastLesson ? getTrack(lastLesson.track_id) : undefined;
   const done = ALL_LESSONS.filter(l => progress.completed.includes(l.id)).length;
+  const growth = calculateLearnerGrowth(progress, plan.items.length);
   const directory = filterDiscoveryTopics(category, expanded);
   const latest = [...EVIDENCE_UPDATES].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
@@ -101,6 +103,53 @@ export const LearnHome: React.FC = () => {
       </section>
 
       {lastLesson && lastTrack && <section className="discovery-card p-5 sm:p-6" aria-label="繼續上次學習"><div className="flex items-center gap-4"><TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} /><div className="min-w-0 flex-1"><p className="mb-1 text-xs text-slate-600 dark:text-slate-400">歡迎回來・已完成 {done} / {ALL_LESSONS.length} 課</p><a href={`#learn/${lastTrack.id}/${lastLesson.id}`} className={`inline-flex items-center gap-2 font-semibold text-slate-900 dark:text-white ${focusClass}`}>繼續閱讀：{lastLesson.title_zh}<ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></div></div></section>}
+
+      {/* Learner Growth Passport & Interactive Practice Lab Entry */}
+      <section
+        aria-labelledby="learner-growth-home-title"
+        className="rounded-3xl border border-sky-200/90 bg-gradient-to-br from-sky-50/70 via-white to-emerald-50/50 p-6 sm:p-8 shadow-xs dark:border-sky-900/60 dark:from-sky-950/30 dark:via-slate-900 dark:to-slate-900"
+      >
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-white dark:bg-emerald-400 dark:text-slate-950">
+                <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" />
+                從健康小白到醫學知識者
+              </span>
+              <span className="rounded-full border border-emerald-300/80 bg-white/90 px-3 py-1 text-xs font-bold text-emerald-900 dark:border-emerald-800 dark:bg-slate-900/90 dark:text-emerald-300">
+                {growth.currentRank.badge_emoji} 目前等級：Lv.{growth.currentRank.level} {growth.currentRank.title_zh}（{growth.xp} XP）
+              </span>
+            </div>
+            <h2 id="learner-growth-home-title" className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+              快樂掌握 {growth.totalPointsCount} 個健康知識點，在生活實作裡愛上 8 大醫學學科
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              學健康不必死背術語！透過 12 道真實家庭與生活情境演練、全站 {ALL_LESSONS.length} 課主動回憶閃卡、真假迷思快打，以及「為什麼生理學與生物化學超迷人」博覽館，一步步升級為守護自己與家人的實證醫學知識者。
+            </p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-semibold text-slate-600 dark:text-slate-400">
+              <span>已掌握知識點：{growth.pointsMasteredCount} / {growth.totalPointsCount}</span>
+              <span>情境實戰過關：{growth.scenariosDoneCount} / {growth.totalScenariosCount}</span>
+              <span>迷思快打：{growth.mythsDoneCount} / {growth.totalMythsCount}</span>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0">
+            <a
+              href="#learn/practice"
+              className={`discovery-primary justify-center ${focusClass}`}
+            >
+              <span>進入情境實戰 & 知識閃卡練習場</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href="#learn/academy"
+              className={`discovery-secondary justify-center ${focusClass}`}
+            >
+              <GraduationCap className="h-4 w-4" aria-hidden="true" />
+              <span>探索 8 大迷人醫學學科博覽館</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Featured Spotlight: Maximum Strength x Muscular Endurance (Monster Training & Dr. Ho Li-An Insights) */}
       <section

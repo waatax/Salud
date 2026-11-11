@@ -17,8 +17,10 @@ import {
 import { useBookmarks } from '../../hooks/useBookmarks';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { useHealthStreak } from '../../hooks/useHealthStreak';
+import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useNavigation } from '../../context/NavigationContext';
 import { resolveTip } from '../../data/learning/tipIndex';
+import { calculateLearnerGrowth, MEDICAL_DISCIPLINES, TOTAL_KNOWLEDGE_POINTS } from '../../data/learning/masteryAcademy';
 import { TipKindBadge } from '../learn/QuickTips';
 
 type BackpackTab = 'bookmarks' | 'plan' | 'streak';
@@ -28,12 +30,15 @@ export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => v
   const { bookmarkedPages, toggleBookmark } = useBookmarks();
   const { plan, toggleToday, doneToday, remove, last7 } = useActionPlan();
   const { streak, totalCheckIns, checkedInToday, checkIn } = useHealthStreak();
+  const { progress } = useLearningProgress();
   const { selectPage, go } = useNavigation();
 
   if (!isOpen) return null;
 
   const planItems = plan.items.map(resolveTip).filter((x): x is NonNullable<typeof x> => Boolean(x));
   const planDoneCount = planItems.filter((i) => doneToday(i.id)).length;
+  const growth = calculateLearnerGrowth(progress, plan.items.length);
+  const likedDisciplineItems = MEDICAL_DISCIPLINES.filter((d) => progress.likedDisciplines?.includes(d.id));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="backpack-title">
@@ -310,6 +315,73 @@ export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => v
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Learner Growth Rank & Liked Medical Disciplines */}
+              <div className="p-4 sm:p-5 rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <div className="text-[0.75rem] font-mono uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
+                      醫學知識者成長護照 · Lv.{growth.currentRank.level}
+                    </div>
+                    <h4 className="font-bold text-base text-slate-900 dark:text-white mt-0.5">
+                      {growth.currentRank.badge_emoji} {growth.currentRank.title_zh}（{growth.xp} XP）
+                    </h4>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      go('learn/practice');
+                    }}
+                    className="px-3 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold inline-flex items-center gap-1"
+                  >
+                    <span>進入實戰練習院</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800">
+                    <div className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
+                      {growth.pointsMasteredCount} / {TOTAL_KNOWLEDGE_POINTS}
+                    </div>
+                    <div className="text-[0.6875rem] text-slate-500 mt-0.5">已掌握知識點</div>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800">
+                    <div className="font-mono font-bold text-teal-700 dark:text-teal-400">
+                      {growth.scenariosDoneCount} / 12
+                    </div>
+                    <div className="text-[0.6875rem] text-slate-500 mt-0.5">生活情境通關</div>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800">
+                    <div className="font-mono font-bold text-rose-700 dark:text-rose-400">
+                      {growth.likedDisciplinesCount} / 8
+                    </div>
+                    <div className="text-[0.6875rem] text-slate-500 mt-0.5">喜愛醫學學科</div>
+                  </div>
+                </div>
+                {likedDisciplineItems.length > 0 && (
+                  <div className="pt-1">
+                    <div className="text-[0.75rem] font-semibold text-slate-600 dark:text-slate-300 mb-1.5">
+                      你喜愛的醫學學科：
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {likedDisciplineItems.map((d) => (
+                        <button
+                          key={d.id}
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            go('learn/academy');
+                          }}
+                          className="text-xs px-2.5 py-1 rounded-full bg-white dark:bg-slate-900 border border-emerald-200 dark:border-emerald-800 text-slate-800 dark:text-slate-200 hover:border-emerald-500"
+                        >
+                          {d.name_zh}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

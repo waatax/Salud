@@ -1,3 +1,5 @@
+> **v6.8 從健康小白到醫學知識者・互動實作練習院、知識閃卡與 8 大醫學學科博覽館（2026-11-11）**：打造五階學習者成長護照（`Lv.1 健康好奇新手` ➔ `Lv.5 實證醫學知識者`），涵蓋 `#learn/practice`（12 大真實生活與臨床情境實戰練習室）、`#learn/flashcards`（65 堂課主動回憶翻轉閃卡 + 16 題生活迷思是非快閃挑戰）與 `#learn/academy`（8 大醫學學科奇妙博覽館，連結生理學、生物化學、運動力學、睡眠神經科學、檢驗醫學、實證流行病學、心血代謝與神經骨科分流）；全部 65 堂小課升級支援「逐點勾選掌握（共 319 個知識點）」與「費曼學習法：一句話講給家人朋友聽」分享卡；習慣養成技能樹（`#ultrahealth/SKILL_TREE`）擴充至 13 顆跨領域節點。詳見 [CHANGELOG](CHANGELOG.md)。
+
 > **v6.7 新主題「肌力訓練」・TSCA 丙級肌力及體能教練證照研究（2026-11-11）**：新增 `#strength`（別名 `#tsca`）主題，專題一以 6 章課程整理 TSCA 丙級研究大綱五大模組（運動科學、課表與週期化、術科技術、執教與錯誤修正、營養與考試衝刺），每模組附可複製的 AI 深度研究提示與研究成果（3 題能量系統情境題、大專籃球員 4 週第一轉換期課表、傳統硬舉教學講義、三大錯誤對比修正表、15 題模擬考卷與解析），並列出大綱逐條比對 NSCA 4th ed. 後的 10 處校訂。詳見 [CHANGELOG](CHANGELOG.md)。
 
 > **v6.6 最大肌力 × 肌耐力抗老科學專區・怪獸訓練體系整合與高雅介面優化（2026-11-10）**：於運動專區（`#exercise/strength`）深度打造「最大肌力 × 肌耐力科學專題」（整合怪獸訓練 `monstertraining.com.tw` 與何立安博士訪談核心哲學：先求最大肌力再求肌耐力、天花板決定地板互動模擬器、訓練金字塔、人體自然動作三大原則、三大能量系統、True/Daily/Easy Max 游刃有餘彈性訓練法）；新增第 65 堂白話小課 `L-MOVE-08`、2 個深度科學主題（`STR-08`、`STR-09`），並將 `SimStrength1RM` 全面升級為日夜雙模高雅介面與章節快速跳轉導覽。詳見 [CHANGELOG](CHANGELOG.md) 與 [改善紀錄](docs/discovery-experience-review.md)。
@@ -14,7 +16,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.7.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.8.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

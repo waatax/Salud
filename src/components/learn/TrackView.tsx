@@ -28,16 +28,18 @@ import {
   Copy,
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
-import { useLearningProgress } from '../../hooks/useLearningProgress';
+import { useLearningProgress, lessonPointId } from '../../hooks/useLearningProgress';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { lessonActionId } from '../../data/learning/tipIndex';
 import { LEARNING_TRACKS, getTrack, findLesson, TOTAL_LESSON_MINUTES, ALL_LESSONS } from '../../data/learning/tracks';
+import { calculateLearnerGrowth, buildFeynmanShareText } from '../../data/learning/masteryAcademy';
 import { getUpdate } from '../../data/learning/evidenceUpdates';
 import { LearningTrack, Lesson } from '../../types/learning';
 import { TONE, TrackIcon, ProgressBar, PageHeader, formatYM } from './learnUi';
 import { QuickTips } from './QuickTips';
 import { LessonVisualGraphic } from './LessonVisualGraphic';
 import { LessonReferenceTable } from './LessonReferenceTable';
+import { PracticeLabView } from './PracticeLabView';
 import { FourPillarsClinicalMatrix } from '../knowledge/FourPillarsClinicalMatrix';
 
 const TRACK_PILLAR_TOPIC: Record<string, string> = {
@@ -51,9 +53,23 @@ const TRACK_PILLAR_TOPIC: Record<string, string> = {
   spine: 'musculoskeletal',
 };
 
-/** `#learn` → catalogue, `#learn/<track>` → track overview, `#learn/<track>/<lesson>` → lesson. */
+/**
+ * `#learn` → catalogue,
+ * `#learn/practice` → interactive scenario & flashcard lab,
+ * `#learn/academy` → 8 medical disciplines & learner growth ladder,
+ * `#learn/<track>` → track overview,
+ * `#learn/<track>/<lesson>` → lesson.
+ */
 export const TrackView: React.FC = () => {
-  const { learnTrackId, learnLessonId } = useNavigation();
+  const { learnTrackId, learnLessonId, go } = useNavigation();
+
+  if (learnTrackId === 'practice' || learnTrackId === 'flashcards') {
+    return <PracticeLabView initialMode={learnTrackId === 'flashcards' ? 'flashcards' : 'scenarios'} onBackToCatalogue={() => go('learn')} />;
+  }
+  if (learnTrackId === 'academy') {
+    return <PracticeLabView initialMode="academy" onBackToCatalogue={() => go('learn')} />;
+  }
+
   const track = learnTrackId ? getTrack(learnTrackId) : undefined;
   const lesson = track && learnLessonId ? track.lessons.find((l) => l.id === learnLessonId) : undefined;
 
@@ -65,7 +81,9 @@ export const TrackView: React.FC = () => {
 const Catalogue: React.FC = () => {
   const { go } = useNavigation();
   const { progress, reset, isDone } = useLearningProgress();
+  const { plan } = useActionPlan();
   const done = progress.completed.filter((id) => ALL_LESSONS.some((l) => l.id === id)).length;
+  const growth = useMemo(() => calculateLearnerGrowth(progress, plan.items.length), [progress, plan.items.length]);
   const [statusFilter, setStatusFilter] = useState<'all' | 'todo' | 'done'>('all');
   const [query, setQuery] = useState<string>('');
   const [expandedTracks, setExpandedTracks] = useState<Record<string, boolean>>(() => {
@@ -92,15 +110,22 @@ const Catalogue: React.FC = () => {
   return (
     <div className="space-y-8 animate-fade-in">
       <PageHeader
-        eyebrow="學習路徑"
-        title="課程總表"
-        lead={`${LEARNING_TRACKS.length} 條路徑、${ALL_LESSONS.length} 堂課，全部讀完約 ${Math.round((TOTAL_LESSON_MINUTES / 60) * 10) / 10} 小時。建議從「健康素養入門」開始，也可以直接搜尋你想了解的主題。`}
+        eyebrow="學習路徑 · 從小白到醫學知識者"
+        title="課程總表與快樂成長學院"
+        lead={`${LEARNING_TRACKS.length} 條路徑、${ALL_LESSONS.length} 堂課（共 ${growth.totalPointsCount} 個知識點），全部讀完約 ${Math.round((TOTAL_LESSON_MINUTES / 60) * 10) / 10} 小時。除了讀白話小課，還能進入「生活情境實戰演練」「知識閃卡」與「8 大醫學學科博覽館」邊玩邊學！`}
       >
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
-          <span>
-            你已完成 <strong className="text-slate-900 dark:text-white tabular-nums">{done}</strong> / {ALL_LESSONS.length} 課
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 px-3 py-1 text-xs font-bold text-emerald-900 dark:text-emerald-300">
+            <span>{growth.currentRank.badge_emoji}</span>
+            <span>Lv.{growth.currentRank.level} {growth.currentRank.title_zh}（{growth.xp} XP）</span>
           </span>
-          {done > 0 && (
+          <span>
+            已完成 <strong className="text-slate-900 dark:text-white tabular-nums">{done}</strong> / {ALL_LESSONS.length} 課
+          </span>
+          <span>
+            已掌握 <strong className="text-emerald-700 dark:text-emerald-400 tabular-nums">{growth.pointsMasteredCount}</strong> / {growth.totalPointsCount} 個知識點
+          </span>
+          {(done > 0 || growth.xp > 0) && (
             <button
               type="button"
               onClick={() => {
@@ -114,6 +139,52 @@ const Catalogue: React.FC = () => {
           )}
         </div>
       </PageHeader>
+
+      {/* Joyful Interactive Practice & Medical Disciplines Entry Card */}
+      <section
+        aria-label="從小白到醫學知識者互動練習與學科博覽館"
+        className="rounded-3xl border border-emerald-200/90 dark:border-emerald-900/70 bg-gradient-to-br from-emerald-50/80 via-white to-sky-50/50 dark:from-emerald-950/35 dark:via-slate-900 dark:to-slate-900 p-5 sm:p-6 shadow-xs"
+      >
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div className="space-y-2 max-w-2xl">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-white dark:bg-emerald-400 dark:text-slate-950">
+                <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+                互動練習 × 學科探索
+              </span>
+              <span className="text-xs font-semibold text-emerald-800 dark:text-emerald-300">
+                已闖關情境 {growth.scenariosDoneCount}/{growth.totalScenariosCount} · 迷思快打 {growth.mythsDoneCount}/{growth.totalMythsCount}
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+              想邊玩邊學、把所有知識點真正用出來嗎？
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              透過 12 個真實家庭與生活情境演練、全站 65 課翻翻樂閃卡、真假迷思快打，以及「為什麼這 8 大醫學學科超迷人」博覽館，快樂升級為實證醫學知識者！
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5 shrink-0">
+            <button
+              type="button"
+              onClick={() => go('learn/practice')}
+              className="inline-flex items-center gap-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 dark:bg-emerald-400 dark:text-slate-950 px-4 py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs transition-colors"
+            >
+              <Stethoscope className="w-4 h-4" aria-hidden="true" />
+              <span>進入情境實戰 & 知識閃卡</span>
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={() => go('learn/academy')}
+              className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-slate-900 px-4 py-2.5 text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-300 hover:bg-emerald-50 transition-colors"
+            >
+              <Compass className="w-4 h-4" aria-hidden="true" />
+              <span>探索 8 大迷人醫學學科</span>
+            </button>
+          </div>
+        </div>
+      </section>
 
       {lastLesson && lastTrack && (
         <section
@@ -531,7 +602,16 @@ const TrackCompetencyTable: React.FC<{ track: LearningTrack }> = ({ track }) => 
 
 const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ track, lesson }) => {
   const { go } = useNavigation();
-  const { visit, markComplete, recordQuiz, isDone, progress } = useLearningProgress();
+  const {
+    visit,
+    markComplete,
+    recordQuiz,
+    isDone,
+    progress,
+    toggleMasteredPoint,
+    markLessonPoints,
+    isPointMastered,
+  } = useLearningProgress();
   const { inPlan, add, remove } = useActionPlan();
   const idx = track.lessons.findIndex((l) => l.id === lesson.id);
   const prev = track.lessons[idx - 1];
@@ -539,6 +619,15 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
   const nextTrack = LEARNING_TRACKS[LEARNING_TRACKS.findIndex((t) => t.id === track.id) + 1];
   const done = isDone(lesson.id);
   const [copiedNotes, setCopiedNotes] = useState(false);
+  const [copiedFeynman, setCopiedFeynman] = useState(false);
+
+  const lessonPointIds = useMemo(
+    () => lesson.key_points_zh.map((_, i) => lessonPointId(lesson.id, i)),
+    [lesson.id, lesson.key_points_zh]
+  );
+  const masteredInLessonCount = lessonPointIds.filter((id) => isPointMastered(id)).length;
+  const allPointsMastered = masteredInLessonCount === lesson.key_points_zh.length;
+  const feynmanCard = useMemo(() => buildFeynmanShareText(lesson.id), [lesson.id]);
 
   const handleCopyNotes = () => {
     const text = [
@@ -554,6 +643,14 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
     navigator.clipboard?.writeText(text).then(() => {
       setCopiedNotes(true);
       setTimeout(() => setCopiedNotes(false), 2500);
+    });
+  };
+
+  const handleCopyFeynman = () => {
+    if (!feynmanCard) return;
+    navigator.clipboard?.writeText(feynmanCard.full_copy_text).then(() => {
+      setCopiedFeynman(true);
+      setTimeout(() => setCopiedFeynman(false), 2500);
     });
   };
 
@@ -632,21 +729,60 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       {/* Visual Mechanism & Clinical Diagram */}
       <div id="lesson-visual" tabIndex={-1} className="scroll-mt-24"><LessonVisualGraphic track={track} lesson={lesson} /></div>
 
-      {/* Key points */}
+      {/* Key points (Interactive Mastery Checklist) */}
       <section aria-labelledby="kp-h" className="space-y-3">
-        <h2 id="kp-h" className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <BookOpen className="w-5 h-5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
-          你需要知道的 {lesson.key_points_zh.length} 件事
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 id="kp-h" className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
+            <span>你需要知道的 {lesson.key_points_zh.length} 件事</span>
+          </h2>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 tabular-nums">
+              已掌握 {masteredInLessonCount} / {lesson.key_points_zh.length} 個知識點
+            </span>
+            <button
+              type="button"
+              onClick={() => markLessonPoints(lessonPointIds, !allPointsMastered)}
+              className="rounded-lg border border-emerald-300 dark:border-emerald-800 px-2.5 py-1 text-xs font-semibold text-emerald-800 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors"
+            >
+              {allPointsMastered ? '取消全部掌握' : '一鍵全部標記掌握'}
+            </button>
+          </div>
+        </div>
         <ol className="space-y-3">
-          {lesson.key_points_zh.map((kp, i) => (
-            <li key={i} className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-100 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-xs hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
-              <span className={`w-7 h-7 shrink-0 rounded-full inline-flex items-center justify-center text-sm font-bold ${TONE[track.tone].chip} border mt-0.5`}>
-                {i + 1}
-              </span>
-              <p className="flex-1 text-[15.5px] leading-7 text-slate-800 dark:text-slate-200">{kp}</p>
-            </li>
-          ))}
+          {lesson.key_points_zh.map((kp, i) => {
+            const pointId = lessonPointId(lesson.id, i);
+            const mastered = isPointMastered(pointId);
+            return (
+              <li
+                key={i}
+                className={`flex items-start gap-3 p-3.5 rounded-xl border transition-colors shadow-xs ${
+                  mastered
+                    ? 'border-emerald-300 dark:border-emerald-800/80 bg-emerald-50/40 dark:bg-emerald-950/20'
+                    : 'border-slate-100 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 hover:border-slate-200 dark:hover:border-slate-700'
+                }`}
+              >
+                <span className={`w-7 h-7 shrink-0 rounded-full inline-flex items-center justify-center text-sm font-bold ${TONE[track.tone].chip} border mt-0.5`}>
+                  {i + 1}
+                </span>
+                <p className="flex-1 text-[15.5px] leading-7 text-slate-800 dark:text-slate-200">{kp}</p>
+                <button
+                  type="button"
+                  aria-pressed={mastered}
+                  onClick={() => toggleMasteredPoint(pointId)}
+                  title={mastered ? '已掌握此知識點（點擊取消）' : '讀懂了！標記掌握此知識點 (+3 XP)'}
+                  className={`shrink-0 mt-0.5 inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold transition-colors ${
+                    mastered
+                      ? 'bg-emerald-600 text-white dark:bg-emerald-500 dark:text-emerald-950'
+                      : 'border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-500 hover:text-emerald-800 dark:hover:text-emerald-300'
+                  }`}
+                >
+                  {mastered ? <Check className="w-3.5 h-3.5" aria-hidden="true" /> : <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />}
+                  <span>{mastered ? '已掌握' : '懂了'}</span>
+                </button>
+              </li>
+            );
+          })}
         </ol>
       </section>
 
@@ -684,6 +820,46 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
           })}
         </ul>
       </section>
+
+      {/* Feynman Technique: Explain to Family & Friends in Plain Language */}
+      {feynmanCard && (
+        <section
+          aria-labelledby="feynman-h"
+          className="rounded-2xl border border-sky-200/90 dark:border-sky-900/60 bg-gradient-to-br from-sky-50/70 via-white to-emerald-50/40 dark:from-sky-950/30 dark:via-slate-900 dark:to-slate-900 p-5 space-y-3"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 id="feynman-h" className="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-base">
+              <GraduationCap className="w-5 h-5 text-sky-700 dark:text-sky-400" aria-hidden="true" />
+              <span>費曼學習法練習：用一句白話講給家人朋友聽</span>
+            </h2>
+            <button
+              type="button"
+              onClick={handleCopyFeynman}
+              className="inline-flex items-center gap-1.5 rounded-xl bg-sky-700 hover:bg-sky-800 dark:bg-sky-400 dark:text-slate-950 px-3 py-1.5 text-xs font-bold text-white transition-colors"
+            >
+              {copiedFeynman ? (
+                <>
+                  <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>已複製親友分享卡！</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>一鍵複製分享給家人</span>
+                </>
+              )}
+            </button>
+          </div>
+          <p className="text-xs text-slate-600 dark:text-slate-400">
+            當你能不靠艱深術語、把剛學到的健康觀念說給身邊的人聽懂，你就已經從「健康小白」成長為真正的「醫學知識者」！
+          </p>
+          <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 p-3.5 space-y-1.5 text-xs sm:text-sm leading-6 text-slate-700 dark:text-slate-200">
+            <p>💬 <strong>怎麼開口：</strong>{feynmanCard.opening_zh}</p>
+            <p>💡 <strong>打個比方：</strong>{feynmanCard.metaphor_zh}</p>
+            <p>🏃 <strong>一起試試：</strong>{feynmanCard.action_invite_zh}</p>
+          </div>
+        </section>
+      )}
 
       {/* Myth */}
       {lesson.myth_zh && (
@@ -779,7 +955,11 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         <div className="flex flex-wrap items-center gap-3">
           <button
             type="button"
-            onClick={() => markComplete(lesson.id, !done)}
+            onClick={() => {
+              const nextDone = !done;
+              markComplete(lesson.id, nextDone);
+              if (nextDone) markLessonPoints(lessonPointIds, true);
+            }}
             className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition-colors ${
               done
                 ? 'border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/30'
@@ -788,7 +968,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
             aria-pressed={done}
           >
             <CheckCircle2 className="w-5 h-5" aria-hidden="true" />
-            {done ? '已標記完成（點擊取消）' : '我讀完了，標記完成'}
+            {done ? '已標記完成（點擊取消）' : '我讀完了，標記完成並掌握本課知識點'}
           </button>
 
           <button

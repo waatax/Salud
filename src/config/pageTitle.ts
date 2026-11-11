@@ -46,6 +46,12 @@ function pageName(i: PageTitleInput): string | null {
     case 'home':
       return null;
     case 'learn': {
+      if (i.learnTrackId === 'practice' || i.learnTrackId === 'flashcards') {
+        return '情境實戰與知識閃卡・學習路徑';
+      }
+      if (i.learnTrackId === 'academy') {
+        return '8 大醫學學科博覽館・學習路徑';
+      }
       const lesson = i.learnLessonId ? findLesson(i.learnLessonId) : undefined;
       const track = i.learnTrackId ? getTrack(i.learnTrackId) : undefined;
       if (lesson) return track ? `${lesson.title_zh}・${track.title_zh}` : lesson.title_zh;

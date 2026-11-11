@@ -26,6 +26,9 @@ function deadLinkReason(hash: string): string | null {
   switch (route.kind) {
     case 'learn': {
       if (!route.trackId) return null;
+      if (route.trackId === 'practice' || route.trackId === 'flashcards' || route.trackId === 'academy') {
+        return route.lessonId ? `special learn view ${route.trackId} has no lesson ${route.lessonId}` : null;
+      }
       const track = getTrack(route.trackId);
       if (!track) return `unknown track ${route.trackId}`;
       if (route.lessonId && !track.lessons.some((l) => l.id === route.lessonId)) return `unknown lesson ${route.lessonId}`;
@@ -234,6 +237,16 @@ import { PILLAR_NAV as PILLAR_NAV_FOR_TITLES } from '../../config/navigation';
 import { pageTitle, SITE_TITLE } from '../../config/pageTitle';
 import { LESSON_TABLE_KEY } from '../../components/learn/LessonReferenceTable';
 import { STRENGTH_TOPICS } from '../../data/strengthData';
+import {
+  LEARNER_RANKS,
+  TOTAL_KNOWLEDGE_POINTS,
+  calculateLearnerGrowth,
+  MEDICAL_DISCIPLINES,
+  PRACTICE_SCENARIOS,
+  MYTH_BLITZ_DECK,
+  buildFeynmanShareText,
+} from '../../data/learning/masteryAcademy';
+import { SKILL_TREE_NODES } from '../../data/ultraHealthData';
 
 test('hub primers: all 10 hubs have three takeaways each, and every starter link resolves', () => {
   assert.equal(Object.keys(HUB_PRIMERS).length, 10);
@@ -320,4 +333,89 @@ test('muscular endurance & max strength: L-MOVE-08, STR-08/09, glossary and sear
   assert.match(topTargets('最大肌力'), /learn\/move\/L-MOVE-08|exercise\/strength/);
   assert.match(topTargets('怪獸訓練'), /exercise\/strength|learn\/move\/L-MOVE-08/);
   assert.match(topTargets('何立安'), /exercise\/strength|learn\/move\/L-MOVE-08/);
+});
+
+test('masteryAcademy (v6.8): learner growth progression, 8 medical disciplines, 12 practice scenarios, 16 myth cards and 13 skill tree nodes', () => {
+  // 1. Learner ranks & progression calculation
+  assert.equal(LEARNER_RANKS.length, 5);
+  assert.ok(TOTAL_KNOWLEDGE_POINTS >= 300, `expected >=300 knowledge points across 65 lessons, got ${TOTAL_KNOWLEDGE_POINTS}`);
+
+  const novice = calculateLearnerGrowth(
+    {
+      completed: [],
+      quiz: {},
+      masteredPoints: [],
+      completedScenarios: [],
+      completedMyths: [],
+      likedDisciplines: [],
+    },
+    0
+  );
+  assert.equal(novice.currentRank.level, 1);
+  assert.equal(novice.xp, 0);
+  assert.equal(novice.nextRank?.level, 2);
+
+  const practitioner = calculateLearnerGrowth(
+    {
+      completed: ALL_LESSONS.slice(0, 35).map((l) => l.id),
+      quiz: Object.fromEntries(ALL_LESSONS.slice(0, 25).map((l) => [l.id, true])),
+      masteredPoints: Array.from({ length: 180 }, (_, i) => `pt-${i}`),
+      completedScenarios: PRACTICE_SCENARIOS.map((s) => s.id),
+      completedMyths: MYTH_BLITZ_DECK.map((m) => m.id),
+      likedDisciplines: MEDICAL_DISCIPLINES.map((d) => d.id),
+    },
+    10
+  );
+  assert.equal(practitioner.currentRank.level, 5);
+  assert.equal(practitioner.nextRank, null);
+  assert.equal(practitioner.progressToNextPct, 100);
+
+  // 2. 8 Medical Disciplines
+  assert.equal(MEDICAL_DISCIPLINES.length, 8);
+  assert.equal(new Set(MEDICAL_DISCIPLINES.map((d) => d.id)).size, 8);
+  for (const d of MEDICAL_DISCIPLINES) {
+    assert.equal(d.core_concepts_zh.length, 3, `${d.id} needs 3 core concepts`);
+    assert.ok(d.starter_lessons.length >= 2, `${d.id} needs >=2 starter lessons`);
+    for (const lessonId of d.starter_lessons) {
+      assert.ok(ALL_LESSONS.some((l) => l.id === lessonId), `${d.id} starter lesson ${lessonId} is missing`);
+    }
+    assert.equal(deadLinkReason(d.lab_link.hash), null, `${d.id} lab_link ${d.lab_link.hash} is dead`);
+  }
+
+  // 3. 12 Practice Scenarios across all 8 tracks
+  assert.equal(PRACTICE_SCENARIOS.length, 12);
+  assert.equal(new Set(PRACTICE_SCENARIOS.map((s) => s.id)).size, 12);
+  const scenarioTracks = new Set(PRACTICE_SCENARIOS.map((s) => s.track_id));
+  for (const t of LEARNING_TRACKS) {
+    assert.ok(scenarioTracks.has(t.id), `track ${t.id} should have at least one practice scenario`);
+  }
+  for (const sc of PRACTICE_SCENARIOS) {
+    assert.equal(sc.choices.length, 3, `${sc.id} needs 3 choices`);
+    assert.ok(sc.choices.some((c) => c.is_best), `${sc.id} needs a best choice`);
+    assert.ok(ALL_LESSONS.some((l) => l.id === sc.lesson_id), `${sc.id} references valid lesson ${sc.lesson_id}`);
+    assert.equal(deadLinkReason(sc.deep_hash), null, `${sc.id} deep_hash ${sc.deep_hash} is dead`);
+  }
+
+  // 4. 16 Myth Blitz cards & Feynman share card generator
+  assert.equal(MYTH_BLITZ_DECK.length, 16);
+  for (const m of MYTH_BLITZ_DECK) {
+    assert.ok(ALL_LESSONS.some((l) => l.id === m.lesson_id), `${m.id} references valid lesson ${m.lesson_id}`);
+    assert.ok(m.explain_zh.length >= 15, `${m.id} needs explanation`);
+  }
+  const feynman = buildFeynmanShareText('L-EAT-01');
+  assert.ok(feynman, 'feynman share text exists for L-EAT-01');
+  assert.match(feynman.full_copy_text, /一句話健康分享/);
+  assert.match(feynman.full_copy_text, /我的餐盤/);
+
+  // 5. Expanded Skill Tree (13 nodes) & page titles for practice/academy
+  assert.equal(SKILL_TREE_NODES.length, 13);
+  assert.ok(pageTitle({ activePillar: 'learn', learnTrackId: 'practice' }).startsWith('情境實戰與知識閃卡'));
+  assert.ok(pageTitle({ activePillar: 'learn', learnTrackId: 'academy' }).startsWith('8 大醫學學科博覽館'));
+
+  // 6. Search queries resolve to new practice & discipline views
+  const docs = buildSearchIndex();
+  const topTargets = (q: string) => searchDocs(docs, q, 6).map((d) => d.target).join(' | ');
+  assert.match(topTargets('情境實戰'), /learn\/practice/);
+  assert.match(topTargets('知識閃卡'), /learn\/flashcards/);
+  assert.match(topTargets('醫學學科'), /learn\/academy/);
 });

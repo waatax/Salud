@@ -3,6 +3,7 @@ import { SYSTEM_DEEP_DIVES } from '../systems';
 import { CHAPTERS, getChapterPages } from '../chapters';
 import { PILLAR_NAV, EXERCISE_SUB_NAV, DIET_SUB_NAV } from '../../config/navigation';
 import { LEARNING_TRACKS } from './tracks';
+import { MEDICAL_DISCIPLINES, PRACTICE_SCENARIOS } from './masteryAcademy';
 import { EVIDENCE_UPDATES } from './evidenceUpdates';
 import { LAB_METRICS, TAIWAN_SCREENINGS } from './checkup';
 import { GLOSSARY } from './glossary';
@@ -133,6 +134,56 @@ export function buildSearchIndex(): SearchDoc[] {
         keywords: `${l.key_points_zh.join(' ')} ${l.do_today_zh.join(' ')} ${l.myth_zh?.myth ?? ''}`,
       });
     }
+  }
+
+  // 互動實作練習院、知識閃卡與 8 大醫學學科博覽館 (v6.8)
+  docs.push(
+    {
+      id: 'academy:practice-lab',
+      group: '工具',
+      title: '12 大生活情境實戰練習室',
+      subtitle: '把 65 堂課知識變成餐桌、健檢、父母照護與急診分流的真實決策力',
+      target: 'learn/practice',
+      keywords: '情境實戰 實作練習 健康小白 醫學知識者 闖關 練習 案例 選擇題 決策',
+    },
+    {
+      id: 'academy:flashcards',
+      group: '工具',
+      title: '65 課主動回憶知識閃卡與迷思快問快答',
+      subtitle: '翻卡自測 319 個核心知識點 + 16 題生活迷思是非快閃挑戰',
+      target: 'learn/flashcards',
+      keywords: '知識閃卡 閃卡 記憶卡 複習 快問快答 迷思 測驗 費曼學習法 主動回憶',
+    },
+    {
+      id: 'academy:disciplines',
+      group: '課程',
+      title: '8 大醫學學科奇妙博覽館',
+      subtitle: '從小白愛上生理學、生物化學、運動力學、睡眠神經科學與實證醫學',
+      target: 'learn/academy',
+      keywords: '醫學學科 生理學 生物化學 運動生理 生物力學 睡眠神經科學 檢驗醫學 實證醫學 流行病學 預防醫學 小白 入門',
+    }
+  );
+
+  for (const d of MEDICAL_DISCIPLINES) {
+    docs.push({
+      id: `discipline:${d.id}`,
+      group: '課程',
+      title: `${d.name_zh}（${d.name_en}）`,
+      subtitle: `醫學學科博覽館 · ${d.subtitle_zh}`,
+      target: 'learn/academy',
+      keywords: `${d.wonder_story_zh} ${d.daily_superpower_zh} ${d.core_concepts_zh.join(' ')} 醫學學科 喜歡學科 小白入門`,
+    });
+  }
+
+  for (const sc of PRACTICE_SCENARIOS) {
+    docs.push({
+      id: `scenario:${sc.id}`,
+      group: '實用技巧',
+      title: `情境實戰：${sc.title_zh}`,
+      subtitle: `${sc.category_zh} · ${sc.practice_action_zh}`,
+      target: 'learn/practice',
+      keywords: `${sc.situation_zh} ${sc.mechanism_pearl_zh} 情境練習 實作練習`,
+    });
   }
 
   for (const p of PILLAR_NAV) {

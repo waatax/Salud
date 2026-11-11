@@ -63,17 +63,23 @@ export function Breadcrumb() {
       }
     }
     if (activePillar === 'learn' && learnTrackId) {
-      const track = getTrack(learnTrackId);
-      if (track) {
-        crumbs.push({
-          label: zh ? track.title_zh : track.title_en,
-          onClick: learnLessonId ? () => go(`learn/${track.id}`) : undefined,
-        });
-      }
-      if (learnLessonId) {
-        const lesson = findLesson(learnLessonId);
-        if (lesson) {
-          crumbs.push({ label: lesson.title_zh });
+      if (learnTrackId === 'practice' || learnTrackId === 'flashcards') {
+        crumbs.push({ label: zh ? '情境實戰與知識閃卡' : 'Scenario Lab & Flashcards' });
+      } else if (learnTrackId === 'academy') {
+        crumbs.push({ label: zh ? '8 大醫學學科博覽館' : 'Medical Disciplines Academy' });
+      } else {
+        const track = getTrack(learnTrackId);
+        if (track) {
+          crumbs.push({
+            label: zh ? track.title_zh : track.title_en,
+            onClick: learnLessonId ? () => go(`learn/${track.id}`) : undefined,
+          });
+        }
+        if (learnLessonId) {
+          const lesson = findLesson(learnLessonId);
+          if (lesson) {
+            crumbs.push({ label: lesson.title_zh });
+          }
         }
       }
     }

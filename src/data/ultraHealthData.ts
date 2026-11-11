@@ -757,6 +757,90 @@ export const SKILL_TREE_NODES: MasterySkillTreeNode[] = [
       correct_index: 1,
       explanation_zh: '院前環境無法立即排除致死性心肺急症。若患者實為心肌缺血或氣胸，用紙袋反覆重吸缺氧氣體會奪走最後的氧氣儲備導致猝死。正確作法是語言安撫、閉口鼻呼吸，有胸痛冷汗立即撥打 119。'
     }
+  },
+  {
+    id: 'TREE-CM-01',
+    code: 'SKILL-CM1',
+    title_zh: 'ApoB 載脂蛋白顆粒數與血脂不一致性',
+    title_en: 'Apolipoprotein B Particle Count & Lipid Discordance',
+    branch: 'OIL_METABOLISM',
+    level: 'L2',
+    prerequisites: ['TREE-O-01'],
+    summary_zh: '理解為何 LDL-C 膽固醇重量正常，血管卻仍可能因小而密 LDL 顆粒過多（高 ApoB）而發生斑塊沉積。',
+    plain_english_analogy_zh: '把血管想像成高速公路，膽固醇（LDL-C）是車上的貨物總重量，而 ApoB 是「貨車總台數」。決定塞車與擦撞血管壁機率的，不是車上載多重，而是路上到底有幾台車！',
+    quiz: {
+      question_zh: '當健檢報告顯示甘油三酯偏高、HDL 偏低，但 LDL-C 數值看起來「尚可」時，哪一項指標更能直接反映致動脈粥樣硬化顆粒的總數量？',
+      options_zh: [
+        '總膽固醇（Total Cholesterol）除以體重',
+        'ApoB（載脂蛋白 B）或 non-HDL-C（非高密度脂蛋白膽固醇）',
+        '單純看空腹血糖即可'
+      ],
+      correct_index: 1,
+      explanation_zh: '每個致粥狀硬化脂蛋白顆粒（LDL、VLDL、IDL、Lp(a)）表面都恰好帶有一分子的 ApoB-100，因此測量 ApoB 等於直接清點會鑽進血管內皮的顆粒總數。'
+    }
+  },
+  {
+    id: 'TREE-BP-01',
+    code: 'SKILL-BP1',
+    title_zh: '居家 722 血壓法則與白袍高血壓鑑別',
+    title_en: 'Home Blood Pressure 722 Protocol & White-Coat Triage',
+    branch: 'SLEEP_CIRCADIAN',
+    level: 'L1',
+    prerequisites: [],
+    summary_zh: '掌握台灣高血壓學會與國際指引推薦的「連續 7 天、早晚 2 時段、每次 2 遍取平均」黃金標準。',
+    plain_english_analogy_zh: '在醫院量血壓就像老闆站在背後看你打字，緊張心跳快是正常的（白袍效應）；在家早晚安靜坐好量 7 天取平均，才是你血管真正的日常血壓！',
+    quiz: {
+      question_zh: '根據台灣與國際最新高血壓指引，居家血壓（HBPM）7 天平均值的診斷切點與標準量測時機為何？',
+      options_zh: [
+        '只要在診間量一次低於 140/90 mmHg 就代表完全沒問題',
+        '居家血壓平均值應 < 130/80 mmHg；每日起床後（排尿後、吃藥早餐前）與睡前各量 2 次取平均，連量 7 天',
+        '剛跑完步或喝完熱咖啡後立刻站著量最準'
+      ],
+      correct_index: 1,
+      explanation_zh: '居家 722 血壓比單次診間血壓更能預測中風與心肌梗塞風險，診斷與控制目標皆訂為 < 130/80 mmHg。'
+    }
+  },
+  {
+    id: 'TREE-STR-01',
+    code: 'SKILL-STR1',
+    title_zh: '最大肌力儲備與日常相對強度天花板效應',
+    title_en: 'Maximal Strength Reserve & Relative Intensity Ceiling',
+    branch: 'EXERCISE_PHYSIO',
+    level: 'L2',
+    prerequisites: ['TREE-M-01'],
+    summary_zh: '理解提升最大肌力（1RM）如何直接降低抱小孩、搬重物、爬樓梯的相對費力程度（%1RM），保護關節並延長獨立生活壽命。',
+    plain_english_analogy_zh: '如果小貨車極限只能載 20 公斤，搬 15 公斤的米就是 75% 負荷，引擎快燒壞；如果你把自己練成能載 60 公斤的大卡車，同樣 15 公斤只佔 25% 負荷，搬十趟也不喘不傷腰！',
+    quiz: {
+      question_zh: '為什麼中老年人與久坐族進行漸進式阻力訓練提升「最大肌力」後，連日常爬樓梯與買菜提物的耐力也會大幅進步？',
+      options_zh: [
+        '因為重訓會讓地心引力變小',
+        '當最大肌力分母變大，日常固定重量的「相對強度（%1RM）」大幅下降，減少高閾值快縮肌群過早疲勞與關節代償',
+        '因為重訓後完全不需要有氧心肺功能'
+      ],
+      correct_index: 1,
+      explanation_zh: '提升最大肌力能拉高力量天花板，使原本需要動用 80% 力氣的日常動作降為 40% 輕鬆負荷，這正是預防肌少症與失能的核心生理機制。'
+    }
+  },
+  {
+    id: 'TREE-EBM-01',
+    code: 'SKILL-EBM1',
+    title_zh: '實證醫學防身術：相對風險 (RR) vs 絕對風險差 (ARD)',
+    title_en: 'Evidence Literacy: Relative vs Absolute Risk Reduction',
+    branch: 'WATER',
+    level: 'L3',
+    prerequisites: [],
+    summary_zh: '識破健康新聞與推銷話術常隱藏的「分母魔術」，學會用絕對風險差與需治療人數 (NNT) 做出理性醫療決策。',
+    plain_english_analogy_zh: '新聞標題寫「風險暴增 100%」聽起來超恐怖？如果原本 10,000 人裡只有 1 人會生病，暴增 100% 也只是變成 10,000 人裡有 2 人（絕對風險只差 0.01%）。看懂分母，才不會被標題黨嚇到失眠！',
+    quiz: {
+      question_zh: '某昂貴保健品廣告宣稱「臨床實驗證實能降低 50% 某疾病風險！」，身為具備實證醫學素養的知識者，你第一件該追問的數據是什麼？',
+      options_zh: [
+        '代言人是哪一位明星',
+        '未服用的基準發生率與「絕對風險降低率 (ARR)」是多少（例如是從 20% 降到 10%，還是從 0.02% 降到 0.01%）',
+        '包裝盒是不是金色防偽印刷'
+      ],
+      correct_index: 1,
+      explanation_zh: '相對風險（RR）常放大微小差異；唯有同時檢視基準發生率、絕對風險差（ARD）與需治療人數（NNT），才能評估真實臨床效益是否值得投入金錢與承擔副作用。'
+    }
   }
 ];
 
