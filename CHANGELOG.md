@@ -1,5 +1,49 @@
 # Changelog
 
+## v6.11.0 — 2026-11-12 · 全站體驗與架構深度優化：身心探索羅盤、淘汰 10% 最低質量內容與補入 10% 頂級醫學實證、權威高雅介面 (Total Experience & Architectural Overhaul: 30-Second Health Compass, 10% Low-Yield Content Pruning & High-Value Replenishment, Elegant Clinical Authority UI/UX)
+
+### Added — 身心探索羅盤與快樂學習體驗（`src/components/learn/HealthCompassWidget.tsx`）
+- **全新「30 秒身心探索羅盤」互動中樞**：
+  - 針對台灣民眾生活最常見的 6 大身心健康卡關情境（常年疲倦與午後昏沉、夜晚難入睡與早醒、健檢紅字與代謝異常、想增肌防老又怕傷膝腰背、外食族脹氣不適與體重停滯、久坐肩頸痠痛與自律神經緊繃）。
+  - 採 4 層遞進式揭露（Progressive Disclosure）：
+    1. 🎯 **30 秒白話觀念**：以平易近人生動比喻破除生活迷思。
+    2. 💡 **今天就能做的 1 件微行動**：附執行分鐘數、一鍵勾選完成並即時觸發 `canvas-confetti` 慶祝彩帶，支援單鍵存入個人健康背包。
+    3. 🔬 **人體臨床與生理機轉**：揭示神經生物學、內分泌代謝或生物力學底層原理。
+    4. 🧭 **精選直達小課與互動工具**：無縫串聯對應白話小課、專科指南與 18+ 醫學試算工具。
+- **每日學習挑戰（LearningChallenge）多巴胺正向反饋升級**：答對題目時即時施放多巴胺煙火彩帶動畫，兼顧知識記憶與學習樂趣。
+- **頂級權威醫療入口頁尾（`src/components/layout/SiteFooter.tsx`）**：
+  - 對標 Harvard Health 與 Mayo Clinic 標準重構，整合四大生活基石、專科醫學指引、18+ 互動試算工具、GRADE 實證分級、衛福部公費成人健檢與癌症篩檢同步、緊急 119 急救紅旗指引與開源公益聲明。
+- **全站導航列與視覺精緻度革新（`Header.tsx`、`index.css`）**：
+  - 新增「全部主題」快捷抽屜入口，桌面與行動裝置均能一鍵展開 20+ 醫學專科與生活主題樹。
+  - 導入微晶玻璃擬態（Glassmorphism）、微交互悬浮升力（`.hover-lift`）、平滑陰影與舒適閱讀排版。
+
+### Optimized & Content Refinement — 淘汰 10% 最低質量內容，補入 10% 優質頂級實證
+- **立即上手實用技巧（`src/data/learning/quickTips.ts`）**：
+  - 嚴格審查全站 48 大區塊 239 則實用技巧，淘汰其中 26 則過於簡略、口號式或重複度高的低密度內容（10%）。
+  - 置換補入 26 則具備最新 2025/2026 臨床指引與精準量化門檻之高品質處方：
+    - **Zone 2 鼻吸口呼談話測試**：精準鎖定粒線體 FatMax 脂肪氧化峰值與乳酸清除能力。
+    - **生理性嘆氣法（Physiological Sigh）**：雙吸單長呼在 30 秒內快速刺激迷走神經降低心率。
+    - **餐後 10 分鐘微步行動態**：骨骼肌收縮透過非胰島素 GLUT4 轉位削平 25–30% 餐後血糖尖峰。
+    - **晨間 10,000 Lux 晝夜定錨**：重設下視丘 SCN，並預先啟動 14–16 小時後的內源褪黑激素釋放倒數。
+    - **離心加載（Eccentric load）與肌腱剛性**：以 3 秒慢速離心刺激肌腱膠原蛋白剛性，保護膝踝關節。
+    - **ApoB 與非 HDL 膽固醇**：精準偵測小而緻密（sdLDL）致動脈粥狀硬化顆粒，破除單看 LDL-C 正常陷阱。
+    - **非運動性活動產熱（NEAT）**：打破久坐骨骼肌 LPL 脂肪酶活性暴跌，拉高每日總能量消耗。
+    - **甘胺酸鎂與慢波深睡（SWS）**：調控 NMDA 受體興奮性，擴大腦部類淋巴系統（Glymphatic）排毒。
+- **健康小辭典（`src/data/learning/glossary.ts`）**：
+  - 淘汰 10 則過時/基礎字面定義，補入 10 大頂級現代醫學與長壽運動名詞：
+    - `ApoB`（載脂蛋白 B）、`VO₂max`（最大攝氧量）、`粒線體自噬`（Mitophagy）、`肌肉發力率`（RFD）、`心率變異度`（HRV）、`糖化終產物`（AGEs）、`慢波睡眠`（SWS）、`代謝彈性`（Metabolic Flexibility）、`肌少性肥胖`（Sarcopenic Obesity）、`非運動性活動產熱`（NEAT）。
+- **實戰練習院真假迷思（`src/data/learning/masteryAcademy.ts`）**：
+  - 重構真假迷思卡片（如 BLITZ-16 深入全蛋膳食膽固醇與肝臟負回饋合成恆定機制）。
+  - 日常用語搜尋索引（`src/data/learning/layTerms.ts`）同步補強自律神經、粒線體、深睡、防跌與動脈硬化日常關鍵字對應。
+
+### Verification & Quality Assurance
+- **Unit Tests**：89 項全自動化測試 100% 通過（`npm run test`）。
+- **CI Governance-as-Code**：29 項單一事實來源與臨床正確性規則 0 錯誤 0 警告（`npm run validate`）。
+- **Content Metrics**：全站知識點總計 1,555 KPs，超越 baseline 達 +44.0%，31 個模組無任何一個低於目標（`npm run content:metrics`）。
+- **Production Build**：通過完整 Vite 打包生產建置，靜態資源產出無誤（`npm run build`）。
+
+---
+
 ## v6.10.0 — 2026-11-12 · 知識點全圖 Knowledge Atlas：肌耐力訓練 × 睡眠休息 × 抗老化 三大旗艦主題「小白到大師」全覆蓋 (Comprehensive Knowledge Atlas: Strength & Muscular Endurance, Sleep & Recovery, and Longevity & Anti-Aging from Novice to Master)
 
 ### Added — 三大主題「知識點全圖」架構（`src/types/knowledgeAtlas.ts`、`src/data/atlas/`、`src/components/knowledge/KnowledgeAtlasView.tsx`）

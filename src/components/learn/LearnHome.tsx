@@ -13,6 +13,8 @@ import { GLOSSARY } from '../../data/learning/glossary';
 import { TONE, TrackIcon, ProgressBar, formatYM } from './learnUi';
 import { ActionPlanPanel } from './ActionPlanPanel';
 import { QuickTips } from './QuickTips';
+import { HealthCompassWidget } from './HealthCompassWidget';
+import confetti from 'canvas-confetti';
 
 const MetabolicJourney = lazy(() => import('./MetabolicJourney').then(m => ({ default: m.MetabolicJourney })));
 const FIRST_LESSON = LEARNING_TRACKS[0].lessons[0];
@@ -101,6 +103,9 @@ export const LearnHome: React.FC = () => {
           ].map(item => <a key={item.hash} href={`#${item.hash}`} className={`discovery-card group flex flex-col items-start p-4 sm:p-5 ${focusClass}`}><item.icon className={`mb-4 h-6 w-6 ${item.color}`} strokeWidth={1.5} aria-hidden="true" /><span className="text-sm font-semibold text-slate-900 dark:text-white">{item.title}</span><span className="mt-1.5 text-xs leading-6 text-slate-600 dark:text-slate-400">{item.hint}</span><ArrowUpRight className="mt-3 h-4 w-4 self-end text-slate-400 group-hover:text-emerald-700" aria-hidden="true" /></a>)}
         </div>
       </section>
+
+      {/* 30-Second Interactive Health Compass */}
+      <HealthCompassWidget />
 
       {lastLesson && lastTrack && <section className="discovery-card p-5 sm:p-6" aria-label="繼續上次學習"><div className="flex items-center gap-4"><TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} /><div className="min-w-0 flex-1"><p className="mb-1 text-xs text-slate-600 dark:text-slate-400">歡迎回來・已完成 {done} / {ALL_LESSONS.length} 課</p><a href={`#learn/${lastTrack.id}/${lastLesson.id}`} className={`inline-flex items-center gap-2 font-semibold text-slate-900 dark:text-white ${focusClass}`}>繼續閱讀：{lastLesson.title_zh}<ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></div></div></section>}
 
@@ -252,8 +257,20 @@ function LearningChallenge() {
 
   const handleSelectOption = (idx: number) => {
     setAnswer(idx);
-    if (idx === quiz.answer && !correctIds.includes(currentLesson.id)) {
-      setCorrectIds((prev) => [...prev, currentLesson.id]);
+    if (idx === quiz.answer) {
+      if (!correctIds.includes(currentLesson.id)) {
+        setCorrectIds((prev) => [...prev, currentLesson.id]);
+      }
+      try {
+        confetti({
+          particleCount: 45,
+          spread: 60,
+          origin: { y: 0.75 },
+          colors: ['#10B981', '#06B6D4', '#F59E0B'],
+        });
+      } catch {
+        // Safe in headless test environments
+      }
     }
   };
 

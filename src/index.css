@@ -30,6 +30,31 @@ a.discovery-card:hover, button.discovery-card:hover { border-color: rgb(var(--em
 .dark .discovery-lesson-art-1 { background: #182b33; color: #9dbecb; }
 .dark .discovery-lesson-art-2 { background: #292436; color: #b9a7cc; }
 .discovery-practice { background: var(--card); }
+/* v6.11: High-Elegance Glassmorphism & UI/UX Micro-Interactions */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(51, 65, 85, 0.6);
+}
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -10px rgba(16, 185, 129, 0.18);
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
 /* v6.4: shared opening of the specialist hubs — same quiet surface as the home hero. */
 .hub-hero { background: linear-gradient(135deg, var(--surface) 0%, var(--card) 100%); }
 .hub-hero h1 { text-wrap: balance; }

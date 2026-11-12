@@ -5,7 +5,7 @@ import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useModal } from '../../context/ModalContext';
-import { Menu, Search, Rocket, GraduationCap, ClipboardList, Calculator, Bookmark } from 'lucide-react';
+import { Menu, Search, Rocket, GraduationCap, ClipboardList, Calculator, Bookmark, Layers } from 'lucide-react';
 import { useBookmarks } from '../../hooks/useBookmarks';
 import { useActionPlan } from '../../hooks/useActionPlan';
 
@@ -80,6 +80,14 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
         </button>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
+          <button
+            onClick={onToggleMobileSidebar}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+            title={zh ? '展開 20+ 醫學專科與生活主題樹' : 'Browse All Topics'}
+          >
+            <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+            <span>{zh ? '全部主題' : 'Topics'}</span>
+          </button>
           {QUICK_LINKS.map((l) => {
             const active = activePillar === l.id;
             const Icon = l.icon;
