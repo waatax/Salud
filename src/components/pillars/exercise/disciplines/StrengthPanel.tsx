@@ -4,7 +4,9 @@ import { SimStrength1RM } from '../../../simulators/SimStrength1RM';
 import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
 import { StrengthInfographics } from '../../../sports/StrengthInfographics';
 import { MonsterStrengthEnduranceSection } from './MonsterStrengthEnduranceSection';
-import { Dumbbell, Flame, Calculator, BookOpen, BarChart3 } from 'lucide-react';
+import { Dumbbell, Flame, Calculator, BookOpen, BarChart3, Map as MapIcon } from 'lucide-react';
+import { KnowledgeAtlasView } from '../../../knowledge/KnowledgeAtlasView';
+import { STRENGTH_ENDURANCE_ATLAS } from '../../../../data/atlas';
 
 /**
  * StrengthPanel — Strength Training & Muscular Endurance Science discipline
@@ -66,6 +68,7 @@ export const StrengthPanel: React.FC = () => {
         </span>
         <div className="flex flex-wrap gap-1.5">
           {[
+            { id: 'strength-atlas', label: '知識點全圖（小白到大師）', icon: MapIcon },
             { id: 'strength-endurance-flagship', label: '最大肌力 × 肌耐力旗艦專題（怪獸訓練與醫學科學指南）', icon: Flame },
             { id: 'strength-1rm-sim', label: '1RM 與每週組數試算', icon: Calculator },
             { id: 'strength-topics', label: '11 大核心科學主題', icon: BookOpen },
@@ -86,6 +89,11 @@ export const StrengthPanel: React.FC = () => {
           })}
         </div>
       </nav>
+
+      {/* Muscular Endurance & Strength Knowledge Atlas (L1 小白到 L5 大師全圖) */}
+      <section id="strength-atlas" className="space-y-4 scroll-mt-24">
+        <KnowledgeAtlasView atlas={STRENGTH_ENDURANCE_ATLAS} />
+      </section>
 
       {/* Flagship Section: Muscular Endurance vs Maximum Strength (Monster Training & Dr. Ho Li-An) */}
       <MonsterStrengthEnduranceSection />

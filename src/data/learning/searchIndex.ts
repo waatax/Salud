@@ -484,6 +484,30 @@ export function buildSearchIndex(): SearchDoc[] {
       subtitle: '不看時間、延長吐氣、20 分鐘仍清醒就離床',
       target: 'mindbody/BEDTIME',
       keywords: '半夜醒來 早醒 睡不回去 凌晨 失眠 刺激控制 認知洗牌',
+    },
+    {
+      id: 'atlas:strength-endurance',
+      group: '運動專項',
+      title: '肌耐力訓練知識點全圖（從小白到大師）',
+      subtitle: '8 大領域 × 5 個能力等級 × 36 題常見問題完整覆蓋',
+      target: 'exercise/strength',
+      keywords: '肌耐力 知識點 地圖 小白 大師 伏地挺身 深蹲 棒式 握力 週期化 粒線體 能量系統 DOMS 痠痛 蛋白質 肌酸 超負荷 訓練量 橫紋肌溶解 體適能',
+    },
+    {
+      id: 'atlas:sleep',
+      group: '睡眠呼吸正念',
+      title: '睡眠與休息知識點全圖（從小白到大師）',
+      subtitle: '8 大領域 × 5 個能力等級 × 37 題常見問題完整覆蓋',
+      target: 'sleep/ATLAS',
+      keywords: '睡眠 休息 知識點 地圖 小白 大師 失眠 CBT-I 睡眠呼吸中止 OSA 咖啡因 褪黑激素 藍光 生理時鐘 類淋巴 深睡 做夢 REM 鬼壓床 不寧腿 安眠藥 補眠 智慧手錶',
+    },
+    {
+      id: 'atlas:longevity',
+      group: '主題',
+      title: '抗老化知識點全圖（從小白到大師）',
+      subtitle: '8 大領域 × 5 個能力等級 × 38 題常見問題完整覆蓋',
+      target: 'longevity/ATLAS',
+      keywords: '抗老化 抗老 長壽 知識點 地圖 小白 大師 健康餘命 疾病壓縮 十二大老化標誌 端粒 殭屍細胞 SASP 粒線體自噬 168斷食 7000步 VO2max 毒物興奮 三溫暖 ApoB Lp(a) 二甲雙胍 雷帕黴素 NMN 膠原蛋白 A醇 防曬 助聽器 失智預防',
     }
   );
   for (const b of BREATH_METHODS) {

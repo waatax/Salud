@@ -31,7 +31,10 @@ import {
   ArrowRight,
   Activity,
   CheckCircle2,
+  Map as MapIcon,
 } from 'lucide-react';
+import { KnowledgeAtlasView } from '../knowledge/KnowledgeAtlasView';
+import { LONGEVITY_ATLAS } from '../../data/atlas';
 
 export const LONGEVITY_TAB_GROUPS: HubTabGroup<LongevitySubTab>[] = [
   {
@@ -54,6 +57,12 @@ export const LONGEVITY_TAB_GROUPS: HubTabGroup<LongevitySubTab>[] = [
     tabs: [
       { id: 'SIMULATOR', label: '健康壽命試算', icon: Sliders, featured: true },
       { id: 'BEHAVIOR_AND_QUIZ', label: `觀念測驗（${LONGEVITY_MASTERY_QUIZZES.length} 題）`, icon: Award },
+    ],
+  },
+  {
+    label: '從小白到大師',
+    tabs: [
+      { id: 'ATLAS', label: '抗老知識點全圖', icon: MapIcon, featured: true },
     ],
   },
 ];
@@ -193,6 +202,15 @@ export const LongevityHub: React.FC = () => {
       {activeTab === 'BEHAVIOR_AND_QUIZ' && (
         <div className="space-y-8 animate-fade-in">
           <LongevityMasteryQuiz onNavigateToTab={(tab) => setActiveTab(tab as LongevitySubTab)} />
+        </div>
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          TAB 8: KNOWLEDGE ATLAS (小白到大師知識點全圖)
+      ───────────────────────────────────────────────────────────── */}
+      {activeTab === 'ATLAS' && (
+        <div className="space-y-8 animate-fade-in">
+          <KnowledgeAtlasView atlas={LONGEVITY_ATLAS} />
         </div>
       )}
     </div>

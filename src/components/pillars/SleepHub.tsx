@@ -37,7 +37,10 @@ import {
   ArrowRight,
   Droplets,
   Eye,
+  Map as MapIcon,
 } from 'lucide-react';
+import { KnowledgeAtlasView } from '../knowledge/KnowledgeAtlasView';
+import { SLEEP_ATLAS } from '../../data/atlas';
 
 const SLEEP_TAB_GROUPS: HubTabGroup<SleepSubTab>[] = [
   {
@@ -55,6 +58,10 @@ const SLEEP_TAB_GROUPS: HubTabGroup<SleepSubTab>[] = [
       { id: 'CBTI_CALC', label: '失眠：睡眠效率試算', icon: Calculator },
       { id: 'OSA_SCREEN', label: '打呼與呼吸中止自評', icon: AlertOctagon },
     ],
+  },
+  {
+    label: '從小白到大師',
+    tabs: [{ id: 'ATLAS', label: '睡眠知識點全圖', icon: MapIcon, featured: true }],
   },
 ];
 
@@ -606,6 +613,13 @@ export const SleepHub: React.FC = () => {
       {activeTab === 'CIRCADIAN' && (
         <div className="space-y-6">
           <SimCircadian />
+        </div>
+      )}
+
+      {/* ── Sub-Tab 7: ATLAS (小白到大師知識點全圖) ── */}
+      {activeTab === 'ATLAS' && (
+        <div className="space-y-6">
+          <KnowledgeAtlasView atlas={SLEEP_ATLAS} />
         </div>
       )}
     </div>

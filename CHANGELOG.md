@@ -1,5 +1,31 @@
 # Changelog
 
+## v6.10.0 — 2026-11-12 · 知識點全圖 Knowledge Atlas：肌耐力訓練 × 睡眠休息 × 抗老化 三大旗艦主題「小白到大師」全覆蓋 (Comprehensive Knowledge Atlas: Strength & Muscular Endurance, Sleep & Recovery, and Longevity & Anti-Aging from Novice to Master)
+
+### Added — 三大主題「知識點全圖」架構（`src/types/knowledgeAtlas.ts`、`src/data/atlas/`、`src/components/knowledge/KnowledgeAtlasView.tsx`）
+- **統一結構體系與 8 領域 × 5 等級（L1 小白 ➔ L2 入門 ➔ L3 進階 ➔ L4 專業 ➔ L5 大師）矩陣**：
+  - 每個主題均規劃 8 大領域，且在 L1–L5 的 40 個單元格中全數覆蓋知識點（100% 矩陣無空白），附明確的前置知識依賴（Prerequisites）與延伸學習鏈。
+  - 每個知識點均具備：白話一句話說明、深入機轉、關鍵數字與指引門檻、今天就能做的具體行動、破解迷思、證據等級（Grade A–E）、站內深層工具/計算機連結及標記掌握功能。
+  - **SVG 互動式知識點全圖（AtlasMap）**：依領域與等級排列之視覺化地圖，支援點選節點高亮前置與後續路徑箭頭，篩選等級與領域，並於手機端支援流暢左右滾動。
+  - **常見問題覆蓋檢核（FAQ Coverage）**：精選台灣民眾最常搜尋與問診之實戰疑問，全部精準關聯至能解答該問題的知識點節點，可在上方地圖即時高亮關聯知識鏈。
+
+1. **肌耐力訓練知識點全圖（`STRENGTH_ENDURANCE_ATLAS`，整合於 `#exercise/strength` 頂部旗艦導覽）**：
+   - 8 大領域：基本概念與健康效益（BASICS）、生理機轉與能量系統（PHYSIO）、評估檢測與疲勞量化（ASSESS）、訓練變數與處方設計（PROGRAM）、動作模式與徒手進退階（TECHNIQUE）、訓練方法與週期化（METHODS）、恢復、營養與補充劑（RECOVERY）、特殊族群與運動安全（SAFETY）。
+   - 包含 43 個完整知識點、36 道實戰 FAQ，涵蓋：每天伏地挺身次數、輕重量增肌機轉、深蹲膝蓋過腳尖力學、女性重訓荷爾蒙、DOMS vs 橫紋肌溶解、蛋白質 1.6 g/kg 與肌酸、高血壓 Valsalva 呼吸安全、高齡防跌 RFD 爆發力等。
+
+2. **睡眠與休息知識點全圖（`SLEEP_ATLAS`，整合於 `#sleep/ATLAS`）**：
+   - 8 大領域：睡眠基礎與各年齡需求（BASICS）、睡眠生理與大腦排毒（PHYSIO）、生理時鐘、光照與作息（CIRCADIAN）、睡眠衛生與主動休息（HYGIENE）、失眠機制與 CBT-I 療法（INSOMNIA）、睡眠障礙與呼吸中止（DISORDERS）、睡眠對身心健康之衝擊（HEALTH）、科技檢測與特殊族群（SPECIAL）。
+   - 包含 43 個完整知識點、37 道實戰 FAQ，涵蓋：成年人 7–9 小時與睡眠債、N3 慢波深睡類淋巴排毒（Glymphatic）、晨光定錨與螢幕藍光、咖啡因半衰期、睡前飲酒危害、CBT-I 刺激控制與睡眠限制、OSA STOP-BANG 篩檢與 CPAP/GLP-1、鬼壓床與不寧腿、智慧手錶睡眠分數誤差等。
+
+3. **抗老化知識點全圖（`LONGEVITY_ATLAS`，整合於 `#longevity/ATLAS`）**：
+   - 8 大領域：抗老觀念與健康餘命（BASICS）、細胞老化十二大標誌（BIOLOGY）、運動體能與適度壓力（FITNESS）、飲食代謝、斷食與自噬（NUTRITION）、大腦、睡眠、壓力與連結（LIFESTYLE）、生物標記與生物年齡（MARKERS）、抗老藥物、補充品與療法（INTERVENTIONS）、外在老化：皮膚感官器官（EXTERNAL）。
+   - 包含 42 個完整知識點、38 道實戰 FAQ，涵蓋：平均壽命 vs 健康餘命與疾病壓縮、López-Otín 12 大標誌、VO2max 與 7000 步死亡拐點、CALERIE 熱量限制與 168 斷食、MIND 飲食與高齡蛋白質悖論、孤獨等於抽 15 支菸、ApoB、Lp(a)、CAC 鈣化指數、表觀遺傳時鐘、Metformin/Rapamycin/NMN 醫學證據、防曬與 A 醇保養、助聽器防失智、防範幹細胞外泌體黑市等。
+
+### Engineering & Verification
+- 新增 `src/compose/__tests__/atlas.test.ts`，以 89 項全自動化測試嚴格驗證全圖矩陣完整性（40/40 單元格全滿、無重複 ID、FAQ 100% 映射、前置依賴等級規則與無死鏈）。
+- 全站搜尋索引（`src/data/learning/searchIndex.ts`）擴充 3 大 Atlas 索引文件與上百個關鍵字。
+- 通過 29 項 CI 治理規則檢查（`npm run validate`）與完整 Vite 生產編譯打包。
+
 ## v6.9.0 — 2026-11-11 · 肌耐力訓練 Section 深度升級：臨床醫學效益、科學訓練方法、飲食營養與修復、三大週期化實戰課表、六大徒手訓練天梯 (Muscular Endurance Deep Dive: Clinical Medicine, Scientific Training, Calisthenics Ladders, Periodized Programs & Recovery Nutrition)
 
 ### Added — 肌耐力訓練旗艦專區深度革新（`#exercise/strength`）

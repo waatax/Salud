@@ -1064,7 +1064,8 @@ export type LongevitySubTab =
   | 'PHARMACOTHERAPY'
   | 'HORMESIS'
   | 'SIMULATOR'
-  | 'BEHAVIOR_AND_QUIZ';
+  | 'BEHAVIOR_AND_QUIZ'
+  | 'ATLAS';
 
 export interface AgingHallmark {
   id: string;
@@ -1195,7 +1196,8 @@ export type SleepSubTab =
   | 'CAFFEINE_SIM'
   | 'CBTI_CALC'
   | 'OSA_SCREEN'
-  | 'CIRCADIAN';
+  | 'CIRCADIAN'
+  | 'ATLAS';
 
 export interface CaffeineMetabolismOutput {
   initialDoseMg: number;
