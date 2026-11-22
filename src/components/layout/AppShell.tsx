@@ -149,11 +149,17 @@ export function AppShell() {
   useEffect(() => {
     if (!isMobileSidebarOpen) return;
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setIsMobileSidebarOpen(false);
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const closeOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setIsMobileSidebarOpen(false);
+    };
     window.addEventListener('keydown', onKey);
+    desktop.addEventListener('change', closeOnDesktop);
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       window.removeEventListener('keydown', onKey);
+      desktop.removeEventListener('change', closeOnDesktop);
       document.body.style.overflow = prev;
     };
   }, [isMobileSidebarOpen, setIsMobileSidebarOpen]);
@@ -177,7 +183,6 @@ export function AppShell() {
       <Header
         activePillar={highlightedPillar}
         onSelectPillar={selectPillar}
-        onToggleMobileSidebar={toggleMobileSidebar}
       />
 
       <div className="flex-1 max-w-7xl w-full mx-auto flex overflow-x-clip">

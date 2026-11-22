@@ -5,7 +5,7 @@ import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useModal } from '../../context/ModalContext';
-import { Menu, Search, GraduationCap, Calculator, Bookmark, Layers, Stethoscope } from 'lucide-react';
+import { Search, GraduationCap, Calculator, Bookmark, Layers, Stethoscope } from 'lucide-react';
 import { useBookmarks } from '../../hooks/useBookmarks';
 import { useActionPlan } from '../../hooks/useActionPlan';
 
@@ -13,7 +13,6 @@ interface Props {
   /** Null while a secondary page is showing. */
   activePillar: HealthPillar | null;
   onSelectPillar: (pillar: HealthPillar) => void;
-  onToggleMobileSidebar: () => void;
 }
 
 const QUICK_LINKS: { id: HealthPillar; zh: string; en: string; icon: any }[] = [
@@ -31,8 +30,8 @@ const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigat
  * (desktop) and the drawer (mobile); the header carries the three things a reader
  * reaches for from anywhere: search, the learning entry points, and reading controls.
  */
-export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggleMobileSidebar }) => {
-  const { t, language } = useLanguage();
+export const Header: React.FC<Props> = ({ activePillar, onSelectPillar }) => {
+  const { language } = useLanguage();
   const { openModal } = useModal();
   const { bookmarks } = useBookmarks();
   const { plan } = useActionPlan();
@@ -42,15 +41,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-salud-dark-bg/90 backdrop-blur-md transition-colors">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center gap-2 sm:gap-4">
-        <button
-          onClick={onToggleMobileSidebar}
-          className="min-h-11 min-w-11 p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 lg:hidden"
-          aria-label={t('nav.open_menu')}
-        >
-          <Menu className="w-5 h-5" />
-        </button>
-
+      <div className="max-w-7xl mx-auto px-3 sm:px-5 xl:px-6 h-16 flex items-center gap-2 xl:gap-4">
         <button
           className="min-h-11 flex items-center gap-2.5 select-none text-left shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
           onClick={() => {
@@ -71,7 +62,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
         {/* Search: the fastest way in for a first-time reader */}
         <button
           onClick={() => openModal('search')}
-          className="min-h-11 flex-1 min-w-0 max-w-md ml-auto md:ml-4 flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-left text-sm text-slate-500 dark:text-slate-400 hover:border-emerald-400 dark:hover:border-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors"
+          className="min-h-11 flex-1 min-w-11 max-w-md ml-auto flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-left text-sm text-slate-500 dark:text-slate-400 hover:border-emerald-400 dark:hover:border-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors"
           aria-label={zh ? '搜尋（快捷鍵 Ctrl K）' : 'Search (Ctrl K)'}
         >
           <Search className="w-4 h-4 shrink-0" aria-hidden="true" />
@@ -82,12 +73,12 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
           </kbd>
         </button>
 
-        <nav className="hidden shrink-0 items-center gap-1 whitespace-nowrap lg:flex" aria-label={zh ? '學習入口' : 'Learning'}>
+        <nav className="hidden shrink-0 items-center gap-0.5 whitespace-nowrap lg:flex xl:gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
           <a
             href="#home/topics"
-            className="flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="flex min-h-11 items-center gap-1.5 px-2.5 xl:px-3 py-2 rounded-xl text-sm transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
           >
-            <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+            <Layers className="hidden w-4 h-4 text-emerald-600 dark:text-emerald-400 xl:block" aria-hidden="true" />
             <span>{zh ? '全部主題' : 'Topics'}</span>
           </a>
           {QUICK_LINKS.map((l) => {
@@ -98,13 +89,13 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
                 key={l.id}
                 onClick={() => onSelectPillar(l.id)}
                 aria-current={active ? 'page' : undefined}
-                className={`flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors ${
+                className={`flex min-h-11 items-center gap-1.5 px-2.5 xl:px-3 py-2 rounded-xl text-sm transition-colors ${
                   active
                     ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
-                <Icon className={`w-4 h-4 shrink-0 ${active ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400'}`} aria-hidden="true" />
+                <Icon className={`hidden w-4 h-4 shrink-0 xl:block ${active ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-400'}`} aria-hidden="true" />
                 <span>{zh ? l.zh : l.en}</span>
               </button>
             );
