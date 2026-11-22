@@ -1,18 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
-import { CHAPTER_W_PAGES } from '../data/chapterW';
-import { CHAPTER_O_PAGES } from '../data/chapterO';
-import { CHAPTER_A_PAGES } from '../data/chapterA';
-import { KnowledgePage } from '../types';
 
 const KEY = 'salud_bookmarked_pages';
 const EVENT = 'salud:bookmarks';
 
-const ALL_PAGES: KnowledgePage[] = [...CHAPTER_W_PAGES, ...CHAPTER_O_PAGES, ...CHAPTER_A_PAGES];
-
 function loadBookmarks(): string[] {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? JSON.parse(raw) : [];
+    const saved: unknown = raw ? JSON.parse(raw) : [];
+    return Array.isArray(saved) ? saved.filter((id): id is string => typeof id === 'string') : [];
   } catch {
     return [];
   }
@@ -54,11 +49,8 @@ export function useBookmarks() {
     [bookmarks]
   );
 
-  const bookmarkedPages = ALL_PAGES.filter((p) => bookmarks.includes(p.id));
-
   return {
     bookmarks,
-    bookmarkedPages,
     toggleBookmark,
     isBookmarked,
   };

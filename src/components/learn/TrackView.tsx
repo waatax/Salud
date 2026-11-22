@@ -31,7 +31,7 @@ import { useNavigation } from '../../context/NavigationContext';
 import { useLearningProgress, lessonPointId } from '../../hooks/useLearningProgress';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { lessonActionId } from '../../data/learning/tipIndex';
-import { LEARNING_TRACKS, getTrack, findLesson, TOTAL_LESSON_MINUTES, ALL_LESSONS } from '../../data/learning/tracks';
+import { LEARNING_TRACKS, getTrack, findLesson, ALL_LESSONS } from '../../data/learning/tracks';
 import { calculateLearnerGrowth, buildFeynmanShareText } from '../../data/learning/masteryAcademy';
 import { getUpdate } from '../../data/learning/evidenceUpdates';
 import { LearningTrack, Lesson } from '../../types/learning';
@@ -98,6 +98,16 @@ const Catalogue: React.FC = () => {
   const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
   const lastTrack = lastLesson ? getTrack(lastLesson.track_id) : undefined;
   const trimmedQuery = query.trim().toLowerCase();
+  const isFiltering = Boolean(trimmedQuery) || statusFilter !== 'all';
+  const visibleTracks = LEARNING_TRACKS.map(track => ({
+    track,
+    lessons: track.lessons.filter(lesson => {
+      if (statusFilter === 'todo' && isDone(lesson.id)) return false;
+      if (statusFilter === 'done' && !isDone(lesson.id)) return false;
+      return !trimmedQuery || [lesson.title_zh, lesson.big_idea_zh, ...lesson.key_points_zh]
+        .some(text => text.toLowerCase().includes(trimmedQuery));
+    }),
+  })).filter(({ lessons }) => lessons.length > 0);
 
   const toggleAllTracks = (open: boolean) => {
     const nextState: Record<string, boolean> = {};
@@ -110,9 +120,8 @@ const Catalogue: React.FC = () => {
   return (
     <div className="space-y-8 animate-fade-in">
       <PageHeader
-        eyebrow="學習路徑 · 從小白到醫學知識者"
-        title="課程總表與快樂成長學院"
-        lead={`${LEARNING_TRACKS.length} 條路徑、${ALL_LESSONS.length} 堂課（共 ${growth.totalPointsCount} 個知識點），全部讀完約 ${Math.round((TOTAL_LESSON_MINUTES / 60) * 10) / 10} 小時。除了讀白話小課，還能進入「生活情境實戰演練」「知識閃卡」與「8 大醫學學科博覽館」邊玩邊學！`}
+        title="學習路徑"
+        lead={`${LEARNING_TRACKS.length} 條主題路徑、${ALL_LESSONS.length} 堂白話小課。選一個想了解的主題，或用關鍵字找到合適的一課。`}
       >
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 px-3 py-1 text-xs font-bold text-emerald-900 dark:text-emerald-300">
@@ -140,51 +149,10 @@ const Catalogue: React.FC = () => {
         </div>
       </PageHeader>
 
-      {/* Joyful Interactive Practice & Medical Disciplines Entry Card */}
-      <section
-        aria-label="從小白到醫學知識者互動練習與學科博覽館"
-        className="rounded-3xl border border-emerald-200/90 dark:border-emerald-900/70 bg-gradient-to-br from-emerald-50/80 via-white to-sky-50/50 dark:from-emerald-950/35 dark:via-slate-900 dark:to-slate-900 p-5 sm:p-6 shadow-xs"
-      >
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
-          <div className="space-y-2 max-w-2xl">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-white dark:bg-emerald-400 dark:text-slate-950">
-                <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-                互動練習 × 學科探索
-              </span>
-              <span className="text-xs font-semibold text-emerald-800 dark:text-emerald-300">
-                已闖關情境 {growth.scenariosDoneCount}/{growth.totalScenariosCount} · 迷思快打 {growth.mythsDoneCount}/{growth.totalMythsCount}
-              </span>
-            </div>
-            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              想邊玩邊學、把所有知識點真正用出來嗎？
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              透過 12 個真實家庭與生活情境演練、全站 65 課翻翻樂閃卡、真假迷思快打，以及「為什麼這 8 大醫學學科超迷人」博覽館，快樂升級為實證醫學知識者！
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5 shrink-0">
-            <button
-              type="button"
-              onClick={() => go('learn/practice')}
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 dark:bg-emerald-400 dark:text-slate-950 px-4 py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs transition-colors"
-            >
-              <Stethoscope className="w-4 h-4" aria-hidden="true" />
-              <span>進入情境實戰 & 知識閃卡</span>
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              onClick={() => go('learn/academy')}
-              className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 dark:border-emerald-800 bg-white dark:bg-slate-900 px-4 py-2.5 text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-300 hover:bg-emerald-50 transition-colors"
-            >
-              <Compass className="w-4 h-4" aria-hidden="true" />
-              <span>探索 8 大迷人醫學學科</span>
-            </button>
-          </div>
-        </div>
-      </section>
+      <nav aria-label="延伸學習" className="flex flex-wrap gap-x-5 gap-y-1 border-b border-slate-200 pb-3 dark:border-slate-800">
+        <a href="#learn/practice" className="discovery-text-link">情境練習與閃卡</a>
+        <a href="#learn/academy" className="discovery-text-link">認識醫學學科</a>
+      </nav>
 
       {lastLesson && lastTrack && (
         <section
@@ -251,8 +219,8 @@ const Catalogue: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-100 dark:border-slate-800/80">
-          <span>可點擊任一路徑展開課表，或直接點標題進入路徑專頁</span>
+        {!isFiltering && <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-slate-600 dark:text-slate-400 pt-1 border-t border-slate-100 dark:border-slate-800/80">
+          <span>點路徑名稱可查看學習目標</span>
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -270,7 +238,7 @@ const Catalogue: React.FC = () => {
               收合全部
             </button>
           </div>
-        </div>
+        </div>}
       </div>
 
       <details className="discovery-card p-5 space-y-5">
@@ -279,25 +247,15 @@ const Catalogue: React.FC = () => {
         <TrackComparisonTable />
       </details>
 
-      <ol className="space-y-4">
-        {LEARNING_TRACKS.map((t, i) => {
-          const filteredLessons = t.lessons.filter((l) => {
-            if (statusFilter === 'todo' && isDone(l.id)) return false;
-            if (statusFilter === 'done' && !isDone(l.id)) return false;
-            if (!trimmedQuery) return true;
-            return (
-              l.title_zh.toLowerCase().includes(trimmedQuery) ||
-              l.big_idea_zh.toLowerCase().includes(trimmedQuery) ||
-              l.key_points_zh.some((kp) => kp.toLowerCase().includes(trimmedQuery))
-            );
-          });
-
-          if ((trimmedQuery || statusFilter !== 'all') && filteredLessons.length === 0) {
-            return null;
-          }
-
+      {isFiltering && <p role="status" className="text-sm text-slate-600 dark:text-slate-300">
+        {visibleTracks.length > 0
+          ? `找到 ${visibleTracks.reduce((total, { lessons }) => total + lessons.length, 0)} 堂小課`
+          : '沒有符合的課程，可以換個關鍵字或調整完成狀態。'}
+      </p>}
+      <ul className="space-y-4">
+        {visibleTracks.map(({ track: t, lessons: filteredLessons }) => {
           const trackDoneCount = t.lessons.filter((l) => isDone(l.id)).length;
-          const isTrackOpen = Boolean(trimmedQuery) || statusFilter !== 'all' || expandedTracks[t.id];
+          const isTrackOpen = isFiltering || expandedTracks[t.id];
 
           return (
             <li key={t.id} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden shadow-xs">
@@ -310,7 +268,7 @@ const Catalogue: React.FC = () => {
                   <TrackIcon icon={t.icon} tone={t.tone} size="lg" />
                   <span className="flex-1 min-w-0">
                     <span className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                      <span>路徑 {i + 1} · 適合：{t.audience_zh}</span>
+                      <span>{t.audience_zh}</span>
                       <span className="rounded-full bg-white/80 dark:bg-slate-900/80 px-2 py-0.5 font-mono text-[11px] font-semibold text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
                         已完成 {trackDoneCount}/{t.lessons.length} 課
                       </span>
@@ -319,7 +277,7 @@ const Catalogue: React.FC = () => {
                     <span className="block text-sm text-slate-600 dark:text-slate-300">{t.subtitle_zh}</span>
                   </span>
                 </button>
-                <div className="flex items-center gap-1.5 shrink-0">
+                {!isFiltering && <div className="flex items-center gap-1.5 shrink-0">
                   <button
                     type="button"
                     aria-expanded={isTrackOpen}
@@ -329,18 +287,18 @@ const Catalogue: React.FC = () => {
                         [t.id]: !isTrackOpen,
                       }))
                     }
-                    className="inline-flex items-center gap-1 rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 px-2.5 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-white"
+                    className="inline-flex min-h-11 items-center gap-1 rounded-xl border border-slate-300/80 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 px-2.5 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-white"
                   >
                     <span>{isTrackOpen ? '收合課表' : `展開 (${filteredLessons.length} 課)`}</span>
                     {isTrackOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                   </button>
-                </div>
+                </div>}
               </div>
               {isTrackOpen && <LessonList track={t} lessons={filteredLessons} />}
             </li>
           );
         })}
-      </ol>
+      </ul>
     </div>
   );
 };
@@ -662,6 +620,15 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
     () => (lesson.update_ids ?? []).map(getUpdate).filter((u): u is NonNullable<typeof u> => Boolean(u)),
     [lesson.update_ids]
   );
+  const hasSources = Boolean(lesson.sources?.length);
+  const readingSections = [
+    ['lesson-visual', '圖解與知識'],
+    ['do-h', '今天就能做'],
+    ...(lesson.see_doctor_zh?.length ? [['doc-h', '何時就醫']] : []),
+    ...(lesson.quiz ? [['quiz-h', '小測驗']] : []),
+    ...(hasSources ? [['source-h', '來源與限制']] : updates.length ? [['basis-h', '相關實證']] : []),
+    ['deep-h', '深入閱讀'],
+  ];
 
   return (
     <article className="lesson-reader max-w-3xl mx-auto space-y-8 animate-fade-in" aria-labelledby="lesson-title">
@@ -702,17 +669,8 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </div>
       </div>
 
-      <nav aria-label="本課閱讀導覽" className="flex flex-wrap gap-2 border-y border-slate-200 py-3 dark:border-slate-800">
-        {[['lesson-summary', '一句話重點'], ['lesson-visual', '圖解與知識'], ['do-h', '今天就能做'], ['deep-h', '深入閱讀']].map(([id, label]) => (
-          <button key={id} type="button" onClick={() => {
-            const target = document.getElementById(id);
-            target?.scrollIntoView({ block: 'start' });
-            target?.focus({ preventScroll: true });
-          }} className="min-h-11 rounded-full border border-slate-200 px-4 text-sm text-slate-700 hover:border-emerald-600 dark:border-slate-700 dark:text-slate-300">{label}</button>
-        ))}
-      </nav>
       {/* Big idea */}
-      <div id="lesson-summary" tabIndex={-1} className={`scroll-mt-24 rounded-2xl border border-slate-200 dark:border-slate-800 ${TONE[track.tone].soft} p-5`}>
+      <div className={`rounded-2xl border border-slate-200 dark:border-slate-800 ${TONE[track.tone].soft} p-5 sm:p-6`}>
         <p className={`text-xs font-semibold mb-1.5 ${TONE[track.tone].text}`}>一句話重點</p>
         <p className="text-lg sm:text-xl font-semibold leading-8 text-slate-900 dark:text-white">{lesson.big_idea_zh}</p>
         {lesson.analogy_zh && (
@@ -725,6 +683,16 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
           </p>
         )}
       </div>
+
+      <nav aria-label="本課閱讀導覽" className="flex flex-wrap gap-2 border-y border-slate-200 py-3 dark:border-slate-800">
+        {readingSections.map(([id, label]) => (
+          <button key={id} type="button" onClick={() => {
+            const target = document.getElementById(id);
+            target?.scrollIntoView({ block: 'start' });
+            target?.focus({ preventScroll: true });
+          }} className="min-h-11 rounded-full border border-slate-200 px-4 text-sm text-slate-700 hover:border-emerald-600 dark:border-slate-700 dark:text-slate-300">{label}</button>
+        ))}
+      </nav>
 
       {/* Visual Mechanism & Clinical Diagram */}
       <div id="lesson-visual" tabIndex={-1} className="scroll-mt-24"><LessonVisualGraphic track={track} lesson={lesson} /></div>
@@ -884,7 +852,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       {/* See a doctor */}
       {lesson.see_doctor_zh && lesson.see_doctor_zh.length > 0 && (
         <section aria-labelledby="doc-h" className="rounded-2xl border border-amber-300 dark:border-amber-800/70 bg-amber-50/70 dark:bg-amber-950/20 p-5 space-y-2">
-          <h2 id="doc-h" className="font-bold text-amber-950 dark:text-amber-200 flex items-center gap-2">
+          <h2 id="doc-h" tabIndex={-1} className="font-bold text-amber-950 dark:text-amber-200 flex items-center gap-2">
             <Stethoscope className="w-5 h-5" aria-hidden="true" />
             出現這些情況，請就醫
           </h2>
@@ -907,7 +875,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       {/* Evidence basis */}
       {updates.length > 0 && (
         <section aria-labelledby="basis-h" className="space-y-2">
-          <h2 id="basis-h" className="text-sm font-bold text-slate-700 dark:text-slate-300">本課依據的最新實證</h2>
+          <h2 id="basis-h" tabIndex={-1} className="font-bold text-slate-800 dark:text-slate-200">相關研究與指引</h2>
           <ul className="flex flex-col gap-2">
             {updates.map((u) => (
               <li key={u.id}>
@@ -926,9 +894,9 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </section>
       )}
 
-      {lesson.sources && lesson.sources.length > 0 && <section aria-labelledby="source-h" className="space-y-3 border-t border-slate-200 pt-5 dark:border-slate-800">
-        <h2 id="source-h" className="font-bold text-slate-800 dark:text-slate-200">本課參考來源與適用限制</h2>
-        <ul className="space-y-3">{lesson.sources.map(source => <li key={source.url} className="text-sm leading-7">
+      {hasSources && <section aria-labelledby="source-h" className="space-y-3 border-t border-slate-200 pt-5 dark:border-slate-800">
+        <h2 id="source-h" tabIndex={-1} className="font-bold text-slate-800 dark:text-slate-200">本課參考來源與適用限制</h2>
+        <ul className="space-y-3">{lesson.sources?.map(source => <li key={source.url} className="text-sm leading-7">
           <a href={source.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-semibold text-emerald-800 underline underline-offset-4 dark:text-emerald-300">{source.title}<ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" /><span className="sr-only">（另開視窗）</span></a>
           {source.note && <p className="text-slate-600 dark:text-slate-400">{source.note}</p>}
         </li>)}</ul>
@@ -1043,7 +1011,7 @@ const LessonQuizCard: React.FC<{
 
   return (
     <section aria-labelledby="quiz-h" className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 space-y-3">
-      <h2 id="quiz-h" className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <h2 id="quiz-h" tabIndex={-1} className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
         <HelpCircle className="w-5 h-5 text-sky-600 dark:text-sky-400" aria-hidden="true" />
         小測驗
       </h2>

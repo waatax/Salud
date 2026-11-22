@@ -8,7 +8,7 @@ export function useDialogFocus(ref: RefObject<HTMLElement | null>, open: boolean
     const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const focusable = () => Array.from(dialog.querySelectorAll<HTMLElement>(
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex="0"]'
-    )).filter(el => el.getClientRects().length > 0 && !el.closest('[inert]'));
+    )).filter(el => el.tabIndex >= 0 && el.getClientRects().length > 0 && !el.closest('[inert]'));
     const frame = requestAnimationFrame(() => {
       if (!dialog.contains(document.activeElement)) (focusable()[0] ?? dialog).focus();
     });

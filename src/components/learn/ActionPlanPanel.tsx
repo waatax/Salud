@@ -3,7 +3,7 @@ import { CheckCircle2, Circle, X, ListChecks, Flame } from 'lucide-react';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { resolveTip } from '../../data/learning/tipIndex';
 import { useNavigation } from '../../context/NavigationContext';
-import { TipKindBadge } from './QuickTips';
+import { QuickTips, TipKindBadge } from './QuickTips';
 
 /**
  * 「我的行動計畫」 on the home page: every tip the reader added from any section,
@@ -16,10 +16,10 @@ export const ActionPlanPanel: React.FC = () => {
   const items = plan.items.map(resolveTip).filter((x): x is NonNullable<typeof x> => Boolean(x));
   const doneCount = items.filter((i) => doneToday(i.id)).length;
 
-  if (items.length === 0) return null;
+  if (items.length === 0) return <QuickTips sectionKey="home" />;
 
   return (
-    <section id="my-plan" aria-labelledby="plan-h" className="scroll-mt-24 rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-white dark:bg-slate-900/60 overflow-hidden">
+    <section aria-labelledby="plan-h" className="rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-white dark:bg-slate-900/60 overflow-hidden">
       <header className="flex items-center gap-3 px-4 sm:px-5 py-4 bg-emerald-50/80 dark:bg-emerald-950/30 border-b border-emerald-100 dark:border-emerald-900/50">
         <ListChecks className="w-6 h-6 text-emerald-700 dark:text-emerald-400 shrink-0" aria-hidden="true" />
         <div className="flex-1 min-w-0">

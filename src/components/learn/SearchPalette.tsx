@@ -8,10 +8,10 @@ import { useDialogFocus } from '../../hooks/useDialogFocus';
 type SearchModule = typeof import('../../data/learning/searchIndex');
 
 const FOUR_PILLAR_CHIPS = [
-  { label: '🥗 飲食營養', query: '飲食', tone: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' },
-  { label: '🏃 運動體能', query: '運動', tone: 'bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800' },
-  { label: '🛡️ 預防篩檢', query: '預防', tone: 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800' },
-  { label: '🩺 臨床治療', query: '治療', tone: 'bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-300 border-rose-300 dark:border-rose-800' },
+  { label: '飲食營養', query: '飲食', tone: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' },
+  { label: '運動體能', query: '運動', tone: 'bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800' },
+  { label: '預防篩檢', query: '預防', tone: 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800' },
+  { label: '疾病治療', query: '治療', tone: 'bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-300 border-rose-300 dark:border-rose-800' },
 ];
 
 const SUGGESTIONS = ['手麻', '骨刺', '高血壓', 'LDL', '糖化血色素', '失眠', '脂肪肝', '減重藥', '肌力訓練', '坐骨神經痛', '癌症篩檢', '咖啡因'];
@@ -33,10 +33,12 @@ export const SearchPalette: React.FC = () => {
   const docsRef = useRef<SearchDoc[] | null>(null);
   const modRef = useRef<SearchModule | null>(null);
   const [ready, setReady] = useState(false);
+  const [loadFailed, setLoadFailed] = useState(false);
 
   // Global shortcuts
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (e.isComposing || e.defaultPrevented) return;
       const target = e.target as HTMLElement | null;
       const typing = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
       if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
@@ -52,15 +54,17 @@ export const SearchPalette: React.FC = () => {
   }, [open, openModal, closeModal]);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open || docsRef.current || loadFailed) return;
     // The index pulls in every topic's data, so it is fetched on first open only.
-    if (!docsRef.current) {
-      import('../../data/learning/searchIndex').then((mod) => {
-        modRef.current = mod;
-        docsRef.current = mod.buildSearchIndex();
-        setReady(true);
-      });
-    }
+    import('../../data/learning/searchIndex').then((mod) => {
+      modRef.current = mod;
+      docsRef.current = mod.buildSearchIndex();
+      setReady(true);
+    }).catch(() => setLoadFailed(true));
+  }, [open, loadFailed]);
+
+  useEffect(() => {
+    if (!open) return;
     setQuery('');
     setActive(0);
     const t = window.setTimeout(() => inputRef.current?.focus(), 10);
@@ -108,6 +112,13 @@ export const SearchPalette: React.FC = () => {
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.nativeEvent.isComposing) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeModal('search');
+      return;
+    }
+    if (e.target !== inputRef.current || flat.length === 0) return;
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       setActive((a) => Math.min(a + 1, flat.length - 1));
@@ -117,10 +128,12 @@ export const SearchPalette: React.FC = () => {
     } else if (e.key === 'Enter' && flat[active]) {
       e.preventDefault();
       choose(flat[active]);
-    } else if (e.key === 'Escape') {
-      e.preventDefault();
-      closeModal('search');
     }
+  };
+
+  const useSuggestion = (value: string) => {
+    setQuery(value);
+    inputRef.current?.focus();
   };
 
   let idx = -1;
@@ -140,27 +153,28 @@ export const SearchPalette: React.FC = () => {
             role="combobox"
             aria-label="搜尋健康知識"
             aria-expanded={flat.length > 0}
-            aria-controls="search-results"
+            aria-controls={flat.length > 0 ? 'search-results' : undefined}
             aria-activedescendant={flat[active] ? `sr-${flat[active].id}` : undefined}
             autoComplete="off"
             spellCheck={false}
           />
-          <button onClick={() => closeModal('search')} className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white" aria-label="關閉搜尋">
+          <button type="button" onClick={() => closeModal('search')} className="grid min-h-11 min-w-11 place-items-center rounded-lg text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white" aria-label="關閉搜尋">
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div ref={listRef} id="search-results" role="listbox" className="max-h-[60vh] overflow-y-auto overscroll-contain p-2">
+        <div ref={listRef} className="max-h-[60dvh] overflow-y-auto overscroll-contain p-2">
           {!query.trim() ? (
             <div className="p-3 space-y-4">
               <div className="space-y-1.5">
-                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">四大健康核心維度</p>
+                <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">依主題搜尋</p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {FOUR_PILLAR_CHIPS.map((c) => (
                     <button
                       key={c.query}
-                      onClick={() => setQuery(c.query)}
-                      className={`rounded-xl border px-3 py-2 text-xs font-bold text-center transition-all hover:scale-[1.02] shadow-2xs ${c.tone}`}
+                      type="button"
+                      onClick={() => useSuggestion(c.query)}
+                      className={`min-h-11 rounded-xl border px-3 py-2 text-sm font-semibold text-center ${c.tone}`}
                     >
                       {c.label}
                     </button>
@@ -169,13 +183,14 @@ export const SearchPalette: React.FC = () => {
               </div>
 
               <div className="space-y-1.5 pt-1">
-                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">大家常搜尋的症狀與數值</p>
+                <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">常查的症狀與數值</p>
                 <div className="flex flex-wrap gap-2">
                   {SUGGESTIONS.map((s) => (
                     <button
                       key={s}
-                      onClick={() => setQuery(s)}
-                      className="rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-800 dark:hover:text-emerald-300"
+                      type="button"
+                      onClick={() => useSuggestion(s)}
+                      className="min-h-11 rounded-full border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-800 dark:hover:text-emerald-300"
                     >
                       {s}
                     </button>
@@ -183,16 +198,22 @@ export const SearchPalette: React.FC = () => {
                 </div>
               </div>
             </div>
+          ) : loadFailed ? (
+            <div className="space-y-2 p-6 text-center text-sm text-slate-600 dark:text-slate-300">
+              <p role="status">搜尋索引暫時無法載入。</p>
+              <button type="button" className="discovery-secondary" onClick={() => window.location.reload()}>重新載入網站</button>
+            </div>
           ) : !ready ? (
             <p className="p-6 text-center text-sm text-slate-500 dark:text-slate-400" role="status">
               正在載入搜尋索引…
             </p>
           ) : flat.length === 0 ? (
-            <p className="p-6 text-center text-sm text-slate-500 dark:text-slate-400">
+            <p role="status" className="p-6 text-center text-sm text-slate-600 dark:text-slate-400">
               找不到「{query}」。試試更短的關鍵字，例如「血壓」「睡眠」。
             </p>
           ) : (
-            grouped.map((g) => (
+            <div id="search-results" role="listbox" aria-label="搜尋結果">
+            {grouped.map((g) => (
               <div key={g.group} className="mb-2" role="group" aria-label={g.group}>
                 <p className="px-3 pt-2 pb-1 text-xs font-semibold text-slate-500 dark:text-slate-400">{g.group}</p>
                 {g.items.map((doc) => {
@@ -201,10 +222,12 @@ export const SearchPalette: React.FC = () => {
                   const isActive = i === active;
                   return (
                     <button
+                      type="button"
                       key={doc.id}
                       id={`sr-${doc.id}`}
                       data-idx={i}
                       role="option"
+                      tabIndex={-1}
                       aria-selected={isActive}
                       onMouseMove={() => setActive(i)}
                       onClick={() => choose(doc)}
@@ -213,7 +236,7 @@ export const SearchPalette: React.FC = () => {
                       }`}
                     >
                       <span className="flex-1 min-w-0">
-                        <span className="block text-[15px] text-slate-900 dark:text-white truncate">{doc.title}</span>
+                        <span className="block text-base leading-snug text-slate-900 dark:text-white">{doc.title}</span>
                         {doc.subtitle && <span className="block text-xs text-slate-500 dark:text-slate-400 truncate">{doc.subtitle}</span>}
                       </span>
                       {isActive && <CornerDownLeft className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />}
@@ -221,7 +244,8 @@ export const SearchPalette: React.FC = () => {
                   );
                 })}
               </div>
-            ))
+            ))}
+            </div>
           )}
         </div>
 

@@ -5,7 +5,7 @@ import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useModal } from '../../context/ModalContext';
-import { Menu, Search, Rocket, GraduationCap, ClipboardList, Calculator, Bookmark, Layers } from 'lucide-react';
+import { Menu, Search, GraduationCap, Calculator, Bookmark, Layers, Stethoscope } from 'lucide-react';
 import { useBookmarks } from '../../hooks/useBookmarks';
 import { useActionPlan } from '../../hooks/useActionPlan';
 
@@ -17,9 +17,8 @@ interface Props {
 }
 
 const QUICK_LINKS: { id: HealthPillar; zh: string; en: string; icon: any }[] = [
-  { id: 'start', zh: '4 週啟動', en: 'Start', icon: Rocket },
   { id: 'learn', zh: '學習路徑', en: 'Learn', icon: GraduationCap },
-  { id: 'checkup', zh: '看懂健檢', en: 'Check-up', icon: ClipboardList },
+  { id: 'clinic', zh: '就醫導引', en: 'Find care', icon: Stethoscope },
 ];
 
 const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
@@ -57,7 +56,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
           onClick={() => onSelectPillar('home')}
           aria-label={zh ? 'Salud 首頁' : 'Salud home'}
         >
-          <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 flex items-center justify-center text-white font-display font-bold text-base shadow-sm" aria-hidden="true">
+          <span className="w-8 h-8 rounded-[.6rem] bg-emerald-800 dark:bg-emerald-300 flex items-center justify-center text-white dark:text-emerald-950 font-serif font-bold text-lg" aria-hidden="true">
             S
           </span>
           <span className="hidden sm:block leading-tight">
@@ -73,21 +72,21 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
           aria-label={zh ? '搜尋（快捷鍵 Ctrl K）' : 'Search (Ctrl K)'}
         >
           <Search className="w-4 h-4 shrink-0" aria-hidden="true" />
-          <span className="flex-1 truncate">{zh ? '搜尋症狀、數值、主題' : 'Search topics, labs, symptoms'}</span>
+          <span className="flex-1 truncate sm:hidden">{zh ? '搜尋健康知識' : 'Search'}</span>
+          <span className="hidden flex-1 truncate sm:inline">{zh ? '搜尋症狀、數值、主題' : 'Search topics, labs, symptoms'}</span>
           <kbd className="hidden md:inline text-[0.75rem] font-mono border border-slate-300 dark:border-slate-700 rounded px-1.5 py-0.5">
             {isMac ? '⌘' : 'Ctrl'} K
           </kbd>
         </button>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
-          <button
-            onClick={onToggleMobileSidebar}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
-            title={zh ? '展開 20+ 醫學專科與生活主題樹' : 'Browse All Topics'}
+          <a
+            href="#home/topics"
+            className="flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
             <span>{zh ? '全部主題' : 'Topics'}</span>
-          </button>
+          </a>
           {QUICK_LINKS.map((l) => {
             const active = activePillar === l.id;
             const Icon = l.icon;
@@ -96,7 +95,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
                 key={l.id}
                 onClick={() => onSelectPillar(l.id)}
                 aria-current={active ? 'page' : undefined}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors ${
+                className={`flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors ${
                   active
                     ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'

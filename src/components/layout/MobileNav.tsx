@@ -1,8 +1,8 @@
 import React from 'react';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
-import { useModal } from '../../context/ModalContext';
-import { House, GraduationCap, Search, ClipboardList, LayoutGrid } from 'lucide-react';
+import { useNavigation } from '../../context/NavigationContext';
+import { House, GraduationCap, Stethoscope, ClipboardList, LayoutGrid } from 'lucide-react';
 
 interface Props {
   /** Null while a secondary page is showing, so no topic is falsely marked current. */
@@ -14,18 +14,18 @@ interface Props {
 /**
  * MobileNav — v4.2 bottom bar.
  *
- * Thumb-sized targets covering the learner's loop — home, lessons, search, check-up,
+ * Thumb-sized targets for home, lessons, care navigation, check-up,
  * and the full topic drawer, with active indicators and tactile feedback.
  */
 export const MobileNav: React.FC<Props> = ({ activePillar, onSelectPillar, onOpenMenu }) => {
   const { language } = useLanguage();
-  const { openModal } = useModal();
+  const { go } = useNavigation();
   const zh = language === 'zh-TW';
 
   const items: { key: string; label: string; icon: typeof House; active?: boolean; onClick: () => void }[] = [
     { key: 'home', label: zh ? '首頁' : 'Home', icon: House, active: activePillar === 'home', onClick: () => onSelectPillar('home') },
     { key: 'learn', label: zh ? '學習' : 'Learn', icon: GraduationCap, active: activePillar === 'learn', onClick: () => onSelectPillar('learn') },
-    { key: 'search', label: zh ? '搜尋' : 'Search', icon: Search, onClick: () => openModal('search') },
+    { key: 'clinic', label: zh ? '就醫' : 'Care', icon: Stethoscope, active: activePillar === 'clinic', onClick: () => go('clinic/by/symptom') },
     { key: 'checkup', label: zh ? '健檢' : 'Labs', icon: ClipboardList, active: activePillar === 'checkup', onClick: () => onSelectPillar('checkup') },
     { key: 'menu', label: zh ? '全部主題' : 'Topics', icon: LayoutGrid, onClick: onOpenMenu },
   ];

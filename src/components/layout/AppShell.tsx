@@ -101,6 +101,7 @@ export function AppShell() {
 
   const { isDark, toggleTheme } = useTheme();
   const { openModal, closeModal, isOpen } = useModal();
+  const isHome = highlightedPillar === 'home';
   const mainRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   useDialogFocus(drawerRef, isMobileSidebarOpen);
@@ -181,20 +182,18 @@ export function AppShell() {
 
       <div className="flex-1 max-w-7xl w-full mx-auto flex overflow-x-clip">
         {/* Desktop Sidebar */}
-        <div className="hidden lg:block">
-          <Sidebar />
-        </div>
+        {!isHome && <div className="hidden lg:block"><Sidebar /></div>}
 
         {/* Mobile drawer */}
         {isMobileSidebarOpen && (
           <div ref={drawerRef} tabIndex={-1} className="fixed inset-0 z-50 flex lg:hidden" role="dialog" aria-modal="true" aria-label="全部主題">
             <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm animate-fade-in" onClick={() => toggleMobileSidebar()} />
             <div className="relative w-[85vw] max-w-xs h-full bg-white dark:bg-salud-dark-surface overflow-y-auto border-r border-slate-200 dark:border-slate-800 px-3 pb-8 animate-slide-in-left">
-              <div className="sticky top-0 z-10 -mx-3 px-4 py-3 flex justify-between items-center bg-white/95 dark:bg-salud-dark-surface/95 backdrop-blur border-b border-slate-200 dark:border-slate-800">
+              <div className="sticky top-0 z-10 -mx-3 px-4 py-2 flex justify-between items-center bg-white/95 dark:bg-salud-dark-surface/95 backdrop-blur border-b border-slate-200 dark:border-slate-800">
                 <span className="font-display font-bold text-slate-900 dark:text-white">全部主題</span>
                 <button
                   onClick={() => toggleMobileSidebar()}
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                  className="grid min-h-11 min-w-11 place-items-center rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
                   aria-label="關閉選單"
                 >
                   <X className="w-5 h-5" />
@@ -228,7 +227,7 @@ export function AppShell() {
             </div>
           )}
 
-          <div className={learnerPage ? 'max-w-5xl mx-auto' : undefined}>
+          <div className={isHome ? 'max-w-[72rem] mx-auto' : learnerPage ? 'max-w-5xl mx-auto' : undefined}>
             {metaView ? (
               <Suspense fallback={<Loading />}>
                 {metaView === 'about' ? <AboutGovernancePage /> : metaView === 'explore' ? <KnowledgeExplorerPage /> : <EvidenceLibraryPage />}

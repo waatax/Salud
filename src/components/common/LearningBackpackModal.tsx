@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   X,
   Bookmark,
@@ -19,29 +19,46 @@ import { useActionPlan } from '../../hooks/useActionPlan';
 import { useHealthStreak } from '../../hooks/useHealthStreak';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useNavigation } from '../../context/NavigationContext';
+import { useDialogFocus } from '../../hooks/useDialogFocus';
+import { CHAPTER_W_PAGES } from '../../data/chapterW';
+import { CHAPTER_O_PAGES } from '../../data/chapterO';
+import { CHAPTER_A_PAGES } from '../../data/chapterA';
 import { resolveTip } from '../../data/learning/tipIndex';
 import { calculateLearnerGrowth, MEDICAL_DISCIPLINES, TOTAL_KNOWLEDGE_POINTS } from '../../data/learning/masteryAcademy';
 import { TipKindBadge } from '../learn/QuickTips';
 
 type BackpackTab = 'bookmarks' | 'plan' | 'streak';
+const BOOKMARKABLE_PAGES = [...CHAPTER_W_PAGES, ...CHAPTER_O_PAGES, ...CHAPTER_A_PAGES];
 
 export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState<BackpackTab>('bookmarks');
-  const { bookmarkedPages, toggleBookmark } = useBookmarks();
+  const { bookmarks, toggleBookmark } = useBookmarks();
   const { plan, toggleToday, doneToday, remove, last7 } = useActionPlan();
   const { streak, totalCheckIns, checkedInToday, checkIn } = useHealthStreak();
   const { progress } = useLearningProgress();
   const { selectPage, go } = useNavigation();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useDialogFocus(dialogRef, isOpen);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
+  const bookmarkedPages = BOOKMARKABLE_PAGES.filter(page => bookmarks.includes(page.id));
   const planItems = plan.items.map(resolveTip).filter((x): x is NonNullable<typeof x> => Boolean(x));
   const planDoneCount = planItems.filter((i) => doneToday(i.id)).length;
   const growth = calculateLearnerGrowth(progress, plan.items.length);
   const likedDisciplineItems = MEDICAL_DISCIPLINES.filter((d) => progress.likedDisciplines?.includes(d.id));
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="backpack-title">
+    <div ref={dialogRef} tabIndex={-1} className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="backpack-title">
       <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm animate-fade-in" onClick={onClose} />
 
       <div className="relative w-full max-w-3xl max-h-[90vh] flex flex-col rounded-3xl bg-white dark:bg-salud-dark-surface border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden animate-scale-in">

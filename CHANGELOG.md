@@ -1,5 +1,13 @@
 # Changelog
 
+## v6.12.0 — 2026-11-22 · 健康學習首頁與閱讀體驗
+
+- 首頁依搜尋、常見需求、白話小課、主題目錄和練習安排入口。回訪時可繼續上次閱讀，完整主題目錄可用 `#home/topics` 直接開啟。
+- 精簡全站導覽與頁尾，移除無法佐證的認證及實證分級宣稱。手機導覽可直達症狀與科別，搜尋支援中文輸入法、鍵盤選取與焦點返回。
+- 課程先呈現重點，並可跳到行動、測驗、就醫時機、來源與深入閱讀。課程總表顯示篩選結果與空白狀態。
+- 查核首頁精選的飲食、運動和睡眠入門課、成人健檢與居家血壓課，以及三篇研究摘要。補上官方或原始來源與適用限制。
+- 延後載入行動計畫、深度章節資料及測驗動畫。首頁照片使用本機 WebP。
+
 ## v6.11.0 — 2026-11-12 · 全站體驗與架構深度優化：身心探索羅盤、淘汰 10% 最低質量內容與補入 10% 頂級醫學實證、權威高雅介面 (Total Experience & Architectural Overhaul: 30-Second Health Compass, 10% Low-Yield Content Pruning & High-Value Replenishment, Elegant Clinical Authority UI/UX)
 
 ### Added — 身心探索羅盤與快樂學習體驗（`src/components/learn/HealthCompassWidget.tsx`）

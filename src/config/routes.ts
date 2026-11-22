@@ -16,7 +16,7 @@ import {
  * by the test suite against this function.
  *
  * Hash grammar
- *   ''  | home[/plan]                  → learning home (optionally scrolled to the action plan)
+ *   ''  | home[/plan|/topics]          → learning home, action plan or topic directory
  *   start                              → 4-week starter plan
  *   learn[/<track>[/<lesson>]]         → learning tracks
  *   updates | checkup | glossary       → learner reference pages

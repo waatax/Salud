@@ -133,17 +133,17 @@ export const ProgressBar: React.FC<{ value: number; tone: LearningTone; label?: 
 
 /** Page-level heading block used by every learner page, so they share one rhythm. */
 export const PageHeader: React.FC<{
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   lead?: React.ReactNode;
   children?: React.ReactNode;
 }> = ({ eyebrow, title, lead, children }) => (
   <header className="space-y-3 pb-2">
-    <p className="text-xs font-semibold tracking-wide text-emerald-700 dark:text-emerald-400">{eyebrow}</p>
+    {eyebrow && <p className="text-xs font-semibold tracking-wide text-emerald-700 dark:text-emerald-400">{eyebrow}</p>}
     <h1 className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-slate-900 dark:text-white text-balance">
       {title}
     </h1>
-    {lead && <p className="text-[15px] leading-7 text-slate-600 dark:text-slate-300 max-w-3xl">{lead}</p>}
+    {lead && <p className="text-base leading-7 text-slate-600 dark:text-slate-300 max-w-3xl">{lead}</p>}
     {children}
   </header>
 );
