@@ -53,7 +53,10 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
 
         <button
           className="min-h-11 flex items-center gap-2.5 select-none text-left shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-          onClick={() => onSelectPillar('home')}
+          onClick={() => {
+            onSelectPillar('home');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          }}
           aria-label={zh ? 'Salud 首頁' : 'Salud home'}
         >
           <span className="w-8 h-8 rounded-[.6rem] bg-emerald-800 dark:bg-emerald-300 flex items-center justify-center text-white dark:text-emerald-950 font-serif font-bold text-lg" aria-hidden="true">
@@ -61,7 +64,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
           </span>
           <span className="hidden sm:block leading-tight">
             <span className="block text-base font-display font-bold tracking-tight text-slate-900 dark:text-white">Salud</span>
-            <span className="block text-[0.75rem] text-slate-500 dark:text-slate-400">{zh ? '給每個人的健康學習平台' : 'Health learning for everyone'}</span>
+            <span className="hidden text-[0.75rem] text-slate-500 dark:text-slate-400 xl:block">{zh ? '給每個人的健康學習平台' : 'Health learning for everyone'}</span>
           </span>
         </button>
 
@@ -74,12 +77,12 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
           <Search className="w-4 h-4 shrink-0" aria-hidden="true" />
           <span className="flex-1 truncate sm:hidden">{zh ? '搜尋健康知識' : 'Search'}</span>
           <span className="hidden flex-1 truncate sm:inline">{zh ? '搜尋症狀、數值、主題' : 'Search topics, labs, symptoms'}</span>
-          <kbd className="hidden md:inline text-[0.75rem] font-mono border border-slate-300 dark:border-slate-700 rounded px-1.5 py-0.5">
+          <kbd className="hidden shrink-0 whitespace-nowrap text-[0.75rem] font-mono border border-slate-300 dark:border-slate-700 rounded px-1.5 py-0.5 2xl:inline">
             {isMac ? '⌘' : 'Ctrl'} K
           </kbd>
         </button>
 
-        <nav className="hidden lg:flex items-center gap-1" aria-label={zh ? '學習入口' : 'Learning'}>
+        <nav className="hidden shrink-0 items-center gap-1 whitespace-nowrap lg:flex" aria-label={zh ? '學習入口' : 'Learning'}>
           <a
             href="#home/topics"
             className="flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-xl text-sm transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
@@ -117,7 +120,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
             aria-label={zh ? '健康試算工具箱' : 'Calculators'}
           >
             <Calculator className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span className="hidden md:inline">{zh ? '試算工具' : 'Tools'}</span>
+            <span className="hidden 2xl:inline">{zh ? '試算工具' : 'Tools'}</span>
           </button>
 
           <button
@@ -127,7 +130,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar, onToggle
             aria-label={zh ? '我的健康背包' : 'Backpack'}
           >
             <Bookmark className="w-4 h-4 text-amber-500" />
-            <span className="hidden md:inline">{zh ? '背包收藏' : 'Saved'}</span>
+            <span className="hidden 2xl:inline">{zh ? '背包收藏' : 'Saved'}</span>
             {backpackCount > 0 && (
               <span className="w-4 h-4 rounded-full bg-amber-500 text-white font-mono text-[0.75rem] flex items-center justify-center font-bold">
                 {backpackCount > 9 ? '9+' : backpackCount}

@@ -49,6 +49,11 @@ export function LearnHome() {
   useEffect(() => {
     let frame: number | undefined;
     const moveToSection = () => {
+      if (frame !== undefined) cancelAnimationFrame(frame);
+      if (window.location.hash === '#home') {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
       const targets: Record<string, string> = { '#home/plan': 'my-plan', '#home/topics': 'topics-title' };
       const id = targets[window.location.hash];
       if (!id) return;
