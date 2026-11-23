@@ -19,7 +19,7 @@ import { KpInfoGraphRenderer } from '../figures/KpInfoGraphRenderer';
 import confetti from 'canvas-confetti';
 import { CHAPTERS, getChapterPages } from '../../data/chapters';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
-import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
+import { useCanonicalAtoms } from '../../knowledge/useCanonicalAtoms';
 import { buildPaperUrls } from '../../utils/paperLinks';
 import { CanonicalBadge } from './CanonicalBadge';
 import { useBookmarks } from '../../hooks/useBookmarks';
@@ -94,6 +94,7 @@ interface Props {
 
 export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
   const { t, language } = useLanguage();
+  const atoms = useCanonicalAtoms();
   const [depth, setDepth] = useState<DepthLevel>('L2');
   const [expandedKPs, setExpandedKPs] = useState<Record<string, boolean>>({});
   const [expandedGraphs, setExpandedGraphs] = useState<Record<string, boolean>>({});
@@ -570,7 +571,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                     {(() => {
                       const canonicalId = kp.canonical_atom_id || KP_CANONICAL_MAPPING[kp.id];
                       const atom = canonicalId
-                        ? CANONICAL_KNOWLEDGE_PACK_82.find((a) => a.id === canonicalId)
+                        ? atoms?.get(canonicalId)
                         : null;
                       const hasPapers = atom && atom.evidence_records.length > 0;
                       const scholarSearchQuery = `${kp.title} clinical medicine research paper`;
@@ -663,7 +664,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
                     {(() => {
                       const canonicalId = kp.canonical_atom_id || KP_CANONICAL_MAPPING[kp.id];
                       const atom = canonicalId
-                        ? CANONICAL_KNOWLEDGE_PACK_82.find((a) => a.id === canonicalId)
+                        ? atoms?.get(canonicalId)
                         : null;
                       const mastery = atom?.clinical_mastery;
                       if (!mastery) return null;

@@ -1,5 +1,11 @@
 # Changelog
 
+## v6.16.0 — 2026-11-24 · 章節頁先顯示、規範知識錨點延後載入
+
+- 營養章節頁（`KnowledgePage`）與規範徽章（`CanonicalBadge`）不再於開頁時同步下載規範知識錨點包（原本打包在名為 `paperLinks` 的共用 chunk，約 571 kB／壓縮 235 kB）。章節內容先顯示，錨點徽章、論文連結與臨床深度解析在背景載入後出現。新增 [useCanonicalAtoms.ts](src/knowledge/useCanonicalAtoms.ts) 共用快取，載入失敗可重試。
+- 知識探索頁（`KnowledgeExplorerPage`）以錨點包為主體，仍直接載入。
+- 同步 `package-lock.json` 版本號（先前停在 6.13.0）。
+
 ## v6.15.0 — 2026-11-23 · 預設森林綠主題與 UI/UX 深度質感優化
 
 - **預設森林綠主題（Forest Green Default）**：[index.html](index.html) 首屏預載腳本與 [ThemeContext.tsx](src/context/ThemeContext.tsx) 改為預設套用「森林綠（`light`）」，不再受作業系統暗色模式強制覆蓋；讀者仍可於 [ThemePicker.tsx](src/components/common/ThemePicker.tsx) 自由切換暗色、藍青、棕色、粉色或「跟隨系統」，並新增「預設」標記與主題色圓點指示。

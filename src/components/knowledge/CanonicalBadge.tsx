@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, ExternalLink, AlertTriangle, BookOpen, X, ChevronRight } from 'lucide-react';
-import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
+import { useCanonicalAtoms } from '../../knowledge/useCanonicalAtoms';
 import { buildPaperUrls } from '../../utils/paperLinks';
 
 interface CanonicalBadgeProps {
@@ -16,7 +16,8 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const atom = CANONICAL_KNOWLEDGE_PACK_82.find((a) => a.id === atomId);
+  // The pack loads after the page renders; the badge appears once it arrives.
+  const atom = useCanonicalAtoms()?.get(atomId);
   if (!atom) return null;
 
 
