@@ -15,11 +15,6 @@ import {
   Pill,
   Wine,
   ArrowRight,
-  ExternalLink,
-  ShieldCheck,
-  AlertOctagon,
-  BookOpen,
-  Info,
   CheckCircle2,
   X
 } from 'lucide-react';

@@ -3,16 +3,7 @@ import { KnowledgePage } from '../../types';
 import {
   Lightbulb,
   Sparkles,
-  CheckCircle,
-  HelpCircle,
-  ShieldAlert,
-  ArrowRight,
-  Droplets,
-  Flame,
-  Zap,
-  Coffee,
-  HeartCrack,
-  Sun
+  CheckCircle
 } from 'lucide-react';
 
 import { renderPageIllustration } from './PageIllustrations';

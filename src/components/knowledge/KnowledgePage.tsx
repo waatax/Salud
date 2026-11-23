@@ -83,7 +83,6 @@ import {
   GraduationCap,
   Copy,
   CheckCheck,
-  ListChecks,
   Plus,
   Share2,
 } from 'lucide-react';

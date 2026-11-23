@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Calendar, CheckCircle2, TrendingDown, ArrowRight, ShieldAlert } from 'lucide-react';
+import { Calendar, CheckCircle2, TrendingDown } from 'lucide-react';
 
 export const BehaviorExperiment: React.FC = () => {
   const [dayLogged, setDayLogged] = useState<number>(7);
-  const [isStarted, setIsStarted] = useState<boolean>(true);
 
   // 14 days simulation state
   const totalDays = 14;
   const initialDailySugarG = 65; // Baseline: 1 full sugar boba tea/day
-  const targetDailySugarG = 0; // Swap to unsweetened tea
+ // Swap to unsweetened tea
 
   const accumulatedSugarSavedG = dayLogged * initialDailySugarG;
   const caloriesSaved = accumulatedSugarSavedG * 4;

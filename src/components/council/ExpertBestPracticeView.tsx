@@ -4,7 +4,6 @@ import {
   COUNCIL_EVIDENCE_STATS,
   ExpertBestPracticeData
 } from '../../data/expertBestPractices';
-import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { ExpertInfoGraph } from './ExpertInfoGraph';
 import { LaypersonFriendlyGuide } from './LaypersonFriendlyGuide';
 import { ExpertMonographModal } from './ExpertMonographModal';
@@ -16,9 +15,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   Search,
-  Filter,
   ArrowRight,
-  ExternalLink,
   Sparkles,
   FileText,
   Activity,
@@ -30,8 +27,7 @@ import {
   Smile,
   Stethoscope,
   Eye,
-  Lightbulb,
-  Heart
+  Lightbulb
 } from 'lucide-react';
 
 interface Props {
@@ -58,9 +54,6 @@ export const ExpertBestPracticeView: React.FC<Props> = ({
     EXPERT_BEST_PRACTICES[0];
 
   // Also lookup base council member info
-  const currentCouncilMember = EXPERT_COUNCIL.find(
-    (m) => m.id === currentBestPractice.expertId
-  );
 
   // Filter list
   const filteredBestPractices = EXPERT_BEST_PRACTICES.filter((item) => {

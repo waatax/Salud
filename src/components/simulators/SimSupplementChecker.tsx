@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import { DEEP_SUPPLEMENTS, DRUG_NUTRIENT_INTERACTIONS } from '../../data/supplementsDeepData';
-import { SupplementCategory } from '../../types';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import {
   Pill,
   Search,
   AlertOctagon,
-  ShieldAlert,
-  CheckCircle2,
-  AlertTriangle,
-  HelpCircle,
-  Sparkles,
   ChevronDown,
   ChevronUp
 } from 'lucide-react';

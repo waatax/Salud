@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { EDIBLE_OILS } from '../../data/oilsData';
 import { RefreshCw, ArrowRight, Table, AlertTriangle, ShieldCheck } from 'lucide-react';
 
@@ -7,7 +7,7 @@ export const SimOilSwap: React.FC = () => {
   const [toId, setToId] = useState<string>('camellia'); // default camellia (苦茶油)
   const [teaspoons, setTeaspoons] = useState<number>(4); // 4 tsp = 20g
   const [cookingContext, setCookingContext] = useState<'stir_fry' | 'salad' | 'deep_fry' | 'baking'>('stir_fry');
-  const [totalKcal, setTotalKcal] = useState<number>(2000);
+  const [totalKcal] = useState<number>(2000);
   const [isOnStatin, setIsOnStatin] = useState<boolean>(false);
   const [showTable, setShowTable] = useState(false);
 
@@ -29,7 +29,6 @@ export const SimOilSwap: React.FC = () => {
   const pufaDeltaG = Number((pufaToG - pufaFromG).toFixed(1));
 
   // %E of SFA (9 kcal/g)
-  const sfaFromPctE = Number((((sfaFromG * 9) / totalKcal) * 100).toFixed(1));
   const sfaToPctE = Number((((sfaToG * 9) / totalKcal) * 100).toFixed(1));
 
   // Suitability check

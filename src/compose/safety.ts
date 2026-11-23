@@ -7,7 +7,6 @@
 
 import {
   HealthSubjectProfile,
-  SafetyActionLevel,
   SafetyPredicate,
   SimulatorContract,
 } from '../types/knowledge';

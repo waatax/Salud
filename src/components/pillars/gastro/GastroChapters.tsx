@@ -17,7 +17,7 @@ import {
   BRISTOL_STOOL_DATA,
 } from '../../../data/gastroData';
 import { DataTable } from '../../common/pro/DataTable';
-import { FigureFrame, Callout, GradePill } from '../../common/pro/Blocks';
+import { FigureFrame, Callout } from '../../common/pro/Blocks';
 import {
   GiTractPanoramaFigure,
   GerdLesAndBarrettFigure,

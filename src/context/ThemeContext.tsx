@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 /**
  * v5.0 colour themes. `light` (森林綠) and `dark` are the original pair; `ocean` (藍青),

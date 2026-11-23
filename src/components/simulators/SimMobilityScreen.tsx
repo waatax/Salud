@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
-import { ShieldCheck, CheckCircle2, AlertCircle, RefreshCw, Activity, ArrowRight, Sparkles, Check } from 'lucide-react';
+import { ShieldCheck, AlertCircle, Activity, Sparkles, Check } from 'lucide-react';
 import { MOBILITY_SCREEN_TESTS } from '../../data/mobilityData';
 
 export const SimMobilityScreen: React.FC = () => {

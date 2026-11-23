@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { EXERCISE_ZONES } from '../../data/exerciseData';
 import { useLanguage } from '../../i18n';
-import { Activity, Heart, Flame, ShieldAlert, Timer, Award, Sparkles } from 'lucide-react';
+import { Activity, Heart, Timer } from 'lucide-react';
 
 export const SimExerciseZones: React.FC = () => {
   const { t, language } = useLanguage();
@@ -12,7 +12,7 @@ export const SimExerciseZones: React.FC = () => {
 
   // Karvonen Calculation
   const hrMaxFox = 220 - age; // Traditional Fox formula
-  const hrMaxTanaka = Math.round(208 - 0.7 * age); // Modern Tanaka formula (higher accuracy for older adults)
+ // Modern Tanaka formula (higher accuracy for older adults)
   const hrMax = hrMaxFox;
   const hrr = hrMax - restingHr; // Heart Rate Reserve
 

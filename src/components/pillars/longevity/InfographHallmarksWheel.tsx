@@ -3,17 +3,11 @@ import { AGING_HALLMARKS } from '../../../data/longevityData';
 import { AgingHallmark } from '../../../types';
 import { EvidenceBadge } from '../../common/EvidenceBadge';
 import {
-  Dna,
   Shield,
-  Activity,
-  Flame,
   Zap,
-  Sparkles,
   ChevronRight,
-  Info,
   Layers,
   AlertCircle,
-  Stethoscope,
 } from 'lucide-react';
 
 export const InfographHallmarksWheel: React.FC = () => {

@@ -9,23 +9,13 @@ import { ENDOCRINE_DEEP } from './endocrineDeep';
 import { RENAL_DEEP } from './renalDeep';
 import { IMMUNE_DEEP } from './immuneDeep';
 import { SYSTEM_EXPANSION_2026 } from './expansion2026';
+import { withExpansion as expand } from './withExpansion';
 
-/** Append the v4.0 (2026) additions after each system's authored content. */
-const withExpansion = (dd: SystemDeepDive): SystemDeepDive => {
-  const add = SYSTEM_EXPANSION_2026[dd.system_id];
-  if (!add) return dd;
-  return {
-    ...dd,
-    how_it_works: [...dd.how_it_works, ...add.how_it_works],
-    protocols: [...dd.protocols, ...add.protocols],
-    red_flags: [...dd.red_flags, ...add.red_flags],
-  };
-};
+const withExpansion = (dd: SystemDeepDive) => expand(dd, SYSTEM_EXPANSION_2026);
 
 /**
- * Registry of the v3.0 deep dives. Systems appear here as their content is authored;
- * a system with no entry falls back to the original overview layout, so the two can
- * coexist while the remaining systems are written.
+ * Eager registry of every system's deep dive, for build scripts and tests.
+ * The app itself loads one system at a time through `load.ts`.
  */
 export const SYSTEM_DEEP_DIVES: Partial<Record<HumanSystemId, SystemDeepDive>> = {
   respiratory: withExpansion(RESPIRATORY_DEEP),

@@ -5,8 +5,6 @@ import {
   Dumbbell,
   ShieldAlert,
   AlertTriangle,
-  TrendingDown,
-  Sparkles,
   Info,
   CheckCircle2,
   RefreshCw,
@@ -28,7 +26,7 @@ export const SimWeightTrajectory: React.FC = () => {
   // User physiological parameters
   const [gender, setGender] = useState<'M' | 'F'>('M');
   const [age, setAge] = useState<number>(38);
-  const [heightCm, setHeightCm] = useState<number>(172);
+  const [heightCm] = useState<number>(172);
   const [initialWeightKg, setInitialWeightKg] = useState<number>(92);
   const [initialFatPct, setInitialFatPct] = useState<number>(33);
 
@@ -112,7 +110,6 @@ export const SimWeightTrajectory: React.FC = () => {
       const totalLeanLost = Math.max(0, totalLossSoFar * leanLossRatio);
 
       const currentFatMass = Math.max(5, initialFatMass - totalFatLost);
-      const currentLeanMass = Math.max(25, initialLeanMass - totalLeanLost);
       const currentFatPct = (currentFatMass / currentTotalWeight) * 100;
 
       // Adaptive thermogenesis: BMR drops by body weight drop + metabolic slowdown ~10-18%

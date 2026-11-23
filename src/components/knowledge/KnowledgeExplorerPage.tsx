@@ -10,24 +10,15 @@
 import React, { useState, useMemo } from 'react';
 import {
   Search,
-  Filter,
   ShieldAlert,
-  FileText,
   Activity,
   Layers,
-  CheckCircle2,
-  AlertTriangle,
   Download,
-  Share2,
   Database,
   ExternalLink,
-  ChevronRight,
-  Info,
   Network,
-  Scale,
   ShieldCheck,
   GraduationCap,
-  Stethoscope,
   Utensils,
   AlertOctagon,
   Lightbulb,
@@ -35,12 +26,10 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { CANONICAL_KNOWLEDGE_PACK_82 } from '../../knowledge/atoms/pack82';
-import { CANONICAL_QUANTITATIVE_CLAIMS } from '../../knowledge/claims/claims';
 import { CANONICAL_TAIWAN_POLICIES } from '../../knowledge/policies/taiwanPolicies';
 import { CANONICAL_SAFETY_PREDICATES } from '../../compose/safety';
-import { CANONICAL_THRESHOLDS, CANONICAL_THRESHOLD_MAP } from '../../knowledge/thresholds/thresholdRegistry';
+import { CANONICAL_THRESHOLD_MAP } from '../../knowledge/thresholds/thresholdRegistry';
 import { deriveCertainty } from '../../compose/certainty';
-import { KnowledgeAtom, CertaintyLevel, RiskClass, AssertionKind, ProvenanceLevel } from '../../types/knowledge';
 import { KnowledgeGraphView } from './KnowledgeGraphView';
 import { GovernanceDashboardModal } from './GovernanceDashboardModal';
 import { buildPaperUrls } from '../../utils/paperLinks';

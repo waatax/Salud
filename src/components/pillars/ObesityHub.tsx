@@ -11,7 +11,6 @@ import {
   OBESITY_MYTHS,
   MDT_CONSENSUS_STATEMENTS,
 } from '../../data/obesityData';
-import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { SimWeightTrajectory } from '../simulators/SimWeightTrajectory';
 import { UrgeSurfingTimer } from './obesity/UrgeSurfingTimer';
 import { TaiwanDiningGuide } from './obesity/TaiwanDiningGuide';
@@ -25,7 +24,6 @@ import { ThreeHighsEntry } from './cardiometabolic/ThreeHighsGuide';
 import { HubHero } from '../common/HubHero';
 import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
 import { HUB_PRIMERS } from '../../data/hubPrimers';
-import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { ObesitySubTab } from '../../types';
 import {
@@ -37,20 +35,13 @@ import {
   Utensils,
   Scissors,
   Dumbbell,
-  ShieldCheck,
   AlertTriangle,
   ChevronDown,
   ChevronUp,
-  Sparkles,
   BookOpen,
-  HelpCircle,
-  Clock,
   CheckCircle2,
-  FileText,
   Heart,
-  TrendingDown,
   ArrowRight,
-  Info,
   Stethoscope,
   Brain,
   ShieldAlert,
@@ -88,7 +79,6 @@ const OBESITY_TAB_GROUPS: HubTabGroup<ObesitySubTab>[] = [
 ];
 
 export const ObesityHub: React.FC = () => {
-  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useHashTab<ObesitySubTab>('obesity', OBESITY_TABS, 'OVERVIEW');
   const [expandedMechanism, setExpandedMechanism] = useState<string | null>('OM-01');
   const [selectedDrugId, setSelectedDrugId] = useState<string>('DRUG-01');

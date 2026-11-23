@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { KnowledgePage } from '../../types';
-import { Network, CheckCircle2, Lock, ArrowRight, Compass, Sparkles, Filter, Layers } from 'lucide-react';
+import { Network, CheckCircle2, ArrowRight, Sparkles, Layers } from 'lucide-react';
 
 interface Props {
   pages: KnowledgePage[];

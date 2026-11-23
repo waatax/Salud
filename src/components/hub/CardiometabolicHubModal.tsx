@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from '../common/Modal';
-import { BP_722_PROTOCOL, METSYN_CRITERIA } from '../../data/cardiometabolicData';
+import { METSYN_CRITERIA } from '../../data/cardiometabolicData';
 import { useLanguage } from '../../i18n';
-import { Activity, Heart, ShieldAlert, CheckCircle2, ChevronRight, Info } from 'lucide-react';
+import { Activity, Heart, ChevronRight } from 'lucide-react';
 
 interface Props {
   isOpen: boolean;
@@ -12,7 +12,7 @@ interface Props {
 import { useNavigation } from '../../context/NavigationContext';
 
 export const CardiometabolicHubModal: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const nav = useNavigation();
   const [activeTab, setActiveTab] = useState<'bp722' | 'metsyn' | 'prevent'>('bp722');
 

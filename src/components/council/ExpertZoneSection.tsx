@@ -306,7 +306,6 @@ export const ExpertZoneSection: React.FC<Props> = ({ onOpenBestPractice, embedde
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredExperts.map((member) => {
               const categoryName = getExpertCategoryName(member.id);
-              const hasMonograph = hasBestPractice(member.id);
 
               return (
                 <div

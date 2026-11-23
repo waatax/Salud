@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import {
   Activity,
-  Heart,
-  Clock,
-  Sparkles,
-  Zap,
-  TrendingDown,
-  TrendingUp,
-  Shield,
   RotateCcw,
   Sliders,
-  Award,
 } from 'lucide-react';
 
 export const SimLongevityTrajectory: React.FC = () => {

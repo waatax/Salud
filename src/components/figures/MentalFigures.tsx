@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldAlert, Info, AlertTriangle, CheckCircle2, Activity, Heart, Wind } from 'lucide-react';
+import { AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 /**
  * ── 實證心理健康與呼吸神經生理醫學向量圖解組件 (Mental & Breathwork Figures) ──

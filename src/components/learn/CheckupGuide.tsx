@@ -12,9 +12,6 @@ import {
   LayoutGrid,
   Sparkles,
   Clock,
-  ShieldCheck,
-  Activity,
-  Layers,
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { LAB_METRICS, LAB_CATEGORIES, TAIWAN_SCREENINGS } from '../../data/learning/checkup';

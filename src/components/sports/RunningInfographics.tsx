@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { RUNNING_INFOGRAPHICS } from '../../data/sportsScienceData';
-import { Zap, Footprints, Layers, Droplets, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Zap, Footprints, Layers, Droplets, CheckCircle2 } from 'lucide-react';
 
 export const RunningInfographics: React.FC = () => {
   const { language } = useLanguage();

@@ -5,7 +5,7 @@
  * dynamic macro conversions, and guards against literal reading of heuristics.
  */
 
-import { QuantitativeClaim, ValueKind } from '../types/knowledge';
+import { ValueKind } from '../types/knowledge';
 
 export interface RelativeEnergyDerivation {
   ratioPct: number;

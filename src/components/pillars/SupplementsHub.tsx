@@ -1,12 +1,10 @@
 import React from 'react';
 import { SimSupplementChecker } from '../simulators/SimSupplementChecker';
-import { useLanguage } from '../../i18n';
 import { PillarHubTemplate } from '../common/PillarHubTemplate';
 import { HUB_PRIMERS } from '../../data/hubPrimers';
 import { ShieldCheck } from 'lucide-react';
 
 export const SupplementsHub: React.FC = () => {
-  const { language } = useLanguage();
 
   return (
     <PillarHubTemplate

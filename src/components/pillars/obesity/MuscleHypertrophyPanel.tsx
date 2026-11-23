@@ -10,8 +10,6 @@ import {
   Flame,
   Activity,
   Award,
-  ChevronDown,
-  ChevronUp,
   ShieldCheck,
   Clock,
   Sparkles,

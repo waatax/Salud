@@ -3,14 +3,10 @@ import { LONGEVITY_ITERATION_ROUNDS } from '../../../data/longevityIterationsDat
 import { LongevityIterationRound } from '../../../data/longevityIterationsData';
 import {
   Sparkles,
-  Users,
   MessageSquare,
   FileCheck,
-  Zap,
   BookOpen,
   Eye,
-  CheckCircle2,
-  ChevronRight,
   ShieldCheck,
 } from 'lucide-react';
 

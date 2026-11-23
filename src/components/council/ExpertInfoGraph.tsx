@@ -3,20 +3,14 @@ import { InfoGraphStep } from '../../data/expertBestPractices';
 import {
   Activity,
   AlertTriangle,
-  ArrowRight,
   CheckCircle2,
   Flame,
-  ShieldCheck,
   Zap,
   Info,
-  Maximize2,
   Copy,
   CheckCheck,
   FileCheck2,
-  Eye,
-  Sliders,
-  TrendingUp,
-  LayoutGrid
+  Eye
 } from 'lucide-react';
 
 interface Props {
@@ -33,7 +27,6 @@ export const ExpertInfoGraph: React.FC<Props> = ({
   keyTakeaway,
 }) => {
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
-  const [showA11yTable, setShowA11yTable] = useState<boolean>(false);
   const [copiedTakeaway, setCopiedTakeaway] = useState<boolean>(false);
   const [activeView, setActiveView] = useState<'SCHEMATIC' | 'GRID' | 'TABLE'>('SCHEMATIC');
 

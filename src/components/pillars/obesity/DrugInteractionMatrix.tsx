@@ -2,20 +2,11 @@ import React, { useState } from 'react';
 import {
   CLINICAL_TRIALS_DATABASE,
   DRUG_INTERACTIONS_FIREWALL,
-  ClinicalTrialRecord,
-  DrugInteractionItem,
 } from '../../../data/obesityIterationsData';
 import {
   ShieldAlert,
   Search,
-  Filter,
-  CheckCircle2,
-  AlertTriangle,
-  Info,
   Pill,
-  Activity,
-  Heart,
-  ExternalLink,
 } from 'lucide-react';
 
 export const DrugInteractionMatrix: React.FC = () => {

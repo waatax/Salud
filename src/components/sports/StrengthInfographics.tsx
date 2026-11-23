@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { STRENGTH_INFOGRAPHICS } from '../../data/strengthData';
-import { Dumbbell, Target, Layers, TrendingUp, CheckCircle2, ChevronRight, Activity } from 'lucide-react';
+import { Dumbbell, Target, Layers, TrendingUp, CheckCircle2 } from 'lucide-react';
 
 export const StrengthInfographics: React.FC = () => {
   const { language } = useLanguage();

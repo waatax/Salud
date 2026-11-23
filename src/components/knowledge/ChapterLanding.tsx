@@ -11,7 +11,6 @@ import {
   BookOpen,
   Sparkles,
   ArrowRight,
-  ShieldCheck,
   Zap,
   Dumbbell,
   Wheat,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
-import { RotateCw, Timer, Target, Zap, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { RotateCw } from 'lucide-react';
 
 export const SimTableTennisSpin: React.FC = () => {
   const { language } = useLanguage();

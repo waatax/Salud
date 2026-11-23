@@ -21,14 +21,6 @@ a.discovery-card:hover, button.discovery-card:hover { border-color: rgb(var(--em
 .discovery-text-link { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .875rem; font-weight: 600; color: rgb(var(--emerald-800)); }
 .dark .discovery-text-link { color: rgb(var(--emerald-300)); }
 .discovery-text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-.discovery-lesson-art { position: relative; height: 10rem; overflow: hidden; }
-.discovery-lesson-art svg { height: 100%; width: 100%; }
-.discovery-lesson-art-0 { background: #edf2e8; color: #416648; }
-.discovery-lesson-art-1 { background: #eaf1f3; color: #3e6777; }
-.discovery-lesson-art-2 { background: #efedf5; color: #75608a; }
-.dark .discovery-lesson-art-0 { background: #182b23; color: #9dbca5; }
-.dark .discovery-lesson-art-1 { background: #182b33; color: #9dbecb; }
-.dark .discovery-lesson-art-2 { background: #292436; color: #b9a7cc; }
 .discovery-practice { background: var(--card); }
 /* v6.11: High-Elegance Glassmorphism & UI/UX Micro-Interactions */
 .glass-panel {

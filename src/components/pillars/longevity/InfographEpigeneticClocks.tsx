@@ -5,12 +5,6 @@ import {
   Clock,
   Gauge,
   Activity,
-  Dna,
-  Zap,
-  Info,
-  CheckCircle2,
-  TrendingUp,
-  TrendingDown,
   FileSpreadsheet,
 } from 'lucide-react';
 

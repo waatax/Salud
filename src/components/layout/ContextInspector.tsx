@@ -1,7 +1,6 @@
 import React from 'react';
 import { KnowledgePage } from '../../types';
-import { EvidenceBadge } from '../common/EvidenceBadge';
-import { CheckCircle, ShieldCheck, Printer, ArrowUpRight, HelpCircle } from 'lucide-react';
+import { Printer } from 'lucide-react';
 
 interface Props {
   page: KnowledgePage;

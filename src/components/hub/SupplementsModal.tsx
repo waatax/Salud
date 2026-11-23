@@ -3,7 +3,7 @@ import { Modal } from '../common/Modal';
 import { SUPPLEMENTS_EVALUATIONS } from '../../data/supplementsData';
 import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
-import { ShieldAlert, AlertTriangle, CheckCircle2, ShieldCheck, HelpCircle } from 'lucide-react';
+import { AlertTriangle, ShieldCheck } from 'lucide-react';
 
 interface Props {
   isOpen: boolean;
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const SupplementsModal: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <Modal

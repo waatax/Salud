@@ -19,7 +19,6 @@ export const CanonicalBadge: React.FC<CanonicalBadgeProps> = ({
   const atom = CANONICAL_KNOWLEDGE_PACK_82.find((a) => a.id === atomId);
   if (!atom) return null;
 
-  const isWarning = atom.status === 'needs-provenance-review';
 
   return (
     <>

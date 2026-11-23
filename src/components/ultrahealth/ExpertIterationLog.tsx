@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { EXPERT_ROUNDS, STREET_MYTH_BUSTERS } from '../../data/ultraHealthData';
-import { Sparkles, Users, Award, ShieldCheck, Flame, ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Users, Award, ShieldCheck, Flame, CheckCircle2 } from 'lucide-react';
 
 export const ExpertIterationLog: React.FC = () => {
   const [selectedRound, setSelectedRound] = useState<number>(7); // Default to final round

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChevronRight, House } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useLanguage } from '../../i18n';

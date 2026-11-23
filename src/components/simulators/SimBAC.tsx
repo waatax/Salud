@@ -6,11 +6,7 @@ import {
   Car,
   Clock,
   Wine,
-  Info,
-  AlertTriangle,
   Moon,
-  Sparkles,
-  ExternalLink,
   ChevronDown,
   ChevronUp,
   OctagonAlert
@@ -29,7 +25,6 @@ export const SimBAC: React.FC = () => {
   const [biologicalSex, setBiologicalSex] = useState<'MALE' | 'FEMALE'>('MALE');
   const [stomachState, setStomachState] = useState<StomachState>('LIGHT_MEAL');
   const [withCarbonation, setWithCarbonation] = useState<boolean>(false);
-  const [drinkingDurationHours, setDrinkingDurationHours] = useState<number>(1.5);
   const [aldh2Genotype, setAldh2Genotype] = useState<'NORMAL' | 'HETERO' | 'HOMO'>('NORMAL');
   const [showDataTable, setShowDataTable] = useState<boolean>(false);
 

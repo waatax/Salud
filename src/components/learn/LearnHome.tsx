@@ -1,20 +1,20 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import {
-  ArrowRight, BookOpen, Search, Leaf, ShieldCheck, Clock, ChevronDown, CheckCircle2,
+  ArrowRight, BookOpen, Leaf, ShieldCheck, Clock, ChevronDown, CheckCircle2,
   Sparkles, HeartPulse, ClipboardList, Stethoscope, GraduationCap, Calculator,
   Bookmark, RotateCcw, LibraryBig, CircleHelp,
 } from 'lucide-react';
 import { useModal } from '../../context/ModalContext';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useActionPlan } from '../../hooks/useActionPlan';
-import { ALL_LESSONS, LEARNING_TRACKS, findLesson, getTrack } from '../../data/learning/tracks';
+import { ALL_LESSONS, findLesson, getTrack } from '../../data/learning/tracks';
 import { getUpdate, UPDATE_CATEGORY_META } from '../../data/learning/evidenceUpdates';
 import { DISCOVERY_CATEGORIES, filterDiscoveryTopics, type DiscoveryCategory } from '../../data/learning/discovery';
 import { TrackIcon, formatYM } from './learnUi';
-import { QuickTips } from './QuickTips';
 import './editorial-home.css';
 
 const ActionPlanPanel = lazy(() => import('./ActionPlanPanel').then(m => ({ default: m.ActionPlanPanel })));
+const QuickTips = lazy(() => import('./QuickTips').then(m => ({ default: m.QuickTips })));
 const HealthCompassWidget = lazy(() => import('./HealthCompassWidget').then(m => ({ default: m.HealthCompassWidget })));
 const MetabolicJourney = lazy(() => import('./MetabolicJourney').then(m => ({ default: m.MetabolicJourney })));
 
@@ -25,11 +25,21 @@ const quickEntries = [
   { label: '了解就醫方向', description: '從症狀找科別，準備看診', href: '#clinic/by/symptom', icon: Stethoscope },
 ];
 
-const featured = [
-  { trackId: 'eat', label: '飲食', question: '一餐怎麼搭配才均衡？', intro: '用台灣「我的餐盤」看懂六大類食物，從下一餐就能試。' },
-  { trackId: 'move', label: '運動', question: '平常很少動，怎麼開始？', intro: '學會用說話測試辨識強度，再從自己做得到的活動開始。' },
-  { trackId: 'rest', label: '睡眠', question: '睡滿了，為什麼還是累？', intro: '分清睡多久和睡得好不好，了解哪些線索值得記下來。' },
-].map(item => ({ ...item, track: getTrack(item.trackId)! }));
+const guides = [
+  { id: 'move', label: '開始運動', lessonId: 'L-MOVE-01', title: '散步時，怎麼知道自己走得夠快？',
+    intro: '在熟悉的路上走一段，留意自己還能不能邊走邊說話。從這個小觀察，學會分辨活動強度。',
+    photo: 'salud-park-walk.webp', more: '讀懂步數研究', href: '#updates/UPD-2025-STEPS' },
+  { id: 'eat', label: '搭配三餐', lessonId: 'L-EAT-01', title: '打開便當，這一餐還少了什麼？',
+    intro: '看看飯、菜和主菜各占多少，再用台灣「我的餐盤」想一想，下一餐可以多搭配哪一類食物。',
+    photo: 'salud-healthy-morning.webp', more: '比較常見飲食法', href: '#diet/patterns' },
+  { id: 'rest', label: '睡個好覺', lessonId: 'L-REST-01', title: '睡了好幾個鐘頭，醒來還是累？',
+    intro: '昨晚幾點睡、半夜醒了幾次、白天精神如何？把這些線索放在一起，比只看時數更能描述自己的睡眠。',
+    photo: 'salud-sleep-journal.webp', more: '讀懂睡眠規律研究', href: '#updates/UPD-2024-SLEEP-REG' },
+];
+
+function guideFromHash() {
+  return guides.find(guide => window.location.hash === '#home/read/' + guide.id) ?? guides[0];
+}
 
 const featuredEvidence = ['UPD-2026-ACSM-RT', 'UPD-2025-STEPS', 'UPD-2024-SLEEP-REG']
   .map(getUpdate)
@@ -43,6 +53,8 @@ export function LearnHome() {
   const { openModal } = useModal();
   const { progress } = useLearningProgress();
   const { plan } = useActionPlan();
+  const [guide, setGuide] = useState(guideFromHash);
+  const featureLesson = findLesson(guide.lessonId)!;
   const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
   const lastTrack = lastLesson ? getTrack(lastLesson.track_id) : undefined;
 
@@ -50,7 +62,12 @@ export function LearnHome() {
     let frame: number | undefined;
     const moveToSection = () => {
       if (frame !== undefined) cancelAnimationFrame(frame);
+      if (window.location.hash.startsWith('#home/read/')) {
+        setGuide(guideFromHash());
+        return;
+      }
       if (window.location.hash === '#home') {
+        setGuide(guides[0]);
         window.scrollTo({ top: 0, behavior: 'instant' });
         return;
       }
@@ -73,20 +90,26 @@ export function LearnHome() {
 
   return (
     <div className="discovery-home editorial-home">
-      <section className="editorial-hero" aria-labelledby="home-title">
-        <div className="editorial-hero-copy">
-          <p className="editorial-kicker">Salud 健康學習</p>
-          <h1 id="home-title">從生活出發，<br />讀懂你的身體。</h1>
-          <p className="editorial-hero-lead">想吃得好、動得自在、睡得安穩？從白話小課開始，跟著圖解讀懂原理，想深入時也找得到研究來源。</p>
-          <div className="editorial-hero-actions">
-            <button type="button" className={'editorial-search ' + focusClass} onClick={() => openModal('search')}>
-              <Search size={21} aria-hidden="true" />
-              <span>搜尋健康問題</span>
-            </button>
-            <a href="#home/topics" className={'editorial-hero-link ' + focusClass}>瀏覽所有主題</a>
-          </div>
+      <section className="reading-edition" aria-labelledby="home-title">
+        <div className="edition-masthead">
+          <h1 id="home-title">生活裡的健康課</h1>
+          <nav aria-label="選讀生活主題" className="edition-choices">
+            {guides.map(item => <a key={item.id} href={'#home/read/' + item.id}
+              aria-current={guide.id === item.id ? 'true' : undefined}>{item.label}</a>)}
+          </nav>
         </div>
-        <img className="editorial-hero-photo" src={import.meta.env.BASE_URL + 'salud-healthy-morning.webp'} alt="" width={1000} height={750} fetchPriority="high" />
+        <div className="editorial-hero">
+          <div className="editorial-hero-copy">
+            <p className="edition-meta"><BookOpen size={17} aria-hidden="true" />{guide.label}入門<span aria-hidden="true">·</span><Clock size={15} aria-hidden="true" />約 {featureLesson.minutes} 分鐘</p>
+            <h2>{guide.title}</h2>
+            <p className="editorial-hero-lead">{guide.intro}</p>
+            <div className="editorial-hero-actions">
+              <a className="editorial-primary" href={'#learn/' + featureLesson.track_id + '/' + featureLesson.id}>閱讀這堂小課</a>
+              <a className="editorial-hero-link" href={guide.href}>{guide.more}</a>
+            </div>
+          </div>
+          <img className="editorial-hero-photo" src={import.meta.env.BASE_URL + guide.photo} alt="" width={1000} height={750} fetchPriority="high" />
+        </div>
       </section>
 
       {lastLesson && lastTrack && (
@@ -100,7 +123,7 @@ export function LearnHome() {
       )}
 
       <section aria-labelledby="entry-title">
-        <SectionHeading id="entry-title" title="今天想了解什麼？" />
+        <SectionHeading id="entry-title" title="依需求找內容" action={<a href="#home/topics" className="editorial-inline-link">瀏覽所有主題</a>} />
         <ul className="editorial-entry-grid">
           {quickEntries.map(({ href, label, description, icon: Icon }) => (
             <li key={href}>
@@ -111,26 +134,6 @@ export function LearnHome() {
             </li>
           ))}
         </ul>
-      </section>
-
-      <section aria-labelledby="featured-title">
-        <SectionHeading id="featured-title" title="從一堂小課開始" description="挑一個你在意的問題，幾分鐘讀懂一個觀念。"
-          action={<a href="#learn" className="editorial-inline-link">全部 {ALL_LESSONS.length} 堂小課</a>} />
-        <div className="editorial-lesson-grid">
-          {featured.map(({ track, label, question, intro }, index) => {
-            const lesson = track.lessons[0];
-            return (
-              <a key={track.id} href={'#learn/' + track.id + '/' + lesson.id} className="editorial-lesson">
-                <div className={'discovery-lesson-art discovery-lesson-art-' + index}><LessonArt type={index} /></div>
-                <div className="editorial-lesson-copy">
-                  <p className="editorial-lesson-meta"><span>{label}</span><Clock size={15} aria-hidden="true" />{lesson.minutes} 分鐘</p>
-                  <h3>{question}</h3>
-                  <p>{intro}</p>
-                </div>
-              </a>
-            );
-          })}
-        </div>
       </section>
 
       <TopicDirectory />
@@ -151,7 +154,7 @@ export function LearnHome() {
       <section id="my-plan" tabIndex={-1} className="scroll-mt-24 space-y-4">
         {plan.items.length > 0 ? (
           <Suspense fallback={<p role="status">載入行動計畫…</p>}><ActionPlanPanel /></Suspense>
-        ) : <QuickTips sectionKey="home" />}
+        ) : <Suspense fallback={null}><QuickTips sectionKey="home" /></Suspense>}
         <Expandable label="專題：體重、血壓、血糖與血脂"><MetabolicJourney /></Expandable>
       </section>
 
@@ -203,7 +206,7 @@ function TopicDirectory() {
 
   return (
     <section className="editorial-directory" aria-labelledby="topics-title">
-      <SectionHeading id="topics-title" title="探索健康主題" description="從日常保養、預防健檢，讀到身體機轉和疾病照護。" />
+      <SectionHeading id="topics-title" title="探索健康主題" action={<a href="#learn" className="editorial-inline-link">全部 {ALL_LESSONS.length} 堂小課</a>} description="從日常保養、預防健檢，讀到身體機轉和疾病照護。" />
       <div role="group" aria-label="健康主題分類" className="editorial-filters">
         {DISCOVERY_CATEGORIES.map(item => (
           <button key={item.id} type="button" aria-pressed={category === item.id} aria-controls="discovery-results"
@@ -381,10 +384,4 @@ function LearningChallenge() {
       </p>
     </section>
   );
-}
-
-function LessonArt({ type }: { type: number }) {
-  if (type === 0) return <svg viewBox="0 0 300 160" fill="none" aria-hidden="true"><ellipse cx="150" cy="139" rx="70" ry="7" fill="currentColor" opacity=".08" /><circle cx="150" cy="78" r="62" fill="var(--surface)" stroke="currentColor" strokeOpacity=".25" /><circle cx="150" cy="78" r="48" stroke="currentColor" strokeOpacity=".3" /><path d="M150 32a46 46 0 0 0 0 92V32Z" fill="currentColor" opacity=".17" /><path d="M153 34a44 44 0 0 1 42 42h-42V34Z" fill="#E4BE80" opacity=".6" /><path d="M153 80h42a44 44 0 0 1-42 42V80Z" fill="#B1CBCD" opacity=".7" /><path d="M124 59c-15-8-20 13-8 18-6 12 15 22 20 9 17-2 9-22-1-19 4-11-6-14-11-8Z" stroke="currentColor" strokeWidth="2" /><path d="M89 38v80m-7-80v18c0 12 14 12 14 0V38m119 0v80m0-80c-13 10-14 32 0 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>;
-  if (type === 1) return <svg viewBox="0 0 300 160" fill="none" aria-hidden="true"><circle cx="170" cy="72" r="57" stroke="currentColor" strokeOpacity=".17" /><path d="M67 133h170m-157-9 13-16m8 16 13-16m8 16 13-16" stroke="currentColor" strokeOpacity=".3" strokeWidth="2" strokeLinecap="round" /><path d="m94 95 19-43 32 19 17-9 15 30 34 12c10 3 13 15 5 21H93c-13-3-15-15-9-21l10-9Z" fill="var(--surface)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /><path d="m113 52 8 43 42 18h58m-88-38 22 6m-18 6 22 6m-39 14-5 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><path d="m69 56 8-9 8 9m-8-9v28m128-34h24m-12-12v24" stroke="currentColor" strokeOpacity=".5" strokeWidth="2" strokeLinecap="round" /></svg>;
-  return <svg viewBox="0 0 300 160" fill="none" aria-hidden="true"><circle cx="151" cy="79" r="59" stroke="currentColor" strokeOpacity=".17" /><path d="M177 32c-48-11-78 47-46 80 19 21 50 17 64-4-44 11-69-40-18-76Z" fill="var(--surface)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /><path d="m100 34 3 7 8 2-8 3-3 7-3-7-8-3 8-2 3-7Zm99 26 3 9 9 3-9 3-3 9-3-9-9-3 9-3 3-9Z" fill="currentColor" fillOpacity=".25" /><path d="M77 125h146m-133 9h120m-18-101 9-9m20 80 9 9" stroke="currentColor" strokeOpacity=".4" strokeWidth="2" strokeLinecap="round" /></svg>;
 }

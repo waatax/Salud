@@ -6,12 +6,7 @@ import {
   AlertTriangle,
   XCircle,
   Lightbulb,
-  Store,
-  Flame,
-  Coffee,
   Scale,
-  Sparkles,
-  Info,
 } from 'lucide-react';
 
 export const TaiwanDiningGuide: React.FC = () => {

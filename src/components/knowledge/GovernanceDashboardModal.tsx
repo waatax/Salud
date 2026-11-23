@@ -6,8 +6,6 @@ import {
   AlertTriangle,
   Download,
   Terminal,
-  ExternalLink,
-  BookOpen,
   CheckCircle2,
   X,
   Database,

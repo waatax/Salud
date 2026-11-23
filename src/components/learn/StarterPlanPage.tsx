@@ -12,9 +12,6 @@ import {
   Sparkles,
   Table,
   TrendingUp,
-  Clock,
-  Flame,
-  Utensils,
 } from 'lucide-react';
 import { STARTER_WEEKS, STARTER_SAFETY_CHECK, ALL_STARTER_TASKS } from '../../data/learning/starterPlan';
 import { useActionPlan } from '../../hooks/useActionPlan';

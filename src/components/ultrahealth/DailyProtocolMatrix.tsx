@@ -11,8 +11,7 @@ import {
   Bed,
   CheckCircle2,
   AlertTriangle,
-  Lightbulb,
-  ArrowRight
+  Lightbulb
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, React.ReactNode> = {

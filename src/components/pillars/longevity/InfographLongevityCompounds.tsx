@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import { LONGEVITY_COMPOUNDS } from '../../../data/longevityData';
 import { EvidenceBadge } from '../../common/EvidenceBadge';
-import { LongevityCompound } from '../../../types';
 import {
   Pill,
-  ShieldCheck,
   AlertTriangle,
-  Award,
   Zap,
   Activity,
-  CheckCircle2,
-  Stethoscope,
   Clock,
-  Sparkles,
 } from 'lucide-react';
 
 export const InfographLongevityCompounds: React.FC = () => {

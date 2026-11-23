@@ -4,16 +4,10 @@ import { SKILL_TREE_NODES } from '../../data/ultraHealthData';
 import { MasterySkillTreeNode } from '../../types';
 import {
   Sparkles,
-  Award,
   CheckCircle2,
   XCircle,
-  HelpCircle,
-  Lock,
-  Unlock,
   RotateCcw,
-  BookOpen,
-  ArrowRight,
-  ShieldAlert
+  ArrowRight
 } from 'lucide-react';
 
 const STORAGE_KEY = 'salud_mastered_skills';

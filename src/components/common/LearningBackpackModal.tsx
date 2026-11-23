@@ -6,7 +6,6 @@ import {
   ListChecks,
   Flame,
   Award,
-  BookOpen,
   ArrowRight,
   Clock,
   Trash2,

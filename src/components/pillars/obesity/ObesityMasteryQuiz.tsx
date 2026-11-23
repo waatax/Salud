@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { OBESITY_MASTERY_QUIZZES, MasteryQuizQuestion } from '../../../data/obesityIterationsData';
+import { OBESITY_MASTERY_QUIZZES } from '../../../data/obesityIterationsData';
 import confetti from 'canvas-confetti';
 import {
   Award,
   CheckCircle2,
   XCircle,
-  Sparkles,
-  HelpCircle,
   RotateCcw,
   ArrowRight,
   BookOpen,
-  Stethoscope,
   ChevronRight,
   Trophy,
 } from 'lucide-react';

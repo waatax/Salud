@@ -1,4 +1,4 @@
-import { BreathworkProtocol, MentalTopic, EvidenceGrade } from '../types';
+import { BreathworkProtocol, MentalTopic } from '../types';
 
 /**
  * ── 心理健康、情緒壓力調控與實證呼吸法核心資料庫 ──

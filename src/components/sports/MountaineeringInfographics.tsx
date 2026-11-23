@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { MOUNTAINEERING_INFOGRAPHICS } from '../../data/sportsScienceData';
-import { Mountain, AlertTriangle, ShieldAlert, Thermometer, CheckCircle2, ChevronRight, Activity } from 'lucide-react';
+import { Mountain, AlertTriangle, Thermometer, CheckCircle2 } from 'lucide-react';
 
 export const MountaineeringInfographics: React.FC = () => {
   const { language } = useLanguage();
@@ -26,7 +26,7 @@ export const MountaineeringInfographics: React.FC = () => {
   const [headacheScore, setHeadacheScore] = useState<number>(1);
   const [giScore, setGiScore] = useState<number>(1);
   const [fatigueScore, setFatigueScore] = useState<number>(1);
-  const [dizzyScore, setDizzyScore] = useState<number>(0);
+  const [dizzyScore] = useState<number>(0);
 
   const totalAmsScore = headacheScore + giScore + fatigueScore + dizzyScore;
   const amsDiagnosis = headacheScore >= 1 && totalAmsScore >= 3

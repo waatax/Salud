@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { MOBILITY_INFOGRAPHICS } from '../../data/mobilityData';
-import { RotateCw, ShieldCheck, Zap, Layers, CheckCircle2, ChevronRight, Activity } from 'lucide-react';
+import { RotateCw, Zap, Layers, CheckCircle2 } from 'lucide-react';
 
 export const MobilityInfographics: React.FC = () => {
   const { language } = useLanguage();

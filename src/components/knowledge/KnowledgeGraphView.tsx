@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Network, ZoomIn, ZoomOut, RotateCcw, ShieldAlert, BookOpen, Scale, Sparkles, Filter } from 'lucide-react';
+import { Network, ZoomIn, ZoomOut, RotateCcw, Filter } from 'lucide-react';
 import { KnowledgeAtom } from '../../types/knowledge';
 
 interface KnowledgeGraphViewProps {

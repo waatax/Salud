@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { TABLE_TENNIS_INFOGRAPHICS } from '../../data/tableTennisData';
-import { RotateCw, Timer, Zap, Layers, Activity, ChevronRight, Compass } from 'lucide-react';
+import { RotateCw, Timer, Layers, Activity } from 'lucide-react';
 
 export const TableTennisInfographics: React.FC = () => {
   const { language } = useLanguage();

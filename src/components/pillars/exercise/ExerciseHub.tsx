@@ -7,7 +7,6 @@ import { DisciplineTabBar } from './DisciplineTabBar';
 import {
   CheckCircle2,
   ShieldAlert,
-  Sparkles,
   BookOpen,
   ArrowRight,
   Compass,

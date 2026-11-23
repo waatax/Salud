@@ -6,15 +6,10 @@ import {
   Award,
   Trophy,
   Zap,
-  CheckCircle2,
-  XCircle,
   ArrowRight,
   HelpCircle,
   Droplets,
-  RotateCcw,
-  Sliders,
-  ShieldAlert,
-  ChevronRight
+  RotateCcw
 } from 'lucide-react';
 
 interface Props {
@@ -138,7 +133,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
   });
 
   // 連續學習天數
-  const [streakDays, setStreakDays] = useState<number>(() => {
+  const [streakDays] = useState<number>(() => {
     try {
       const saved = localStorage.getItem('salud_streak_days');
       return saved ? parseInt(saved, 10) : 3;
@@ -151,7 +146,7 @@ export const GamifiedLearningHub: React.FC<Props> = ({ completedPages, onSelectP
   const [quizIndex, setQuizIndex] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [answered, setAnswered] = useState<boolean>(false);
-  const [quizStreak, setQuizStreak] = useState<number>(0);
+  const [, setQuizStreak] = useState<number>(0);
 
   // 動態水合計算機狀態
   const [weightKg, setWeightKg] = useState<number>(65);

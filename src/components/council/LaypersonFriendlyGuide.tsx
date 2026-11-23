@@ -1,18 +1,9 @@
 import { ExpertSeatIllustration } from './ExpertSeatIllustration';
 import React from 'react';
 import {
-  Droplets,
-  Flame,
-  Wine,
-  Activity,
   CheckCircle2,
   XCircle,
   HelpCircle,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  HeartPulse,
-  AlertTriangle,
   Lightbulb,
   Stethoscope,
   Smile,

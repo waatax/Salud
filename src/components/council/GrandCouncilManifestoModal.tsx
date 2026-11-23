@@ -9,12 +9,7 @@ import {
   X,
   Sparkles,
   ShieldCheck,
-  BookOpen,
-  CheckCircle2,
-  AlertTriangle,
   RotateCcw,
-  Zap,
-  Activity,
   Layers,
   Award,
 } from 'lucide-react';

@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import {
-  Heart,
-  Dumbbell,
-  Moon,
-  Pill,
   Sparkles,
   ShieldCheck,
-  Zap,
   Activity,
-  Droplets,
-  ArrowRight,
-  ChevronDown,
-  ChevronUp,
   Wind,
 } from 'lucide-react';
 
@@ -402,7 +393,6 @@ export const SYNERGY_GOALS: SynergyGoal[] = [
 export const CrossPillarSynergy: React.FC = () => {
   const { language } = useLanguage();
   const [selectedGoalId, setSelectedGoalId] = useState<string>('METABOLIC_SYNDROME');
-  const [expandedSection, setExpandedSection] = useState<boolean>(true);
 
   const activeGoal =
     SYNERGY_GOALS.find((g) => g.id === selectedGoalId) || SYNERGY_GOALS[0];

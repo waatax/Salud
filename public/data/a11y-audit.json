@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "referenceStandard": "WCAG 2.2 Level AA",
-  "timestamp": "2026-11-22T09:04:56.121Z",
+  "timestamp": "2026-11-23T04:55:55.384Z",
   "scope": "Static source inventory only. Not a WCAG conformance audit or certification.",
   "requiresManualReview": true,
   "summary": {
@@ -49,7 +49,7 @@
       "details": "需逐頁確認所有資訊都能在不依賴顏色時理解。",
       "status": "WARN",
       "scannedCount": 216,
-      "candidateCount": 47
+      "candidateCount": 46
     },
     {
       "checkId": "A11Y-005-CONTRAST-RATIO",

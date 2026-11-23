@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import { copyText } from '../../utils/copyText';
 import { EXPERT_MONOGRAPHS, ExpertMonographData, MonographReference } from '../../data/expertMonographs';
-import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { EXPERT_BEST_PRACTICES } from '../../data/expertBestPractices';
 import { ExpertSeatIllustration } from './ExpertSeatIllustration';
 import { ExpertInfoGraph } from './ExpertInfoGraph';
 import {
   BookOpen,
-  FileText,
   CheckCircle2,
   ShieldCheck,
   AlertTriangle,
   Copy,
   Check,
-  ExternalLink,
   Sparkles,
   Stethoscope,
   Activity,
   Layers,
   Quote,
-  ChevronRight,
   X,
   Printer,
   Search
@@ -49,7 +45,6 @@ export const ExpertMonographModal: React.FC<Props> = ({
   const monograph: ExpertMonographData =
     EXPERT_MONOGRAPHS.find((m) => m.expertId === expertId) || EXPERT_MONOGRAPHS[0];
 
-  const councilMember = EXPERT_COUNCIL.find((c) => c.id === monograph.expertId);
   const bestPractice = EXPERT_BEST_PRACTICES.find((e) => e.expertId === monograph.expertId);
 
   const handleCopyCitation = (ref: MonographReference) => {

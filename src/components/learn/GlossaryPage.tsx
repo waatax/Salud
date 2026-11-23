@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Search, ArrowRight, AlertTriangle, Table as TableIcon, Sparkles } from 'lucide-react';
+import { Search, ArrowRight, AlertTriangle, Table as TableIcon } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { GLOSSARY, GLOSSARY_CATEGORIES } from '../../data/learning/glossary';
 import { CANONICAL_TERMINOLOGY_REGISTRY } from '../../knowledge/terms/terminology';

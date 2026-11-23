@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { CYCLING_INFOGRAPHICS, COGGAN_POWER_ZONES } from '../../data/cyclingData';
-import { Bike, Wind, Gauge, CheckCircle2, Zap } from 'lucide-react';
+import { Wind, Gauge, CheckCircle2, Zap } from 'lucide-react';
 
 export const CyclingInfographics: React.FC = () => {
   const { language } = useLanguage();

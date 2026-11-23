@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LONGEVITY_MASTERY_QUIZZES } from '../../data/longevityData';
 import { useHashTab } from '../../hooks/useHashTab';
 import { LONGEVITY_TABS } from '../../config/routes';
@@ -20,16 +20,9 @@ import {
   Pill,
   Flame,
   Award,
-  Sparkles,
   Layers,
   Sliders,
-  ShieldCheck,
-  Stethoscope,
-  Heart,
-  Brain,
-  AlertTriangle,
   ArrowRight,
-  Activity,
   CheckCircle2,
   Map as MapIcon,
 } from 'lucide-react';

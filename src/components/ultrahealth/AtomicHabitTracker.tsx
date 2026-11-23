@@ -2,15 +2,11 @@ import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { ATOMIC_HABITS } from '../../data/ultraHealthData';
 import {
-  Sparkles,
   CheckCircle2,
   Circle,
-  Flame,
   Award,
   Zap,
-  Target,
-  RotateCcw,
-  ShieldCheck
+  RotateCcw
 } from 'lucide-react';
 
 const STORAGE_KEY = 'salud_ultrahealth_habits';

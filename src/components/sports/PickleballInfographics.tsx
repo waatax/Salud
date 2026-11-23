@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { PICKLEBALL_INFOGRAPHICS } from '../../data/pickleballData';
-import { Shield, ShieldAlert, Zap, Layers, HeartPulse, Activity, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { Shield, Zap, Layers, HeartPulse, AlertTriangle } from 'lucide-react';
 
 export const PickleballInfographics: React.FC = () => {
   const { language } = useLanguage();

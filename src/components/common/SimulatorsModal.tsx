@@ -16,7 +16,6 @@ import {
   Scale,
   Hourglass,
   Pill,
-  Sparkles,
   Gauge,
   AlertOctagon,
   ArrowRight,

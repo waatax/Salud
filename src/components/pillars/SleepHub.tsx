@@ -10,7 +10,6 @@ import {
   SLEEP_TOPICS,
   COMMON_CAFFEINE_SOURCES,
   CYP1A2_METABOLIC_PROFILES,
-  CBTI_TITRATION_RULES,
   STOP_BANG_QUESTIONS,
 } from '../../data/sleepData';
 import { SleepSubTab } from '../../types';
@@ -19,24 +18,17 @@ import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import {
   Brain,
-  Moon,
   Clock,
   Coffee,
   CheckCircle2,
-  AlertTriangle,
   ChevronDown,
   ChevronUp,
-  Sparkles,
   Layers,
-  Activity,
   Calculator,
   ShieldCheck,
   AlertOctagon,
-  HelpCircle,
   Stethoscope,
-  ArrowRight,
   Droplets,
-  Eye,
   Map as MapIcon,
 } from 'lucide-react';
 import { KnowledgeAtlasView } from '../knowledge/KnowledgeAtlasView';

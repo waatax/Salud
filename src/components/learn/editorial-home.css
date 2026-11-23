@@ -12,6 +12,44 @@
   --editorial-on-accent: rgb(var(--emerald-950));
 }
 
+.reading-edition { min-width: 0; }
+.edition-masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .55rem 1rem;
+  padding-bottom: .85rem;
+}
+.edition-masthead h1 {
+  font: 700 clamp(1.35rem, 3vw, 1.9rem)/1.4 "Noto Serif TC", "PMingLiU", serif;
+  letter-spacing: .04em;
+  color: var(--text);
+}
+.edition-choices { display: flex; flex-wrap: wrap; gap: .2rem .65rem; }
+.edition-choices a {
+  display: inline-grid;
+  place-items: center;
+  min-height: 2.75rem;
+  padding: .35rem .2rem;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-size: .9375rem;
+}
+.edition-choices a[aria-current], .edition-choices a:hover {
+  border-color: var(--editorial-accent);
+  color: var(--editorial-accent);
+}
+.edition-choices a[aria-current] { font-weight: 700; }
+.edition-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  color: var(--editorial-accent);
+  font-size: .875rem;
+  font-weight: 700;
+}
 .editorial-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -33,11 +71,13 @@
   letter-spacing: .09em;
 }
 
-.editorial-hero h1 {
-  margin-block: .6rem .85rem;
+.editorial-hero h2 {
+  margin-block: .8rem 1rem;
+  max-width: 12em;
+  text-wrap: balance;
   color: var(--text);
   font-family: "Noto Serif TC", "PMingLiU", "Songti TC", serif;
-  font-size: clamp(1.75rem, 1.45rem + 3vw, 3.85rem);
+  font-size: clamp(1.85rem, 1.45rem + 2.4vw, 3.35rem);
   font-weight: 700;
   letter-spacing: -.035em;
   line-height: 1.24;
@@ -66,7 +106,7 @@
   margin-top: 1.15rem;
 }
 
-.editorial-search,
+.editorial-primary,
 .editorial-hero-link,
 .editorial-inline-link {
   display: inline-flex;
@@ -77,15 +117,15 @@
   font-weight: 700;
 }
 
-.editorial-search {
+.editorial-primary {
   padding: .65rem .9rem;
   border-radius: .65rem;
   background: var(--editorial-accent);
   color: var(--editorial-on-accent);
 }
 
-.editorial-search:hover { filter: brightness(.93); }
-.editorial-hero-link { padding-inline: .35rem; }
+.editorial-primary:hover { filter: brightness(.93); }
+.editorial-hero-link { padding-inline: .35rem; text-decoration: underline; text-underline-offset: .25em; }
 .editorial-hero-link,
 .editorial-inline-link { color: var(--editorial-accent); }
 .editorial-hero-link:hover,
@@ -124,7 +164,6 @@
 .editorial-section-heading p { margin-top: .35rem; }
 .editorial-entry-grid,
 .editorial-topic-grid,
-.editorial-lesson-grid,
 .editorial-practice-grid,
 .editorial-practice-links {
   display: grid;
@@ -135,8 +174,7 @@
 .editorial-entry-grid li,
 .editorial-topic-grid li { min-width: 0; }
 
-.editorial-entry,
-.editorial-lesson {
+.editorial-entry {
   border: 1px solid var(--border);
   border-radius: .95rem;
   background: var(--surface);
@@ -160,21 +198,7 @@
 .editorial-entry > span > span { display: block; }
 .editorial-entry strong { font-size: .98rem; line-height: 1.45; }
 .editorial-entry > span > span { margin-top: .25rem; color: var(--muted); font-size: .875rem; line-height: 1.55; }
-.editorial-entry:hover,
-.editorial-lesson:hover { border-color: var(--editorial-accent); }
-
-.editorial-lesson {
-  display: grid;
-  grid-template-columns: minmax(5rem, 25%) 1fr;
-  overflow: hidden;
-}
-
-.editorial-lesson .discovery-lesson-art { height: auto; }
-.editorial-lesson-copy { padding: 1rem; }
-.editorial-lesson-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; color: var(--muted); font-size: .875rem; }
-.editorial-lesson-meta span { margin-right: .35rem; color: var(--editorial-accent); font-weight: 700; }
-.editorial-lesson h3 { margin-block: .35rem; font-size: 1.125rem; font-weight: 700; line-height: 1.45; }
-.editorial-lesson-copy > p:last-child { color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.editorial-entry:hover { border-color: var(--editorial-accent); }
 
 .editorial-directory {
   padding: clamp(.95rem, 3vw, 2rem);
@@ -218,9 +242,6 @@
 @media (min-width: 42rem) {
   .editorial-hero { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
   .editorial-hero-photo { height: 100%; min-height: 20rem; }
-  .editorial-lesson-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-  .editorial-lesson { display: flex; flex-direction: column; }
-  .editorial-lesson .discovery-lesson-art { height: 7rem; }
   .editorial-entry { padding: 1rem; }
 }
 

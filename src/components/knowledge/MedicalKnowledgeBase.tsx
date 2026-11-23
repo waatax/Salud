@@ -1,12 +1,8 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { KnowledgePage } from '../../types';
 import { useLanguage } from '../../i18n';
 import { GamifiedLearningHub } from './GamifiedLearningHub';
 import {
-  Droplets,
-  Activity,
-  AlertTriangle,
-  ShieldCheck,
   Search,
   Tag,
   BookOpen,
@@ -17,7 +13,6 @@ import {
   Compass,
   AlertOctagon,
   Clock,
-  Layers,
   FileText,
   Check,
   Bookmark,
@@ -26,7 +21,6 @@ import {
   List,
   ChevronRight,
   TrendingUp,
-  BrainCircuit,
   SlidersHorizontal,
   RotateCcw
 } from 'lucide-react';
@@ -178,9 +172,6 @@ export const MedicalKnowledgeBase: React.FC<Props> = ({
   }, [pages]);
 
   // 總閱讀時間與進度統計
-  const totalMinutes = useMemo(() => {
-    return pages.reduce((acc, p) => acc + (p.estimated_minutes || 4), 0);
-  }, [pages]);
 
   const completedCount = useMemo(() => {
     return pages.filter((p) => completedPages.includes(p.id)).length;

@@ -11,13 +11,8 @@ import {
   Check,
   Plus,
   AlertOctagon,
-  BookOpen,
   LayoutGrid,
-  Layers,
-  ArrowRight,
-  ShieldAlert,
-  Info,
-  ExternalLink
+  Layers
 } from 'lucide-react';
 
 interface Props {

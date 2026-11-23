@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { HUMAN_SYSTEMS } from '../../data/humanSystemsData';
-import { HumanSystemId, HumanSystem } from '../../types';
-import { SystemSchematicFigure } from './SystemSchematicFigure';
-import { useLanguage } from '../../i18n';
+import { HumanSystemId } from '../../types';
+import { SystemDeepDive } from '../../types/systemDeepDive';
 import { useNavigation } from '../../context/NavigationContext';
 import { LatestEvidenceStrip } from '../meta/LatestEvidenceStrip';
 import { SystemDeepDiveView } from './SystemDeepDiveView';
 import { QuickTips } from '../learn/QuickTips';
-import { getDeepDive } from '../../data/systems';
+import { loadDeepDive } from '../../data/systems/load';
 import { HubHero } from '../common/HubHero';
 import { HUB_PRIMERS } from '../../data/hubPrimers';
 import {
@@ -19,13 +18,7 @@ import {
   ShieldCheck,
   Dumbbell,
   Droplets,
-  BookOpen,
-  AlertOctagon,
   Sparkles,
-  ExternalLink,
-  ChevronRight,
-  Stethoscope,
-  FileText
 } from 'lucide-react';
 
 interface Props {
@@ -39,38 +32,47 @@ const systemIdFromHash = (fallback: HumanSystemId): HumanSystemId => {
   return HUMAN_SYSTEMS.some((s) => s.id === sub) ? (sub as HumanSystemId) : fallback;
 };
 
+const SYSTEM_ICON: Record<HumanSystemId, typeof Utensils> = {
+  digestive: Utensils,
+  respiratory: Wind,
+  nervous: Brain,
+  cardiovascular: HeartPulse,
+  endocrine: Activity,
+  immune: ShieldCheck,
+  musculoskeletal: Dumbbell,
+  renal: Droplets,
+};
+
 export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive' }) => {
-  const { language } = useLanguage();
   const nav = useNavigation();
   const [selectedSystemId, setSelectedSystemId] = useState<HumanSystemId>(() =>
     systemIdFromHash(initialSystemId)
   );
+  const [loaded, setLoaded] = useState<SystemDeepDive>();
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     const onHash = () => setSelectedSystemId((prev) => systemIdFromHash(prev));
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
-  const [activeTab, setActiveTab] = useState<'mechanisms' | 'kps' | 'pathologies' | 'red_flags' | 'best_practices' | 'citations'>('mechanisms');
-  const [selectedOrgan, setSelectedOrgan] = useState<string>('');
+
+  // v6.13: each system's deep dive is fetched on demand instead of bundling all eight.
+  useEffect(() => {
+    let live = true;
+    setFailed(false);
+    loadDeepDive(selectedSystemId).then(
+      (data) => live && setLoaded(data),
+      () => live && setFailed(true)
+    );
+    return () => {
+      live = false;
+    };
+  }, [selectedSystemId, attempt]);
 
   const currentSystem = HUMAN_SYSTEMS.find((s) => s.id === selectedSystemId) || HUMAN_SYSTEMS[0];
-  // Systems with authored v3 content get the full deep dive; the rest keep the legacy
-  // two-column dossier until their content is written.
-  const deepDive = getDeepDive(selectedSystemId);
-
-  const getSystemIcon = (id: HumanSystemId) => {
-    switch (id) {
-      case 'digestive': return Utensils;
-      case 'respiratory': return Wind;
-      case 'nervous': return Brain;
-      case 'cardiovascular': return HeartPulse;
-      case 'endocrine': return Activity;
-      case 'immune': return ShieldCheck;
-      case 'musculoskeletal': return Dumbbell;
-      case 'renal': return Droplets;
-    }
-  };
+  const deepDive = loaded?.system_id === selectedSystemId ? loaded : undefined;
 
   return (
     <div className="space-y-8 animate-fade-in pb-12">
@@ -91,7 +93,7 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5" role="group" aria-label="八大人體系統切換">
           {HUMAN_SYSTEMS.map((sys) => {
-            const Icon = getSystemIcon(sys.id);
+            const Icon = SYSTEM_ICON[sys.id];
             const isSelected = sys.id === selectedSystemId;
             return (
               <button
@@ -117,10 +119,10 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
                       border: `1px solid ${sys.theme_color}40`
                     }}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4" aria-hidden="true" />
                   </div>
                   {isSelected && (
-                    <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400" aria-hidden="true" />
                   )}
                 </div>
                 <div>
@@ -137,407 +139,28 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
         </div>
       </div>
 
-      {/* ── System Detail Stage (Split 2-Column Responsive Layout) ── */}
+      {/* ── System Detail Stage ── */}
       {deepDive ? (
         <>
           <QuickTips key={selectedSystemId} sectionKey={`systems:${selectedSystemId}`} />
           <SystemDeepDiveView data={deepDive} systemMeta={currentSystem} />
         </>
+      ) : failed ? (
+        <div role="alert" className="rounded-2xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-950/20 p-5 text-sm text-amber-950 dark:text-amber-100 space-y-3">
+          <p>{currentSystem.name_zh}的內容沒有載入成功，可能是網路暫時中斷。</p>
+          <button
+            type="button"
+            onClick={() => setAttempt((n) => n + 1)}
+            className="min-h-11 rounded-xl bg-amber-700 px-4 font-semibold text-white hover:bg-amber-800"
+          >
+            重新載入
+          </button>
+        </div>
       ) : (
-      <>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Left Column: Interactive Vector Schematic Figure */}
-        <div className="lg:col-span-5 space-y-4">
-          <div className="p-4 sm:p-5 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 shadow-sm space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-              <div>
-                <h3 className="font-display font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
-                  <span
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: currentSystem.theme_color }}
-                  />
-                  <span>{currentSystem.name_zh}</span>
-                </h3>
-                <p className="text-xs font-mono text-slate-400">{currentSystem.name_en}</p>
-              </div>
-              <span className="px-2 py-0.5 rounded-full font-mono text-[0.75rem] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                {currentSystem.major_organs.length} 大核心器官
-              </span>
-            </div>
-
-            {/* Visual Vector SVG Figure */}
-            <SystemSchematicFigure
-              system={currentSystem}
-              selectedOrgan={selectedOrgan}
-              onSelectOrgan={setSelectedOrgan}
-            />
-
-            {/* Organs Quick Peek Chips */}
-            <div className="space-y-2 pt-2">
-              <span className="text-[0.75rem] font-mono uppercase tracking-wider text-slate-400 font-bold block">
-                主要解剖結構 (Major Anatomical Organs) · 點擊連動標記
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {currentSystem.major_organs.map((org, idx) => {
-                  const shortName = org.name_zh.split(' ')[0];
-                  const isSelected = selectedOrgan === org.name_zh || selectedOrgan.includes(shortName);
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedOrgan(isSelected ? '' : org.name_zh)}
-                      className={`btn-tactile px-2.5 py-1 rounded-xl text-xs font-mono transition-all border ${
-                        isSelected
-                          ? 'bg-emerald-600 text-white font-bold border-emerald-700 shadow-sm'
-                          : 'bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200/60 dark:border-slate-700/60 hover:border-emerald-300 dark:hover:border-emerald-700'
-                      }`}
-                    >
-                      {shortName}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Evidence callout — what backs this system, not who signed it off */}
-          <div className="p-4 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/40 bg-emerald-50/60 dark:bg-emerald-950/20 flex items-center justify-between gap-3">
-            <div className="space-y-0.5 min-w-0">
-              <span className="text-[0.75rem] font-mono text-emerald-700 dark:text-emerald-400 font-bold block">
-                {language === 'zh-TW' ? '本系統的實證基礎' : 'Evidence behind this system'}
-              </span>
-              <p className="text-xs text-slate-600 dark:text-slate-300">
-                {language === 'zh-TW'
-                  ? `引用 ${currentSystem.research_citations.length} 篇原始文獻，並經 ${currentSystem.expert_council_reviewers.length} 位專科審核者覆核。`
-                  : `${currentSystem.research_citations.length} primary sources, reviewed by ${currentSystem.expert_council_reviewers.length} specialists.`}
-              </p>
-            </div>
-            <button
-              onClick={() => setActiveTab('citations')}
-              className="btn-tactile px-2.5 py-1.5 rounded-xl text-[0.75rem] font-mono font-bold bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300 flex items-center gap-1 shrink-0"
-            >
-              <span>{language === 'zh-TW' ? '看文獻' : 'Sources'}</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+        <div className="py-16 text-center text-sm text-slate-500" role="status">
+          <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin mx-auto mb-2" aria-hidden="true" />
+          載入{currentSystem.name_zh}內容…
         </div>
-
-        {/* Right Column: In-depth Tabbed Dossier */}
-        <div className="lg:col-span-7 space-y-4">
-          {/* Dossier Tabs Navigation */}
-          <div className="flex flex-wrap gap-1 p-1.5 rounded-2xl bg-slate-100/90 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono">
-            {[
-              { id: 'mechanisms', label: '深層生理機制' },
-              { id: 'kps', label: '核心實證知識點' },
-              { id: 'pathologies', label: '常見疾病與病理' },
-              { id: 'red_flags', label: '臨床紅旗警訊' },
-              { id: 'best_practices', label: '實證養生處方' },
-              { id: 'citations', label: '權威文獻' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`btn-tactile px-3 py-1.5 rounded-xl transition-all ${
-                  activeTab === tab.id
-                    ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold shadow-sm'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Tab 1: Deep Physiological Mechanisms & Organs */}
-          {activeTab === 'mechanisms' && (
-            <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-5 animate-fade-in shadow-sm">
-              <div className="space-y-1">
-                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-salud-cyan font-bold block">
-                  Physiological Mechanisms & Biochemical Cascades
-                </span>
-                <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
-                  細胞與分子層級運作因果鏈
-                </h3>
-                <p className="text-xs text-slate-500 font-sans leading-relaxed">
-                  {currentSystem.tagline_zh}
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {currentSystem.physiological_mechanisms.map((mech, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/40 space-y-2.5"
-                  >
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                        <span className="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 font-mono text-xs flex items-center justify-center text-slate-700 dark:text-slate-300 font-bold">
-                          {idx + 1}
-                        </span>
-                        <span>{mech.title_zh}</span>
-                      </h4>
-                    </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                      {mech.detail_zh}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                      <span className="text-[0.75rem] font-mono text-slate-400">關鍵生化分子：</span>
-                      {mech.biomolecules.map((bio, bIdx) => (
-                        <span
-                          key={bIdx}
-                          className="px-2 py-0.5 rounded-md text-[0.75rem] font-mono bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-                        >
-                          {bio}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Detailed Organs Deep Dive */}
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                <h4 className="font-display font-bold text-sm text-slate-900 dark:text-white">
-                  器官機能與臨床重要性指引
-                </h4>
-                <div className="space-y-2.5">
-                  {currentSystem.major_organs.map((org, oIdx) => (
-                    <div key={oIdx} className="p-3 rounded-xl border border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-slate-950 text-xs space-y-1">
-                      <div className="flex items-center justify-between font-mono">
-                        <strong className="text-slate-800 dark:text-slate-200 font-bold text-xs">{org.name_zh}</strong>
-                        <span className="text-[0.75rem] text-slate-400">{org.name_en}</span>
-                      </div>
-                      <p className="text-slate-600 dark:text-slate-300 font-sans leading-relaxed">{org.role_zh}</p>
-                      <p className="text-nature-amber-700 dark:text-nature-amber-400 font-mono text-[0.75rem] bg-nature-amber-50/50 dark:bg-nature-amber-950/20 p-1.5 rounded-lg border border-nature-amber-200/40 dark:border-nature-amber-800/30">
-                        ※ 臨床洞察：{org.clinical_note_zh}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Tab 2: High-yield KPs */}
-          {activeTab === 'kps' && (
-            <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
-              <div className="space-y-1">
-                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-nature-amber-600 dark:text-nature-amber-400 font-bold block">
-                  High-Yield Evidence Knowledge Points
-                </span>
-                <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
-                  核心高階實證知識點
-                </h3>
-              </div>
-
-              <div className="space-y-3">
-                {currentSystem.high_yield_kps.map((kp) => (
-                  <div
-                    key={kp.id}
-                    className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 space-y-2"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-salud-cyan">{kp.id}</span>
-                        <h4 className="font-bold text-sm text-slate-900 dark:text-white">{kp.title_zh}</h4>
-                      </div>
-                      <span className="px-2 py-0.5 rounded font-mono text-[0.75rem] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
-                        Grade {kp.evidence_grade} 實證
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-700 dark:text-slate-300 font-sans leading-relaxed">
-                      {kp.statement_zh}
-                    </p>
-                    <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-[0.75rem] text-slate-600 dark:text-slate-400 font-sans">
-                      <strong className="text-salud-cyan font-mono font-bold">為什麼重要：</strong>
-                      {kp.why_matters_zh}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tab 3: Pathologies & Diseases */}
-          {activeTab === 'pathologies' && (
-            <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
-              <div className="space-y-1">
-                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-red-600 dark:text-red-400 font-bold block">
-                  Pathologies, Risk Factors & Prevention
-                </span>
-                <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
-                  常見疾病與病理致病因
-                </h3>
-              </div>
-
-              <div className="space-y-3.5">
-                {currentSystem.common_pathologies.map((path, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl border border-red-100 dark:border-red-950/60 bg-red-50/30 dark:bg-red-950/10 space-y-2.5"
-                  >
-                    <h4 className="font-bold text-sm text-red-900 dark:text-red-300 flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-red-500" />
-                      <span>{path.name_zh}</span>
-                    </h4>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 font-sans leading-relaxed">
-                      <strong className="font-mono text-slate-700 dark:text-slate-200">致病機轉：</strong>
-                      {path.mechanism_zh}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-1 text-[0.75rem] font-mono">
-                      <span className="text-slate-400">危險因子：</span>
-                      {path.risk_factors_zh.map((rf, rIdx) => (
-                        <span
-                          key={rIdx}
-                          className="px-2 py-0.5 rounded-md bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
-                        >
-                          {rf}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-[0.75rem] font-sans text-emerald-700 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20 p-2 rounded-xl border border-emerald-200/50 dark:border-emerald-800/40">
-                      <strong>實證預防：</strong>{path.prevention_zh}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tab 4: Red Flags & Clinical Cautions */}
-          {activeTab === 'red_flags' && (
-            <div className="p-6 rounded-3xl border border-red-200 dark:border-red-900/60 bg-red-50/30 dark:bg-red-950/20 space-y-4 animate-fade-in shadow-sm">
-              <div className="flex items-center gap-2">
-                <AlertOctagon className="w-5 h-5 text-red-600 dark:text-red-400 animate-pulse" />
-                <div>
-                  <h3 className="font-display font-bold text-base text-red-900 dark:text-red-200">
-                    臨床紅旗警訊與緊急應變 (Critical Red Flags)
-                  </h3>
-                  <p className="text-xs text-red-700 dark:text-red-400 font-mono">
-                    出現下列任何徵兆切勿拖延，應立即採取相應行動
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                {currentSystem.clinical_red_flags.map((rf, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl bg-white dark:bg-slate-950 border border-red-200 dark:border-red-900/80 space-y-1.5 shadow-sm"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-xs text-red-800 dark:text-red-300 flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-red-600" />
-                        <span>{rf.flag_zh}</span>
-                      </span>
-                      <span
-                        className={`px-2 py-0.5 rounded font-mono text-[0.75rem] font-bold ${
-                          rf.urgency === 'EMERGENT'
-                            ? 'bg-red-600 text-white animate-pulse'
-                            : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300'
-                        }`}
-                      >
-                        {rf.urgency === 'EMERGENT' ? '立即急診 (119)' : '儘速專科排檢'}
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
-                      <strong>應變處置：</strong>{rf.action_zh}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tab 5: Lifestyle Best Practices */}
-          {activeTab === 'best_practices' && (
-            <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
-              <div className="space-y-1">
-                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold block">
-                  Evidence-Based Lifestyle Protocols
-                </span>
-                <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
-                  實證養生與日常介入處方
-                </h3>
-              </div>
-
-              <div className="space-y-3.5">
-                {currentSystem.lifestyle_best_practices.map((bp, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl border border-emerald-100 dark:border-emerald-950/60 bg-emerald-50/40 dark:bg-emerald-950/20 space-y-2"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="px-2 py-0.5 rounded-md font-mono text-[0.75rem] font-bold bg-emerald-200/80 dark:bg-emerald-900/80 text-emerald-900 dark:text-emerald-200">
-                        {bp.category}
-                      </span>
-                      <strong className="text-xs font-bold text-slate-800 dark:text-slate-200 font-display">
-                        {bp.rule_zh}
-                      </strong>
-                    </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 font-sans leading-relaxed">
-                      <strong className="text-emerald-700 dark:text-emerald-400 font-mono">作用機轉：</strong>
-                      {bp.mechanism_zh}
-                    </p>
-                    <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200/50 dark:border-emerald-900/40 text-xs font-sans text-slate-700 dark:text-slate-200">
-                      <strong className="text-slate-900 dark:text-white font-mono font-bold">執行動作：</strong>
-                      {bp.practical_action_zh}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tab 6: Peer-reviewed Research Citations */}
-          {activeTab === 'citations' && (
-            <div className="p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/80 space-y-4 animate-fade-in shadow-sm">
-              <div className="space-y-1">
-                <span className="font-mono text-[0.75rem] uppercase tracking-wider text-salud-cyan font-bold block">
-                  Peer-Reviewed Citations & High-Impact Literature
-                </span>
-                <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white">
-                  權威期刊與醫學指引文獻
-                </h3>
-              </div>
-
-              <div className="space-y-3">
-                {currentSystem.research_citations.map((cite, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 space-y-1.5"
-                  >
-                    <div className="flex items-center justify-between font-mono text-[0.75rem]">
-                      <span className="font-bold text-salud-cyan">{cite.journal} ({cite.year})</span>
-                      {cite.doi && (
-                        <a
-                          href={`https://doi.org/${cite.doi}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline text-slate-400 flex items-center gap-1"
-                        >
-                          <span>DOI: {cite.doi}</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
-                    </div>
-                    <h4 className="font-bold text-xs text-slate-900 dark:text-white font-sans">
-                      {cite.title}
-                    </h4>
-                    <p className="text-[0.75rem] text-slate-500 font-mono">
-                      {cite.authors}
-                    </p>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 font-sans pt-1 border-t border-slate-100 dark:border-slate-800">
-                      <strong className="text-salud-cyan font-mono font-bold">核心實證結論：</strong>
-                      {cite.key_takeaway_zh}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-      </>
       )}
 
       {/* ── Action Footprint: Link into Diet, Exercise & Synergy ── */}
@@ -558,14 +181,14 @@ export const HumanSystemsHub: React.FC<Props> = ({ initialSystemId = 'digestive'
             onClick={() => nav.selectPillar('diet')}
             className="btn-tactile px-4 py-2.5 rounded-2xl bg-nature-amber-500 hover:bg-nature-amber-600 text-black font-bold font-mono text-xs shadow-sm flex items-center gap-1.5"
           >
-            <Utensils className="w-3.5 h-3.5" />
+            <Utensils className="w-3.5 h-3.5" aria-hidden="true" />
             <span>探索飲食營養</span>
           </button>
           <button
             onClick={() => nav.openSynergy()}
             className="btn-tactile px-4 py-2.5 rounded-2xl bg-salud-cyan hover:bg-salud-cyan/90 text-black font-bold font-mono text-xs shadow-sm flex items-center gap-1.5"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
             <span>跨領域處方協同</span>
           </button>
         </div>

@@ -1,5 +1,5 @@
 import { MindBodyBridge } from './mindbody/MindBodyBridge';
-import React, { useState } from 'react';
+import React from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { MENTAL_TABS } from '../../config/routes';
 import { HubHero } from '../common/HubHero';
@@ -14,25 +14,16 @@ import {
   FigBohrEffectLoop,
   FigPanicTriageTree
 } from '../figures/MentalFigures';
-import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import {
   Brain,
   Wind,
-  Heart,
   Activity,
-  ShieldCheck,
   AlertTriangle,
-  ChevronDown,
-  ChevronUp,
-  Sparkles,
   BookOpen,
   HelpCircle,
-  Clock,
   Compass,
-  Zap,
-  CheckCircle2,
-  FileText
+  CheckCircle2
 } from 'lucide-react';
 
 export type MentalTab = 'SIMULATOR' | 'NEUROBIOLOGY' | 'PROTOCOLS' | 'VAGUS_HRV' | 'CAPNOMETRY' | 'TRIAGE';
@@ -62,9 +53,7 @@ const MENTAL_TAB_GROUPS: HubTabGroup<MentalTab>[] = [
 ];
 
 export const MentalHealthHub: React.FC = () => {
-  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useHashTab<MentalTab>('mental', MENTAL_TABS, 'SIMULATOR');
-  const [expandedTopic, setExpandedTopic] = useState<string | null>('MT-01');
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto font-sans pb-20 animate-fade-in">

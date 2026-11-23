@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
-import { Shield, Target, Activity, Flame, ShieldAlert, CheckCircle2, Zap } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 export const SimPickleballKitchen: React.FC = () => {
   const { language } = useLanguage();

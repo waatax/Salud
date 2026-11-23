@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HumanSystem } from '../../types';
-import { Sparkles, Info, X, ChevronRight, Activity, ShieldCheck, Stethoscope } from 'lucide-react';
+import { X, Activity, Stethoscope } from 'lucide-react';
 
 interface Props {
   system: HumanSystem;
@@ -8,15 +8,6 @@ interface Props {
   selectedOrgan?: string;
 }
 
-interface LandmarkInfo {
-  nameZh: string;
-  nameEn: string;
-  anatomyDetail: string;
-  physiologyRole: string;
-  clinicalSignificance: string;
-  molecules?: string[];
-  themeColor?: string;
-}
 
 export const SystemSchematicFigure: React.FC<Props> = ({
   system,
@@ -24,7 +15,6 @@ export const SystemSchematicFigure: React.FC<Props> = ({
   selectedOrgan: externalSelectedOrgan,
 }) => {
   const [internalSelectedOrgan, setInternalSelectedOrgan] = useState<string | null>(null);
-  const [hoveredLandmark, setHoveredLandmark] = useState<string | null>(null);
 
   const activeOrganName = externalSelectedOrgan || internalSelectedOrgan;
 
@@ -358,7 +348,6 @@ export const SystemSchematicFigure: React.FC<Props> = ({
     const isTracheaSelected = activeOrganName?.includes('氣管') || activeOrganName?.includes('支氣管');
     const isAlveoliSelected = activeOrganName?.includes('肺泡') || activeOrganName?.includes('肺');
     const isDiaphragmSelected = activeOrganName?.includes('橫膈');
-    const isBrainstemSelected = activeOrganName?.includes('腦幹') || activeOrganName?.includes('化學受器');
 
     return (
       <svg viewBox="0 0 400 520" className="w-full h-full max-h-[480px] mx-auto select-none" aria-label="呼吸系統醫學解剖圖">
@@ -520,8 +509,6 @@ export const SystemSchematicFigure: React.FC<Props> = ({
   // ─────────────────────────────────────────────────────────────────────────────
   const renderNervousSystem = () => {
     const isCortexSelected = activeOrganName?.includes('大腦') || activeOrganName?.includes('海馬');
-    const isGlymphaticSelected = activeOrganName?.includes('膠淋巴');
-    const isHypothalamusSelected = activeOrganName?.includes('下視丘') || activeOrganName?.includes('腦下垂體');
     const isVagusSelected = activeOrganName?.includes('迷走');
 
     return (
@@ -661,7 +648,6 @@ export const SystemSchematicFigure: React.FC<Props> = ({
   // ─────────────────────────────────────────────────────────────────────────────
   const renderCardiovascularSystem = () => {
     const isHeartSelected = activeOrganName?.includes('心臟') || activeOrganName?.includes('心肌');
-    const isEndoSelected = activeOrganName?.includes('內皮');
     const isArterySelected = activeOrganName?.includes('主動脈') || activeOrganName?.includes('動脈');
     const isVeinSelected = activeOrganName?.includes('靜脈') || activeOrganName?.includes('肌肉泵');
 
@@ -1084,8 +1070,6 @@ export const SystemSchematicFigure: React.FC<Props> = ({
   const renderMusculoskeletalSystem = () => {
     const isBoneSelected = activeOrganName?.includes('骨骼') || activeOrganName?.includes('骨髓腔');
     const isMuscleSelected = activeOrganName?.includes('骨骼肌') || activeOrganName?.includes('肌纖維');
-    const isCartilageSelected = activeOrganName?.includes('軟骨') || activeOrganName?.includes('滑液');
-    const isTendonSelected = activeOrganName?.includes('肌腱') || activeOrganName?.includes('韌帶');
 
     return (
       <svg viewBox="0 0 400 520" className="w-full h-full max-h-[480px] mx-auto select-none" aria-label="肌肉骨骼系統醫學解剖圖">
@@ -1209,8 +1193,6 @@ export const SystemSchematicFigure: React.FC<Props> = ({
   const renderRenalSystem = () => {
     const isGlomSelected = activeOrganName?.includes('腎絲球');
     const isTubuleSelected = activeOrganName?.includes('腎小管') || activeOrganName?.includes('亨利');
-    const isAqpSelected = activeOrganName?.includes('集尿管') || activeOrganName?.includes('Aquaporin');
-    const isJgaSelected = activeOrganName?.includes('近腎絲球') || activeOrganName?.includes('RAAS');
 
     return (
       <svg viewBox="0 0 400 520" className="w-full h-full max-h-[480px] mx-auto select-none" aria-label="泌尿與腎臟系統醫學解剖圖">

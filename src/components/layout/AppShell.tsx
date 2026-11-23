@@ -12,13 +12,14 @@ import { ReadingProgressBar } from '../common/ReadingProgressBar';
 import { FloatingReadingDock } from '../common/FloatingReadingDock';
 import { Modal } from '../common/Modal';
 import { LearnHome } from '../learn/LearnHome';
-import { QuickTips } from '../learn/QuickTips';
-const TrackView = lazy(() => import('../learn/TrackView').then(m => ({ default: m.TrackView })));
 import { SearchPalette } from '../learn/SearchPalette';
 import { SiteFooter } from './SiteFooter';
-const FourPillarsClinicalMatrix = lazy(() => import('../knowledge/FourPillarsClinicalMatrix').then(m => ({ default: m.FourPillarsClinicalMatrix })));
 import { useDialogFocus } from '../../hooks/useDialogFocus';
 import { pageTitle } from '../../config/pageTitle';
+// v6.13: tips render below the main content, so they no longer ride in the entry bundle.
+const QuickTips = lazy(() => import('../learn/QuickTips').then(m => ({ default: m.QuickTips })));
+const TrackView = lazy(() => import('../learn/TrackView').then(m => ({ default: m.TrackView })));
+const FourPillarsClinicalMatrix = lazy(() => import('../knowledge/FourPillarsClinicalMatrix').then(m => ({ default: m.FourPillarsClinicalMatrix })));
 
 // v4.0: every topic hub is lazy-loaded. The learning home is the entry point, so a
 // first visit should not download all nine specialist hubs and their data up front.
@@ -83,7 +84,6 @@ export function AppShell() {
     isSynergyView,
     metaView,
     highlightedPillar,
-    selectedCouncilExpertId,
     exerciseSubTab,
     isMobileSidebarOpen,
     currentChapter,
@@ -96,7 +96,6 @@ export function AppShell() {
     selectPage,
     toggleMobileSidebar,
     setIsMobileSidebarOpen,
-    setIsCouncilEvidenceView,
   } = useNavigation();
 
   const { isDark, toggleTheme } = useTheme();
@@ -306,7 +305,7 @@ export function AppShell() {
           )}
           {tipKey && (
             <div className="max-w-5xl mx-auto">
-              <QuickTips key={tipKey} sectionKey={tipKey} className="mt-10" />
+              <Suspense fallback={null}><QuickTips key={tipKey} sectionKey={tipKey} className="mt-10" /></Suspense>
             </div>
           )}
           <SiteFooter />

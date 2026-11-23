@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
-import { Moon, Sun, Coffee, Sparkles, Brain, Clock, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { Moon, Sun, Coffee, Sparkles, Clock, ShieldAlert, CheckCircle2 } from 'lucide-react';
 
 export const SimCircadian: React.FC = () => {
   const { t, language } = useLanguage();
@@ -9,7 +9,6 @@ export const SimCircadian: React.FC = () => {
   const [lastCaffeineHour, setLastCaffeineHour] = useState<number>(14); // 14:00 (2 PM)
   const [bedHour, setBedHour] = useState<number>(23); // 23:00 (11 PM)
 
-  const sunlightTime = wakeHour + sunlightDelayMinutes / 60;
   const caffeineToBedHours = bedHour >= lastCaffeineHour ? bedHour - lastCaffeineHour : 24 - lastCaffeineHour + bedHour;
   const isCaffeineDisruptive = caffeineToBedHours < 9;
   const isSunlightOptimized = sunlightDelayMinutes <= 60;

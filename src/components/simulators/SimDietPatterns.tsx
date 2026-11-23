@@ -9,9 +9,7 @@ import {
   ShieldAlert,
   CheckCircle2,
   AlertTriangle,
-  Sparkles,
-  Info,
-  Scale
+  Sparkles
 } from 'lucide-react';
 
 export const SimDietPatterns: React.FC = () => {

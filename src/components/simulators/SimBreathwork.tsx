@@ -8,11 +8,7 @@ import {
   Volume2,
   VolumeX,
   ShieldAlert,
-  Sparkles,
-  Heart,
   Wind,
-  CheckCircle2,
-  Info,
   Clock
 } from 'lucide-react';
 

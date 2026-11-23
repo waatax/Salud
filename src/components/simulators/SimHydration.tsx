@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ShieldAlert, Droplets, ArrowRight, Table, RefreshCw, AlertOctagon, Info } from 'lucide-react';
+import { ShieldAlert, Droplets, ArrowRight, Table, AlertOctagon } from 'lucide-react';
 import { evaluateSafetyPredicates } from '../../compose/safety';
 import { evaluateHydrationHeuristic } from '../../compose/units';
 
@@ -8,7 +8,7 @@ export const SimHydration: React.FC = () => {
   const [weightKg, setWeightKg] = useState<number>(68);
   const [tempC, setTempC] = useState<number>(32);
   const [humidity, setHumidity] = useState<number>(78); // Taiwan default
-  const [environment, setEnvironment] = useState<'indoor_ac' | 'indoor_no_ac' | 'outdoor_shade' | 'outdoor_sun'>('outdoor_shade');
+  const [environment] = useState<'indoor_ac' | 'indoor_no_ac' | 'outdoor_shade' | 'outdoor_sun'>('outdoor_shade');
   const [activityMin, setActivityMin] = useState<number>(45);
   const [intensity, setIntensity] = useState<'low' | 'moderate' | 'vigorous'>('moderate');
   const [beverageIntakeL, setBeverageIntakeL] = useState<number>(2.0);
@@ -19,7 +19,6 @@ export const SimHydration: React.FC = () => {
   const [hasKidneyDisease, setHasKidneyDisease] = useState<boolean>(false);
   const [hasCirrhosis, setHasCirrhosis] = useState<boolean>(false);
   const [hasSiadh, setHasSiadh] = useState<boolean>(false);
-  const [onDiuretics, setOnDiuretics] = useState<boolean>(false);
 
   // Layer 2 Predicate Evaluation
   const safetyEval = evaluateSafetyPredicates(

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
@@ -19,13 +19,10 @@ import {
   Layers,
   Sparkles,
   Milestone,
-  Compass,
-  GraduationCap,
-  ShieldCheck,
   Search,
   ChevronDown,
   ChevronUp,
-  Copy,
+  Copy
 } from 'lucide-react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useLearningProgress, lessonPointId } from '../../hooks/useLearningProgress';
@@ -36,11 +33,13 @@ import { calculateLearnerGrowth, buildFeynmanShareText } from '../../data/learni
 import { getUpdate } from '../../data/learning/evidenceUpdates';
 import { LearningTrack, Lesson } from '../../types/learning';
 import { TONE, TrackIcon, ProgressBar, PageHeader, formatYM } from './learnUi';
+import { copyText } from '../../utils/copyText';
 import { QuickTips } from './QuickTips';
-import { LessonVisualGraphic } from './LessonVisualGraphic';
-import { LessonReferenceTable } from './LessonReferenceTable';
-import { PracticeLabView } from './PracticeLabView';
-import { FourPillarsClinicalMatrix } from '../knowledge/FourPillarsClinicalMatrix';
+
+const LessonVisualGraphic = lazy(() => import('./LessonVisualGraphic').then(m => ({ default: m.LessonVisualGraphic })));
+const LessonReferenceTable = lazy(() => import('./LessonReferenceTable').then(m => ({ default: m.LessonReferenceTable })));
+const PracticeLabView = lazy(() => import('./PracticeLabView').then(m => ({ default: m.PracticeLabView })));
+const FourPillarsClinicalMatrix = lazy(() => import('../knowledge/FourPillarsClinicalMatrix').then(m => ({ default: m.FourPillarsClinicalMatrix })));
 
 const TRACK_PILLAR_TOPIC: Record<string, string> = {
   basics: 'cardiometabolic',
@@ -85,26 +84,22 @@ const Catalogue: React.FC = () => {
   const done = progress.completed.filter((id) => ALL_LESSONS.some((l) => l.id === id)).length;
   const growth = useMemo(() => calculateLearnerGrowth(progress, plan.items.length), [progress, plan.items.length]);
   const [statusFilter, setStatusFilter] = useState<'all' | 'todo' | 'done'>('all');
-  const [query, setQuery] = useState<string>('');
+  const [query, setQuery] = useState('');
+  const [trackFilter, setTrackFilter] = useState('');
   const [expandedTracks, setExpandedTracks] = useState<Record<string, boolean>>(() => {
-    const initial: Record<string, boolean> = {};
-    const activeTrackId = progress.last?.trackId || LEARNING_TRACKS[0].id;
-    LEARNING_TRACKS.forEach((t, idx) => {
-      initial[t.id] = t.id === activeTrackId || idx < 2;
-    });
-    return initial;
+    return progress.last ? { [progress.last.trackId]: true } : {};
   });
 
   const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
   const lastTrack = lastLesson ? getTrack(lastLesson.track_id) : undefined;
   const trimmedQuery = query.trim().toLowerCase();
-  const isFiltering = Boolean(trimmedQuery) || statusFilter !== 'all';
-  const visibleTracks = LEARNING_TRACKS.map(track => ({
+  const isFiltering = Boolean(trimmedQuery || trackFilter) || statusFilter !== 'all';
+  const visibleTracks = LEARNING_TRACKS.filter(track => !trackFilter || track.id === trackFilter).map(track => ({
     track,
     lessons: track.lessons.filter(lesson => {
       if (statusFilter === 'todo' && isDone(lesson.id)) return false;
       if (statusFilter === 'done' && !isDone(lesson.id)) return false;
-      return !trimmedQuery || [lesson.title_zh, lesson.big_idea_zh, ...lesson.key_points_zh]
+      return !trimmedQuery || [track.title_zh, lesson.title_zh, lesson.big_idea_zh, ...lesson.key_points_zh]
         .some(text => text.toLowerCase().includes(trimmedQuery));
     }),
   })).filter(({ lessons }) => lessons.length > 0);
@@ -123,6 +118,7 @@ const Catalogue: React.FC = () => {
         title="學習路徑"
         lead={`${LEARNING_TRACKS.length} 條主題路徑、${ALL_LESSONS.length} 堂白話小課。選一個想了解的主題，或用關鍵字找到合適的一課。`}
       >
+        <details className="text-sm"><summary className="cursor-pointer font-semibold text-emerald-800 dark:text-emerald-300 py-2">我的學習紀錄 · 已完成 {done} 堂</summary>
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 px-3 py-1 text-xs font-bold text-emerald-900 dark:text-emerald-300">
             <span>{growth.currentRank.badge_emoji}</span>
@@ -146,7 +142,7 @@ const Catalogue: React.FC = () => {
               清除進度
             </button>
           )}
-        </div>
+        </div></details>
       </PageHeader>
 
       <nav aria-label="延伸學習" className="flex flex-wrap gap-x-5 gap-y-1 border-b border-slate-200 pb-3 dark:border-slate-800">
@@ -183,14 +179,21 @@ const Catalogue: React.FC = () => {
 
       {/* Search & Filter Controls */}
       <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 space-y-3 shadow-xs">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
+        <div className="flex flex-wrap items-center gap-3">
+          <label className="flex items-center gap-2 text-sm font-semibold">
+            選擇路徑
+            <select className="min-h-11 rounded-lg border border-slate-300 bg-transparent px-2 dark:border-slate-700 dark:bg-slate-900" value={trackFilter} onChange={e => setTrackFilter(e.target.value)}>
+              <option value="">全部路徑</option>
+              {LEARNING_TRACKS.map(track => <option key={track.id} value={track.id}>{track.title_zh}</option>)}
+            </select>
+          </label>
+          <div className="relative min-w-[min(100%,14rem)] flex-1">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="篩選課程關鍵字，例如：血壓、蛋白質、Zone 2、失眠、B 肝…"
+              placeholder="搜尋小課，例如血壓、健走、睡眠"
               aria-label="篩選課程關鍵字"
               className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-slate-950/60 pl-9 pr-3 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-emerald-600 focus:outline-none"
             />
@@ -199,7 +202,7 @@ const Catalogue: React.FC = () => {
             {(
               [
                 ['all', `全部 (${ALL_LESSONS.length})`],
-                ['todo', `尚未讀 (${ALL_LESSONS.length - done})`],
+                ['todo', `未完成 (${ALL_LESSONS.length - done})`],
                 ['done', `已完成 (${done})`],
               ] as const
             ).map(([id, label]) => (
@@ -241,16 +244,11 @@ const Catalogue: React.FC = () => {
         </div>}
       </div>
 
-      <details className="discovery-card p-5 space-y-5">
-        <summary className="cursor-pointer min-h-11 font-semibold text-slate-800 dark:text-slate-200">想先比較路徑？查看課程地圖與學習目標</summary>
-        <CurriculumFrameworkMap />
-        <TrackComparisonTable />
-      </details>
-
       {isFiltering && <p role="status" className="text-sm text-slate-600 dark:text-slate-300">
         {visibleTracks.length > 0
           ? `找到 ${visibleTracks.reduce((total, { lessons }) => total + lessons.length, 0)} 堂小課`
           : '沒有符合的課程，可以換個關鍵字或調整完成狀態。'}
+        <button type="button" className="ml-3 min-h-11 font-semibold underline underline-offset-4" onClick={() => { setQuery(''); setTrackFilter(''); setStatusFilter('all'); }}>清除篩選</button>
       </p>}
       <ul className="space-y-4">
         {visibleTracks.map(({ track: t, lessons: filteredLessons }) => {
@@ -260,9 +258,8 @@ const Catalogue: React.FC = () => {
           return (
             <li key={t.id} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden shadow-xs">
               <div className={`w-full flex items-start justify-between gap-3 p-4 sm:p-5 ${TONE[t.tone].soft} ${isTrackOpen ? 'border-b border-slate-200 dark:border-slate-800' : ''}`}>
-                <button
-                  type="button"
-                  onClick={() => go(`learn/${t.id}`)}
+                <a
+                  href={`#learn/${t.id}`}
                   className="flex items-start gap-3 text-left flex-1 min-w-0 hover:opacity-90 transition-opacity"
                 >
                   <TrackIcon icon={t.icon} tone={t.tone} size="lg" />
@@ -276,7 +273,7 @@ const Catalogue: React.FC = () => {
                     <span className="block text-lg font-bold text-slate-900 dark:text-white mt-0.5">{t.title_zh}</span>
                     <span className="block text-sm text-slate-600 dark:text-slate-300">{t.subtitle_zh}</span>
                   </span>
-                </button>
+                </a>
                 {!isFiltering && <div className="flex items-center gap-1.5 shrink-0">
                   <button
                     type="button"
@@ -299,6 +296,11 @@ const Catalogue: React.FC = () => {
           );
         })}
       </ul>
+      <details className="discovery-card p-5 space-y-5">
+        <summary className="cursor-pointer min-h-11 font-semibold text-slate-800 dark:text-slate-200">想先比較路徑？查看課程地圖與學習目標</summary>
+        <CurriculumFrameworkMap />
+        <TrackComparisonTable />
+      </details>
     </div>
   );
 };
@@ -388,7 +390,6 @@ const TrackComparisonTable: React.FC = () => {
 };
 
 const LessonList: React.FC<{ track: LearningTrack; lessons?: Lesson[] }> = ({ track, lessons }) => {
-  const { go } = useNavigation();
   const { isDone } = useLearningProgress();
   const displayLessons = lessons ?? track.lessons;
   return (
@@ -397,9 +398,8 @@ const LessonList: React.FC<{ track: LearningTrack; lessons?: Lesson[] }> = ({ tr
         const originalIdx = track.lessons.findIndex((item) => item.id === l.id);
         return (
           <li key={l.id}>
-            <button
-              type="button"
-              onClick={() => go(`learn/${track.id}/${l.id}`)}
+            <a
+              href={`#learn/${track.id}/${l.id}`}
               className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
             >
               {isDone(l.id) ? (
@@ -409,11 +409,11 @@ const LessonList: React.FC<{ track: LearningTrack; lessons?: Lesson[] }> = ({ tr
               )}
               <span className="text-xs tabular-nums text-slate-400 w-5 shrink-0 font-medium">{originalIdx + 1}</span>
               <div className="flex-1 min-w-0">
-                <span className="block text-[15px] font-medium text-slate-800 dark:text-slate-200">{l.title_zh}</span>
-                <span className="block text-xs text-slate-500 dark:text-slate-400 truncate max-w-xl">{l.big_idea_zh}</span>
+                <span className="block text-base font-medium text-slate-800 dark:text-slate-200">{l.title_zh}</span>
+                <span className="block text-xs text-slate-500 dark:text-slate-400 line-clamp-2 max-w-xl">{l.big_idea_zh}</span>
               </div>
               <span className="text-xs text-slate-400 shrink-0 tabular-nums">{l.minutes} 分</span>
-            </button>
+            </a>
           </li>
         );
       })}
@@ -576,6 +576,9 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
   const next = track.lessons[idx + 1];
   const nextTrack = LEARNING_TRACKS[LEARNING_TRACKS.findIndex((t) => t.id === track.id) + 1];
   const done = isDone(lesson.id);
+  const [showVisual, setShowVisual] = useState(false);
+  const [showMatrix, setShowMatrix] = useState(false);
+  const [copyError, setCopyError] = useState('');
   const [copiedNotes, setCopiedNotes] = useState(false);
   const [copiedFeynman, setCopiedFeynman] = useState(false);
 
@@ -598,7 +601,9 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       '今天就能做：',
       ...lesson.do_today_zh.map((d) => `✓ ${d}`),
     ].join('\n');
-    navigator.clipboard?.writeText(text).then(() => {
+    copyText(text).then(ok => {
+      setCopyError(ok ? '' : '無法複製到剪貼簿，請選取所需文字複製。');
+      if (!ok) return;
       setCopiedNotes(true);
       setTimeout(() => setCopiedNotes(false), 2500);
     });
@@ -606,7 +611,9 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
 
   const handleCopyFeynman = () => {
     if (!feynmanCard) return;
-    navigator.clipboard?.writeText(feynmanCard.full_copy_text).then(() => {
+    copyText(feynmanCard.full_copy_text).then(ok => {
+      setCopyError(ok ? '' : '無法複製到剪貼簿，請選取所需文字複製。');
+      if (!ok) return;
       setCopiedFeynman(true);
       setTimeout(() => setCopiedFeynman(false), 2500);
     });
@@ -622,12 +629,13 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
   );
   const hasSources = Boolean(lesson.sources?.length);
   const readingSections = [
-    ['lesson-visual', '圖解與知識'],
+    ['kp-h', '本課重點'],
     ['do-h', '今天就能做'],
     ...(lesson.see_doctor_zh?.length ? [['doc-h', '何時就醫']] : []),
     ...(lesson.quiz ? [['quiz-h', '小測驗']] : []),
     ...(hasSources ? [['source-h', '來源與限制']] : updates.length ? [['basis-h', '相關實證']] : []),
-    ['deep-h', '深入閱讀'],
+    ['lesson-visual', '圖解與對照表'],
+    ['deep-h', '延伸閱讀'],
   ];
 
   return (
@@ -635,9 +643,9 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       {/* Header */}
       <div className="space-y-4">
         <nav className="flex flex-wrap items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400" aria-label="課程位置">
-          <button onClick={() => go('learn')} className="hover:text-emerald-700 dark:hover:text-emerald-400">學習路徑</button>
+          <a href="#learn" className="hover:underline">學習路徑</a>
           <span aria-hidden="true">/</span>
-          <button onClick={() => go(`learn/${track.id}`)} className="hover:text-emerald-700 dark:hover:text-emerald-400">{track.title_zh}</button>
+          <a href={`#learn/${track.id}`} className="hover:underline">{track.title_zh}</a>
         </nav>
         <div className="flex items-center gap-3">
           <TrackIcon icon={track.icon} tone={track.tone} size="sm" />
@@ -674,7 +682,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         <p className={`text-xs font-semibold mb-1.5 ${TONE[track.tone].text}`}>一句話重點</p>
         <p className="text-lg sm:text-xl font-semibold leading-8 text-slate-900 dark:text-white">{lesson.big_idea_zh}</p>
         {lesson.analogy_zh && (
-          <p className="mt-3 flex gap-2 text-[15px] leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-3 flex gap-2 text-base leading-7 text-slate-700 dark:text-slate-300">
             <Lightbulb className="w-5 h-5 shrink-0 mt-1 text-amber-500" aria-hidden="true" />
             <span>
               <span className="font-semibold">打個比方：</span>
@@ -687,6 +695,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       <nav aria-label="本課閱讀導覽" className="flex flex-wrap gap-2 border-y border-slate-200 py-3 dark:border-slate-800">
         {readingSections.map(([id, label]) => (
           <button key={id} type="button" onClick={() => {
+            if (id === 'lesson-visual') setShowVisual(true);
             const target = document.getElementById(id);
             target?.scrollIntoView({ block: 'start' });
             target?.focus({ preventScroll: true });
@@ -694,13 +703,10 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         ))}
       </nav>
 
-      {/* Visual Mechanism & Clinical Diagram */}
-      <div id="lesson-visual" tabIndex={-1} className="scroll-mt-24"><LessonVisualGraphic track={track} lesson={lesson} /></div>
-
       {/* Key points (Interactive Mastery Checklist) */}
       <section aria-labelledby="kp-h" className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 id="kp-h" className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <h2 id="kp-h" tabIndex={-1} className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
             <span>你需要知道的 {lesson.key_points_zh.length} 件事</span>
           </h2>
@@ -733,7 +739,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
                 <span className={`w-7 h-7 shrink-0 rounded-full inline-flex items-center justify-center text-sm font-bold ${TONE[track.tone].chip} border mt-0.5`}>
                   {i + 1}
                 </span>
-                <p className="flex-1 text-[15.5px] leading-7 text-slate-800 dark:text-slate-200">{kp}</p>
+                <p className="flex-1 text-base leading-7 text-slate-800 dark:text-slate-200">{kp}</p>
                 <button
                   type="button"
                   aria-pressed={mastered}
@@ -754,9 +760,6 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </ol>
       </section>
 
-      {/* Structured Teaching & Clinical Table */}
-      <LessonReferenceTable lessonId={lesson.id} trackTitle={track.title_zh} />
-
       {/* Do today */}
       <section aria-labelledby="do-h" className="rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/60 dark:bg-emerald-950/20 p-5 space-y-2">
         <h2 id="do-h" tabIndex={-1} className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-2">
@@ -768,7 +771,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
             const actionId = lessonActionId(lesson.id, i);
             const inside = inPlan(actionId);
             return (
-              <li key={i} className="flex items-start gap-2 text-[15px] leading-7 text-emerald-950 dark:text-emerald-100">
+              <li key={i} className="flex items-start gap-2 text-base leading-7 text-emerald-950 dark:text-emerald-100">
                 <span aria-hidden="true">✓</span>
                 <span className="flex-1">{d}</span>
                 <button
@@ -789,46 +792,6 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </ul>
       </section>
 
-      {/* Feynman Technique: Explain to Family & Friends in Plain Language */}
-      {feynmanCard && (
-        <section
-          aria-labelledby="feynman-h"
-          className="rounded-2xl border border-sky-200/90 dark:border-sky-900/60 bg-gradient-to-br from-sky-50/70 via-white to-emerald-50/40 dark:from-sky-950/30 dark:via-slate-900 dark:to-slate-900 p-5 space-y-3"
-        >
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 id="feynman-h" className="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-base">
-              <GraduationCap className="w-5 h-5 text-sky-700 dark:text-sky-400" aria-hidden="true" />
-              <span>費曼學習法練習：用一句白話講給家人朋友聽</span>
-            </h2>
-            <button
-              type="button"
-              onClick={handleCopyFeynman}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-sky-700 hover:bg-sky-800 dark:bg-sky-400 dark:text-slate-950 px-3 py-1.5 text-xs font-bold text-white transition-colors"
-            >
-              {copiedFeynman ? (
-                <>
-                  <Check className="w-3.5 h-3.5" aria-hidden="true" />
-                  <span>已複製親友分享卡！</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5" aria-hidden="true" />
-                  <span>一鍵複製分享給家人</span>
-                </>
-              )}
-            </button>
-          </div>
-          <p className="text-xs text-slate-600 dark:text-slate-400">
-            當你能不靠艱深術語、把剛學到的健康觀念說給身邊的人聽懂，你就已經從「健康小白」成長為真正的「醫學知識者」！
-          </p>
-          <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 p-3.5 space-y-1.5 text-xs sm:text-sm leading-6 text-slate-700 dark:text-slate-200">
-            <p>💬 <strong>怎麼開口：</strong>{feynmanCard.opening_zh}</p>
-            <p>💡 <strong>打個比方：</strong>{feynmanCard.metaphor_zh}</p>
-            <p>🏃 <strong>一起試試：</strong>{feynmanCard.action_invite_zh}</p>
-          </div>
-        </section>
-      )}
-
       {/* Myth */}
       {lesson.myth_zh && (
         <section aria-label="常見迷思" className="grid sm:grid-cols-2 gap-3">
@@ -837,14 +800,14 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
               <XCircle className="w-4 h-4" aria-hidden="true" />
               常見迷思
             </p>
-            <p className="text-[15px] leading-7 text-rose-950 dark:text-rose-100">「{lesson.myth_zh.myth}」</p>
+            <p className="text-base leading-7 text-rose-950 dark:text-rose-100">「{lesson.myth_zh.myth}」</p>
           </div>
           <div className="rounded-2xl border border-emerald-200 dark:border-emerald-900/60 bg-white dark:bg-slate-900/60 p-4">
             <p className="flex items-center gap-1.5 text-xs font-semibold text-emerald-800 dark:text-emerald-300 mb-1.5">
               <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
               實證怎麼說
             </p>
-            <p className="text-[15px] leading-7 text-slate-800 dark:text-slate-200">{lesson.myth_zh.truth}</p>
+            <p className="text-base leading-7 text-slate-800 dark:text-slate-200">{lesson.myth_zh.truth}</p>
           </div>
         </section>
       )}
@@ -856,18 +819,13 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
             <Stethoscope className="w-5 h-5" aria-hidden="true" />
             出現這些情況，請就醫
           </h2>
-          <ul className="list-disc pl-6 space-y-1 text-[15px] leading-7 text-amber-950 dark:text-amber-100">
+          <ul className="list-disc pl-6 space-y-1 text-base leading-7 text-amber-950 dark:text-amber-100">
             {lesson.see_doctor_zh.map((s, i) => (
               <li key={i}>{s}</li>
             ))}
           </ul>
         </section>
       )}
-
-      {/* Four Pillars Clinical Matrix (飲食 · 運動 · 預防 · 治療) */}
-      <details className="discovery-card p-5 space-y-4"><summary className="cursor-pointer min-h-11 font-semibold text-slate-800 dark:text-slate-200">延伸整理：飲食、運動、預防與治療如何連結？</summary><FourPillarsClinicalMatrix
-        pageIdOrTopic={TRACK_PILLAR_TOPIC[track.id] || 'cardiometabolic'}
-      /></details>
 
       {/* Quiz */}
       {lesson.quiz && <LessonQuizCard lessonId={lesson.id} quiz={lesson.quiz} onAnswer={recordQuiz} />}
@@ -901,6 +859,55 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
           {source.note && <p className="text-slate-600 dark:text-slate-400">{source.note}</p>}
         </li>)}</ul>
       </section>}
+      <details open={showVisual} onToggle={e => setShowVisual(e.currentTarget.open)} className="discovery-card p-5">
+        <summary id="lesson-visual" className="cursor-pointer scroll-mt-24 py-2 font-semibold">圖解與對照表</summary>
+        {showVisual && <Suspense fallback={<p role="status">載入圖解中…</p>}>
+          <div className="mt-3 space-y-5">
+            <LessonVisualGraphic track={track} lesson={lesson} />
+            <LessonReferenceTable lessonId={lesson.id} trackTitle={track.title_zh} />
+          </div>
+        </Suspense>}
+      </details>
+      {/* Feynman Technique: Explain to Family & Friends in Plain Language */}
+      {feynmanCard && (
+        <details
+          aria-label="用自己的話複習"
+          className="rounded-2xl border border-sky-200/90 dark:border-sky-900/60 bg-gradient-to-br from-sky-50/70 via-white to-emerald-50/40 dark:from-sky-950/30 dark:via-slate-900 dark:to-slate-900 p-5 space-y-3"
+        >
+          <summary className="cursor-pointer py-1 font-semibold">用自己的話複習，說給親友聽</summary>
+          <div>
+            <button
+              type="button"
+              onClick={handleCopyFeynman}
+              className="inline-flex items-center gap-1.5 rounded-xl bg-sky-700 hover:bg-sky-800 dark:bg-sky-400 dark:text-slate-950 px-3 py-1.5 text-xs font-bold text-white transition-colors"
+            >
+              {copiedFeynman ? (
+                <>
+                  <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>已複製親友分享卡！</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>一鍵複製分享給家人</span>
+                </>
+              )}
+            </button>
+          </div>
+          <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 p-3.5 space-y-1.5 text-xs sm:text-sm leading-6 text-slate-700 dark:text-slate-200">
+            <p>💬 <strong>怎麼開口：</strong>{feynmanCard.opening_zh}</p>
+            <p>💡 <strong>打個比方：</strong>{feynmanCard.metaphor_zh}</p>
+            <p>🏃 <strong>一起試試：</strong>{feynmanCard.action_invite_zh}</p>
+          </div>
+        </details>
+      )}
+
+      <details className="discovery-card p-5" onToggle={e => setShowMatrix(e.currentTarget.open)}>
+        <summary className="cursor-pointer py-2 font-semibold">飲食、運動、預防與治療如何連結？</summary>
+        {showMatrix && <Suspense fallback={<p role="status">載入延伸整理中…</p>}>
+          <FourPillarsClinicalMatrix pageIdOrTopic={TRACK_PILLAR_TOPIC[track.id] || 'cardiometabolic'} />
+        </Suspense>}
+      </details>
       {/* Go deeper */}
       <section aria-labelledby="deep-h" className="space-y-2">
         <h2 id="deep-h" tabIndex={-1} className="text-sm font-bold text-slate-700 dark:text-slate-300">想看完整機制與圖解</h2>
@@ -957,6 +964,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
             )}
           </button>
         </div>
+        {copyError && <p role="status" className="text-sm">{copyError}</p>}
         <div className="grid grid-cols-2 gap-3">
           {prev ? (
             <button
@@ -1015,7 +1023,7 @@ const LessonQuizCard: React.FC<{
         <HelpCircle className="w-5 h-5 text-sky-600 dark:text-sky-400" aria-hidden="true" />
         小測驗
       </h2>
-      <p className="text-[15px] leading-7 text-slate-800 dark:text-slate-200">{quiz.question_zh}</p>
+      <p className="text-base leading-7 text-slate-800 dark:text-slate-200">{quiz.question_zh}</p>
       <div className="grid gap-2" role="radiogroup" aria-label="選項">
         {quiz.options_zh.map((opt, i) => {
           const isAnswer = i === quiz.answer;
@@ -1050,7 +1058,7 @@ const LessonQuizCard: React.FC<{
         })}
       </div>
       {answered && (
-        <div role="status" className={`rounded-xl p-3 text-[15px] leading-7 ${correct ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-950 dark:text-emerald-100' : 'bg-amber-50 dark:bg-amber-950/30 text-amber-950 dark:text-amber-100'}`}>
+        <div role="status" className={`rounded-xl p-3 text-base leading-7 ${correct ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-950 dark:text-emerald-100' : 'bg-amber-50 dark:bg-amber-950/30 text-amber-950 dark:text-amber-100'}`}>
           <strong>{correct ? '答對了！' : `正確答案是 ${String.fromCharCode(65 + quiz.answer)}。`}</strong>
           {quiz.explain_zh}
           {!correct && (

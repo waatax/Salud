@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import { HORMESIS_PROTOCOLS } from '../../../data/longevityData';
-import { HormesisProtocol } from '../../../types';
 import {
   Flame,
-  ThermometerSnowflake,
-  Clock,
   Activity,
-  Heart,
   Shield,
-  Zap,
   CheckCircle2,
   AlertTriangle,
   Sun,
-  Moon,
 } from 'lucide-react';
 
 export const InfographHormesisProtocol: React.FC = () => {

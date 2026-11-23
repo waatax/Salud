@@ -3,11 +3,6 @@ import { OBESITY_ITERATION_ROUNDS } from '../../../data/obesityIterationsData';
 import {
   Sparkles,
   Users,
-  Award,
-  ShieldCheck,
-  Flame,
-  ChevronDown,
-  ChevronRight,
   CheckCircle2,
   AlertTriangle,
   Zap,

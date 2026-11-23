@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { PHYSIOLOGY_INFOGRAPHICS } from '../../data/exerciseData';
-import { Activity, HeartPulse, Flame, Network, Clock, CheckCircle2, ChevronRight, Zap } from 'lucide-react';
+import { Activity, HeartPulse, Network, Clock, CheckCircle2 } from 'lucide-react';
 
 export const PhysiologyInfographics: React.FC = () => {
   const { language } = useLanguage();

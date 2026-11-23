@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from './Modal';
 import { useLanguage } from '../../i18n';
-import { ShieldAlert, HeartHandshake, PhoneCall, CheckCircle2, HelpCircle, AlertTriangle } from 'lucide-react';
+import { HeartHandshake, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 interface Props {
   isOpen: boolean;
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const AuditCModal: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [gender, setGender] = useState<'MALE' | 'FEMALE'>('MALE');
   const [q1, setQ1] = useState<number>(0);
   const [q2, setQ2] = useState<number>(0);

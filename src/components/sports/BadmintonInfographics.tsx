@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
 import { BADMINTON_INFOGRAPHICS } from '../../data/badmintonData';
-import { Wind, Zap, Activity, Compass, ShieldCheck, Info, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Wind, Zap, Activity, Compass } from 'lucide-react';
 
 export const BadmintonInfographics: React.FC = () => {
   const { language } = useLanguage();

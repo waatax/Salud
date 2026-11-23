@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLanguage } from '../../../../i18n';
 import { EvidenceBadge } from '../../../common/EvidenceBadge';
 import { ChevronDown, ChevronUp } from 'lucide-react';

@@ -18,7 +18,6 @@ import {
   HeartHandshake,
   CalendarClock,
   BarChart3,
-  Layers,
   Sparkles,
 } from 'lucide-react';
 

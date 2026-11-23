@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
-import { Activity, Gauge, Flame, ShieldAlert, CheckCircle2, Zap, Heart, Timer } from 'lucide-react';
+import { Gauge, Timer } from 'lucide-react';
 
 export const SimRunningCalculator: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   const [paceMinutes, setPaceMinutes] = useState<number>(5);
   const [paceSeconds, setPaceSeconds] = useState<number>(30);

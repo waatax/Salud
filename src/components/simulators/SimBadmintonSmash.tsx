@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
-import { Zap, Timer, Wind, ShieldCheck, Activity, Gauge } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 export const SimBadmintonSmash: React.FC = () => {
   const { language } = useLanguage();

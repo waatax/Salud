@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { CARDIO_TABS } from '../../config/routes';
 import {
-  BP_722_PROTOCOL,
   TSOC_BP_CATEGORIES,
   METSYN_CRITERIA,
   ATHEROSCLEROSIS_STAGES,
@@ -12,7 +11,6 @@ import {
   CARDIOMETABOLIC_MYTHS,
 } from '../../data/cardiometabolicData';
 import { CardiometabolicSubTab } from '../../types';
-import { useLanguage } from '../../i18n';
 import { EvidenceBadge } from '../common/EvidenceBadge';
 import { ThreeHighsEntry, ThreeHighsGuide } from './cardiometabolic/ThreeHighsGuide';
 import { HubHero } from '../common/HubHero';
@@ -21,23 +19,14 @@ import { HUB_PRIMERS } from '../../data/hubPrimers';
 import {
   HeartPulse,
   Activity,
-  ShieldCheck,
-  AlertTriangle,
   ChevronDown,
   ChevronUp,
-  Sparkles,
   Layers,
-  Clock,
   CheckCircle2,
-  AlertOctagon,
   HelpCircle,
-  TrendingDown,
-  Info,
   Stethoscope,
   Pill,
   Calculator,
-  Flame,
-  ArrowRight,
   ShieldAlert,
   Scale,
   Syringe,
@@ -65,10 +54,8 @@ const CARDIO_TAB_GROUPS: HubTabGroup<CardiometabolicSubTab>[] = [
 ];
 
 export const CardiometabolicHub: React.FC = () => {
-  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useHashTab<CardiometabolicSubTab>('cardiometabolic', CARDIO_TABS, 'OVERVIEW');
   const [expandedAtheroStage, setExpandedAtheroStage] = useState<number | null>(2);
-  const [selectedCacScore, setSelectedCacScore] = useState<string>(CAC_STRATIFICATIONS[1].agatston_score_range);
   const [expandedMyth, setExpandedMyth] = useState<string | null>('C-MYTH-01');
 
   // ── Lipid Discordance Calculator State ──

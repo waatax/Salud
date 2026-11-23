@@ -17,31 +17,20 @@ import {
   Info,
   Clock,
   Compass,
-  CheckCircle2,
   Droplets,
   Utensils,
   Wine,
   Footprints,
-  RefreshCw,
   Gauge,
-  BedDouble,
   Coffee,
   Smile,
   ShieldCheck,
-  Target,
   Users,
   Award,
-  Thermometer,
   ShieldAlert,
   Wind,
-  Pill,
   CalendarCheck,
-  FileText,
-  BadgeCheck,
-  Eye,
-  Ear,
-  Cigarette,
-  HeartPulse,
+  Cigarette
 } from 'lucide-react';
 import { LearningTrack, Lesson } from '../../types/learning';
 
@@ -126,7 +115,7 @@ export const LessonVisualGraphic: React.FC<LessonVisualGraphicProps> = ({ track,
 
     // ── Track 4: Move (8 課) ───────────────────────────────────────────
     case 'L-MOVE-01':
-      return <Zone2MitochondriaGraphic />;
+      return <TalkTestGraphic />;
     case 'L-MOVE-02':
       return <StepCountCurveGraphic />;
     case 'L-MOVE-03':
@@ -879,12 +868,12 @@ const BrainGlymphaticGraphic: React.FC = () => {
 /* -------------------------------------------------------------------------- */
 const HealthyPlateGraphic: React.FC = () => {
   return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="哈佛健康餐盤 2:1:1 比例分佈圖解">
+    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="哈佛健康餐盤的搭配比例">
       <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
         <div className="flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
           <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            黃金比例：哈佛 2:1:1 健康餐盤視覺結構
+            另一種看法：哈佛健康餐盤
           </figcaption>
         </div>
         <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium">
@@ -924,21 +913,21 @@ const HealthyPlateGraphic: React.FC = () => {
               蔬菜與水果
             </text>
             <text x="65" y="135" fill="#ffffff" fontSize="16" fontWeight="900" textAnchor="middle">
-              1/2 (2 份)
+              約半盤
             </text>
 
             <text x="170" y="70" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">
               優質蛋白質
             </text>
             <text x="170" y="88" fill="#ffffff" fontSize="13" fontWeight="900" textAnchor="middle">
-              1/4 (1 份)
+              約四分之一
             </text>
 
             <text x="170" y="170" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">
-              未精緻全穀
+              全穀類
             </text>
             <text x="170" y="188" fill="#ffffff" fontSize="13" fontWeight="900" textAnchor="middle">
-              1/4 (1 份)
+              約四分之一
             </text>
           </svg>
         </div>
@@ -947,28 +936,28 @@ const HealthyPlateGraphic: React.FC = () => {
         <div className="space-y-3 text-xs leading-5">
           <div className="p-3 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/60">
             <span className="font-bold text-emerald-900 dark:text-emerald-300 block text-sm">
-              🥦 1/2 蔬菜與水果 (比例 2)
+              約半盤蔬菜與水果
             </span>
             <span className="text-slate-600 dark:text-slate-300">
-              至少兩種不同顏色，深綠色葉菜、十字花科、蕈菇與彩椒優先，提供高纖維、植化素與微量元素。
+              例如用青菜、番茄搭配幾片芭樂，輪流選不同顏色的蔬果。
             </span>
           </div>
 
           <div className="p-3 rounded-xl bg-sky-50/70 dark:bg-sky-950/20 border border-sky-200 dark:border-sky-800/60">
             <span className="font-bold text-sky-900 dark:text-sky-300 block text-sm">
-              🐟 1/4 優質蛋白質 (比例 1)
+              約四分之一盤蛋白質食物
             </span>
             <span className="text-slate-600 dark:text-slate-300">
-              優先順序：「豆 &gt; 魚 &gt; 蛋 &gt; 肉」。多選毛豆、豆腐、深海魚、去皮雞肉；少吃加工肉品（培根、香腸）。
+              豆類、魚和雞肉都是選擇。平常也可以用豆腐替換部分肉類。
             </span>
           </div>
 
           <div className="p-3 rounded-xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/60">
             <span className="font-bold text-amber-900 dark:text-amber-300 block text-sm">
-              🌾 1/4 未精緻全穀雜糧 (比例 1)
+              約四分之一盤全穀
             </span>
             <span className="text-slate-600 dark:text-slate-300">
-              糙米、黑米、地瓜、南瓜、燕麥、藜麥；取代白米飯、白麵條與精緻甜麵包，穩定維持長效飽足感。
+              例如糙米、燕麥或全麥麵。可從自己常吃的主食裡試一種。
             </span>
           </div>
         </div>
@@ -1310,102 +1299,28 @@ const EnergyDeficitGraphic: React.FC = () => {
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/* 22. L-EAT-10: 保健食品 GRADE 實證階梯                                         */
-/* -------------------------------------------------------------------------- */
-const SupplementsGradeGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="保健食品GRADE實證階梯">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="w-5 h-5 text-teal-600 dark:text-teal-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            錢花在刀口上：營養補充品 GRADE 人體臨床實證分級梯隊
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 font-medium">
-          Salud GRADE 評鑑
-        </span>
-      </div>
-
-      <div className="grid sm:grid-cols-3 gap-2.5 text-xs">
-        <div className="p-3 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 space-y-1">
-          <span className="font-bold text-emerald-900 dark:text-emerald-300 block text-sm">Tier 1: 實證確鑿 🟢</span>
-          <p className="text-slate-600 dark:text-slate-300">維生素 D3 (抽血不足者)、高純度 EPA 魚油 (高三酸甘油酯)、一水肌酸 (肌力)。</p>
-        </div>
-        <div className="p-3 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/20 space-y-1">
-          <span className="font-bold text-amber-900 dark:text-amber-300 block text-sm">Tier 2: 條件獲益 🟡</span>
-          <p className="text-slate-600 dark:text-slate-300">益生菌 (特定抗生素腹瀉菌株)、葉黃素 (黃斑部病變高危)、褪黑激素 (時差短用)。</p>
-        </div>
-        <div className="p-3 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/20 space-y-1">
-          <span className="font-bold text-rose-900 dark:text-rose-300 block text-sm">Tier 3: 智商稅 / 證據薄弱 🔴</span>
-          <p className="text-slate-600 dark:text-slate-300">口服膠原蛋白 (消化道分解為普通胺基酸)、解酒排毒酵素、無檢驗指徵之高劑量綜合維他命。</p>
-        </div>
-      </div>
-    </figure>
-  );
-};
 
 /* -------------------------------------------------------------------------- */
-/* 23. L-MOVE-01: Zone 2 有氧乳酸閾值與粒線體引擎                                  */
+/* 23. L-MOVE-01: 用說話測試估計活動強度                                  */
 /* -------------------------------------------------------------------------- */
-const Zone2MitochondriaGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="Zone 2 有氧乳酸閾值與粒線體脂肪氧化率曲線圖">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <Flame className="w-5 h-5 text-orange-600 dark:text-orange-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            有氧能量系統：Zone 2 粒線體密度最高燃脂區 vs 高強度無氧區
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-orange-50 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300 font-medium">
-          San Millán / Brooks 粒線體代謝
-        </span>
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
-        <div className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
-          <span className="font-bold text-slate-800 dark:text-slate-200 block">Zone 1</span>
-          <span className="text-slate-500 block">&lt; 60% HRmax</span>
-          <p className="mt-1 text-[0.75rem] text-slate-600 dark:text-slate-400">極輕鬆散步、恢復血流</p>
-        </div>
-
-        <div className="p-2.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100 shadow-xs">
-          <span className="font-bold text-emerald-700 dark:text-emerald-300 block flex items-center gap-1">
-            Zone 2 ★
-          </span>
-          <span className="text-emerald-800 dark:text-emerald-400 block font-semibold">60 – 70% HRmax</span>
-          <p className="mt-1 text-[0.75rem] leading-4 text-emerald-900 dark:text-emerald-200">
-            <strong>脂肪氧化率頂峰</strong>，促進粒線體新生、乳酸 1.5–2.0 mmol/L
-          </p>
-        </div>
-
-        <div className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40">
-          <span className="font-bold text-slate-800 dark:text-slate-200 block">Zone 3</span>
-          <span className="text-slate-500 block">70 – 80% HRmax</span>
-          <p className="mt-1 text-[0.75rem] text-slate-600 dark:text-slate-400">步速加快、脂肪與碳水混合燃燒</p>
-        </div>
-
-        <div className="p-2.5 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/20">
-          <span className="font-bold text-amber-800 dark:text-amber-300 block">Zone 4 (乳酸閾值)</span>
-          <span className="text-amber-700 dark:text-amber-400 block">80 – 90% HRmax</span>
-          <p className="mt-1 text-[0.75rem] text-amber-900 dark:text-amber-200">乳酸迅速累積、主要燃燒肝醣</p>
-        </div>
-
-        <div className="col-span-2 sm:col-span-1 p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/20">
-          <span className="font-bold text-rose-800 dark:text-rose-300 block">Zone 5 (VO2 Max)</span>
-          <span className="text-rose-700 dark:text-rose-400 block">&gt; 90% HRmax</span>
-          <p className="mt-1 text-[0.75rem] text-rose-900 dark:text-rose-200">力竭衝刺、提升最大心肺耐力極限</p>
-        </div>
-      </div>
-
-      <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 text-xs text-slate-600 dark:text-slate-300">
-        🏃 <strong>簡易自我體感檢測（說話測試 Talk Test）：</strong>在 Zone 2 運動時，你應能用完整句子持續跟同伴說話，但無法順暢唱歌；呼吸加深但不會喘不過氣。這是有氧耐力與健康長壽最重要的基石訓練。
-      </div>
-    </figure>
-  );
-};
+const TalkTestGraphic: React.FC = () => (
+  <figure className="discovery-card p-5 sm:p-6 space-y-4">
+    <figcaption className="font-bold text-slate-900 dark:text-white">走這段路時，你說話的感覺如何？</figcaption>
+    <ul className="grid gap-3 sm:grid-cols-3">
+      {[
+        ['輕鬆', '走路時聊天、唱歌都很自在。'],
+        ['中等強度', '可以跟人說話，唱歌開始吃力。'],
+        ['費力', '講幾個字就得先換氣，難以連續交談。'],
+      ].map(([label, description]) => (
+        <li key={label} className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800">
+          <strong className="text-emerald-800 dark:text-emerald-300">{label}</strong>
+          <p className="mt-1 leading-relaxed text-slate-700 dark:text-slate-200">{description}</p>
+        </li>
+      ))}
+    </ul>
+    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">說話測試幫你估計當下有多用力。同一個速度，對常走路的人可能很舒服，對剛起步的人可能已經很吃力。</p>
+  </figure>
+);
 
 /* -------------------------------------------------------------------------- */
 /* 24. L-MOVE-02: 肌力訓練四大核心動作模式                                       */
@@ -1550,37 +1465,6 @@ const StepCountCurveGraphic: React.FC = () => {
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/* 27. L-MOVE-05: HIIT vs LISS 代謝與心肺對比                                     */
-/* -------------------------------------------------------------------------- */
-const HiitVsLissGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="高強度間歇HIIT與低強度穩態LISS對比">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <Zap className="w-5 h-5 text-orange-600 dark:text-orange-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            有氧雙軌：高強度間歇 (HIIT) vs 低強度穩態 (LISS) 特性對比
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-orange-50 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300 font-medium">
-          運動生理學比較
-        </span>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-3 text-xs">
-        <div className="p-3.5 rounded-xl border border-orange-200 dark:border-orange-900/60 bg-orange-50 dark:bg-orange-950/20 space-y-1.5">
-          <span className="font-bold text-orange-900 dark:text-orange-300 text-sm block">高強度間歇 (HIIT)</span>
-          <p className="text-slate-600 dark:text-slate-300">時間極度精簡（15–20 分鐘）、快速提升 VO2 max 與運動後過量氧耗 (EPOC)；但關節與心血管衝擊大，每週不宜超過 2 次。</p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 space-y-1.5">
-          <span className="font-bold text-emerald-900 dark:text-emerald-300 text-sm block">低強度穩態 (LISS / Zone 2)</span>
-          <p className="text-slate-600 dark:text-slate-300">時間較長（40–60 分鐘）、脂肪氧化率最高、神經系統恢復快、粒線體生合成最強；適合絕大多數人作為常態基底。</p>
-        </div>
-      </div>
-    </figure>
-  );
-};
 
 /* -------------------------------------------------------------------------- */
 /* 28. L-MOVE-06: 久坐中斷與比目魚肌肌肉幫浦                                      */
@@ -1701,99 +1585,10 @@ const PeaceAndLoveGraphic: React.FC = () => {
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/* 31. L-REST-01: 晝夜節律雙波曲線 (Melatonin vs Cortisol)                        */
-/* -------------------------------------------------------------------------- */
-const CircadianRhythmGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="人體24小時晝夜節律褪黑激素與皮質醇雙波曲線圖">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <Moon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            生理時鐘圖解：褪黑激素與皮質醇 24 小時交替雙波
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-300 font-medium">
-          Circadian Biology
-        </span>
-      </div>
 
-      <div className="grid sm:grid-cols-4 gap-3 text-xs">
-        <div className="p-3.5 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/20 space-y-1">
-          <span className="font-bold text-amber-900 dark:text-amber-300 block text-sm">06:00 – 08:00 清晨</span>
-          <div className="font-medium text-amber-700 dark:text-amber-400">皮質醇覺醒反應 (CAR)</div>
-          <p className="text-slate-600 dark:text-slate-400">
-            受晨光照射，視交叉上核 (SCN) 指令皮質醇衝頂、體溫上升、褪黑激素徹底歸零，身體充滿活力。
-          </p>
-        </div>
-
-        <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 space-y-1">
-          <span className="font-bold text-slate-900 dark:text-white block text-sm">13:00 – 15:00 午後</span>
-          <div className="font-medium text-slate-600 dark:text-slate-400">生理性警醒度次低點</div>
-          <p className="text-slate-600 dark:text-slate-400">
-            天然生物節律中的體溫微降期，可安排 15–20 分鐘閉目養神或短暫午睡，但避免超過 30 分鐘。
-          </p>
-        </div>
-
-        <div className="p-3.5 rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/50 dark:bg-indigo-950/20 space-y-1">
-          <span className="font-bold text-indigo-900 dark:text-indigo-300 block text-sm">21:00 – 23:00 睡前</span>
-          <div className="font-medium text-indigo-700 dark:text-indigo-400">松果體褪黑激素分泌</div>
-          <p className="text-slate-600 dark:text-slate-400">
-            環境光暗下來後褪黑激素快速攀升，核心體溫開始下降，驅動入睡。避免 3C 藍光抑制此反應。
-          </p>
-        </div>
-
-        <div className="p-3.5 rounded-xl border border-purple-200 dark:border-purple-900/60 bg-purple-50/50 dark:bg-purple-950/20 space-y-1">
-          <span className="font-bold text-purple-900 dark:text-purple-300 block text-sm">02:00 – 04:00 深夜</span>
-          <div className="font-medium text-purple-700 dark:text-purple-400">深層慢波與膠淋巴排毒</div>
-          <p className="text-slate-600 dark:text-slate-400">
-            大腦膠淋巴系統 (Glymphatic System) 開啟液體脈衝，清除日間累積的乙型類澱粉蛋白與代謝廢物。
-          </p>
-        </div>
-      </div>
-    </figure>
-  );
-};
 
 /* -------------------------------------------------------------------------- */
-/* 32. L-REST-02: 睡眠環境三要素與核心體溫下降                                     */
-/* -------------------------------------------------------------------------- */
-const SleepEnvironmentGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="睡眠環境三要素圖解">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <BedDouble className="w-5 h-5 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            好眠洞穴：打造深層睡眠的三大環境物理關鍵
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-300 font-medium">
-          睡眠醫學標準
-        </span>
-      </div>
-
-      <div className="grid sm:grid-cols-3 gap-3 text-xs">
-        <div className="p-3.5 rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50 dark:bg-sky-950/20 space-y-1">
-          <span className="font-bold text-sky-900 dark:text-sky-300 block text-sm">涼爽：18–20°C 臥室溫度</span>
-          <p className="text-slate-600 dark:text-slate-300">入睡需要核心體溫下降約 1°C。睡前 90 分鐘溫水澡能促進周邊血管散熱，加速降溫。</p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 space-y-1">
-          <span className="font-bold text-indigo-900 dark:text-indigo-300 block text-sm">極暗：完全遮光</span>
-          <p className="text-slate-600 dark:text-slate-300">即便微弱小夜燈或電器指示燈，也會穿透眼皮干擾松果體褪黑激素分泌。</p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 space-y-1">
-          <span className="font-bold text-slate-800 dark:text-slate-200 block text-sm">安靜：&lt; 30 分貝環境</span>
-          <p className="text-slate-600 dark:text-slate-400">使用耳塞或白噪音均勻覆蓋突發尖銳噪音，防止大腦微覺醒 (Micro-arousal)。</p>
-        </div>
-      </div>
-    </figure>
-  );
-};
-
-/* -------------------------------------------------------------------------- */
-/* 33. L-REST-03: 90分鐘睡眠週期結構圖 (N1 -> N2 -> N3 -> REM)                   */
+/* 33. L-REST-03: 一晚睡眠有哪些階段 (N1 -> N2 -> N3 -> REM)                   */
 /* -------------------------------------------------------------------------- */
 const SleepArchitectureGraphic: React.FC = () => {
   return (
@@ -1802,30 +1597,30 @@ const SleepArchitectureGraphic: React.FC = () => {
         <div className="flex items-center gap-2">
           <Moon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
           <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            睡眠結構階梯：90 分鐘週期與各階段生理修復重點
+            一晚之中，睡眠階段如何變化？
           </figcaption>
         </div>
         <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-300 font-medium">
-          AASM 睡眠醫學
+          美國國家心肺血液研究所
         </span>
       </div>
 
       <div className="grid sm:grid-cols-4 gap-2 text-xs">
         <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 space-y-1">
-          <span className="font-bold text-slate-800 dark:text-slate-200 block">N1 淺睡入睡期 (5%)</span>
-          <p className="text-slate-600 dark:text-slate-400">半夢半醒、肌肉放鬆，偶爾出現入睡抽動。</p>
+          <span className="font-bold text-slate-800 dark:text-slate-200 block">N1 剛入睡</span>
+          <p className="text-slate-600 dark:text-slate-400">從清醒慢慢過渡到睡著，這個階段通常很短。</p>
         </div>
         <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 space-y-1">
-          <span className="font-bold text-slate-800 dark:text-slate-200 block">N2 輕度平穩期 (50%)</span>
-          <p className="text-slate-600 dark:text-slate-400">出現睡眠紡錘波 (Spindles)，鞏固運動記憶。</p>
+          <span className="font-bold text-slate-800 dark:text-slate-200 block">N2 較穩定的淺睡</span>
+          <p className="text-slate-600 dark:text-slate-400">已經睡著了，腦波和剛入睡時有不同的特徵。</p>
         </div>
         <div className="p-3 rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 space-y-1">
-          <span className="font-bold text-indigo-900 dark:text-indigo-300 block">N3 慢波深睡期 (20%) ★</span>
-          <p className="text-slate-600 dark:text-slate-300">生長激素分泌、修復肌肉骨骼、膠淋巴系統清洗腦廢物。</p>
+          <span className="font-bold text-indigo-900 dark:text-indigo-300 block">N3 深睡</span>
+          <p className="text-slate-600 dark:text-slate-300">腦波較慢。前半夜通常有較多深睡。</p>
         </div>
         <div className="p-3 rounded-xl border border-purple-200 dark:border-purple-900/60 bg-purple-50 dark:bg-purple-950/20 space-y-1">
-          <span className="font-bold text-purple-900 dark:text-purple-300 block">REM 快速動眼期 (25%)</span>
-          <p className="text-slate-600 dark:text-slate-300">做夢期、大腦情緒整合、抽象思維與創造力重新接線。</p>
+          <span className="font-bold text-purple-900 dark:text-purple-300 block">REM 快速動眼期</span>
+          <p className="text-slate-600 dark:text-slate-300">眼球快速移動，這時常會做夢。後半夜的快速動眼期通常更長。</p>
         </div>
       </div>
     </figure>
@@ -2249,81 +2044,7 @@ const BodyCompositionGraphic: React.FC = () => {
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/* 44. L-CHK-08: 骨質密度 DXA T-Score 尺規 (-1.0 至 -2.5) 与 FRAX               */
-/* -------------------------------------------------------------------------- */
-const BoneDensityGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="骨質密度DXA T-score尺規">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <Activity className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            骨本尺規：雙能量 X 光 DXA 骨密度 T-Score 與骨折防線
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium">
-          NOF · 台灣骨質疏鬆症學會
-        </span>
-      </div>
 
-      <div className="grid sm:grid-cols-3 gap-3 text-xs">
-        <div className="p-3.5 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 space-y-1">
-          <span className="font-bold text-emerald-900 dark:text-emerald-300 text-sm block">正常骨本：T-score ≥ -1.0 🟢</span>
-          <p className="text-slate-600 dark:text-slate-300">骨質密度與年輕健康成人相比差距在 1 個標準差之內。</p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-amber-300 dark:border-amber-900/80 bg-amber-50 dark:bg-amber-950/30 space-y-1">
-          <span className="font-bold text-amber-900 dark:text-amber-300 text-sm block">骨質缺乏 (Osteopenia)：-1.0 ~ -2.5 🟡</span>
-          <p className="text-slate-600 dark:text-slate-300">骨本已顯著流失；需積極補鈣、補 D3 與進行負重阻力訓練。</p>
-        </div>
-        <div className="p-3.5 rounded-xl border border-rose-300 dark:border-rose-900 bg-rose-50 dark:bg-rose-950/30 space-y-1">
-          <span className="font-bold text-rose-900 dark:text-rose-300 text-sm block">骨質疏鬆症 (Osteoporosis)：≤ -2.5 🔴</span>
-          <p className="text-rose-900 dark:text-rose-200">輕微跌倒甚至打噴嚏即可能引發壓迫性骨折；需專科藥物介入治療。</p>
-        </div>
-      </div>
-    </figure>
-  );
-};
-
-/* -------------------------------------------------------------------------- */
-/* 45. L-PRE-01: 十年動脈硬化心血管疾病 ASCVD 風險評估維度                         */
-/* -------------------------------------------------------------------------- */
-const AscvdRiskGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="10年心血管疾病ASCVD風險評估">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <Heart className="w-5 h-5 text-rose-600 dark:text-rose-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            十年防線：動脈硬化心血管疾病 (ASCVD) 風險評估與一級預防
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 font-medium">
-          AHA/ACC 預防心臟學
-        </span>
-      </div>
-
-      <div className="grid sm:grid-cols-4 gap-2 text-xs">
-        <div className="p-3 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 space-y-1">
-          <span className="font-bold text-emerald-900 dark:text-emerald-300 block">&lt; 5% 低風險</span>
-          <p className="text-slate-600 dark:text-slate-300">維持生活型態、每 3–5 年追蹤血脂與血壓。</p>
-        </div>
-        <div className="p-3 rounded-xl border border-yellow-200 dark:border-yellow-900/60 bg-yellow-50 dark:bg-yellow-950/20 space-y-1">
-          <span className="font-bold text-yellow-900 dark:text-yellow-300 block">5%–7.4% 臨界風險</span>
-          <p className="text-slate-600 dark:text-slate-300">加做冠狀動脈鈣化積分 (CAC) 釐清是否需用藥。</p>
-        </div>
-        <div className="p-3 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/20 space-y-1">
-          <span className="font-bold text-amber-900 dark:text-amber-300 block">7.5%–19.9% 中度風險</span>
-          <p className="text-slate-600 dark:text-slate-300">強烈建議中強度 Statin 降血脂藥物治療。</p>
-        </div>
-        <div className="p-3 rounded-xl border border-rose-300 dark:border-rose-900 bg-rose-50 dark:bg-rose-950/30 space-y-1">
-          <span className="font-bold text-rose-900 dark:text-rose-300 block">≥ 20% 高危險群</span>
-          <p className="text-rose-900 dark:text-rose-200">啟動高強度 Statin，LDL 目標降至 &lt;70 mg/dL。</p>
-        </div>
-      </div>
-    </figure>
-  );
-};
 
 /* -------------------------------------------------------------------------- */
 /* 46. L-PRE-05: 台灣 2025–2026 國健署五大公費癌症篩檢年齡地圖                    */
@@ -2379,55 +2100,6 @@ const CancerScreeningMapGraphic: React.FC = () => {
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/* 47. L-PRE-06: 健康長壽與肌少症阻斷 Matrix                                     */
-/* -------------------------------------------------------------------------- */
-const LongevityMatrixGraphic: React.FC = () => {
-  return (
-    <figure className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-xs" aria-label="健康老化三大支柱與阻斷肌少症視覺模型">
-      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div className="flex items-center gap-2">
-          <Activity className="w-5 h-5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
-          <figcaption className="font-bold text-slate-900 dark:text-white text-base">
-            健康長壽防線：延長健康餘命 (Healthspan) 的三大臨床支柱
-          </figcaption>
-        </div>
-        <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium">
-          WHO 健康老化指南
-        </span>
-      </div>
-
-      <div className="grid sm:grid-cols-3 gap-3 text-xs">
-        <div className="p-4 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-2">
-          <span className="font-bold text-emerald-900 dark:text-emerald-300 block text-sm">
-            🏋️ 支柱一：骨骼肌肉儲備
-          </span>
-          <p className="text-slate-600 dark:text-slate-300 leading-5">
-            40 歲後骨骼肌每十年自然流失 8%。每週 2 次阻力訓練 + 充足蛋白質 (1.2–1.5 g/kg)，是避免跌倒、臥床與失能的最強護城河。
-          </p>
-        </div>
-
-        <div className="p-4 rounded-xl border border-sky-200 dark:border-sky-900/60 bg-sky-50/50 dark:bg-sky-950/20 space-y-2">
-          <span className="font-bold text-sky-900 dark:text-sky-300 block text-sm">
-            ❤️ 支柱二：心肺耐力與血管彈性
-          </span>
-          <p className="text-slate-600 dark:text-slate-300 leading-5">
-            VO2 Max 與心血管全因死亡率呈強烈負相關。維持每週 150 分鐘中強度有氧，保持內皮彈性與微循環暢通。
-          </p>
-        </div>
-
-        <div className="p-4 rounded-xl border border-purple-200 dark:border-purple-900/60 bg-purple-50/50 dark:bg-purple-950/20 space-y-2">
-          <span className="font-bold text-purple-900 dark:text-purple-300 block text-sm">
-            🧠 支柱三：認知儲備與感官維護
-          </span>
-          <p className="text-slate-600 dark:text-slate-300 leading-5">
-            聽力損失與社交孤立是失智症最大的可預防危險因子。積極矯正視力聽力、學習新技能，能大幅強化神經可塑性。
-          </p>
-        </div>
-      </div>
-    </figure>
-  );
-};
 
 /* -------------------------------------------------------------------------- */
 /* 48. L-PRE-07: 成人與高齡四大必打疫苗防護網                                      */

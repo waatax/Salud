@@ -1,7 +1,7 @@
 import React, { useState, useId } from 'react';
 import { ALDH2Genotype } from '../../types';
 import { useLanguage } from '../../i18n';
-import { Dna, AlertCircle, ShieldCheck, Flame, HeartPulse, Activity } from 'lucide-react';
+import { Dna, ShieldCheck, Flame, HeartPulse, Activity } from 'lucide-react';
 
 export const SbxALDH2: React.FC = () => {
   const { t, language } = useLanguage();

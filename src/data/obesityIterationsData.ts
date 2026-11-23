@@ -1,4 +1,3 @@
-import { EvidenceGrade } from '../types';
 
 /**
  * 肥胖與代謝醫學專區 · 7 輪專家深度會議迭代演進紀錄

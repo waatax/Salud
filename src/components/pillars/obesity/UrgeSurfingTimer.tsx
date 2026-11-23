@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Timer,
   Play,
   Pause,
   RotateCcw,
   Sparkles,
   HeartPulse,
   Brain,
-  CheckCircle2,
-  AlertTriangle,
   Coffee,
   Footprints,
   Droplets,
   Wind,
-  Smile,
 } from 'lucide-react';
 
 export const UrgeSurfingTimer: React.FC = () => {

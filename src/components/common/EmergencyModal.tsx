@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const EmergencyModal: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <Modal

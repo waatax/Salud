@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { PHYSIO_EXERCISES } from '../../data/ultraHealthData';
 import {
   Activity,
-  AlertOctagon,
-  CheckCircle2,
-  Dumbbell,
-  ShieldAlert,
-  Flame,
-  ChevronRight,
-  Sparkles
+  AlertOctagon
 } from 'lucide-react';
 
 export const MobilityPhysioGuide: React.FC = () => {

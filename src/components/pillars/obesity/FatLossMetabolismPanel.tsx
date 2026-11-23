@@ -3,15 +3,11 @@ import { FAT_LOSS_METABOLISM_STEPS } from '../../../data/obesityData';
 import {
   Flame,
   Zap,
-  Wind,
   ShieldAlert,
   Footprints,
   Activity,
-  ArrowRight,
   TrendingDown,
   AlertTriangle,
-  HeartPulse,
-  Sparkles,
   CheckCircle2,
 } from 'lucide-react';
 

@@ -4,10 +4,6 @@ import {
   ShieldAlert,
   Sparkles,
   Zap,
-  Activity,
-  ArrowRight,
-  RefreshCw,
-  CheckCircle2,
   AlertTriangle,
   Flame,
 } from 'lucide-react';

@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   Stethoscope,
   Sparkles,
-  ArrowRight,
   Calculator,
   BookOpen,
   HeartPulse,
@@ -19,12 +18,10 @@ import {
   Flame,
   Pill,
   Bone,
-  CheckCircle2,
   AlertOctagon,
   ChevronRight,
   Gauge,
   ClipboardList,
-  ExternalLink,
   HeartHandshake
 } from 'lucide-react';
 

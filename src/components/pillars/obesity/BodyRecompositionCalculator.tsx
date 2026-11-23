@@ -1,19 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { BODY_RECOMP_CANDIDATES } from '../../../data/obesityData';
 import {
-  Scale,
   Dumbbell,
-  Flame,
   Activity,
   Calculator,
   ShieldCheck,
-  RefreshCw,
   Sparkles,
-  Award,
-  ArrowRight,
-  TrendingUp,
-  TrendingDown,
-  Info,
   Calendar,
 } from 'lucide-react';
 

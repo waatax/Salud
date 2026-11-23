@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { ALTITUDE_PROFILES } from '../../data/sportsScienceData';
 import { useLanguage } from '../../i18n';
-import { Mountain, AlertTriangle, ShieldAlert, CheckCircle2, HeartPulse, Compass, Activity } from 'lucide-react';
+import { Mountain, AlertTriangle, ShieldAlert, CheckCircle2, Compass, Activity } from 'lucide-react';
 
 export const SimMountaineeringAltitude: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   const [altitudeM, setAltitudeM] = useState<number>(3402); // Default to Paiyun Lodge (Yushan)
 

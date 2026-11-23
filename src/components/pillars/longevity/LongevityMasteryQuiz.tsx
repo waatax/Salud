@@ -7,7 +7,6 @@ import {
   RotateCcw,
   Sparkles,
   ArrowRight,
-  HelpCircle,
   BookOpen,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';

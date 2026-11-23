@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../i18n';
-import { Zap, Gauge, Flame, Mountain, Wind, ShieldCheck, ChevronRight, Info } from 'lucide-react';
+import { Gauge, Flame, Mountain, Wind, Info } from 'lucide-react';
 import { COGGAN_POWER_ZONES } from '../../data/cyclingData';
 
 export const SimCyclingPower: React.FC = () => {
@@ -8,7 +8,7 @@ export const SimCyclingPower: React.FC = () => {
 
   const [ftpWatts, setFtpWatts] = useState<number>(220);
   const [bodyWeightKg, setBodyWeightKg] = useState<number>(68);
-  const [bikeWeightKg, setBikeWeightKg] = useState<number>(9);
+  const [bikeWeightKg] = useState<number>(9);
   const [slopeGradient, setSlopeGradient] = useState<number>(7); // in percent: 0, 3, 7, 10
   const [targetPctFtp, setTargetPctFtp] = useState<number>(90); // default at sweet spot
 
