@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { scheduleReview, type RecallRating, type ReviewCardState } from '../compose/spacedRepetition';
 
 /**
  * Per-reader learning progress, kept in localStorage.
@@ -25,6 +26,10 @@ export interface LearningProgress {
   completedMyths: string[];
   /** Medical discipline IDs the learner marked as "liked / interested" (e.g. `DISC-PHYSIO`). */
   likedDisciplines: string[];
+  /** Spaced-repetition review schedule keyed by lessonId (Ultralearning Retrieval + Retention). */
+  reviewSchedule?: Record<string, ReviewCardState>;
+  /** Learner's own plain-language Feynman explanation keyed by lessonId (Ultralearning Intuition). */
+  feynmanNotes?: Record<string, string>;
 }
 
 const EMPTY: LearningProgress = {
@@ -34,6 +39,8 @@ const EMPTY: LearningProgress = {
   completedScenarios: [],
   completedMyths: [],
   likedDisciplines: [],
+  reviewSchedule: {},
+  feynmanNotes: {},
 };
 
 function load(): LearningProgress {
@@ -49,6 +56,8 @@ function load(): LearningProgress {
       completedScenarios: Array.isArray(parsed.completedScenarios) ? parsed.completedScenarios : [],
       completedMyths: Array.isArray(parsed.completedMyths) ? parsed.completedMyths : [],
       likedDisciplines: Array.isArray(parsed.likedDisciplines) ? parsed.likedDisciplines : [],
+      reviewSchedule: parsed.reviewSchedule && typeof parsed.reviewSchedule === 'object' ? parsed.reviewSchedule : {},
+      feynmanNotes: parsed.feynmanNotes && typeof parsed.feynmanNotes === 'object' ? parsed.feynmanNotes : {},
     };
   } catch {
     return EMPTY;
@@ -172,6 +181,36 @@ export function useLearningProgress() {
     [update]
   );
 
+  const recordRecall = useCallback(
+    (lessonId: string, rating: RecallRating) =>
+      update((p) => {
+        const prevSchedule = p.reviewSchedule ?? {};
+        return {
+          ...p,
+          reviewSchedule: {
+            ...prevSchedule,
+            [lessonId]: scheduleReview(prevSchedule[lessonId], rating),
+          },
+        };
+      }),
+    [update]
+  );
+
+  const saveFeynmanNote = useCallback(
+    (lessonId: string, note: string) =>
+      update((p) => {
+        const trimmed = note.trim();
+        const next = { ...(p.feynmanNotes ?? {}) };
+        if (trimmed) {
+          next[lessonId] = trimmed;
+        } else {
+          delete next[lessonId];
+        }
+        return { ...p, feynmanNotes: next };
+      }),
+    [update]
+  );
+
   return {
     progress,
     markComplete,
@@ -185,6 +224,8 @@ export function useLearningProgress() {
     completeScenario,
     completeMyth,
     toggleLikeDiscipline,
+    recordRecall,
+    saveFeynmanNote,
   };
 }
 

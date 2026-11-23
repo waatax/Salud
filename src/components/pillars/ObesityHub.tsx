@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { useHashTab } from '../../hooks/useHashTab';
 import { OBESITY_TABS } from '../../config/routes';
 import {
@@ -11,16 +11,17 @@ import {
   OBESITY_MYTHS,
   MDT_CONSENSUS_STATEMENTS,
 } from '../../data/obesityData';
-import { SimWeightTrajectory } from '../simulators/SimWeightTrajectory';
 import { UrgeSurfingTimer } from './obesity/UrgeSurfingTimer';
 import { TaiwanDiningGuide } from './obesity/TaiwanDiningGuide';
 import { DrugInteractionMatrix } from './obesity/DrugInteractionMatrix';
 import { ObesityMasteryQuiz } from './obesity/ObesityMasteryQuiz';
 import { MuscleHypertrophyPanel } from './obesity/MuscleHypertrophyPanel';
 import { FatLossMetabolismPanel } from './obesity/FatLossMetabolismPanel';
-import { BodyRecompositionCalculator } from './obesity/BodyRecompositionCalculator';
-import { TirzepatideChapter } from './obesity/tirzepatide/TirzepatideChapter';
 import { ThreeHighsEntry } from './cardiometabolic/ThreeHighsGuide';
+
+const SimWeightTrajectory = lazy(() => import('../simulators/SimWeightTrajectory').then((m) => ({ default: m.SimWeightTrajectory })));
+const BodyRecompositionCalculator = lazy(() => import('./obesity/BodyRecompositionCalculator').then((m) => ({ default: m.BodyRecompositionCalculator })));
+const TirzepatideChapter = lazy(() => import('./obesity/tirzepatide/TirzepatideChapter').then((m) => ({ default: m.TirzepatideChapter })));
 import { HubHero } from '../common/HubHero';
 import { HubTabBar, type HubTabGroup } from '../common/HubTabBar';
 import { HUB_PRIMERS } from '../../data/hubPrimers';
@@ -245,7 +246,9 @@ export const ObesityHub: React.FC = () => {
           TAB 4: BODY RECOMPOSITION & MACRO CALCULATOR (同步重組試算)
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'RECOMP' && (
-        <BodyRecompositionCalculator />
+        <Suspense fallback={<p className="py-10 text-center text-sm text-slate-500" role="status">載入身體組成試算器…</p>}>
+          <BodyRecompositionCalculator />
+        </Suspense>
       )}
 
       {/* ─────────────────────────────────────────────────────────────
@@ -401,7 +404,9 @@ export const ObesityHub: React.FC = () => {
           TAB: TIRZEPATIDE & TWINCRETIN MAX-EFFICACY PROTOCOL
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'TIRZEPATIDE_PROTOCOL' && (
-        <TirzepatideChapter />
+        <Suspense fallback={<p className="py-10 text-center text-sm text-slate-500" role="status">載入猛健樂完整指南…</p>}>
+          <TirzepatideChapter />
+        </Suspense>
       )}
 
       {/* ─────────────────────────────────────────────────────────────
@@ -785,7 +790,9 @@ export const ObesityHub: React.FC = () => {
       {activeTab === 'SURGERY_AND_SIM' && (
         <div className="space-y-8 animate-fade-in">
           {/* Integrated Interactive Simulator */}
-          <SimWeightTrajectory />
+          <Suspense fallback={<p className="py-10 text-center text-sm text-slate-500" role="status">載入體重軌跡模擬器…</p>}>
+            <SimWeightTrajectory />
+          </Suspense>
 
           {/* Bariatric Surgery Section */}
           <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 p-6 sm:p-8 space-y-6 shadow-sm backdrop-blur-sm">

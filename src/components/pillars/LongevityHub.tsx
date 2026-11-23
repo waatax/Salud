@@ -26,8 +26,7 @@ import {
   CheckCircle2,
   Map as MapIcon,
 } from 'lucide-react';
-import { KnowledgeAtlasView } from '../knowledge/KnowledgeAtlasView';
-import { LONGEVITY_ATLAS } from '../../data/atlas';
+import { LazyAtlasPanel } from '../knowledge/LazyAtlasPanel';
 
 export const LONGEVITY_TAB_GROUPS: HubTabGroup<LongevitySubTab>[] = [
   {
@@ -203,7 +202,7 @@ export const LongevityHub: React.FC = () => {
       ───────────────────────────────────────────────────────────── */}
       {activeTab === 'ATLAS' && (
         <div className="space-y-8 animate-fade-in">
-          <KnowledgeAtlasView atlas={LONGEVITY_ATLAS} />
+          <LazyAtlasPanel topic="longevity" />
         </div>
       )}
     </div>

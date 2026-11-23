@@ -31,8 +31,7 @@ import {
   Droplets,
   Map as MapIcon,
 } from 'lucide-react';
-import { KnowledgeAtlasView } from '../knowledge/KnowledgeAtlasView';
-import { SLEEP_ATLAS } from '../../data/atlas';
+import { LazyAtlasPanel } from '../knowledge/LazyAtlasPanel';
 
 const SLEEP_TAB_GROUPS: HubTabGroup<SleepSubTab>[] = [
   {
@@ -611,7 +610,7 @@ export const SleepHub: React.FC = () => {
       {/* ── Sub-Tab 7: ATLAS (小白到大師知識點全圖) ── */}
       {activeTab === 'ATLAS' && (
         <div className="space-y-6">
-          <KnowledgeAtlasView atlas={SLEEP_ATLAS} />
+          <LazyAtlasPanel topic="sleep" />
         </div>
       )}
     </div>

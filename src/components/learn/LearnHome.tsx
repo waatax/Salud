@@ -28,13 +28,13 @@ const quickEntries = [
 const guides = [
   { id: 'move', label: '開始運動', lessonId: 'L-MOVE-01', title: '散步時，怎麼知道自己走得夠快？',
     intro: '在熟悉的路上走一段，留意自己還能不能邊走邊說話。從這個小觀察，學會分辨活動強度。',
-    photo: 'salud-park-walk.webp', more: '讀懂步數研究', href: '#updates/UPD-2025-STEPS' },
+    photo: 'salud-park-walk.webp', photoAlt: '清晨綠蔭公園步道上輕鬆健走的日常景象', more: '讀懂步數研究', href: '#updates/UPD-2025-STEPS' },
   { id: 'eat', label: '搭配三餐', lessonId: 'L-EAT-01', title: '打開便當，這一餐還少了什麼？',
     intro: '看看飯、菜和主菜各占多少，再用台灣「我的餐盤」想一想，下一餐可以多搭配哪一類食物。',
-    photo: 'salud-healthy-morning.webp', more: '比較常見飲食法', href: '#diet/patterns' },
+    photo: 'salud-healthy-morning.webp', photoAlt: '晨光中桌上擺放開水、筆記本與新鮮水果的健康早晨', more: '比較常見飲食法', href: '#diet/patterns' },
   { id: 'rest', label: '睡個好覺', lessonId: 'L-REST-01', title: '睡了好幾個鐘頭，醒來還是累？',
     intro: '昨晚幾點睡、半夜醒了幾次、白天精神如何？把這些線索放在一起，比只看時數更能描述自己的睡眠。',
-    photo: 'salud-sleep-journal.webp', more: '讀懂睡眠規律研究', href: '#updates/UPD-2024-SLEEP-REG' },
+    photo: 'salud-sleep-journal.webp', photoAlt: '安靜臥室床邊桌上的睡眠日記本與溫和夜燈', more: '讀懂睡眠規律研究', href: '#updates/UPD-2024-SLEEP-REG' },
 ];
 
 function guideFromHash() {
@@ -108,7 +108,7 @@ export function LearnHome() {
               <a className="editorial-hero-link" href={guide.href}>{guide.more}</a>
             </div>
           </div>
-          <img className="editorial-hero-photo" src={import.meta.env.BASE_URL + guide.photo} alt="" width={1000} height={750} fetchPriority="high" />
+          <img className="editorial-hero-photo" src={import.meta.env.BASE_URL + guide.photo} alt={guide.photoAlt} width={1000} height={750} fetchPriority="high" />
         </div>
       </section>
 
@@ -143,6 +143,7 @@ export function LearnHome() {
         <div className="editorial-practice-grid">
           <LearningChallenge />
           <div className="editorial-practice-links">
+            <a href="#learn/mastery" className="editorial-entry"><Sparkles size={23} aria-hidden="true" /><span><strong>超速學習工作坊：融會貫通</strong><span>看範例拆解、跨主題間隔回憶與弱點專攻</span></span></a>
             <a href="#learn/practice" className="editorial-entry"><CircleHelp size={23} aria-hidden="true" /><span><strong>情境練習與閃卡</strong><span>用生活案例與小測驗複習</span></span></a>
             <a href="#learn/academy" className="editorial-entry"><GraduationCap size={23} aria-hidden="true" /><span><strong>認識醫學學科</strong><span>從生理、病理到如何讀研究</span></span></a>
             <a href="#learn/move/L-MOVE-08" className="editorial-entry"><HeartPulse size={23} aria-hidden="true" /><span><strong>為什麼要練肌力和肌耐力？</strong><span>從提菜、走樓梯看兩者的差別</span></span></a>

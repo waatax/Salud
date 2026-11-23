@@ -18,6 +18,10 @@ export const TRACK_SPINE: LearningTrack = {
       title_zh: '認識脊椎：26 塊骨頭、23 個軟墊與一束神經',
       minutes: 6,
       big_idea_zh: '脊椎是骨頭、椎間盤、關節、肌肉與神經組成的系統；神經從每一節的「神經孔」出來，管固定的一塊皮膚與肌肉。',
+      sources: [
+        { title: '美國骨科醫學會（AAOS）：Spine Basics 脊椎構造基礎', url: 'https://orthoinfo.aaos.org/en/diseases--conditions/spine-basics/', note: '介紹頸、胸、腰椎構造、椎間盤與神經根分布，實際背痛或麻木仍須由醫師評估。' },
+        { title: '英國國家健康照護卓越研究院（NICE）：下背痛與坐骨神經痛評估指引（NG59）', url: 'https://www.nice.org.uk/guidance/ng59', note: '強調區分一般機械性背痛與需立即處置的神經壓迫紅旗警訊。' },
+      ],
       analogy_zh: '把脊椎想成一棟大樓：椎體是樓板、椎間盤是避震墊、椎管是電纜管道間、神經孔是讓電線穿出牆壁的孔。',
       key_points_zh: [
         '成人脊椎有 7 節頸椎、12 節胸椎、5 節腰椎，加上癒合的薦骨與尾骨；頸腰向前彎、胸椎向後彎，像彈簧一樣分散衝擊。',

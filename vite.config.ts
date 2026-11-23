@@ -17,17 +17,8 @@ export default defineConfig({
           if (id.includes('node_modules/lucide-react')) {
             return 'vendor-icons';
           }
-          if (
-            id.includes('src/data/cyclingData') ||
-            id.includes('src/data/strengthData') ||
-            id.includes('src/data/mobilityData') ||
-            id.includes('src/data/sportsScienceData') ||
-            id.includes('src/data/badmintonData') ||
-            id.includes('src/data/tableTennisData') ||
-            id.includes('src/data/pickleballData')
-          ) {
-            return 'salud-sports-data';
-          }
+          // v6.14: sports data files are no longer forced into one 233 KB 'salud-sports-data'
+          // chunk; Rollup splits each sport's data into its own lazy discipline chunk.
           // v6.2: clinical data is not grouped here. The clinic hub carries only the light index;
           // each department's pathways (src/data/clinical/pathways/*.json) are their own chunk.
           // v4.0: other data files are no longer forced into one eager 'salud-data'

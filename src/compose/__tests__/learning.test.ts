@@ -26,7 +26,7 @@ function deadLinkReason(hash: string): string | null {
   switch (route.kind) {
     case 'learn': {
       if (!route.trackId) return null;
-      if (route.trackId === 'practice' || route.trackId === 'flashcards' || route.trackId === 'academy') {
+      if (route.trackId === 'practice' || route.trackId === 'flashcards' || route.trackId === 'academy' || route.trackId === 'mastery') {
         return route.lessonId ? `special learn view ${route.trackId} has no lesson ${route.lessonId}` : null;
       }
       const track = getTrack(route.trackId);

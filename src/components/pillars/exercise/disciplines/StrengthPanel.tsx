@@ -5,8 +5,7 @@ import { TopicAccordion, DetailSection } from '../shared/TopicAccordion';
 import { StrengthInfographics } from '../../../sports/StrengthInfographics';
 import { MonsterStrengthEnduranceSection } from './MonsterStrengthEnduranceSection';
 import { Dumbbell, Flame, Calculator, BookOpen, BarChart3, Map as MapIcon } from 'lucide-react';
-import { KnowledgeAtlasView } from '../../../knowledge/KnowledgeAtlasView';
-import { STRENGTH_ENDURANCE_ATLAS } from '../../../../data/atlas';
+import { LazyAtlasPanel } from '../../../knowledge/LazyAtlasPanel';
 
 /**
  * StrengthPanel — Strength Training & Muscular Endurance Science discipline
@@ -92,7 +91,7 @@ export const StrengthPanel: React.FC = () => {
 
       {/* Muscular Endurance & Strength Knowledge Atlas (L1 小白到 L5 大師全圖) */}
       <section id="strength-atlas" className="space-y-4 scroll-mt-24">
-        <KnowledgeAtlasView atlas={STRENGTH_ENDURANCE_ATLAS} />
+        <LazyAtlasPanel topic="strength" />
       </section>
 
       {/* Flagship Section: Muscular Endurance vs Maximum Strength (Monster Training & Dr. Ho Li-An) */}

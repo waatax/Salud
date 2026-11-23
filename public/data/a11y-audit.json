@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "referenceStandard": "WCAG 2.2 Level AA",
-  "timestamp": "2026-11-23T04:55:55.384Z",
+  "timestamp": "2026-11-23T06:36:06.285Z",
   "scope": "Static source inventory only. Not a WCAG conformance audit or certification.",
   "requiresManualReview": true,
   "summary": {
@@ -18,8 +18,8 @@
       "description": "來源中的語意標籤",
       "details": "需於實際頁面確認地標名稱、順序與標題階層。",
       "status": "WARN",
-      "scannedCount": 216,
-      "candidateCount": 68
+      "scannedCount": 210,
+      "candidateCount": 65
     },
     {
       "checkId": "A11Y-002-INTERACTIVE-LABELS",
@@ -28,7 +28,7 @@
       "description": "來源中的明確標籤",
       "details": "標籤屬性存在不代表每個控制項都有可用名稱；需檢查渲染後的無障礙樹。",
       "status": "WARN",
-      "scannedCount": 216,
+      "scannedCount": 210,
       "candidateCount": 119
     },
     {
@@ -38,8 +38,8 @@
       "description": "來源中的焦點樣式線索",
       "details": "全域 CSS 另提供焦點樣式；需實際鍵盤驗證可見焦點、順序及遮擋，不能由 class 推論通過。",
       "status": "WARN",
-      "scannedCount": 216,
-      "candidateCount": 38
+      "scannedCount": 210,
+      "candidateCount": 37
     },
     {
       "checkId": "A11Y-004-DUAL-ENCODING",
@@ -48,8 +48,8 @@
       "description": "來源中的文字或狀態線索",
       "details": "需逐頁確認所有資訊都能在不依賴顏色時理解。",
       "status": "WARN",
-      "scannedCount": 216,
-      "candidateCount": 46
+      "scannedCount": 210,
+      "candidateCount": 47
     },
     {
       "checkId": "A11Y-005-CONTRAST-RATIO",
@@ -58,8 +58,8 @@
       "description": "文字與主題樣式線索",
       "details": "本程式未量測渲染後的前景、背景對比，未涵蓋所有配色與互動狀態。",
       "status": "WARN",
-      "scannedCount": 216,
-      "candidateCount": 196
+      "scannedCount": 210,
+      "candidateCount": 190
     },
     {
       "checkId": "A11Y-006-SCREEN-READERS",
@@ -68,13 +68,12 @@
       "description": "ARIA 與輔助文字線索",
       "details": "ARIA 存在不代表報讀機可用；需真人使用報讀機確認閱讀順序與狀態通知。",
       "status": "WARN",
-      "scannedCount": 216,
-      "candidateCount": 111
+      "scannedCount": 210,
+      "candidateCount": 112
     }
   ],
   "scannedComponents": [
     "src/components/common/AuditCModal.tsx",
-    "src/components/common/DailyStreakCard.tsx",
     "src/components/common/EmergencyModal.tsx",
     "src/components/common/EvidenceBadge.tsx",
     "src/components/common/FloatingReadingDock.tsx",
@@ -95,11 +94,9 @@
     "src/components/common/RedFlagAlert.tsx",
     "src/components/common/SimulatorsModal.tsx",
     "src/components/common/ThemePicker.tsx",
-    "src/components/council/ExpertBestPracticeView.tsx",
     "src/components/council/ExpertInfoGraph.tsx",
     "src/components/council/ExpertMonographModal.tsx",
     "src/components/council/ExpertSeatIllustration.tsx",
-    "src/components/council/ExpertZoneSection.tsx",
     "src/components/council/GrandCouncilManifestoModal.tsx",
     "src/components/council/LaypersonFriendlyGuide.tsx",
     "src/components/figures/CurriculumChart.tsx",
@@ -117,7 +114,6 @@
     "src/components/figures/UniversalEvidenceFigure.tsx",
     "src/components/hub/CardiometabolicHubModal.tsx",
     "src/components/hub/CrossPillarSynergy.tsx",
-    "src/components/hub/SupplementsModal.tsx",
     "src/components/knowledge/BehaviorExperiment.tsx",
     "src/components/knowledge/CanonicalBadge.tsx",
     "src/components/knowledge/ChapterLanding.tsx",
@@ -129,6 +125,7 @@
     "src/components/knowledge/KnowledgeGraph.tsx",
     "src/components/knowledge/KnowledgeGraphView.tsx",
     "src/components/knowledge/KnowledgePage.tsx",
+    "src/components/knowledge/LazyAtlasPanel.tsx",
     "src/components/knowledge/MedicalKnowledgeBase.tsx",
     "src/components/knowledge/PageIllustrations.tsx",
     "src/components/knowledge/SelfCheckQuiz.tsx",
@@ -143,13 +140,13 @@
     "src/components/learn/ActionPlanPanel.tsx",
     "src/components/learn/CheckupGuide.tsx",
     "src/components/learn/EvidenceUpdatesPage.tsx",
-    "src/components/learn/FourPillarsMasterCompass.tsx",
     "src/components/learn/GlossaryPage.tsx",
     "src/components/learn/HealthCompassWidget.tsx",
     "src/components/learn/LearnHome.tsx",
     "src/components/learn/learnUi.tsx",
     "src/components/learn/LessonReferenceTable.tsx",
     "src/components/learn/LessonVisualGraphic.tsx",
+    "src/components/learn/MasteryWorkshopView.tsx",
     "src/components/learn/MetabolicJourney.tsx",
     "src/components/learn/PracticeLabView.tsx",
     "src/components/learn/QuickTips.tsx",
@@ -199,7 +196,6 @@
     "src/components/pillars/longevity/InfographHormesisProtocol.tsx",
     "src/components/pillars/longevity/InfographLongevityCompounds.tsx",
     "src/components/pillars/longevity/InfographSenescenceSASP.tsx",
-    "src/components/pillars/longevity/LongevityIterationLog.tsx",
     "src/components/pillars/longevity/LongevityMasteryQuiz.tsx",
     "src/components/pillars/LongevityHub.tsx",
     "src/components/pillars/ltc/LtcChapters.tsx",
@@ -216,7 +212,6 @@
     "src/components/pillars/obesity/DrugInteractionMatrix.tsx",
     "src/components/pillars/obesity/FatLossMetabolismPanel.tsx",
     "src/components/pillars/obesity/MuscleHypertrophyPanel.tsx",
-    "src/components/pillars/obesity/ObesityIterationLog.tsx",
     "src/components/pillars/obesity/ObesityMasteryQuiz.tsx",
     "src/components/pillars/obesity/TaiwanDiningGuide.tsx",
     "src/components/pillars/obesity/tirzepatide/chapterUi.tsx",
@@ -284,7 +279,6 @@
     "src/components/systems/SystemSchematicFigure.tsx",
     "src/components/ultrahealth/AtomicHabitTracker.tsx",
     "src/components/ultrahealth/DailyProtocolMatrix.tsx",
-    "src/components/ultrahealth/ExpertIterationLog.tsx",
     "src/components/ultrahealth/MasterySkillTree.tsx",
     "src/components/ultrahealth/MobilityPhysioGuide.tsx",
     "src/components/ultrahealth/PersonalHealthBlueprint.tsx",

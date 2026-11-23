@@ -1,5 +1,20 @@
 # Changelog
 
+## v6.14.0 — 2026-11-23 · 超速學習工作坊（融會貫通）、間隔複習引擎與全站效能再瘦身
+
+- **認知科學超速學習工作坊（`#learn/mastery`）**：融合 Scott H. Young《Ultralearning》與《Get Better at Anything》核心學習框架（See → Do → Feedback），打造四合一精通系統：
+  - **學習地圖與弱點專攻（Metalearning & Drill）**：將科學健康與飲食知識區分為「觀念（懂原理）／事實（記門檻）／程序（直接做）」，並自動診斷八大路徑掌握度，優先推薦最弱環節（`diagnoseTracks`）。
+  - **看範例學拆解（Worked Examples）**：收錄 4 套專家思維逐步拆解範例（120 元排骨便當營養改造、LDL 128 卻藏 ApoB/代謝症候群風險判讀、廚房兩罐油挑選實戰、失眠睡眠效率與 CBT-I 處方），攤開隱性判斷步驟、降低初學認知負荷。
+  - **跨主題混搭間隔回憶（Interleaved Spaced Recall）**：新增純函數 Leitner 間隔排程引擎（`src/compose/spacedRepetition.ts`，1→3→7→21→60 天）與跨路徑交錯出題（`buildInterleavedDeck`），避免單一主題死背、強化真實生活遷移。
+  - **融會貫通串聯與費曼白話自測（Intuition）**：以 4 條跨領域因果鏈串起飲食 × 運動 × 睡眠 × 生理機轉 × 健檢指標，並支援每課與串聯主題的本機費曼白話筆記（`feynmanNotes`）。
+- **課程閱讀頁升級**：每堂白話小課底部新增「間隔複習排程」與「費曼自測白話筆記」，全站搜尋（`Ctrl/⌘ K`）與首頁皆可直達 `#learn/mastery`。
+- **補齊全 8 條路徑入門課來源與排版**：為 `L-BAS-01`、`L-BODY-01`、`L-PRE-01`、`L-SPN-01` 補上國健署、AHA、WHO、AAOS、NICE 官方實證來源與適用限制；`index.html` 載入 `Noto Serif TC` 讓首頁編輯風標題不再退回系統明體；補齊首頁三張主題攝影的無障礙替代文字。
+- **程式碼分割與遺留清理**：
+  - 解除 `vite.config.ts` 的 `salud-sports-data` 整包綑綁（原 232.7 kB），各運動專項按需載入自身資料。
+  - 新增 `LazyAtlasPanel`，讓 `LongevityHub`（177.1 → 116.2 kB，−34%）、`SleepHub` 與 `StrengthPanel` 按需載入 65–71 kB 知識全圖。
+  - `ObesityHub` 延後載入猛健樂專章、體重模擬器與身體組成試算器（300.9 → 208.9 kB，−31%）。
+  - 移除 8 個已無引用的舊版元件，新增 7 項 `ultralearning.test.ts` 測試（共 96 項全數通過，29 條治理規則 0 錯誤）。
+
 ## v6.13.0 — 2026-11-23 · 生活健康課首頁、白話入門課與全站效能整理
 
 - 首頁改為「生活裡的健康課」：可在開始運動、搭配三餐、睡個好覺三個主題間切換（`#home/read/move`、`#home/read/eat`、`#home/read/rest`），各配一張照片、一堂入門小課與一篇研究摘要。新增睡眠日記照片。

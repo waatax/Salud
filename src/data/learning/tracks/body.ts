@@ -14,6 +14,10 @@ export const TRACK_BODY: LearningTrack = {
       title_zh: '心臟與血管：一天跳 10 萬下的幫浦',
       minutes: 6,
       big_idea_zh: '心臟是幫浦、血管是水管；高血壓、高 LDL、高血糖與吸菸會刮傷水管內壁，讓斑塊慢慢堆積。',
+      sources: [
+        { title: '美國心臟協會（AHA）：Life\'s Essential 8 心血管健康八要素', url: 'https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8', note: '涵蓋飲食、運動、戒菸、睡眠、體重、血脂、血糖與血壓八項可控指標。' },
+        { title: '世界衛生組織（WHO）：心血管疾病衛教概覽', url: 'https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)', note: '多數心血管風險可透過長期生活型態調整與醫療追蹤降低。' },
+      ],
       analogy_zh: '血管內壁像不沾鍋的塗層：一旦被刮傷，油垢（LDL 顆粒）就開始卡住，越積越厚。',
       key_points_zh: [
         '心臟每天約跳 10 萬下、打出約 7,000 公升血液；心肌自己也靠冠狀動脈供血，冠狀動脈被堵住就是心肌梗塞。',

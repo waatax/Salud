@@ -46,6 +46,9 @@ function pageName(i: PageTitleInput): string | null {
     case 'home':
       return null;
     case 'learn': {
+      if (i.learnTrackId === 'mastery') {
+        return '超速學習工作坊・融會貫通';
+      }
       if (i.learnTrackId === 'practice' || i.learnTrackId === 'flashcards') {
         return '情境實戰與知識閃卡・學習路徑';
       }

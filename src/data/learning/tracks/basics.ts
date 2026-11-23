@@ -14,6 +14,10 @@ export const TRACK_BASICS: LearningTrack = {
       title_zh: '身體的五個生命徵象',
       minutes: 6,
       big_idea_zh: '血壓、心跳、呼吸、體溫、血氧是身體的儀表板；知道自己的「平常值」，才看得出什麼時候不對勁。',
+      sources: [
+        { title: '國民健康署：居家血壓 722 量測原則', url: 'https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=4878&pid=18903', note: '連續 7 天、早晚各量 1 次、每次量 2 遍取平均，用於建立個人基準值。' },
+        { title: '美國心臟協會（AHA）：2025 高血壓指引重點', url: 'https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know', note: '生命徵象參考範圍依年齡、活動狀態與共病不同，異常或伴隨不適請就醫評估。' },
+      ],
       analogy_zh: '就像開車看儀表板：看一次油表沒有意義，要知道平常的數字，才會發現哪天突然漏油。',
       key_points_zh: [
         '血壓：成人理想值 <120/80 mmHg；收縮壓 ≥130 或舒張壓 ≥80 即屬第 1 期高血壓（AHA/ACC 2025）。在家量通常比在診間量更能代表真實血壓。',

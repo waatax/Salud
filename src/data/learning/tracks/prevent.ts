@@ -14,6 +14,10 @@ export const TRACK_PREVENT: LearningTrack = {
       title_zh: '代謝症候群：五項中有三項就要注意',
       minutes: 5,
       big_idea_zh: '腰圍、血壓、血糖、三酸甘油酯、HDL 五項中有三項異常，就是代謝症候群——心臟病與糖尿病的前哨站。',
+      sources: [
+        { title: '國民健康署：代謝症候群防治與判定標準', url: 'https://www.hpa.gov.tw/Pages/List.aspx?nodeid=221', note: '台灣採用亞洲腰圍標準（男 ≥90、女 ≥80 公分），五項符合三項即達代謝症候群。' },
+        { title: '美國心臟協會（AHA）：心血管-腎臟-代謝（CKM）症候群科學聲明', url: 'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001184', note: '說明肥胖、糖尿病、腎病與心血管疾病之間的連續風險與早期介入價值。' },
+      ],
       key_points_zh: [
         '國健署判定標準（五項中符合三項）：腰圍男 ≥90、女 ≥80 公分；血壓 ≥130/85 或服藥中；空腹血糖 ≥100 或服藥中；三酸甘油酯 ≥150 或服藥中；HDL 男 <40、女 <50 mg/dL。',
         '這五項背後的共同原因大多是胰島素阻抗與內臟脂肪，所以常常一起出現。',

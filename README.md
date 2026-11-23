@@ -1,3 +1,5 @@
+> **v6.14 超速學習工作坊（融會貫通）・間隔複習引擎與全站效能再瘦身（2026-11-23）**：融合《Ultralearning》與《Get Better at Anything》認知科學框架打造 `#learn/mastery`（學習地圖與八大路徑弱點專攻、4 套逐步拆解生活範例、Leitner 1→3→7→21→60 天跨主題混搭間隔回憶、4 條跨領域融會貫通因果鏈與本機費曼白話筆記）；補齊全部 8 條路徑入門課官方實證來源與 `Noto Serif TC` 標題字型；解除運動資料整包綑綁並延後載入三大 Atlas 與 `ObesityHub` 重型子頁（最高瘦身 34%），清理 8 個未使用舊元件。詳見 [CHANGELOG](CHANGELOG.md)。
+
 > **v6.13 生活健康課首頁・白話入門課與效能整理（2026-11-23）**：首頁可切換運動、飲食、睡眠三個生活主題（`#home/read/move|eat|rest`）；三堂入門課改以便當、散步與睡眠日記說明；人體系統專區改為按系統載入，課程頁圖解與對照表展開後才載入；移除未使用程式碼並開啟 `noUnusedLocals`；相依套件與部署流程（Node 24）更新。詳見 [CHANGELOG](CHANGELOG.md)。
 
 > **v6.8 從健康小白到醫學知識者・互動實作練習院、知識閃卡與 8 大醫學學科博覽館（2026-11-11）**：打造五階學習者成長護照（`Lv.1 健康好奇新手` ➔ `Lv.5 實證醫學知識者`），涵蓋 `#learn/practice`（12 大真實生活與臨床情境實戰練習室）、`#learn/flashcards`（65 堂課主動回憶翻轉閃卡 + 16 題生活迷思是非快閃挑戰）與 `#learn/academy`（8 大醫學學科奇妙博覽館，連結生理學、生物化學、運動力學、睡眠神經科學、檢驗醫學、實證流行病學、心血代謝與神經骨科分流）；全部 65 堂小課升級支援「逐點勾選掌握（共 319 個知識點）」與「費曼學習法：一句話講給家人朋友聽」分享卡；習慣養成技能樹（`#ultrahealth/SKILL_TREE`）擴充至 13 顆跨領域節點。詳見 [CHANGELOG](CHANGELOG.md)。
@@ -18,7 +20,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.13.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.14.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
