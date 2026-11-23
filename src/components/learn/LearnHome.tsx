@@ -86,7 +86,7 @@ export function LearnHome() {
             <a href="#home/topics" className={'editorial-hero-link ' + focusClass}>瀏覽所有主題</a>
           </div>
         </div>
-        <img className="editorial-hero-photo" src={import.meta.env.BASE_URL + 'salud-park-walk.webp'} alt="" width={800} height={600} fetchPriority="high" />
+        <img className="editorial-hero-photo" src={import.meta.env.BASE_URL + 'salud-healthy-morning.webp'} alt="" width={1000} height={750} fetchPriority="high" />
       </section>
 
       {lastLesson && lastTrack && (

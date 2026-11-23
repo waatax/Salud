@@ -34,6 +34,7 @@ export const TRACK_MOVE: LearningTrack = {
         explain_zh: '能說話但難以唱歌，是估計中等強度的一個線索。有心肺疾病或正在復健時，可和照護團隊確認適合的活動強度。',
       },
       deep_links: [
+        { label_zh: '健走入門：挑一段路走起來', hash: 'exercise/walking' },
         { label_zh: '運動生理與心率區間', hash: 'exercise' },
         { label_zh: '24 小時健康作息', hash: 'ultrahealth' },
       ],

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { SportsDiscipline } from '../../../types';
 import { DISCIPLINE_HASH } from '../../../config/routes';
 import { SPORT_GOALS, SPORT_PRIMERS, type SportGoalId } from '../../../data/sportPrimers';
@@ -39,10 +39,30 @@ const PanelLoadingFallback: React.FC = () => (
 export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) => {
   const [activeTab, setActiveTab] = useState<SportsDiscipline>(initialSubTab);
   const [selectedGoalId, setSelectedGoalId] = useState<SportGoalId>('beginner_daily');
+  const walkingHeading = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setActiveTab(initialSubTab);
   }, [initialSubTab]);
+
+  useEffect(() => {
+    if (activeTab !== 'PHYSIOLOGY') return;
+    let frame: number | undefined;
+    function openWalkingSection() {
+      if (frame !== undefined) cancelAnimationFrame(frame);
+      if (window.location.hash !== '#exercise/walking') return;
+      frame = requestAnimationFrame(() => {
+        walkingHeading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+        walkingHeading.current?.focus({ preventScroll: true });
+      });
+    }
+    openWalkingSection();
+    window.addEventListener('hashchange', openWalkingSection);
+    return () => {
+      window.removeEventListener('hashchange', openWalkingSection);
+      if (frame !== undefined) cancelAnimationFrame(frame);
+    };
+  }, [activeTab]);
 
   const handleSelectTab = (tab: SportsDiscipline) => {
     setActiveTab(tab);
@@ -56,6 +76,27 @@ export const ExerciseHub: React.FC<Props> = ({ initialSubTab = 'PHYSIOLOGY' }) =
     <div className="space-y-7 max-w-5xl mx-auto font-sans text-sm pb-16 animate-fade-in">
       {/* Hero Header */}
       <ExerciseHeroHeader compact={activeTab !== 'PHYSIOLOGY'} />
+
+      {activeTab === 'PHYSIOLOGY' && (
+        <section aria-labelledby="walking-title" className="grid overflow-hidden rounded-2xl border border-slate-200 bg-salud-light-surface dark:border-slate-800 dark:bg-salud-dark-surface sm:grid-cols-2">
+          <div className="self-center p-5 sm:p-6">
+            <h2 id="walking-title" ref={walkingHeading} tabIndex={-1} className="scroll-mt-24 font-display text-2xl font-bold text-slate-900 dark:text-white">健走入門</h2>
+            <p className="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">
+              從熟悉的平坦路段開始，用自己覺得舒服的速度走一小段。小課會帶你用「說話測試」感受運動強度，再依自己的步調增加活動。
+            </p>
+            <a href="#learn/move/L-MOVE-01" className="discovery-text-link mt-2">讀健走與運動強度小課</a>
+          </div>
+          <img
+            src={import.meta.env.BASE_URL + 'salud-park-walk.webp'}
+            alt="兩位不同世代的女性在綠蔭步道並肩散步"
+            width={800}
+            height={600}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[2/1] h-full w-full object-cover object-[50%_54%] sm:aspect-[4/3]"
+          />
+        </section>
+      )}
 
       {/* Goal-based interactive sport recommender */}
       {activeTab === 'PHYSIOLOGY' && (

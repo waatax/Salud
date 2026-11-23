@@ -44,6 +44,7 @@ export type Route =
 const EXERCISE_ALIASES: Record<string, SportsDiscipline> = {
   exercise: 'PHYSIOLOGY',
   physiology: 'PHYSIOLOGY',
+  walking: 'PHYSIOLOGY',
   running: 'RUNNING',
   cycling: 'CYCLING',
   mountaineering: 'MOUNTAINEERING',
