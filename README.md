@@ -1,3 +1,5 @@
+> **v6.15 預設森林綠主題與 UI/UX 深度質感優化（2026-11-23）**：全站預設改為「森林綠」溫潤護眼配色（仍可切換暗色／藍青／棕色／粉色／跟隨系統）；升級首頁分段膠囊切換器、卡片懸浮微互動、頂欄與手機底欄森林霧面毛玻璃質感。詳見 [CHANGELOG](CHANGELOG.md)。
+
 > **v6.14 超速學習工作坊（融會貫通）・間隔複習引擎與全站效能再瘦身（2026-11-23）**：融合《Ultralearning》與《Get Better at Anything》認知科學框架打造 `#learn/mastery`（學習地圖與八大路徑弱點專攻、4 套逐步拆解生活範例、Leitner 1→3→7→21→60 天跨主題混搭間隔回憶、4 條跨領域融會貫通因果鏈與本機費曼白話筆記）；補齊全部 8 條路徑入門課官方實證來源與 `Noto Serif TC` 標題字型；解除運動資料整包綑綁並延後載入三大 Atlas 與 `ObesityHub` 重型子頁（最高瘦身 34%），清理 8 個未使用舊元件。詳見 [CHANGELOG](CHANGELOG.md)。
 
 > **v6.13 生活健康課首頁・白話入門課與效能整理（2026-11-23）**：首頁可切換運動、飲食、睡眠三個生活主題（`#home/read/move|eat|rest`）；三堂入門課改以便當、散步與睡眠日記說明；人體系統專區改為按系統載入，課程頁圖解與對照表展開後才載入；移除未使用程式碼並開啟 `noUnusedLocals`；相依套件與部署流程（Node 24）更新。詳見 [CHANGELOG](CHANGELOG.md)。
@@ -20,7 +22,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.14.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.15.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

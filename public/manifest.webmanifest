@@ -6,7 +6,7 @@
   "start_url": "/Salud/",
   "scope": "/Salud/",
   "display": "standalone",
-  "background_color": "#F8FAF8",
-  "theme_color": "#065F46",
+  "background_color": "#F5F9F6",
+  "theme_color": "#047857",
   "icons": [{ "src": "/Salud/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
 }

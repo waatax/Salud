@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Palette, Check, MonitorSmartphone } from 'lucide-react';
+import { Check, MonitorSmartphone } from 'lucide-react';
 import { THEME_OPTIONS, useTheme } from '../../context/ThemeContext';
 
 /**
@@ -62,8 +62,11 @@ export const ThemePicker: React.FC<{ className?: string }> = ({ className = '' }
         title="切換配色主題"
         className="min-h-11 min-w-11 flex items-center justify-center gap-1.5 p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-emerald-400 dark:hover:border-emerald-700 text-xs font-semibold transition-colors"
       >
-        <span className="relative w-4 h-4" aria-hidden="true">
-          <Palette className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+        <span className="relative flex items-center justify-center w-4 h-4" aria-hidden="true">
+          <span
+            className="w-3.5 h-3.5 rounded-full border border-black/15 dark:border-white/25 shadow-xs"
+            style={{ background: current.swatch[2] }}
+          />
         </span>
         <span className="hidden md:inline">{current.label}</span>
       </button>
@@ -72,7 +75,7 @@ export const ThemePicker: React.FC<{ className?: string }> = ({ className = '' }
           role="menu"
           aria-label="配色主題"
           onKeyDown={onMenuKey}
-          className="absolute right-0 mt-2 w-64 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-salud-dark-card shadow-xl p-1.5 z-50 animate-fade-in"
+          className="absolute right-0 mt-2 w-64 rounded-2xl border border-emerald-900/10 dark:border-slate-700 bg-white/95 dark:bg-salud-dark-card/95 backdrop-blur-xl shadow-xl p-1.5 z-50 animate-fade-in"
         >
           <p className="px-2.5 pt-1.5 pb-1 text-[0.75rem] font-bold tracking-wide text-slate-500 dark:text-slate-400">配色主題</p>
           {THEME_OPTIONS.map((t) => {
@@ -85,7 +88,7 @@ export const ThemePicker: React.FC<{ className?: string }> = ({ className = '' }
                 aria-checked={active}
                 onClick={() => pick(t.id)}
                 className={`w-full flex items-center gap-3 rounded-xl px-2.5 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
-                  active ? 'bg-emerald-50 dark:bg-emerald-950/40' : 'hover:bg-slate-50 dark:hover:bg-slate-800/70'
+                  active ? 'bg-emerald-50/90 dark:bg-emerald-950/40' : 'hover:bg-slate-50 dark:hover:bg-slate-800/70'
                 }`}
               >
                 <span className="relative w-9 h-9 shrink-0 rounded-xl overflow-hidden border border-black/10 dark:border-white/15" style={{ background: t.swatch[0] }} aria-hidden="true">
@@ -93,7 +96,14 @@ export const ThemePicker: React.FC<{ className?: string }> = ({ className = '' }
                   <span className="absolute left-1.5 bottom-1.5 w-4 h-2 rounded-full" style={{ background: t.swatch[2] }} />
                 </span>
                 <span className="flex-1 min-w-0">
-                  <span className="block text-[14px] font-semibold text-slate-900 dark:text-white">{t.label}</span>
+                  <span className="flex items-center gap-1.5 text-[14px] font-semibold text-slate-900 dark:text-white">
+                    <span>{t.label}</span>
+                    {t.id === 'light' && (
+                      <span className="rounded-full bg-emerald-100 dark:bg-emerald-900/60 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800 dark:text-emerald-300">
+                        預設
+                      </span>
+                    )}
+                  </span>
                   <span className="block text-[11.5px] text-slate-500 dark:text-slate-400 truncate">{t.hint}</span>
                 </span>
                 {active && <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" aria-hidden="true" />}

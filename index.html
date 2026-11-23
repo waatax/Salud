@@ -5,8 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/Salud/favicon.svg" />
     <!-- v4.0: pinch-zoom is allowed again (WCAG 1.4.4 Resize Text). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#090E0C" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F5F9F6" />
     <title>Salud｜給每個人的健康學習平台</title>
     <meta name="description" content="健康，從好奇開始。Salud 用免費白話小課、人體圖解與研究來源，陪你認識飲食、運動、睡眠、健檢與疾病照護。依自己的步調，從生活問題讀進醫學知識。" />
     <meta property="og:type" content="website" />
@@ -38,17 +37,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Resolve the theme before first paint: an explicit choice wins, otherwise follow the OS.
-      // v5.0 themes: light (森林綠) · dark · ocean (藍青) · earth (棕色) · blossom (粉色).
+      // Resolve the theme before first paint: default is Forest Green ('light').
+      // v6.15 themes: light (森林綠，預設) · dark · ocean (藍青) · earth (棕色) · blossom (粉色) · system.
       (function () {
         var saved = null;
         try { saved = localStorage.getItem('salud-theme-choice'); } catch (e) {}
-        var themes = ['light', 'dark', 'ocean', 'earth', 'blossom'];
-        if (themes.indexOf(saved) < 0) saved = null;
-        var dark = saved ? saved === 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var themes = ['light', 'dark', 'ocean', 'earth', 'blossom', 'system'];
+        if (themes.indexOf(saved) < 0) saved = 'light';
+        var dark = saved === 'dark' || (saved === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
         var root = document.documentElement;
         root.classList.add(dark ? 'dark' : 'light');
-        if (saved && saved !== 'light' && saved !== 'dark') root.setAttribute('data-theme', saved);
+        if (saved && saved !== 'light' && saved !== 'dark' && saved !== 'system') root.setAttribute('data-theme', saved);
       })();
     </script>
   </head>

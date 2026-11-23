@@ -40,7 +40,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar }) => {
   const backpackCount = bookmarks.length + plan.items.length;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-salud-dark-bg/90 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-40 w-full border-b border-emerald-900/10 dark:border-slate-800/80 bg-[#F8FBF9]/90 dark:bg-salud-dark-bg/90 backdrop-blur-xl transition-colors">
       <div className="max-w-7xl mx-auto px-3 sm:px-5 xl:px-6 h-16 flex items-center gap-2 xl:gap-4">
         <button
           className="min-h-11 flex items-center gap-2.5 select-none text-left shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
@@ -50,7 +50,7 @@ export const Header: React.FC<Props> = ({ activePillar, onSelectPillar }) => {
           }}
           aria-label={zh ? 'Salud 首頁' : 'Salud home'}
         >
-          <span className="w-8 h-8 rounded-[.6rem] bg-emerald-800 dark:bg-emerald-300 flex items-center justify-center text-white dark:text-emerald-950 font-serif font-bold text-lg" aria-hidden="true">
+          <span className="w-8 h-8 rounded-[.65rem] bg-gradient-to-br from-emerald-700 to-emerald-900 dark:from-emerald-300 dark:to-emerald-400 shadow-xs flex items-center justify-center text-white dark:text-emerald-950 font-serif font-bold text-lg" aria-hidden="true">
             S
           </span>
           <span className="hidden sm:block leading-tight">

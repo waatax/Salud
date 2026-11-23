@@ -1,5 +1,14 @@
 # Changelog
 
+## v6.15.0 — 2026-11-23 · 預設森林綠主題與 UI/UX 深度質感優化
+
+- **預設森林綠主題（Forest Green Default）**：[index.html](index.html) 首屏預載腳本與 [ThemeContext.tsx](src/context/ThemeContext.tsx) 改為預設套用「森林綠（`light`）」，不再受作業系統暗色模式強制覆蓋；讀者仍可於 [ThemePicker.tsx](src/components/common/ThemePicker.tsx) 自由切換暗色、藍青、棕色、粉色或「跟隨系統」，並新增「預設」標記與主題色圓點指示。
+- **森林綠植物色系與質感微調**：微調 `--bg`（`#F5F9F6`）、`--card`（`#ECF4EE`）、`--border`（`#D6E4DA`）、`--text`（`#0F2018`）與 `--accent`（`#047857`）溫潤護眼對比；同步更新 `manifest.webmanifest` 與 `theme-color`。
+- **首頁與導覽 UI/UX 升級**：
+  - 首頁主題切換（開始運動／搭配三餐／睡個好覺）改為膠囊分段控制列（Segmented Pill），主視覺卡片加入柔和森林光影與低調懸浮微縮放（尊重 `prefers-reduced-motion`）。
+  - 入口卡片、探索目錄與「繼續上次學習」卡片加入層次陰影、懸浮升力與左側森林綠強調線。
+  - 頂欄與手機底欄改為森林綠霧面毛玻璃，手機作用中分頁加入圓角膠囊底色提升辨識度。
+
 ## v6.14.0 — 2026-11-23 · 超速學習工作坊（融會貫通）、間隔複習引擎與全站效能再瘦身
 
 - **認知科學超速學習工作坊（`#learn/mastery`）**：融合 Scott H. Young《Ultralearning》與《Get Better at Anything》核心學習框架（See → Do → Feedback），打造四合一精通系統：
