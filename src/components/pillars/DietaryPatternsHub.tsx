@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SimDietPatterns } from '../simulators/SimDietPatterns';
 import { DietaryNutrientsView } from './DietaryNutrientsView';
 import { SimSupplementChecker } from '../simulators/SimSupplementChecker';
-import { CHAPTERS as chapters } from '../../data/chapters';
+import { CHAPTER_CATALOG as chapters } from '../../data/chapterCatalog';
 import { useLanguage } from '../../i18n';
 import { useNavigation } from '../../context/NavigationContext';
 import { PillarHubTemplate } from '../common/PillarHubTemplate';

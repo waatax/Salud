@@ -17,7 +17,8 @@ import { VisualPlainEnglishDecoder } from './VisualPlainEnglishDecoder';
 import { FourPillarsClinicalMatrix } from './FourPillarsClinicalMatrix';
 import { KpInfoGraphRenderer } from '../figures/KpInfoGraphRenderer';
 import confetti from 'canvas-confetti';
-import { CHAPTERS, getChapterPages } from '../../data/chapters';
+import { CHAPTER_CATALOG } from '../../data/chapterCatalog';
+import { getLoadedChapterPages } from '../../data/chapterPages';
 import { EXPERT_COUNCIL } from '../../data/expertCouncil';
 import { useCanonicalAtoms } from '../../knowledge/useCanonicalAtoms';
 import { buildPaperUrls } from '../../utils/paperLinks';
@@ -140,7 +141,7 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
   // Navigation calculation
   const prefix = `PAGE-${page.chapter_id}`;
   const currentIndex = page.order_index;
-  const currentChapter = CHAPTERS.find((c) => c.id === page.chapter_id);
+  const currentChapter = CHAPTER_CATALOG.find((c) => c.id === page.chapter_id);
   const maxPages = currentChapter ? currentChapter.page_count : 12;
   const prevPageId = currentIndex > 1 ? `${prefix}-${String(currentIndex - 1).padStart(2, '0')}` : null;
   const nextPageId = currentIndex < maxPages ? `${prefix}-${String(currentIndex + 1).padStart(2, '0')}` : null;
@@ -992,7 +993,8 @@ export const KnowledgePage: React.FC<Props> = ({ page, onNavigatePage }) => {
 
       {/* ── Previous & Next Page Navigation Cards ── */}
       {(() => {
-        const chapterPages = getChapterPages(page.chapter_id);
+        // The page being read belongs to a loaded chapter (see chapterPages.ts).
+        const chapterPages = getLoadedChapterPages(page.chapter_id) ?? [];
         const prevPage = prevPageId ? chapterPages.find((p) => p.id === prevPageId) : null;
         const nextPage = nextPageId ? chapterPages.find((p) => p.id === nextPageId) : null;
 

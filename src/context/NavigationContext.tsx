@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { HealthPillar, SportsDiscipline } from '../types';
 import { CHAPTER_CATALOG } from '../data/chapterCatalog';
+import { getLoadedChapterPages, loadChapterPages } from '../data/chapterPages';
 import { parseHash, Route, ChapterId } from '../config/routes';
 
 export type MetaView = 'about' | 'evidence' | 'explore' | null;
@@ -75,17 +76,21 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const [learnTrackId, setLearnTrackId] = useState<string | undefined>();
   const [learnLessonId, setLearnLessonId] = useState<string | undefined>();
 
-  const [chapterData, setChapterData] = useState<typeof import('../data/chapters') | null>(null);
+  // v6.17: only the chapter being read is downloaded (previously all 11 at once on
+  // entering the diet pillar). Titles and counts come from CHAPTER_CATALOG.
+  const needsChapterPages = activePillar === 'diet' && dietView === 'chapter';
+  const [, setChapterPagesVersion] = useState(0);
   const [chapterLoadError, setChapterLoadError] = useState(false);
   useEffect(() => {
-    if (activePillar !== 'diet' || chapterData) return;
+    if (!needsChapterPages || getLoadedChapterPages(currentChapterId)) return;
     let cancelled = false;
     setChapterLoadError(false);
-    import('../data/chapters').then(data => {
-      if (!cancelled) setChapterData(data);
-    }).catch(() => { if (!cancelled) setChapterLoadError(true); });
+    loadChapterPages(currentChapterId).then(
+      () => { if (!cancelled) setChapterPagesVersion((v) => v + 1); },
+      () => { if (!cancelled) setChapterLoadError(true); },
+    );
     return () => { cancelled = true; };
-  }, [activePillar, chapterData]);
+  }, [needsChapterPages, currentChapterId]);
 
   /** Apply a parsed route to view state. Unknown hashes leave the current view untouched. */
   const applyRoute = (route: Route | null) => {
@@ -192,9 +197,9 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const highlightedPillar: HealthPillar | null =
     metaView || isSynergyView || isCouncilEvidenceView ? null : activePillar;
 
-  const chapters = chapterData?.CHAPTERS ?? CHAPTER_CATALOG;
-  const currentChapter = chapters.find((c) => c.id === currentChapterId) || chapters[0];
-  const pagesForCurrent = chapterData?.getChapterPages(currentChapterId) ?? [];
+  const currentChapter = CHAPTER_CATALOG.find((c) => c.id === currentChapterId) || CHAPTER_CATALOG[0];
+  const loadedChapterPages = getLoadedChapterPages(currentChapterId);
+  const pagesForCurrent = loadedChapterPages ?? [];
   const currentPage = pagesForCurrent.find((p) => p.id === activePageId) || pagesForCurrent[0];
 
   const value: NavigationContextProps = {
@@ -235,8 +240,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
 
     highlightedPillar,
     currentChapter,
-    chaptersLoading: !chapterData,
-    chapterLoadError,
+    chaptersLoading: needsChapterPages && !loadedChapterPages && !chapterLoadError,
+    chapterLoadError: needsChapterPages && !loadedChapterPages && chapterLoadError,
     pagesForCurrent,
     currentPage,
   };

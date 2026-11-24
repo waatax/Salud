@@ -1,7 +1,5 @@
 import { EvidenceGrade } from '../types';
-import { CHAPTER_W_PAGES } from './chapterW';
-import { CHAPTER_O_PAGES } from './chapterO';
-import { CHAPTER_A_PAGES } from './chapterA';
+import { getLoadedPage } from './chapterPages';
 
 export interface PillarActionDetail {
   title: string;
@@ -28,7 +26,8 @@ export interface FourPillarsProfile {
   treatment: PillarActionDetail;
 }
 
-const ALL_KNOWLEDGE_PAGES = [...CHAPTER_W_PAGES, ...CHAPTER_O_PAGES, ...CHAPTER_A_PAGES];
+/** Page-specific profiles cover the W/O/A flagship chapters, once their pages have loaded. */
+const PAGE_PROFILE_PATTERN = /^PAGE-[WOA]-/;
 
 /**
  * 四大健康維度（飲食、運動、預防、治療）臨床標準資料庫
@@ -1109,7 +1108,7 @@ export function getFourPillarsProfile(pageIdOrTopic: string): FourPillarsProfile
   }
 
   // 2. Specific KnowledgePage resolution (PAGE-W-*, PAGE-O-*, PAGE-A-*)
-  const matchedPage = ALL_KNOWLEDGE_PAGES.find((p) => p.id === pageIdOrTopic);
+  const matchedPage = PAGE_PROFILE_PATTERN.test(pageIdOrTopic) ? getLoadedPage(pageIdOrTopic) : undefined;
   if (matchedPage) {
     const baseProfile =
       FOUR_PILLARS_DATA_REGISTRY[matchedPage.chapter_id] || FOUR_PILLARS_DATA_REGISTRY['cardiometabolic'];

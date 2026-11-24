@@ -1,5 +1,13 @@
 # Changelog
 
+## v6.17.0 — 2026-11-24 · 骨鬆營養新頁、營養章節逐章載入（整合三個代理分支）
+
+- **新頁 PAGE-M-13「骨質疏鬆要補充什麼營養？」**（微量營養素章）：鈣與維生素 D 目標量、蛋白質 1.0–1.2 g/kg、鎂與維生素 K 從飲食補足，以及酒精、高鈉、高劑量維生素 A、一年一次超大劑量維生素 D 等地雷；含兩張圖解、一則迷思、兩題測驗、學習路徑與章節常數。移植時把鈣的每日上限寫清楚：國人膳食營養素參考攝取量 2,500 mg，美國 IOM 對 51 歲以上為 2,000 mg。
+- **營養章節逐章下載**：進入飲食專區或閱讀章節時，只下載正在讀的那一章（各約 22–107 kB），不再一次載入全部 11 章（原本三個 chunk 合計約 888 kB）。新增 [chapterPages.ts](src/data/chapterPages.ts) 快取；行動計畫與學習背包會自動載入書籤和計畫所屬的章節，書籤現在 11 章都能顯示（原本只有水、油、酒三章）。
+- **圖解規格與頁面內容分開**：E/P/C/S/N/M/D/F 八章的 `FIGURES_X` 移到 `curriculum/figuresX.ts`，章節頁畫圖時不再連帶載入八章的頁面內容。
+- **章節目錄計數修正**：[chapterCatalog.ts](src/data/chapterCatalog.ts) 的頁數、知識點與圖數原本過時（例如 E 章寫 3 頁、實際 10 頁），改由 `npm run catalog:sync` 依實際內容重算；新測試 [chapterPages.test.ts](src/compose/__tests__/chapterPages.test.ts) 防止再次脫節，並確認每章的載入器與完整資料一致。
+- 以上整合自 10 月的三個代理分支（`claude/heuristic-chandrasekhar-e41e7b`、`claude/competent-poitras-b1d771`、`claude/determined-cohen-12174b`），依目前主線重新實作。
+
 ## v6.16.0 — 2026-11-24 · 章節頁先顯示、規範知識錨點延後載入
 
 - 營養章節頁（`KnowledgePage`）與規範徽章（`CanonicalBadge`）不再於開頁時同步下載規範知識錨點包（原本打包在名為 `paperLinks` 的共用 chunk，約 571 kB／壓縮 235 kB）。章節內容先顯示，錨點徽章、論文連結與臨床深度解析在背景載入後出現。新增 [useCanonicalAtoms.ts](src/knowledge/useCanonicalAtoms.ts) 共用快取，載入失敗可重試。

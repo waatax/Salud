@@ -2,9 +2,7 @@ import { TipKind } from '../../types/learning';
 import { ALL_QUICK_TIPS } from './quickTips';
 import { ALL_STARTER_TASKS } from './starterPlan';
 import { LEARNING_TRACKS } from './tracks';
-import { CHAPTER_W_PAGES } from '../chapterW';
-import { CHAPTER_O_PAGES } from '../chapterO';
-import { CHAPTER_A_PAGES } from '../chapterA';
+import { getLoadedPage } from '../chapterPages';
 import { getFourPillarsProfile } from '../fourPillarsMatrix';
 
 /**
@@ -87,8 +85,8 @@ export const resolveTip = (id: string): ResolvedTip | undefined => {
 
   if (id.includes('#')) {
     const [prefix, suffix] = id.split('#');
-    const allPages = [...CHAPTER_W_PAGES, ...CHAPTER_O_PAGES, ...CHAPTER_A_PAGES];
-    const page = allPages.find((p) => p.id === prefix);
+    // Page actions resolve once their chapter has loaded (views call useChaptersForIds).
+    const page = /^PAGE-[WOA]-/.test(prefix) ? getLoadedPage(prefix) : undefined;
 
     // 1. KnowledgePage tiered action (#t1, #t2, #t3)
     if (suffix.startsWith('t') && suffix !== 'treatment' && page) {

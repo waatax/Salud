@@ -1,3 +1,5 @@
+> **v6.17 骨鬆營養新頁與營養章節逐章載入（2026-11-24）**：新增 PAGE-M-13「骨質疏鬆要補充什麼營養？」；飲食專區只下載正在讀的章節，不再一次載入全部 11 章；書籤 11 章都能顯示。詳見 [CHANGELOG](CHANGELOG.md)。
+
 > **v6.16 章節頁先顯示（2026-11-24）**：營養章節頁不再等待約 235 kB（壓縮後）的規範知識錨點包，內容先顯示，徽章與論文連結隨後載入。詳見 [CHANGELOG](CHANGELOG.md)。
 
 > **v6.15 預設森林綠主題與 UI/UX 深度質感優化（2026-11-23）**：全站預設改為「森林綠」溫潤護眼配色（仍可切換暗色／藍青／棕色／粉色／跟隨系統）；升級首頁分段膠囊切換器、卡片懸浮微互動、頂欄與手機底欄森林霧面毛玻璃質感。詳見 [CHANGELOG](CHANGELOG.md)。
@@ -24,7 +26,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.16.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v6.17.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

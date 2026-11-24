@@ -2,6 +2,7 @@ import React from 'react';
 import { CheckCircle2, Circle, X, ListChecks, Flame } from 'lucide-react';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { resolveTip } from '../../data/learning/tipIndex';
+import { useChaptersForIds } from '../../data/chapterPages';
 import { useNavigation } from '../../context/NavigationContext';
 import { QuickTips, TipKindBadge } from './QuickTips';
 
@@ -13,6 +14,8 @@ import { QuickTips, TipKindBadge } from './QuickTips';
 export const ActionPlanPanel: React.FC = () => {
   const { plan, toggleToday, doneToday, remove, last7 } = useActionPlan();
   const { go } = useNavigation();
+  // Page actions (PAGE-…#t1) resolve once their chapter has loaded.
+  useChaptersForIds(plan.items);
   const items = plan.items.map(resolveTip).filter((x): x is NonNullable<typeof x> => Boolean(x));
   const doneCount = items.filter((i) => doneToday(i.id)).length;
 

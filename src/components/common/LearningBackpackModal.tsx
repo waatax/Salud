@@ -19,15 +19,12 @@ import { useHealthStreak } from '../../hooks/useHealthStreak';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useNavigation } from '../../context/NavigationContext';
 import { useDialogFocus } from '../../hooks/useDialogFocus';
-import { CHAPTER_W_PAGES } from '../../data/chapterW';
-import { CHAPTER_O_PAGES } from '../../data/chapterO';
-import { CHAPTER_A_PAGES } from '../../data/chapterA';
+import { getLoadedPage, useChaptersForIds } from '../../data/chapterPages';
 import { resolveTip } from '../../data/learning/tipIndex';
 import { calculateLearnerGrowth, MEDICAL_DISCIPLINES, TOTAL_KNOWLEDGE_POINTS } from '../../data/learning/masteryAcademy';
 import { TipKindBadge } from '../learn/QuickTips';
 
 type BackpackTab = 'bookmarks' | 'plan' | 'streak';
-const BOOKMARKABLE_PAGES = [...CHAPTER_W_PAGES, ...CHAPTER_O_PAGES, ...CHAPTER_A_PAGES];
 
 export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState<BackpackTab>('bookmarks');
@@ -38,6 +35,8 @@ export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => v
   const { selectPage, go } = useNavigation();
   const dialogRef = useRef<HTMLDivElement>(null);
   useDialogFocus(dialogRef, isOpen);
+  // Bookmarked pages and page actions resolve once their chapters arrive.
+  useChaptersForIds(isOpen ? [...bookmarks, ...plan.items] : []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -50,7 +49,7 @@ export const LearningBackpackModal: React.FC<{ isOpen: boolean; onClose: () => v
 
   if (!isOpen) return null;
 
-  const bookmarkedPages = BOOKMARKABLE_PAGES.filter(page => bookmarks.includes(page.id));
+  const bookmarkedPages = bookmarks.map(getLoadedPage).filter((p): p is NonNullable<typeof p> => Boolean(p));
   const planItems = plan.items.map(resolveTip).filter((x): x is NonNullable<typeof x> => Boolean(x));
   const planDoneCount = planItems.filter((i) => doneToday(i.id)).length;
   const growth = calculateLearnerGrowth(progress, plan.items.length);
