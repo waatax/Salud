@@ -1,12 +1,12 @@
 import type { DataTable, EvidenceGrade, FigureMeta, FigureType } from '../types';
-import { FIGURES_E } from './curriculum/chapterE';
-import { FIGURES_P } from './curriculum/chapterP';
-import { FIGURES_C } from './curriculum/chapterC';
-import { FIGURES_S } from './curriculum/chapterS';
-import { FIGURES_N } from './curriculum/chapterN';
-import { FIGURES_M } from './curriculum/chapterM';
-import { FIGURES_D } from './curriculum/chapterD';
-import { FIGURES_F } from './curriculum/chapterF';
+import { FIGURES_E } from './curriculum/figuresE';
+import { FIGURES_P } from './curriculum/figuresP';
+import { FIGURES_C } from './curriculum/figuresC';
+import { FIGURES_S } from './curriculum/figuresS';
+import { FIGURES_N } from './curriculum/figuresN';
+import { FIGURES_M } from './curriculum/figuresM';
+import { FIGURES_D } from './curriculum/figuresD';
+import { FIGURES_F } from './curriculum/figuresF';
 import { FIGURES_WOA } from './curriculum/figuresWOA';
 
 /**
