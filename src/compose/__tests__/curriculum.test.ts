@@ -78,4 +78,5 @@ test('curriculum: new pages are reachable from search', () => {
   assert.match(top('葉酸'), /M\/PAGE-M-06/);
   assert.match(top('超加工'), /PAGE-D-08|PAGE-E-09/);
   assert.match(top('過敏原'), /F\/PAGE-F-04/);
+  assert.match(top('骨質疏鬆'), /M\/PAGE-M-13/);
 });

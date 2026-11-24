@@ -327,7 +327,7 @@ export const CHAPTER_KNOWLEDGE_CONFIGS: Record<ChapterId, ChapterKnowledgeConfig
   M: {
     titleZh: '微量營養素與生物利用率文庫',
     titleEn: 'Micronutrients & Bioavailability Base',
-    summary: '脂溶性與水溶性維生素、鐵鈣碘鋅硒鎂、維生素 D 與 B12、抗氧化劑反轉、藥物交互作用與族群補充地圖',
+    summary: '脂溶性與水溶性維生素、鐵鈣碘鋅硒鎂、維生素 D 與 B12、抗氧化劑反轉、藥物交互作用、族群補充地圖與骨質疏鬆營養',
     constantsHeader: '微量營養素 · 臨床關鍵常數速查 (Micronutrient Benchmarks)',
     categories: [
       { id: 'all', name_zh: '全部微量營養素', name_en: 'All Micronutrient Topics', desc: '維生素、礦物質、骨骼礦化軸與補充品安全完整課綱', icon: Layers, color: 'purple', badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-700', borderActive: 'border-purple-500 text-purple-700 dark:text-purple-300 bg-purple-50/70' },
@@ -342,12 +342,13 @@ export const CHAPTER_KNOWLEDGE_CONFIGS: Record<ChapterId, ChapterKnowledgeConfig
       { id: 'vit_d_level', label: '25(OH)D 足夠', value: '≥ 20', unit: 'ng/mL', sub: '< 12 為缺乏（IOM）', targetPage: 'PAGE-M-04', color: 'text-amber-600 dark:text-amber-400' },
       { id: 'calcium_rda', label: '成人鈣建議量', value: '1,000', unit: 'mg / 日', sub: '國人平均僅約一半；UL 2,500 mg', targetPage: 'PAGE-M-05', color: 'text-sky-600 dark:text-salud-cyan' },
       { id: 'folate', label: '備孕葉酸', value: '400', unit: 'µg / 日', sub: '受孕前至少 1 個月開始', targetPage: 'PAGE-M-06', color: 'text-emerald-600 dark:text-emerald-400' },
-      { id: 'iodine', label: '孕期碘建議量', value: '225', unit: 'µg / 日', sub: '成人 150 µg、哺乳 250 µg', targetPage: 'PAGE-M-07', color: 'text-teal-600 dark:text-teal-400' }
+      { id: 'iodine', label: '孕期碘建議量', value: '225', unit: 'µg / 日', sub: '成人 150 µg、哺乳 250 µg', targetPage: 'PAGE-M-07', color: 'text-teal-600 dark:text-teal-400' },
+      { id: 'osteo_vitd', label: '骨鬆族群維生素 D', value: '800–1,000', unit: 'IU / 日', sub: '鈣總量 1,000–1,200 mg；蛋白質 1.0–1.2 g/kg', targetPage: 'PAGE-M-13', color: 'text-orange-600 dark:text-orange-400' }
     ],
     learningPathway: [
       { step: 1, title: '維生素基礎', targetPages: ['PAGE-M-01', 'PAGE-M-06'], objective: '分辨脂溶性與水溶性維生素，掌握 B12 與葉酸的關鍵族群。', badgeClass: 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300' },
       { step: 2, title: '礦物質吸收', targetPages: ['PAGE-M-02', 'PAGE-M-07', 'PAGE-M-08', 'PAGE-M-09'], objective: '學會鐵、碘、鋅、硒、鎂的食物來源、吸收與安全上限。', badgeClass: 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' },
-      { step: 3, title: '骨骼礦化軸', targetPages: ['PAGE-M-03', 'PAGE-M-04', 'PAGE-M-05'], objective: '整合維生素 D、鈣、鎂與 K2，正確解讀 25(OH)D 與補鈣。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
+      { step: 3, title: '骨骼礦化軸', targetPages: ['PAGE-M-03', 'PAGE-M-04', 'PAGE-M-05', 'PAGE-M-13'], objective: '整合維生素 D、鈣、鎂與 K2，正確解讀 25(OH)D 與補鈣，並套用到骨質疏鬆的營養補充。', badgeClass: 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300' },
       { step: 4, title: '補充品的實證與安全', targetPages: ['PAGE-M-10', 'PAGE-M-11', 'PAGE-M-12'], objective: '從大型試驗看補充劑風險，避開藥物交互作用並對號入座。', badgeClass: 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-bold' }
     ]
   },
