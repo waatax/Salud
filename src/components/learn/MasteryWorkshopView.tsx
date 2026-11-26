@@ -1,8 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ArrowLeft,
   ArrowRight,
-  Brain,
   CheckCircle2,
   Compass,
   Eye,
@@ -34,20 +32,31 @@ import { useLearningProgress } from '../../hooks/useLearningProgress';
 import { useNavigation } from '../../context/NavigationContext';
 import { ProgressBar } from './learnUi';
 
-type WorkshopTab = 'map' | 'examples' | 'recall' | 'synthesis';
+const WORKSHOP_TABS = [
+  { id: 'map', label: '學習地圖', icon: Compass },
+  { id: 'examples', label: '生活案例', icon: Eye },
+  { id: 'recall', label: '複習題組', icon: RefreshCw },
+  { id: 'synthesis', label: '連結觀念', icon: Link2 },
+] as const;
 
-export const MasteryWorkshopView: React.FC<{ onBackToCatalogue?: () => void }> = ({ onBackToCatalogue }) => {
+const REVIEW_LESSONS = ALL_LESSONS.filter(lesson => lesson.quiz);
+const REVIEW_LESSON_IDS = REVIEW_LESSONS.map(lesson => lesson.id);
+const REVIEW_LESSONS_BY_ID = new Map(REVIEW_LESSONS.map(lesson => [lesson.id, lesson]));
+
+export const MasteryWorkshopView: React.FC<{ section?: string }> = ({ section }) => {
   const { go } = useNavigation();
   const { progress, recordRecall, saveFeynmanNote, recordQuiz } = useLearningProgress();
-  const [tab, setTab] = useState<WorkshopTab>('map');
+  const tab = WORKSHOP_TABS.find(item => item.id === section)?.id ?? 'map';
 
   const diagnostics = useMemo(() => diagnoseTracks(LEARNING_TRACKS, progress), [progress]);
   const weakest = diagnostics[0];
   const dueIds = useMemo(
-    () => getDueLessonIds(ALL_LESSONS.map((l) => l.id), progress),
+    () => getDueLessonIds(REVIEW_LESSON_IDS, progress),
     [progress]
   );
-  const interleavedDeck = useMemo(() => buildInterleavedDeck(ALL_LESSONS, progress, 8), [progress]);
+  const nextDeck = dueIds.length > 0
+    ? dueIds.slice(0, 8).map(id => REVIEW_LESSONS_BY_ID.get(id)!)
+    : buildInterleavedDeck(REVIEW_LESSONS, progress, 8);
 
   const schedule = progress.reviewSchedule ?? {};
   const feynmanNotes = progress.feynmanNotes ?? {};
@@ -55,17 +64,6 @@ export const MasteryWorkshopView: React.FC<{ onBackToCatalogue?: () => void }> =
   const totalScheduled = Object.keys(schedule).length;
   const totalFeynman = Object.keys(feynmanNotes).length;
 
-  const tabs: Array<{ id: WorkshopTab; label: string; badge?: string; icon: React.ReactNode }> = [
-    { id: 'map', label: '學習地圖與弱點', icon: <Compass className="w-4 h-4" aria-hidden="true" /> },
-    { id: 'examples', label: '看範例學拆解', badge: `${WORKED_EXAMPLES.length}`, icon: <Eye className="w-4 h-4" aria-hidden="true" /> },
-    {
-      id: 'recall',
-      label: '混搭間隔回憶',
-      badge: dueIds.length > 0 ? `${dueIds.length} 待複習` : `${interleavedDeck.length}`,
-      icon: <RefreshCw className="w-4 h-4" aria-hidden="true" />,
-    },
-    { id: 'synthesis', label: '融會貫通串聯', badge: `${SYNTHESIS_CHAINS.length}`, icon: <Link2 className="w-4 h-4" aria-hidden="true" /> },
-  ];
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -74,31 +72,14 @@ export const MasteryWorkshopView: React.FC<{ onBackToCatalogue?: () => void }> =
         aria-labelledby="mastery-workshop-title"
         className="rounded-3xl border border-emerald-200/90 dark:border-emerald-900/70 bg-gradient-to-br from-emerald-50/85 via-white to-amber-50/40 dark:from-emerald-950/35 dark:via-slate-900 dark:to-slate-900 p-6 sm:p-8"
       >
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-          {onBackToCatalogue && (
-            <button
-              type="button"
-              onClick={onBackToCatalogue}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-emerald-800 dark:text-emerald-300 hover:underline"
-            >
-              <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-              返回全部學習路徑
-            </button>
-          )}
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-white dark:bg-emerald-400 dark:text-slate-950">
-            <Brain className="w-3.5 h-3.5" aria-hidden="true" />
-            超速學習 × 刻意練習工作坊
-          </span>
-        </div>
-
         <h1
           id="mastery-workshop-title"
           className="font-display text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight"
         >
-          從看懂到融會貫通：科學健康與飲食掌握系統
+          健康學習工作坊
         </h1>
         <p className="mt-2 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
-          光靠重複閱讀很容易忘記。這裡依認知科學「看範例（See）→ 刻意練習與混搭回憶（Do）→ 直面回饋與費曼串聯（Feedback）」設計，幫你把分散的飲食、運動、睡眠與健檢知識，真正內化成日常直覺。
+          從生活案例練習，或先回想學過的觀念、看解析，再安排下次複習。
         </p>
 
         {/* Learner Mastery Snapshot */}
@@ -110,44 +91,18 @@ export const MasteryWorkshopView: React.FC<{ onBackToCatalogue?: () => void }> =
         </div>
       </section>
 
-      {/* Mode Tabs */}
-      <div
-        role="tablist"
-        aria-label="超速學習工作坊分頁"
-        className="flex flex-wrap gap-2 border-b border-slate-200 dark:border-slate-800 pb-3"
-      >
-        {tabs.map((t) => {
-          const active = tab === t.id;
-          return (
-            <button
-              key={t.id}
-              type="button"
-              role="tab"
-              aria-selected={active}
-              onClick={() => setTab(t.id)}
-              className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-colors ${
-                active
-                  ? 'bg-emerald-800 text-white dark:bg-emerald-400 dark:text-slate-950'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              {t.icon}
-              <span>{t.label}</span>
-              {t.badge && (
-                <span
-                  className={`rounded-full px-2 py-0.5 text-xs font-bold ${
-                    active
-                      ? 'bg-white/20 text-white dark:bg-slate-950/20 dark:text-slate-950'
-                      : 'bg-white text-emerald-800 dark:bg-slate-900 dark:text-emerald-300'
-                  }`}
-                >
-                  {t.badge}
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
+      <nav aria-label="工作坊內容" className="flex flex-wrap gap-2 border-b border-slate-200 pb-3 dark:border-slate-800">
+        {WORKSHOP_TABS.map(({ id, label, icon: Icon }) => (
+          <a key={id} href={id === 'map' ? '#learn/mastery' : `#learn/mastery/${id}`}
+            aria-current={tab === id ? 'page' : undefined}
+            className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold ${tab === id
+              ? 'bg-emerald-800 text-white dark:bg-emerald-400 dark:text-slate-950'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'}`}>
+            <Icon className="h-4 w-4" aria-hidden="true" />
+            {label}{id === 'recall' && dueIds.length > 0 && <span>（{dueIds.length} 待複習）</span>}
+          </a>
+        ))}
+      </nav>
 
       {/* Tab 1: Metalearning Map & Weakest-Link Drill */}
       {tab === 'map' && (
@@ -177,7 +132,7 @@ export const MasteryWorkshopView: React.FC<{ onBackToCatalogue?: () => void }> =
                   </button>
                   <button
                     type="button"
-                    onClick={() => setTab('recall')}
+                    onClick={() => go('learn/mastery/recall')}
                     className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:border-emerald-500"
                   >
                     先做 3 分鐘混搭回憶
@@ -285,7 +240,7 @@ export const MasteryWorkshopView: React.FC<{ onBackToCatalogue?: () => void }> =
       {/* Tab 3: Interleaved Spaced Recall (Do + Retain + Feedback) */}
       {tab === 'recall' && (
         <InterleavedRecallSection
-          deck={interleavedDeck}
+          nextDeck={nextDeck}
           dueCount={dueIds.length}
           reviewSchedule={schedule}
           onRate={(lessonId, rating) => recordRecall(lessonId, rating)}
@@ -427,18 +382,37 @@ const WorkedExamplesSection: React.FC = () => {
 };
 
 const InterleavedRecallSection: React.FC<{
-  deck: typeof ALL_LESSONS;
+  nextDeck: typeof ALL_LESSONS;
   dueCount: number;
   reviewSchedule: Record<string, { box: number; reviews: number; lapses: number }>;
   onRate: (lessonId: string, rating: RecallRating) => void;
   onRecordQuiz: (lessonId: string, correct: boolean) => void;
-}> = ({ deck, dueCount, reviewSchedule, onRate, onRecordQuiz }) => {
+}> = ({ nextDeck, dueCount, reviewSchedule, onRate, onRecordQuiz }) => {
+  const [deck, setDeck] = useState(() => nextDeck);
   const [idx, setIdx] = useState(0);
   const [selectedOpt, setSelectedOpt] = useState<number | null>(null);
-  const [ratedCount, setRatedCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const questionRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (started) questionRef.current?.focus();
+  }, [deck, idx, started]);
 
   const lesson = deck[idx];
-  if (!lesson || !lesson.quiz) return null;
+  if (!lesson?.quiz) {
+    return (
+      <section className="discovery-card p-5 space-y-3" aria-labelledby="recall-complete">
+        <h2 id="recall-complete" ref={questionRef} tabIndex={-1} className="text-xl font-bold">本輪複習完成</h2>
+        <p>{dueCount > 0 ? `還有 ${dueCount} 堂小課待複習。` : '目前沒有到期的小課。你可以繼續做混合練習。'}</p>
+        {nextDeck.length > 0 && (
+          <button type="button" className="discovery-primary" onClick={() => {
+            setDeck(nextDeck);
+            setIdx(0);
+          }}>開始下一輪</button>
+        )}
+      </section>
+    );
+  }
   const quiz = lesson.quiz;
   const track = getTrack(lesson.track_id);
   const card = reviewSchedule[lesson.id];
@@ -450,9 +424,9 @@ const InterleavedRecallSection: React.FC<{
 
   const handleRate = (rating: RecallRating) => {
     onRate(lesson.id, rating);
-    setRatedCount((c) => c + 1);
     setSelectedOpt(null);
-    setIdx((i) => (i + 1) % deck.length);
+    setStarted(true);
+    setIdx(i => i + 1);
   };
 
   return (
@@ -460,10 +434,10 @@ const InterleavedRecallSection: React.FC<{
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 id="recall-heading" className="text-xl font-bold text-slate-900 dark:text-white">
-            跨主題混搭回憶（以考代學 × 間隔複習）
+            複習題組
           </h2>
           <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-            刻意把飲食、運動、睡眠、健檢題目交錯出題（Variability），先靠自己回想再看解析，並依熟悉度排定下次複習（1 → 3 → 7 → 21 → 60 天）。
+            有到期的小課時先複習。每題先自己想，再看解析，最後選擇熟悉度。
           </p>
         </div>
         <div className="flex items-center gap-2 text-xs font-mono">
@@ -473,11 +447,6 @@ const InterleavedRecallSection: React.FC<{
           {dueCount > 0 && (
             <span className="rounded-full bg-amber-100 dark:bg-amber-950 px-3 py-1 font-bold text-amber-800 dark:text-amber-300">
               {dueCount} 課待複習
-            </span>
-          )}
-          {ratedCount > 0 && (
-            <span className="rounded-full bg-emerald-100 dark:bg-emerald-950 px-3 py-1 font-bold text-emerald-800 dark:text-emerald-300">
-              本次已複習 {ratedCount} 題
             </span>
           )}
         </div>
@@ -500,9 +469,9 @@ const InterleavedRecallSection: React.FC<{
           )}
         </div>
 
-        <p className="text-lg font-bold leading-8 text-slate-900 dark:text-white">
+        <h3 ref={questionRef} tabIndex={-1} className="text-lg font-bold leading-8 text-slate-900 dark:text-white">
           {quiz.question_zh}
-        </p>
+        </h3>
 
         <div className="grid gap-2.5" role="group" aria-label={quiz.question_zh}>
           {quiz.options_zh.map((opt, i) => {
@@ -548,7 +517,7 @@ const InterleavedRecallSection: React.FC<{
 
             <div className="border-t border-slate-200 dark:border-slate-700 pt-4 space-y-2">
               <p className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                排定下次間隔複習（系統會自動在到期時提醒）：
+                依熟悉度安排下次複習
               </p>
               <div className="flex flex-wrap gap-2">
                 <button

@@ -118,9 +118,12 @@ test('starter lessons: all 8 track opener lessons carry authoritative sources', 
 test('mastery workshop route, page title, and search reachability', () => {
   const route = parseHash('learn/mastery');
   assert.deepEqual(route, { kind: 'learn', trackId: 'mastery', lessonId: undefined });
-  assert.match(pageTitle({ activePillar: 'learn', learnTrackId: 'mastery' }), /超速學習工作坊/);
+  assert.match(pageTitle({ activePillar: 'learn', learnTrackId: 'mastery' }), /健康學習工作坊/);
+
+  assert.match(pageTitle({ activePillar: 'learn', learnTrackId: 'mastery', learnLessonId: 'recall' }), /複習題組/);
 
   const docs = buildSearchIndex();
+  assert.equal(searchDocs(docs, '複習題組')[0]?.target, 'learn/mastery/recall');
   const hits = searchDocs(docs, '超速學習 融會貫通');
   assert.ok(hits.some((h) => h.target === 'learn/mastery'), 'search should reach learn/mastery');
 });

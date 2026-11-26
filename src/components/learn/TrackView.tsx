@@ -66,7 +66,7 @@ export const TrackView: React.FC = () => {
   if (learnTrackId === 'mastery') {
     return (
       <Suspense fallback={<p className="py-12 text-center text-sm text-slate-500" role="status">載入超速學習工作坊…</p>}>
-        <MasteryWorkshopView onBackToCatalogue={() => go('learn')} />
+        <MasteryWorkshopView section={learnLessonId} />
       </Suspense>
     );
   }
@@ -132,23 +132,8 @@ const Catalogue: React.FC = () => {
     <div className="space-y-8 animate-fade-in">
       <PageHeader
         title="學習路徑"
-        lead={`${LEARNING_TRACKS.length} 條主題路徑、${ALL_LESSONS.length} 堂白話小課。選一個想了解的主題，或進入超速學習工作坊把知識融會貫通。`}
+        lead={`${LEARNING_TRACKS.length} 條主題路徑、${ALL_LESSONS.length} 堂白話小課。選一個想了解的主題，照自己的步調讀。`}
       >
-        <div className="flex flex-wrap items-center gap-2 pt-1">
-          <a
-            href="#learn/mastery"
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-xl bg-emerald-800 px-4 py-2 text-xs sm:text-sm font-bold text-white hover:bg-emerald-900 dark:bg-emerald-400 dark:text-slate-950"
-          >
-            <Sparkles className="w-4 h-4" aria-hidden="true" />
-            超速學習工作坊（看範例・間隔回憶・融會貫通）
-          </a>
-          <a
-            href="#learn/practice"
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:border-emerald-500"
-          >
-            情境實戰與閃卡
-          </a>
-        </div>
         <details className="text-sm"><summary className="cursor-pointer font-semibold text-emerald-800 dark:text-emerald-300 py-2">我的學習紀錄 · 已完成 {done} 堂</summary>
         <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 px-3 py-1 text-xs font-bold text-emerald-900 dark:text-emerald-300">
@@ -177,6 +162,7 @@ const Catalogue: React.FC = () => {
       </PageHeader>
 
       <nav aria-label="延伸學習" className="flex flex-wrap gap-x-5 gap-y-1 border-b border-slate-200 pb-3 dark:border-slate-800">
+        <a href="#learn/mastery" className="discovery-text-link">健康學習工作坊</a>
         <a href="#learn/practice" className="discovery-text-link">情境練習與閃卡</a>
         <a href="#learn/academy" className="discovery-text-link">認識醫學學科</a>
       </nav>
@@ -242,7 +228,7 @@ const Catalogue: React.FC = () => {
                 type="button"
                 aria-pressed={statusFilter === id}
                 onClick={() => setStatusFilter(id)}
-                className={`rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
+                className={`min-h-11 rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${
                   statusFilter === id
                     ? 'bg-emerald-800 text-white dark:bg-emerald-400 dark:text-slate-950'
                     : 'border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-500'
@@ -275,12 +261,14 @@ const Catalogue: React.FC = () => {
         </div>}
       </div>
 
-      {isFiltering && <p role="status" className="text-sm text-slate-600 dark:text-slate-300">
-        {visibleTracks.length > 0
-          ? `找到 ${visibleTracks.reduce((total, { lessons }) => total + lessons.length, 0)} 堂小課`
-          : '沒有符合的課程，可以換個關鍵字或調整完成狀態。'}
-        <button type="button" className="ml-3 min-h-11 font-semibold underline underline-offset-4" onClick={() => { setQuery(''); setTrackFilter(''); setStatusFilter('all'); }}>清除篩選</button>
-      </p>}
+      {isFiltering && <div className="flex flex-wrap items-center gap-x-3 text-sm text-slate-600 dark:text-slate-300">
+        <p role="status">
+          {visibleTracks.length > 0
+            ? `找到 ${visibleTracks.reduce((total, { lessons }) => total + lessons.length, 0)} 堂小課`
+            : '沒有符合的課程，可以換個關鍵字或調整篩選。'}
+        </p>
+        <button type="button" className="min-h-11 font-semibold underline underline-offset-4" onClick={() => { setQuery(''); setTrackFilter(''); setStatusFilter('all'); }}>清除篩選</button>
+      </div>}
       <ul className="space-y-4">
         {visibleTracks.map(({ track: t, lessons: filteredLessons }) => {
           const trackDoneCount = t.lessons.filter((l) => isDone(l.id)).length;
@@ -617,7 +605,6 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
   const [copiedFeynman, setCopiedFeynman] = useState(false);
   const [feynmanDraft, setFeynmanDraft] = useState(() => progress.feynmanNotes?.[lesson.id] ?? '');
   const [savedFeynmanNote, setSavedFeynmanNote] = useState(false);
-  const [recallFeedback, setRecallFeedback] = useState('');
 
   const lessonPointIds = useMemo(
     () => lesson.key_points_zh.map((_, i) => lessonPointId(lesson.id, i)),
@@ -679,11 +666,6 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
     <article className="lesson-reader max-w-3xl mx-auto space-y-8 animate-fade-in" aria-labelledby="lesson-title">
       {/* Header */}
       <div className="space-y-4">
-        <nav className="flex flex-wrap items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400" aria-label="課程位置">
-          <a href="#learn" className="hover:underline">學習路徑</a>
-          <span aria-hidden="true">/</span>
-          <a href={`#learn/${track.id}`} className="hover:underline">{track.title_zh}</a>
-        </nav>
         <div className="flex items-center gap-3">
           <TrackIcon icon={track.icon} tone={track.tone} size="sm" />
           <span className="text-sm text-slate-600 dark:text-slate-400">
@@ -945,7 +927,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
               rows={2}
               value={feynmanDraft}
               onChange={(e) => setFeynmanDraft(e.target.value)}
-              placeholder="例如：吃飽散步 10 分鐘能讓肌肉直接吸走血糖，比硬撐節食更容易做到…"
+              placeholder="用自己的話，寫下一句想記住的觀念。"
               className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 text-sm text-slate-900 dark:text-slate-100 focus:border-emerald-600 focus:outline-none"
             />
             <button
@@ -1004,7 +986,7 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
             aria-pressed={done}
           >
             <CheckCircle2 className="w-5 h-5" aria-hidden="true" />
-            {done ? '已標記完成（點擊取消）' : '我讀完了，標記完成並掌握本課知識點'}
+            {done ? '已標記完成（點擊取消）' : '標記本課已讀完'}
           </button>
 
           <button
@@ -1030,49 +1012,33 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/50 p-4 space-y-2.5">
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="font-bold text-slate-800 dark:text-slate-200">
-              排定間隔複習，讓這課真正進長期記憶
+              依熟悉度安排下次複習
             </span>
-            <a href="#learn/mastery" className="font-semibold text-emerald-800 dark:text-emerald-300 hover:underline">
-              前往超速學習工作坊 →
+            <a href="#learn/mastery/recall" className="font-semibold text-emerald-800 dark:text-emerald-300 hover:underline">
+              打開複習題組
             </a>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             {(
               [
-                ['again', '還不熟・明天再考'],
-                ['good', '記住了・拉長間隔'],
-                ['easy', '完全內化・跳級複習'],
+                ['again', '還不熟'],
+                ['good', '記得大部分'],
+                ['easy', '已經很熟'],
               ] as const
             ).map(([rating, label]) => (
               <button
                 key={rating}
                 type="button"
-                onClick={() => {
-                  recordRecall(lesson.id, rating);
-                  setRecallFeedback(
-                    rating === 'again'
-                      ? '已排入明天主動回憶清單。'
-                      : rating === 'good'
-                      ? '已升級記憶箱，系統會在到期時提醒複習。'
-                      : '已跳級排入長期複習箱！'
-                  );
-                }}
+                onClick={() => recordRecall(lesson.id, rating)}
                 className="min-h-10 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-1.5 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:border-emerald-500"
               >
                 {label}
               </button>
             ))}
-            {reviewCard && (
-              <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                目前記憶箱 Lv.{reviewCard.box + 1}/5
-              </span>
-            )}
           </div>
-          {recallFeedback && (
-            <p role="status" className="text-xs font-semibold text-emerald-800 dark:text-emerald-300">
-              {recallFeedback}
-            </p>
-          )}
+          <p role="status" className="text-sm text-emerald-800 dark:text-emerald-300">
+            {reviewCard && Number.isFinite(reviewCard.nextDueAt) && `下次複習 ${new Intl.DateTimeFormat('zh-TW', { dateStyle: 'medium', timeStyle: 'short' }).format(reviewCard.nextDueAt)}`}
+          </p>
         </div>
         {copyError && <p role="status" className="text-sm">{copyError}</p>}
         <div className="grid grid-cols-2 gap-3">

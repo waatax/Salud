@@ -62,7 +62,9 @@ export function Breadcrumb() {
       }
     }
     if (activePillar === 'learn' && learnTrackId) {
-      if (learnTrackId === 'practice' || learnTrackId === 'flashcards') {
+      if (learnTrackId === 'mastery') {
+        crumbs.push({ label: zh ? '健康學習工作坊' : 'Learning workshop' });
+      } else if (learnTrackId === 'practice' || learnTrackId === 'flashcards') {
         crumbs.push({ label: zh ? '情境實戰與知識閃卡' : 'Scenario Lab & Flashcards' });
       } else if (learnTrackId === 'academy') {
         crumbs.push({ label: zh ? '8 大醫學學科博覽館' : 'Medical Disciplines Academy' });

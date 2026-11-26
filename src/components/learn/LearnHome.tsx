@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useModal } from '../../context/ModalContext';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
+import { getDueLessonIds } from '../../compose/spacedRepetition';
 import { useActionPlan } from '../../hooks/useActionPlan';
 import { ALL_LESSONS, findLesson, getTrack } from '../../data/learning/tracks';
 import { getUpdate, UPDATE_CATEGORY_META } from '../../data/learning/evidenceUpdates';
@@ -34,13 +35,14 @@ const guides = [
     photo: 'salud-healthy-morning.webp', photoAlt: '晨光中桌上擺放開水、筆記本與新鮮水果的健康早晨', more: '比較常見飲食法', href: '#diet/patterns' },
   { id: 'rest', label: '睡個好覺', lessonId: 'L-REST-01', title: '睡了好幾個鐘頭，醒來還是累？',
     intro: '昨晚幾點睡、半夜醒了幾次、白天精神如何？把這些線索放在一起，比只看時數更能描述自己的睡眠。',
-    photo: 'salud-sleep-journal.webp', photoAlt: '安靜臥室床邊桌上的睡眠日記本與溫和夜燈', more: '讀懂睡眠規律研究', href: '#updates/UPD-2024-SLEEP-REG' },
+    photo: 'salud-sleep-journal.webp', photoAlt: '清晨窗光照在床邊攤開的日誌和鉛筆上', more: '讀懂睡眠規律研究', href: '#updates/UPD-2024-SLEEP-REG' },
 ];
 
 function guideFromHash() {
   return guides.find(guide => window.location.hash === '#home/read/' + guide.id) ?? guides[0];
 }
 
+const lessonIds = ALL_LESSONS.filter(lesson => lesson.quiz).map(lesson => lesson.id);
 const featuredEvidence = ['UPD-2026-ACSM-RT', 'UPD-2025-STEPS', 'UPD-2024-SLEEP-REG']
   .map(getUpdate)
   .filter(update => update !== undefined);
@@ -57,17 +59,17 @@ export function LearnHome() {
   const featureLesson = findLesson(guide.lessonId)!;
   const lastLesson = progress.last ? findLesson(progress.last.lessonId) : undefined;
   const lastTrack = lastLesson ? getTrack(lastLesson.track_id) : undefined;
+  const lastDone = lastLesson ? progress.completed.includes(lastLesson.id) : false;
+  const nextLesson = lastDone && lastTrack ? lastTrack.lessons.find(lesson => !progress.completed.includes(lesson.id)) : undefined;
+  const resumeLesson = nextLesson ?? lastLesson;
+  const dueCount = getDueLessonIds(lessonIds, progress).length;
 
   useEffect(() => {
     let frame: number | undefined;
     const moveToSection = () => {
       if (frame !== undefined) cancelAnimationFrame(frame);
-      if (window.location.hash.startsWith('#home/read/')) {
-        setGuide(guideFromHash());
-        return;
-      }
-      if (window.location.hash === '#home') {
-        setGuide(guides[0]);
+      setGuide(guideFromHash());
+      if (window.location.hash === '#home' || window.location.hash === '') {
         window.scrollTo({ top: 0, behavior: 'instant' });
         return;
       }
@@ -101,7 +103,7 @@ export function LearnHome() {
         <div className="editorial-hero">
           <div className="editorial-hero-copy">
             <p className="edition-meta"><BookOpen size={17} aria-hidden="true" />{guide.label}入門<span aria-hidden="true">·</span><Clock size={15} aria-hidden="true" />約 {featureLesson.minutes} 分鐘</p>
-            <h2>{guide.title}</h2>
+            <h2 aria-live="polite">{guide.title}</h2>
             <p className="editorial-hero-lead">{guide.intro}</p>
             <div className="editorial-hero-actions">
               <a className="editorial-primary" href={'#learn/' + featureLesson.track_id + '/' + featureLesson.id}>閱讀這堂小課</a>
@@ -112,13 +114,20 @@ export function LearnHome() {
         </div>
       </section>
 
-      {lastLesson && lastTrack && (
-        <section className="editorial-resume" aria-label="繼續上次學習">
-          <TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} size="sm" />
-          <div>
-            <p className="editorial-kicker">繼續上次學習</p>
-            <a href={'#learn/' + lastTrack.id + '/' + lastLesson.id} className="editorial-inline-link">{lastLesson.title_zh}</a>
-          </div>
+      {((resumeLesson && lastTrack) || dueCount > 0) && (
+        <section className="editorial-resume" aria-label="我的學習">
+          {resumeLesson && lastTrack && (
+            <div className="editorial-resume-lesson">
+              <TrackIcon icon={lastTrack.icon} tone={lastTrack.tone} size="sm" />
+              <div>
+                <p className="editorial-kicker">{nextLesson ? '接著讀' : lastDone ? '回顧上次的小課' : '繼續上次學習'}</p>
+                <a href={'#learn/' + lastTrack.id + '/' + resumeLesson.id} className="editorial-inline-link">{resumeLesson.title_zh}</a>
+              </div>
+            </div>
+          )}
+          {dueCount > 0 && <a className="editorial-review-link" href="#learn/mastery/recall">
+            <RotateCcw size={17} aria-hidden="true" />複習 {dueCount} 堂小課
+          </a>}
         </section>
       )}
 
@@ -143,7 +152,7 @@ export function LearnHome() {
         <div className="editorial-practice-grid">
           <LearningChallenge />
           <div className="editorial-practice-links">
-            <a href="#learn/mastery" className="editorial-entry"><Sparkles size={23} aria-hidden="true" /><span><strong>超速學習工作坊：融會貫通</strong><span>看範例拆解、跨主題間隔回憶與弱點專攻</span></span></a>
+            <a href="#learn/mastery" className="editorial-entry"><Sparkles size={23} aria-hidden="true" /><span><strong>健康學習工作坊</strong><span>跟著生活案例練習，安排下次複習</span></span></a>
             <a href="#learn/practice" className="editorial-entry"><CircleHelp size={23} aria-hidden="true" /><span><strong>情境練習與閃卡</strong><span>用生活案例與小測驗複習</span></span></a>
             <a href="#learn/academy" className="editorial-entry"><GraduationCap size={23} aria-hidden="true" /><span><strong>認識醫學學科</strong><span>從生理、病理到如何讀研究</span></span></a>
             <a href="#learn/move/L-MOVE-08" className="editorial-entry"><HeartPulse size={23} aria-hidden="true" /><span><strong>為什麼要練肌力和肌耐力？</strong><span>從提菜、走樓梯看兩者的差別</span></span></a>

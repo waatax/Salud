@@ -47,7 +47,7 @@ function pageName(i: PageTitleInput): string | null {
       return null;
     case 'learn': {
       if (i.learnTrackId === 'mastery') {
-        return '超速學習工作坊・融會貫通';
+        return i.learnLessonId === 'recall' ? '複習題組・健康學習工作坊' : '健康學習工作坊';
       }
       if (i.learnTrackId === 'practice' || i.learnTrackId === 'flashcards') {
         return '情境實戰與知識閃卡・學習路徑';

@@ -26,7 +26,11 @@ function deadLinkReason(hash: string): string | null {
   switch (route.kind) {
     case 'learn': {
       if (!route.trackId) return null;
-      if (route.trackId === 'practice' || route.trackId === 'flashcards' || route.trackId === 'academy' || route.trackId === 'mastery') {
+      if (route.trackId === 'mastery') {
+        return route.lessonId && !['map', 'examples', 'recall', 'synthesis'].includes(route.lessonId)
+          ? `unknown workshop section ${route.lessonId}` : null;
+      }
+      if (route.trackId === 'practice' || route.trackId === 'flashcards' || route.trackId === 'academy') {
         return route.lessonId ? `special learn view ${route.trackId} has no lesson ${route.lessonId}` : null;
       }
       const track = getTrack(route.trackId);
@@ -70,6 +74,7 @@ test('routes: parseHash covers home, aliases, chapters and tabs', () => {
   assert.deepEqual(parseHash('W/PAGE-W-03'), { kind: 'chapter', chapterId: 'W', pageId: 'PAGE-W-03' });
   assert.deepEqual(parseHash('about'), { kind: 'meta', view: 'about' });
   assert.deepEqual(parseHash('obesity/PHARMACOTHERAPY'), { kind: 'pillar', pillar: 'obesity', sub: ['PHARMACOTHERAPY'] });
+  assert.deepEqual(parseHash('learn/mastery/recall'), { kind: 'learn', trackId: 'mastery', lessonId: 'recall' });
   assert.deepEqual(parseHash('learn/eat/L-EAT-02'), { kind: 'learn', trackId: 'eat', lessonId: 'L-EAT-02' });
   assert.equal(parseHash('no-such-page'), null);
 });

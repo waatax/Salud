@@ -588,7 +588,8 @@ export function buildSearchIndex(): SearchDoc[] {
   });
 
   docs.push(
-    { id: 'tool:mastery', group: '課程', title: '超速學習工作坊：看範例・間隔回憶・融會貫通', subtitle: '用認知科學學習地圖、弱點專攻、間隔複習與費曼筆記掌握健康飲食知識', target: 'learn/mastery', keywords: '超速學習 ultralearning 刻意練習 間隔複習 費曼 融會貫通 主動回憶 學習地圖 範例 便當 健檢' },
+    { id: 'tool:mastery', group: '課程', title: '健康學習工作坊', subtitle: '從生活案例練習，找出想加強的觀念', target: 'learn/mastery', keywords: '超速學習 ultralearning 刻意練習 費曼 融會貫通 學習地圖 範例 便當 健檢' },
+    { id: 'tool:recall', group: '課程', title: '複習題組', subtitle: '回想學過的健康知識，安排下次複習', target: 'learn/mastery/recall', keywords: '間隔複習 間隔回憶 主動回憶 到期 待複習 題目' },
     { id: 'tool:emergency', group: '工具', title: '危險警訊：何時該立刻就醫', subtitle: '胸痛、中風、呼吸困難', target: 'modal:emergency', keywords: '急診 119 紅旗 中風 胸痛' },
     { id: 'tool:auditc', group: '工具', title: 'AUDIT-C 飲酒風險自評', subtitle: '三題快速篩檢', target: 'modal:auditC', keywords: '喝酒 酒精 篩檢' },
     { id: 'tool:722', group: '工具', title: '722 居家血壓評估', subtitle: '連續 7 天、早晚 2 次、每次 2 遍', target: 'cardiometabolic/BP_722', keywords: '血壓 高血壓 量血壓' },
