@@ -7,9 +7,10 @@ const groups = [
   {
     title: ['學習與練習', 'Learn and practice'],
     links: [
-      ['#learn', '學習路徑', 'Learning tracks'],
+      ['#learn', '學習路徑（65 課）', 'Learning tracks'],
+      ['#learn/mastery', '健康學習工作坊', 'Mastery workshop'],
       ['#learn/practice', '情境練習與閃卡', 'Scenarios and flashcards'],
-      ['#learn/academy', '醫學學科導覽', 'Medical disciplines'],
+      ['#start', '4 週健康啟動計畫', '4-week starter plan'],
       ['#glossary', '健康小辭典', 'Health glossary'],
     ],
   },
@@ -17,6 +18,7 @@ const groups = [
     title: ['健康主題', 'Health topics'],
     links: [
       ['#home/topics', '全部健康主題', 'All health topics'],
+      ['#diet/patterns', '飲食營養與餐盤', 'Diet and nutrition'],
       ['#exercise', '運動與體能', 'Exercise and fitness'],
       ['#checkup', '健檢與公費篩檢', 'Check-ups and screening'],
       ['#clinic/by/symptom', '症狀與就醫導引', 'Symptoms and care'],

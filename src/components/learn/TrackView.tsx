@@ -697,14 +697,14 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
       </div>
 
       {/* Big idea */}
-      <div className={`rounded-2xl border border-slate-200 dark:border-slate-800 ${TONE[track.tone].soft} p-5 sm:p-6`}>
-        <p className={`text-xs font-semibold mb-1.5 ${TONE[track.tone].text}`}>一句話重點</p>
-        <p className="text-lg sm:text-xl font-semibold leading-8 text-slate-900 dark:text-white">{lesson.big_idea_zh}</p>
+      <div className={`rounded-2xl border border-slate-200 dark:border-slate-800 border-l-4 border-l-emerald-700 dark:border-l-emerald-400 ${TONE[track.tone].soft} p-5 sm:p-6 shadow-xs`}>
+        <p className={`text-xs font-bold tracking-wider uppercase mb-1.5 ${TONE[track.tone].text}`}>一句話重點</p>
+        <p className="text-lg sm:text-xl font-bold leading-8 text-slate-900 dark:text-white text-balance">{lesson.big_idea_zh}</p>
         {lesson.analogy_zh && (
-          <p className="mt-3 flex gap-2 text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-3.5 flex gap-2.5 rounded-xl bg-white/80 dark:bg-slate-900/60 p-3.5 text-base leading-7 text-slate-700 dark:text-slate-200 border border-slate-200/70 dark:border-slate-800/70">
             <Lightbulb className="w-5 h-5 shrink-0 mt-1 text-amber-500" aria-hidden="true" />
             <span>
-              <span className="font-semibold">打個比方：</span>
+              <span className="font-semibold text-slate-900 dark:text-white">打個比方：</span>
               {lesson.analogy_zh}
             </span>
           </p>
@@ -831,18 +831,35 @@ const LessonReader: React.FC<{ track: LearningTrack; lesson: Lesson }> = ({ trac
         </section>
       )}
 
-      {/* See a doctor */}
+      {/* See a doctor — NHS-inspired Clinical Care Card */}
       {lesson.see_doctor_zh && lesson.see_doctor_zh.length > 0 && (
-        <section aria-labelledby="doc-h" className="rounded-2xl border border-amber-300 dark:border-amber-800/70 bg-amber-50/70 dark:bg-amber-950/20 p-5 space-y-2">
-          <h2 id="doc-h" tabIndex={-1} className="font-bold text-amber-950 dark:text-amber-200 flex items-center gap-2">
-            <Stethoscope className="w-5 h-5" aria-hidden="true" />
-            出現這些情況，請就醫
-          </h2>
-          <ul className="list-disc pl-6 space-y-1 text-base leading-7 text-amber-950 dark:text-amber-100">
-            {lesson.see_doctor_zh.map((s, i) => (
-              <li key={i}>{s}</li>
-            ))}
-          </ul>
+        <section
+          aria-labelledby="doc-h"
+          className="overflow-hidden rounded-2xl border border-amber-300 dark:border-amber-800/80 bg-white dark:bg-slate-900/70 shadow-xs"
+        >
+          <div className="flex items-center gap-2 bg-amber-100/90 dark:bg-amber-950/60 px-5 py-3 border-b border-amber-200 dark:border-amber-800/70">
+            <Stethoscope className="w-5 h-5 text-amber-800 dark:text-amber-300 shrink-0" aria-hidden="true" />
+            <h2 id="doc-h" tabIndex={-1} className="font-bold text-amber-950 dark:text-amber-100">
+              安全就醫提醒：出現這些情況，請就醫
+            </h2>
+          </div>
+          <div className="p-5 space-y-3">
+            <ul className="list-disc pl-6 space-y-1.5 text-base leading-7 text-slate-800 dark:text-slate-200">
+              {lesson.see_doctor_zh.map((s, i) => (
+                <li key={i}>{s}</li>
+              ))}
+            </ul>
+            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span className="text-slate-500 dark:text-slate-400">不確定該掛哪一科？</span>
+              <a
+                href="#clinic/by/symptom"
+                className="inline-flex items-center gap-1 font-bold text-emerald-800 dark:text-emerald-300 hover:underline"
+              >
+                用症狀導引找科別與看診清單
+                <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
         </section>
       )}
 
@@ -1119,7 +1136,15 @@ const LessonQuizCard: React.FC<{
               disabled={answered}
               onClick={() => {
                 setPicked(i);
-                onAnswer(lessonId, i === quiz.answer);
+                const hit = i === quiz.answer;
+                onAnswer(lessonId, hit);
+                if (hit && typeof window !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                  import('canvas-confetti')
+                    .then(({ default: confetti }) => {
+                      confetti({ particleCount: 38, spread: 55, origin: { y: 0.72 }, colors: ['#047857', '#10B981', '#F59E0B'] });
+                    })
+                    .catch(() => { /* Celebration is optional. */ });
+                }
               }}
               className={`flex items-center gap-3 rounded-xl border px-4 py-2.5 text-left text-[15px] text-slate-800 dark:text-slate-200 transition-colors ${state}`}
             >

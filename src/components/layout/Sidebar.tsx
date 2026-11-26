@@ -6,6 +6,7 @@ import { useModal } from '../../context/ModalContext';
 import { FontSizeToggle } from '../common/FontSizeToggle';
 import { LanguageToggle } from '../common/LanguageToggle';
 import { useLearningProgress } from '../../hooks/useLearningProgress';
+import { getDueLessonIds } from '../../compose/spacedRepetition';
 import { ALL_LESSONS } from '../../data/learning/tracks';
 import {
   PILLAR_NAV,
@@ -112,6 +113,11 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
   const collapsed = isCollapsed && !inDrawer;
   const activePillar = nav.highlightedPillar;
   const lessonsDone = progress.completed.filter((id) => ALL_LESSONS.some((l) => l.id === id)).length;
+  const lessonsPct = Math.round((lessonsDone / ALL_LESSONS.length) * 100);
+  const dueReviewCount = getDueLessonIds(
+    ALL_LESSONS.filter((l) => l.quiz).map((l) => l.id),
+    progress
+  ).length;
 
   const isPillarActive = (item: PillarNavItem) =>
     activePillar === item.id || (item.id === 'diet' && activePillar === 'supplements');
@@ -156,10 +162,10 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
               aria-hidden="true"
             />
             {!collapsed && (
-              <span className={`truncate text-sm ${isActive ? 'font-semibold' : ''}`}>{zh ? item.label_zh : item.label_en}</span>
+              <span className={`shrink-0 max-w-[10.5rem] truncate text-sm ${isActive ? 'font-semibold' : ''}`}>{zh ? item.label_zh : item.label_en}</span>
             )}
             {!collapsed && !hasSubNav(item.id) && (
-              <span className="ml-auto pl-1 text-[0.75rem] text-slate-400 dark:text-slate-500 shrink-0">
+              <span className="ml-auto pl-1.5 min-w-0 truncate text-[0.72rem] text-slate-400 dark:text-slate-500">
                 {item.id === 'learn' && lessonsDone > 0 ? `${lessonsDone}/${ALL_LESSONS.length}` : zh ? item.blurb_zh : item.blurb_en}
               </span>
             )}
@@ -271,10 +277,30 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
       aria-label={zh ? '主題導覽' : 'Topic navigation'}
     >
       {!inDrawer && (
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-between gap-2">
+          {!collapsed && (
+            <button
+              type="button"
+              onClick={() => nav.go(dueReviewCount > 0 ? 'learn/mastery/recall' : 'learn')}
+              className="flex-1 min-w-0 rounded-xl border border-emerald-200/80 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/30 px-2.5 py-2 text-left hover:border-emerald-400 transition-colors"
+            >
+              <div className="flex items-center justify-between text-[0.72rem] font-bold text-emerald-900 dark:text-emerald-200">
+                <span>{zh ? '學習進度' : 'Progress'}</span>
+                <span className="font-mono tabular-nums">{lessonsDone}/{ALL_LESSONS.length}</span>
+              </div>
+              <div className="mt-1.5 h-1.5 w-full rounded-full bg-emerald-200/70 dark:bg-emerald-950 overflow-hidden">
+                <div className="h-full rounded-full bg-emerald-700 dark:bg-emerald-400 transition-all duration-500" style={{ width: `${lessonsPct}%` }} />
+              </div>
+              {dueReviewCount > 0 && (
+                <p className="mt-1 text-[0.7rem] font-semibold text-amber-800 dark:text-amber-300">
+                  {zh ? `${dueReviewCount} 堂小課待複習 →` : `${dueReviewCount} due for review →`}
+                </p>
+              )}
+            </button>
+          )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className={`p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ${
+            className={`p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 ${
               collapsed ? 'mx-auto' : ''
             }`}
             aria-label={collapsed ? (zh ? '展開側邊欄' : 'Expand sidebar') : zh ? '收合側邊欄' : 'Collapse sidebar'}

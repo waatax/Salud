@@ -228,17 +228,17 @@ main p { text-wrap: pretty; }
      resolve to these channels, so one data-theme attribute re-skins every page. */
 
   :root {
-    --slate-50: 248 250 252; --slate-100: 241 245 249; --slate-200: 226 232 240; --slate-300: 203 213 225; --slate-400: 148 163 184; --slate-500: 100 116 139; --slate-600: 71 85 105; --slate-700: 51 65 85; --slate-800: 30 41 59; --slate-900: 15 23 42; --slate-950: 2 6 23;
+    --slate-50: 245 249 246; --slate-100: 236 244 238; --slate-200: 214 228 218; --slate-300: 186 206 192; --slate-400: 132 156 141; --slate-500: 88 112 98; --slate-600: 66 89 76; --slate-700: 47 68 57; --slate-800: 28 45 36; --slate-900: 15 32 24; --slate-950: 7 18 13;
     --emerald-50: 236 253 245; --emerald-100: 209 250 229; --emerald-200: 167 243 208; --emerald-300: 110 231 183; --emerald-400: 52 211 153; --emerald-500: 16 185 129; --emerald-600: 5 150 105; --emerald-700: 4 120 87; --emerald-800: 6 95 70; --emerald-900: 6 78 59; --emerald-950: 2 44 34;
     --teal-50: 240 253 250; --teal-100: 204 251 241; --teal-200: 153 246 228; --teal-300: 94 234 212; --teal-400: 45 212 191; --teal-500: 20 184 166; --teal-600: 13 148 136; --teal-700: 15 118 110; --teal-800: 17 94 89; --teal-900: 19 78 74; --teal-950: 4 47 46;
-    --sl-bg: 248 250 248;
+    --sl-bg: 245 249 246;
     --sl-surface: 255 255 255;
-    --sl-card: 242 247 244;
-    --sl-cardSubtle: 236 253 245;
-    --sl-border: 223 232 226;
-    --sl-borderHover: 167 243 208;
-    --sl-muted: 75 85 99;
-    --sl-text: 15 23 42;
+    --sl-card: 236 244 238;
+    --sl-cardSubtle: 230 244 236;
+    --sl-border: 214 228 218;
+    --sl-borderHover: 116 198 157;
+    --sl-muted: 70 94 82;
+    --sl-text: 15 32 24;
   }
 
   :root[data-theme="ocean"] {

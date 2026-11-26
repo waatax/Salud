@@ -1,3 +1,5 @@
+> **v7.0 頂級健康學習體驗大改版・森林綠高雅介面與即時問題導覽（2026-11-26）**：統一全站 210 個元件之森林綠植物中性色階；首頁升級「即時問題搜尋分流帶（含白話問題一鍵預填搜尋＋最近搜尋紀錄）」、「新手三個輕鬆起點」、「8 條白話學習路徑進度預覽」與「隨堂練習進度圓點＋一鍵排入間隔複習」；課程頁升級 NHS 風格「安全就醫提醒卡（Care Card）」與症狀導引連結；側邊欄新增學習進度迷你卡，10 大專科共用 `HubHero` 與手機 `HubTabBar` 全面精修。詳見 [CHANGELOG](CHANGELOG.md)。
+
 > **v6.17 骨鬆營養新頁與營養章節逐章載入（2026-11-24）**：新增 PAGE-M-13「骨質疏鬆要補充什麼營養？」；飲食專區只下載正在讀的章節，不再一次載入全部 11 章；書籤 11 章都能顯示。詳見 [CHANGELOG](CHANGELOG.md)。
 
 > **v6.16 章節頁先顯示（2026-11-24）**：營養章節頁不再等待約 235 kB（壓縮後）的規範知識錨點包，內容先顯示，徽章與論文連結隨後載入。詳見 [CHANGELOG](CHANGELOG.md)。
@@ -26,7 +28,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/waatax/Salud/actions/workflows/deploy.yml/badge.svg)](https://github.com/waatax/Salud/actions/workflows/deploy.yml)
 [![Live Site](https://img.shields.io/badge/Live_Site-waatax.github.io%2FSalud-059669?style=flat&logo=github)](https://waatax.github.io/Salud/)
-[![Version](https://img.shields.io/badge/Version-v6.17.0-10B981)](https://github.com/waatax/Salud)
+[![Version](https://img.shields.io/badge/Version-v7.0.0-10B981)](https://github.com/waatax/Salud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

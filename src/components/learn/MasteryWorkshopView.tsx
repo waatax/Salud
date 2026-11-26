@@ -200,7 +200,7 @@ export const MasteryWorkshopView: React.FC<{ section?: string }> = ({ section })
               {diagnostics.map((d) => (
                 <div
                   key={d.trackId}
-                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-4 space-y-2.5"
+                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-4 space-y-2.5 shadow-xs transition-all hover:border-emerald-400 dark:hover:border-emerald-700"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <a

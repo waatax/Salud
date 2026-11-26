@@ -4,6 +4,10 @@ export type ModalId = 'emergency' | 'auditC' | 'cardioHub' | 'graph' | 'search' 
 
 interface ModalContextType {
   openModal: (id: ModalId) => void;
+  /** Open site search, optionally pre-filled with a lay query from home/guide shortcuts. */
+  openSearch: (initialQuery?: string) => void;
+  searchSeed: string;
+  clearSearchSeed: () => void;
   closeModal: (id: ModalId) => void;
   isOpen: (id: ModalId) => boolean;
 }
@@ -16,13 +20,23 @@ interface ModalProviderProps {
 
 export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
   const [activeModal, setActiveModal] = useState<ModalId | null>(null);
+  const [searchSeed, setSearchSeed] = useState('');
 
   const openModal = (id: ModalId) => {
+    if (id === 'search') setSearchSeed('');
     setActiveModal(id);
   };
 
+  const openSearch = (initialQuery = '') => {
+    setSearchSeed(initialQuery);
+    setActiveModal('search');
+  };
+
+  const clearSearchSeed = () => setSearchSeed('');
+
   const closeModal = (id: ModalId) => {
     if (activeModal === id) {
+      if (id === 'search') setSearchSeed('');
       setActiveModal(null);
     }
   };
@@ -32,7 +46,7 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
   };
 
   return (
-    <ModalContext.Provider value={{ openModal, closeModal, isOpen }}>
+    <ModalContext.Provider value={{ openModal, openSearch, searchSeed, clearSearchSeed, closeModal, isOpen }}>
       {children}
     </ModalContext.Provider>
   );

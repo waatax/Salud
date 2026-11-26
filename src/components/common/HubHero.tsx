@@ -13,9 +13,9 @@ export const HubHero: React.FC<{ primer: HubPrimer; compact?: boolean }> = ({ pr
   const StarterIcon = primer.starter?.kind === 'plan' ? Rocket : BookOpen;
 
   return (
-    <header className="hub-hero rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-9">
+    <header className="hub-hero rounded-3xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-9 shadow-[0_14px_34px_-26px_rgba(4,120,87,0.28)]">
       <p className="discovery-eyebrow">{primer.eyebrow}</p>
-      <h1 className="mt-2 font-display text-2xl sm:text-[2rem] sm:leading-[1.25] font-bold tracking-tight text-slate-900 dark:text-white">
+      <h1 className="mt-2 font-display text-2xl sm:text-[2.1rem] sm:leading-[1.24] font-bold tracking-tight text-slate-900 dark:text-white">
         {primer.title}
       </h1>
       <p className="mt-3 max-w-2xl text-base leading-8 text-slate-700 dark:text-slate-300">{primer.lead}</p>
@@ -23,14 +23,14 @@ export const HubHero: React.FC<{ primer: HubPrimer; compact?: boolean }> = ({ pr
       {!compact && (
         <>
           <section aria-labelledby="hub-takeaways-h" className="mt-7">
-            <h2 id="hub-takeaways-h" className="text-sm font-semibold text-slate-900 dark:text-white">
+            <h2 id="hub-takeaways-h" className="text-sm font-bold tracking-wide text-emerald-900 dark:text-emerald-300">
               先知道這三件事
             </h2>
             <ol className="mt-3 grid gap-3 md:grid-cols-3">
               {primer.takeaways.map((text, i) => (
                 <li
                   key={i}
-                  className="flex gap-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900/60"
+                  className="flex gap-3 rounded-2xl border border-slate-200/90 bg-white/95 p-4 shadow-xs transition-colors hover:border-emerald-300 dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-emerald-800"
                 >
                   <span
                     aria-hidden="true"
@@ -44,10 +44,13 @@ export const HubHero: React.FC<{ primer: HubPrimer; compact?: boolean }> = ({ pr
             </ol>
           </section>
 
-          <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-5 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-3 border-t border-slate-200/90 pt-5 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
             {primer.starter ? (
-              <a href={`#${primer.starter.hash}`} className="discovery-text-link text-left">
-                <StarterIcon className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <a
+                href={`#${primer.starter.hash}`}
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50/80 px-3.5 py-2 text-sm font-bold text-emerald-900 hover:border-emerald-400 hover:bg-emerald-100/70 dark:border-emerald-800/70 dark:bg-emerald-950/40 dark:text-emerald-200 dark:hover:border-emerald-600 transition-colors"
+              >
+                <StarterIcon className="h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
                 <span>
                   {primer.starter.kind === 'plan' ? '想照著做：' : '想從簡單的開始？先讀小課：'}
                   {primer.starter.label}
@@ -58,7 +61,7 @@ export const HubHero: React.FC<{ primer: HubPrimer; compact?: boolean }> = ({ pr
               <span />
             )}
             <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">
-              完整內容在下方，挑有興趣的讀就好。
+              完整深度內容在下方，挑有興趣的分頁讀就好。
             </p>
           </div>
         </>
