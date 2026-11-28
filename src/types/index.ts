@@ -685,12 +685,32 @@ export interface SleepTopic {
 
 // Pillar 4: Deep Supplements & Nutraceuticals
 export type SupplementCategory =
+  | 'AMINO_PROTEIN'
+  | 'PERFORMANCE_ENERGY'
+  | 'VITAMINS_MINERALS'
+  | 'FIBER_PREBIOTICS'
   | 'CARDIOVASCULAR'
   | 'METABOLIC'
   | 'BONE_JOINT'
   | 'COGNITIVE_SLEEP'
-  | 'ANTIOXIDANT_LIVER'
-  | 'PERFORMANCE_ENERGY';
+  | 'ANTIOXIDANT_LIVER';
+
+export type SupplementGoal =
+  | 'MUSCLE_SPORT'
+  | 'GUT_FIBER'
+  | 'CARDIO_METABOLIC'
+  | 'BRAIN_SLEEP'
+  | 'BONE_IMMUNE'
+  | 'DEFICIENCY_GAP';
+
+export interface SupplementStudyCitation {
+  study: string;
+  journal: string;
+  year: number;
+  finding_zh: string;
+  doi?: string;
+  url?: string;
+}
 
 export interface DeepSupplementItem {
   id: string;
@@ -698,18 +718,25 @@ export interface DeepSupplementItem {
   name_en: string;
   category: SupplementCategory;
   evidence_grade: EvidenceGrade;
+  goals?: SupplementGoal[];
   primary_claim_zh: string;
   primary_claim_en: string;
+  effect_summary_zh?: string;
   scientific_reality_zh: string;
   scientific_reality_en: string;
+  mechanism_zh?: string;
   optimal_form_zh: string; // e.g. 甘胺酸鎂而非氧化鎂、rTG魚油
   optimal_form_en: string;
   therapeutic_dosage_zh: string;
   therapeutic_dosage_en: string;
+  timing_protocol_zh?: string;
+  who_benefits_zh?: string;
+  food_first_zh?: string;
   caution_and_risks_zh: string;
   caution_and_risks_en: string;
   common_myths_zh: string;
   common_myths_en: string;
+  citations?: SupplementStudyCitation[];
 }
 
 export interface DrugNutrientInteraction {

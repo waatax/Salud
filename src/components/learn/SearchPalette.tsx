@@ -33,13 +33,13 @@ function saveRecentSearch(term: string): string[] {
 }
 
 const FOUR_PILLAR_CHIPS = [
-  { label: '飲食營養', query: '飲食', tone: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' },
+  { label: '健康飲食', query: '飲食', tone: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' },
+  { label: '營養補給品', query: '補給品', tone: 'bg-teal-50 dark:bg-teal-950/40 text-teal-800 dark:text-teal-300 border-teal-300 dark:border-teal-800' },
   { label: '運動體能', query: '運動', tone: 'bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800' },
-  { label: '預防篩檢', query: '預防', tone: 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800' },
-  { label: '疾病治療', query: '治療', tone: 'bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-300 border-rose-300 dark:border-rose-800' },
+  { label: '預防與就醫', query: '預防', tone: 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800' },
 ];
 
-const SUGGESTIONS = ['手麻', '骨刺', '高血壓', 'LDL', '糖化血色素', '失眠', '脂肪肝', '減重藥', '肌力訓練', '坐骨神經痛', '癌症篩檢', '咖啡因'];
+const SUGGESTIONS = ['乳清蛋白', '肌酸', '維生素 D3', '洋車前子', '手麻', '高血壓', 'LDL', '糖化血色素', '失眠', '脂肪肝', '減重藥', '肌力訓練'];
 
 /**
  * Site-wide search (Ctrl/⌘ K, or "/"). The index is built once on first open from the

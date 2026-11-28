@@ -136,6 +136,209 @@
   margin-top: 1.35rem;
 }
 
+.editorial-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
+
+.editorial-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.15rem;
+  padding: .22rem .72rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: .78rem;
+  font-weight: 600;
+  transition: border-color .16s ease, color .16s ease, background-color .16s ease, transform .16s ease;
+}
+
+.editorial-hero-pill:hover {
+  border-color: var(--editorial-accent);
+  color: var(--editorial-accent);
+  transform: translateY(-1px);
+}
+
+/* Healthy Diet & Supplements Spotlight (First Homepage Module) */
+.editorial-diet-spotlight {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.editorial-supplements-panel {
+  padding: clamp(1.1rem, 2.8vw, 1.75rem);
+  border-radius: 1.5rem;
+  border: 1px solid rgb(var(--emerald-300) / .85);
+  background: linear-gradient(145deg, rgb(var(--emerald-50) / .85) 0%, var(--surface) 58%, var(--card) 100%);
+  box-shadow: 0 12px 30px -22px rgba(4, 120, 87, .3);
+}
+
+.dark .editorial-supplements-panel {
+  border-color: rgb(var(--emerald-800) / .8);
+  background: linear-gradient(145deg, rgb(var(--emerald-950) / .55) 0%, var(--surface) 60%, var(--card) 100%);
+}
+
+.editorial-supp-grid {
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 40rem) {
+  .editorial-supp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 64rem) {
+  .editorial-supp-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.editorial-supp-card {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 1.15rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color .18s ease, box-shadow .2s ease, transform .18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-supp-card:hover {
+  border-color: var(--editorial-accent);
+  box-shadow: 0 12px 24px -16px rgba(4, 120, 87, .32);
+  transform: translateY(-2px);
+}
+
+/* RPDCA 3-Step Guided Topic Wayfinder */
+.editorial-wayfinder {
+  padding: clamp(1.15rem, 3vw, 2rem);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 10px 28px -22px rgba(15, 32, 24, .22);
+  display: grid;
+  gap: 1.15rem;
+}
+
+.editorial-wayfinder-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+
+.editorial-wayfinder-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  min-height: 2.75rem;
+  padding: .42rem .92rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: .85rem;
+  font-weight: 600;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.editorial-wayfinder-tab:hover {
+  border-color: var(--editorial-accent);
+  color: var(--editorial-accent);
+}
+
+.editorial-wayfinder-tab[aria-selected="true"] {
+  background: var(--editorial-accent);
+  color: var(--editorial-on-accent);
+  border-color: var(--editorial-accent);
+  font-weight: 700;
+  box-shadow: 0 8px 18px -12px rgba(4, 120, 87, .65);
+}
+
+.editorial-wayfinder-stage {
+  display: grid;
+  gap: 1rem;
+  padding: 1.15rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--card) 0%, var(--bg) 100%);
+}
+
+.editorial-wayfinder-steps {
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 48rem) {
+  .editorial-wayfinder-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.editorial-wayfinder-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color .18s ease, box-shadow .2s ease, transform .18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-wayfinder-step-card:hover {
+  border-color: var(--editorial-accent);
+  box-shadow: 0 10px 22px -15px rgba(4, 120, 87, .3);
+  transform: translateY(-2px);
+}
+
+.editorial-wayfinder-step-tag {
+  align-self: flex-start;
+  padding: .15rem .55rem;
+  border-radius: 999px;
+  background: rgb(var(--emerald-100) / .85);
+  color: rgb(var(--emerald-900));
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.dark .editorial-wayfinder-step-tag {
+  background: rgb(var(--emerald-950) / .85);
+  color: rgb(var(--emerald-300));
+}
+
+.editorial-wayfinder-footer {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding-top: .85rem;
+  border-top: 1px dashed var(--border);
+}
+
+@media (min-width: 54rem) {
+  .editorial-wayfinder-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.editorial-track-featured {
+  border-color: rgb(var(--emerald-400) / .9);
+  background: linear-gradient(135deg, rgb(var(--emerald-50) / .75) 0%, var(--surface) 100%);
+}
+
+.dark .editorial-track-featured {
+  border-color: rgb(var(--emerald-700));
+  background: linear-gradient(135deg, rgb(var(--emerald-950) / .45) 0%, var(--surface) 100%);
+}
+
 .editorial-primary,
 .editorial-hero-link,
 .editorial-inline-link {
@@ -465,6 +668,8 @@
 }
 
 @media (max-width: 27rem) {
+  .edition-choices { width: 100%; justify-content: space-between; gap: .15rem; padding: .2rem; }
+  .edition-choices a { flex: 1 1 auto; padding: .28rem .5rem; font-size: .8rem; min-height: 2.5rem; }
   .editorial-entry-grid .editorial-entry { flex-direction: column; gap: .35rem; }
   .editorial-topic-grid { grid-template-columns: minmax(0, 1fr); }
   .editorial-hero-actions { gap: .1rem .55rem; }

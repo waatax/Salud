@@ -377,12 +377,38 @@ export const SYSTEM_SECTIONS: readonly SystemSection[] = ['overview', 'how', 'ch
 export type StrengthTab = 'OVERVIEW' | 'M1_SCIENCE' | 'M2_PROGRAM' | 'M3_TECHNIQUE' | 'M4_COACHING' | 'M5_EXAM';
 export const STRENGTH_TABS: readonly StrengthTab[] = ['OVERVIEW', 'M1_SCIENCE', 'M2_PROGRAM', 'M3_TECHNIQUE', 'M4_COACHING', 'M5_EXAM'];
 
+/** 特別營養品與補給品分類深層路由 (v7.1). */
+export type SupplementsTab =
+  | 'ALL'
+  | 'AMINO_PROTEIN'
+  | 'PERFORMANCE_ENERGY'
+  | 'VITAMINS_MINERALS'
+  | 'FIBER_PREBIOTICS'
+  | 'CARDIOVASCULAR'
+  | 'METABOLIC'
+  | 'BONE_JOINT'
+  | 'COGNITIVE_SLEEP'
+  | 'ANTIOXIDANT_LIVER';
+export const SUPPLEMENTS_TABS: readonly SupplementsTab[] = [
+  'ALL',
+  'AMINO_PROTEIN',
+  'PERFORMANCE_ENERGY',
+  'VITAMINS_MINERALS',
+  'FIBER_PREBIOTICS',
+  'CARDIOVASCULAR',
+  'METABOLIC',
+  'BONE_JOINT',
+  'COGNITIVE_SLEEP',
+  'ANTIOXIDANT_LIVER',
+];
+
 export const PILLAR_TABS: Partial<Record<HealthPillar, readonly string[]>> = {
   ultrahealth: ULTRAHEALTH_TABS,
   obesity: OBESITY_TABS,
   longevity: LONGEVITY_TABS,
   cardiometabolic: CARDIO_TABS,
   sleep: SLEEP_TABS,
+  supplements: SUPPLEMENTS_TABS,
   mental: MENTAL_TABS,
   checkup: CHECKUP_TABS,
   spine: SPINE_TABS,

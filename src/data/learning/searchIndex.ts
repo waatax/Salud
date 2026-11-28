@@ -18,12 +18,14 @@ import { LTC_CHAPTERS, OTHER_SCALES, FACILITY_TYPES, SKILL_CARDS, OTHER_SUBSIDIE
 import { STRENGTH_CHAPTERS } from '../strengthCoachData';
 import { MINDBODY_CHAPTERS, BREATH_METHODS, MINDFUL_PRACTICES, LIU_ZI_JUE } from '../mindbodyData';
 import { CLINIC_SEARCH_DOCS } from '../clinical/searchLite.generated';
+import { DEEP_SUPPLEMENTS, DRUG_NUTRIENT_INTERACTIONS } from '../supplementsDeepData';
 import { expandLay, splitWho } from './layTerms';
 
 export type SearchGroup =
   | '實用技巧'
   | '課程'
   | '主題'
+  | '營養補給品'
   | '肝膽腸胃科'
   | '癌症防治專區'
   | '脊椎與神經'
@@ -32,7 +34,6 @@ export type SearchGroup =
   | '睡眠呼吸正念'
   | '人體系統'
   | '疾病'
-  | '臨床科別'
   | '臨床科別'
   | '檢驗與篩檢'
   | '最新實證'
@@ -56,6 +57,7 @@ export interface SearchDoc {
 export const GROUP_ORDER: SearchGroup[] = [
   '課程',
   '實用技巧',
+  '營養補給品',
   '檢驗與篩檢',
   '臨床科別',
   '疾病',
@@ -190,8 +192,28 @@ export function buildSearchIndex(): SearchDoc[] {
     docs.push({ id: `pillar:${p.id}`, group: '主題', title: p.label_zh, subtitle: p.blurb_zh, target: p.hash, keywords: `${p.label_en} ${p.blurb_en}` });
   }
   for (const d of DIET_SUB_NAV) {
-    docs.push({ id: `diet:${d.hash}`, group: '主題', title: d.label_zh, subtitle: '飲食營養', target: d.hash, keywords: d.label_en });
+    docs.push({ id: `diet:${d.hash}`, group: '主題', title: d.label_zh, subtitle: '健康飲食與營養', target: d.hash, keywords: `${d.label_en} 健康飲食 特別營養品 補給品` });
   }
+
+  // 特別營養品與科學補給品實證庫 (v7.1): 40 項核心成分 + 處方藥交互作用
+  for (const sup of DEEP_SUPPLEMENTS) {
+    docs.push({
+      id: `supp:${sup.id}`,
+      group: '營養補給品',
+      title: sup.name_zh,
+      subtitle: `實證 ${sup.evidence_grade} · ${sup.effect_summary_zh ?? sup.primary_claim_zh}`,
+      target: `supplements/${sup.category}`,
+      keywords: `${sup.name_en} ${sup.primary_claim_zh} ${sup.scientific_reality_zh} ${sup.food_first_zh ?? ''} 特別營養品 補給品 保健品 營養補充品`,
+    });
+  }
+  docs.push({
+    id: 'tool:drug-nutrient-interactions',
+    group: '工具',
+    title: '處方藥物 × 營養補給品交互作用檢查器',
+    subtitle: `比對 ${DRUG_NUTRIENT_INTERACTIONS.length} 大常見慢性病用藥（Warfarin、Statin、甲狀腺素、Metformin、CKD、抗生素）`,
+    target: 'supplements',
+    keywords: DRUG_NUTRIENT_INTERACTIONS.map((d) => `${d.drug_class_zh} ${d.example_drugs} ${d.supplement_name_zh}`).join(' ') + ' 交互作用 禁忌 保健品 補給品',
+  });
 
   // 肝膽腸胃科專區 (v5.2)
   for (const c of GASTRO_CHAPTERS) {

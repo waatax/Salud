@@ -61,10 +61,10 @@ function pageName(i: PageTitleInput): string | null {
       return track ? `${track.title_zh}・學習路徑` : '學習路徑';
     }
     case 'supplements':
-      return '保健食品的證據';
+      return '特別營養品與補給品實證';
     case 'diet':
       if (i.chapterPageTitle) return i.chapterTitle ? `${i.chapterPageTitle}・${i.chapterTitle}` : i.chapterPageTitle;
-      return i.chapterTitle ?? '飲食營養';
+      return i.chapterTitle ?? '健康飲食與營養';
     case 'exercise': {
       const hash = i.exerciseSubTab ? DISCIPLINE_HASH[i.exerciseSubTab] : undefined;
       const sub = hash && hash !== 'exercise' ? EXERCISE_SUB_NAV.find((s) => s.hash === hash) : undefined;

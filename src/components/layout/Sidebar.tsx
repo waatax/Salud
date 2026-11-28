@@ -119,8 +119,7 @@ export const Sidebar: React.FC<{ variant?: 'desktop' | 'drawer' }> = ({ variant 
     progress
   ).length;
 
-  const isPillarActive = (item: PillarNavItem) =>
-    activePillar === item.id || (item.id === 'diet' && activePillar === 'supplements');
+  const isPillarActive = (item: PillarNavItem) => activePillar === item.id;
 
   const hasSubNav = (id: HealthPillar) => id === 'diet' || id === 'exercise' || id === 'clinic';
   const [clinicDept, setClinicDept] = useState<string[]>(() => window.location.hash.replace(/^#/, '').split('/'));

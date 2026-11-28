@@ -17,8 +17,9 @@ const groups = [
   {
     title: ['健康主題', 'Health topics'],
     links: [
+      ['#diet', '健康飲食與營養素', 'Healthy diet and nutrition'],
+      ['#supplements', '特別營養品與補給品', 'Evidence supplements'],
       ['#home/topics', '全部健康主題', 'All health topics'],
-      ['#diet/patterns', '飲食營養與餐盤', 'Diet and nutrition'],
       ['#exercise', '運動與體能', 'Exercise and fitness'],
       ['#checkup', '健檢與公費篩檢', 'Check-ups and screening'],
       ['#clinic/by/symptom', '症狀與就醫導引', 'Symptoms and care'],

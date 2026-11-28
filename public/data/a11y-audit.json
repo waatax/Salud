@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "referenceStandard": "WCAG 2.2 Level AA",
-  "timestamp": "2026-11-26T15:51:55.831Z",
+  "timestamp": "2026-11-28T07:58:25.663Z",
   "scope": "Static source inventory only. Not a WCAG conformance audit or certification.",
   "requiresManualReview": true,
   "summary": {
@@ -69,7 +69,7 @@
       "details": "ARIA 存在不代表報讀機可用；需真人使用報讀機確認閱讀順序與狀態通知。",
       "status": "WARN",
       "scannedCount": 210,
-      "candidateCount": 112
+      "candidateCount": 113
     }
   ],
   "scannedComponents": [

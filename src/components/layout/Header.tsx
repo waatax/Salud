@@ -5,7 +5,7 @@ import { FontSizeToggle } from '../common/FontSizeToggle';
 import { HealthPillar } from '../../types';
 import { useLanguage } from '../../i18n';
 import { useModal } from '../../context/ModalContext';
-import { Search, GraduationCap, Calculator, Bookmark, Layers, Stethoscope } from 'lucide-react';
+import { Search, GraduationCap, Calculator, Bookmark, Layers, Stethoscope, Utensils, Pill } from 'lucide-react';
 import { useBookmarks } from '../../hooks/useBookmarks';
 import { useActionPlan } from '../../hooks/useActionPlan';
 
@@ -16,6 +16,8 @@ interface Props {
 }
 
 const QUICK_LINKS: { id: HealthPillar; zh: string; en: string; icon: any }[] = [
+  { id: 'diet', zh: '健康飲食', en: 'Healthy Diet', icon: Utensils },
+  { id: 'supplements', zh: '營養補給', en: 'Supplements', icon: Pill },
   { id: 'learn', zh: '學習路徑', en: 'Learn', icon: GraduationCap },
   { id: 'clinic', zh: '就醫導引', en: 'Find care', icon: Stethoscope },
 ];

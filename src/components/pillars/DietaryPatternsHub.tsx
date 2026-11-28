@@ -41,7 +41,7 @@ const DIET_TAB_GROUPS: HubTabGroup<DietSubTab>[] = [
   {
     label: '延伸與專章',
     tabs: [
-      { id: 'supplements', label: '保健食品與藥物交互作用', icon: Pill },
+      { id: 'supplements', label: '特別營養品與補給品（蛋白/肌酸/維他命/纖維）', icon: Pill },
       { id: 'chapters', label: '水（W）、油（O）、酒（A）專章', icon: BookOpen },
     ],
   },

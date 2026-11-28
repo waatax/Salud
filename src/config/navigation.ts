@@ -22,6 +22,7 @@ import {
   Ribbon,
   Hospital,
   Dumbbell,
+  Pill,
   LucideIcon,
 } from 'lucide-react';
 import { HealthPillar } from '../types';
@@ -252,14 +253,27 @@ export const PILLAR_NAV: PillarNavItem[] = [
     id: 'diet',
     hash: 'diet',
     icon: Utensils,
-    label_zh: '飲食營養',
-    label_en: 'Diet & Nutrition',
-    blurb_zh: '飲食法·營養素',
+    label_zh: '健康飲食與營養',
+    label_en: 'Healthy Diet & Nutrition',
+    blurb_zh: '餐盤·營養素·飲食法',
     blurb_en: 'Patterns · nutrients',
     group: 'daily',
     mobile: true,
-    short_zh: '飲食',
+    short_zh: '健康飲食',
     short_en: 'Diet',
+  },
+  {
+    id: 'supplements',
+    hash: 'supplements',
+    icon: Pill,
+    label_zh: '特別營養品與補給品',
+    label_en: 'Evidence Supplements',
+    blurb_zh: '蛋白·肌酸·維他命·纖維',
+    blurb_en: 'Protein · creatine · fiber',
+    group: 'daily',
+    mobile: false,
+    short_zh: '補給品',
+    short_en: 'Supps',
   },
   {
     id: 'exercise',
@@ -383,7 +397,7 @@ export const PILLAR_NAV: PillarNavItem[] = [
 /** Sub-destinations that live underneath a pillar rather than beside it. */
 export const DIET_SUB_NAV = [
   { hash: 'diet/patterns', label_zh: '各式飲食法比較', label_en: 'Dietary patterns' },
-  { hash: 'supplements', label_zh: '保健食品的證據', label_en: 'Supplements & evidence' },
+  { hash: 'supplements', label_zh: '特別營養品與補給品實證', label_en: 'Evidence-based supplements' },
 ];
 
 export const EXERCISE_SUB_NAV = [
